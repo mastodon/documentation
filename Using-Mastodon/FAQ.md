@@ -17,7 +17,7 @@ There are different ways in which something can be decentralized; in this case, 
 
 We are using the OStatus suite of protocols:
 
-1. Webfinger for user-on-domain lookup
+1. Webfinger, [RFC 7033](https://tools.ietf.org/html/rfc7033), for user-on-domain lookup
 2. Atom feeds with ActivityStreams, Portable Contacts, Threads extensions for the actual content
 3. PubSubHubbub for subscribing to Atom feeds
 4. Salmon for delivering certain items from the Atom feeds to interested parties such as the mentioned user, author of the status being replied to, person being followed, etc
