@@ -1,8 +1,10 @@
-# 2-Factor Authentication
+# Two Factor Authentication
 
-2-Factor Authentication is a security mechanism that requires you to enter a computer generated code from your phone every time you log into Mastodon.
+Two Factor Authentication is a security mechanism that requires you to enter a computer generated code from your phone every time you log into Mastodon.
 
-We highly recommend that you set up 2-factor authentication as it prevents malicious users from logging into your account if they obtain your password.
+We highly recommend that you set up two factor authentication as it prevents malicious users from logging into your account if they obtain your password.
+
+The two factor auth protocol used by Mastodon is an implementation of [RFC 6238](https://tools.ietf.org/html/rfc6238), TOTP: Time-Based One-Time Password Algorithm.
 
 ## Warning
 
