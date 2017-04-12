@@ -78,6 +78,6 @@ There is also a list at [instances.mastodon.xyz](https://instances.mastodon.xyz)
 | [indigo.zone](https://indigo.zone)|Open Registrations, General Purpose|Yes|No|
 | [mastodon.cloud](https://mastodon.cloud)|An open Mastodon instance with people from all around the world|Yes|Yes|
 | [mst3k.interlinked.me](https://mst3k.interlinked.me)|Open registrations, general purpose|Yes|Yes|
-  [somewhy.com](https://somewhy.com)|Free range, farm-to-table, artisanal, hyperlocal|Yes|No|
+| [somewhy.com](https://somewhy.com)|Free range, farm-to-table, artisanal, hyperlocal|Yes|No|
 
 We are no longer maintaining this list as instances are popping up too quickly for using GitHub to be a tenable system for tracking them. Please standby while we work on another solution
