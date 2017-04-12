@@ -26,7 +26,7 @@ There is also a list at [instances.mastodon.xyz](https://instances.mastodon.xyz)
 | [mastodon.partipirate.org](https://mastodon.partipirate.org) |French Pirate Party Instance - Politics and stuff|Yes|No|
 | [social.targaryen.house](https://social.targaryen.house) |Federates everywhere, quick updates.|Yes|Yes|
 | [masto.themimitoof.fr](https://masto.themimitoof.fr) |N/A|Yes|Yes|
-| [mstdn.io](https://mstdn.io) |N/A|Yes|Yes|
+| [mstdn.io](https://mstdn.io) |Fast and up-to-date instance, welcoming everyone around the world|Yes|Yes|
 | [social.imirhil.fr](https://social.imirhil.fr) |N/A|No|Yes|
 | [social.wxcafe.net](https://social.wxcafe.net) |Open registrations, queer people, activists, safe as much as possible |Yes|Yes|
 | [octodon.social](https://octodon.social) |Open registrations, federates everywhere, cutest instance yet|Yes|Yes|
