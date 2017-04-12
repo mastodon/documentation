@@ -125,13 +125,14 @@ In the prompt:
 
 Under Ubuntu 16.04, you will need to explicitly enable ident authentication so that local users can connect to the database without a password:
 
-    sudo sed -i '/peer$/a host    all     all     127.0.0.1/32    ident' /etc/postgresql/9.?/main/pg_hba.conf
+    sudo sed -i '/^local.*postgres.*peer$/a host    all     all     127.0.0.1/32    ident' /etc/postgresql/9.?/main/pg_hba.conf
 
 and install an ident daemon, which does not come installed by default:
 
     sudo apt-get install pidentd
     sudo systemctl enable pidentd
     sudo systemctl start pidentd
+    sudo systemctl restart postgresql
 
 ## Rbenv
 
