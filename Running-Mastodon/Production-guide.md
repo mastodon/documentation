@@ -282,15 +282,15 @@ This allows you to `sudo systemctl enable /etc/systemd/system/mastodon-*.service
 
 ## Cronjobs
 
-I recommend creating a couple cronjobs for the following tasks:
+There are several tasks that should be run once a day to ensure that mastodon is
+running smoothly. As your mastodon user run `crontab -e` and enter the following
 
-- `RAILS_ENV=production bundle exec rake mastodon:media:clear`
-- `RAILS_ENV=production bundle exec rake mastodon:push:refresh`
-- `RAILS_ENV=production bundle exec rake mastodon:feeds:clear`
-
-You may want to run `which bundle` first and copypaste that full path instead of simply `bundle` in the above commands because cronjobs usually don't have all the paths set. The time and intervals of when to run these jobs are up to you, but once every day should be enough for all.
-
-You can edit the cronjob file for the `mastodon` user by running `sudo crontab -e -u mastodon` (outside of the mastodon user).
+```
+RAILS_ENV=production
+@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:media:clear > /dev/null····································
+@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:push:refresh > /dev/null
+@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:feeds:clear > /dev/null
+```
 
 ## Things to look out for when upgrading Mastodon
 
