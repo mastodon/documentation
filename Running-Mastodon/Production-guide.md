@@ -280,6 +280,65 @@ WantedBy=multi-user.target
 
 This allows you to `sudo systemctl enable /etc/systemd/system/mastodon-*.service` and `sudo systemctl start mastodon-web.service mastodon-sidekiq.service mastodon-streaming.service` to get things going.
 
+## Supervisord
+
+An alternative to using systemd for controlling your mastodon processes is
+[Supervisord](http://supervisord.org/). The following file can be placed in
+`/etc/supervisor/conf.d/mastodon.conf`.
+
+```
+[group:mastodon]
+programs=web,sidekiq,streaming
+
+[program:web]
+command=/webapps/mastodon/ruby_wrapper bundle exec puma -C config/puma.rb
+user=mastodon
+directory=/webapps/mastodon
+stdout_logfile=/webapps/mastodon/log/puma.log
+stdout_logfile_maxbytes=1MB
+stdout_logfile_backups=10
+redirect_stderr=true
+environment=PORT=3000
+stopasgroup=true
+
+[program:sidekiq]
+command=/webapps/mastodon/ruby_wrapper bundle exec sidekiq -c 5 -q default -q mailers -q pull -q push
+user=mastodon
+directory=/webapps/mastodon
+stdout_logfile=/webapps/mastodon/log/sidekiq.log
+stdout_logfile_maxbytes=1MB
+stdout_logfile_backups=10
+redirect_stderr=true
+environment=DB_POOL=5
+stopasgroup=true
+
+[program:streaming]
+command=/webapps/mastodon/ruby_wrapper /usr/bin/npm run start
+user=mastodon
+directory=/webapps/mastodon
+stdout_logfile=/webapps/mastodon/log/streaming.log
+stdout_logfile_maxbytes=1MB
+stdout_logfile_backups=10
+redirect_stderr=true
+environment=PORT=4000
+stopasgroup=true
+```
+
+This configuration makes use of a wrapper script to ensure the correct
+environment. Customize it with the correct path to `rbenv`.
+ruby_wrapper:
+
+```shell
+#!/usr/bin/env bash
+
+cd /webapps/mastodon
+export RBENV_ROOT=/opt/rbenv
+export PATH=/opt/rbenv/bin:/opt/rbenv/shims:$PATH
+export $(cat ".env.production" | xargs)
+
+$@
+```
+
 ## Cronjobs
 
 I recommend creating a couple cronjobs for the following tasks:
