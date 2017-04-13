@@ -24,15 +24,13 @@ I get the following:
 * master e26bb97 [origin/master] Add README-science.md to personal fork for science!
 ```
 
-This reflects a file I added to a local repo I created fresh so I could write this article. I'll show you how to create that file, stage it, and commit it later. You can use one `git brand -v` instead of `git branch -vv` for a less verbose output, but I like having all the sources listed. Try both and see what you prefer.
+This reflects a file I added to a local repo I created fresh so I could write this article. I'll show you how to create that file, stage it, and commit it later. You can use `git brand -v` instead of `git branch -vv` for a less verbose output, but I like having all the sources listed. Try both and see what you prefer.
 
 ## Your first addition!
 
 1. `cp README.md README-science.md`
 
 2. `git status`
-
-(follow the advice given by that command!)
 
 3. `git add README-science.md`
 
