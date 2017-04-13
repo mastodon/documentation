@@ -46,8 +46,8 @@ You can send a pull request upstream to ask people in charge of the main project
 
 Eventually, your personal fork will be out of date with the main thing. Names will vary by project, but this works for your fork of Mastodon's documentation. Resolving conflicts is something the documentation will cover, but this should work unless you've changed pre-existing files without having them merged upstream.
 
-1. `git fetch tootsuite
+1. `git fetch tootsuite`
 
-2. `git merge remotes/tootsuite/master
+2. `git merge remotes/tootsuite/master`
 
-3. `git push
+3. `git push`
