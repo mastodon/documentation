@@ -30,10 +30,10 @@ The locales are mentioned in several other files. To activate your translation, 
 
 | File | Location | Comment |
 |---|---|---|
-| [`index.jsx`](/app/assets/javascripts/components/locales/index.jsx) | `app/assets/javascripts/components/locales/index.jsx` | 2 lines to add |
-|[`mastodon.jsx`](/app/assets/javascripts/components/containers/mastodon.jsx) | `app/assets/javascripts/components/containers/mastodon.jsx` | 1 line to add + 1 list to complete |
-| [`settings_helper.rb`](/app/helpers/settings_helper.rb) | `app/helpers/settings_helper.rb` | 1 line to add + your language’s name |
-| [`application.rb`](/config/application.rb) | `config/application.rb` | 1 list to complete |
+| [`index.jsx`](https://github.com/tootsuite/mastodon/blob/master/app/assets/javascripts/components/locales/index.jsx) | `app/assets/javascripts/components/locales/index.jsx` | 2 lines to add |
+|[`mastodon.jsx`](https://github.com/tootsuite/mastodon/blob/master/app/assets/javascripts/components/containers/mastodon.jsx) | `app/assets/javascripts/components/containers/mastodon.jsx` | 1 line to add + 1 list to complete |
+| [`settings_helper.rb`](https://github.com/tootsuite/mastodon/blob/master/app/helpers/settings_helper.rb) | `app/helpers/settings_helper.rb` | 1 line to add + your language’s name |
+| [`application.rb`](https://github.com/tootsuite/mastodon/blob/master/config/application.rb) | `config/application.rb` | 1 list to complete |
 
 ## Sending the translation
 
