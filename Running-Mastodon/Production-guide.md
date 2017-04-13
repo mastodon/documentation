@@ -291,10 +291,10 @@ An alternative to using systemd for controlling your mastodon processes is
 programs=web,sidekiq,streaming
 
 [program:web]
-command=/webapps/mastodon/ruby_wrapper bundle exec puma -C config/puma.rb
+command=/home/mastodon/live/ruby_wrapper bundle exec puma -C config/puma.rb
 user=mastodon
-directory=/webapps/mastodon
-stdout_logfile=/webapps/mastodon/log/puma.log
+directory=/home/mastodon/live
+stdout_logfile=/home/mastodon/live/log/puma.log
 stdout_logfile_maxbytes=1MB
 stdout_logfile_backups=10
 redirect_stderr=true
@@ -302,10 +302,10 @@ environment=PORT=3000
 stopasgroup=true
 
 [program:sidekiq]
-command=/webapps/mastodon/ruby_wrapper bundle exec sidekiq -c 5 -q default -q mailers -q pull -q push
+command=/home/mastodon/live/ruby_wrapper bundle exec sidekiq -c 5 -q default -q mailers -q pull -q push
 user=mastodon
-directory=/webapps/mastodon
-stdout_logfile=/webapps/mastodon/log/sidekiq.log
+directory=/home/mastodon/live
+stdout_logfile=/home/mastodon/live/log/sidekiq.log
 stdout_logfile_maxbytes=1MB
 stdout_logfile_backups=10
 redirect_stderr=true
@@ -313,10 +313,10 @@ environment=DB_POOL=5
 stopasgroup=true
 
 [program:streaming]
-command=/webapps/mastodon/ruby_wrapper /usr/bin/npm run start
+command=/home/mastodon/live/ruby_wrapper /usr/bin/npm run start
 user=mastodon
-directory=/webapps/mastodon
-stdout_logfile=/webapps/mastodon/log/streaming.log
+directory=/home/mastodon/live
+stdout_logfile=/home/mastodon/live/log/streaming.log
 stdout_logfile_maxbytes=1MB
 stdout_logfile_backups=10
 redirect_stderr=true
@@ -325,15 +325,14 @@ stopasgroup=true
 ```
 
 This configuration makes use of a wrapper script to ensure the correct
-environment. Customize it with the correct path to `rbenv`.
-ruby_wrapper:
+environment.
 
 ```shell
 #!/usr/bin/env bash
 
-cd /webapps/mastodon
-export RBENV_ROOT=/opt/rbenv
-export PATH=/opt/rbenv/bin:/opt/rbenv/shims:$PATH
+cd /home/mastodon/live
+export RBENV_ROOT=/home/mastodon/.rbenv
+export PATH=/home/mastodon/.rbenv/bin:/home/mastodon/.rbenv/shims:$PATH
 export $(cat ".env.production" | xargs)
 
 $@
