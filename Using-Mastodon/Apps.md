@@ -16,5 +16,6 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |HackerNewsBot|CLI|<https://github.com/raymestalez/mastodon-hnbot>|[@rayalez@hackertribe.io](https://hackertribe.io/users/rayalez)|
 |Mastodon.tools|Wordpress, web browser, social network|<https://github.com/davidlibeau/mastodon-tools>|[@David@mastodon.xyz](https://mastodon.xyz/users/David)|
 |[Mastodon UWP (beta)](https://github.com/woachk/mastodon/releases)|Windows 10|<https://github.com/woachk/mastodon>|[@my123@mastodon.social](https://mastodon.social/users/my123)|
+|Retoot|CLI|<https://gitlab.com/mojo42/retoot>|[@Mojo@apoil.org](https://apoil.org/users/mojo)|
 
 If you have a project like this, let me know so I can add it to the list!
