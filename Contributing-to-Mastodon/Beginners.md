@@ -28,8 +28,6 @@ This reflects a file I added to a local repo I created fresh so I could write th
 
 ## Your first addition!
 
-Create a file to show how to commit without creating anything that will collide with merges
-
 1. `cp README.md README-science.md`
 
 2. `git status`
