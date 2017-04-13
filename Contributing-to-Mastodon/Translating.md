@@ -7,11 +7,11 @@ There are two parts to Mastodon, the server and the web client. The translations
 
 | Original file (English) | Location | Description |
 |---|---|---|
-| [`en.jsx`](/app/assets/javascripts/components/locales/en.jsx) | `app/assets/javascripts/components/locales/en.jsx` | Strings for the web client |
-| [`en.yml`](/config/locales/en.yml) | `config/locales/en.yml` | Strings for general use |
-| [`simple_form.en.yml`](/config/locales/simple_form.en.yml) | `config/locales/simple_form.en.yml` | Strings for the settings area |
-| [`devise.en.yml`](/config/locales/devise.en.yml) | `config/locales/devise.en.yml` | Generic strings for Devise |
-| [`doorkeeper.en.yml`](/config/locales/doorkeeper.en.yml) | `config/locales/doorkeeper.en.yml` | Generic strings for Doorkeeper |
+| [`en.jsx`](https://github.com/tootsuite/mastodon/blob/master/app/assets/javascripts/components/locales/en.jsx) | `app/assets/javascripts/components/locales/en.jsx` | Strings for the web client |
+| [`en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/en.yml) | `config/locales/en.yml` | Strings for general use |
+| [`simple_form.en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/simple_form.en.yml) | `config/locales/simple_form.en.yml` | Strings for the settings area |
+| [`devise.en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/devise.en.yml) | `config/locales/devise.en.yml` | Generic strings for Devise |
+| [`doorkeeper.en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/doorkeeper.en.yml) | `config/locales/doorkeeper.en.yml` | Generic strings for Doorkeeper |
 
 ## Translating
 
@@ -30,10 +30,10 @@ The locales are mentioned in several other files. To activate your translation, 
 
 | File | Location | Comment |
 |---|---|---|
-| [`index.jsx`](/app/assets/javascripts/components/locales/index.jsx) | `app/assets/javascripts/components/locales/index.jsx` | 2 lines to add |
-|[`mastodon.jsx`](/app/assets/javascripts/components/containers/mastodon.jsx) | `app/assets/javascripts/components/containers/mastodon.jsx` | 1 line to add + 1 list to complete |
-| [`settings_helper.rb`](/app/helpers/settings_helper.rb) | `app/helpers/settings_helper.rb` | 1 line to add + your language’s name |
-| [`application.rb`](/config/application.rb) | `config/application.rb` | 1 list to complete |
+| [`index.jsx`](https://github.com/tootsuite/mastodon/blob/master/app/assets/javascripts/components/locales/index.jsx) | `app/assets/javascripts/components/locales/index.jsx` | 2 lines to add |
+|[`mastodon.jsx`](https://github.com/tootsuite/mastodon/blob/master/app/assets/javascripts/components/containers/mastodon.jsx) | `app/assets/javascripts/components/containers/mastodon.jsx` | 1 line to add + 1 list to complete |
+| [`settings_helper.rb`](https://github.com/tootsuite/mastodon/blob/master/app/helpers/settings_helper.rb) | `app/helpers/settings_helper.rb` | 1 line to add + your language’s name |
+| [`application.rb`](https://github.com/tootsuite/mastodon/blob/master/config/application.rb) | `config/application.rb` | 1 list to complete |
 
 ## Sending the translation
 

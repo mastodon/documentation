@@ -39,7 +39,7 @@ You can check code quality with:
 
 ## Development tips
 
-You can use a localhost->world tunneling service like ngrok if you want to test federation, **however** that should not be your primary mode of operation. If you want to have a permanently federating server, set up a proper instance on a VPS with a domain name, and simply keep it up to date with your own fork of the project while doing development on localhost.
+You can use a localhost->world tunneling service like [ngrok](https://ngrok.com) if you want to test federation, **however** that should not be your primary mode of operation. If you want to have a permanently federating server, set up a proper instance on a VPS with a domain name, and simply keep it up to date with your own fork of the project while doing development on localhost.
 
 Ngrok and similar services give you a random domain on each start up. This is good enough to test how the code you're working on handles real-world situations. But as soon as your domain changes, for everybody else concerned you're a different instance than before.
 

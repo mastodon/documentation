@@ -49,6 +49,8 @@ server {
   gzip_http_version 1.1;
   gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
 
+  add_header Strict-Transport-Security "max-age=31536000";
+
   location / {
     try_files $uri @proxy;
   }
@@ -61,7 +63,7 @@ server {
     proxy_set_header Proxy "";
     proxy_pass_header Server;
 
-    proxy_pass http://localhost:3000;
+    proxy_pass http://127.0.0.1:3000;
     proxy_buffering off;
     proxy_redirect off;
     proxy_http_version 1.1;
@@ -90,6 +92,49 @@ server {
 
   error_page 500 501 502 503 504 /500.html;
 }
+```
+
+## Apache
+
+Setting up Mastodon behind Apache is possible as well, although you will need to enable [mod_proxy_wstunnel](https://httpd.apache.org/docs/trunk/mod/mod_proxy_wstunnel.html) beforehand. The configuration is then pretty straightforward.
+
+```
+<VirtualHost *:80>
+   ServerAdmin contact@example.com
+   ServerName example.com
+   Redirect Permanent / https://example.com/
+</VirtualHost>
+
+<VirtualHost *:443>
+   ServerAdmin contact@example.com
+   ServerName example.com
+
+   DocumentRoot /home/mastodon/live/public/
+
+   Header add Strict-Transport-Security "max-age=31536000"
+   SSLEngine on
+   SSLProtocol -all +TLSv1.2
+   SSLHonorCipherOrder on
+   SSLCipherSuite EECDH+AESGCM:AES256+EECDH:AES128+EECDH
+
+   SSLCertificateFile example.pem
+   SSLCertificateKeyFile example.key
+
+   ProxyPreserveHost On
+   RequestHeader set X-Forwarded-Proto "https"
+   ProxyPass /500.html !
+   ProxyPass /oops.png !
+   ProxyPass /api/v1/streaming/ ws://localhost:4000/
+   ProxyPassReverse /api/v1/streaming/ ws://localhost:4000/
+   ProxyPass / http://localhost:3000/
+   ProxyPassReverse / http://localhost:3000/
+
+   ErrorDocument 500 /500.html
+   ErrorDocument 501 /500.html
+   ErrorDocument 502 /500.html
+   ErrorDocument 503 /500.html
+   ErrorDocument 504 /500.html
+</VirtualHost>
 ```
 
 ## Running in production without Docker
@@ -122,6 +167,17 @@ In the prompt:
 
     CREATE USER mastodon CREATEDB;
     \q
+
+Under Ubuntu 16.04, you will need to explicitly enable ident authentication so that local users can connect to the database without a password:
+
+    sudo sed -i '/^local.*postgres.*peer$/a host    all     all     127.0.0.1/32    ident' /etc/postgresql/9.?/main/pg_hba.conf
+
+and install an ident daemon, which does not come installed by default:
+
+    sudo apt-get install pidentd
+    sudo systemctl enable pidentd
+    sudo systemctl start pidentd
+    sudo systemctl restart postgresql
 
 ## Rbenv
 
@@ -239,15 +295,15 @@ This allows you to `sudo systemctl enable /etc/systemd/system/mastodon-*.service
 
 ## Cronjobs
 
-I recommend creating a couple cronjobs for the following tasks:
+There are several tasks that should be run once a day to ensure that mastodon is
+running smoothly. As your mastodon user run `crontab -e` and enter the following
 
-- `RAILS_ENV=production bundle exec rake mastodon:media:clear`
-- `RAILS_ENV=production bundle exec rake mastodon:push:refresh`
-- `RAILS_ENV=production bundle exec rake mastodon:feeds:clear`
-
-You may want to run `which bundle` first and copypaste that full path instead of simply `bundle` in the above commands because cronjobs usually don't have all the paths set. The time and intervals of when to run these jobs are up to you, but once every day should be enough for all.
-
-You can edit the cronjob file for the `mastodon` user by running `sudo crontab -e -u mastodon` (outside of the mastodon user).
+```
+RAILS_ENV=production
+@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:media:clear > /dev/null
+@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:push:refresh > /dev/null
+@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:feeds:clear > /dev/null
+```
 
 ## Things to look out for when upgrading Mastodon
 

@@ -26,7 +26,7 @@ There is also a list at [instances.mastodon.xyz](https://instances.mastodon.xyz)
 | [mastodon.partipirate.org](https://mastodon.partipirate.org) |French Pirate Party Instance - Politics and stuff|Yes|No|
 | [social.targaryen.house](https://social.targaryen.house) |Federates everywhere, quick updates.|Yes|Yes|
 | [masto.themimitoof.fr](https://masto.themimitoof.fr) |N/A|Yes|Yes|
-| [mstdn.io](https://mstdn.io) |N/A|Yes|Yes|
+| [mstdn.io](https://mstdn.io) |Fast and up-to-date instance, welcoming everyone around the world|Yes|Yes|
 | [social.imirhil.fr](https://social.imirhil.fr) |N/A|No|Yes|
 | [social.wxcafe.net](https://social.wxcafe.net) |Open registrations, queer people, activists, safe as much as possible |Yes|Yes|
 | [octodon.social](https://octodon.social) |Open registrations, federates everywhere, cutest instance yet|Yes|Yes|
@@ -74,7 +74,7 @@ There is also a list at [instances.mastodon.xyz](https://instances.mastodon.xyz)
 | [manx.social](https://manx.social/)|Instance for the Isle of Man|Yes|Yes|
 | [mastodon.host](https://mastodon.host/)|Lightly moderated, federates everywhere and has a follow bot ( Huge federated timeline )|Yes|No|
 | [mastodon.fun](https://mastodon.fun/)|Mastodon for everyone ! |Yes|Yes|
-| [oulipo.social](https://oulipo.social/)|An Oulipo Mastodon in which that fifth symbol in Latin script is taboo|Yes|No|
+| [oulipo.social](https://oulipo.social/)|An Oulipo Mastodon in which that fifth symbol in Latin script is taboo|Yes|Yes|
 | [indigo.zone](https://indigo.zone)|Open Registrations, General Purpose|Yes|No|
 | [mastodon.cloud](https://mastodon.cloud)|An open Mastodon instance with people from all around the world|Yes|Yes|
 | [mst3k.interlinked.me](https://mst3k.interlinked.me)|Open registrations, general purpose|Yes|Yes|
