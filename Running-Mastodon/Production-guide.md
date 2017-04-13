@@ -1,6 +1,15 @@
 Production guide
 ================
 
+The following HTTP readers are already set internally and should not be set again:
+
+```
+'Server'                 => 'Mastodon',
+'X-Frame-Options'        => 'DENY',
+'X-Content-Type-Options' => 'nosniff',
+'X-XSS-Protection'       => '1; mode=block',
+```
+
 ## Nginx
 
 Regardless of whether you go with the Docker approach or not, here is an example Nginx server configuration:
