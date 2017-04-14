@@ -107,7 +107,7 @@ It is recommended to create a special user for mastodon on the server (you could
 
     sudo npm install -g yarn
 
-### Centos / RHEL
+### CentOS / RHEL
 
     sudo yum install libxml2-devel ImageMagick libxslt-devel git curl nodejs file
     sudo yum -y install epel-release
@@ -126,7 +126,7 @@ It is recommended to create a special user for mastodon on the server (you could
 
     sudo apt-get install redis-server redis-tools
 
-### Centos / RHEL
+### CentOS / RHEL
 
     sudo yum install redis rubygem-redis
 
@@ -136,9 +136,11 @@ It is recommended to create a special user for mastodon on the server (you could
 
     sudo apt-get install postgresql postgresql-contrib
 
-### Centos / RHEL
+### CentOS / RHEL
 
     sudo yum install postgresql-server postgresql postgresql-contrib postgresql-devel
+
+### All Operating Systems:
 
 Setup postgres and add user and database for Mastodon:
 
