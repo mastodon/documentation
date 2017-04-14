@@ -48,6 +48,7 @@ server {
 
 
   add_header Strict-Transport-Security "max-age=31536000; includeSubDomains";
+  # You MUST replace `example.com` by your server name.
   add_header Content-Security-Policy "default-src 'self'; img-src 'self' data:; connect-src wss://example.com 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'";
   add_header Referrer-Policy "no-referrer, strict-origin-when-cross-origin";
 
