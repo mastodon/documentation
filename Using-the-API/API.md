@@ -45,6 +45,7 @@ ___
 - [For JavaScript (Node.js)](https://github.com/jessicahayley/node-mastodon)
 - [For Elixir](https://github.com/milmazz/hunter)
 - [For R](https://github.com/ThomasChln/mastodon)
+- [For Rust](https://github.com/Aaronepower/mammut)
 
 ___
 
