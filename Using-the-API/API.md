@@ -125,7 +125,7 @@ Returns an array of [Statuses](#status).
     POST /api/v1/accounts/:id/follow
     POST /api/v1/accounts/:id/unfollow
 
-Returns the target [Account](#account).
+Returns the target [Relationship](#relationship).
 
 #### Blocking/unblocking an account:
 
