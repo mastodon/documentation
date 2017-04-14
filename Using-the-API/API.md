@@ -409,7 +409,9 @@ ___
 | `note`                   | Biography of user |
 | `url`                    | URL of the user's profile page (can be remote) |
 | `avatar`                 | URL to the avatar image |
+| `avatar_static`          | URL to the avatar static image (gif) |
 | `header`                 | URL to the header image |
+| `header_static`          | URL to the header static image (gif) |
 
 ### Application
 
