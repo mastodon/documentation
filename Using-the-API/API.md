@@ -401,15 +401,17 @@ ___
 | `username`               | The username of the account |
 | `acct`                   | Equals `username` for local users, includes `@domain` for remote ones |
 | `display_name`           | The account's display name |
-| `note`                   | Biography of user |
-| `url`                    | URL of the user's profile page (can be remote) |
-| `avatar`                 | URL to the avatar image |
-| `header`                 | URL to the header image |
 | `locked`                 | Boolean for when the account cannot be followed without waiting for approval first |
 | `created_at`             | The time the account was created |
 | `followers_count`        | The number of followers for the account |
 | `following_count`        | The number of accounts the given account is following |
 | `statuses_count`         | The number of statuses the account has made |
+| `note`                   | Biography of user |
+| `url`                    | URL of the user's profile page (can be remote) |
+| `avatar`                 | URL to the avatar image |
+| `avatar_static`          | URL to the avatar static image (gif) |
+| `header`                 | URL to the header image |
+| `header_static`          | URL to the header static image (gif) |
 
 ### Application
 
@@ -483,6 +485,7 @@ ___
 
 | Attribute                | Description |
 | ------------------------ | ----------- |
+| `id`                     | Target account id |
 | `following`              | Whether the user is currently following the account |
 | `followed_by`            | Whether the user is currently being followed by the account |
 | `blocking`               | Whether the user is currently blocking the account |
