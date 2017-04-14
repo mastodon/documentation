@@ -20,6 +20,16 @@ map $http_upgrade $connection_upgrade {
   ''      close;
 }
 
+map $sent_http_content_type $expires {
+  default                 off;
+  text/css                10d;
+  text/javascript         10d;
+  application/javascript  10d;
+  ~image/                 max;
+  ~audio/                 max;
+  ~video/                 max;
+}
+
 server {
   listen 80;
   listen [::]:80;
@@ -58,6 +68,8 @@ server {
 
   add_header Strict-Transport-Security "max-age=31536000";
 
+  expires $expires;
+  
   location / {
     try_files $uri @proxy;
   }
