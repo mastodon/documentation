@@ -165,7 +165,7 @@ It is recommended to create a special user for mastodon on the server (you could
 
     sudo apt-get install postgresql postgresql-contrib
 
-Setup a user and database for Mastodon:
+Set up a user and database for Mastodon:
 
     sudo su - postgres
     psql
@@ -225,7 +225,7 @@ To get a random string. If you are setting up on one single server (most likely)
 
 ## Setup
 
-And setup the database for the first time, this will create the tables and basic data:
+And set up the database for the first time, this will create the tables and basic data:
 
     RAILS_ENV=production bundle exec rails db:setup
 
