@@ -20,6 +20,7 @@ server {
 
 server {
   listen 443 ssl;
+  listen [::]:443 ssl;
   server_name example.com;
 
   ssl_protocols TLSv1.2;
@@ -45,7 +46,6 @@ server {
   gzip_buffers 16 8k;
   gzip_http_version 1.1;
   gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
-
 
   add_header Strict-Transport-Security "max-age=31536000";
 
