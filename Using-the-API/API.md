@@ -122,8 +122,8 @@ Returns an array of [Statuses](#status).
 
 #### Following/unfollowing an account:
 
-    GET /api/v1/accounts/:id/follow
-    GET /api/v1/accounts/:id/unfollow
+    POST /api/v1/accounts/:id/follow
+    POST /api/v1/accounts/:id/unfollow
 
 Returns the target [Account](#account).
 
