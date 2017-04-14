@@ -49,7 +49,7 @@ There is also a list at [instances.mastodon.xyz](https://instances.mastodon.xyz)
 | [social.nasqueron.org](https://social.nasqueron.org) |Dreamers, open source developers, free culture|Yes|Yes|
 | [status.dissidence.ovh](https://status.dissidence.ovh)|N/A|Yes|Yes|
 | [mastodon.cc](https://mastodon.cc)|Art|Yes|No|
-| [mastodon.technology](https://mastodon.technology)|Open registrations, federates everywhere, for tech folks|Yes|No|
+| [mastodon.technology](https://mastodon.technology)|Open registrations, federates everywhere, for tech folks|Yes|Yes|
 | [mastodon.systemlab.fr](https://mastodon.systemlab.fr/)|Le mastodon Français, informatique, jeux-vidéos, gaming et hébergement.|Yes|
 | [mastodon.top](https://mastodon.top) |N/A|Yes|Yes|
 | [niu.moe](https://niu.moe/)|:dolls: The most cutest node ever, FR/EN, anime and computer :balloon:|Yes|Yes|
