@@ -483,6 +483,7 @@ ___
 
 | Attribute                | Description |
 | ------------------------ | ----------- |
+| `id`                     | Target account id |
 | `following`              | Whether the user is currently following the account |
 | `followed_by`            | Whether the user is currently being followed by the account |
 | `blocking`               | Whether the user is currently blocking the account |
