@@ -46,6 +46,7 @@ ___
 - [For Elixir](https://github.com/milmazz/hunter)
 - [For R](https://github.com/ThomasChln/mastodon)
 - [For Rust](https://github.com/Aaronepower/mammut)
+- [For Perl](https://metacpan.org/pod/Mastodon::Client)
 
 ___
 
