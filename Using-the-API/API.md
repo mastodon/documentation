@@ -46,6 +46,7 @@ ___
 - [For Elixir](https://github.com/milmazz/hunter)
 - [For R](https://github.com/ThomasChln/mastodon)
 - [For Rust](https://github.com/Aaronepower/mammut)
+- [For Swift](https://github.com/ornithocoder/MastodonKit)
 
 ___
 
