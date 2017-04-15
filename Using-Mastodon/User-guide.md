@@ -94,7 +94,7 @@ You can also attach video files or GIF animations to Toots. However, there is a 
 
 Following another user will make all of their toots as well as other users' toots which they [boost](User-guide.md#boosts-and-favourites) appear in your Home column. This gives you a separate timeline from the [public timelines](User-guide.md#the-public-timelines) in which you can read what particular people are up to without the noise of general conversation.
 
-![Follow icon](screenshots/follow.png) In order to follow a user, click their name or avatar to open their profile, then click the Follow icon in the top left of their profile view.
+![Follow icon](screenshots/follow-icon.png) In order to follow a user, click their name or avatar to open their profile, then click the Follow icon in the top left of their profile view.
 
 If their account has a padlock icon ![Padlock icon](screenshots/locked-icon.png) next to their user name, they will receive a notification of your request to follow them and they will need to approve this before you are added to their follower list (and thus see their toots). To show you that you are waiting for someone to approve your follow request, the Follow icon ![Follow icon](screenshots/follow-icon.png) on their profile will be replaced with an hourglass icon ![Pending icon](screenshots/pending-icon.png). The requirement for new followers to be approved is something you can enable for your own profile under preferences.
 

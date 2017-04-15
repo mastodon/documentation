@@ -1,7 +1,7 @@
-List of Known Mastodon instances
-==========================
+We are no longer maintaining this list as instances are popping up too quickly for us to track them manually. Please standby while we work on another solution. **In the meantime, there is an updated list at [instances.mastodon.xyz](https://instances.mastodon.xyz) showing realtime information about instances as well as proposing a selection of them.**
 
-There is also a list at [instances.mastodon.xyz](https://instances.mastodon.xyz) showing realtime information about instances.
+List of Mastodon instances
+==========================
 
 | Name | Theme/Notes, if applicable | Open Registrations | IPv6 |
 | -------------|-------------|---|---|
@@ -49,7 +49,7 @@ There is also a list at [instances.mastodon.xyz](https://instances.mastodon.xyz)
 | [social.nasqueron.org](https://social.nasqueron.org) |Dreamers, open source developers, free culture|Yes|Yes|
 | [status.dissidence.ovh](https://status.dissidence.ovh)|N/A|Yes|Yes|
 | [mastodon.cc](https://mastodon.cc)|Art|Yes|No|
-| [mastodon.technology](https://mastodon.technology)|Open registrations, federates everywhere, for tech folks|Yes|No|
+| [mastodon.technology](https://mastodon.technology)|Open registrations, federates everywhere, for tech folks|Yes|Yes|
 | [mastodon.systemlab.fr](https://mastodon.systemlab.fr/)|Le mastodon Français, informatique, jeux-vidéos, gaming et hébergement.|Yes|
 | [mastodon.top](https://mastodon.top) |N/A|Yes|Yes|
 | [niu.moe](https://niu.moe/)|:dolls: The most cutest node ever, FR/EN, anime and computer :balloon:|Yes|Yes|
@@ -74,9 +74,10 @@ There is also a list at [instances.mastodon.xyz](https://instances.mastodon.xyz)
 | [manx.social](https://manx.social/)|Instance for the Isle of Man|Yes|Yes|
 | [mastodon.host](https://mastodon.host/)|Lightly moderated, federates everywhere and has a follow bot ( Huge federated timeline )|Yes|No|
 | [mastodon.fun](https://mastodon.fun/)|Mastodon for everyone ! |Yes|Yes|
-| [oulipo.social](https://oulipo.social/)|An Oulipo Mastodon in which that fifth symbol in Latin script is taboo|Yes|No|
+| [oulipo.social](https://oulipo.social/)|An Oulipo Mastodon in which that fifth symbol in Latin script is taboo|Yes|Yes|
 | [indigo.zone](https://indigo.zone)|Open Registrations, General Purpose|Yes|No|
 | [mastodon.cloud](https://mastodon.cloud)|An open Mastodon instance with people from all around the world|Yes|Yes|
 | [mst3k.interlinked.me](https://mst3k.interlinked.me)|Open registrations, general purpose|Yes|Yes|
-
-We are no longer maintaining this list as instances are popping up too quickly for using GitHub to be a tenable system for tracking them. Please standby while we work on another solution
+| [reveal.today](https://reveal.today/)|Open Registrations, General Purpose, About everyday events|Yes|Yes|
+| [m4570.xyz](https://m4570.xyz)|Open registrations, federates everywhere, instance hosted in France|Yes|Yes|
+| [Bonn.social](https://bonn.social)|Local topics from the federal city of Bonn, Germany|Yes|No|
