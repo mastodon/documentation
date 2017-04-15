@@ -18,4 +18,3 @@ $color4: #d3d900; // vibrant
 
 Don't forget to recompile your assets and restart mastodon(if you didn't have a `custom.scss` file before) 
 to see the changes.
-0
