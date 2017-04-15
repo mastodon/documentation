@@ -46,6 +46,8 @@ ___
 - [For Elixir](https://github.com/milmazz/hunter)
 - [For R](https://github.com/ThomasChln/mastodon)
 - [For Rust](https://github.com/Aaronepower/mammut)
+- [For Perl](https://metacpan.org/pod/Mastodon::Client)
+- [For Swift](https://github.com/ornithocoder/MastodonKit)
 
 ___
 
@@ -126,21 +128,21 @@ Returns an array of [Statuses](#status).
     POST /api/v1/accounts/:id/follow
     POST /api/v1/accounts/:id/unfollow
 
-Returns the target [Relationship](#relationship).
+Returns the target account's [Relationship](#relationship).
 
 #### Blocking/unblocking an account:
 
-    GET /api/v1/accounts/:id/block
-    GET /api/v1/accounts/:id/unblock
+    POST /api/v1/accounts/:id/block
+    POST /api/v1/accounts/:id/unblock
 
-Returns the target [Account](#account).
+Returns the target account's [Relationship](#relationship).
 
 #### Muting/unmuting an account:
 
-    GET /api/v1/accounts/:id/mute
-    GET /api/v1/accounts/:id/unmute
+    POST /api/v1/accounts/:id/mute
+    POST /api/v1/accounts/:id/unmute
 
-Returns the target [Account](#account).
+Returns the target account's [Relationship](#relationship).
 
 #### Getting an account's relationships:
 

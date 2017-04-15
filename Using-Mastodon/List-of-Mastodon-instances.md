@@ -1,7 +1,7 @@
-List of Known Mastodon instances
-==========================
+We are no longer maintaining this list as instances are popping up too quickly for us to track them manually. Please standby while we work on another solution. **In the meantime, there is an updated list at [instances.mastodon.xyz](https://instances.mastodon.xyz) showing realtime information about instances as well as proposing a selection of them.**
 
-There is also a list at [instances.mastodon.xyz](https://instances.mastodon.xyz) showing realtime information about instances.
+List of Mastodon instances
+==========================
 
 | Name | Theme/Notes, if applicable | Open Registrations | IPv6 |
 | -------------|-------------|---|---|
@@ -81,6 +81,3 @@ There is also a list at [instances.mastodon.xyz](https://instances.mastodon.xyz)
 | [reveal.today](https://reveal.today/)|Open Registrations, General Purpose, About everyday events|Yes|Yes|
 | [m4570.xyz](https://m4570.xyz)|Open registrations, federates everywhere, instance hosted in France|Yes|Yes|
 | [Bonn.social](https://bonn.social)|Local topics from the federal city of Bonn, Germany|Yes|No|
-
-
-We are no longer maintaining this list as instances are popping up too quickly for using GitHub to be a tenable system for tracking them. Please standby while we work on another solution
