@@ -1,4 +1,4 @@
-Running Mastodon requires some server ressources. If you're wondering how much, you've come to the right place.
+Running Mastodon requires some server resources. If you're wondering how much, you've come to the right place.
 Here are some information about what you'll need for running your instance, both with Docker and without.
 
 ### With Docker :
