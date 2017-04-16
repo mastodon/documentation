@@ -272,7 +272,7 @@ RAILS_ENV=production
 
 ## Things to look out for when upgrading Mastodon
 
-You can upgrade Mastodon with a `git pull` from the repository directory. You may need to run:
+You can upgrade Mastodon with a `git fetch; git checkout $(git tag | tail -n 1)` from the repository directory. You may need to run:
 
 - `RAILS_ENV=production bundle exec rails db:migrate`
 - `RAILS_ENV=production bundle exec rails assets:precompile`
