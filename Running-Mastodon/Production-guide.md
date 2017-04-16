@@ -101,6 +101,31 @@ server {
 }
 ```
 
+## Docker storage
+
+
+It suggested to move docker storage to another path (`dockerd -g $PATH`) instead of `/var/lib/docker` by default. This can help from the server accidentally run out of disk space.
+
+```bash
+$ docker-compose stop
+# systemctl stop docker
+# mv /var/lib/docker /path/to/new/location/locker
+```
+
+The following systemd conf might help.
+
+- `/etc/systemd/system/docker.service.d/docker-storage.conf`
+```
+[Service]
+ExecStart= 
+ExecStart=/usr/bin/dockerd -g /path/to/new/location/docker -H fd://
+```
+
+```bash
+# systemctl start docker
+$ docker-compose up
+```
+
 ## Running in production without Docker
 
 It is recommended to create a special user for mastodon on the server (you could call the user `mastodon`), though remember to disable outside login for it. You should only be able to get into that user through `sudo su - mastodon`.
