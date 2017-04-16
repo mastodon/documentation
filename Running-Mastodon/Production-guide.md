@@ -104,7 +104,7 @@ server {
 ## Docker storage
 
 
-It suggested to move docker storage to another path (`dockerd -g $PATH`) instead of `/var/lib/docker` by default. This can help from the server accidentally run out of disk space.
+It is suggested to move docker storage to another path (`dockerd -g $PATH`) instead of `/var/lib/docker` by default. This can prevent the server from accidentally running out of disk space.
 
 ```bash
 $ docker-compose stop
