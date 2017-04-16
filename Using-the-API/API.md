@@ -48,6 +48,7 @@ ___
 - [For Rust](https://github.com/Aaronepower/mammut)
 - [For Perl](https://metacpan.org/pod/Mastodon::Client)
 - [For Swift](https://github.com/ornithocoder/MastodonKit)
+- [For Go](https://github.com/mattn/go-mastodon)
 
 ___
 
