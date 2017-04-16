@@ -160,6 +160,7 @@ You need the `git-core` package installed on your system. If it is so, from the 
     cd ~
     git clone https://github.com/tootsuite/mastodon.git live
     cd live
+    git checkout $(git tag | tail -n 1)
 
 Then you can proceed to install project dependencies:
 
