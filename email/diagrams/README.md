@@ -1,4 +1,4 @@
-Email
+Diagrams
 =====
 
 This document highlight when emails are used and what the process looks like.  
