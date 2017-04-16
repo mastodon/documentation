@@ -211,12 +211,8 @@ Returns an array of [Accounts](#account) which have requested to follow the auth
 
 #### Authorizing or rejecting follow requests:
 
-    POST /api/v1/follow_requests/authorize
-    POST /api/v1/follow_requests/reject
-
-Form data:
-
-- `id`: The id of the account to authorize or reject
+    POST /api/v1/follow_requests/:id/authorize
+    POST /api/v1/follow_requests/:id/reject
 
 Returns an empty object.
 
