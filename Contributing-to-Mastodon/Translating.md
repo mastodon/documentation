@@ -1,7 +1,7 @@
 Translating
 ===========
 
-If you want to localise Mastodon into your language, here is how.
+If you want to localize Mastodon into your language, here is how.
 
 There are two parts to Mastodon, the server and the web client. The translations for the web client are in `app/assets/javascripts/components/locales`. For the server-side, the translations live in `config/locales` and are divided into different files. Here are all the files you’ll need to translate:
 
