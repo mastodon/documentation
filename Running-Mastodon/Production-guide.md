@@ -274,8 +274,14 @@ RAILS_ENV=production
 You can upgrade Mastodon with a `git pull` from the repository directory. You may need to run:
 
 - `RAILS_ENV=production bundle exec rails db:migrate`
+
+if anything in the `/db/` directory has changed, and/or
+
+- `yarn install`
 - `RAILS_ENV=production bundle exec rails assets:precompile`
 
-Depending on which files changed, e.g. if anything in the `/db/` or `/app/assets` directory changed, respectively. Also, Mastodon runs in memory, so you need to restart it before you see any changes. If you're using systemd, that would be:
+if anything in the `/app/assets` directory changed.
+
+Also, Mastodon runs in memory, so you need to restart it before you see any changes (including new precompiled assets). If you're using systemd, that would be:
 
     sudo systemctl restart mastodon-*.service
