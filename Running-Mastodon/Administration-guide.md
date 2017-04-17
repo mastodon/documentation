@@ -50,3 +50,9 @@ Will confirm a user manually, in case they don't have access to their confirmati
     
 Will remove users that never confirmed their e-mail and never signed in, meaning they
 only have a user record and an avatar record, with no files uploaded.
+
+## Mastodon-admin mailing list
+
+There's a mailing list open for mastodon instance admins at
+https://lists.ffdn.org/wws/info/mastodon-admin. Feel free to join that list for all your questions and to get some feedback 
+from other admins!
