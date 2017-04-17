@@ -7,10 +7,10 @@ Instance administrator can also avoid using email altogether by confirming users
 This document highlight what emails are used for and where to change email configuration.  
 To go further,this document describe the default component involved from mastodon, rails and the OS and how they interact together.
  
-### What are email used for in Mastodon?
+### What is email used for in Mastodon?
 In the default case, email will be first sent to confirm your user.
 Users can also choose to receive notification for various types of activity.
-Finally password reset and password reset confiration is done via email.
+Finally password reset and password reset confirmation is done via email.
 Instance admin can avoid using emails altogether too.
 - [Emails in the signup process](diagrams/README.md#sign-up-process)
 - [Emails and notification](diagrams/README.md#notification-process)
