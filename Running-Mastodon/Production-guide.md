@@ -134,7 +134,9 @@ In the prompt:
 
 Under Ubuntu 16.04, you will need to explicitly enable ident authentication so that local users can connect to the database without a password:
 
+```sh
     sudo sed -i '/^local.*postgres.*peer$/a host    all     all     127.0.0.1/32    ident' /etc/postgresql/9.?/main/pg_hba.conf
+```
 
 and install an ident daemon, which does not come installed by default:
 
@@ -263,10 +265,9 @@ This allows you to `sudo systemctl enable /etc/systemd/system/mastodon-*.service
 There are several tasks that should be run once a day to ensure that mastodon is
 running smoothly. As your mastodon user run `crontab -e` and enter the following
 
-```
-RAILS_ENV=production
-@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:daily > /dev/null
-
+```sh
+    RAILS_ENV=production
+    @daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:daily > /dev/null
 ```
 
 ## Things to look out for when upgrading Mastodon
@@ -278,4 +279,6 @@ You can upgrade Mastodon with a `git fetch; git checkout $(git tag | tail -n 1)`
 
 Depending on which files changed, e.g. if anything in the `/db/` or `/app/assets` directory changed, respectively. Also, Mastodon runs in memory, so you need to restart it before you see any changes. If you're using systemd, that would be:
 
+```sh
     sudo systemctl restart mastodon-*.service
+```
