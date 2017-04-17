@@ -41,8 +41,9 @@ You should set the Heroku config vars of `LOCAL_DOMAIN` to your hostname, and
 ## Email
 
 Consider using [Mailgun](https://mailgun.com) or similar, who offer free plans
-that should suit your interests. Look in `production.rb` to see which config
-variables need to be set on Heroku for outgoing email to work.
+that should suit your interests. Look in `.env.production.sample` to see which SMTP variables you need to set.
+
+Note: just adding the Mailgun add-on is not enough. You will need to verify Mailgun, at which point you can use the sandbox domain _IF_ you verify individual email addresses to send to, but if you want this to work with arbitrary email addresses, you will need to add and verify your own domain, which will require DNS changes. Adding your own domain also generates a new postmaster adddress and password, so complete this before editing config variables for best results.
 
 ## File storage
 
