@@ -265,9 +265,8 @@ running smoothly. As your mastodon user run `crontab -e` and enter the following
 
 ```
 RAILS_ENV=production
-@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:media:clear > /dev/null
-@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:push:refresh > /dev/null
-@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:feeds:clear > /dev/null
+@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:daily > /dev/null
+
 ```
 
 ## Things to look out for when upgrading Mastodon
