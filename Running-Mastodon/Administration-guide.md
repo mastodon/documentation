@@ -43,3 +43,10 @@ The following rake task:
     RAILS_ENV=production bundle exec rails mastodon:confirm_email USER_EMAIL=alice@alice.com
 
 Will confirm a user manually, in case they don't have access to their confirmation email for whatever reason.
+
+## Clearing Unconfirmed Users Manually
+
+    RAILS_ENV=production rake mastodon:users:clear
+    
+Will remove users that never confirmed their e-mail and never signed in, meaning they
+only have a user record and an avatar record, with no files uploaded.
