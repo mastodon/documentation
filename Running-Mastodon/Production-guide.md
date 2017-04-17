@@ -272,7 +272,15 @@ running smoothly. As your mastodon user run `crontab -e` and enter the following
 
 ## Things to look out for when upgrading Mastodon
 
-You can upgrade Mastodon with a `git fetch; git checkout $(git tag | tail -n 1)` from the repository directory. You may need to run:
+If you want a stable release for production use, you should use tagged releases. To checkout the latest available tagged version:
+
+```sh
+    git clone https://github.com/tootsuite/mastodon.git
+    cd mastodon
+    git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
+```
+
+As part of your deploy, you may need to run:
 
 - `RAILS_ENV=production bundle exec rails db:migrate`
 - `RAILS_ENV=production bundle exec rails assets:precompile`
