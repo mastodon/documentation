@@ -23,6 +23,7 @@ Index
 - [Development guide](Running-Mastodon/Development-guide.md)
 - [Alternative: Development with Vagrant](Running-Mastodon/Vagrant-guide.md)
 - [Administration guide](Running-Mastodon/Administration-guide.md)
+- [Maintenance Tasks](Running-Mastodon/Maintenance-Tasks.md)
 - [Tuning Mastodon](Running-Mastodon/Tuning.md)
 - [System Configuration Alternatives](Running-Mastodon/Alternatives.md)
 
