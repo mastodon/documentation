@@ -5,13 +5,15 @@ A quick way to get a development environment up and running is with Vagrant. You
 
 ## Basic setup
 
-Install the latest versions of Vagrant and VirtualBox for your operating systems, and then run:
+First, install the latest versions of Vagrant and VirtualBox for your operating system.
+
+**Optional:**
+
+The following command will update your 'hosts' file when you start the virtual machine, allowing you to access the site at http://mastodon.dev (instead of http://localhost:3000):
 
     vagrant plugin install vagrant-hostsupdater
 
-This is optional, but will update your 'hosts' file when you start the virtual machine, allowing you to access the site at http://mastodon.dev (instead of http://localhost:3000).
-
-To create and provision a new virtual machine for Mastodon development:
+To create and provision a new virtual machine for Mastodon development run:
 
     git clone git@github.com:tootsuite/mastodon.git
     cd mastodon
