@@ -42,6 +42,7 @@ ___
 - [For Ruby](https://github.com/tootsuite/mastodon-api)
 - [For Python](https://github.com/halcy/Mastodon.py)
 - [For JavaScript](https://github.com/Zatnosk/libodonjs)
+- [For Javascript (Browser)](https://github.com/Kirschn/mastodon.js)
 - [For JavaScript (Node.js)](https://github.com/jessicahayley/node-mastodon)
 - [For Elixir](https://github.com/milmazz/hunter)
 - [For R](https://github.com/ThomasChln/mastodon)
