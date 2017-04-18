@@ -134,7 +134,9 @@ In the prompt:
 
 Under Ubuntu 16.04, you will need to explicitly enable ident authentication so that local users can connect to the database without a password:
 
+```sh
     sudo sed -i '/^local.*postgres.*peer$/a host    all     all     127.0.0.1/32    ident' /etc/postgresql/9.?/main/pg_hba.conf
+```
 
 and install an ident daemon, which does not come installed by default:
 
@@ -180,6 +182,11 @@ Fill in the important data, like host/port of the redis database, host/port/user
     rake secret
 
 To get a random string. If you are setting up on one single server (most likely), then `REDIS_HOST` is localhost and `DB_HOST` is `/var/run/postgresql`, `DB_USER` is `mastodon` and `DB_NAME` is `mastodon_production` while `DB_PASS` is empty because this setup will use the ident authentication method (system user "mastodon" maps to postgres user "mastodon").
+
+Configuring the instance hostname:
+
+- `LOCAL_DOMAIN` should be the domain/hostname of your instance. This is **absolutely required** as it is used for generating unique IDs for everything federation-related.
+- `LOCAL_HTTPS` set it to `true` if HTTPS works on your website. This is used to generate canonical URLs, which is also important when generating and parsing federation-related IDs.
 
 ## Setup
 
@@ -263,19 +270,28 @@ This allows you to `sudo systemctl enable /etc/systemd/system/mastodon-*.service
 There are several tasks that should be run once a day to ensure that mastodon is
 running smoothly. As your mastodon user run `crontab -e` and enter the following
 
-```
-RAILS_ENV=production
-@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:daily > /dev/null
-
+```sh
+    RAILS_ENV=production
+    @daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:daily > /dev/null
 ```
 
 ## Things to look out for when upgrading Mastodon
 
-You can upgrade Mastodon with a `git fetch; git checkout $(git tag | tail -n 1)` from the repository directory. You may need to run:
+If you want a stable release for production use, you should use tagged releases. To checkout the latest available tagged version:
+
+```sh
+    git clone https://github.com/tootsuite/mastodon.git
+    cd mastodon
+    git checkout $(git tag | tail -n 1)
+```
+
+As part of your deploy, you may need to run:
 
 - `RAILS_ENV=production bundle exec rails db:migrate`
 - `RAILS_ENV=production bundle exec rails assets:precompile`
 
 Depending on which files changed, e.g. if anything in the `/db/` or `/app/assets` directory changed, respectively. Also, Mastodon runs in memory, so you need to restart it before you see any changes. If you're using systemd, that would be:
 
+```sh
     sudo systemctl restart mastodon-*.service
+```
