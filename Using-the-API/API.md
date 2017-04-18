@@ -108,11 +108,11 @@ Form data:
 
 Query parameters:
 
-- `max_id` (optional): Acquire a list of followers with ID less than or equal this value
-- `since_id` (optional): Acquire a list of followers with ID greater than this value
-- `limit` (optional): Maximum number of accounts to acquire (Default 40, Max 80)
+- `max_id` (optional): Get a list of followers with ID less than or equal this value
+- `since_id` (optional): Get a list of followers with ID greater than this value
+- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
 
-`max_id` and `since_id` are usually obtained from the `Link` header.
+`max_id` and `since_id` are usually get from the `Link` header.
 
 Returns an array of [Accounts](#account).
 
