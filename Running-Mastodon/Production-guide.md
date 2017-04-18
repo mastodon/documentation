@@ -1,7 +1,7 @@
 Production guide
 ================
 
-The following HTTP readers are already set internally and should not be set again:
+The following HTTP headers are already set internally and should not be set again:
 
 ```
 'Server'                 => 'Mastodon',
