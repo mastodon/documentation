@@ -50,7 +50,7 @@ If you wish to run this as a daemon process instead of monitoring it on console,
 
 Then you may login to your new Mastodon instance by browsing to http://localhost:3000/
 
-Following that, make sure that you read the [production guide](docs/Running-Mastodon/Production-guide.md). You are probably going to want to understand how
+Following that, make sure that you read the [production guide](Production-guide.md). You are probably going to want to understand how
 to configure Nginx to make your Mastodon instance available to the rest of the world.
 
 The container has two volumes, for the assets and for user uploads, and optionally two more, for the postgresql and redis databases.
