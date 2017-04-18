@@ -15,6 +15,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |Albatross|iOS||[@goldie_ice@mastodon.social](https://mastodon.social/users/goldie_ice)|
 |Tooter|Chrome|<https://github.com/ineffyble/tooter>|[@effy@mastodon.social](https://mastodon.social/users/effy)|
 |tootstream|CLI|<https://github.com/magicalraccoon/tootstream>|[@Raccoon@mastodon.social](https://mastodon.social/users/Raccoon)|
+|toot|CLI|<https://github.com/ihabunek/toot>|[@ihabunek@mastodon.social](https://mastodon.social/users/ihabunek)|
 | [Capella](https://github.com/coolstar/Capella) | Windows 7, 8.1, 10 | https://coolstar.org/capella | [@coolstar@mastodon.social](https://mastodon.social/users/coolstar)|
 |[Mastodon UWP (beta)](https://github.com/woachk/mastodon/releases)|Windows 10|<https://github.com/woachk/mastodon>|[@my123@mastodon.social](https://mastodon.social/users/my123)|
 |[mastodon.el](https://github.com/jdenen/mastodon.el)|Emacs|<https://github.com/jdenen/mastodon.el>|[@johnson@mastodon.social](https://mastodon.social/users/johnson)|
