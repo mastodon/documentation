@@ -19,6 +19,7 @@
 ### [Running Mastodon](Running-Mastodon)
 - [Ressources neeeded](Running-Mastodon/Resources-needed.md)
 - [Production guide](Running-Mastodon/Production-guide.md)
+- [Docker guide](Running-Mastodon/Docker-Guide.md)
 - [Alternative: Running on Heroku](Running-Mastodon/Heroku-guide.md)
 - [Development guide](Running-Mastodon/Development-guide.md)
 - [Alternative: Development with Vagrant](Running-Mastodon/Vagrant-guide.md)
