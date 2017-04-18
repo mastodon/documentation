@@ -282,7 +282,7 @@ If you want a stable release for production use, you should use tagged releases.
 ```sh
     git clone https://github.com/tootsuite/mastodon.git
     cd mastodon
-    git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
+    git checkout $(git tag | tail -n 1)
 ```
 
 As part of your deploy, you may need to run:
