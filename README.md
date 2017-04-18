@@ -2,13 +2,13 @@
 
 **Mastodon** is a free, open-source GNU social-compatible social network server. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Anyone can run Mastodon and participate in the social network seamlessly.
 
-### Using Mastodon
+### [Using Mastodon](Using-Mastodon)
 - [Frequently Asked Questions](Using-Mastodon/FAQ.md)
 - [List of Mastodon instances](Using-Mastodon/List-of-Mastodon-instances.md)
 - [Apps](Using-Mastodon/Apps.md)
 - [User Guide](Using-Mastodon/User-guide.md)
 
-### Using the API
+### [Using the API](Using-the-API)
 - [API documentation](Using-the-API/API.md)
 - [Streaming API documentation](Using-the-API/Streaming-API.md)
 - [Testing the API with cURL](Using-the-API/Testing-with-cURL.md)
@@ -16,7 +16,8 @@
 - [Tips for app developers](Using-the-API/Tips-for-app-developers.md)
 - [Push notifications](Using-the-API/Push-notifications.md)
 
-### Running Mastodon
+### [Running Mastodon](Running-Mastodon)
+- [Ressources neeeded](Running-Mastodon/Resources-needed.md)
 - [Production guide](Running-Mastodon/Production-guide.md)
 - [Alternative: Running on Heroku](Running-Mastodon/Heroku-guide.md)
 - [Development guide](Running-Mastodon/Development-guide.md)
@@ -26,7 +27,7 @@
 - [Tuning Mastodon](Running-Mastodon/Tuning.md)
 - [System Configuration Alternatives](Running-Mastodon/Alternatives.md)
 
-### Contributing to Mastodon
+### [Contributing to Mastodon](Contributing-to-Mastodon)
 - [Sponsors](Contributing-to-Mastodon/Sponsors.md)
 - [Translate Mastodon in your language](Contributing-to-Mastodon/Translating.md)
 - [Report bugs and submit ideas](https://github.com/tootsuite/mastodon/issues)
