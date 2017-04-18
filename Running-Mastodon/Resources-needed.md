@@ -5,6 +5,7 @@ Here are some information about what you'll need for running your instance, both
 
 | CPU % / info | RAM use / total | Median traffic in | out | Users | OS | Sidekiq threads | puma params | Hosting provider | URL |
 |-----|-----|-----------------------|-----|-------|----|-----------------|----------------|------------------|-----|
+| 25% / 2 CPUs 1.8GHz | 2.2 GB / 4 GB | | | 2900 | Ubuntu 16.04 | 20 threads, DB_POOL=20 | WEB_CONCURRENCY=4, MAX_THREADS=8 | [Digital Ocean](https://www.digitalocean.com) | [mastodon.technology](https://mastodon.technllogy)
 
 ### Without Docker :
 
