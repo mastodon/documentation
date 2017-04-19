@@ -121,6 +121,14 @@ Returns an array of [Accounts](#account).
 
     GET /api/v1/accounts/:id/following
 
+Query parameters:
+
+- `max_id` (optional): Get a list of followings with ID less than or equal this value
+- `since_id` (optional): Get a list of followings with ID greater than this value
+- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+
+`max_id` and `since_id` are usually get from the `Link` header.
+
 Returns an array of [Accounts](#account).
 
 #### Getting an account's statuses:
@@ -131,6 +139,11 @@ Query parameters:
 
 - `only_media` (optional): Only return statuses that have media attachments
 - `exclude_replies` (optional): Skip statuses that reply to other statuses
+- `max_id` (optional): Get a list of statuses with ID less than or equal this value
+- `since_id` (optional): Get a list of statuses with ID greater than this value
+- `limit` (optional): Maximum number of accounts to get (Default 20, Max 40)
+
+`max_id` and `since_id` are usually get from the `Link` header.
 
 Returns an array of [Statuses](#status).
 
@@ -201,6 +214,14 @@ These values should be requested in the app itself from the API for each new app
 
     GET /api/v1/blocks
 
+Query parameters:
+
+- `max_id` (optional): Get a list of blocks with ID less than or equal this value
+- `since_id` (optional): Get a list of blocks with ID greater than this value
+- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+
+`max_id` and `since_id` are usually get from the `Link` header.
+
 Returns an array of [Accounts](#account) blocked by the authenticated user.
 
 ### Favourites
@@ -209,6 +230,14 @@ Returns an array of [Accounts](#account) blocked by the authenticated user.
 
     GET /api/v1/favourites
 
+Query parameters:
+
+- `max_id` (optional): Get a list of favourites with ID less than or equal this value
+- `since_id` (optional): Get a list of favourites with ID greater than this value
+- `limit` (optional): Maximum number of accounts to get (Default 20, Max 40)
+
+`max_id` and `since_id` are usually get from the `Link` header.
+
 Returns an array of [Statuses](#status) favourited by the authenticated user.
 
 ### Follow Requests
@@ -216,6 +245,14 @@ Returns an array of [Statuses](#status) favourited by the authenticated user.
 #### Fetching a list of follow requests:
 
     GET /api/v1/follow_requests
+
+Query parameters:
+
+- `max_id` (optional): Get a list of follow requests with ID less than or equal this value
+- `since_id` (optional): Get a list of follow requests with ID greater than this value
+- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+
+`max_id` and `since_id` are usually get from the `Link` header.
 
 Returns an array of [Accounts](#account) which have requested to follow the authenticated user.
 
@@ -269,6 +306,14 @@ Returns an [Attachment](#attachment) that can be used when creating a status.
 
     GET /api/v1/mutes
 
+Query parameters:
+
+- `max_id` (optional): Get a list of mutes with ID less than or equal this value
+- `since_id` (optional): Get a list of mutes with ID greater than this value
+- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+
+`max_id` and `since_id` are usually get from the `Link` header.
+
 Returns an array of [Accounts](#account) muted by the authenticated user.
 
 ### Notifications
@@ -276,6 +321,14 @@ Returns an array of [Accounts](#account) muted by the authenticated user.
 #### Fetching a user's notifications:
 
     GET /api/v1/notifications
+
+Query parameters:
+
+- `max_id` (optional): Get a list of notifications with ID less than or equal this value
+- `since_id` (optional): Get a list of notifications with ID greater than this value
+- `limit` (optional): Maximum number of accounts to get (Default 15, Max 30)
+
+`max_id` and `since_id` are usually get from the `Link` header.
 
 Returns a list of [Notifications](#notification) for the authenticated user.
 
@@ -352,6 +405,14 @@ Returns a [Card](#card).
     GET /api/v1/statuses/:id/reblogged_by
     GET /api/v1/statuses/:id/favourited_by
 
+Query parameters:
+
+- `max_id` (optional): Get a list of reblogged/favourited with ID less than or equal this value
+- `since_id` (optional): Get a list of reblogged/favourited with ID greater than this value
+- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+
+`max_id` and `since_id` are usually get from the `Link` header.
+
 Returns an array of [Accounts](#account).
 
 #### Posting a new status:
@@ -400,6 +461,11 @@ Returns the target [Status](#status).
 Query parameters:
 
 - `local` (optional; public and tag timelines only): Only return statuses originating from this instance
+- `max_id` (optional): Get a list of timelines with ID less than or equal this value
+- `since_id` (optional): Get a list of timelines with ID greater than this value
+- `limit` (optional): Maximum number of accounts to get (Default 20, Max 40)
+
+`max_id` and `since_id` are usually get from the `Link` header.
 
 Returns an array of [Statuses](#status), most recent ones first.
 ___
