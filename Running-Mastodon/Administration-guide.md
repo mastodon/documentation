@@ -51,6 +51,17 @@ Will confirm a user manually, in case they don't have access to their confirmati
 Will remove users that never confirmed their e-mail and never signed in, meaning they
 only have a user record and an avatar record, with no files uploaded.
 
+## Creating Users while Registration is Closed
+
+    RAILS_ENV=production bundle exec rails c
+    account = Account.create!(username: 'username')
+    user = User.create!(email: 'email', password: 'password', account: account)
+    user.confirm
+    account.save!
+    user.save!
+
+This will create a new user as if they had walked through the registration process and confirmed their account, and will immediately be able to log in.  Make sure the user resets their password away from the temporary password you give them!
+
 ## Mastodon-admin mailing list
 
 There's a mailing list open for mastodon instance admins at
