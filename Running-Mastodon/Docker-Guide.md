@@ -69,8 +69,12 @@ Running any of these tasks via docker-compose would look like this:
 
 This approach makes updating to the latest version a real breeze.
 
-1. `git pull` to download updates from the repository
-2. `docker-compose build` to compile the Docker image out of the changed source files
-3. (optional) `docker-compose run --rm web rails db:migrate` to perform database migrations. Does nothing if your database is up to date
-4. (optional) `docker-compose run --rm web rails assets:precompile` to compile new JS and CSS assets
-5. `docker-compose up -d` to re-create (restart) containers and pick up the changes
+1. `git fetch` to download updates from the repository.
+2. Now you need to tell git to use those updates. You have probably changed your `docker-compose.yml` file. Check with `git status`.
+  - If the `docker-compose.yml` file is modified, run `git stash` to stash your changes.
+3. `git checkout TAG_NAME` to use the tag code. (If you have committed changes, use `git merge TAG_NAME` instead, though this isn't likely.)
+4. Only if you ran `git stash`, now run `git stash pop` to redo your changes to `docker-compose.yml`. Double check the contents of this file.
+5. `docker-compose build` to compile the Docker image out of the changed source files.
+6. (optional) `docker-compose run --rm web rails db:migrate` to perform database migrations. Does nothing if your database is up to date.
+7. (optional) `docker-compose run --rm web rails assets:precompile` to compile new JS and CSS assets.
+8. `docker-compose up -d` to re-create (restart) containers and pick up the changes.
