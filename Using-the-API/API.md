@@ -50,6 +50,7 @@ ___
 - [For Perl](https://metacpan.org/pod/Mastodon::Client)
 - [For Swift](https://github.com/ornithocoder/MastodonKit)
 - [For Go](https://github.com/mattn/go-mastodon)
+- [For Scala](https://github.com/schwitzerm/scaladon)
 
 ___
 
@@ -105,6 +106,14 @@ Form data:
 #### Getting an account's followers:
 
     GET /api/v1/accounts/:id/followers
+
+Query parameters:
+
+- `max_id` (optional): Get a list of followers with ID less than or equal this value
+- `since_id` (optional): Get a list of followers with ID greater than this value
+- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+
+`max_id` and `since_id` are usually get from the `Link` header.
 
 Returns an array of [Accounts](#account).
 
@@ -215,7 +224,7 @@ Returns an array of [Accounts](#account) which have requested to follow the auth
     POST /api/v1/follow_requests/:id/authorize
     POST /api/v1/follow_requests/:id/reject
 
-Form data:
+Parameters:
 
 - `id`: The id of the account to authorize or reject
 
