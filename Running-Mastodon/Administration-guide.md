@@ -51,6 +51,14 @@ Will confirm a user manually, in case they don't have access to their confirmati
 Will remove users that never confirmed their e-mail and never signed in, meaning they
 only have a user record and an avatar record, with no files uploaded.
 
+## Manually adding a user
+
+    RAILS_ENV=production bundle exec rails console
+    User.new(email: 'email@example.com', password: SecureRandom.hex, confirmed_at: Time.now.utc, account_attributes: { username: 'their_username' }).save
+
+NOTE: This does not generate a welcome email - you'll need to tell them to perform a password reset in order to login.
+    
+
 ## Mastodon-admin mailing list
 
 There's a mailing list open for mastodon instance admins at
