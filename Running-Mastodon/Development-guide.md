@@ -11,9 +11,13 @@ In fact, all you need is described in the [production guide](Production-guide.md
 - To prefix any commands with `RAILS_ENV=production` since the default environment is "development" anyway
 - Any cronjobs
 
-The command to install project dependencies does not require any flags, i.e. simply
+The command to install Ruby project dependencies does not require any flags, i.e. simply
 
     bundle install
+
+Similarly, installing JavaScript dependencies doesn't require any flags:
+
+    yarn install
 
 By default the development environment wants to connect to a `mastodon_development` database on localhost using your user/ident to login to Postgres (i.e. not a md5 password)
 
