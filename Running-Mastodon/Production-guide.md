@@ -281,6 +281,7 @@ If you want a stable release for production use, you should use tagged releases.
 
 ```sh
     cd ~mastodon/live/
+    git fetch
     git checkout $(git tag | tail -n 1)
 ```
 
