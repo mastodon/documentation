@@ -280,8 +280,7 @@ running smoothly. As your mastodon user run `crontab -e` and enter the following
 If you want a stable release for production use, you should use tagged releases. To checkout the latest available tagged version:
 
 ```sh
-    git clone https://github.com/tootsuite/mastodon.git
-    cd mastodon
+    cd ~mastodon/live/
     git checkout $(git tag | tail -n 1)
 ```
 
@@ -296,7 +295,12 @@ if anything in the `/db/` directory has changed, and/or
 
 if anything in the `/app/assets` directory changed.
 
-Also, Mastodon runs in memory, so you need to restart it before you see any changes (including new precompiled assets). If you're using systemd, that would be:
+Please read the [**release notes**](https://github.com/tootsuite/mastodon/releases/) when you upgrade,
+they might contain specific instructions about how to update (and they always include information
+about which new features the release has, and which bugs are fixed).
+
+Also, Mastodon runs in memory, so you need to restart it before you see any changes (including new
+precompiled assets). If you're using systemd, that would be:
 
 ```sh
     sudo systemctl restart mastodon-*.service
