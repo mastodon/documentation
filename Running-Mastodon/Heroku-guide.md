@@ -77,7 +77,7 @@ To protect the privacy of the users of the your instance, you should have permis
                     "s3:*"
                 ],
                 "Resource": [
-                    "arn:aws:s3:::hentailoan”,
+                    "arn:aws:s3:::hentailoan",
                     "arn:aws:s3:::hentailoan/*"
                 ]
             }
