@@ -16,7 +16,7 @@ The web process serves short-lived HTTP requests for most of the application. Th
 - `WEB_CONCURRENCY` controls the number of worker processes
 - `MAX_THREADS` controls the number of threads per process
 
-The default is 2 workers with 5 threads each. Threads share the memory of their parent process. Different processes allocate their own memory each. Threads in Ruby are not native threads, so it's more or less: threads equal concurrency, processes equal parallelism. A larger number of threads maxes out your CPU first, a larger number of processes maxes out your RAM first.
+The default is 2 workers with 5 threads each. Threads share the memory of their parent process. Different processes allocate their own memory, though they share some memory via copy-on-write. A larger number of threads maxes out your CPU first, a larger number of processes maxes out your RAM first.
 
 These values affect how many HTTP requests can be served at the same time. When not enough threads are available, requests are queued until they can be answered.
 
@@ -30,7 +30,7 @@ If you need to scale up the streaming API, spawn more separate processes on diff
 
 ### Background processing
 
-Many tasks in Mastodon are delegated to background processing to ensure the HTTP requests are fast, and to prevent HTTP request aborts from affecting the execution of those tasks. Sidekiq is a single process, with a configurable numbero of threads. By default, it is 5. That means, 5 different jobs can be executed at the same time. Others will be queued until they can be processed.
+Many tasks in Mastodon are delegated to background processing to ensure the HTTP requests are fast, and to prevent HTTP request aborts from affecting the execution of those tasks. Sidekiq is a single process, with a configurable number of threads (5 by default).
 
 While the amount of threads in the web process affects the responsiveness of the Mastodon instance to the end-user, the amount of threads allocated to background processing affects how quickly posts can be delivered from the author to anyone else, how soon e-mails are sent out, etc.
 
