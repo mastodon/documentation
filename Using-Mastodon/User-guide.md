@@ -130,7 +130,11 @@ The Federated Timeline shows all public posts from all users "known" to your ins
 
 #### The Local Timeline
 
-The Local Timeline only shows public posts made by users on your home instance. This can be useful if your instance has particular community norms that users on other instances may not have, such as particular topics that get put under content warnings; or particular in-jokes and shared interests. To view the Local Timeline, click the ![Local Timeline icon](screenshots/local-timeline.png) "Local Timeline" in the Compose column or the respective button on the Getting Started panel.
+The Local Timeline only shows public posts made by users on your home instance. This can be useful if your instance has particular community norms that users on other instances may not have, such as particular topics that get put under content warnings; or particular in-jokes and shared interests. 
+
+![Local Timeline icon](screenshots/local-timeline.png)
+
+To view the Local Timeline, click the  "Local Timeline" in the Compose column or the respective button on the Getting Started panel.
 
 #### Searching
 
