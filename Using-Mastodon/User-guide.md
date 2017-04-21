@@ -156,6 +156,14 @@ To allow you more control over who can see your toots, Mastodon supports "privat
 
 ![Screenshot of the "Private Account" setting](screenshots/private.png)
 
+You can then see follow requests in the Getting started menu
+
+![Screenshot of the "Follow requests" menu](screenshots/follow_requests_menu.png)
+
+and approve or reject the individual requests
+
+![Screenshot of the approval/denial menu](screenshots/follow_requests.png)
+
 #### Toot Privacy
 
 Toot privacy is handled independently of account privacy, and individually for each toot. The four tiers of visibility for toots are Public (default), Unlisted, Private, and Direct. In order to select your privacy level, click the ![Globe icon](screenshots/compose-privacy.png) globe icon. Changes to this setting are remembered between posts, i.e. if you make one private toot, each toot you make will be private until you change it back to public. You can change your default post privacy under preferences.
