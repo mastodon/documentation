@@ -40,6 +40,7 @@ server {
 
   ssl_certificate     /etc/letsencrypt/live/example.com/fullchain.pem;
   ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+  ssl_dhparam         /etc/ssl/certs/dhparam.pem;
 
   keepalive_timeout    70;
   sendfile             on;
