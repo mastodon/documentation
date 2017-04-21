@@ -17,7 +17,7 @@
 - [Push notifications](Using-the-API/Push-notifications.md)
 
 ### [Running Mastodon](Running-Mastodon)
-- [Resources neeeded](Running-Mastodon/Resources-needed.md)
+- [Resources needed](Running-Mastodon/Resources-needed.md)
 - [Production guide](Running-Mastodon/Production-guide.md)
 - [Docker guide](Running-Mastodon/Docker-Guide.md)
 - [Alternative: Running on Heroku](Running-Mastodon/Heroku-guide.md)
