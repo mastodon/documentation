@@ -19,6 +19,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 | [Capella](https://github.com/coolstar/Capella) | Windows 7, 8.1, 10 | https://coolstar.org/capella | [@coolstar@mastodon.social](https://mastodon.social/users/coolstar)|
 |[Mastodon UWP (beta)](https://github.com/woachk/mastodon/releases)|Windows 10|<https://github.com/woachk/mastodon>|[@my123@mastodon.social](https://mastodon.social/users/my123)|
 |[mastodon.el](https://github.com/jdenen/mastodon.el)|Emacs|<https://github.com/jdenen/mastodon.el>|[@johnson@mastodon.social](https://mastodon.social/users/johnson)|
+| [Mstdn](https://github.com/rhysd/Mstdn) | macOS, Windows, Linux |<https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp) or [@inudog@mastodon.social](https://mastodon.social/@inudog) |
 |[Mastodon Lang Remover](https://github.com/arthurlacoste/mastodon-lang-remover)|browser|<https://github.com/arthurlacoste/mastodon-lang-remover>|[@arthak@mastodon.social](https://mastodon.social/users/arthak)|
 
 ## Bridges from/to other platforms
