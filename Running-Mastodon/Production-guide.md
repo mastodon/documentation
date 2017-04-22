@@ -12,7 +12,9 @@ The following HTTP headers are already set internally and should not be set agai
 
 ## Nginx
 
-Regardless of whether you go with the Docker approach or not, here is an example Nginx server configuration:
+Regardless of whether you go with the Docker approach or not, here is an example Nginx server configuration.
+
+At a minimum, you'll want to replace any occurrence of `example.com` with your actual hostname, and `/home/mastodon/live/public` with the location of your actual mastodon `public/` directory.
 
 ```nginx
 map $http_upgrade $connection_upgrade {
@@ -58,6 +60,8 @@ server {
   gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
 
   add_header Strict-Transport-Security "max-age=31536000";
+  add_header Content-Security-Policy "default-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; media-src 'self' data:; connect-src 'self' wss://example.com; font-src 'self'; frame-ancestors 'none'; manifest-src 'self';";
+  add_header Referrer-Policy "strict-origin-when-cross-origin";
 
   location / {
     try_files $uri @proxy;
