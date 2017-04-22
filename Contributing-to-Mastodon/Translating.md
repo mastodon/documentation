@@ -51,7 +51,7 @@ Keep an eye on the original English files in `app/assets/javascripts/components/
 
 Different languages use different plural forms to be taken care of by Mastodon.
 
-For JavaScipt (`.jsx`) translations, this is done in [react-intl](https://github.com/yahoo/react-intl) way, by doing:
+For JavaScipt (`.jsx`) translations, this is done in [react-intl](https://github.com/yahoo/react-intl), by doing:
 
 ```
 Here {appleCount, plural, one {is an apple} other {are {appleCount} apples}}.
@@ -65,6 +65,6 @@ eat_apple:
   other: You ate %{count} apples.
 ```
 
-In both cases you can see a `one` case and an `other` case described for the pluralized strings. The exact strings is chosen by how many a certain quantity is -- when there is exactly one of something, the sentence goes to the `one` case; otherwise it goes to the `other` case. This is the case for English (`en`) and a few other languages.
+In both examples you can see a `one` case and an `other` case described for the pluralized strings. The exact strings is chosen by how many a certain quantity is -- when there is exactly one of something, the sentence goes to the `one` case; otherwise it goes to the `other` case. This how plualization works for English (`en`) and a few other languages.
 
 There are, however, many languages that don't operate in the one-other way. Polish as four plural forms, named `one`, `few`, `many`, and `other` respectively. Arabic has six. Chinese, Japanese, and Korean only have one form called `other`. If your language does not operate in the one-other way, be sure to check out the cardinal part of this [Unicode CIDR Plural Rules](http://www.unicode.org/cldr/charts/28/supplemental/language_plural_rules.html) chart.
