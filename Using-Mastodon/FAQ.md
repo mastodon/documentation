@@ -141,7 +141,7 @@ Federated.
 The original author.
 
 #### Can I preview the people on an instance, and what they’re saying?
-Yes, try the excellent [instance preview tool](http://www.unmung.com/mastoview?url=mastodon.social&amp;amp;view=local).
+Yes, try the excellent [instance preview tool](http://www.unmung.com/mastoview?url=mastodon.social&view=local).
 	
 #### How do I hide the toots of languages I don’t understand?
 The developers are working on this and other filtering options, stay tuned!
@@ -169,4 +169,3 @@ Here’s more, from hardworking individuals trying to help, too.
 * [https://medium.com/tebelorg/my-first-10-days-on-mastodon-fediverse-f6f1d73db8d7](https://medium.com/tebelorg/my-first-10-days-on-mastodon-fediverse-f6f1d73db8d7)
 
 * [https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md](https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md)
-
