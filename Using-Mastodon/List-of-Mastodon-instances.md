@@ -11,6 +11,7 @@ List of Mastodon instances
 | [mastodon.cx](https://mastodon.cx/) |Alternative Mastodon instance hosted in France|Yes|Yes|
 | [mastodon.network](https://mastodon.network) |N/A|Yes|Yes|
 | [awoo.space](https://awoo.space) |Intentionally moderated, only federates with mastodon.social|Yes|No|
+| [linuxrocks.online](https://linuxrocks.online) |Community-driven instance for people who love linux and open source software.  Federation allowed|Yes|No|
 | [animalliberation.social](https://animalliberation.social) |Animal Rights|Yes|No|
 | [socially.constructed.space](https://socially.constructed.space) |Single user|No|No|
 | [epiktistes.com](https://epiktistes.com) |N/A|Yes|No|
