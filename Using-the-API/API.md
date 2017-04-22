@@ -400,6 +400,9 @@ Returns the target [Status](#status).
 Query parameters:
 
 - `local` (optional; public and tag timelines only): Only return statuses originating from this instance
+- `max_id` (optional): Get a list of statuses with ID less than or equal this value
+- `since_id` (optional): Get a list of statuses with ID greater than this value
+- `limit` (optional): Maximum number of accounts to get (Default 20, Max 40)
 
 Returns an array of [Statuses](#status), most recent ones first.
 ___
