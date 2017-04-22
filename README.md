@@ -23,6 +23,7 @@
 - [Alternative: Running on Heroku](Running-Mastodon/Heroku-guide.md)
 - [Development guide](Running-Mastodon/Development-guide.md)
 - [Alternative: Development with Vagrant](Running-Mastodon/Vagrant-guide.md)
+- [Alternative: Development _and_ Production with Nanobox](Running-Mastodon/Nanobox-Guide.md)
 - [Administration guide](Running-Mastodon/Administration-guide.md)
 - [Maintenance Tasks](Running-Mastodon/Maintenance-Tasks.md)
 - [Tuning Mastodon](Running-Mastodon/Tuning.md)
