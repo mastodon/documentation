@@ -31,11 +31,11 @@ Do this once for each of those keys, and copy the result into the `.env.producti
 
 Then you should run the `db:migrate` command to create the database, or migrate it from an older release:
 
-    docker-compose run --rm web rails db:migrate
+    docker-compose run --rm web rake db:migrate
 
 Then, you will also need to precompile the assets:
 
-    docker-compose run --rm web rails assets:precompile
+    docker-compose run --rm web rake assets:precompile
 
 before you can launch the docker image with:
 
