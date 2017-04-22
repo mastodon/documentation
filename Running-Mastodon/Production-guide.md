@@ -63,6 +63,12 @@ server {
     try_files $uri @proxy;
   }
 
+  location /assets {
+    # Serve static, checksummed assets directly from nginx as a perf boost
+    root /home/mastodon/live/public;
+    add_header Cache-Control "public, max-age=31536000, immutable";
+  }
+
   location @proxy {
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
