@@ -46,3 +46,25 @@ Once the pull request is accepted, wait for the code to be deployed on a Mastodo
 ## Updating the translation
 
 Keep an eye on the original English files in `app/assets/javascripts/components/locales` and `config/locales`. When they are updated, pass on the changes to your language files. For new strings, add the new lines to the same position and translate them. Once you’re finished with the updates, you can submit a new pull request.
+
+## Appendix A. Plural handling
+
+Different languages use different plural forms to be taken care of by Mastodon.
+
+For JavaScipt (`.jsx`) translations, this is done in [react-intl](https://github.com/yahoo/react-intl) way, by doing:
+
+```
+Here {appleCount, plural, one {is an apple} other {are {appleCount} apples}}.
+```
+
+On the other hand, `.yml` files are processed by [rails-i18n](https://github.com/svenfuchs/rails-i18n). Items that look like this are pluralized fields:
+
+```YML
+eat_apple:
+  one: You ate an apple.
+  other: You ate %{count} apples.
+```
+
+In both cases you can see a `one` case and an `other` case described for the pluralized strings. The exact strings is chosen by how many a certain quantity is -- when there is exactly one of something, the sentence goes to the `one` case; otherwise it goes to the `other` case. This is the case for English (`en`) and a few other languages.
+
+There are, however, many languages that don't operate in the one-other way. Polish as four plural forms, named `one`, `few`, `many`, and `other` respectively. Arabic has six. Chinese, Japanese, and Korean only have one form called `other`. If your language does not operate in the one-other way, be sure to check out the cardinal part of this [Unicode CIDR Plural Rules](http://www.unicode.org/cldr/charts/28/supplemental/language_plural_rules.html) chart.
