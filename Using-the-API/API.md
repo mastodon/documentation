@@ -51,6 +51,7 @@ ___
 - [For Swift](https://github.com/ornithocoder/MastodonKit)
 - [For Go](https://github.com/mattn/go-mastodon)
 - [For Scala](https://github.com/schwitzerm/scaladon)
+- [For .Net](https://github.com/Tlaster/Mastodon.Net)
 
 ___
 
