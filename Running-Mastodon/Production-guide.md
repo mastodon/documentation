@@ -63,6 +63,10 @@ server {
     try_files $uri @proxy;
   }
 
+  location /assets {
+    add_header Cache-Control "public, max-age=31536000, immutable";
+  }
+
   location @proxy {
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
