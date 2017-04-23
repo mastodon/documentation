@@ -70,7 +70,7 @@ You can follow or contact Tusky at [@Tusky@mastodon.social](https://mastodon.soc
 #### How do I search?
 You can search for people and hashtags, but not general text. Use the box above the tooting area.
 
-<img src="screenshots/search.png" alt="Search Box" style="height: 200px;"/>
+<img src="screenshots/search.png" alt="Search Box" height=200"/>
 
 #### How do I DM (Direct Message)?"
 Click on the **globe** beneath your toot for privacy options, including DM.
@@ -93,9 +93,9 @@ At the moment, you will have to toot the admin of your instance for help on that
 #### Who is my admin, and how do I contact/follow them?
 Click on **Getting Started**, then **Extended Information**. An info page displays. Hopefully, they put their contact information in there!
 
-<img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" style="height: 200px;"/>
-<img src="screenshots/getting_started-extended_information.png" alt="Extended Information" style="height: 200px;"/>
-<img src="screenshots/admin_info.png" alt="Admin Info" style="height: 200px;"/>
+<img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" height=200"/>
+<img src="screenshots/getting_started-extended_information.png" alt="Extended Information" height=200"/>
+<img src="screenshots/admin_info.png" alt="Admin Info" height=200"/>
 
 #### Wow, I keep seeing offensive stuff from a particular instance, is there a way to block *all* of it?
 Not without a lot of clicking, sorry. But, your instance admin can do it! Please contact her.
@@ -109,8 +109,8 @@ No, sorry. But you could delete and rewrite...
 #### How do I view my favorite toots?
 Click **Getting Started**, then **Favourites**.
 
-<img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" style="height: 200px;"/>
-<img src="screenshots/getting_started-favourites.png" alt="Favourites" style="height: 200px;"/>
+<img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" height=200"/>
+<img src="screenshots/getting_started-favourites.png" alt="Favourites" height=200"/>
 
 
 #### Can I quote a toot?
@@ -122,7 +122,7 @@ Yes you do.
 #### Can I save my data?
 Yes, some of it! It‘s under **Preferences->Data export**
 
-<img src="screenshots/preferences-data_export.png" alt="Data Export" style="height: 400px;"/>
+<img src="screenshots/preferences-data_export.png" alt="Data Export" height=400"/>
 
 #### I can’t see toots of a remote user under their bio!
 Click their avatar pic. This will take you directly to their instance, which displays all their public toots.
@@ -136,7 +136,7 @@ Click the toot body for a **Expanded View**. Right-click on the **date beneath**
 #### How do I link to my profile?
 In Firefox, **right-click** on your avatar picture. Select **Copy link location**.
 
-<img src="screenshots/link_to_profile.png" alt="URL Bio" style="height: 200px;"/>
+<img src="screenshots/link_to_profile.png" alt="URL Bio" height=200"/>
 
 #### Does clicking a #hashtag show  local results, or federated?
 Federated.
@@ -156,9 +156,9 @@ Not yet, but there is a [Firefox TamperMonkey script](https://github.com/tomouch
 #### Do toots automatically broadcast federated, or stay local?
 By default, toots are federated (public), and will show on both timelines. You can change the default behavior through **Settings->Preferences->Post Privacy.**
 
-<img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" style="height: 200px;"/>
-<img src="screenshots/getting_started-preferences.png" alt="Preferences" style="height: 200px;"/>
-<img src="screenshots/preferences-post_privacy.png" alt="Post Privacy" style="height: 400px;"/>
+<img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" height=200"/>
+<img src="screenshots/getting_started-preferences.png" alt="Preferences" height=200"/>
+<img src="screenshots/preferences-post_privacy.png" alt="Post Privacy" height=400"/>
 
 
 #### I found a bug or have a suggestion for Mastodon.
