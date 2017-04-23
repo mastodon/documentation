@@ -75,6 +75,8 @@ You can search for people and hashtags, but not general text. Use the box above 
 #### How do I DM (Direct Message)?"
 Click on the **globe** beneath your toot for privacy options, including DM.
 
+<img src="screenshots/compose-globe.png" alt="Privacy Globe" height="400"/>
+
 #### I don’t get the local vs. federated timeline thing.
 “Local” toots are from the server you signed up at. “Federated” are the all the toots your server knows about. (It's complicated, but short version is: “toots from people that you and other locals follow.”)
 
@@ -112,7 +114,6 @@ Click **Getting Started**, then **Favourites**.
 <img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" height="200"/>
 <img src="screenshots/getting_started-favourites.png" alt="Favourites" height="200"/>
 
-
 #### Can I quote a toot?
 Not currently. You must manually copy and paste the text to quote it.
 
@@ -125,18 +126,25 @@ Yes, some of it! It‘s under **Preferences->Data export**
 <img src="screenshots/preferences-data_export.png" alt="Data Export" height="400"/>
 
 #### I can’t see toots of a remote user under their bio!
-Click their avatar pic. This will take you directly to their instance, which displays all their public toots.
+In **Expanded View**, click their avatar. This will take you directly to their instance, which displays all their public toots.
+
+<img src="screenshots/profile-avatar_click.png" alt="Click their avatar" height="200"/>
+<img src="screenshots/profile-webpage_URL.png" alt="Native webpage view" height="200"/>
 
 #### How do I see threads?
 Click the toot body for **Expanded View**. This will show threads the toot’s connected to.
 
 #### How do I link to toots?
-Click the toot body for a **Expanded View**. Right-click on the **date beneath** the toot for a permalink.
+There are two permalinks for toots. With inline toots, **right-click** the timestamp. On expanded toots, **right-click** the date on the bottom.
+
+<img src="screenshots/inline_toot-timestamp_link.png" alt="Inline View Permalink" height="200"/>
+<img src="screenshots/expanded_view-permalink.png" alt="Expanded View Permalink" height="200"/>
+
 
 #### How do I link to my profile?
-In Firefox, **right-click** on your avatar picture. Select **Copy link location**.
+In Firefox, **right-click** on your avatar picture. Select **Copy Link Location**.
 
-<img src="screenshots/link_to_profile.png" alt="URL Bio" height="200"/>
+<img src="screenshots/link_to_profile.png" alt="URL for Profile" height="200"/>
 
 #### Does clicking a #hashtag show  local results, or federated?
 Federated.
@@ -146,13 +154,13 @@ The original author.
 
 #### Can I preview the people on an instance, and what they’re saying?
 Yes, try the excellent [instance preview tool](http://www.unmung.com/mastoview?url=mastodon.social&view=local).
-	
+
 #### How do I hide the toots of languages I don’t understand?
 The developers are working on this and other filtering options, stay tuned!
 
 #### Is automatic translation supported?
 Not yet, but there is a [Firefox TamperMonkey script](https://github.com/tomouchuu/mastodon-translate) that might work for you.
-	
+
 #### Do toots automatically broadcast federated, or stay local?
 By default, toots are federated (public), and will show on both timelines. You can change the default behavior through **Settings->Preferences->Post Privacy.**
 
@@ -162,7 +170,7 @@ By default, toots are federated (public), and will show on both timelines. You c
 
 
 #### I found a bug or have a suggestion for Mastodon.
-You can file a bug or submit suggestions at [Mastodon’s Issue Tracker.](https://github.com/tootsuite/mastodon/issues) 
+You can file a bug or submit suggestions at [Mastodon’s Issue Tracker.](https://github.com/tootsuite/mastodon/issues)
 
 #### Hey I love mastodon FAQs! Can I have more?
 Here’s more, from hardworking individuals trying to help, too.
