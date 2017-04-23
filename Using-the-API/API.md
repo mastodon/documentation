@@ -52,6 +52,8 @@ ___
 - [For Go](https://github.com/mattn/go-mastodon)
 - [For Scala](https://github.com/schwitzerm/scaladon)
 - [For Java, Kotlin](https://github.com/sys1yagi/mastodon4j)
+- [For C#](https://github.com/pawotter/mastodon-api-cs)
+
 ___
 
 ## Notes
