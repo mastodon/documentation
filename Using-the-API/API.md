@@ -40,6 +40,7 @@ ___
 ## Available libraries
 
 - [For Ruby](https://github.com/tootsuite/mastodon-api)
+- [For Perl](https://gitlab.com/jjatria/Mastodon-Client)
 - [For Python](https://github.com/halcy/Mastodon.py)
 - [For JavaScript](https://github.com/Zatnosk/libodonjs)
 - [For Javascript (Browser)](https://github.com/Kirschn/mastodon.js)
