@@ -51,6 +51,7 @@ ___
 - [For Swift](https://github.com/ornithocoder/MastodonKit)
 - [For Go](https://github.com/mattn/go-mastodon)
 - [For Scala](https://github.com/schwitzerm/scaladon)
+- [For .Net](https://github.com/Tlaster/Mastodon.Net)
 - [For Java, Kotlin](https://github.com/sys1yagi/mastodon4j)
 - [For C#](https://github.com/pawotter/mastodon-api-cs)
 
@@ -345,13 +346,6 @@ Returns the [Notification](#notification).
     POST /api/v1/notifications/clear
 
 Deletes all notifications from the Mastodon server for the authenticated user.
-Returns an empty object.
-
-#### Dismissing a single notification:
-
-    POST /api/v1/notifications/dismiss/:id
-
-Deletes the notification from the Mastodon server for the authenticated user.
 Returns an empty object.
 
 ### Reports
