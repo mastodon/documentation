@@ -175,7 +175,7 @@ Then you can proceed to install project dependencies:
 
     gem install bundler
     bundle install --deployment --without development test
-    yarn install
+    yarn install --pure-lockfile
 
 ## Configuration
 
@@ -298,7 +298,7 @@ As part of your deploy, you may need to run:
 
 if anything in the `/db/` directory has changed, and/or
 
-- `yarn install`
+- `yarn install --pure-lockfile`
 - `RAILS_ENV=production bundle exec rails assets:precompile`
 
 if anything in the `/app/assets` directory changed.
