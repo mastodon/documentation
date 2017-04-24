@@ -16,7 +16,7 @@ and warn you about possible federation issues. It also assumes you have already 
 
 It is important to understand that for federation purposes, a user in Mastodon has two unique identifiers associated:
 - A webfinger `acct:` URI, used for discovery and as a verifiable global name for the user across Mastodon instances.
-  In our example, our account's `acct:` URI is `user@example.org`
+  In our example, our account's `acct:` URI is `acct:user@example.org`
 - An author/actor URI, used in every other aspect of federation. This is the way in which users are identified in
   OStatus, the underlying protocol used for federation with other Mastodon instances.
   In our case, it is `https://social.example.org/users/user`.
@@ -68,7 +68,7 @@ With nginx, it would be as simple as adding:
 
 ```nginx
 location /.well-known/host-meta {
-       return 301 https://social.example.org/.well-known/host-meta;
+       return 301 https://social.example.org$request_uri;
 }
 ```
 
