@@ -28,6 +28,8 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |---|--------|----|------------|
 |Retoot|CLI|<https://gitlab.com/mojo42/retoot>|[@Mojo@apoil.org](https://apoil.org/users/mojo)|
 |Mastodon.tools|Wordpress, web browser, social network|<https://github.com/davidlibeau/mastodon-tools>|[@David@mastodon.xyz](https://mastodon.xyz/users/David)|
+|mastodon-bridge|A tool for finding your Twitter friends in the federated Mastodon network|<https://mastodon-bridge.herokuapp.com/>|[@Gargron@mastodon.social](https://mastodon.social/users/Gargron)|
+
 
 ## Bots
 

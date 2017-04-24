@@ -24,7 +24,7 @@ We are using the OStatus suite of protocols:
 
 #### What is mastodon.social?
 
-The "flagship" instance of Mastodon, aka the server I run myself with the latest code. It's not supposed to be the only instance in the end.
+The "flagship" instance of Mastodon, aka the server I run myself with the latest code. There are more mastodon instances. There is an updated list at [instances.mastodon.xyz](https://instances.mastodon.xyz).
 
 #### What else is part of the federated network?
 
