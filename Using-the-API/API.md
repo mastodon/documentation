@@ -54,6 +54,7 @@ ___
 - [For .Net](https://github.com/Tlaster/Mastodon.Net)
 - [For Java, Kotlin](https://github.com/sys1yagi/mastodon4j)
 - [For C#](https://github.com/pawotter/mastodon-api-cs)
+- [For Haskell](https://github.com/syucream/hastodon)
 
 ___
 
