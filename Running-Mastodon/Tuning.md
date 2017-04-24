@@ -26,7 +26,7 @@ For a single-user instance, 1 process with 5 threads should be more than enough.
 
 The streaming API handles long-lived HTTP and WebSockets connections, through which clients receive real-time updates. It is a single-threaded process. By default it has a database connection pool of 10, which means 10 different database queries can run *at the same time*. The database is not heavily used in the streaming API, only for initial authentication of the request, and for some special receiver-specific filter queries when receiving new messages. At the time of writing this value cannot be reconfigured, but mostly doesn't need to.
 
-If you need to scale up the streaming API, spawn more separate processes on different ports (e.g. 4000, 4001, 4003, etc) and load-balance between them with nginx.
+If you need to scale up the streaming API, change the `STREAMING_CLUSTER_NUM` in your `.env.production`. If unspecified, this will default to the number of cores on the machine.
 
 ### Background processing
 
