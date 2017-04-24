@@ -17,7 +17,7 @@ The command to install Ruby project dependencies does not require any flags, i.e
 
 Similarly, installing JavaScript dependencies doesn't require any flags:
 
-    yarn install
+    yarn install --pure-lockfile
 
 By default the development environment wants to connect to a `mastodon_development` database on localhost using your user/ident to login to Postgres (i.e. not a md5 password)
 
