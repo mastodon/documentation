@@ -96,7 +96,7 @@ Click on **Getting Started**, then **Extended Information**. An info page displa
 ![Getting Started](https://octodon.social/media/TKlZpSNRRcHBOEFNlGs) ![Extended Information](https://octodon.social/media/D7bfl1NYzNy4XIT8nLs) ![Info Page](https://octodon.social/media/zvoI8yUt4uurZcKqFRk)
 
 #### Wow, I keep seeing offensive stuff from a particular instance, is there a way to block *all* of it?
-Not without a lot of clicking, sorry. But, your instance admin can do it! Please contact her.
+Not without a lot of clicking, sorry. But, your instance admin can do it! Please contact them.
 
 #### How do I get verified with a “✅”?
 “✅” is an emoji, *only* for lulz. There is no verification on Mastodon. You can copy and paste “✅” into your bio if you wish, you cheeky monkey.
