@@ -62,6 +62,12 @@ only have a user record and an avatar record, with no files uploaded.
 
 This will create a new user as if they had walked through the registration process and confirmed their account, and will immediately be able to log in.  Make sure the user resets their password away from the temporary password you give them!
 
+## Activity monitoring
+
+Munin graphs can be generated to track your instance activity.
+
+* https://github.com/cquest/mastodon-munin-plugins
+
 ## Mastodon-admin mailing list
 
 There's a mailing list open for mastodon instance admins at
