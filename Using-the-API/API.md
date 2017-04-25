@@ -56,6 +56,7 @@ ___
 - [For C#](https://github.com/pawotter/mastodon-api-cs)
 - [For Haskell](https://github.com/syucream/hastodon)
 - [For Crystal](https://github.com/decors/mastodon.cr)
+- [For C#(.NET Standard)](https://github.com/yamachu/Mastodot)
 
 ___
 
