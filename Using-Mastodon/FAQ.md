@@ -96,8 +96,8 @@ Some instances are private and will not federate with your instance. Others may 
 #### Can I have more than one account? Can I use the same email on different instances?
 Yes and yes! If you find another instance you would like to join, sign up! Note that not all instances are open to new registrations and it’s possible that someone has already taken your preferred username.
 
-#### Can I import my followers to another instance?
-Yes. This may take time depending on the instance you move to. Talk to the admin of your new instance if you have difficulties. If your new instance does not federate with the instances your followers use, you may lose them.
+#### Can I import the people I follow to another instance?
+Yes. This may take time depending on the instance you move to. Talk to the admin of your new instance if you have difficulties. If your new instance does not federate with the instances of the people you follow, you may lose them.
 
 #### How do I prevent people from impersonating me?
 Because anyone can create a username on any instance, it is impossible to prevent others from using the same username on another instance. Some people have taken to running their own single-user instance to verify themselves, or use [Keybase](https://keybase.io/).
@@ -137,9 +137,6 @@ Click on **Getting Started**, then **Extended Information**. An info page displa
 #### Wow, I keep seeing offensive stuff from a particular instance, is there a way to block *all* of it?
 Not without a lot of clicking, sorry. But, your instance admin can do it! Please contact her.
 
-#### I blocked someone, why can I still see their posts?
-Blocking doesn’t catch when toots are boosted.
-
 #### Is Mastodon moderated?
 Each instance handles moderation differently, and each has their own moderators. It’s okay to ask what the rules are for the instance you are on. Usually the rules are posted on the instance's about page ([like the “more” page at Mastodon.social](https://mastodon.social/about/more))
 
@@ -155,12 +152,12 @@ Yes, they should. However, private messages are *not secure*. You should avoid s
 #### What does “Adjust Status Privacy” mean and how does it work?
 The **globe** icon under the toot area adjusts your status privacy by changing who can see your posts. This is what happens:
 
-| Privacy setting | Destination | Notes |
-| --------------- | ----------- | ----- |
-| Public          | global, public timeline | Federated. People on other instances will probably see it. |
-| Unlisted        | local public timeline | Can be boosted and thus seen on other instances.  |
-| Private         | only to your followers |  Cannot be boosted. |
-| Direct          | mentioned people only  | Similar to email |
+| Privacy setting | Broadcasted to | Viewable by | Notes |
+| --------------- | ----------- | ------ | ----- |
+| Public          | Global, public timelines | Everyone | Federated. People on other instances will probably see it. |
+| Unlisted        | Followers only | Everyone | Can be boosted and thus seen on other instances.  |
+| Private         | Followers only |  Followers only | Cannot be boosted. |
+| Direct          | Mentioned people only  | Mentioned people only | Similar to email |
 
 #### Can I use hashtags? Should I?
 Yes! Hashtags are tracked and are often fun, but some tags help people avoid triggering posts. This is especially appreciated on public posts of #POLITICS, #HEALTH, #DEPRESSION, or #LEWD OR #NSFW topics. Such posts are also what the Content Warning system was designed for.
