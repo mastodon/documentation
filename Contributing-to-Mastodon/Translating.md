@@ -3,7 +3,7 @@ Translating
 
 If you want to localize Mastodon into your language, here is how.
 
-There are two parts to Mastodon, the server and the web client. The translations for the web client are in `app/assets/javascripts/components/locales`. For the server-side, the translations live in `config/locales` and are divided into different files. Here are all the files you’ll need to translate:
+There are two parts to Mastodon, the server and the web client. The translations for the web client are in [`app/assets/javascripts/components/locales`](https://github.com/tootsuite/mastodon/tree/master/app/assets/javascripts/components/locales). For the server-side, the translations live in [`config/locales`](https://github.com/tootsuite/mastodon/tree/master/config/locales) and are divided into different files. In addition, email templates for the server are found in [`app/views/user_mailer`](https://github.com/tootsuite/mastodon/tree/master/app/views/user_mailer). Here are all the files you’ll need to translate:
 
 | Original file (English) | Location | Description |
 |---|---|---|
@@ -12,6 +12,9 @@ There are two parts to Mastodon, the server and the web client. The translations
 | [`simple_form.en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/simple_form.en.yml) | `config/locales/simple_form.en.yml` | Strings for the settings area |
 | [`devise.en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/devise.en.yml) | `config/locales/devise.en.yml` | Generic strings for Devise |
 | [`doorkeeper.en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/doorkeeper.en.yml) | `config/locales/doorkeeper.en.yml` | Generic strings for Doorkeeper |
+| [`confirmation_instructions.en.html.erb`](https://github.com/tootsuite/mastodon/blob/master/app/views/user_mailer/confirmation_instructions.en.html.erb)<br>[`confirmation_instructions.en.text.erb`](https://github.com/tootsuite/mastodon/blob/master/app/views/user_mailer/confirmation_instructions.en.text.erb) | `app/views/user_mailer/confirmation_instructions.en.html.erb`<br>`app/views/user_mailer/confirmation_instructions.en.text.erb` | Account confirmation message for Devise
+| [`password_change.en.html.erb`](https://github.com/tootsuite/mastodon/blob/master/app/views/user_mailer/password_change.en.html.erb)<br>[`password_change.en.text.erb`](https://github.com/tootsuite/mastodon/blob/master/app/views/user_mailer/password_change.en.text.erb) | `app/views/user_mailer/password_change.en.html.erb`<br>`app/views/user_mailer/password_change.en.text.erb` | Password change notification for Devise
+| [`reset_password_instructions.en.html.erb`](https://github.com/tootsuite/mastodon/blob/master/app/views/user_mailer/reset_password_instructions.en.html.erb)<br>[`reset_password_instructions.en.text.erb`](https://github.com/tootsuite/mastodon/blob/master/app/views/user_mailer/reset_password_instructions.en.text.erb) | `app/views/user_mailer/reset_password_instructions.en.html.erb`<br>`app/views/user_mailer/reset_password_instructions.en.text.erb`  | Password reset instructions for Devise
 
 ## Translating
 
