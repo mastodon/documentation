@@ -42,8 +42,8 @@ Development of Mastodon and hosting of mastodon.social is funded through my [Pat
 
 The software is free and open source and communities should host their own servers if they can, that way the costs are more or less distributed. Obviously it'd be hard for me to pay the bills if literally everyone decided to use the mastodon.social instance only.
 
-#### This looks a lot like twitter, what’s the difference?
-Mastodon is a decentralized social network with no in-line ads.
+#### This looks a lot like Twitter, what’s the difference?
+Mastodon is decentralized. Anyone can run a Mastodon server, under their own community rules. Twitter is run by a central authority, and sets the rules for everyone.
 
 #### What is a “federation”?
 It’s a group of mastodon servers that share toots with each other.
@@ -91,7 +91,7 @@ Click on the **globe** beneath your toot for privacy options, including DM.
 “Local” toots are from the server you signed up at. “Federated” are the all the toots your server knows about. (It's complicated, but short version is: “toots from people that you and other locals follow.”)
 
 #### Are there instances that my instance doesn't federate with? How do I know?
-Some instances are private and will not federate with your instance. Others may be blocked by your instance. You can ask the admin of your instance to find out more about federation.
+Some instances are private and will not federate with your instance. Others may be blocked by your instance. To find out more about how your instance federates, ask your admin. (see also: “[Who is my admin, and how do I contact/follow them?](#who-is-my-admin-and-how-do-i-contact-follow-them)”)
 
 #### Can I have more than one account? Can I use the same email on different instances?
 Yes and yes! If you find another instance you would like to join, sign up! Note that not all instances are open to new registrations and it’s possible that someone has already taken your preferred username.
@@ -126,6 +126,7 @@ Try saying it out loud. It’s fun!
 #### How do I delete my account?
 At the moment, you will have to toot the admin of your instance for help on that one.
 
+<a name="who-is-my-admin-and-how-do-i-contact-follow-them"></a>
 #### Who is my admin, and how do I contact/follow them?
 Click on **Getting Started**, then **Extended Information**. An info page displays. Hopefully, they put their contact information in there!
 
@@ -146,10 +147,10 @@ Each instance handles moderation differently, and each has their own moderators.
 Beneath each post, you will see three dots. Clicking on those will allow you to expand a post or report the content. When reporting content, select all posts that need moderator attention.
 
 #### How do I handle harassment?
-Harassment is taken seriously by the admins and moderators of instances and should be reported through the post-reporting system which can be found via the three dots under every post or writing your admin/mod directly.
+If your admin takes harassment seriously, you can report it to them through the post-reporting system. This can be found through the ellipsis (“…”) beneath the post, or by contacting your admin directly.
 
-#### Do my Private Messages get to people on other instances?
-They should, yes. However, because of different privacy settings and other factors, your post might not remain private under certain circumstances.
+#### Will my Private Messages reach people on other instances?
+Yes, they should. However, private messages are *not secure*. You should avoid sending sensitive information through them.
 
 #### What does “Adjust Status Privacy” mean and how does it work?
 The **globe** icon under the toot area adjusts your status privacy by changing who can see your posts. This is what happens:
@@ -174,16 +175,13 @@ No, sorry. But you could delete your toot and rewrite…
 Deleting a post will delete it from the local timeline. However, if it has already been boosted, it may still be seen and may federate.
 
 #### How do I view my favorite toots?
-Click **Getting Started**, then **Favourites**.
+Click **Getting Started**, then **Favourites**. Yes—Mastodon uses UK spelling!
 
 <img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" height="200"/>
 <img src="screenshots/getting_started-favourites.png" alt="Favourites" height="200"/>
 
 #### Can I quote a toot?
 Not currently. You must manually copy and paste the text to quote it.
-
-#### What if my instance shuts down?
-Good question.
 
 #### If my instance shuts down forever, do I lose my data?
 Yes you do.
