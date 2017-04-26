@@ -9,6 +9,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |---|--------|----|------------|
 |[Tusky](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky)|Android|<https://github.com/Vavassor/Tusky>|[@Vavassor@mastodon.social](https://mastodon.social/users/Vavassor)|
 |mastodroid|Android|<https://github.com/alin-rautoiu/mastodroid>|[@charlag@mastodon.social](https://mastodon.social/users/charlag)|
+|Pawoo|Android|<https://play.google.com/store/apps/details?id=jp.pxv.pawoo>|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
 |TootyFruity|iOS/[Android](https://play.google.com/store/apps/details?id=ch.kevinegli.tootyfruity221258)|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
 |11t|iOS/[Android](https://play.google.com/store/apps/details?id=com.jeroensmeets.mastodon)|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
 |[Amaroq](https://itunes.apple.com/us/app/amarok-for-mastodon/id1214116200?ls=1&mt=8)|iOS|<https://itunes.apple.com/us/app/amarok-for-mastodon/id1214116200?ls=1&mt=8>|[@eurasierboy@mastodon.social](https://mastodon.social/users/eurasierboy)|
