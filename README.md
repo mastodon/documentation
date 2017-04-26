@@ -17,6 +17,9 @@
 - [Push notifications](Using-the-API/Push-notifications.md)
 
 ### [Running Mastodon](Running-Mastodon)
+
+**Please note**: It is highly recommended to run a [tagged release](https://github.com/tootsuite/mastodon/releases) of Mastodon and **not** run off the current `master` branch.
+
 - [Resources needed](Running-Mastodon/Resources-needed.md)
 - [Production guide](Running-Mastodon/Production-guide.md)
 - [Docker guide](Running-Mastodon/Docker-Guide.md)
