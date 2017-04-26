@@ -79,7 +79,7 @@ Haz click en el **icono de globo** que aparece debajo de tu toot para cambiar la
 #### No entiendo la diferencia entre historia (*timeline*) local e historia federada.
 Los toots “locales” corresponden al servidor en el que te registraste. La “federada” son todos los toots que tu servidor recibe de distintos servidores (es más complicado, pero la versión corta es: “los toots de gente que tú y otros usuarios locales siguen”).
 
-#### Hay nodos o instancias con las cuales no federa la instancia en la que estoy? ¿Cómo puedo saberlo?
+#### ¿Hay nodos o instancias con las cuales no federa la instancia en la que estoy? ¿Cómo puedo saberlo?
 Algunos nodos son privados y por lo tanto no estarán federados con el tuyo. U otros podrían haber sido bloqueados por el tuyo. Puedes preguntar a tu admin para saber más sobre con cuáles nodos están federando (ve a: “[¿Quién es mi admin? ¿Cómo me pongo en contacto o sigo a esa persona?](#who-is-my-admin-and-how-do-i-contact-follow-them)”).
 
 #### ¿Puedo tener más de una cuenta? ¿Puedo usar la misma dirección de correo electrónico en diferentes instancias o nodos?
@@ -91,7 +91,7 @@ Sí. Esto puede tomar tiempo dependiendo del nodo al que te estés mudando. Habl
 #### ¿Cómo evito que alguien se haga pasar por mí en Mastodon?
 Puesto que cualquiera puede crear cualquier nombre de usuario en cualquier nodo o instancia, siempre que no haya sido registrado antes, es imposible prevenir que otras personas usen el mismo nombre de usuario en diferentes instancias. Alguna gente se ha tomado el trabajo de instalar y mantener sus propias instancias personales de un solo usuario como forma de verificación, o usa [Keybase](https://keybase.io/).
 
-#### Cómo activo la Autenticación en Dos Pasos (**“Autenticación de dos factores”** en la página)?
+#### ¿Cómo activo la Autenticación en Dos Pasos (**“Autenticación de dos factores”** en la página)?
 Si el nodo en el que estás tiene soporte para hacerlo, la opción estará en **Preferencias** (*Preferences*) > **Autenticación de Dos Factores** (*Two-factor Authentication*). La [Autenticación de Dos Factores de Mastodon](2FA.md) (liga en inglés) usa tanto código QR como llaves en texto no enriquecido.
 
 #### ¿Por qué no puedo ver los toots de alguien?
