@@ -22,6 +22,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[mastodon.el](https://github.com/jdenen/mastodon.el)|Emacs|<https://github.com/jdenen/mastodon.el>|[@johnson@mastodon.social](https://mastodon.social/users/johnson)|
 | [Mstdn](https://github.com/rhysd/Mstdn) | macOS, Windows, Linux |<https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp) or [@inudog@mastodon.social](https://mastodon.social/@inudog) |
 |[Mastodon Lang Remover](https://github.com/arthurlacoste/mastodon-lang-remover)|browser|<https://github.com/arthurlacoste/mastodon-lang-remover>|[@arthak@mastodon.social](https://mastodon.social/users/arthak)|
+|[Mstdn (Mastodon CLI)](https://github.com/mattn/go-mastodon)|CLI|<https://github.com/mattn/go-mastodon>|[@mattn@mstdn.jp](https://mstdn.jp/@mattn)|
 
 ## Bridges from/to other platforms
 
