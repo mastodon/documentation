@@ -33,7 +33,7 @@ server {
   server_name example.com;
 
   ssl_protocols TLSv1.2;
-  ssl_ciphers HIGH:!MEDIUM:!LOW:!aNULL:!NULL;
+  ssl_ciphers HIGH:!MEDIUM:!LOW:!aNULL:!NULL:!SHA1;
   ssl_prefer_server_ciphers on;
   ssl_session_cache shared:SSL:10m;
 
