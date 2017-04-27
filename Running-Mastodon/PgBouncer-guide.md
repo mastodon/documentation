@@ -1,7 +1,7 @@
 PgBouncer Guide
 ====
 
-The following guide explains how to use [PgBouncer](https://pgbouncer.github.io/) as an efficient database pooler on top of Postgres. For a bit of background, you might read ["Scaling Mastodon"](https://medium.com/@Gargron/scaling-mastodon-1becde463090) which briefly describes this approach.
+The following guide explains how to use [PgBouncer](https://pgbouncer.github.io/) as an efficient connection pooler on top of Postgres. For a bit of background, you might read ["Scaling Mastodon"](https://medium.com/@Gargron/scaling-mastodon-1becde463090) which briefly describes this approach.
 
 Why you might need PgBouncer
 ----
