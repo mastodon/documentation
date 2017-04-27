@@ -22,7 +22,7 @@ If you use Github, first clone the Mastodon repository to your account.
 2. Also replace the language code in the first lines of all the files, and the last line of the `.jsx` file.
 3. Translate the right-side values from English to your language. Keep the indentation and punctuation.
 
-Since Devise and Doorkeeper are popular libraries, there may already be translation files for your language available on the Internet.
+Since Devise and Doorkeeper are popular libraries, there may already be translation files for your language available on the Internet. [Devise's Wiki](https://github.com/plataformatec/devise/wiki/I18n) and [doorkeeper-i18n](https://github.com/doorkeeper-gem/doorkeeper-i18n) are official sources for these translations, respectively.
 
 ## Declaring the language
 
