@@ -72,7 +72,7 @@ In both cases the password is just `password`.
 
 #### Configuring pgbouncer.ini
 
-Add a line under `[databases]` listing the Postgres databases you want to connect to. Here we'll just have Postgres use the same username/password and database name to connect to the underlying Postgres database:
+Add a line under `[databases]` listing the Postgres databases you want to connect to. Here we'll just have PgBouncer use the same username/password and database name to connect to the underlying Postgres database:
 
 ```ini
 [databases]
