@@ -61,7 +61,7 @@ md5 -s "mastodonpassword"
 
 Then just add `md5` to the beginning of that.
 
-You'll also want to create a `pgbouncer` admin user to log in to the admin database. So here's a sample `userlist.txt`:
+You'll also want to create a `pgbouncer` admin user to log in to the PgBouncer admin database. So here's a sample `userlist.txt`:
 
 ```
 "mastodon" "md599dff7ae01ae2dc33ae052264bf22bf4"
@@ -121,6 +121,10 @@ You should be able to connect to PgBouncer just like you would with Postgres:
     psql -p 6432 -U mastodon mastodon_production
 
 And then use your password to log in.
+
+You can also check the PgBouncer logs like so:
+
+    tail -f /var/log/postgresql/pgbouncer.log
 
 ### Configuring Mastodon to talk to PgBouncer
 
