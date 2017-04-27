@@ -56,6 +56,8 @@ ___
 - [For C#](https://github.com/pawotter/mastodon-api-cs)
 - [For Haskell](https://github.com/syucream/hastodon)
 - [For PHP](https://github.com/TheCodingCompany/MastodonOAuthPHP)
+- [For Crystal](https://github.com/decors/mastodon.cr)
+- [For C#(.NET Standard)](https://github.com/yamachu/Mastodot)
 
 ___
 
@@ -291,6 +293,7 @@ Returns the local representation of the followed account, as an [Account](#accou
     GET /api/v1/instance
 
 Returns the current [Instance](#instance).
+
 Does not require authentication.
 
 ### Media
@@ -385,6 +388,8 @@ Returns [Results](#results).
 If `q` is a URL, Mastodon will attempt to fetch the provided account or status.
 Otherwise, it will do a local account and hashtag search.
 
+Does not require authentication.
+
 ### Statuses
 
 #### Fetching a status:
@@ -393,17 +398,23 @@ Otherwise, it will do a local account and hashtag search.
 
 Returns a [Status](#status).
 
+Does not require authentication.
+
 #### Getting status context:
 
     GET /api/v1/statuses/:id/context
 
 Returns a [Context](#context).
 
+Does not require authentication.
+
 #### Getting a card associated with a status:
 
     GET /api/v1/statuses/:id/card
 
 Returns a [Card](#card).
+
+Does not require authentication.
 
 #### Getting who reblogged/favourited a status:
 
@@ -419,6 +430,8 @@ Query parameters:
 `max_id` and `since_id` are usually get from the `Link` header.
 
 Returns an array of [Accounts](#account).
+
+Does not require authentication.
 
 #### Posting a new status:
 
@@ -473,6 +486,8 @@ Query parameters:
 `max_id` and `since_id` are usually get from the `Link` header.
 
 Returns an array of [Statuses](#status), most recent ones first.
+
+'public' and 'tag' timelines do not require authentication.
 ___
 
 ## Entities

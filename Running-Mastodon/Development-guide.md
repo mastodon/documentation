@@ -11,9 +11,9 @@ In fact, all you need is described in the [production guide](Production-guide.md
 - To prefix any commands with `RAILS_ENV=production` since the default environment is "development" anyway
 - Any cronjobs
 
-The command to install Ruby project dependencies does not require any flags, i.e. simply
+The command to install Ruby project dependencies is the following:
 
-    bundle install
+    bundle install --with development
 
 Similarly, installing JavaScript dependencies doesn't require any flags:
 
@@ -21,9 +21,13 @@ Similarly, installing JavaScript dependencies doesn't require any flags:
 
 By default the development environment wants to connect to a `mastodon_development` database on localhost using your user/ident to login to Postgres (i.e. not a md5 password)
 
-You can run Mastodon with:
+To setup the `mastodon_development` database, run:
 
-    rails s
+    bundle exec rails db:setup
+
+You can then run Mastodon with:
+
+    bundle exec rails server
 
 And open `http://localhost:3000` in your browser. Background jobs run inline (aka synchronously) in the development environment, so you don't need to run a Sidekiq process. 
 

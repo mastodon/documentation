@@ -9,6 +9,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |---|--------|----|------------|
 |[Tusky](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky)|Android|<https://github.com/Vavassor/Tusky>|[@Vavassor@mastodon.social](https://mastodon.social/users/Vavassor)|
 |mastodroid|Android|<https://github.com/alin-rautoiu/mastodroid>|[@charlag@mastodon.social](https://mastodon.social/users/charlag)|
+|Pawoo|Android|<https://play.google.com/store/apps/details?id=jp.pxv.pawoo>|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
 |TootyFruity|iOS/[Android](https://play.google.com/store/apps/details?id=ch.kevinegli.tootyfruity221258)|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
 |11t|iOS/[Android](https://play.google.com/store/apps/details?id=com.jeroensmeets.mastodon)|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
 |[Amaroq](https://itunes.apple.com/us/app/amarok-for-mastodon/id1214116200?ls=1&mt=8)|iOS|<https://itunes.apple.com/us/app/amarok-for-mastodon/id1214116200?ls=1&mt=8>|[@eurasierboy@mastodon.social](https://mastodon.social/users/eurasierboy)|
@@ -21,6 +22,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[mastodon.el](https://github.com/jdenen/mastodon.el)|Emacs|<https://github.com/jdenen/mastodon.el>|[@johnson@mastodon.social](https://mastodon.social/users/johnson)|
 | [Mstdn](https://github.com/rhysd/Mstdn) | macOS, Windows, Linux |<https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp) or [@inudog@mastodon.social](https://mastodon.social/@inudog) |
 |[Mastodon Lang Remover](https://github.com/arthurlacoste/mastodon-lang-remover)|browser|<https://github.com/arthurlacoste/mastodon-lang-remover>|[@arthak@mastodon.social](https://mastodon.social/users/arthak)|
+|[Mstdn (Mastodon CLI)](https://github.com/mattn/go-mastodon)|CLI|<https://github.com/mattn/go-mastodon>|[@mattn@mstdn.jp](https://mstdn.jp/@mattn)|
 
 ## Bridges from/to other platforms
 
