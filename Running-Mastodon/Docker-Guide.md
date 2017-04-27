@@ -74,6 +74,6 @@ This approach makes updating to the latest version a real breeze.
 3. `git checkout TAG_NAME` to use the tag code. (If you have committed changes, use `git merge TAG_NAME` instead, though this isn't likely.)
 4. Only if you ran `git stash`, now run `git stash pop` to redo your changes to `docker-compose.yml`. Double check the contents of this file.
 5. `docker-compose build` to compile the Docker image out of the changed source files.
-6. (optional) `docker-compose run --rm web rails db:migrate` to perform database migrations. Does nothing if your database is up to date.
-7. (optional) `docker-compose run --rm web rails assets:precompile` to compile new JS and CSS assets.
+6. (optional) `docker-compose run --rm web rake db:migrate` to perform database migrations. Does nothing if your database is up to date.
+7. (optional) `docker-compose run --rm web rake assets:precompile` to compile new JS and CSS assets.
 8. `docker-compose up -d` to re-create (restart) containers and pick up the changes.
