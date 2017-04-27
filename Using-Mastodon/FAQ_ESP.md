@@ -232,7 +232,7 @@ Por supuesto, en este momento ya existen varias instancias dirigidas a hablantes
 
 *	Para hispanohablantes en general: [https://mastodones.club/](https://mastodones.club/)
 
-*	México: [https://mastodon.maop.mx/](https://mastodon.maop.mx/)
+*	México: [https://mstdn.mx/](https://mstdn.mx/)
 
 *	Argentina: [https://mastodonar.club/](https://mastodonar.club/)
 
