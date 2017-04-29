@@ -96,3 +96,13 @@ after you first deploy to set up the first database.
 To make yourself an admin, you may need to use the `heroku` CLI application after creating an account online:
 
   `heroku rake mastodon:make_admin USERNAME=yourUsername`
+
+## Scheduled tasks
+
+As discussed in the [maintenance tasks](Maintenance-Tasks.md) section, it's
+important that the `mastodon:daily` rake task be set up to run each day to take
+care of simple instance upkeep tasks. On Heroku, you can use the [scheduled
+add-on](https://devcenter.heroku.com/articles/scheduler) to set up a once a day
+task which runs `rake mastodon:daily` for you each day. It doesn't matter what
+time of day this runs, and everything it does will just happen in the
+background.
