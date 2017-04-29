@@ -13,13 +13,18 @@ Note that you can check "PgHero" in the administration view to see how many Post
 Installing PgBouncer
 -----
 
-On Ubuntu:
+On Ubuntu/Debian:
 
     sudo apt install pgbouncer
 
-Restarting:
+Then:
 
-    sudo service pgbouncer restart
+    nano /etc/default/pgbouncer
+    START=1
+
+Starting:
+
+    sudo service pgbouncer start
 
 (Note that this guide assumes you aren't using Docker.)
 
@@ -32,13 +37,12 @@ First off, if your `mastodon` user in Postgres is set up wthout a password, you 
 
 Here's how you might reset the password:
 
-    psql -p 5432 -U mastodon mastodon_production -w
+    su - postgres
+    psql
+    ALTER USER mastodon WITH PASSWORD 'pineapple';
+    \q
+    exit
 
-Then:
-
-    ALTER USER "mastodon" WITH PASSWORD "password";
-
-Then `\q` to quit.
 
 ### Configuring PgBouncer
 
@@ -48,27 +52,14 @@ PgBouncer has two config files: `pgbouncer.ini` and `userlist.txt` both in `/etc
 
 Add the `mastodon` user to the `userlist.txt`:
 
-    "mastodon" "md599dff7ae01ae2dc33ae052264bf22bf4"
-
-Here we're using the md5 scheme, where the md5 password is just the md5sum of `username + password` with the string `md5` prepended. For instance, to derive the hash for user `mastodon` with password `password`, you can do:
-
-```bash
-# ubuntu, debian, etc.
-echo -n "mastodonpassword" | md5sum
-# macOS, openBSD, etc.
-md5 -s "mastodonpassword"
-```
-
-Then just add `md5` to the beginning of that.
+    "mastodon" "pineapple"
 
 You'll also want to create a `pgbouncer` admin user to log in to the PgBouncer admin database. So here's a sample `userlist.txt`:
 
 ```
-"mastodon" "md599dff7ae01ae2dc33ae052264bf22bf4"
-"pgbouncer" "md509c950063a6cf1b217ee831d0f4c6771"
+"mastodon" "pineapple"
+"pgbouncer" "p4ssw0rd"
 ```
-
-In both cases the password is just `password`.
 
 #### Configuring pgbouncer.ini
 
@@ -77,7 +68,7 @@ Add a line under `[databases]` listing the Postgres databases you want to connec
 ```ini
 [databases]
 
-mastodon_production = host=127.0.0.1 port=5432 dbname=mastodon_production user=mastodon password=password
+mastodon_production = host=127.0.0.1 port=5432 dbname=mastodon_production user=mastodon password=pineapple
 ```
 
 The `listen_addr` and `listen_port` tells PgBouncer which address/port to accept connections. The defaults are fine:
@@ -87,7 +78,7 @@ listen_addr = 127.0.0.1
 listen_port = 6432
 ```
 
-Put `md5` as the `auth_type` (assuming you're using the md5 format in `userlist.txt`):
+Put `md5` as the `auth_type`:
 
 ```ini
 auth_type = md5
@@ -146,6 +137,12 @@ DB_PASS=password
 DB_PORT=6432
 ```
 
+After you need to restart your Mastodon services for the system to assume the `.env.production` changes:
+
+    systemctl restart mastodon-web.service mastodon-sidekiq.service mastodon-streaming.service
+
+Your instance should be working and using PgBouncer.
+
 ### Administering PgBouncer
 
 The easiest way to reboot is:
@@ -155,12 +152,23 @@ The easiest way to reboot is:
 But if you've set up a PgBouncer admin user, you can also connect as the admin:
 
     psql -p 6432 -U pgbouncer pgbouncer
-
+    
 And then do:
 
     RELOAD;
 
-Then use `\q` to quit.
+If you want to see if PgBouncer is working, you can use:
+
+    SHOW STATS;
+
+The total_request should not be 0.
+
+There are plenty other values you may wish to look at, like:
+    
+    SHOW SERVERS;
+    SHOW CLIENTS;
+    SHOW POOLS;
+    SHOW LISTS;
 
 ### Resources
 
