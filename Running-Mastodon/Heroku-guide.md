@@ -15,7 +15,6 @@ Currently heroku setup has two main technical limitations:
 
 - Animated GIF upload requires extra setup ([#1007](https://github.com/tootsuite/mastodon/issues/1007)).
 - Streaming API requires extra setup ([#1119](https://github.com/tootsuite/mastodon/issues/1119)).
-  
 
 ## Basic setup
 
@@ -59,6 +58,7 @@ S3 Region is the AWS code for the region e.g. `ap-northeast-1` not the name of t
 
 To protect the privacy of the users of the your instance, you should have permissons on the your S3 bucket set to no-read and no-write for the public and non-application-specific AWS users, with only one authorized IAM user or group set up to be able to upload or display content. This is an example of an IAM policy used for the S3 bucket used Mastadon instance hentai.loan:
 
+```json
     {
         "Version": "2012-10-17",
         "Statement": [
@@ -83,7 +83,7 @@ To protect the privacy of the users of the your instance, you should have permis
             }
         ]
     }
-
+```
 
 ## Deployment
 
