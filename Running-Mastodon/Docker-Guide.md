@@ -4,6 +4,12 @@
 
 The project now includes a `Dockerfile` and a `docker-compose.yml` file (which requires at least docker-compose version `1.10.0`).
 
+## Prerequisites
+
+- Working basic server with Nginx (or Apache2; not officially supported).
+- Recent stable version of [Docker](https://www.docker.com/community-edition).
+- Recent stable version of [Docker-compose](https://github.com/docker/compose/releases/latest) (only for Linux, Docker-compose is part of Docker on Windows and Mac).
+
 ## Setting up
 
 Review the settings in `docker-compose.yml`. Note that it is **not default** to store the postgresql database and redis databases in a persistent storage location. If you plan on running your instance in production, you **must** uncomment the [`volumes` directive](https://github.com/tootsuite/mastodon/blob/972f6bc861affd9bc40181492833108f905a04b6/docker-compose.yml#L7-L16) in `docker-compose.yml`.
@@ -63,6 +69,14 @@ The default docker-compose.yml maps them to the repository's `public/assets` and
 Running any of these tasks via docker-compose would look like this:
 
     docker-compose run --rm web rake mastodon:media:clear
+    
+## Cronjobs
+
+There are several tasks that should be run once a day to ensure that mastodon is running smoothly. We created a daily rake task that takes care of this. As your mastodon user run `crontab -e` and enter the following
+
+```sh
+    @daily cd /home/mastodon/live && /usr/local/bin/docker-compose run --rm web rake mastodon:daily
+```
 
 ## Updating
 
