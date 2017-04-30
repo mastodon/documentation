@@ -80,6 +80,6 @@ There are a few known issues with Mastodon:
 
 - Current mastodon instances won't correctly process inbound salmon requests from instances where `WEB_DOMAIN`!= `LOCAL_DOMAIN`,
   and will try resolving `acct:user@WEB_DOMAIN` instead of `acct:user@LOCAL_DOMAIN`.
-  Fortunately, there is a workaround in the master branch to allow your instance to reply to such queries with informations on your actual account.
+  Fortunately, since v1.3.0, Mastodon will reply to `acct:user@WEB_DOMAIN` queries with the account informations for `acct:user@LOCAL_DOMAIN`, effectively working around this issue at the cost of an extra webfinger discovery per interaction.
 - Mastodon does not actually use `WEB_DOMAIN` everywhere it should and will instead use whatever host it was accessed with.
   For this reason, your Mastodon instance should only be reachable on `WEB_DOMAIN` and not `LOCAL_DOMAIN` (HTTP redirects are fine, but avoid proxying from `LOCAL_DOMAIN` to `WEB_DOMAIN`)
