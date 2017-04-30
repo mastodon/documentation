@@ -39,24 +39,26 @@ ___
 
 ## Available libraries
 
-- [For Ruby](https://github.com/tootsuite/mastodon-api)
-- [For Python](https://github.com/halcy/Mastodon.py)
-- [For JavaScript](https://github.com/Zatnosk/libodonjs)
-- [For Javascript (Browser)](https://github.com/Kirschn/mastodon.js)
-- [For JavaScript (Node.js)](https://github.com/jessicahayley/node-mastodon)
-- [For Elixir](https://github.com/milmazz/hunter)
-- [For R](https://github.com/ThomasChln/mastodon)
-- [For Rust](https://github.com/Aaronepower/mammut)
-- [For Perl](https://metacpan.org/pod/Mastodon::Client)
-- [For Swift](https://github.com/ornithocoder/MastodonKit)
-- [For Go](https://github.com/mattn/go-mastodon)
-- [For Scala](https://github.com/schwitzerm/scaladon)
-- [For .Net](https://github.com/Tlaster/Mastodon.Net)
-- [For Java, Kotlin](https://github.com/sys1yagi/mastodon4j)
-- [For C#](https://github.com/pawotter/mastodon-api-cs)
-- [For Haskell](https://github.com/syucream/hastodon)
-- [For Crystal](https://github.com/decors/mastodon.cr)
-- [For C#(.NET Standard)](https://github.com/yamachu/Mastodot)
+|Language|Library|Developer(s)|
+|-------|--------|------------|
+| .Net | [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net) | |
+| C# | [mastodon-api-cs](https://github.com/pawotter/mastodon-api-cs) | |
+| C#(.NET Standard) | [Mastodot](https://github.com/yamachu/Mastodot) | |
+| Crystal | [mastodon.cr](https://github.com/decors/mastodon.cr) | |
+| Elixir | [hunter](https://github.com/milmazz/hunter) | |
+| Go | [go-mastodon](https://github.com/mattn/go-mastodon) | |
+| Haskell | [hastodon](https://github.com/syucream/hastodon) | |
+| Java | [mastodon4j](https://github.com/sys1yagi/mastodon4j) | |
+| Javascript (Browser) | [mastodon.js](https://github.com/Kirschn/mastodon.js) | |
+| JavaScript (Node.js) | [node-mastodon](https://github.com/jessicahayley/node-mastodon) | |
+| JavaScript | [libodonjs](https://github.com/Zatnosk/libodonjs) | |
+| Perl | [Mastodon::Client](https://metacpan.org/pod/Mastodon::Client) | |
+| Python | [Mastodon.py](https://github.com/halcy/Mastodon.py) | |
+| R | [mastodon](https://github.com/ThomasChln/mastodon) | |
+| Ruby | [mastodon-api](https://github.com/tootsuite/mastodon-api) | [@Gargron@mastodon.social](https://mastodon.social/@Gargron) |
+| Rust | [mammut](https://github.com/Aaronepower/mammut) | |
+| Scala | [scaladon](https://github.com/schwitzerm/scaladon) | |
+| Swift | [MastodonKit](https://github.com/ornithocoder/MastodonKit) | [@ornithocoder@mastodon.technology](https://mastodon.technology/@ornithocoder) |
 
 ___
 
