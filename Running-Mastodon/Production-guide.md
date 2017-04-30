@@ -64,7 +64,7 @@ server {
     try_files $uri @proxy;
   }
 
-  location /assets {
+  location ~ ^/(assets|system/media_attachments/files|system/accounts/avatars) {
     add_header Cache-Control "public, max-age=31536000, immutable";
   }
 
