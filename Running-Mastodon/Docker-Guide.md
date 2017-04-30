@@ -6,9 +6,9 @@ The project now includes a `Dockerfile` and a `docker-compose.yml` file (which r
 
 ## Prerequisites
 
-- Working basic server with Nginx (or Apache2; not officially supported).
+- Working basic (Linux) server with Nginx (or Apache2; not officially supported).
 - Recent stable version of [Docker](https://www.docker.com/community-edition).
-- Recent stable version of [Docker-compose](https://github.com/docker/compose/releases/latest) (only for Linux, Docker-compose is part of Docker on Windows and Mac).
+- Recent stable version of [Docker-compose](https://github.com/docker/compose/releases/latest).
 
 ## Setting up
 
