@@ -47,6 +47,7 @@ ___
 | Crystal | [mastodon.cr](https://github.com/decors/mastodon.cr) | |
 | Elixir | [hunter](https://github.com/milmazz/hunter) | |
 | Go | [go-mastodon](https://github.com/mattn/go-mastodon) | |
+| Go | [madon](https://github.com/McKael/madon) | |
 | Haskell | [hastodon](https://github.com/syucream/hastodon) | |
 | Java | [mastodon4j](https://github.com/sys1yagi/mastodon4j) | |
 | Javascript (Browser) | [mastodon.js](https://github.com/Kirschn/mastodon.js) | |
