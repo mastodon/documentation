@@ -33,6 +33,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |Retoot|CLI|<https://gitlab.com/mojo42/retoot>|[@Mojo@apoil.org](https://apoil.org/users/mojo)|
 |Mastodon.tools|Wordpress, web browser, social network|<https://github.com/davidlibeau/mastodon-tools>|[@David@mastodon.xyz](https://mastodon.xyz/users/David)|
 |RSSTootalizer|Web browser|<https://github.com/blind-coder/rsstootalizer>|[@blindcoder@toot.berlin](https://toot.berlin/users/blindcoder)|
+|umrc|IRC|<https://github.com/Ulrar/umrc>|[@lemonnierk@ulrar.net](https://mastodon.ulrar.net/users/lemonnierk)|
 
 ## Bots
 
