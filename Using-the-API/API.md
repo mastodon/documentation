@@ -108,10 +108,12 @@ Returns the authenticated user's [Account](#account).
 
 Form data:
 
-- `display_name`: The name to display in the user's profile
-- `note`: A new biography for the user
-- `avatar`: A base64 encoded image to display as the user's avatar (e.g. `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAADrCAYAAAA...`)
-- `header`: A base64 encoded image to display as the user's header image (e.g. `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAADrCAYAAAA...`)
+| field | description | optional |
+|-------|-------------|-----------|
+| `display_name` | The name to display in the user's profile | yes |
+| `note` | A new biography for the user | yes |
+| `avatar` | A base64 encoded image to display as the user's avatar (e.g. `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAADrCAYAAAA...`) | yes |
+| `header` | A base64 encoded image to display as the user's header image (e.g. `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAADrCAYAAAA...`) | yes |
 
 #### Getting an account's followers:
 
@@ -119,9 +121,11 @@ Form data:
 
 Query parameters:
 
-- `max_id` (optional): Get a list of followers with ID less than or equal this value
-- `since_id` (optional): Get a list of followers with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+| field | description | optional |
+|-------|-------------|----------|
+| `max_id` | Get a list of followers with ID less than or equal this value | yes |
+| `since_id` | Get a list of followers with ID greater than this value | yes |
+| `limit` | Maximum number of accounts to get (Default 40, Max 80) | yes |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -133,9 +137,11 @@ Returns an array of [Accounts](#account).
 
 Query parameters:
 
-- `max_id` (optional): Get a list of followings with ID less than or equal this value
-- `since_id` (optional): Get a list of followings with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+| field | description | optional |
+|-------|-------------|----------|
+| `max_id` | Get a list of followings with ID less than or equal this value | yes |
+| `since_id` | Get a list of followings with ID greater than this value | yes |
+| `limit` | Maximum number of accounts to get (Default 40, Max 80) | yes |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -147,11 +153,13 @@ Returns an array of [Accounts](#account).
 
 Query parameters:
 
-- `only_media` (optional): Only return statuses that have media attachments
-- `exclude_replies` (optional): Skip statuses that reply to other statuses
-- `max_id` (optional): Get a list of statuses with ID less than or equal this value
-- `since_id` (optional): Get a list of statuses with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 20, Max 40)
+| field | description | optional |
+|-------|-------------|----------|
+| `only_media` | Only return statuses that have media attachments | yes |
+| `exclude_replies` | Skip statuses that reply to other statuses | yes |
+| `max_id` | Get a list of statuses with ID less than or equal this value | yes |
+| `since_id` | Get a list of statuses with ID greater than this value | yes |
+| `limit` | Maximum number of accounts to get (Default 20, Max 40) | yes |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -184,7 +192,9 @@ Returns the target account's [Relationship](#relationship).
 
 Query parameters:
 
-- `id` (can be array): Account IDs
+| field | description | optional |
+|-------|-------------|----------|
+| `id` | Account IDs (can be an array) | no |
 
 Returns an array of [Relationships](#relationships) of the current user to a list of given accounts.
 
@@ -194,10 +204,13 @@ Returns an array of [Relationships](#relationships) of the current user to a lis
 
 Query parameters:
 
-- `q`: What to search for
-- `limit`: Maximum number of matching accounts to return (default: `40`)
+| field | description | optional |
+|-------|-------------|----------|
+| `q` | What to search for | no |
+| `limit` | Maximum number of matching accounts to return (default: `40`) | yes |
 
 Returns an array of matching [Accounts](#accounts).
+
 Will lookup an account remotely if the search term is in the `username@domain` format and not yet in the database.
 
 ### Apps
@@ -208,12 +221,15 @@ Will lookup an account remotely if the search term is in the `username@domain` f
 
 Form data:
 
-- `client_name`: Name of your application
-- `redirect_uris`: Where the user should be redirected after authorization (for no redirect, use `urn:ietf:wg:oauth:2.0:oob`)
-- `scopes`: This can be a space-separated list of the following items: "read", "write" and "follow" (see [this page](OAuth-details.md) for details on what the scopes do)
-- `website`: (optional) URL to the homepage of your app
+| field | description | optional |
+|-------|-------------|----------|
+| `client_name` | Name of your application | no |
+| `redirect_uris` | Where the user should be redirected after authorization (for no redirect, use `urn:ietf:wg:oauth:2.0:oob`) | no |
+| `scopes` | This can be a space-separated list of the following items: "read", "write" and "follow" (see [this page](OAuth-details.md) for details on what the scopes do) | no |
+| `website` | URL to the homepage of your app | yes |
 
 Creates a new OAuth app.
+
 Returns `id`, `client_id` and `client_secret` which can be used with [OAuth authentication in your 3rd party app](Testing-with-cURL.md).
 
 These values should be requested in the app itself from the API for each new app install + mastodon domain combo, and stored in the app for future requests.
@@ -226,9 +242,11 @@ These values should be requested in the app itself from the API for each new app
 
 Query parameters:
 
-- `max_id` (optional): Get a list of blocks with ID less than or equal this value
-- `since_id` (optional): Get a list of blocks with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+| field | description | optional |
+|-------|-------------|----------|
+| `max_id` | Get a list of blocks with ID less than or equal this value | yes |
+| `since_id` | Get a list of blocks with ID greater than this value | yes |
+| `limit` | Maximum number of accounts to get (Default 40, Max 80) | yes |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -242,9 +260,11 @@ Returns an array of [Accounts](#account) blocked by the authenticated user.
 
 Query parameters:
 
-- `max_id` (optional): Get a list of favourites with ID less than or equal this value
-- `since_id` (optional): Get a list of favourites with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 20, Max 40)
+| field | description | optional |
+|-------|-------------|----------|
+| `max_id` | Get a list of favourites with ID less than or equal this value | yes |
+| `since_id` | Get a list of favourites with ID greater than this value | yes |
+| `limit` | Maximum number of accounts to get (Default 20, Max 40) | yes |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -258,9 +278,11 @@ Returns an array of [Statuses](#status) favourited by the authenticated user.
 
 Query parameters:
 
-- `max_id` (optional): Get a list of follow requests with ID less than or equal this value
-- `since_id` (optional): Get a list of follow requests with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+| field | description | optional |
+|-------|-------------|----------|
+| `max_id` | Get a list of follow requests with ID less than or equal this value | yes |
+| `since_id` | Get a list of follow requests with ID greater than this value | yes |
+| `limit` | Maximum number of accounts to get (Default 40, Max 80) | yes |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -273,7 +295,9 @@ Returns an array of [Accounts](#account) which have requested to follow the auth
 
 Parameters:
 
-- `id`: The id of the account to authorize or reject
+| field | description | optional |
+|-------|-------------|----------|
+| `id` | The id of the account to authorize or reject | no |
 
 Returns an empty object.
 
@@ -285,7 +309,9 @@ Returns an empty object.
 
 Form data:
 
-- `uri`: `username@domain` of the person you want to follow
+| field | description | optional |
+|-------|-------------|----------|
+| `uri` | `username@domain` of the person you want to follow | no |
 
 Returns the local representation of the followed account, as an [Account](#account).
 
@@ -307,7 +333,9 @@ Does not require authentication.
 
 Form data:
 
-- `file`: Media to be uploaded
+| field | description | optional |
+|-------|-------------|----------|
+| `file` | Media to be uploaded | no |
 
 Returns an [Attachment](#attachment) that can be used when creating a status.
 
@@ -319,9 +347,11 @@ Returns an [Attachment](#attachment) that can be used when creating a status.
 
 Query parameters:
 
-- `max_id` (optional): Get a list of mutes with ID less than or equal this value
-- `since_id` (optional): Get a list of mutes with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+| field | description | optional |
+|-------|-------------|----------|
+| `max_id` | Get a list of mutes with ID less than or equal this value | yes |
+| `since_id` | Get a list of mutes with ID greater than this value | yes |
+| `limit` | Maximum number of accounts to get (Default 40, Max 80) | yes |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -335,9 +365,11 @@ Returns an array of [Accounts](#account) muted by the authenticated user.
 
 Query parameters:
 
-- `max_id` (optional): Get a list of notifications with ID less than or equal this value
-- `since_id` (optional): Get a list of notifications with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 15, Max 30)
+| field | description | optional |
+|-------|-------------|----------|
+| `max_id` | Get a list of notifications with ID less than or equal this value | yes |
+| `since_id` | Get a list of notifications with ID greater than this value | yes |
+| `limit` | Maximum number of accounts to get (Default 15, Max 30) | yes |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -370,9 +402,11 @@ Returns a list of [Reports](#report) made by the authenticated user.
 
 Form data:
 
-- `account_id`: The ID of the account to report
-- `status_ids`: The IDs of statuses to report (can be an array)
-- `comment`: A comment to associate with the report.
+| field | description | optional |
+|-------|-------------|----------|
+| `account_id` | The ID of the account to report | no |
+| `status_ids` | The IDs of statuses to report (can be an array) | no |
+| `comment` | A comment to associate with the report | no |
 
 Returns the finished [Report](#report).
 
@@ -384,12 +418,14 @@ Returns the finished [Report](#report).
 
 Form data:
 
-- `q`: The search query
-- `resolve`: Whether to resolve non-local accounts
+| field | description | optional |
+|-------|-------------|----------|
+| `q` | The search query | no |
+| `resolve` | Whether to resolve non-local accounts | no |
 
 Returns [Results](#results).
-If `q` is a URL, Mastodon will attempt to fetch the provided account or status.
-Otherwise, it will do a local account and hashtag search.
+
+If `q` is a URL, Mastodon will attempt to fetch the provided account or status. Otherwise, it will do a local account and hashtag search.
 
 Does not require authentication.
 
@@ -426,9 +462,11 @@ Does not require authentication.
 
 Query parameters:
 
-- `max_id` (optional): Get a list of reblogged/favourited with ID less than or equal this value
-- `since_id` (optional): Get a list of reblogged/favourited with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+| field | description | optional |
+|-------|-------------|----------|
+| `max_id` | Get a list of reblogged/favourited with ID less than or equal this value | yes |
+| `since_id` | Get a list of reblogged/favourited with ID greater than this value | yes |
+| `limit` | Maximum number of accounts to get (Default 40, Max 80) | yes |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -442,12 +480,14 @@ Does not require authentication.
 
 Form data:
 
-- `status`: The text of the status
-- `in_reply_to_id` (optional): local ID of the status you want to reply to
-- `media_ids` (optional): array of media IDs to attach to the status (maximum 4)
-- `sensitive` (optional): set this to mark the media of the status as NSFW
-- `spoiler_text` (optional): text to be shown as a warning before the actual content
-- `visibility` (optional): either "direct", "private", "unlisted" or "public"
+| field | description | optional |
+|-------|-------------|----------|
+| `status` | The text of the status | no |
+| `in_reply_to_id` | local ID of the status you want to reply to | yes |
+| `media_ids` | Array of media IDs to attach to the status (maximum 4) | yes |
+| `sensitive` | Set this to mark the media of the status as NSFW | yes |
+| `spoiler_text` | Text to be shown as a warning before the actual content | yes |
+| `visibility` | Either "direct", "private", "unlisted" or "public" | yes |
 
 Returns the new [Status](#status).
 
@@ -481,10 +521,12 @@ Returns the target [Status](#status).
 
 Query parameters:
 
-- `local` (optional; public and tag timelines only): Only return statuses originating from this instance
-- `max_id` (optional): Get a list of timelines with ID less than or equal this value
-- `since_id` (optional): Get a list of timelines with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 20, Max 40)
+| field | description | optional |
+|-------|-------------|----------|
+| `local` | Only return statuses originating from this instance (public and tag timelines only) | yes |
+| `max_id` | Get a list of timelines with ID less than or equal this value | yes |
+| `since_id` | Get a list of timelines with ID greater than this value | yes |
+| `limit` | Maximum number of accounts to get (Default 20, Max 40) | yes |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
