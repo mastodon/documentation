@@ -30,8 +30,8 @@ server {
 }
 
 server {
-  listen 443 ssl;
-  listen [::]:443 ssl;
+  listen 443 ssl http2;
+  listen [::]:443 ssl http2;
   server_name example.com;
 
   ssl_protocols TLSv1.2;
