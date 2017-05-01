@@ -15,7 +15,6 @@ Currently heroku setup has two main technical limitations:
 
 - Animated GIF upload requires extra setup ([#1007](https://github.com/tootsuite/mastodon/issues/1007)).
 - Streaming API requires extra setup ([#1119](https://github.com/tootsuite/mastodon/issues/1119)).
-  
 
 ## Basic setup
 
@@ -59,31 +58,32 @@ S3 Region is the AWS code for the region e.g. `ap-northeast-1` not the name of t
 
 To protect the privacy of the users of the your instance, you should have permissons on the your S3 bucket set to no-read and no-write for the public and non-application-specific AWS users, with only one authorized IAM user or group set up to be able to upload or display content. This is an example of an IAM policy used for the S3 bucket used Mastadon instance hentai.loan:
 
-    {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "s3:ListAllMyBuckets"
-                ],
-                "Resource": [
-                    "arn:aws:s3:::*"
-                ]
-            },
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "s3:*"
-                ],
-                "Resource": [
-                    "arn:aws:s3:::hentailoan",
-                    "arn:aws:s3:::hentailoan/*"
-                ]
-            }
-        ]
-    }
-
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": [
+                "arn:aws:s3:::*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::hentailoan",
+                "arn:aws:s3:::hentailoan/*"
+            ]
+        }
+    ]
+}
+```
 
 ## Deployment
 
@@ -96,3 +96,13 @@ after you first deploy to set up the first database.
 To make yourself an admin, you may need to use the `heroku` CLI application after creating an account online:
 
   `heroku rake mastodon:make_admin USERNAME=yourUsername`
+
+## Scheduled tasks
+
+As discussed in the [maintenance tasks](Maintenance-Tasks.md) section, it's
+important that the `mastodon:daily` rake task be set up to run each day to take
+care of simple instance upkeep tasks. On Heroku, you can use the [scheduled
+add-on](https://devcenter.heroku.com/articles/scheduler) to set up a once a day
+task which runs `rake mastodon:daily` for you each day. It doesn't matter what
+time of day this runs, and everything it does will just happen in the
+background.

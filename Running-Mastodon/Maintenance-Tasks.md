@@ -7,3 +7,9 @@ These tasks are available to instance operators:
 - `rake mastodon:push:refresh` re-subscribes PuSH for expiring remote users, this should be run periodically from a cronjob and quite often as the expiration time depends on the particular hub of the remote user
 - `rake mastodon:feeds:clear_all` removes all timelines, which forces them to be re-built on the fly next time a user tries to fetch their home/mentions timeline. Only for troubleshooting
 - `rake mastodon:feeds:clear` removes timelines of users who haven't signed in lately, which allows to save RAM and improve message distribution. This is required to be run periodically so that when they login again the regeneration process will trigger
+
+There is a `mastodon:daily` rake task which wraps up the `feeds:clear`,
+`media:clear`, `users:clear` and `push:refresh` tasks into one larger task, and
+is intended to be run each day. It's important that you set up some way for this
+task to run, because subscriptions will expire by default, and the
+`push:refresh` task is needed to keep them active.
