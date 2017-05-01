@@ -42,6 +42,7 @@ ___
 |Language|Library|Developer(s)|
 |-------|--------|------------|
 | .Net | [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net) | |
+| .NET Standard | [Mastonet](https://github.com/glacasa/Mastone) | |
 | C# | [mastodon-api-cs](https://github.com/pawotter/mastodon-api-cs) | |
 | C#(.NET Standard) | [Mastodot](https://github.com/yamachu/Mastodot) | |
 | Crystal | [mastodon.cr](https://github.com/decors/mastodon.cr) | |
