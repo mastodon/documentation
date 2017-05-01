@@ -23,6 +23,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 | [Mstdn](https://github.com/rhysd/Mstdn) | macOS, Windows, Linux |<https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp) or [@inudog@mastodon.social](https://mastodon.social/@inudog) |
 |[Mastodon Lang Remover](https://github.com/arthurlacoste/mastodon-lang-remover)|browser|<https://github.com/arthurlacoste/mastodon-lang-remover>|[@arthak@mastodon.social](https://mastodon.social/users/arthak)|
 |[Mstdn (Mastodon CLI)](https://github.com/mattn/go-mastodon)|CLI|<https://github.com/mattn/go-mastodon>|[@mattn@mstdn.jp](https://mstdn.jp/@mattn)|
+|[madonctl](https://github.com/McKael/madonctl)|CLI, cross-platform|<https://github.com/McKael/madonctl>|[@McKael@mamot.fr](https://mamot.fr/@McKael)|
 |[Twidere](https://play.google.com/store/apps/details?id=org.mariotaku.twidere)|Android|<https://github.com/TwidereProject/Twidere-Android>|[@twidereproject](https://twitter.com/twidereproject)|
 
 ## Bridges from/to other platforms
