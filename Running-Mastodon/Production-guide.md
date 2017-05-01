@@ -30,13 +30,12 @@ server {
 }
 
 server {
-  listen 443 ssl;
-  listen [::]:443 ssl;
+  listen 443 ssl http2;
+  listen [::]:443 ssl http2;
   server_name example.com;
 
   ssl_protocols TLSv1.2;
-  ssl_ciphers EECDH+AESGCM:EECDH+AES;
-  ssl_ecdh_curve prime256v1;
+  ssl_ciphers HIGH:!MEDIUM:!LOW:!aNULL:!NULL:!SHA;
   ssl_prefer_server_ciphers on;
   ssl_session_cache shared:SSL:10m;
 
@@ -65,7 +64,7 @@ server {
     try_files $uri @proxy;
   }
 
-  location /assets {
+  location ~ ^/(assets|system/media_attachments/files|system/accounts/avatars) {
     add_header Cache-Control "public, max-age=31536000, immutable";
   }
 

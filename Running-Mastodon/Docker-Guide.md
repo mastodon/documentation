@@ -4,6 +4,12 @@
 
 The project now includes a `Dockerfile` and a `docker-compose.yml` file (which requires at least docker-compose version `1.10.0`).
 
+## Prerequisites
+
+- Working basic (Linux) server with Nginx (or Apache2; not officially supported).
+- Recent stable version of [Docker](https://www.docker.com/community-edition).
+- Recent stable version of [Docker-compose](https://github.com/docker/compose/releases/latest).
+
 ## Setting up
 
 Review the settings in `docker-compose.yml`. Note that it is **not default** to store the postgresql database and redis databases in a persistent storage location. If you plan on running your instance in production, you **must** uncomment the [`volumes` directive](https://github.com/tootsuite/mastodon/blob/972f6bc861affd9bc40181492833108f905a04b6/docker-compose.yml#L7-L16) in `docker-compose.yml`.
@@ -63,6 +69,14 @@ The default docker-compose.yml maps them to the repository's `public/assets` and
 Running any of these tasks via docker-compose would look like this:
 
     docker-compose run --rm web rake mastodon:media:clear
+    
+## Cronjobs
+
+There are several tasks that should be run once a day to ensure that mastodon is running smoothly. We created a daily rake task that takes care of this. As your mastodon user run `crontab -e` and enter the following
+
+```sh
+    @daily cd /home/mastodon/live && /usr/local/bin/docker-compose run --rm web rake mastodon:daily
+```
 
 ## Updating
 
@@ -74,6 +88,6 @@ This approach makes updating to the latest version a real breeze.
 3. `git checkout TAG_NAME` to use the tag code. (If you have committed changes, use `git merge TAG_NAME` instead, though this isn't likely.)
 4. Only if you ran `git stash`, now run `git stash pop` to redo your changes to `docker-compose.yml`. Double check the contents of this file.
 5. `docker-compose build` to compile the Docker image out of the changed source files.
-6. (optional) `docker-compose run --rm web rails db:migrate` to perform database migrations. Does nothing if your database is up to date.
-7. (optional) `docker-compose run --rm web rails assets:precompile` to compile new JS and CSS assets.
+6. (optional) `docker-compose run --rm web rake db:migrate` to perform database migrations. Does nothing if your database is up to date.
+7. (optional) `docker-compose run --rm web rake assets:precompile` to compile new JS and CSS assets.
 8. `docker-compose up -d` to re-create (restart) containers and pick up the changes.
