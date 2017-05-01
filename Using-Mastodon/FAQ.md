@@ -230,6 +230,13 @@ By default, toots are federated (public), and will show on both timelines. You c
 <img src="screenshots/getting_started-preferences.png" alt="Preferences" height="200"/>
 <img src="screenshots/preferences-post_privacy.png" alt="Post Privacy" height="400"/>
 
+#### What is the default image upload size limit and how can I change it?
+The default limit is 8 megabytes, however this can be changed by editing the following line in `mastodon/app/models/media_attachment.rb`:
+
+`  validates_attachment_size :file, less_than: 8.megabytes`
+
+Change the 8 to another integer to change the limit.
+
 #### How do I start my own instance?
 See the [User Guide](../README.md), under the heading “Running Mastodon.”
 
