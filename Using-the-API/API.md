@@ -49,7 +49,7 @@ ___
 - [For Rust](https://github.com/Aaronepower/mammut)
 - [For Perl](https://metacpan.org/pod/Mastodon::Client)
 - [For Swift](https://github.com/ornithocoder/MastodonKit)
-- [For Go](https://github.com/mattn/go-mastodon)
+- For Go: [go-mastodon](https://github.com/mattn/go-mastodon), [madon](https://github.com/McKael/madon)
 - [For Scala](https://github.com/schwitzerm/scaladon)
 - [For .Net](https://github.com/Tlaster/Mastodon.Net)
 - [For Java, Kotlin](https://github.com/sys1yagi/mastodon4j)
