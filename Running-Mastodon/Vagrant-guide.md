@@ -15,7 +15,7 @@ The following command will update your 'hosts' file when you start the virtual m
 
 To create and provision a new virtual machine for Mastodon development run:
 
-    git clone git@github.com:tootsuite/mastodon.git
+    git clone https://github.com/tootsuite/mastodon.git
     cd mastodon
     vagrant up
 
