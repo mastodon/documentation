@@ -25,6 +25,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[Mstdn (Mastodon CLI)](https://github.com/mattn/go-mastodon)|CLI|<https://github.com/mattn/go-mastodon>|[@mattn@mstdn.jp](https://mstdn.jp/@mattn)|
 |[madonctl](https://github.com/McKael/madonctl)|CLI, cross-platform|<https://github.com/McKael/madonctl>|[@McKael@mamot.fr](https://mamot.fr/@McKael)|
 |[Twidere](https://play.google.com/store/apps/details?id=org.mariotaku.twidere)|Android|<https://github.com/TwidereProject/Twidere-Android>|[@twidereproject](https://twitter.com/twidereproject)|
+|[Mastodon-iOS](https://itunes.apple.com/us/app/mastodon-ios/id1229531204?l=zh&ls=1&mt=8)|[iOS](https://itunes.apple.com/us/app/mastodon-ios/id1229531204?l=zh&ls=1&mt=8)||[@darkcl@mastodon.cloud](https://mastodon.cloud/@darkcl)|
 
 ## Bridges from/to other platforms
 
