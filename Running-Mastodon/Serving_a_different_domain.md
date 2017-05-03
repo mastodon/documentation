@@ -83,3 +83,4 @@ There are a few known issues with Mastodon:
   Fortunately, since v1.3.0, Mastodon will reply to `acct:user@WEB_DOMAIN` queries with the account informations for `acct:user@LOCAL_DOMAIN`, effectively working around this issue at the cost of an extra webfinger discovery per interaction.
 - Mastodon does not actually use `WEB_DOMAIN` everywhere it should and will instead use whatever host it was accessed with.
   For this reason, your Mastodon instance should only be reachable on `WEB_DOMAIN` and not `LOCAL_DOMAIN` (HTTP redirects are fine, but avoid proxying from `LOCAL_DOMAIN` to `WEB_DOMAIN`)
+- Remote Mastodon instances on v1.3.0, v1.3.1 or v1.3.2 from which you are following people won't PuSH new messages to your instance. This is a known bug, see [#2672](https://github.com/tootsuite/mastodon/issues/2672)
