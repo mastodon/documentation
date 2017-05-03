@@ -55,6 +55,10 @@ ___
 | JavaScript (Node.js) | [node-mastodon](https://github.com/jessicahayley/node-mastodon) | |
 | JavaScript | [libodonjs](https://github.com/Zatnosk/libodonjs) | |
 | Perl | [Mastodon::Client](https://metacpan.org/pod/Mastodon::Client) | |
+| PHP | [MastodonOAuthPHP](https://github.com/TheCodingCompany/MastodonOAuthPHP) | |
+| PHP | [Phediverse Mastodon REST Client](https://github.com/phediverse/mastodon-rest) | |
+| PHP | [Mastodon-api-php](https://github.com/yks118/Mastodon-api-php) | |
+| PHP | [TootoPHP](https://framagit.org/MaxKoder/TootoPHP) | |
 | Python | [Mastodon.py](https://github.com/halcy/Mastodon.py) | |
 | R | [mastodon](https://github.com/ThomasChln/mastodon) | |
 | Ruby | [mastodon-api](https://github.com/tootsuite/mastodon-api) | [@Gargron@mastodon.social](https://mastodon.social/@Gargron) |
