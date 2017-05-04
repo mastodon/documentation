@@ -113,6 +113,8 @@ It is recommended to create a special user for mastodon on the server (you could
 
 ## General dependencies
 
+### Ubuntu / Debian
+
     sudo apt-get install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev nodejs file git curl
     curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
 
@@ -120,13 +122,46 @@ It is recommended to create a special user for mastodon on the server (you could
 
     sudo npm install -g yarn
 
+### CentOS / RHEL
+
+    sudo yum install libxml2-devel ImageMagick libxslt-devel git curl nodejs file
+    sudo yum -y install epel-release
+    sudo rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
+    sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+    sudo yum -y install ffmpeg ffmpeg-devel
+
+    sudo yum group install "Development tools"
+    curl -sL https://rpm.nodesource.com/setup_4.x | sudo bash -
+
+    sudo npm install -g yarn
+
 ## Redis
+
+### Ubuntu / Debian
 
     sudo apt-get install redis-server redis-tools
 
+### CentOS / RHEL
+
+    sudo yum install redis rubygem-redis
+
 ## Postgres
 
+### Ubuntu / Debian
+
     sudo apt-get install postgresql postgresql-contrib
+
+### CentOS / RHEL
+
+    sudo yum install postgresql-server postgresql postgresql-contrib postgresql-devel
+
+Initial Setup postgres:
+
+    sudo postgresql-setup initdb
+    sudo systemctl start postgresql
+    sudo systemctl enable postgresql
+
+### All Operating Systems:
 
 Set up a user and database for Mastodon:
 
@@ -137,6 +172,8 @@ In the prompt:
 
     CREATE USER mastodon CREATEDB;
     \q
+
+### Ubuntu 16.04
 
 Under Ubuntu 16.04, you will need to explicitly enable ident authentication so that local users can connect to the database without a password:
 
