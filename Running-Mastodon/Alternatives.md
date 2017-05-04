@@ -191,14 +191,25 @@ Setting up Mastodon behind Apache is possible as well, although you will need to
 
    DocumentRoot /home/mastodon/live/public/
 
-   Header add Strict-Transport-Security "max-age=31536000"
+   Header always set Referrer-Policy "strict-origin-when-cross-origin"
+   Header always set Strict-Transport-Security "max-age=31536000"
+
    SSLEngine on
    SSLProtocol -all +TLSv1.2
    SSLHonorCipherOrder on
    SSLCipherSuite EECDH+AESGCM:AES256+EECDH:AES128+EECDH
+   SSLCompression off
+   SSLSessionTickets off
+   SSLStaplingResponderTimeout 5
+   SSLStaplingReturnResponderErrors off
+   SSLUseStapling on
 
    SSLCertificateFile example.pem
    SSLCertificateKeyFile example.key
+
+   <Location /assets>
+      Header always set Cache-Control "public, max-age=31536000, immutable"
+   </Location>
 
    ProxyPreserveHost On
    RequestHeader set X-Forwarded-Proto "https"
