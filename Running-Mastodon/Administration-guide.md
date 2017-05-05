@@ -8,6 +8,7 @@ So, you have a working Mastodon instance... now what?
 The following rake task:
 
     RAILS_ENV=production bundle exec rails mastodon:make_admin USERNAME=alice
+    (or docker-compose run --rm web rails mastodon:make_admin USERNAME=alice)
 
 Would turn the local user "alice" into an admin.
 
