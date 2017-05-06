@@ -3,6 +3,20 @@ Translating
 
 If you want to localize Mastodon into your language, here is how.
 
+* [Overview](#overview)
+* [Procedures](#procedures)
+  * [Obtain the Source Code](#obtain-the-source-code)
+  * [Translating](#translating)
+  * [Declaring the language](#declaring-the-language)
+  * [Sending the translation](#sending-the-translation)
+* [Testing the translation](#testing-the-translation)
+* [Updating the translation](#updating-the-translation)
+* [Appendix](#appendix)
+  * [Appendix A. Plural handling](appendix-a-plural-handling)
+  * [Appendix B. Command Tools](appendix-b-command-tools)
+
+---
+
 ## Overview
 
 There are two parts to Mastodon, the server and the web client. The translations for the web client are in [`app/javascript/mastodon/locales`](https://github.com/tootsuite/mastodon/tree/master/app/javascript/mastodon/locales). For the server-side, the translations live in [`config/locales`](https://github.com/tootsuite/mastodon/tree/master/config/locales) and are divided into different files. In addition, email templates for the server are found in [`app/views/user_mailer`](https://github.com/tootsuite/mastodon/tree/master/app/views/user_mailer). Here are all the files you’ll need to translate:
