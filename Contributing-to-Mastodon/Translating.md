@@ -3,6 +3,8 @@ Translating
 
 If you want to localize Mastodon into your language, here is how.
 
+## Overview
+
 There are two parts to Mastodon, the server and the web client. The translations for the web client are in [`app/assets/javascripts/components/locales`](https://github.com/tootsuite/mastodon/tree/master/app/assets/javascripts/components/locales). For the server-side, the translations live in [`config/locales`](https://github.com/tootsuite/mastodon/tree/master/config/locales) and are divided into different files. In addition, email templates for the server are found in [`app/views/user_mailer`](https://github.com/tootsuite/mastodon/tree/master/app/views/user_mailer). Here are all the files you’ll need to translate:
 
 | Original file (English) | Location | Description |
@@ -16,18 +18,32 @@ There are two parts to Mastodon, the server and the web client. The translations
 | [`password_change.en.html.erb`](https://github.com/tootsuite/mastodon/blob/master/app/views/user_mailer/password_change.en.html.erb)<br>[`password_change.en.text.erb`](https://github.com/tootsuite/mastodon/blob/master/app/views/user_mailer/password_change.en.text.erb) | `app/views/user_mailer/password_change.en.html.erb`<br>`app/views/user_mailer/password_change.en.text.erb` | Password change notification for Devise
 | [`reset_password_instructions.en.html.erb`](https://github.com/tootsuite/mastodon/blob/master/app/views/user_mailer/reset_password_instructions.en.html.erb)<br>[`reset_password_instructions.en.text.erb`](https://github.com/tootsuite/mastodon/blob/master/app/views/user_mailer/reset_password_instructions.en.text.erb) | `app/views/user_mailer/reset_password_instructions.en.html.erb`<br>`app/views/user_mailer/reset_password_instructions.en.text.erb`  | Password reset instructions for Devise
 
-## Translating
+## Procedures
 
-If you use Github, first clone the Mastodon repository to your account.
+### Obtain the Source Code
 
-1. Duplicate the files in their folder and replace `en` in the filenames by your language’s standard two-letters code ([ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)).
-   For instance `simple_form.en.yml` becomes `simple_form.es.yml` in the Spanish translation.
+If you use Github, first fork the Mastodon repository to your account. Then
+clone it to your local machine for further works.
+
+For details instructions, you may read our
+[Github cheatsheet](Translating-Github-Cheat-Sheet.md).
+
+### Translating
+
+1. Duplicate the files in their folder and replace `en` in the filenames by your language’s standard two-letters code
+   ([ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)). Or [RFC5646](https://tools.ietf.org/html/rfc5646)
+   language tags for regional languages.
+
+   For instance `simple_form.en.yml` becomes `simple_form.es.yml` in the Spanish translation, and
+   `simple_form.zh-HK.yml` in Traditional Chinese (HK) translation.
+
 2. Also replace the language code in the first lines of all the files, and the last line of the `.jsx` file.
+
 3. Translate the right-side values from English to your language. Keep the indentation and punctuation.
 
 Since Devise and Doorkeeper are popular libraries, there may already be translation files for your language available on the Internet. [Devise's Wiki](https://github.com/plataformatec/devise/wiki/I18n) and [doorkeeper-i18n](https://github.com/doorkeeper-gem/doorkeeper-i18n) are official sources for these translations, respectively.
 
-## Declaring the language
+### Declaring the language
 
 The locales are mentioned in several other files. To activate your translation, add your language code to the different lists present in these files:
 
@@ -38,9 +54,12 @@ The locales are mentioned in several other files. To activate your translation, 
 | [`settings_helper.rb`](https://github.com/tootsuite/mastodon/blob/master/app/helpers/settings_helper.rb) | `app/helpers/settings_helper.rb` | 1 line to add + your language’s name |
 | [`application.rb`](https://github.com/tootsuite/mastodon/blob/master/config/application.rb) | `config/application.rb` | 1 list to complete |
 
-## Sending the translation
+### Sending the translation
 
 You can then push the files to git and submit a pull request.
+
+For details instructions, you may read our
+[Github cheatsheet](Translating-Github-Cheat-Sheet.md).
 
 ## Testing the translation
 
