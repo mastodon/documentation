@@ -5,11 +5,11 @@ If you want to localize Mastodon into your language, here is how.
 
 ## Overview
 
-There are two parts to Mastodon, the server and the web client. The translations for the web client are in [`app/assets/javascripts/components/locales`](https://github.com/tootsuite/mastodon/tree/master/app/assets/javascripts/components/locales). For the server-side, the translations live in [`config/locales`](https://github.com/tootsuite/mastodon/tree/master/config/locales) and are divided into different files. In addition, email templates for the server are found in [`app/views/user_mailer`](https://github.com/tootsuite/mastodon/tree/master/app/views/user_mailer). Here are all the files you’ll need to translate:
+There are two parts to Mastodon, the server and the web client. The translations for the web client are in [`app/javascript/mastodon/locales`](https://github.com/tootsuite/mastodon/tree/master/app/javascript/mastodon/locales). For the server-side, the translations live in [`config/locales`](https://github.com/tootsuite/mastodon/tree/master/config/locales) and are divided into different files. In addition, email templates for the server are found in [`app/views/user_mailer`](https://github.com/tootsuite/mastodon/tree/master/app/views/user_mailer). Here are all the files you’ll need to translate:
 
 | Original file (English) | Location | Description |
 |---|---|---|
-| [`en.jsx`](https://github.com/tootsuite/mastodon/blob/master/app/assets/javascripts/components/locales/en.jsx) | `app/assets/javascripts/components/locales/en.jsx` | Strings for the web client |
+| [`en.json`](https://github.com/tootsuite/mastodon/blob/master/app/javascript/mastodon/locales/en.json) | `app/javascript/mastodon/locales/en.json` | Strings for the web client |
 | [`en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/en.yml) | `config/locales/en.yml` | Strings for general use |
 | [`simple_form.en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/simple_form.en.yml) | `config/locales/simple_form.en.yml` | Strings for the settings area |
 | [`devise.en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/devise.en.yml) | `config/locales/devise.en.yml` | Generic strings for Devise |
@@ -37,7 +37,7 @@ For details instructions, you may read our
    For instance `simple_form.en.yml` becomes `simple_form.es.yml` in the Spanish translation, and
    `simple_form.zh-HK.yml` in Traditional Chinese (HK) translation.
 
-2. Also replace the language code in the first lines of all the files, and the last line of the `.jsx` file.
+2. Also replace the language code in the first lines of all the files, and the last line of the `.js` file.
 
 3. Translate the right-side values from English to your language. Keep the indentation and punctuation.
 
@@ -49,8 +49,8 @@ The locales are mentioned in several other files. To activate your translation, 
 
 | File | Location | Comment |
 |---|---|---|
-| [`index.jsx`](https://github.com/tootsuite/mastodon/blob/master/app/assets/javascripts/components/locales/index.jsx) | `app/assets/javascripts/components/locales/index.jsx` | 2 lines to add |
-|[`mastodon.jsx`](https://github.com/tootsuite/mastodon/blob/master/app/assets/javascripts/components/containers/mastodon.jsx) | `app/assets/javascripts/components/containers/mastodon.jsx` | 1 line to add + 1 list to complete |
+| [`index.js`](https://github.com/tootsuite/mastodon/blob/master/app/javascript/mastodon/locales/index.js) | `app/javascript/mastodon/locales/index.js` | 2 lines to add |
+|[`mastodon.js`](https://github.com/tootsuite/mastodon/blob/master/app/javascript/mastodon/containers/mastodon.js) | `app/javascript/mastodon/containers/mastodon.js` | 1 line to add + 1 list to complete |
 | [`settings_helper.rb`](https://github.com/tootsuite/mastodon/blob/master/app/helpers/settings_helper.rb) | `app/helpers/settings_helper.rb` | 1 line to add + your language’s name |
 | [`application.rb`](https://github.com/tootsuite/mastodon/blob/master/config/application.rb) | `config/application.rb` | 1 list to complete |
 
@@ -67,13 +67,13 @@ Once the pull request is accepted, wait for the code to be deployed on a Mastodo
 
 ## Updating the translation
 
-Keep an eye on the original English files in `app/assets/javascripts/components/locales` and `config/locales`. When they are updated, pass on the changes to your language files. For new strings, add the new lines to the same position and translate them. Once you’re finished with the updates, you can submit a new pull request.
+Keep an eye on the original English files in `app/javascript/mastodon/locales` and `config/locales`. When they are updated, pass on the changes to your language files. For new strings, add the new lines to the same position and translate them. Once you’re finished with the updates, you can submit a new pull request.
 
 ## Appendix A. Plural handling
 
 Different languages use different plural forms to be taken care of by Mastodon.
 
-For JavaScipt (`.jsx`) translations, this is done in [react-intl](https://github.com/yahoo/react-intl), by doing:
+For JavaScipt (`.js`) translations, this is done in [react-intl](https://github.com/yahoo/react-intl), by doing:
 
 ```
 Here {appleCount, plural, one {is an apple} other {are {appleCount} apples}}.
