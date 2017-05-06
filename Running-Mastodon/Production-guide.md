@@ -115,24 +115,22 @@ It is recommended to create a special user for mastodon on the server (you could
 
 ### Ubuntu / Debian
 
-    sudo apt-get install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev nodejs file git curl
-    curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
-
+    sudo apt-get install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git curl
+    curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     sudo apt-get install nodejs
-
     sudo npm install -g yarn
 
 ### CentOS / RHEL
 
-    sudo yum install libxml2-devel ImageMagick libxslt-devel git curl nodejs file
+    sudo yum install libxml2-devel ImageMagick libxslt-devel git curl file
     sudo yum -y install epel-release
     sudo rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
     sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
     sudo yum -y install ffmpeg ffmpeg-devel
 
     sudo yum group install "Development tools"
-    curl -sL https://rpm.nodesource.com/setup_4.x | sudo bash -
-
+    curl -sL https://rpm.nodesource.com/setup_6.x | sudo bash -
+    sudo yum install nodejs
     sudo npm install -g yarn
 
 ## Redis
