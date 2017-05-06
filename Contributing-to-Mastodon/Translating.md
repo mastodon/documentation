@@ -69,7 +69,9 @@ Once the pull request is accepted, wait for the code to be deployed on a Mastodo
 
 Keep an eye on the original English files in `app/javascript/mastodon/locales` and `config/locales`. When they are updated, pass on the changes to your language files. For new strings, add the new lines to the same position and translate them. Once you’re finished with the updates, you can submit a new pull request.
 
-## Appendix A. Plural handling
+## Appendix
+
+### Appendix A. Plural handling
 
 Different languages use different plural forms to be taken care of by Mastodon.
 
@@ -90,3 +92,158 @@ eat_apple:
 In both examples you can see a `one` case and an `other` case described for the pluralized strings. The exact strings is chosen by how many a certain quantity is -- when there is exactly one of something, the sentence goes to the `one` case; otherwise it goes to the `other` case. This how plualization works for English (`en`) and a few other languages.
 
 There are, however, many languages that don't operate in the one-other way. Polish as four plural forms, named `one`, `few`, `many`, and `other` respectively. Arabic has six. Chinese, Japanese, and Korean only have one form called `other`. If your language does not use one/other plural forms, be sure to check out the cardinal part of this [Unicode CIDR Plural Rules](http://www.unicode.org/cldr/charts/28/supplemental/language_plural_rules.html) chart. Also as a rule of thumb, always start translaing with the `other` case in the English files as they are better generalized than the `one` case.
+
+### Appendix B. Command Tools
+
+We have command line tools to help translators in their tasks. They are not
+essential. But they are really helpful.
+
+To use the tools, you'd need to properly setup your work station.
+
+#### Setup
+
+You need to have [Ruby](https://www.ruby-lang.org/en/) and [NodeJS](https://nodejs.org/en/)
+setup in your machine. If you want to keep your global paths clean, you may use
+[rvm](https://rvm.io/) and [nvm](https://github.com/creationix/nvm).
+
+You'd also need to install [yarn](https://yarnpkg.com/) with your nodejs setup.
+
+To install Ruby with rvm:
+```
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+\curl -sSL https://get.rvm.io | bash -s stable
+```
+
+To install nodejs and yarn with nvm:
+```
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+source ~/.bashrc
+npm install stable
+npm install -g yarn
+```
+
+#### Update node packages and ruby gems
+
+You'll need to run these command in the root of your source code folder:
+```
+bundle install
+yarn install
+```
+
+#### Server Translation
+
+For the Ruby-based server, [i18n Tasks](https://github.com/glebm/i18n-tasks) is
+used to manage the translations.
+
+The command:
+```
+bundle exec i18n-tasks [command] [options]
+```
+
+You can use this command to find all usages:
+```
+bundle exec i18n-tasks --help
+```
+
+##### Key Usages
+
+To see if there is any missing or unused language key(s) in your language, you
+can use `health` command. For example, if you want to check the health of Magyar
+(**hu**) translations:
+```
+bundle exec i18n-tasks health hu
+```
+
+If you found that there is missing keys in your file, you can use `add-missing`:
+```
+bundle exec i18n-tasks add-missing hu
+```
+
+Please note that `health` would simply check the existence of the language key.
+It does not check if they are different from the default (English). Also the
+command `add-missing` only copy the English translation for your lanuage.
+
+In short, running `add-missing` can help you pass the `health` test, but you'd
+still need to check your yml and translate the "added" strings.
+
+#### Web Client Translation
+
+For web client, [NPM scripts](https://docs.npmjs.com/misc/scripts) are written
+to help.
+
+There are 2 specific scripts that you'll have to use:
+
+**`yarn build:development`**
+
+Build the webpack assets for development use. Also generate the frontend
+translation reference files. You'll need to run this every time you clone /
+fetch the source code.
+
+You'll need to run this before using `yarn manage:translation`.
+
+**`yarn manage:translation`**
+
+Based on [react-intl-translations-manager](https://www.npmjs.com/package/react-intl-translations-manager).
+Sync and check the translation strings. It will:
+
+* automatically create missing keys in json translation files; and
+* remove obsoleted translations; and
+* show you a list of translations needed; and
+* create non-existed translation files (if forced to).
+
+You may use the help command to get usage instructions:
+
+```
+yarn manage:translation -- --help
+```
+
+##### Key Usages
+
+You may specify the language to sync and check:
+```
+yarn manage:translation -- [language code]
+```
+
+For example, to synchronize translations for French (**fr**):
+```
+yarn manage:translation -- fr
+```
+
+You may also use this to create json language files. You'd need to apply the
+`--force` option. For example, if Arabic (**ar**) javascript translation
+were not
+created yet:
+```
+yarn manage:translation -- --force ar
+```
+will create the following language files:
+* app/javascript/mastodon/locales/**ar**.json
+* app/javascript/mastodon/locales/whitelist_**ar**.json
+
+#### Check Your Translations
+
+To see if you lanuage is doing good, you may mix using the command tools, like
+this:
+
+```
+bundle exec i18n-tasks health zh-HK
+yarn manage:translations -- zh-HK
+```
+
+If you're doing good, you'd have a result like this:
+
+```
+$ bundle exec i18n-tasks health zh-HK
+Forest (zh-HK) has 422 keys in total. On average, values are 13 characters long, keys have 3.2 segments.
+✓ Good job! No translations are missing.
+✓ Well done! Every translation is in use.
+
+$ yarn manage:translations -- zh-HK
+yarn manage:translations v0.23.4
+$ node ./config/webpack/translationRunner.js zh-HK
+Maintaining zh-HK.json:
+
+ Perfectly maintained, no remarks!
+
+Done in 0.24s.
+```
