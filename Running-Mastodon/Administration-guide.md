@@ -9,6 +9,11 @@ The following rake task:
 
     RAILS_ENV=production bundle exec rails mastodon:make_admin USERNAME=alice
 
+or, if using docker:
+
+    docker-compose run --rm web rails mastodon:make_admin USERNAME=alice
+
+
 Would turn the local user "alice" into an admin.
 
 ## Administration web interface
