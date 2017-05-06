@@ -19,9 +19,17 @@ git config --global user.email johndoe@example.com
 1. Open Terminal on your computer and navigate to a place where you want to store the project using `cd` (ex. `cd ~/Documents`)
 2. Download a copy of the project using
 ```
-git clone https://github.com/YOURUSERNAME/mastodon`
+git clone https://github.com/YOURUSERNAME/mastodon
 ```
-3. Write your awesome translations following the [translating guide](./Translating.md#translating-1)
+3. Add the original mastodon repository as `upstream`
+```
+git remote add upstream https://github.com/tootsuite/mastodon.git
+```
+4. Branch out to translate. It is recommended to replace `locale` with RFC5646 language tag of you language:
+```
+git checkout -b locale
+```
+5. Write your awesome translations following the [translating guide](./Translating.md#translating-1)
 
 ## Push To Your Repository
 1. Open Terminal and navigate to where you stored mastodon (ex. `cd ~/Documents/mastodon`)
