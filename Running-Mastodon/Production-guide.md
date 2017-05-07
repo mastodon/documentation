@@ -109,7 +109,7 @@ server {
 
 ## Running in production without Docker
 
-It is recommended to create a special user for mastodon on the server (you could call the user `mastodon`), though remember to disable outside login for it. You should only be able to get into that user through `sudo su - mastodon`.
+It is recommended to create a special user for mastodon on the server (you could call the user `mastodon`), though remember to disable outside login for it. You should only be able to get into that user through `sudo -u mastodon`.
 
 ## General dependencies
 
@@ -165,8 +165,7 @@ Initial Setup postgres:
 
 Set up a user and database for Mastodon:
 
-    sudo su - postgres
-    psql
+    sudo -u postgres psql
 
 In the prompt:
 
@@ -200,7 +199,11 @@ Then once `rbenv` is ready, run `rbenv install 2.4.1` to install the Ruby versio
 
 ## Git
 
-You need the `git-core` package installed on your system. If it is so, from the `mastodon` user:
+You need the `git-core` package installed on your system. If it is so, run the shell from the `mastodon` user:
+
+    sudo -su mastodon
+
+And enter the following commands:
 
     cd ~
     git clone https://github.com/tootsuite/mastodon.git live
