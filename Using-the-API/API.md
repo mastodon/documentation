@@ -55,7 +55,7 @@ ___
 | JavaScript           | [libodonjs](https://github.com/Zatnosk/libodonjs)                              |                                                                                |
 | Javascript (Browser) | [mastodon.js](https://github.com/Kirschn/mastodon.js)                          |                                                                                |
 | JavaScript (Node.js) | [node-mastodon](https://github.com/jessicahayley/node-mastodon)                |                                                                                |
-| Perl                 | [Mastodon::Client](https://metacpan.org/pod/Mastodon::Client)                  |                                                                                |
+| Perl                 | [Mastodon::Client](https://metacpan.org/pod/Mastodon::Client)                  | [@jjatria@mastodon.cloud](https://mastodon.cloud/@jjatria)                     |
 | PHP                  | [Mastodon-api-php](https://github.com/yks118/Mastodon-api-php)                 |                                                                                |
 | PHP                  | [MastodonOAuthPHP](https://github.com/TheCodingCompany/MastodonOAuthPHP)       |                                                                                |
 | PHP                  | [Phediverse Mastodon REST Client](https://github.com/phediverse/mastodon-rest) |                                                                                |
