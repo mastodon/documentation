@@ -18,6 +18,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |tootstream|CLI|<https://github.com/magicalraccoon/tootstream>|[@Raccoon@mastodon.social](https://mastodon.social/users/Raccoon)|
 |toot|CLI|<https://github.com/ihabunek/toot>|[@ihabunek@mastodon.social](https://mastodon.social/users/ihabunek)|
 | [Capella](https://github.com/coolstar/Capella) | Windows 7, 8.1, 10 | https://coolstar.org/capella | [@coolstar@mastodon.social](https://mastodon.social/users/coolstar)|
+|[WinMasto](https://github.com/drasticactions/WinMasto)|Windows 10|<https://github.com/drasticactions/WinMasto>|[@drasticactions@mastodon.network](https://mastodon.network/users/drasticactions)|
 |[Mastodon UWP (beta)](https://github.com/woachk/mastodon/releases)|Windows 10|<https://github.com/woachk/mastodon>|[@my123@mastodon.social](https://mastodon.social/users/my123)|
 |[mastodon.el](https://github.com/jdenen/mastodon.el)|Emacs|<https://github.com/jdenen/mastodon.el>|[@johnson@mastodon.social](https://mastodon.social/users/johnson)|
 | [Mstdn](https://github.com/rhysd/Mstdn) | macOS, Windows, Linux |<https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp) or [@inudog@mastodon.social](https://mastodon.social/@inudog) |
@@ -25,6 +26,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[Mstdn (Mastodon CLI)](https://github.com/mattn/go-mastodon)|CLI|<https://github.com/mattn/go-mastodon>|[@mattn@mstdn.jp](https://mstdn.jp/@mattn)|
 |[madonctl](https://github.com/McKael/madonctl)|CLI, cross-platform|<https://github.com/McKael/madonctl>|[@McKael@mamot.fr](https://mamot.fr/@McKael)|
 |[Twidere](https://play.google.com/store/apps/details?id=org.mariotaku.twidere)|Android|<https://github.com/TwidereProject/Twidere-Android>|[@twidereproject](https://twitter.com/twidereproject)|
+|[Mastodon-iOS](https://itunes.apple.com/us/app/mastodon-ios/id1229531204?l=zh&ls=1&mt=8)|[iOS](https://itunes.apple.com/us/app/mastodon-ios/id1229531204?l=zh&ls=1&mt=8)||[@darkcl@mastodon.cloud](https://mastodon.cloud/@darkcl)|
 
 ## Bridges from/to other platforms
 

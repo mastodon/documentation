@@ -41,19 +41,20 @@ ___
 
 | Language             | Library                                                         | Developer(s)                                                                   |
 | -------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| .NET                 | [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net)         |                                                                                |
-| .NET Standard        | [Mastonet](https://github.com/glacasa/Mastonet)                 |                                                                                |
-| C#                   | [mastodon-api-cs](https://github.com/pawotter/mastodon-api-cs)  |                                                                                |
+| Apex (Salesforce)    | [apex-mastodon](https://github.com/tzmfreedom/apex-mastodon)    |                                                                                |
 | C# (.NET Standard)   | [Mastodot](https://github.com/yamachu/Mastodot)                 |                                                                                |
+| C# (.NET Standard)   | [Mastonet](https://github.com/glacasa/Mastonet)                 |                                                                                |
+| C# (.NET)            | [mastodon-api-cs](https://github.com/pawotter/mastodon-api-cs)  |                                                                                |
+| C# (.NET)            | [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net)         |                                                                                |
 | Crystal              | [mastodon.cr](https://github.com/decors/mastodon.cr)            |                                                                                |
 | Elixir               | [hunter](https://github.com/milmazz/hunter)                     |                                                                                |
 | Go                   | [go-mastodon](https://github.com/mattn/go-mastodon)             |                                                                                |
 | Go                   | [madon](https://github.com/McKael/madon)                        |                                                                                |
 | Haskell              | [hastodon](https://github.com/syucream/hastodon)                |                                                                                |
 | Java                 | [mastodon4j](https://github.com/sys1yagi/mastodon4j)            |                                                                                |
+| JavaScript           | [libodonjs](https://github.com/Zatnosk/libodonjs)               |                                                                                |
 | Javascript (Browser) | [mastodon.js](https://github.com/Kirschn/mastodon.js)           |                                                                                |
 | JavaScript (Node.js) | [node-mastodon](https://github.com/jessicahayley/node-mastodon) |                                                                                |
-| JavaScript           | [libodonjs](https://github.com/Zatnosk/libodonjs)               |                                                                                |
 | Perl                 | [Mastodon::Client](https://metacpan.org/pod/Mastodon::Client)   |                                                                                |
 | Python               | [Mastodon.py](https://github.com/halcy/Mastodon.py)             |                                                                                |
 | R                    | [mastodon](https://github.com/ThomasChln/mastodon)              |                                                                                |
@@ -125,7 +126,7 @@ Query parameters:
 | ---------- | -------------------------------------------------------------- | ---------- |
 | `max_id`   | Get a list of followers with ID less than or equal this value  | yes        |
 | `since_id` | Get a list of followers with ID greater than this value        | yes        |
-| `limit`    | Maximum number of accounts to get (Default 40, Max 80)         | yes        |
+| `limit`    | Maximum number of followers to get (Default 40, Max 80)        | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -141,7 +142,7 @@ Query parameters:
 | ---------- | -------------------------------------------------------------- | ---------- |
 | `max_id`   | Get a list of followings with ID less than or equal this value | yes        |
 | `since_id` | Get a list of followings with ID greater than this value       | yes        |
-| `limit`    | Maximum number of accounts to get (Default 40, Max 80)         | yes        |
+| `limit`    | Maximum number of followings to get (Default 40, Max 80)       | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -159,7 +160,7 @@ Query parameters:
 | `exclude_replies` | Skip statuses that reply to other statuses                   | yes        |
 | `max_id`          | Get a list of statuses with ID less than or equal this value | yes        |
 | `since_id`        | Get a list of statuses with ID greater than this value       | yes        |
-| `limit`           | Maximum number of accounts to get (Default 20, Max 40)       | yes        |
+| `limit`           | Maximum number of statuses to get (Default 20, Max 40)       | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -246,7 +247,7 @@ Query parameters:
 | ----------------- | ------------------------------------------------------------- | ---------- |
 | `max_id`          | Get a list of blocks with ID less than or equal this value    | yes        |
 | `since_id`        | Get a list of blocks with ID greater than this value          | yes        |
-| `limit`           | Maximum number of accounts to get (Default 40, Max 80)        | yes        |
+| `limit`           | Maximum number of blocks to get (Default 40, Max 80)          | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -264,7 +265,7 @@ Query parameters:
 | ----------------- | -------------------------------------------------------------- | ---------- |
 | `max_id`          | Get a list of favourites with ID less than or equal this value | yes        |
 | `since_id`        | Get a list of favourites with ID greater than this value       | yes        |
-| `limit`           | Maximum number of accounts to get (Default 20, Max 40)         | yes        |
+| `limit`           | Maximum number of favourites to get (Default 20, Max 40)       | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -282,7 +283,7 @@ Query parameters:
 | ----------------- | ------------------------------------------------------------------- | ---------- |
 | `max_id`          | Get a list of follow requests with ID less than or equal this value | yes        |
 | `since_id`        | Get a list of follow requests with ID greater than this value       | yes        |
-| `limit`           | Maximum number of accounts to get (Default 40, Max 80)              | yes        |
+| `limit`           | Maximum number of requests to get (Default 40, Max 80)              | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -351,7 +352,7 @@ Query parameters:
 | ----------------- | ------------------------------------------------------------------- | ---------- |
 | `max_id`          | Get a list of mutes with ID less than or equal this value           | yes        |
 | `since_id`        | Get a list of mutes with ID greater than this value                 | yes        |
-| `limit`           | Maximum number of accounts to get (Default 40, Max 80)              | yes        |
+| `limit`           | Maximum number of mutes to get (Default 40, Max 80)                 | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -369,7 +370,7 @@ Query parameters:
 | ----------------- | ------------------------------------------------------------------- | ---------- |
 | `max_id`          | Get a list of notifications with ID less than or equal this value   | yes        |
 | `since_id`        | Get a list of notifications with ID greater than this value         | yes        |
-| `limit`           | Maximum number of accounts to get (Default 15, Max 30)              | yes        |
+| `limit`           | Maximum number of notifications to get (Default 15, Max 30)         | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -466,7 +467,7 @@ Query parameters:
 | ----------------- | ------------------------------------------------------------------------ | ---------- |
 | `max_id`          | Get a list of reblogged/favourited with ID less than or equal this value | yes        |
 | `since_id`        | Get a list of reblogged/favourited with ID greater than this value       | yes        |
-| `limit`           | Maximum number of accounts to get (Default 40, Max 80)                   | yes        |
+| `limit`           | Maximum number of reblogged/favourited to get (Default 40, Max 80)       | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -526,7 +527,7 @@ Query parameters:
 | `local`           | Only return statuses originating from this instance (public and tag timelines only) | yes        |
 | `max_id`          | Get a list of timelines with ID less than or equal this value                       | yes        |
 | `since_id`        | Get a list of timelines with ID greater than this value                             | yes        |
-| `limit`           | Maximum number of accounts to get (Default 20, Max 40)                              | yes        |
+| `limit`           | Maximum number of statuses on the requested timeline to get (Default 20, Max 40)    | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 

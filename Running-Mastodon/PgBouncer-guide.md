@@ -48,15 +48,15 @@ PgBouncer has two config files: `pgbouncer.ini` and `userlist.txt` both in `/etc
 
 Add the `mastodon` user to the `userlist.txt`:
 
-    "mastodon" "md599dff7ae01ae2dc33ae052264bf22bf4"
+    "mastodon" "md5d75bb2be2d7086c6148944261a00f605"
 
-Here we're using the md5 scheme, where the md5 password is just the md5sum of `username + password` with the string `md5` prepended. For instance, to derive the hash for user `mastodon` with password `password`, you can do:
+Here we're using the md5 scheme, where the md5 password is just the md5sum of `password + username` with the string `md5` prepended. For instance, to derive the hash for user `mastodon` with password `password`, you can do:
 
 ```bash
 # ubuntu, debian, etc.
-echo -n "mastodonpassword" | md5sum
+echo -n "passwordmastodon" | md5sum
 # macOS, openBSD, etc.
-md5 -s "mastodonpassword"
+md5 -s "passwordmastodon"
 ```
 
 Then just add `md5` to the beginning of that.
@@ -64,8 +64,8 @@ Then just add `md5` to the beginning of that.
 You'll also want to create a `pgbouncer` admin user to log in to the PgBouncer admin database. So here's a sample `userlist.txt`:
 
 ```
-"mastodon" "md599dff7ae01ae2dc33ae052264bf22bf4"
-"pgbouncer" "md509c950063a6cf1b217ee831d0f4c6771"
+"mastodon" "md5d75bb2be2d7086c6148944261a00f605"
+"pgbouncer" "md5a45753afaca0db833a6f7c7b2864b9d9"
 ```
 
 In both cases the password is just `password`.
