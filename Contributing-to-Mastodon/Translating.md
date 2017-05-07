@@ -7,7 +7,7 @@ There are two parts to Mastodon, the server and the web client. The translations
 
 | Original file (English) | Location | Description |
 |---|---|---|
-| [`en.jsx`](https://github.com/tootsuite/mastodon/blob/master/app/assets/javascripts/components/locales/en.jsx) | `app/assets/javascripts/components/locales/en.jsx` | Strings for the web client |
+| [`en.json`](https://github.com/tootsuite/mastodon/blob/master/app/javascript/mastodon/locales/en.json) | `app/javascript/mastodon/locales/en.json` | Strings for the web client |
 | [`en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/en.yml) | `config/locales/en.yml` | Strings for general use |
 | [`simple_form.en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/simple_form.en.yml) | `config/locales/simple_form.en.yml` | Strings for the settings area |
 | [`devise.en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/devise.en.yml) | `config/locales/devise.en.yml` | Generic strings for Devise |
