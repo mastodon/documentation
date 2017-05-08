@@ -39,28 +39,33 @@ ___
 
 ## Available libraries
 
-|Language|Library|Developer(s)|
-|-------|--------|------------|
-| .Net | [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net) | |
-| .NET Standard | [Mastonet](https://github.com/glacasa/Mastonet) | |
-| C# | [mastodon-api-cs](https://github.com/pawotter/mastodon-api-cs) | |
-| C#(.NET Standard) | [Mastodot](https://github.com/yamachu/Mastodot) | |
-| Crystal | [mastodon.cr](https://github.com/decors/mastodon.cr) | |
-| Elixir | [hunter](https://github.com/milmazz/hunter) | |
-| Go | [go-mastodon](https://github.com/mattn/go-mastodon) | |
-| Go | [madon](https://github.com/McKael/madon) | |
-| Haskell | [hastodon](https://github.com/syucream/hastodon) | |
-| Java | [mastodon4j](https://github.com/sys1yagi/mastodon4j) | |
-| Javascript (Browser) | [mastodon.js](https://github.com/Kirschn/mastodon.js) | |
-| JavaScript (Node.js) | [node-mastodon](https://github.com/jessicahayley/node-mastodon) | |
-| JavaScript | [libodonjs](https://github.com/Zatnosk/libodonjs) | |
-| Perl | [Mastodon::Client](https://metacpan.org/pod/Mastodon::Client) | |
-| Python | [Mastodon.py](https://github.com/halcy/Mastodon.py) | |
-| R | [mastodon](https://github.com/ThomasChln/mastodon) | |
-| Ruby | [mastodon-api](https://github.com/tootsuite/mastodon-api) | [@Gargron@mastodon.social](https://mastodon.social/@Gargron) |
-| Rust | [mammut](https://github.com/Aaronepower/mammut) | [@Aaronepower@mastodon.social](https://mastodon.social/@Aaronepower) |
-| Scala | [scaladon](https://github.com/schwitzerm/scaladon) | |
-| Swift | [MastodonKit](https://github.com/ornithocoder/MastodonKit) | [@ornithocoder@mastodon.technology](https://mastodon.technology/@ornithocoder) |
+| Language             | Library                                                                        | Developer(s)                                                                   |
+| -------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| Apex (Salesforce)    | [apex-mastodon](https://github.com/tzmfreedom/apex-mastodon)                   |                                                                                |
+| C# (.NET Standard)   | [Mastodot](https://github.com/yamachu/Mastodot)                                |                                                                                |
+| C# (.NET Standard)   | [Mastonet](https://github.com/glacasa/Mastonet)                                |                                                                                |
+| C# (.NET)            | [mastodon-api-cs](https://github.com/pawotter/mastodon-api-cs)                 |                                                                                |
+| C# (.NET)            | [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net)                        |                                                                                |
+| Crystal              | [mastodon.cr](https://github.com/decors/mastodon.cr)                           |                                                                                |
+| Elixir               | [hunter](https://github.com/milmazz/hunter)                                    |                                                                                |
+| Go                   | [go-mastodon](https://github.com/mattn/go-mastodon)                            |                                                                                |
+| Go                   | [madon](https://github.com/McKael/madon)                                       |                                                                                |
+| Haskell              | [hastodon](https://github.com/syucream/hastodon)                               |                                                                                |
+| Java                 | [mastodon4j](https://github.com/sys1yagi/mastodon4j)                           |                                                                                |
+| JavaScript           | [libodonjs](https://github.com/Zatnosk/libodonjs)                              |                                                                                |
+| Javascript (Browser) | [mastodon.js](https://github.com/Kirschn/mastodon.js)                          |                                                                                |
+| JavaScript (Node.js) | [node-mastodon](https://github.com/jessicahayley/node-mastodon)                |                                                                                |
+| Perl                 | [Mastodon::Client](https://metacpan.org/pod/Mastodon::Client)                  | [@jjatria@mastodon.cloud](https://mastodon.cloud/@jjatria)                     |
+| PHP                  | [Mastodon-api-php](https://github.com/yks118/Mastodon-api-php)                 |                                                                                |
+| PHP                  | [MastodonOAuthPHP](https://github.com/TheCodingCompany/MastodonOAuthPHP)       |                                                                                |
+| PHP                  | [Phediverse Mastodon REST Client](https://github.com/phediverse/mastodon-rest) |                                                                                |
+| PHP                  | [TootoPHP](https://framagit.org/MaxKoder/TootoPHP)                             |                                                                                |
+| Python               | [Mastodon.py](https://github.com/halcy/Mastodon.py)                            |                                                                                |
+| R                    | [mastodon](https://github.com/ThomasChln/mastodon)                             |                                                                                |
+| Ruby                 | [mastodon-api](https://github.com/tootsuite/mastodon-api)                      | [@Gargron@mastodon.social](https://mastodon.social/@Gargron)                   |
+| Rust                 | [mammut](https://github.com/Aaronepower/mammut)                                | [@Aaronepower@mastodon.social](https://mastodon.social/@Aaronepower)           |
+| Scala                | [scaladon](https://github.com/schwitzerm/scaladon)                             |                                                                                |
+| Swift                | [MastodonKit](https://github.com/ornithocoder/MastodonKit)                     | [@ornithocoder@mastodon.technology](https://mastodon.technology/@ornithocoder) |
 
 ___
 
@@ -108,10 +113,12 @@ Returns the authenticated user's [Account](#account).
 
 Form data:
 
-- `display_name`: The name to display in the user's profile
-- `note`: A new biography for the user
-- `avatar`: A base64 encoded image to display as the user's avatar (e.g. `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAADrCAYAAAA...`)
-- `header`: A base64 encoded image to display as the user's header image (e.g. `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAADrCAYAAAA...`)
+| Field          | Description                                                                                                                            | Optional   |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `display_name` | The name to display in the user's profile                                                                                              | yes        |
+| `note`         | A new biography for the user                                                                                                           | yes        |
+| `avatar`       | A base64 encoded image to display as the user's avatar (e.g. `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAADrCAYAAAA...`)       | yes        | 
+| `header`       | A base64 encoded image to display as the user's header image (e.g. `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAADrCAYAAAA...`) | yes        |
 
 #### Getting an account's followers:
 
@@ -119,9 +126,11 @@ Form data:
 
 Query parameters:
 
-- `max_id` (optional): Get a list of followers with ID less than or equal this value
-- `since_id` (optional): Get a list of followers with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+| Field      | Description                                                    | Optional   |
+| ---------- | -------------------------------------------------------------- | ---------- |
+| `max_id`   | Get a list of followers with ID less than or equal this value  | yes        |
+| `since_id` | Get a list of followers with ID greater than this value        | yes        |
+| `limit`    | Maximum number of followers to get (Default 40, Max 80)        | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -133,9 +142,11 @@ Returns an array of [Accounts](#account).
 
 Query parameters:
 
-- `max_id` (optional): Get a list of followings with ID less than or equal this value
-- `since_id` (optional): Get a list of followings with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+| Field      | Description                                                    | Optional   |
+| ---------- | -------------------------------------------------------------- | ---------- |
+| `max_id`   | Get a list of followings with ID less than or equal this value | yes        |
+| `since_id` | Get a list of followings with ID greater than this value       | yes        |
+| `limit`    | Maximum number of followings to get (Default 40, Max 80)       | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -147,11 +158,13 @@ Returns an array of [Accounts](#account).
 
 Query parameters:
 
-- `only_media` (optional): Only return statuses that have media attachments
-- `exclude_replies` (optional): Skip statuses that reply to other statuses
-- `max_id` (optional): Get a list of statuses with ID less than or equal this value
-- `since_id` (optional): Get a list of statuses with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 20, Max 40)
+| Field             | Description                                                  | Optional   |
+| ----------------- | -----------------------------------------------------------  | ---------- |
+| `only_media`      | Only return statuses that have media attachments             | yes        |
+| `exclude_replies` | Skip statuses that reply to other statuses                   | yes        |
+| `max_id`          | Get a list of statuses with ID less than or equal this value | yes        |
+| `since_id`        | Get a list of statuses with ID greater than this value       | yes        |
+| `limit`           | Maximum number of statuses to get (Default 20, Max 40)       | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -184,7 +197,9 @@ Returns the target account's [Relationship](#relationship).
 
 Query parameters:
 
-- `id` (can be array): Account IDs
+| Field | Description                   | Optional   |
+| ----- | ----------------------------  | ---------- |
+| `id`  | Account IDs (can be an array) | no         |
 
 Returns an array of [Relationships](#relationships) of the current user to a list of given accounts.
 
@@ -194,10 +209,13 @@ Returns an array of [Relationships](#relationships) of the current user to a lis
 
 Query parameters:
 
-- `q`: What to search for
-- `limit`: Maximum number of matching accounts to return (default: `40`)
+| Field             | Description                                                   | Optional   |
+| ----------------- | ------------------------------------------------------------- | ---------- |
+| `q`               | What to search for                                            | no         |
+| `limit`           | Maximum number of matching accounts to return (default: `40`) | yes        |
 
 Returns an array of matching [Accounts](#accounts).
+
 Will lookup an account remotely if the search term is in the `username@domain` format and not yet in the database.
 
 ### Apps
@@ -208,12 +226,15 @@ Will lookup an account remotely if the search term is in the `username@domain` f
 
 Form data:
 
-- `client_name`: Name of your application
-- `redirect_uris`: Where the user should be redirected after authorization (for no redirect, use `urn:ietf:wg:oauth:2.0:oob`)
-- `scopes`: This can be a space-separated list of the following items: "read", "write" and "follow" (see [this page](OAuth-details.md) for details on what the scopes do)
-- `website`: (optional) URL to the homepage of your app
+| Field             | Description                                                                                                                                                   | Optional   |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `client_name`     | Name of your application                                                                                                                                      | no         |
+| `redirect_uris`   | Where the user should be redirected after authorization (for no redirect, use `urn:ietf:wg:oauth:2.0:oob`)                                                    | no         |
+| `scopes`          | This can be a space-separated list of the following items: "read", "write" and "follow" (see [this page](OAuth-details.md) for details on what the scopes do) | no         |
+| `website`         | URL to the homepage of your app                                                                                                                               | yes        |
 
 Creates a new OAuth app.
+
 Returns `id`, `client_id` and `client_secret` which can be used with [OAuth authentication in your 3rd party app](Testing-with-cURL.md).
 
 These values should be requested in the app itself from the API for each new app install + mastodon domain combo, and stored in the app for future requests.
@@ -226,9 +247,11 @@ These values should be requested in the app itself from the API for each new app
 
 Query parameters:
 
-- `max_id` (optional): Get a list of blocks with ID less than or equal this value
-- `since_id` (optional): Get a list of blocks with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+| Field             | Description                                                   | Optional   |
+| ----------------- | ------------------------------------------------------------- | ---------- |
+| `max_id`          | Get a list of blocks with ID less than or equal this value    | yes        |
+| `since_id`        | Get a list of blocks with ID greater than this value          | yes        |
+| `limit`           | Maximum number of blocks to get (Default 40, Max 80)          | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -242,9 +265,11 @@ Returns an array of [Accounts](#account) blocked by the authenticated user.
 
 Query parameters:
 
-- `max_id` (optional): Get a list of favourites with ID less than or equal this value
-- `since_id` (optional): Get a list of favourites with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 20, Max 40)
+| Field             | Description                                                    | Optional   |
+| ----------------- | -------------------------------------------------------------- | ---------- |
+| `max_id`          | Get a list of favourites with ID less than or equal this value | yes        |
+| `since_id`        | Get a list of favourites with ID greater than this value       | yes        |
+| `limit`           | Maximum number of favourites to get (Default 20, Max 40)       | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -258,9 +283,11 @@ Returns an array of [Statuses](#status) favourited by the authenticated user.
 
 Query parameters:
 
-- `max_id` (optional): Get a list of follow requests with ID less than or equal this value
-- `since_id` (optional): Get a list of follow requests with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+| `max_id`          | Get a list of follow requests with ID less than or equal this value | yes        |
+| `since_id`        | Get a list of follow requests with ID greater than this value       | yes        |
+| `limit`           | Maximum number of requests to get (Default 40, Max 80)              | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -273,7 +300,9 @@ Returns an array of [Accounts](#account) which have requested to follow the auth
 
 Parameters:
 
-- `id`: The id of the account to authorize or reject
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+| `id`              | The id of the account to authorize or reject                        | no         |
 
 Returns an empty object.
 
@@ -285,7 +314,9 @@ Returns an empty object.
 
 Form data:
 
-- `uri`: `username@domain` of the person you want to follow
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+| `uri`             | `username@domain` of the person you want to follow                  | no         |
 
 Returns the local representation of the followed account, as an [Account](#account).
 
@@ -307,7 +338,9 @@ Does not require authentication.
 
 Form data:
 
-- `file`: Media to be uploaded
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+| `file`            | Media to be uploaded                                                | no         |
 
 Returns an [Attachment](#attachment) that can be used when creating a status.
 
@@ -319,9 +352,11 @@ Returns an [Attachment](#attachment) that can be used when creating a status.
 
 Query parameters:
 
-- `max_id` (optional): Get a list of mutes with ID less than or equal this value
-- `since_id` (optional): Get a list of mutes with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+| `max_id`          | Get a list of mutes with ID less than or equal this value           | yes        |
+| `since_id`        | Get a list of mutes with ID greater than this value                 | yes        |
+| `limit`           | Maximum number of mutes to get (Default 40, Max 80)                 | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -335,9 +370,11 @@ Returns an array of [Accounts](#account) muted by the authenticated user.
 
 Query parameters:
 
-- `max_id` (optional): Get a list of notifications with ID less than or equal this value
-- `since_id` (optional): Get a list of notifications with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 15, Max 30)
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+| `max_id`          | Get a list of notifications with ID less than or equal this value   | yes        |
+| `since_id`        | Get a list of notifications with ID greater than this value         | yes        |
+| `limit`           | Maximum number of notifications to get (Default 15, Max 30)         | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -370,9 +407,11 @@ Returns a list of [Reports](#report) made by the authenticated user.
 
 Form data:
 
-- `account_id`: The ID of the account to report
-- `status_ids`: The IDs of statuses to report (can be an array)
-- `comment`: A comment to associate with the report.
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+| `account_id`      | The ID of the account to report                                     | no         |
+| `status_ids`      | The IDs of statuses to report (can be an array)                     | no         |
+| `comment`         | A comment to associate with the report                              | no         |
 
 Returns the finished [Report](#report).
 
@@ -384,12 +423,14 @@ Returns the finished [Report](#report).
 
 Form data:
 
-- `q`: The search query
-- `resolve`: Whether to resolve non-local accounts
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+| `q`               | The search query                                                    | no         |
+| `resolve`         | Whether to resolve non-local accounts                               | no         |
 
 Returns [Results](#results).
-If `q` is a URL, Mastodon will attempt to fetch the provided account or status.
-Otherwise, it will do a local account and hashtag search.
+
+If `q` is a URL, Mastodon will attempt to fetch the provided account or status. Otherwise, it will do a local account and hashtag search.
 
 Does not require authentication.
 
@@ -426,9 +467,11 @@ Does not require authentication.
 
 Query parameters:
 
-- `max_id` (optional): Get a list of reblogged/favourited with ID less than or equal this value
-- `since_id` (optional): Get a list of reblogged/favourited with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 40, Max 80)
+| Field             | Description                                                              | Optional   |
+| ----------------- | ------------------------------------------------------------------------ | ---------- |
+| `max_id`          | Get a list of reblogged/favourited with ID less than or equal this value | yes        |
+| `since_id`        | Get a list of reblogged/favourited with ID greater than this value       | yes        |
+| `limit`           | Maximum number of reblogged/favourited to get (Default 40, Max 80)       | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
@@ -442,12 +485,14 @@ Does not require authentication.
 
 Form data:
 
-- `status`: The text of the status
-- `in_reply_to_id` (optional): local ID of the status you want to reply to
-- `media_ids` (optional): array of media IDs to attach to the status (maximum 4)
-- `sensitive` (optional): set this to mark the media of the status as NSFW
-- `spoiler_text` (optional): text to be shown as a warning before the actual content
-- `visibility` (optional): either "direct", "private", "unlisted" or "public"
+| Field             | Description                                                              | Optional   |
+| ----------------- | ------------------------------------------------------------------------ | ---------- |
+| `status`          | The text of the status                                                   | no         |
+| `in_reply_to_id`  | local ID of the status you want to reply to                              | yes        |
+| `media_ids`       | Array of media IDs to attach to the status (maximum 4)                   | yes        |
+| `sensitive`       | Set this to mark the media of the status as NSFW                         | yes        |
+| `spoiler_text`    | Text to be shown as a warning before the actual content                  | yes        |
+| `visibility`       | Either "direct", "private", "unlisted" or "public"                      | yes        |
 
 Returns the new [Status](#status).
 
@@ -481,16 +526,19 @@ Returns the target [Status](#status).
 
 Query parameters:
 
-- `local` (optional; public and tag timelines only): Only return statuses originating from this instance
-- `max_id` (optional): Get a list of timelines with ID less than or equal this value
-- `since_id` (optional): Get a list of timelines with ID greater than this value
-- `limit` (optional): Maximum number of accounts to get (Default 20, Max 40)
+| Field             | Description                                                                         | Optional   |
+| ----------------- | ----------------------------------------------------------------------------------- | ---------- |
+| `local`           | Only return statuses originating from this instance (public and tag timelines only) | yes        |
+| `max_id`          | Get a list of timelines with ID less than or equal this value                       | yes        |
+| `since_id`        | Get a list of timelines with ID greater than this value                             | yes        |
+| `limit`           | Maximum number of statuses on the requested timeline to get (Default 20, Max 40)    | yes        |
 
 `max_id` and `since_id` are usually get from the `Link` header.
 
 Returns an array of [Statuses](#status), most recent ones first.
 
 'public' and 'tag' timelines do not require authentication.
+
 ___
 
 ## Entities

@@ -160,6 +160,14 @@ To allow you more control over who can see your toots, Mastodon supports "privat
 
 ![Screenshot of the "Private Account" setting](screenshots/private.png)
 
+You can then see follow requests in the Getting started menu
+
+![Screenshot of the "Follow requests" menu](screenshots/follow_requests_menu.png)
+
+and approve or reject the individual requests
+
+![Screenshot of the approval/denial menu](screenshots/follow_requests.png)
+
 #### Toot Privacy
 
 Toot privacy is handled independently of account privacy, and individually for each toot. The four tiers of visibility for toots are Public (default), Unlisted, Private, and Direct. In order to select your privacy level, click the ![Globe icon](screenshots/compose-privacy.png) globe icon. Changes to this setting are remembered between posts, i.e. if you make one private toot, each toot you make will be private until you change it back to public. You can change your default post privacy under preferences.
@@ -168,11 +176,11 @@ Toot privacy is handled independently of account privacy, and individually for e
 
 **Unlisted** toots are public, except that they do not appear in the public timelines or search results. They are visible to anyone following you and appear on your profile page to the public even without a Mastodon login. Other than not appearing in the public timelines or search results, they function identically to public posts.
 
-**Private** toots do not appear in the public timeline nor on your profile page to anyone viewing it unless they are on your Followers list. The option is of limited use if your account is not also set to require approval of new followers (as anyone can follow you without confirmation and thus see your private toots). However the separation of this means that if you *do* set your entire account to private, you can switch this option off on a toot to make unlisted or even public toots from your otherwise private account.
+**Followers-only** toots do not appear in the public timeline nor on your profile page to anyone viewing it unless they are on your Followers list. The option is of limited use if your account is not also set to require approval of new followers (as anyone can follow you without confirmation and thus see your private toots). However the separation of this means that if you *do* set your entire account to private, you can switch this option off on a toot to make unlisted or even public toots from your otherwise private account.
 
 Private toots cannot be boosted. If someone you follow makes a private toot, it will appear in your timeline with a padlock icon in place of the Boost icon. **NOTE** that remote instances may not respect this.
 
-Private toots do not federate to other instances, unless you @mention a remote user. In this case, they will federate to their instance, and users on that instance who follow both you and the @mentioned user will see it in their Home timelines. There is no reliable way to check if an instance will actually respect post privacy. Non-Mastodon servers, such as a GNU Social server, do not support Mastodon privacy settings. A user on GNU Social who you @mention in a private post would not even be aware that the post is intended to be private and would be able to boost it, which would undo the privacy setting. There is also no way to guarantee that someone could not just modify the code on their particular Mastodon instance to not respect private post restrictions. A warning will be displayed if you're composing a private toot that will federate to another instance. You should thus think through how much you trust the user you are @mentioning and the instance they are on.
+There is no reliable way to check if an instance will actually respect post privacy. Non-Mastodon servers, such as a GNU Social server, do not support Mastodon privacy settings. A user on GNU Social who you @mention in a private post would not even be aware that the post is intended to be private and would be able to boost it, which would undo the privacy setting. There is also no way to guarantee that someone could not just modify the code on their particular Mastodon instance to not respect private post restrictions. A warning will be displayed if you're composing a private toot that will federate to another instance. You should thus think through how much you trust the user you are @mentioning and the instance they are on.
 
 Private posts are not encrypted. Make sure you trust your instance admin not to just read your private posts on the back-end. Do not say anything you would not want potentially intercepted. 
 

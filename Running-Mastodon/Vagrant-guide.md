@@ -15,7 +15,7 @@ The following command will update your 'hosts' file when you start the virtual m
 
 To create and provision a new virtual machine for Mastodon development run:
 
-    git clone git@github.com:tootsuite/mastodon.git
+    git clone https://github.com/tootsuite/mastodon.git
     cd mastodon
     vagrant up
 
@@ -26,13 +26,16 @@ Running `vagrant up` for the first time will run provisioning, which will:
 - Download the Ubuntu 14.04 base image, if there isn't already a copy on your machine
 - Create a new VirtualBox virtual machine from that image
 - Run the provisioning script (located inside the Vagrantfile), which installs the system packages, Ruby gems, and JS modules required for Mastodon
-- Run the startup script
 
 ## Starting the server
 
 The Vagrant box will automatically start after provisioning. It can be started in future with `vagrant up` from the mastodon directory.
 
-Once the Ubuntu virtual machine has booted, it will run the startup script, which loads the environment variables from `.env.vagrant` and then runs `rails s -d -b 0.0.0.0`. This will start a Rails server. You can then access your development site at http://mastodon.dev (or at http://localhost:3000 if you haven't installed vagrants-hostupdater). By default, your development environment will have an admin account created for you to use - the email address will be `admin@mastodon.dev` and the password will be `mastodonadmin`.
+To start the application:
+
+    vagrant ssh -c "cd /vagrant && foreman start"
+
+The rails server, streaming server and webpack-dev-server will start up. You can then access your development site at http://mastodon.dev (or at http://localhost:3000 if you haven't installed vagrants-hostupdater). By default, your development environment will have an admin account created for you to use - the email address will be `admin@mastodon.dev` and the password will be `mastodonadmin`.
 
 To stop the server, simply run `vagrant halt`.
 
@@ -44,7 +47,7 @@ By default, your instance's ActionMailer will use "Letter Opener Web" for email.
 
 ## Making changes/developing
 
-You are able to set environment variables, which are used for Mastodon configuration, by editing the `.env.vagrant` file. Any changes you make will take effect after a Vagrant restart.
+You are able to set environment variables, which are used for Mastodon configuration, by editing the `.env.vagrant` file. `.env.vagrant` is loaded when you run `vagrant ssh`.
 
 Vagrant has mounted your mastodon folder inside the virtual machine. This means that any change to the files in the folder(e.g. the Rails controllers or the React components in /app) should immediately take effect on the live server. This allows you to make and test changes, and create new commits, without ever needing to access the virtual machine.
 
