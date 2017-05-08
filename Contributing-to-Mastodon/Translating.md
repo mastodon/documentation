@@ -3,11 +3,11 @@ Translating
 
 If you want to localize Mastodon into your language, here is how.
 
-There are two parts to Mastodon, the server and the web client. The translations for the web client are in [`app/assets/javascripts/components/locales`](https://github.com/tootsuite/mastodon/tree/master/app/assets/javascripts/components/locales). For the server-side, the translations live in [`config/locales`](https://github.com/tootsuite/mastodon/tree/master/config/locales) and are divided into different files. In addition, email templates for the server are found in [`app/views/user_mailer`](https://github.com/tootsuite/mastodon/tree/master/app/views/user_mailer). Here are all the files you’ll need to translate:
+There are two parts to Mastodon, the server and the web client. The translations for the web client are in [`app/javascript/mastodon/locales`](https://github.com/tootsuite/mastodon/tree/master/app/javascript/mastodon/locales). For the server-side, the translations live in [`config/locales`](https://github.com/tootsuite/mastodon/tree/master/config/locales) and are divided into different files. In addition, email templates for the server are found in [`app/views/user_mailer`](https://github.com/tootsuite/mastodon/tree/master/app/views/user_mailer). Here are all the files you’ll need to translate:
 
 | Original file (English) | Location | Description |
 |---|---|---|
-| [`en.jsx`](https://github.com/tootsuite/mastodon/blob/master/app/assets/javascripts/components/locales/en.jsx) | `app/assets/javascripts/components/locales/en.jsx` | Strings for the web client |
+| [`en.json`](https://github.com/tootsuite/mastodon/blob/master/app/javascript/mastodon/locales/en.json) | `app/javascript/mastodon/locales/en.json` | Strings for the web client |
 | [`en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/en.yml) | `config/locales/en.yml` | Strings for general use |
 | [`simple_form.en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/simple_form.en.yml) | `config/locales/simple_form.en.yml` | Strings for the settings area |
 | [`devise.en.yml`](https://github.com/tootsuite/mastodon/blob/master/config/locales/devise.en.yml) | `config/locales/devise.en.yml` | Generic strings for Devise |
@@ -22,7 +22,7 @@ If you use Github, first clone the Mastodon repository to your account.
 
 1. Duplicate the files in their folder and replace `en` in the filenames by your language’s standard two-letters code ([ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)).
    For instance `simple_form.en.yml` becomes `simple_form.es.yml` in the Spanish translation.
-2. Also replace the language code in the first lines of all the files, and the last line of the `.jsx` file.
+2. Also replace the language code in the first lines of all the files, and the last line of the `.json` file.
 3. Translate the right-side values from English to your language. Keep the indentation and punctuation.
 
 Since Devise and Doorkeeper are popular libraries, there may already be translation files for your language available on the Internet. [Devise's Wiki](https://github.com/plataformatec/devise/wiki/I18n) and [doorkeeper-i18n](https://github.com/doorkeeper-gem/doorkeeper-i18n) are official sources for these translations, respectively.
