@@ -63,7 +63,7 @@ ___
 | Python               | [Mastodon.py](https://github.com/halcy/Mastodon.py)                            |                                                                                |
 | R                    | [mastodon](https://github.com/ThomasChln/mastodon)                             |                                                                                |
 | Ruby                 | [mastodon-api](https://github.com/tootsuite/mastodon-api)                      | [@Gargron@mastodon.social](https://mastodon.social/@Gargron)                   |
-| Rust                 | [mammut](https://github.com/Aaronepower/mammut)                                |                                                                                |
+| Rust                 | [mammut](https://github.com/Aaronepower/mammut)                                | [@Aaronepower@mastodon.social](https://mastodon.social/@Aaronepower)           |
 | Scala                | [scaladon](https://github.com/schwitzerm/scaladon)                             |                                                                                |
 | Swift                | [MastodonKit](https://github.com/ornithocoder/MastodonKit)                     | [@ornithocoder@mastodon.technology](https://mastodon.technology/@ornithocoder) |
 
