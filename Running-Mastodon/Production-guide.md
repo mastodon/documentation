@@ -61,7 +61,6 @@ server {
 
   add_header Strict-Transport-Security "max-age=31536000";
   add_header Content-Security-Policy "style-src 'self' 'unsafe-inline'; script-src 'self'; object-src 'self'; img-src data: https:; media-src data: https:; connect-src 'self' wss://example.com; upgrade-insecure-requests";
-  add_header Referrer-Policy "strict-origin-when-cross-origin";
 
   location / {
     try_files $uri @proxy;
