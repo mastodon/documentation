@@ -1,6 +1,10 @@
 Frequently Asked Questions
 ==========================
 
+Translations of this FAQ:
+
+* [Español](FAQ_ESP.md)
+
 #### What is a Mastodon?
 
 A prehistoric animal, predecessor of the mammoth. Goes "toot."
