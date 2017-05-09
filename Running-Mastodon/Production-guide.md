@@ -37,7 +37,9 @@ server {
   server_name example.com;
 
   ssl_protocols TLSv1.2;
-  ssl_ciphers HIGH:!MEDIUM:!LOW:!aNULL:!NULL:!SHA;
+  ssl_ciphers 'ECDHE+CHACHA20:ECDHE+AESGCM'; # or 'ECDHE:!DSS:!PSK:!SRP:!3DES:!RC4:!DES:!IDEA:!RC2:!NULL'
+  #ssl_dhparam ssl/dhparam.pem; # generate with “openssl dhparam -out dhparam.pem 4096”, only needed if you add DHE to the ciphers
+  ssl_ecdh_curve X25519:sect571r1:secp521r1:secp384r1:prime256v1; # If only one curve : prime256v1 (Android 7.0 compat) or secp384r1 (not compatible with Android 7.0)
   ssl_prefer_server_ciphers on;
   ssl_session_cache shared:SSL:10m;
 
