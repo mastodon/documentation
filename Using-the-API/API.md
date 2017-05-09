@@ -543,6 +543,8 @@ ___
 
 ## Entities
 
+Note: Some JSON attributes in the entity JSON can be null. These attributes are marked as _nullable_ on the tables below. Attributes that are not nullable are guarantee to return a valid value.
+
 ### Account
 
 | Attribute                | Description                                                                        | Nullable |
