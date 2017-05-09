@@ -194,7 +194,7 @@ and install an ident daemon, which does not come installed by default:
 Under Debian 8, the default version of nginx available is too old to work with the above configuration file (as it uses http2). To install a newer version of nginx that supports http2 (v1.9.5+), you have to add the jessie-backports repo to your `sources.list.d`:
 
 ```bash
-$ echo "deb http://ftp.debian.org/debian jessie-backports main" | sudo tee -a /etc/apt/sources.list.d/backports.list
+$ echo "deb http://ftp.debian.org/debian/ jessie-backports main" | sudo tee /etc/apt/sources.list.d/backports.list
 $ sudo apt-get update
 $ sudo apt-get install -t jessie-backports nginx
 ```
