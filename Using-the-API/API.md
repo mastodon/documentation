@@ -53,7 +53,7 @@ ___
 | Haskell              | [hastodon](https://github.com/syucream/hastodon)                               |                                                                                |
 | Java                 | [mastodon4j](https://github.com/sys1yagi/mastodon4j)                           |                                                                                |
 | JavaScript           | [libodonjs](https://github.com/Zatnosk/libodonjs)                              |                                                                                |
-| Javascript (Browser) | [mastodon.js](https://github.com/Kirschn/mastodon.js)                          |                                                                                |
+| JavaScript (Browser) | [mastodon.js](https://github.com/Kirschn/mastodon.js)                          |                                                                                |
 | JavaScript (Node.js) | [node-mastodon](https://github.com/jessicahayley/node-mastodon)                |                                                                                |
 | Perl                 | [Mastodon::Client](https://metacpan.org/pod/Mastodon::Client)                  | [@jjatria@mastodon.cloud](https://mastodon.cloud/@jjatria)                     |
 | PHP                  | [Mastodon-api-php](https://github.com/yks118/Mastodon-api-php)                 |                                                                                |
