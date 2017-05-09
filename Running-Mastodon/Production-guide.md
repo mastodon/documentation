@@ -188,6 +188,16 @@ and install an ident daemon, which does not come installed by default:
     sudo systemctl start pidentd
     sudo systemctl restart postgresql
 
+### Debian 8
+
+Under Debian 8, the default version of nginx available is too old. To install a newer version of nginx (v1.9.5+), you have to add the jessie-backports repo to your `sources.list`:
+
+```bash
+$ echo "deb http://ftp.debian.org/debian jessie-backports main" | sudo tee -a /etc/apt/sources.list
+$ sudo apt-get update
+$ sudo apt-get install -t jessie-backports nginx
+```
+
 ## Rbenv
 
 It is recommended to use rbenv (exclusively from the `mastodon` user) to install the desired Ruby version. Follow the guides to [install rbenv][1] and [rbenv-build][2] (I recommend checking the [prerequisites][3] for your system on the rbenv-build project and installing them beforehand, obviously outside the unprivileged `mastodon` user)
