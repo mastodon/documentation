@@ -543,6 +543,8 @@ ___
 
 ## Entities
 
+Note: Some attributes in the entity payload can have ``null`` value and are marked as _nullable_ on the tables below. Attributes that are not nullable are guaranteed to return a valid value.
+
 ### Account
 
 | Attribute                | Description                                                                        | Nullable |
