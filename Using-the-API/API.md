@@ -545,146 +545,147 @@ ___
 
 ### Account
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `id`                     | The ID of the account |
-| `username`               | The username of the account |
-| `acct`                   | Equals `username` for local users, includes `@domain` for remote ones |
-| `display_name`           | The account's display name |
-| `locked`                 | Boolean for when the account cannot be followed without waiting for approval first |
-| `created_at`             | The time the account was created |
-| `followers_count`        | The number of followers for the account |
-| `following_count`        | The number of accounts the given account is following |
-| `statuses_count`         | The number of statuses the account has made |
-| `note`                   | Biography of user |
-| `url`                    | URL of the user's profile page (can be remote) |
-| `avatar`                 | URL to the avatar image |
-| `avatar_static`          | URL to the avatar static image (gif) |
-| `header`                 | URL to the header image |
-| `header_static`          | URL to the header static image (gif) |
+| Attribute                | Description                                                                        | Nullable |
+| ------------------------ | ---------------------------------------------------------------------------------- | -------- |
+| `id`                     | The ID of the account                                                              | no       |
+| `username`               | The username of the account                                                        | no       |
+| `acct`                   | Equals `username` for local users, includes `@domain` for remote ones              | no       |
+| `display_name`           | The account's display name                                                         | no       |
+| `locked`                 | Boolean for when the account cannot be followed without waiting for approval first | no       |
+| `created_at`             | The time the account was created                                                   | no       |
+| `followers_count`        | The number of followers for the account                                            | no       |
+| `following_count`        | The number of accounts the given account is following                              | no       |
+| `statuses_count`         | The number of statuses the account has made                                        | no       |
+| `note`                   | Biography of user                                                                  | no       |
+| `url`                    | URL of the user's profile page (can be remote)                                     | no       |
+| `avatar`                 | URL to the avatar image                                                            | no       |
+| `avatar_static`          | URL to the avatar static image (gif)                                               | no       |
+| `header`                 | URL to the header image                                                            | no       |
+| `header_static`          | URL to the header static image (gif)                                               | no       |
 
 ### Application
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `name`                   | Name of the app |
-| `website`                | Homepage URL of the app |
+| Attribute                | Description             | Nullable |
+| ------------------------ | ----------------------- | -------- |
+| `name`                   | Name of the app         | no       |
+| `website`                | Homepage URL of the app | yes      |
 
 ### Attachment
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `id`                     | ID of the attachment |
-| `type`                   | One of: "image", "video", "gifv" |
-| `url`                    | URL of the locally hosted version of the image |
-| `remote_url`             | For remote images, the remote URL of the original image |
-| `preview_url`            | URL of the preview image |
-| `text_url`               | Shorter URL for the image, for insertion into text (only present on local images) |
+| Attribute                | Description                                                                       | Nullable |
+| ------------------------ | --------------------------------------------------------------------------------- | -------- |
+| `id`                     | ID of the attachment                                                              | no       |
+| `type`                   | One of: "image", "video", "gifv"                                                  | no       |
+| `url`                    | URL of the locally hosted version of the image                                    | no       |
+| `remote_url`             | For remote images, the remote URL of the original image                           | yes      |
+| `preview_url`            | URL of the preview image                                                          | no       |
+| `text_url`               | Shorter URL for the image, for insertion into text (only present on local images) | no       |
 
 ### Card
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `url`                    | The url associated with the card |
-| `title`                  | The title of the card |
-| `description`            | The card description |
-| `image`                  | The image associated with the card, if any |
+| Attribute                | Description                                | Nullable |
+| ------------------------ | ------------------------------------------ | -------- |
+| `url`                    | The url associated with the card           | no       |
+| `title`                  | The title of the card                      | no       |
+| `description`            | The card description                       | no       |
+| `image`                  | The image associated with the card, if any | yes      |
 
 ### Context
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `ancestors`              | The ancestors of the status in the conversation, as a list of [Statuses](#status) |
-| `descendants`            | The descendants of the status in the conversation, as a list of [Statuses](#status) |
+| Attribute                | Description                                                                         | Nullable |
+| ------------------------ | ----------------------------------------------------------------------------------- | -------- |
+| `ancestors`              | The ancestors of the status in the conversation, as a list of [Statuses](#status)   | no       |
+| `descendants`            | The descendants of the status in the conversation, as a list of [Statuses](#status) | no       |
 
 ### Error
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `error`                  | A textual description of the error |
+| Attribute                | Description                        | Nullable |
+| ------------------------ | ---------------------------------- | -------- |
+| `error`                  | A textual description of the error | no       |
 
 ### Instance
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `uri`                    | URI of the current instance |
-| `title`                  | The instance's title |
-| `description`            | A description for the instance |
-| `email`                  | An email address which can be used to contact the instance administrator |
+| Attribute                | Description                                                              | Nullable |
+| ------------------------ | ------------------------------------------------------------------------ | -------- |
+| `uri`                    | URI of the current instance                                              | no       |
+| `title`                  | The instance's title                                                     | no       |
+| `description`            | A description for the instance                                           | no       |
+| `email`                  | An email address which can be used to contact the instance administrator | no       |
+| `version`                | The Mastodon version used by instance (as of version 1.3).               | yes      |
 
 ### Mention
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `url`                    | URL of user's profile (can be remote) |
-| `username`               | The username of the account |
-| `acct`                   | Equals `username` for local users, includes `@domain` for remote ones |
-| `id`                     | Account ID |
+| Attribute                | Description                                                           | Nullable |
+| ------------------------ | --------------------------------------------------------------------- | -------- |
+| `url`                    | URL of user's profile (can be remote)                                 | no       |
+| `username`               | The username of the account                                           | no       |
+| `acct`                   | Equals `username` for local users, includes `@domain` for remote ones | no       |
+| `id`                     | Account ID                                                            | no       |
 
 ### Notification
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `id`                     | The notification ID |
-| `type`                   | One of: "mention", "reblog", "favourite", "follow" |
-| `created_at`             | The time the notification was created |
-| `account`                | The [Account](#account) sending the notification to the user |
-| `status`                 | The [Status](#status) associated with the notification, if applicable |
+| Attribute                | Description                                                           | Nullable |
+| ------------------------ | --------------------------------------------------------------------- | -------- |
+| `id`                     | The notification ID                                                   | no       |
+| `type`                   | One of: "mention", "reblog", "favourite", "follow"                    | no       |
+| `created_at`             | The time the notification was created                                 | no       |
+| `account`                | The [Account](#account) sending the notification to the user          | no       |
+| `status`                 | The [Status](#status) associated with the notification, if applicable | yes      |
 
 ### Relationship
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `id`                     | Target account id |
-| `following`              | Whether the user is currently following the account |
-| `followed_by`            | Whether the user is currently being followed by the account |
-| `blocking`               | Whether the user is currently blocking the account |
-| `muting`                 | Whether the user is currently muting the account |
-| `requested`              | Whether the user has requested to follow the account |
+| Attribute                | Description                                                 | Nullable |
+| ------------------------ | ----------------------------------------------------------- | -------- |
+| `id`                     | Target account id                                           | no       |
+| `following`              | Whether the user is currently following the account         | no       |
+| `followed_by`            | Whether the user is currently being followed by the account | no       |
+| `blocking`               | Whether the user is currently blocking the account          | no       |
+| `muting`                 | Whether the user is currently muting the account            | no       |
+| `requested`              | Whether the user has requested to follow the account        | no       |
 
 ### Report
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `id`                     | The ID of the report |
-| `action_taken`           | The action taken in response to the report |
+| Attribute                | Description                                | Nullable |
+| ------------------------ | ------------------------------------------ | -------- |
+| `id`                     | The ID of the report                       | no       |
+| `action_taken`           | The action taken in response to the report | no       |
 
 ### Results
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `accounts`               | An array of matched [Accounts](#account) |
-| `statuses`               | An array of matchhed [Statuses](#status) |
-| `hashtags`               | An array of matched hashtags, as strings |
+| Attribute                | Description                              | Nullable |
+| ------------------------ | ---------------------------------------- | -------- |
+| `accounts`               | An array of matched [Accounts](#account) | yes      |
+| `statuses`               | An array of matchhed [Statuses](#status) | yes      |
+| `hashtags`               | An array of matched hashtags, as strings | yes      |
 
 ### Status
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `id`                     | The ID of the status |
-| `uri`                    | A Fediverse-unique resource ID |
-| `url`                    | URL to the status page (can be remote) |
-| `account`                | The [Account](#account) which posted the status |
-| `in_reply_to_id`         | `null` or the ID of the status it replies to |
-| `in_reply_to_account_id` | `null` or the ID of the account it replies to |
-| `reblog`                 | `null` or the reblogged [Status](#status) |
-| `content`                | Body of the status; this will contain HTML (remote HTML already sanitized) |
-| `created_at`             | The time the status was created |
-| `reblogs_count`          | The number of reblogs for the status |
-| `favourites_count`       | The number of favourites for the status |
-| `reblogged`              | Whether the authenticated user has reblogged the status |
-| `favourited`             | Whether the authenticated user has favourited the status |
-| `sensitive`              | Whether media attachments should be hidden by default |
-| `spoiler_text`           | If not empty, warning text that should be displayed before the actual content |
-| `visibility`             | One of: `public`, `unlisted`, `private`, `direct` |
-| `media_attachments`      | An array of [Attachments](#attachment) |
-| `mentions`               | An array of [Mentions](#mention) |
-| `tags`                   | An array of [Tags](#tag) |
-| `application`            | [Application](#application) from which the status was posted |
+| Attribute                | Description                                                                   | Nullable |
+| ------------------------ | ----------------------------------------------------------------------------- | -------- |
+| `id`                     | The ID of the status                                                          | no       |
+| `uri`                    | A Fediverse-unique resource ID                                                | no       |
+| `url`                    | URL to the status page (can be remote)                                        | no       |
+| `account`                | The [Account](#account) which posted the status                               | no       |
+| `in_reply_to_id`         | `null` or the ID of the status it replies to                                  | yes      |
+| `in_reply_to_account_id` | `null` or the ID of the account it replies to                                 | yes      |
+| `reblog`                 | `null` or the reblogged [Status](#status)                                     | yes      |
+| `content`                | Body of the status; this will contain HTML (remote HTML already sanitized)    | no       |
+| `created_at`             | The time the status was created                                               | no       |
+| `reblogs_count`          | The number of reblogs for the status                                          | no       |
+| `favourites_count`       | The number of favourites for the status                                       | no       |
+| `reblogged`              | Whether the authenticated user has reblogged the status                       | yes      |
+| `favourited`             | Whether the authenticated user has favourited the status                      | yes      |
+| `sensitive`              | Whether media attachments should be hidden by default                         | yes      |
+| `spoiler_text`           | If not empty, warning text that should be displayed before the actual content | no       |
+| `visibility`             | One of: `public`, `unlisted`, `private`, `direct`                             | no       |
+| `media_attachments`      | An array of [Attachments](#attachment)                                        | no       |
+| `mentions`               | An array of [Mentions](#mention)                                              | no       |
+| `tags`                   | An array of [Tags](#tag)                                                      | no       |
+| `application`            | [Application](#application) from which the status was posted                  | yes      |
 
 ### Tag
 
-| Attribute                | Description |
-| ------------------------ | ----------- |
-| `name`                   | The hashtag, not including the preceding `#` |
-| `url`                    | The URL of the hashtag |
+| Attribute                | Description                                  | Nullable |
+| ------------------------ | -------------------------------------------- | -------- |
+| `name`                   | The hashtag, not including the preceding `#` | no       |
+| `url`                    | The URL of the hashtag                       | no       |
