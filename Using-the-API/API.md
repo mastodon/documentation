@@ -75,7 +75,7 @@ ___
 
 When an array parameter is mentioned, the Rails convention of specifying array parameters in query strings is meant.
 For example, a ruby array like `foo = [1, 2, 3]` can be encoded in the params as `foo[]=1&foo[]=2&foo[]=3`.
-Square brackets can be indexed but can also be empty.
+Square brackets must be empty.
 
 When a file parameter is mentioned, a form-encoded upload is expected.
 
