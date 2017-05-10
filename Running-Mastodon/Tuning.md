@@ -36,7 +36,7 @@ While the amount of threads in the web process affects the responsiveness of the
 
 The amount of threads is not controlled by an environment variable in this case, but a command line argument in the invocation of Sidekiq:
 
-    bundle exec sidekiq -c 15 -q default -q mailers -q push
+    bundle exec sidekiq -c 15 -q default -q mailers -q push -q pull
 
 Would start the sidekiq process with 15 threads. Please mind that each threads needs to be able to connect to the database, which means that the database pool needs to be large enough to support all the threads. The database pool size is controlled with the `DB_POOL` environment variable, and defaults to the value of `MAX_THREADS` (therefore, is 5 by default).
 
