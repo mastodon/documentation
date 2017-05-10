@@ -22,6 +22,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[WinMasto](https://github.com/drasticactions/WinMasto)|Windows 10|<https://github.com/drasticactions/WinMasto>|[@drasticactions@mastodon.network](https://mastodon.network/users/drasticactions)|
 |[Mastodon UWP (beta)](https://github.com/woachk/mastodon/releases)|Windows 10|<https://github.com/woachk/mastodon>|[@my123@mastodon.social](https://mastodon.social/users/my123)|
 |[Tuuto](https://www.microsoft.com/store/apps/9nh0493n4tsb)|Windows 10|<https://github.com/Tlaster/Tuuto>|[@Tlaster@mstdn.jp](https://mstdn.jp/@Tlaster)|
+|[Flantter](https://www.microsoft.com/store/apps/9wzdncrcrpmn)|Windows 10|<https://github.com/cucmberium/Flantter.MilkyWay>|[@cucmberium@mstdn.maud.io](https://mstdn.maud.io/@cucmberium)|
 |[mastodon.el](https://github.com/jdenen/mastodon.el)|Emacs|<https://github.com/jdenen/mastodon.el>|[@johnson@mastodon.social](https://mastodon.social/users/johnson)|
 | [Mstdn](https://github.com/rhysd/Mstdn) | macOS, Windows, Linux |<https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp) or [@inudog@mastodon.social](https://mastodon.social/@inudog) |
 |[Mastodon Lang Remover](https://github.com/arthurlacoste/mastodon-lang-remover)|browser|<https://github.com/arthurlacoste/mastodon-lang-remover>|[@arthak@mastodon.social](https://mastodon.social/users/arthak)|
