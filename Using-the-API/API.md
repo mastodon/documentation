@@ -580,7 +580,7 @@ Note: Some attributes in the entity payload can have ``null`` value and are mark
 | `url`                    | URL of the locally hosted version of the image                                    | no       |
 | `remote_url`             | For remote images, the remote URL of the original image                           | yes      |
 | `preview_url`            | URL of the preview image                                                          | no       |
-| `text_url`               | Shorter URL for the image, for insertion into text (only present on local images) | no       |
+| `text_url`               | Shorter URL for the image, for insertion into text (only present on local images) | yes      |
 
 ### Card
 
