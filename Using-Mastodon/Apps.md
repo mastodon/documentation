@@ -45,6 +45,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |App|Platform|Link|Developer(s)|
 |---|--------|----|------------|
 |HackerNewsBot|CLI|<https://github.com/raymestalez/mastodon-hnbot>|[@rayalez@hackertribe.io](https://hackertribe.io/users/rayalez)|
+|mastodon-glossary-bot|CLI or Heroku|<https://github.com/michelbl/mastodon-glossary-bot>|[@Michel@mastodon.etalab.gouv.fr](https://mastodon.etalab.gouv.fr/@Michel)|
 
 
 If you have a project like this, make a PR to add it to the list!
