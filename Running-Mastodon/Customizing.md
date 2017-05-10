@@ -3,7 +3,9 @@ Customizing your instance
 
 ## Customizing style
 
-If you create `app/assets/stylesheets/custom.scss`, the default css will be replaced by the content in `custom.scss`.
+If you create files prefixed with `custom` and suffixed with `.scss`
+(e.g. `app/assets/stylesheets/custom.scss`, `app/assets/stylesheets/custom-foo.css`),
+the default css will be replaced by their contents.
 
 ## Changing colors
 
