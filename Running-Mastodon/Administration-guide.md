@@ -72,6 +72,8 @@ This will create a new user as if they had walked through the registration proce
 Munin graphs can be generated to track your instance activity.
 
 * https://github.com/cquest/mastodon-munin-plugins
+* https://framagit.org/framasoft/munin-plugins/tree/master/mastodon
+* https://github.com/0xa/mastodon-munin
 
 ## Mastodon-admin mailing list
 
