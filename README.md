@@ -10,6 +10,7 @@
 
 ### [Using the API](Using-the-API)
 - [API documentation](Using-the-API/API.md)
+- [Libraries](Using-the-API/Libraries.md)
 - [Streaming API documentation](Using-the-API/Streaming-API.md)
 - [Testing the API with cURL](Using-the-API/Testing-with-cURL.md)
 - [OAuth details](Using-the-API/OAuth-details.md)
