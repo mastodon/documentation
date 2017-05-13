@@ -11,10 +11,9 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |App|Source code|Developer(s)|
 |---|-----------|------------|
 |[AndStatus](http://andstatus.org/)|<https://github.com/andstatus/andstatus>|[@AndStatus@mastodon.social](https://mastodon.social/@AndStatus)|
-|[Subway Tooter](https://play.google.com/store/apps/details?id=jp.juggler.subwaytooter)|<https://github.com/tateisu/SubwayTooter>|tateisu|
+|[Subway Tooter](https://play.google.com/store/apps/details?id=jp.juggler.subwaytooter)|<https://github.com/tateisu/SubwayTooter>|[@tateisu@mastodon.juggler.jp](https://mastodon.juggler.jp/@tateisu)|
 |[Tusky](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky)|<https://github.com/Vavassor/Tusky>|[@Vavassor@mastodon.social](https://mastodon.social/users/Vavassor)|
-|mastodroid|<https://github.com/alin-rautoiu/mastodroid>|[@charlag@mastodon.social](https://mastodon.social/users/charlag)|
-|[Twidere](https://github.com/TwidereProject/Twidere-Android#twidere-for-android)|Android|<https://github.com/TwidereProject/Twidere-Android>|[@mariotaku@pawoo.net](https://pawoo.net/@mariotaku)|
+|[Twidere](https://github.com/TwidereProject/Twidere-Android#twidere-for-android)|<https://github.com/TwidereProject/Twidere-Android>|[@mariotaku@pawoo.net](https://pawoo.net/@mariotaku)|
 |[11t](https://play.google.com/store/apps/details?id=com.jeroensmeets.mastodon) (beta)|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
 |[Mastobone](https://play.google.com/store/apps/details?id=com.mastobone) (alpha)|<https://github.com/deguchi/mastobone>|[@deguchi@bookn.me](https://bookn.me/@deguchi)|
 |[TootyFruity](https://play.google.com/store/apps/details?id=ch.kevinegli.tootyfruity221258) (beta)|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
@@ -29,7 +28,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[Amaroq](https://itunes.apple.com/us/app/amarok-for-mastodon/id1214116200?ls=1&mt=8)|<https://github.com/ReticentJohn/Amaroq>|[@eurasierboy@mastodon.social](https://mastodon.social/users/eurasierboy)|
 |[TootyFruity](https://docs.google.com/forms/d/e/1FAIpQLScW2lvZaKrOm4AKJH5HLI_Ul0Yr3CsXulf5bcTJQ1xaN5jiPg/viewform?c=0&w=1) (beta)|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
 |[Mastodon-iOS](https://itunes.apple.com/us/app/mastodon-ios/id1229531204?l=zh&ls=1&mt=8)|N/A|[@darkcl@mastodon.cloud](https://mastodon.cloud/@darkcl)|
-|[Pawoo](https://itunes.apple.com/us/app/pawoo/id1229070679)|[iOS]/[Android](https://play.google.com/store/apps/details?id=jp.pxv.pawoo)|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
+|[Pawoo](https://itunes.apple.com/us/app/pawoo/id1229070679)|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
 
 
 ## Desktop clients
@@ -37,21 +36,21 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 
 |App|Source code|Developer(s)|
 |---|-----------|------------|
-|[Mstdn](https://github.com/rhysd/Mstdn) | <https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp) or [@inudog@mastodon.social](https://mastodon.social/@inudog) |
+|[Mstdn](https://github.com/rhysd/Mstdn) | <https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp)/ [@inudog@mastodon.social](https://mastodon.social/@inudog) |
 
 ### Mac ###
 
 |App|Source code|Developer(s)|
 |---|-----------|------------|
-|[Mstdn](https://github.com/rhysd/Mstdn) | <https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp) or [@inudog@mastodon.social](https://mastodon.social/@inudog) |
+|[Mstdn](https://github.com/rhysd/Mstdn) | <https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp)/[@inudog@mastodon.social](https://mastodon.social/@inudog) |
 
 ### Windows
 
 |App|Version|Source code|Developer(s)|
 |---|-------|-----------|------------|
 |[Capella](https://coolstar.org/capella) | 7, 8.1, 10 | <https://github.com/coolstar/Capella> | [@coolstar@mastodon.social](https://mastodon.social/users/coolstar)|
-|[Flantter](https://www.microsoft.com/store/apps/9wzdncrcrpmn)|Windows 10|<https://github.com/cucmberium/Flantter.MilkyWay>|[@cucmberium@mstdn.maud.io](https://mstdn.maud.io/@cucmberium)|
-|[Mstdn](https://github.com/rhysd/Mstdn) | 8.1 (confirmed) |<https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp) or [@inudog@mastodon.social](https://mastodon.social/@inudog) |
+|[Flantter](https://www.microsoft.com/store/apps/9wzdncrcrpmn)|10|<https://github.com/cucmberium/Flantter.MilkyWay>|[@cucmberium@mstdn.maud.io](https://mstdn.maud.io/@cucmberium)|
+|[Mstdn](https://github.com/rhysd/Mstdn) | 8.1 (confirmed) |<https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp)/[@inudog@mastodon.social](https://mastodon.social/@inudog) |
 |[WinMasto](https://github.com/drasticactions/WinMasto)|10|<https://github.com/drasticactions/WinMasto>|[@drasticactions@mastodon.network](https://mastodon.network/users/drasticactions)|
 |[Tuuto](https://www.microsoft.com/store/apps/9nh0493n4tsb)|10|<https://github.com/Tlaster/Tuuto>|[@Tlaster@mstdn.jp](https://mstdn.jp/@Tlaster)|
 |[Mastodon UWP](https://github.com/woachk/mastodon/releases) (beta)|10|<https://github.com/woachk/mastodon>|[@my123@mastodon.social](https://mastodon.social/users/my123)|
@@ -60,7 +59,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 
 |App|Platform|Source code|Developer(s)|
 |---|--------|-----------|------------|
-|[madonctl](https://github.com/McKael/madonctl)|CLI, cross-platform|<https://github.com/McKael/madonctl>|[@McKael@mamot.fr](https://mamot.fr/@McKael)|
+|[madonctl](https://github.com/McKael/madonctl)|CLI|<https://github.com/McKael/madonctl>|[@McKael@mamot.fr](https://mamot.fr/@McKael)|
 |[Mstdn (Mastodon CLI)](https://github.com/mattn/go-mastodon)|CLI|<https://github.com/mattn/go-mastodon>|[@mattn@mstdn.jp](https://mstdn.jp/@mattn)|
 |[toot](https://github.com/ihabunek/toot)|CLI|<https://github.com/ihabunek/toot>|[@ihabunek@mastodon.social](https://mastodon.social/users/ihabunek)|
 |[tootstream](https://github.com/magicalraccoon/tootstream)|CLI|<https://github.com/magicalraccoon/tootstream>|[@Raccoon@mastodon.social](https://mastodon.social/users/Raccoon)|
