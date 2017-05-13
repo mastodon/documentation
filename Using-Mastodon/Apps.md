@@ -2,7 +2,7 @@ List of apps
 ============
 
 Some people have started working on apps for the Mastodon API. Here is a list of them:
-<!---Only list apps and tools that work with every (up-to-date) instance. Please keep this order: Stable FOSS > unstable FOSS (alpha/beta) > proprietary/non-FOSS. Further everything alphabetically (but mobile clients on top, cause that is what most people are looking for). --->
+<!---Only list apps and tools that work with every (up-to-date) instance. Mobile apps should provide at least an installable package. Please keep this order: Stable FOSS > unstable FOSS (alpha/beta) > proprietary/non-FOSS. Further everything alphabetically (but mobile clients on top, cause that is what most people are looking for). --->
 
 ## Mobile clients
 
@@ -60,19 +60,18 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |App|Platform|Source code|Developer(s)|
 |---|--------|-----------|------------|
 |[madonctl](https://github.com/McKael/madonctl)|CLI|<https://github.com/McKael/madonctl>|[@McKael@mamot.fr](https://mamot.fr/@McKael)|
+|[mastodon.el](https://github.com/jdenen/mastodon.el)|Emacs|<https://github.com/jdenen/mastodon.el>|[@johnson@mastodon.social](https://mastodon.social/users/johnson)|
 |[Mstdn (Mastodon CLI)](https://github.com/mattn/go-mastodon)|CLI|<https://github.com/mattn/go-mastodon>|[@mattn@mstdn.jp](https://mstdn.jp/@mattn)|
 |[toot](https://github.com/ihabunek/toot)|CLI|<https://github.com/ihabunek/toot>|[@ihabunek@mastodon.social](https://mastodon.social/users/ihabunek)|
 |[tootstream](https://github.com/magicalraccoon/tootstream)|CLI|<https://github.com/magicalraccoon/tootstream>|[@Raccoon@mastodon.social](https://mastodon.social/users/Raccoon)|
 |[soCLIal](https://gitlab.com/IvanSanchez/soclial)|CLI|<https://gitlab.com/IvanSanchez/soclial>|[@IvanSanchez@mastodon.social](https://mastodon.social/@IvanSanchez)|
-|[mastodon.el](https://github.com/jdenen/mastodon.el)|Emacs|<https://github.com/jdenen/mastodon.el>|[@johnson@mastodon.social](https://mastodon.social/users/johnson)|
 
 ## Browser add-ons/extensions
 
 |App|Browser|Source code|Developer(s)|
 |---|--------|----|------------|
-|Tooter|[Chrome(ium)](https://chrome.google.com/webstore/detail/tooter/okmlpjijminjkikninbkcnfmhkofgnnk)|<https://github.com/ineffyble/tooter>|[@effy@mastodon.social](https://mastodon.social/users/effy)|
 |Mastodon Lang Remover|[Chrome(ium)/Firefox](https://github.com/arthurlacoste/mastodon-lang-remover#install)|<https://github.com/arthurlacoste/mastodon-lang-remover>|[@arthak@mastodon.social](https://mastodon.social/users/arthak)|
-
+|Tooter|[Chrome(ium)](https://chrome.google.com/webstore/detail/tooter/okmlpjijminjkikninbkcnfmhkofgnnk)|<https://github.com/ineffyble/tooter>|[@effy@mastodon.social](https://mastodon.social/users/effy)|
 
 ## Bridges from/to other platforms
 
