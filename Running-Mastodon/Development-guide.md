@@ -11,6 +11,10 @@ In fact, all you need is described in the [production guide](Production-guide.md
 - To prefix any commands with `RAILS_ENV=production` since the default environment is "development" anyway
 - Any cronjobs
 
+Ubuntu dependencies for a development environment (bundler will fail if these are not installed in advance)
+
+    sudo apt-get install libpq-dev libssl-dev libprotobuf-dev protobuf-compiler ; sudo gem update --no-ri --no-rdoc
+
 The command to install Ruby project dependencies is the following:
 
     bundle install --with development
