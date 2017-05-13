@@ -36,7 +36,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 
 |App|Source code|Developer(s)|
 |---|-----------|------------|
-|[Mstdn](https://github.com/rhysd/Mstdn) | <https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp)/ [@inudog@mastodon.social](https://mastodon.social/@inudog) |
+|[Mstdn](https://github.com/rhysd/Mstdn) | <https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp)/[@inudog@mastodon.social](https://mastodon.social/@inudog) |
 
 ### Mac ###
 
