@@ -123,6 +123,8 @@ It is recommended to create a special user for mastodon on the server (you could
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     sudo apt-get install nodejs
     sudo npm install -g yarn
+    
+* **NOTE**: On Debian you have to first add the [Debian Backports](https://backports.debian.org/) repository to install `ffmpeg`.
 
 ### CentOS / RHEL
 
