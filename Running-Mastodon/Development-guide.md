@@ -53,7 +53,7 @@ These are self-contained instructions for setting up a development environment o
 
 ### Prerequisites
 
-- Get [Xcode](https://developer.apple.com/xcode/) Commandline tools
+- Get [Xcode](https://developer.apple.com/xcode/) Command Line Tools:
 
 	```
 	xcode-select install
