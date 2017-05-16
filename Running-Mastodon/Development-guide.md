@@ -3,6 +3,8 @@ Development guide
 
 **Don't use Docker to do development**. It's a quick way to get Mastodon running in production, it's **really really inconvenient for development**. Normally in Rails development environment you get hot reloading of backend code and on-the-fly compilation of assets like JS and CSS, but you lose those benefits by compiling a Docker image. If you want to contribute to Mastodon, it is worth it to simply set up a proper development environment.
 
+## Linux
+
 In fact, all you need is described in the [production guide](Production-guide.md), **with the following exceptions**. You **don't** need:
 
 - Nginx
@@ -44,6 +46,77 @@ You can check localization status with:
 You can check code quality with:
 
     rubocop
+
+## Mac
+
+These are self-contained instructions for setting up a development environment on a macOS system. It is assumed that you’ve cloned your fork of Mastodon to a local working directory and that you are in Terminal and in that directory.
+
+### Prerequisites
+
+- Get [Homebrew](https://brew.sh) and use it to install the other dependencies:
+
+	```
+	brew install imagemagick ffmpeg yarn postgresql redis rbenv nodejs
+	```
+
+- Get [Xcode](https://developer.apple.com/xcode/) Commandline tools
+
+	```
+	xcode-select install
+	```
+
+- Configure Rbenv:
+
+	```
+	rbenv init
+	rbenv install 2.4.1
+
+	```
+
+- Install/configure bundler to use your local rbenv:
+
+	```
+	gem update --system
+	gem install bundler
+	rbenv rehash
+	```
+
+- Configure [PostgreSQL](https://www.postgresql.org):
+
+	```
+	initdb /usr/local/var/postgres -E utf8
+	createdb
+	export PGDATA=/usr/local/var/postgres
+	/usr/local/bin/postgres
+	/usr/local/bin/psql
+	```
+
+	In the prompt:
+
+	```
+	CREATE USER mastodon CREATEDB;
+	\q
+	```
+
+### Installation
+
+```
+bundle install --with development
+yarn install --pure-lockfile
+gem install foreman --no-ri --no-rdoc
+bundle exec rails db:setup
+bin/rails assets:precompile
+```
+
+### Start the server
+
+```
+foreman start
+```
+
+Go to http://localhost:3000 to see your development instance.
+
+Admin account is `admin@localhost:3000`. Password is `mastodonadmin`.
 
 ## Development tips
 
