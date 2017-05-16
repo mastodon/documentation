@@ -108,11 +108,13 @@ bundle exec rails db:setup
 bin/rails assets:precompile
 ```
 
-### Start the server
+### Running
 
-```
-foreman start
-```
+In separate Terminal windows/tabs:
+
+1. Start PostgreSQL: `/usr/local/bin/postgres`
+2. Start Redis: `redis-server`
+3. Start Mastodon (from the Mastodon folder): `foreman start`
 
 Go to http://localhost:3000 to see your development instance.
 
