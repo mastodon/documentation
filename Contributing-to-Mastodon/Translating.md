@@ -12,8 +12,8 @@ If you want to localize Mastodon into your language, here is how.
 * [Testing the translation](#testing-the-translation)
 * [Updating the translation](#updating-the-translation)
 * [Appendix](#appendix)
-  * [Appendix A. Plural handling](appendix-a-plural-handling)
-  * [Appendix B. Command Tools](appendix-b-command-tools)
+  * [Appendix A. Plural handling](#appendix-a-plural-handling)
+  * [Appendix B. Command Tools](#appendix-b-command-tools)
 
 ---
 
