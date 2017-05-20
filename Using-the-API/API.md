@@ -399,7 +399,7 @@ Form data:
 | Field             | Description                                                         | Optional   |
 | ----------------- | ------------------------------------------------------------------- | ---------- |
 | `q`               | The search query                                                    | no         |
-| `resolve`         | Whether to resolve non-local accounts                               | no         |
+| `resolve`         | Whether to resolve non-local accounts (default: don't resolve)      | yes        |
 
 Returns [Results](#results).
 
