@@ -29,9 +29,9 @@ To setup the `mastodon_development` database, run:
 
 You can then run Mastodon with:
 
-    bundle exec rails server
+    bundle exec rails server --port 8080
 
-And open `http://localhost:3000` in your browser. Background jobs run inline (aka synchronously) in the development environment, so you don't need to run a Sidekiq process. 
+And open `http://localhost:8080` in your browser. Background jobs run inline (aka synchronously) in the development environment, so you don't need to run a Sidekiq process. 
 
 By default, your development environment will have an admin account created for you to use - the email address will be `admin@YOURDOMAIN` (e.g. admin@localhost:3000) and the password will be `mastodonadmin`.
 
