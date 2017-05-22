@@ -38,7 +38,7 @@ The amount of threads is not controlled by an environment variable in this case,
 
     bundle exec sidekiq -c 15 -q default -q mailers -q push -q pull
 
-Would start the sidekiq process with 15 threads. Please mind that each threads needs to be able to connect to the database, which means that the database pool needs to be large enough to support all the threads. The database pool size is controlled with the `DB_POOL` environment variable, and defaults to the value of `MAX_THREADS` (therefore, is 5 by default).
+Would start the sidekiq process with 15 threads. Please mind that each threads needs to be able to connect to the database, which means that the database pool needs to be large enough to support all the threads. The database pool size is controlled with the `DB_POOL` environment variable, and defaults to the value of `MAX_THREADS` (therefore, is 5 by default). So when the amount of Sidekiq threads (-c) is different than the amount of Puma threads (MAX_THREADS) than you have to set DB_POOL as an environment variable for Sidekiq. 
 
 You might notice that the above command specifies three queues to be processed:
 
@@ -78,6 +78,14 @@ Edit `docker-compose.yml`:
     environment:
       - WEB_CONCURRENCY=1
       - MAX_THREADS=5
+...
+  sidekiq:
+    restart: always
+    build: .
+    env_file: .env.production
+    environment:
+      - DB_POOL=10
+    command: bundle exec sidekiq -c 10 -q default -q mailers -q pull -q push
 ...
 ```
 
