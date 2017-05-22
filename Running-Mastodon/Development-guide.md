@@ -17,7 +17,7 @@ The command to install Ruby project dependencies is the following:
 
     bundle install
 
-Similarly, installing JavaScript dependencies doesn't require any flags:
+Install JavaScript dependencies with this command:
 
     yarn install --pure-lockfile
 
