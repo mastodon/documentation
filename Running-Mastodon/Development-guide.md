@@ -13,11 +13,11 @@ In fact, all you need is described in the [production guide](Production-guide.md
 
 Ubuntu dependencies for a development environment (bundler will fail if these are not installed in advance)
 
-    sudo apt-get install libpq-dev libssl-dev libprotobuf-dev protobuf-compiler ; sudo gem update --no-ri --no-rdoc
+    sudo apt-get install libpq-dev libssl-dev libprotobuf-dev protobuf-compiler
 
 The command to install Ruby project dependencies is the following:
 
-    bundle install --with development
+    bundle install
 
 Similarly, installing JavaScript dependencies doesn't require any flags:
 
