@@ -8,14 +8,14 @@ Development guide
 In fact, all you need is described in the [production guide](Production-guide.md), **with the following exceptions**. You **don't** need:
 
 - Nginx
-- SystemD
+- Systemd
 - An `.env.production` file. If you need to set any environment variables, you can use an `.env` file
 - To prefix any commands with `RAILS_ENV=production` since the default environment is "development" anyway
 - Any cronjobs
 
 The command to install Ruby project dependencies is the following:
 
-    bundle install --with development
+    bundle install
 
 Similarly, installing JavaScript dependencies doesn't require any flags:
 
@@ -31,7 +31,16 @@ You can then run Mastodon with:
 
     bundle exec rails server
 
-And open `http://localhost:3000` in your browser. Background jobs run inline (aka synchronously) in the development environment, so you don't need to run a Sidekiq process. 
+Since 1.4, we are using Webpack, which in development environment needs to be started as well as the command above:
+
+    ./bin/webpack-dev-server
+    
+Another, optional approach to managing the different processes starting (Rails, Webpack, Sidekiq, and the Streaming API) is to use the foreman tool.
+
+    gem install foreman
+    foreman start
+
+Finally, open `http://localhost:3000` in your browser.
 
 By default, your development environment will have an admin account created for you to use - the email address will be `admin@YOURDOMAIN` (e.g. admin@localhost:3000) and the password will be `mastodonadmin`.
 
