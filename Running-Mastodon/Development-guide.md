@@ -31,15 +31,18 @@ To setup the `mastodon_development` database, run:
 
 You can then run Mastodon with:
 
-    ./bin/webpack-dev-server & # New after 1.3.3
     bundle exec rails server
 
-Another approach to manage the different servers starting (redis, rails, webpacker, Sidekiq, streaming):
+Since 1.4, we are using Webpack, which in development environment needs to be started as well as the command above:
 
-    gem install foreman --no-ri --no-rdoc
+    ./bin/webpack-dev-server
+    
+Another, optional approach to managing the different processes starting (Rails, Webpack, Sidekiq, and the Streaming API) is to use the foreman tool.
+
+    gem install foreman
     foreman start
 
-And open `http://localhost:3000` in your browser. Background jobs run inline (aka synchronously) in the development environment, so you don't need to run a Sidekiq process. 
+Finally, open `http://localhost:3000` in your browser.
 
 By default, your development environment will have an admin account created for you to use - the email address will be `admin@YOURDOMAIN` (e.g. admin@localhost:3000) and the password will be `mastodonadmin`.
 
