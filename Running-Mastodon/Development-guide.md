@@ -6,14 +6,10 @@ Development guide
 In fact, all you need is described in the [production guide](Production-guide.md), **with the following exceptions**. You **don't** need:
 
 - Nginx
-- SystemD
+- Systemd
 - An `.env.production` file. If you need to set any environment variables, you can use an `.env` file
 - To prefix any commands with `RAILS_ENV=production` since the default environment is "development" anyway
 - Any cronjobs
-
-Ubuntu dependencies for a development environment (bundler will fail if these are not installed in advance)
-
-    sudo apt-get install libpq-dev libssl-dev libprotobuf-dev protobuf-compiler
 
 The command to install Ruby project dependencies is the following:
 
