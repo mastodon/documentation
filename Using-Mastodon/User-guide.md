@@ -207,7 +207,7 @@ The blocked user will not be notified of your blocking them. They will be remove
 
 #### Muting
 
-If you do not wish to see posts from a particular user, but do not care about if they see your posts, you may choose to *mute* them. You can mute a user from the same menu on their profile page that you would block them from. You will not see posts from a muted user unless they @mention you. A muted user will have no way to know that you have them muted. 
+If you do not wish to see posts from a particular user, but do not care about if they see your posts, you may choose to *mute* them. You can mute a user from the same menu on their profile page that you would block them from. You will not see posts from a muted user unless they @mention you. A muted user will have no way to know that you have them muted. You can also mute a user's boosts without muting the user entirely, again from the same menu on their profile page.
 
 #### Reporting Toots or Users
 

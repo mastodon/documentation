@@ -164,6 +164,13 @@ Returns the target account's [Relationship](#relationship).
 
 Returns the target account's [Relationship](#relationship).
 
+#### Muting/unmuting an account's boosts:
+
+    POST /api/v1/accounts/:id/mute_boosts
+    POST /api/v1/accounts/:id/unmute_boosts
+
+Returns the target account's [Relationship](#relationship).
+
 #### Getting an account's relationships:
 
     GET /api/v1/accounts/relationships
@@ -609,14 +616,15 @@ Note: Some attributes in the entity payload can have ``null`` value and are mark
 
 ### Relationship
 
-| Attribute                | Description                                                 | Nullable |
-| ------------------------ | ----------------------------------------------------------- | -------- |
-| `id`                     | Target account id                                           | no       |
-| `following`              | Whether the user is currently following the account         | no       |
-| `followed_by`            | Whether the user is currently being followed by the account | no       |
-| `blocking`               | Whether the user is currently blocking the account          | no       |
-| `muting`                 | Whether the user is currently muting the account            | no       |
-| `requested`              | Whether the user has requested to follow the account        | no       |
+| Attribute                | Description                                                  | Nullable |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| `id`                     | Target account id                                            | no       |
+| `following`              | Whether the user is currently following the account          | no       |
+| `followed_by`            | Whether the user is currently being followed by the account  | no       |
+| `blocking`               | Whether the user is currently blocking the account           | no       |
+| `muting`                 | Whether the user is currently muting the account             | no       |
+| `muting_boosts`          | Whether the user is currently muting boosts from the account | no       |
+| `requested`              | Whether the user has requested to follow the account         | no       |
 
 ### Report
 
