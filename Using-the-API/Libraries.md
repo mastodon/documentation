@@ -19,6 +19,7 @@ Below, a list of libraries to interact with the Mastodon API, sorted by programm
 | JavaScript           | [libodonjs](https://github.com/Zatnosk/libodonjs)                              |                                                                                |
 | JavaScript (Browser) | [mastodon.js](https://github.com/Kirschn/mastodon.js)                          |                                                                                |
 | JavaScript (Node.js) | [node-mastodon](https://github.com/jessicahayley/node-mastodon)                |                                                                                |
+| JavaScript (Node.js) | [mastodon-api](https://github.com/vanita5/mastodon-api)                |                                                                                |
 | Perl                 | [Mastodon::Client](https://metacpan.org/pod/Mastodon::Client)                  | [@jjatria@mastodon.cloud](https://mastodon.cloud/@jjatria)                     |
 | PHP                  | [Mastodon API for Laravel](https://github.com/kawax/laravel-mastodon-api)      |                                                                                |
 | PHP                  | [Mastodon-api-php](https://github.com/yks118/Mastodon-api-php)                 |                                                                                |
