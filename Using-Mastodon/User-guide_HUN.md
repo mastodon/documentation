@@ -7,10 +7,20 @@ Mastodon felhasználói kézikönyv
   * [Profilod létrehozása](User-guide_HUN.md#profilod-létrehozása)
   * [E-mail értesítések](User-guide_HUN.md#e-mail-értesítések)
   * [Szöveges üzenetek](User-guide_HUN.md#szöveges-üzenetek)
-  * [Content Warnings - Figyelmeztetés szenzitív tartalmakra](User-guide_HUN.md#content-warnings---figyelmeztetés-szenzitív-tartalmakra)
-  * [Címkék](User-guide_HUN.md#címkék)
-  * [Reblogolás és kedvencekhez adás](User-guide_HUN.md#reblogolás-és-kedvencekhez-adás)
+   * [Content Warnings - Figyelmeztetés szenzitív tartalmakra](User-guide_HUN.md#content-warnings---figyelmeztetés-szenzitív-tartalmakra)
+   * [Címkék](User-guide_HUN.md#címkék)
+   * [Reblogolás és kedvencekhez adás](User-guide_HUN.md#reblogolás-és-kedvencekhez-adás)
+  * [Képek tülkölése](User-guide_HUN.md#képek-tülkölése)
   * [Más felhasználók követése](User-guide_HUN.md#más-felhasználók-követése)
+  * [Értesítések](User-guide_HUN.md#értesítések)
+  * [Mobilalkalmazások](User-guide_HUN.md#mobilalkalmazások)
+  * [Publikus időfolyamok](User-guide_HUN.md#publikus-időfolyamok)
+   * [A Nyilvános időfolyam](User-guide_HUN.md#a-nyilvános-időfolyam)
+   * [A Helyi időfolyam](User-guide_HUN.md#a-helyi-időfolyam)
+  * [Keresés](User-guide_HUN.md#keresés)
+* [Adatvédelem és adatbiztonság](User-guide_HUN.md#adatvédelem-és-adatbiztonság)
+ * [Kétlépcsős azonosítás](User-guide_HUN.md#kétlépcsős-azonosítás)
+ * [Fiókod adatvédelme](User-guide_HUN.md#fiókod-adatvédelme)
 
 ## Bevezetés
 
@@ -24,7 +34,7 @@ A fentiekből adódóan bárki beszerezheti a Mastodont és üzemeltethet saját
 
 Egy adott Mastodon instancián belül a felhasználónevek `@felhasználónév` formában jelennek meg (csakúgy, mint a Twitteren). A más szerveren regisztrált felhasználókat a `@felhasználónév@szervernév.tld` formában tudjuk keresni és követni - tehát a `@gargron` nevű felhasználót a `mastodon.social` szerveren más instanciákról a `@gargron@mastodon.social` formában érhetjük el.
 
-A más szerver felhasználóinak üzenetei a "*federáció*" révén jelennek meg egy adott szerveren - például ha `user1@mastodon1` felhasználó követi `user2@gnusocial2` felhasználót, abban az esetben `user2@gnusocial2` üzenetei megjelennek `user1@mastodon1` *Kezdőlapján* (Home Feed) és a `mastodon1` szerver *Nyilvános időfolyamában* (Public Timeline). A Mastodon-szerverek adminisztrátorainak van erre a folyamatra némi ráhatásuk és letilthatják bizonyos felhasználók üzeneteinek megjelenését a Nyilvános időfolyamról. Hasonlóképp a felhasználók adatvédelmi beállításai is kihatnak a federációra - ezzel kapcsolatban lásd a [Tülk adatvédelem](User-guide_HUN.md#tülk-adatvédelem) fejezetet.
+A más szerver felhasználóinak üzenetei a "*federáció*" révén jelennek meg egy adott szerveren - például ha `user1@mastodon1` felhasználó követi `user2@gnusocial2` felhasználót, abban az esetben `user2@gnusocial2` üzenetei megjelennek `user1@mastodon1` *Kezdőlapján* (Home Feed) és a `mastodon1` szerver *Publikus időfolyamában* (Public Timeline). A Mastodon-szerverek adminisztrátorainak van erre a folyamatra némi ráhatásuk és letilthatják bizonyos felhasználók üzeneteinek megjelenését a Publikus időfolyamról. Hasonlóképp a felhasználók adatvédelmi beállításai is kihatnak a federációra - ezzel kapcsolatban lásd a [Tülk adatvédelem](User-guide_HUN.md#tülk-adatvédelem) fejezetet.
 
 ## Első lépések
 
@@ -81,7 +91,7 @@ Tülkjeidhez csatolhatsz videót vagy GIF animációkat is. Ugyanakkor fontos, h
 
 #### Más felhasználók követése
 
-Ha követsz egy felhasználót, akkor annak minden tülkje, valamint az általa [reblogolt](User-guide_HUN.md#reblogolás-és-kedvencekhez-adás) tülkök megjelennek a Kezőlapodon. Ez egy olyan, [Nyilvános időfolyamtól](User-guide_HUN.md#nyilvános-időfolyamok) különálló időfolyamot biztosít számodra, ahol a számodra érdekes emberek tülkjei jelennek meg, az instancián zajló minden beszélgetés "zaja" nélkül.
+Ha követsz egy felhasználót, akkor annak minden tülkje, valamint az általa [reblogolt](User-guide_HUN.md#reblogolás-és-kedvencekhez-adás) tülkök megjelennek a Kezőlapodon. Ez egy olyan, [Publikus időfolyamtól](User-guide_HUN.md#publikus-időfolyamok) különálló időfolyamot biztosít számodra, ahol a számodra érdekes emberek tülkjei jelennek meg, az instancián zajló minden beszélgetés "zaja" nélkül.
 
 ![Follow icon](screenshots/follow-icon.png) Egy felhasználó követéséhez nyisd meg annak profilját a nevére vagy a profilképére kattintva és kattints a "Követés" (Follow) ikonra a profil bal felső sarkában.
 
@@ -89,8 +99,74 @@ Amennyiben az illető neve mellett lakat ikont ![Padlock icon](screenshots/locke
 
 Ha már követsz egy felhasználót, akkor a profiloldalán látható Követés ikon kékre változik ![Following icon](screenshots/following-icon.png); ennek újbóli megnyomásával hagyhatod abba a felhasználó követését. 
 
+Ha ismered egy adott felhasználó felhasználónevét, megnyithatod a profilját úgy is, hogy begépeled azt a baloldali oszlopban található [keresőmezőbe](User-guide_HUN.md#keresés). Ez más szervereken regisztrált felhasználók esetében is működik, ám annak függvényében, hogy az adott szerver federál-e a tiéddel, lehet, hogy a teljes - szervernévvel ellátott - felhasználónevet (pl. `gargron@mastodon.social`) be kell írnod, mielőtt a kereső megjelíti az adott felhasználót javaslatként.
+
+Amennyiben a követki kívánt felhasználó profilja már meg van nyitva egy másik böngészőfülön, a legtöbb OStatus-alapú rendszer megjelenít egy "Követés" vagy "Feliratkozás" (Follow, ill. Subscribe) gombot a profiloldalon. Ezt megnyomva a rendszer kérni fogja a ** te** teljes (szervernévvel ellátott) felhasználónevedet, **amellyel** követni kívánod az adott felhasználót (például ha a mastodon.social szerveren vagy regisztrálva, `felhasználóneved@mastodon.social` formában kell megadnod a fehasználóneved).
+
+#### Értesítések
+
+Értesítést kapsz a rendszertől, ha valaki követni kezd, vagy kéri, hogy követhessen, ha megemlít téged vagy válaszol neked, illetve ha reblogolja, vagy kedvencnek jelöli egy tülködet. Ez megjelenik asztali értesítésként (ha a böngésződ támogatja az ilyen értesítéseket, te pedig engedélyezted őket), illetve az "Értesítések" (Notifications) oszlopban.
+
+![Notification Settings icon](screenshots/notifications-settings.png) A megjelenített értesítéseket testre szabhatod az Értesítések oszlop tetején található Értesítési beállítások (Notification Settings) ikonnal, jelölve azokat, amelyeket meg szertenél jeleníteni, vagy épp el szeretnél rejteni.
+
+![Clear icon](screenshots/notifications-clear.png) Ha már túl sok értesítés halmozódott itt fel, törölheted azokat az oszlop tetején található Értesítések törlése (Clear notifications) ikonra kattintva.
+
+![Preferences icon](screenshots/preferences.png) Az ismeretlenektől - azaz akiket nem követsz vagy akik nem követnek téged - érkező értesítéseket szintén kikapcsolhatod: ehhez kattints a baloldali oszlopban található Beállítások ikonra, majd a megjelenő oldalon jelöld be a kívánt opciót ("Block notifications from...").
+
+#### Mobilalkalmazások
+
+A Mastodon API-ja nyitott, így bárki fejleszthet hozzá klienst vagy alkalmazást. Sokan már meg is tették, úgy Androidra, mint iOS-re. Az ismert mobilalkalmazások listáját [itt találod](Apps.md). Ezen projektek közül sok maga is nyílt forráskódú és mindig szívesen fogadják a közreműködőket.
+
+#### Publikus időfolyamok
+
+A Kezdőlapod mellett két másik, publikus időfolyam is elérhető: a Nyilvános időfolyam (Fedarated timeline) és a Helyi időfolyam (Local Timeline). Mindkettő kiválóan alkalmas arra, hogy új embereket ismerj meg és eszmét cseréljetek.
+
+##### A Nyilvános időfolyam
+
+A Nyilvános időfolyam (angolul: Federated Timeline) mutatja mindazon felhasználók publikus tülkjeit, akik "ismertek" az instanciád számára. Ez az "ismertség" két dolgot jelenthet: az adott felhasználó ugyanannak a szervernek a regisztrált tagja, mint te, vagy valaki a te szerveredről követi őt. A Nyilvános időfolyam éppen ezért nagyszerű hely arra, hogy kapcsolatot teremts a tágabb Mastodon-univerzummal. Más szerverek felhasználóit követve még több embert ismersz majd meg még több instanciáról, akiket követve még több felhasználóval ismerkedsz majd meg a teljes Mastodon- és OStatus-világban; és így tovább.
+
+![Federated Timeline icon](screenshots/federated-timeline.png) A Nyilvános időfolyam megtekintéséhek kattints a baloldali oszlop "Nyilvános időfolyam" (Federated Timeline) ikonjára, vagy válaszd a megfelelő menüpontot a jobboldali "Első lépések" oszlopban. A Nyilvános időfolyam újbóli elrejtéséhez csak kattints a "Vissza" (Back) linkre az oszlop tetején jobbra.
+
+##### A Helyi időfolyam
+
+A Helyi időfolyamban csak azokat a publikus tülköket látod, amelyeket a te instanciád felhasználói írtak. Ez akkor lehet nagyon hasznos, ha például a te szervereden olyan közösségi szabályok vannak érvényben az érzékeny tartalmakat illetően, amelyek más instanciákon nincsenek; illetve például akkor ha a te instanciád a közös érdeklődésre épül.
+
+![Local Timeline icon](screenshots/local-timeline.png)
+
+A Helyi időfolyam megtekintéséhek kattints a baloldali oszlop "Helyi időfolyam" (Local Timeline) ikonjára, vagy válaszd a megfelelő menüpontot a jobboldali "Első lépések" oszlopban.
+
+#### Keresés
+
+A Mastodon keresés funkcióját felhasználók és [címkék](User-guide_HUN.md#címkék) keresésére egyaránt használhatod. A kereső nem keres a tülkök teljes szövegében, csak a címkék között. Keresés indításához gépelj be valamit a baloldali oszlopban található keresőmezőbe és üsd le az *Entert*. Ekkor megjelenik a keresőpanel, amely mutatja a javaslatokat és találatokat. Ezekre kattintva nyithatod meg az egyes felhasználók profiloldalát, illetve az egyes címkék időfolyamát.
+
+## Adatvédelem és adatbiztonság
+
+A Mastodonon számos - más nyilvános hálózatokhoz, például a Twitterhez képest jóval több - adatvédelmi és adatbiztonsági beállítási lehetőség található. Elsősorban az adatvédelmi beállítások adnak lehetőséget a finomhangolásra; ebben a fejezetben ezeket vesszük sorra.
 
 
-If you know someone's user name you can also open their profile for following by entering it in the [Search box](User-guide.md#searching) in the Compose column. This also works for remote users, though depending on whether they are known to your home instance you might have to enter their full name including the domain (e.g. `gargron@mastodon.social`) into the search box before their profile will appear in the suggestions.
+#### Kétlépcsős azonosítás
 
-Alternately, if you already have a user's profile open in a separate browser tab, most OStatus-related networks should have a "Follow" or "Subscribe" button on their profile page. This will ask you to enter the full user name to follow **from** (ie. if your account is on mastodon.social you would want to enter this as `myaccount@mastodon.social`)
+A kétlépcsős azonosítás (angolul: Two-Factor Authentication, vagy 2FA) egy olyan mechanizmus, amely nagyban növeli Mastodon-fiókod biztonságát. Lényege, hogy bejelentkezéskor a jelszó mellett egy másik, a Mastodon-fiókodhoz hozzárendelt eszközre (jellemzően a mobiltelefonodra) küldött, számokból álló kódot is kér. Azaz hiába szerezte meg egy harmadik fél az e-mail címedet és a jelszavadat, a birtokodban lévő és a kódot fogadó eszköz nélkül nem tudja majd átvenni az irányítást a fiókod felett.
+
+A Mastodon a Google Authenticatort (vagy egy azzal kompatibilis alkalmazást, például az Authy-t) használja a kétlépcsős azonosításhoz. Ez [Androidos](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) és [iOS-t](https://itunes.apple.com/gb/app/google-authenticator/id388497605) futtató eszközökre is ingyenesen telepíthető; további implementációkat [ezen a Wikipedia oldalon](https://en.wikipedia.org/wiki/Google_Authenticator#Implementations) találsz.
+
+![Preferences icon](screenshots/preferences.png) A kétlépcsős azonosítás engedélyezéséhez kattints a baloldali oszlopban a Beállítások ikonra, majd válaszd a "Kétlépcsős azonosítás" (Two-Factor Authentication) menüpontot és kövesd az ott megjelenő utasításokat. Aktiválás után minden bejelentkezéskor szükség lesz egy, a fiókodhoz hozzárendelt eszközön az Authenticator alkalmazás által generált, egyszerhasználatos kódra.
+
+#### Fiókod adatvédelme
+
+Annak érdekében, hogy te határozhasd meg azt, hogy ki látja tülkjeidet, a Mastodon támogatja a "privát", vagy "zárt" fiók létrehozását. A privát fiókkal rendelkező felhasználók minden alkalommal értesítést kapnak, ha valaki követni szeretné őket és lehetőségük van jóváhagyni vagy elutasítani a kérést. Ezen felül a fiókod privátra állítása után minden tülk, amit írsz, a Privát alapértelmezést kapja (bővebben lásd a [Tülk adatvédelem](User-guide_HUN.md#tülk-adatvédelem) című fejezetben).
+
+
+![Preferences icon](screenshots/preferences.png) Fiókod privátra állításához kattints a baloldali oszlopban a Beállítások ikonra, majd válaszd a "Profil szerkesztése" menüpontot, jelöld be a "Fiók lezárása" (Lock account) opciót, majd kattints a Mentésre.
+
+![Screenshot of the "Private Account" setting](screenshots/private.png)
+
+A követési kéréseket ezek után az Első lépések oszlopban fogod látni,
+
+![Screenshot of the "Follow requests" menu](screenshots/follow_requests_menu.png)
+
+ahol egyenként jóváhagyhatod vagy elutasíthatod őket.
+
+![Screenshot of the approval/denial menu](screenshots/follow_requests.png)
+
+
