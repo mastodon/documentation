@@ -8,6 +8,8 @@ Mastodon felhasználói kézikönyv
   * [E-mail értesítések](User-guide_HUN.md#e-mail-értesítések)
   * [Szöveges üzenetek](User-guide_HUN.md#szöveges-üzenetek)
   * [Content Warnings - Figyelmeztetés szenzitív tartalmakra](User-guide_HUN.md#content-warnings---figyelmeztetés-szenzitív-tartalmakra)
+  * [Címkék](User-guide_HUN.md#címkék)
+  * [Reblogolás és kedvencekhez adás](User-guide_HUN.md#reblogolás-és-kedvencekhez-adás)
 
 ## Bevezetés
 
@@ -45,14 +47,27 @@ Ugyanígy, ha beszélgetést kezdeményeznél egy felhasználóval, egyszerűen 
 
 ##### Content Warnings - Figyelmeztetés szenzitív tartalmakra 
 
-When you want to post something that you don't want to be immediately visible - for example, spoilers for that film that's just come out, or some personal thoughts that mention potentially upsetting topics, you can "hide" it behind a Content Warning.
+Ha olyan tartalmat készülsz tülkölni, amelyet nem szeretnél, hogy azonnal látsszon - például spoilerek egy új filmmel kapcsolatban, vagy olyan gondolatok, amelyeket mások felkavarónak találhatnak -, lehetőséged van azt egy "Figyelmeztetés" (Content Warning) mőgé rejteni.
 
-To do this, click the ![CW icon](screenshots/compose-cw.png) "CW" switch under the Compose box. This will add another text box labeled "Content warning"; you should enter a short summary of what the "body" of your post contains here while your actual post goes into the "What is on your mind?" box as normal.
+Ehhez a tülk-beviteli mező alatti ![CW icon](screenshots/compose-cw.png) "CW" gombra kell kattintanod. Ez egy újabb, "Content warning" nevű mezőt jelenít meg - ide írhatsz egy rövid, semleges összefoglalást a tülköd tartalmáról, míg a tülk maga a megszokott "Mire gondolsz?" mezőbe kerüljön.
 
 ![animation showing how to enable content warnings](screenshots/content-warning.gif)
 
-This will cause the body of your post to be hidden behind a "Show More" button in the timeline, with only the content warning and any mentioned users visible by default:
+Ennek eredményeképp a teljes tülk egy "Show More" (Mutass többet) gomb mögé kerül, míg az időfolyamban csak a figyelmeztetés (a Content warning mezőbe írt szöveg) látszik majd:
 
 ![animation showing content warnings in the timeline](screenshots/cw-toot.gif)
 
-**NOTE** that this will not hide images included in your post - images can be marked as "sensitive" separately to hide them from view until clicked on. To find out how to do this, see the [Posting Images](User-guide.md#posting-images) section of this user guide.
+**FIGYELEM**, ez a funkció nem rejti el a tülkhoz cstolt képeket - a képek külön jelölhetők "érzékeny tartalomként"; az így jelölt képek csak kattintás után válnak láthatóvá. Erről bővebben a [Képek tülkölése](User-guide_HUN.md#képek-tülkölése) fejezetben olvashatsz.
+
+##### Címkék
+
+Ha olyan tartalmat tülkölsz, amely egy jobban körülhatárolható témába illeszkedik, érdemes lehet "megcímkézni" azt. Címkét a tülkbe gépelt, #-t (kettős keresztet) követő szóval, vagy kifejezéssel hozhatsz létre, például #bemutatkozás (ennek angol változata, az #introduction kedvelt címke a mastodon.social instancián, ezt használják az új felhasználók, amikor bemutatkoznak a közösség többi tagjának), vagy #politika (a politikai témájú tülkök esetében). A tülkben lévő címkére kattintva új időfolyam jelenik meg, amely az adott címkével ellátott, publikus tülköket jeleníti meg (ez tulajdonképpen egy gyorskeresés az adott címkére). Ez a funkció lehetővé teszi, hogy az adott téma iránt érdeklődő felhasználó egy különálló időfolyamot hozzon létre a témába vágó tülkök kilistázására. A címkék a tülk-beviteli mező feletti kereső segítségével is lekereshetők.
+
+
+##### Reblogolás és kedvencekhez adás
+
+*Kedvenceidhez adhatod* egy másik felhasználó tülkjét a tülk alatti csillag ikonra kattintva. A másik felhasználó ilyenkor értesítést kap arról, hogy kedveled a tülkjét; kontextustól függően ez jelentheti egyszerűen azt, hogy "Figyelek arra, amit tülkölsz", de jelezhet tetszésnyilvánítást, vagy kifejezhet egyfajta egyetértést vagy helyeslést is a tülkben leírt gondolatokkal kapcsolatban.
+
+A fentiek mellett lehetőséged van *reblogolni* a tülköket az alattuk található "egymásba futó nyilak" ikonra kattintva. A reblogolt tülkök megjelennek a te profiloldaladon is és a követőid számára is láthatók lesznek, még akkor is, ha ők maguk nem követik azt a felhasználót, akinek tülkjét reblogoltad. Ez a funkció hasznos lehet, ha olyan tülköt látsz, ami szerinted másokat is érdekelhet - a reblog szélesíti az eredeti tülk közönségét, miközben megtartja az eredeti szerző adatait is. 
+
+
