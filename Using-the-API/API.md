@@ -665,6 +665,7 @@ Note: Some attributes in the entity payload can have ``null`` value and are mark
 | `mentions`               | An array of [Mentions](#mention)                                              | no       |
 | `tags`                   | An array of [Tags](#tag)                                                      | no       |
 | `application`            | [Application](#application) from which the status was posted                  | yes      |
+| `language`               | The detected language for the status (default: en)                            | no       |
 
 ### Tag
 
