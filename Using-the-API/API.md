@@ -593,7 +593,7 @@ Note: Some attributes in the entity payload can have ``null`` value and are mark
 | `title`                  | The instance's title                                                     | no       |
 | `description`            | A description for the instance                                           | no       |
 | `email`                  | An email address which can be used to contact the instance administrator | no       |
-| `version`                | The Mastodon version used by instance (as of version 1.3).               | yes      |
+| `version`                | The Mastodon version used by instance.                                   | no       |
 
 ### Mention
 
