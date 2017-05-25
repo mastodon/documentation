@@ -22,6 +22,9 @@ Mastodon felhasználói kézikönyv
   * [Kétlépcsős azonosítás](User-guide_HUN.md#kétlépcsős-azonosítás)
   * [Fiókod adatvédelme](User-guide_HUN.md#fiókod-adatvédelme)
   * [Tülk adatvédelem](User-guide_HUN.md#tülk-adatvédelem)
+  * [Felhasználók blokkolása](User-guide_HUN.md#felhasználók-blokkolása)
+  * [Felhasználók némítása](User-guide_HUN.md#felhasználók-némítása)
+  * [Tülkök vagy felhasználók jelentése](User-guide_HUN.md#tülkök-vagy-felhasználók-jelentése)
 
 ## Bevezetés
 
@@ -196,3 +199,25 @@ Publikus | Igen, bárki számára | Igen | Igen
 Listázatlan | Igen, bárki számára | Nem | Igen
 Csak követőknek | Csak követőid számára | Nem | Csak más instanciák felhasználóinak @megemlítésekor
 Direkt | Nem | Nem | Csak más instanciák felhasználóinak @megemlítésekor
+
+#### Felhasználók blokkolása
+
+Letilthatsz (blokkolhatsz) más felhasználókat, ha nem szeretnéd, hogy azok kapcsolatba lépjenek veled. Ehhez a tülkjük alatt, vagy a profiloldalukon található Menü ikonra kattintva válaszd a "Blokkolás" (Block) menüpontot.
+
+**MEGJEGYZENDŐ**, hogy Publikus tülkeidet a blokkolt felhasználó ugyan nem fogja látni, míg be van jelentkezve, de *kijelentkezve, vagy egy másik felhasználói fiókkal bejelentkezve igen*.
+
+A blokkolt felhasználók említései, reblogjai és kedvelései sem jelennek meg az időfolyamaidban. A blokkolt személyek tülkjeire érkező válaszokat sem fogod látni, még akkor sem, ha azokban @megemlítenek téged. A blokkolt személyek tülkjeit még akkor sem fogod látni, ha azokat olyan felhasználó reblogolja, akit te magad is követsz.
+
+A letiltott személy nem kap értesítést arról, hogy blokkoltad őt. A letiltott felhasználók a követőid listájában sem fognak megjelenni.
+
+#### Felhasználók némítása
+
+*Lenémíthatsz* egy bizonyos személyt, akinek tülkjeit nem szeretnéd látni, de az nem zavar, ha ő látja az általad írt tülköket. Ehhez a tülkjük alatt, vagy a profiloldalukon található Menü ikonra kattintva válaszd a "@felhasználónév némítása" (Mute @felhasználónév) menüpontot. A lenémított személy nem fog tudomást szerezni arról, hogy lenémítottad.
+
+#### Tülkök vagy felhasználók jelentése
+
+Ha olyan tülkkel vagy felhasználóval találkozol, ami vagy aki megsérti az instanciád szabályzatát, vagy amire/akire fel szeretnéd hívni az instanciád adminisztrátorainak figyelmét (például valaki fenyeget másokat, pornográf spamet terjeszt vagy illegális tartalmat tülköl), akkor az adott a tülk alatt, vagy a felhasználó profiloldalán található Menü ikonra kattintva válaszd a "@felhasználónév jelentése" (Report @felhasználónév) menüpontot. A jobboldali oszlopban ilyenkor megjelenik a következő űrlap:
+
+![Report form](screenshots/report.png)
+
+Ezen az űrlapon megjelölheted mindazokat a tülköket, melyeket jelenteni szeretnél az adminok felé és megjegyzésekkel (például "spammer felhasználó" vagy "ez a tülk figyelmeztetés nélküli pornográfiát tartalmaz") is segítheted őket a probléma azonosításában és megoldásában. Elküldés után a bejelentés láthatóvá válik a szerver adminisztrátorai számára, így megtehetik a szükséges lépéseket, például a felhasználó tükjeinek eltávolítása a nyilvános időfolyamokból vagy akár a felhasználó kizárása.
