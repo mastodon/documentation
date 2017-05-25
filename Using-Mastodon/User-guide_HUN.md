@@ -1,8 +1,11 @@
 Mastodon felhasználói kézikönyv
 ===============================
 
-* [Bevezetés](User-guide_HUN.md#bevezetes)
-  * [Decentralizáció és federáció](User-guide_HUN.md#decentralizacio-es-federacio)
+* [Bevezetés](User-guide_HUN.md#bevezetés)
+  * [Decentralizáció és federáció](User-guide_HUN.md#decentralizáció-és-federáció)
+* [Első lépések](User-guide_HUN.md#első-lépések)
+  * [Profilod létrehozása](User-guide_HUN.md#profilod-létrehozása)
+  * [E-Mail Notifications](User-guide.md#e-mail-notifications)
 
 ## Bevezetés
 
@@ -22,7 +25,6 @@ A más szerver felhasználóinak üzenetei a "*federáció*" révén jelennek me
 
 #### Profilod létrehozása
 
-Több módon is egyedivé teheted Mastodon-profilodat - beállíthatsz egyedi "megjelenített nevet" (Display Name), profil- és háttérképet tölthetsz fel és írhatsz egy rövid "Önéletrajzot" (Bio) is magadról.
+Több módon is egyedivé teheted Mastodon-profilodat - beállíthatsz egyedi "Megjelenített nevet" (Display Name), Profil- és Fejlécképet (Avatar és Header) tölthetsz fel és írhatsz egy rövid "Önéletrajzot" (Bio) is magadról.
 
-![Preferences icon](screenshots/preferences.png)
-
+![Preferences icon](screenshots/preferences.png) Profilod szerkesztéséhez kattints a Beállítások ikonra a baloldali oszlopban és a megjelenő Beállítások oldalon válaszd a "Profil szerkesztése" (Edit Profile) menüpontot. A Megjelenített név 30 karakterben van maximálva, míg az Őnéletrajz maximum 160 karakter hosszú lehet. A Profilkép és a Fejléckép megengedett formátumai a png, a gif és a jpg, a megengedett maximális fájlméret pedig 2MB. A feltöltött képeket a rendszer automatikusan átméretezi: a Profilkép mérete 200x200 pixel, a Fejlécképé pedig 700x335 pixel lesz.
