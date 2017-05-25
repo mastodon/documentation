@@ -10,6 +10,7 @@ Mastodon felhasználói kézikönyv
   * [Content Warnings - Figyelmeztetés szenzitív tartalmakra](User-guide_HUN.md#content-warnings---figyelmeztetés-szenzitív-tartalmakra)
   * [Címkék](User-guide_HUN.md#címkék)
   * [Reblogolás és kedvencekhez adás](User-guide_HUN.md#reblogolás-és-kedvencekhez-adás)
+  * [Más felhasználók követése](User-guide_HUN.md#más-felhasználók-követése)
 
 ## Bevezetés
 
@@ -70,4 +71,26 @@ Ha olyan tartalmat tülkölsz, amely egy jobban körülhatárolható témába il
 
 A fentiek mellett lehetőséged van *reblogolni* a tülköket az alattuk található "egymásba futó nyilak" ikonra kattintva. A reblogolt tülkök megjelennek a te profiloldaladon is és a követőid számára is láthatók lesznek, még akkor is, ha ők maguk nem követik azt a felhasználót, akinek tülkjét reblogoltad. Ez a funkció hasznos lehet, ha olyan tülköt látsz, ami szerinted másokat is érdekelhet - a reblog szélesíti az eredeti tülk közönségét, miközben megtartja az eredeti szerző adatait is. 
 
+#### Képek tülkölése
 
+![Image icon](screenshots/compose-media.png) Képek tülköléséhez kattints a "Média hozzáadása" (Add media) ikonra a baloldali oszlopban a tülk-beviteli mező alatt és válaszd ki a feltölteni kívánt fájlt.
+
+Ha a képen látható tartalom "érzékeny", vagy például munkahelyi megtekintésre nem ajánlott, a képet érzékenynek jelölheted az ![NSFW toggle](screenshots/compose-nsfw.png) NSFW (az angol "Not Safe For Work" kifejezésből) gombra kattintva, amely a kép feltöltése után jelenik meg. Ez alapértelmezésként elrejti a képet, amelynek bélyegképe így csak kattintás után jelenik meg. Ez tehát tulajdonképpen a [Content warning](User-guide_HUN.md#content-warnings---figyelmeztetés-szenzitív-tartalmakra) médiatartalmakra alkalmazott megfelelője - és kombinálható is azzal, ha például mind a médiafájl, mind a tülk szöveges része érzékeny tartalom. Ha a szöveget nem ítéled érzékenynek, elég csak a médiafájlt NSFW-ként jelölnöd.
+
+Tülkjeidhez csatolhatsz videót vagy GIF animációkat is. Ugyanakkor fontos, hogy ezek maximális mérete 4MB lehet és a videóknak .webm vagy .mp4 formátumúaknak kell lenniük.
+
+#### Más felhasználók követése
+
+Ha követsz egy felhasználót, akkor annak minden tülkje, valamint az általa [reblogolt](User-guide_HUN.md#reblogolás-és-kedvencekhez-adás) tülkök megjelennek a Kezőlapodon. Ez egy olyan, [Nyilvános időfolyamtól](User-guide_HUN.md#nyilvános-időfolyamok) különálló időfolyamot biztosít számodra, ahol a számodra érdekes emberek tülkjei jelennek meg, az instancián zajló minden beszélgetés "zaja" nélkül.
+
+![Follow icon](screenshots/follow-icon.png) Egy felhasználó követéséhez nyisd meg annak profilját a nevére vagy a profilképére kattintva és kattints a "Követés" (Follow) ikonra a profil bal felső sarkában.
+
+Amennyiben az illető neve mellett lakat ikont ![Padlock icon](screenshots/locked-icon.png) látsz, a felhasználó profilja nem nyilvános - ebben az esetben a felhasználó értesítést kap arról, hogy követni szeretnéd és jóvá kell hagynia a kérést. Jóváhagyás után felkerülsz a követői listájára és láthatod a tülkjeit is. Annak jelzésére, hogy követési kérésed jóváhagyásra vár, az eddigi "Követés" ![Follow icon](screenshots/follow-icon.png) ikon helyett egy homokóra ![Pending icon](screenshots/pending-icon.png) ikon fog látszani. Ha te is manuálisan szeretnéd jóváhagyni a követési kérelmeket, ezt a Beállításokban, a saját Profil szerkesztése oldalon tudod beállítani.
+
+Ha már követsz egy felhasználót, akkor a profiloldalán látható Követés ikon kékre változik ![Following icon](screenshots/following-icon.png); ennek újbóli megnyomásával hagyhatod abba a felhasználó követését. 
+
+
+
+If you know someone's user name you can also open their profile for following by entering it in the [Search box](User-guide.md#searching) in the Compose column. This also works for remote users, though depending on whether they are known to your home instance you might have to enter their full name including the domain (e.g. `gargron@mastodon.social`) into the search box before their profile will appear in the suggestions.
+
+Alternately, if you already have a user's profile open in a separate browser tab, most OStatus-related networks should have a "Follow" or "Subscribe" button on their profile page. This will ask you to enter the full user name to follow **from** (ie. if your account is on mastodon.social you would want to enter this as `myaccount@mastodon.social`)
