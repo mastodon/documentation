@@ -373,6 +373,13 @@ Returns the [Notification](#notification).
 Deletes all notifications from the Mastodon server for the authenticated user.
 Returns an empty object.
 
+#### Dismissing a single notification:
+
+    POST /api/v1/notifications/dismiss/:id
+
+Deletes a single notification from the Mastodon server for the authenticated user.
+Returns an empty object.
+
 ### Reports
 
 #### Fetching a user's reports:
