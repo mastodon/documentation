@@ -7,20 +7,21 @@ Mastodon felhasználói kézikönyv
   * [Profilod létrehozása](User-guide_HUN.md#profilod-létrehozása)
   * [E-mail értesítések](User-guide_HUN.md#e-mail-értesítések)
   * [Szöveges üzenetek](User-guide_HUN.md#szöveges-üzenetek)
-   * [Content Warnings - Figyelmeztetés szenzitív tartalmakra](User-guide_HUN.md#content-warnings---figyelmeztetés-szenzitív-tartalmakra)
-   * [Címkék](User-guide_HUN.md#címkék)
-   * [Reblogolás és kedvencekhez adás](User-guide_HUN.md#reblogolás-és-kedvencekhez-adás)
+    * [Content Warnings - Figyelmeztetés szenzitív tartalmakra](User-guide_HUN.md#content-warnings---figyelmeztetés-szenzitív-tartalmakra)
+    * [Címkék](User-guide_HUN.md#címkék)
+    * [Reblogolás és kedvencekhez adás](User-guide_HUN.md#reblogolás-és-kedvencekhez-adás)
   * [Képek tülkölése](User-guide_HUN.md#képek-tülkölése)
   * [Más felhasználók követése](User-guide_HUN.md#más-felhasználók-követése)
   * [Értesítések](User-guide_HUN.md#értesítések)
   * [Mobilalkalmazások](User-guide_HUN.md#mobilalkalmazások)
   * [Publikus időfolyamok](User-guide_HUN.md#publikus-időfolyamok)
-   * [A Nyilvános időfolyam](User-guide_HUN.md#a-nyilvános-időfolyam)
-   * [A Helyi időfolyam](User-guide_HUN.md#a-helyi-időfolyam)
+    * [A Nyilvános időfolyam](User-guide_HUN.md#a-nyilvános-időfolyam)
+    * [A Helyi időfolyam](User-guide_HUN.md#a-helyi-időfolyam)
   * [Keresés](User-guide_HUN.md#keresés)
 * [Adatvédelem és adatbiztonság](User-guide_HUN.md#adatvédelem-és-adatbiztonság)
- * [Kétlépcsős azonosítás](User-guide_HUN.md#kétlépcsős-azonosítás)
- * [Fiókod adatvédelme](User-guide_HUN.md#fiókod-adatvédelme)
+  * [Kétlépcsős azonosítás](User-guide_HUN.md#kétlépcsős-azonosítás)
+  * [Fiókod adatvédelme](User-guide_HUN.md#fiókod-adatvédelme)
+  * [Tülk adatvédelem](User-guide_HUN.md#tülk-adatvédelem)
 
 ## Bevezetés
 
@@ -169,4 +170,29 @@ ahol egyenként jóváhagyhatod vagy elutasíthatod őket.
 
 ![Screenshot of the approval/denial menu](screenshots/follow_requests.png)
 
+#### Tülk adatvédelem
 
+A tülkök adatvédelme független a fiókod adatvédelmétől és ktülkönként külön szabályozható. A tülkök láthatóságának négy szintje a "Publikus" (Public, alapértelmezett), a Listázatlan (Unlisted), a Csak követőknek (Followers-only) és a Közvetlen (Direct). A tülk adatvédelmi szintjének beállításához kattints a ![Globe icon](screenshots/compose-privacy.png) Földgömb (Adjust status privacy) ikonra. Az itt kiválasztott szint "öröklődik" a későbbi tülkökre, vagyis a "Csak követőknek" kiválasztásával minden későbbi tülködre ez lesz az alapértelmezett, mindaddig, amíg más szintet nem állítasz be. Az alapértelmezett szintet beállíthatod a baloldali oszlop Beállítások ikonjára kattintva megjelenő oldalon is.
+
+A legtöbb felhasználó tülkjeinek beállítása a **Publikus**. A Publikus tülkök korlátozások nélkül megjelenhetnek minden más felhasználó nyilvános időfolyamaiban, legyenek azok a felhasználó saját szerverén, vagy más instanciákon, valamint szerepelni fognak a felhasználó nyilvános profiloldalán is, így a keresőrobotok és olyan internethasználók is láthatják, akik nem Mastodon-felhasználók.
+
+A **Listázatlan** tülkök publikusak ugyan, ám nem jelennek meg a nyilvános időfolyamokban és keresési eredmények között. Mindazonáltal az ilyen tülkök megjelennek követőid Kezdőlapján és szerepelni fognak nyilvános profiloldaladon is (tehát látják majd a keresőrobotok és a Mastodonon kívüli internetezők is).
+
+A **Csak követőknek** szánt tülkök nem szerepelnek a nyilvános időfolyamokon és a profiloldaladon sem (kivéve ha olyan felhasználó jeleníti meg azt, aki követ téged). Ugyanakkor ez csak félmegoldást jelent abban az esetben, ha felhasználói fiókod nincs privátra állítva, hiszen bárki jóváhagyás nélkül bekövethet téged és így látni fogja a Csak követőknek szánt tülkjeidet is. Ugyanakkor privátra állított felhasználó fiókodról küldött tülkjeid szintjét is felülbírálhatod az egyes tülkök szintjén és Listázatlan, vagy akár Publikus tülköket is írhatsz.
+
+A **Csak követőknek** beállítással küldött tülköket reblogolni sem lehet. Ilyen tülkök megtekintésekor látni fogod, hogy a "Reblog" ikon helyén egy lakat szerepel. **VIGYÁZZ**, ezt a beállítást más instanciák beállításai nem biztos, hogy tiszteletben tartják.
+
+Sajnos egyelőre nincs mód ellenőrizni, hogy egy másik szerver tiszteletben tartja-e a tülkök adatvédelmi beállításait. Más, nem Mastodont futtató szerverek (pl. egy GNU Social szerver) nem is támogatják a Mastodon adatvédelmi beállításait. Egy GNU Social felhasználó, akit @megemlítesz, nem is lesz tudatában annak, hogy a neki küldött üzenet privát, képes lesz azt reblogolni is, ezzel felülírva az eredeti üzenet adatvédelmi beállításait. Sőt, az is megtörténhet, hogy valaki nem egy módosított forráskódú Mastodon-instanciát üzemeltet, amely nem tartja tiszteletben a tülkök adatvédelmi beállításait. Csak követőknek szánt tülk írásakor a rendszer figyelmeztetni fog abban az esetben, ha a tülk federálódni fog más instanciákra. Ha ilyet látsz, érdemes elgondolkodnod azon, mennyire bízol meg az éppen @megemlített felhasználóban és abban az instanciában, ahol ő regsiztrálva van.
+
+A "Csak követőknek" szánt tülkök és a @megemlítések titkosítva sem lesznek. Bíznod kell abban, hogy az instanciád adminisztrátora nem olvasgatja mások levelezését. Sose írj olyan dolgot, amely inkriminálhat téged.
+
+A **Közvetlen** tülkök csak azon felhasználó számára láthatók, akiket benne @megemlítesz és nem reblogolhatók. Ahogyan a "Csak követőknek" szóló tülkök esetében is említettük, más instanciák ezt nem feltétlenül tartják tiszteletben. Ha bizalmas beszélgetést szeretnél folytatni valakivel, érdemes lehet azt a Mastodonon kívül tenni. 
+
+Egy táblázat a fentiek összefoglalására:
+
+Tülk adatvédelmi szintje | Látható-e a profiloldalon | Látható-e a nyilvános időfolyamokban | Federál-e más szerverekre
+------------ | ------------------ | -------------------------- | ---------------------------
+Publikus | Igen, bárki számára | Igen | Igen
+Listázatlan | Igen, bárki számára | Nem | Igen
+Csak követőknek | Csak követőid számára | Nem | Csak más instanciák felhasználóinak @megemlítésekor
+Direkt | Nem | Nem | Csak más instanciák felhasználóinak @megemlítésekor
