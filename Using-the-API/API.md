@@ -9,6 +9,7 @@ API overview
   - [Accounts](#accounts)
   - [Apps](#apps)
   - [Blocks](#blocks)
+  - [Domain blocks](#domain-blocks)
   - [Favourites](#favourites)
   - [Follow Requests](#follow-requests)
   - [Follows](#follows)
@@ -90,7 +91,7 @@ Form data:
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | `display_name` | The name to display in the user's profile                                                                                              | yes        |
 | `note`         | A new biography for the user                                                                                                           | yes        |
-| `avatar`       | A base64 encoded image to display as the user's avatar (e.g. `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAADrCAYAAAA...`)       | yes        | 
+| `avatar`       | A base64 encoded image to display as the user's avatar (e.g. `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAADrCAYAAAA...`)       | yes        |
 | `header`       | A base64 encoded image to display as the user's header image (e.g. `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAADrCAYAAAA...`) | yes        |
 
 #### Getting an account's followers:
@@ -236,6 +237,48 @@ Query parameters:
 `max_id` and `since_id` are usually get from the `Link` header.
 
 Returns an array of [Accounts](#account) blocked by the authenticated user.
+
+### Domain blocks
+
+#### Fetching a user's blocked domains:
+
+    GET /api/v1/domain_blocks
+
+Query parameters:
+
+| Field             | Description                                                   | Optional   |
+| ----------------- | ------------------------------------------------------------- | ---------- |
+| `max_id`          | Get a list of blocks with ID less than or equal this value    | yes        |
+| `since_id`        | Get a list of blocks with ID greater than this value          | yes        |
+| `limit`           | Maximum number of blocks to get (Default 40, Max 80)          | yes        |
+
+`max_id` and `since_id` are usually get from the `Link` header.
+
+Returns an array of strings.
+
+#### Blocking a domain
+
+    POST /api/v1/domain_blocks
+
+Parameters:
+
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+| `domain`          | Domain to block                                                     | no         |
+
+Returns an empty object.
+
+#### Unblocking a domain
+
+    DELETE /api/v1/domain_blocks
+
+Parameters:
+
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+| `domain`          | Domain to unblock                                                   | no         |
+
+Returns an empty object.
 
 ### Favourites
 
@@ -386,7 +429,7 @@ Returns an empty object.
 
     GET /api/v1/reports
 
-Returns a list of [Reports](#report) made by the authenticated user.
+Returns a list of [Reports](#report) made by the authenticated user. (This method is not entirely implemented and contains no useful information at this point)
 
 #### Reporting a user:
 
@@ -569,6 +612,7 @@ Note: Some attributes in the entity payload can have ``null`` value and are mark
 | `remote_url`             | For remote images, the remote URL of the original image                           | yes      |
 | `preview_url`            | URL of the preview image                                                          | no       |
 | `text_url`               | Shorter URL for the image, for insertion into text (only present on local images) | yes      |
+| `meta`                   | `width`, `height`, `size` (width x height), `aspect` | yes |
 
 ### Card
 
@@ -578,6 +622,14 @@ Note: Some attributes in the entity payload can have ``null`` value and are mark
 | `title`                  | The title of the card                      | no       |
 | `description`            | The card description                       | no       |
 | `image`                  | The image associated with the card, if any | yes      |
+| `type`                   | "link", "photo", "video", or "rich"        | no       |
+| `author_name`            | OEmbed data                                | yes      |
+| `author_url`             | OEmbed data                                | yes      |
+| `provider_name`          | OEmbed data                                | yes      |
+| `provider_url`           | OEmbed data                                | yes      |
+| `html`                   | OEmbed data                                | yes      |
+| `width`                  | OEmbed data                                | yes      |
+| `height`                 | OEmbed data                                | yes      |
 
 ### Context
 
@@ -632,6 +684,7 @@ Note: Some attributes in the entity payload can have ``null`` value and are mark
 | `muting`                 | Whether the user is currently muting the account             | no       |
 | `muting_boosts`          | Whether the user is currently muting boosts from the account | no       |
 | `requested`              | Whether the user has requested to follow the account         | no       |
+| `domain_blocking`        | Whether the user is currently blocking the user's domain     | no       |
 
 ### Report
 
