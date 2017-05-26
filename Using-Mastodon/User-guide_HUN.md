@@ -72,7 +72,7 @@ Ennek eredményeképp a teljes tülk egy "Show More" (Mutass többet) gomb mög�
 
 ![animation showing content warnings in the timeline](screenshots/cw-toot.gif)
 
-**FIGYELEM**, ez a funkció nem rejti el a tülkhoz cstolt képeket - a képek külön jelölhetők "érzékeny tartalomként"; az így jelölt képek csak kattintás után válnak láthatóvá. Erről bővebben a [Képek tülkölése](User-guide_HUN.md#képek-tülkölése) fejezetben olvashatsz.
+**FIGYELEM**, ez a funkció nem rejti el a tülkhoz csatolt képeket - a képek külön jelölhetők "érzékeny tartalomként"; az így jelölt képek csak kattintás után válnak láthatóvá. Erről bővebben a [Képek tülkölése](User-guide_HUN.md#képek-tülkölése) fejezetben olvashatsz.
 
 ##### Címkék
 
