@@ -43,7 +43,6 @@ server {
 
   ssl_certificate     /etc/letsencrypt/live/example.com/fullchain.pem;
   ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
-  ssl_dhparam         /etc/ssl/certs/dhparam.pem;
 
   keepalive_timeout    70;
   sendfile             on;
@@ -61,7 +60,6 @@ server {
   gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
 
   add_header Strict-Transport-Security "max-age=31536000";
-  add_header Content-Security-Policy "style-src 'self' 'unsafe-inline'; script-src 'self'; object-src 'self'; img-src data: https:; media-src data: https:; connect-src 'self' wss://example.com; upgrade-insecure-requests";
 
   location / {
     try_files $uri @proxy;
@@ -97,7 +95,7 @@ server {
     proxy_set_header X-Forwarded-Proto https;
     proxy_set_header Proxy "";
 
-    proxy_pass http://localhost:4000;
+    proxy_pass http://127.0.0.1:4000;
     proxy_buffering off;
     proxy_redirect off;
     proxy_http_version 1.1;
@@ -123,7 +121,7 @@ It is recommended to create a special user for mastodon on the server (you could
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     sudo apt-get install nodejs
     sudo npm install -g yarn
-    
+
 * **NOTE**: On Debian you have to first add the [Debian Backports](https://backports.debian.org/) repository to install `ffmpeg`.
 
 ### CentOS / RHEL
