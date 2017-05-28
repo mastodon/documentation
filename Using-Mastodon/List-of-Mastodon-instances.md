@@ -82,3 +82,4 @@ List of Mastodon instances
 | [reveal.today](https://reveal.today/)|Open Registrations, General Purpose, About everyday events|Yes|Yes|
 | [m4570.xyz](https://m4570.xyz)|Open registrations, federates everywhere, instance hosted in France|Yes|Yes|
 | [Bonn.social](https://bonn.social)|Local topics from the federal city of Bonn, Germany|Yes|No|
+| [mstdn.awa.sfc.keio.ac.jp](https://mstdn.awa.sfc.keio.ac.jp)|Instance for Students, Faculty and Staffs of Keio University, Shonan Fujisawa Campus|No|Yes|
