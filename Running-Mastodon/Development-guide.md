@@ -130,6 +130,8 @@ Admin account is `admin@localhost:3000`. Password is `mastodonadmin`.
 
 ## Bash on Windows
 
+_**Note:** Mastodon was not designed for Bash on Windows and may break. The dev team may not have access to Windows boxes and may not be able to help you if it breaks._
+
 To run Mastodon on [Bash on Ubuntu on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/about), you can follow the Ubuntu instructions with some small tweaks.
 
 First off, `rbenv` doesn't work, so you must follow [Dave Rupert's Ruby on Rails tutorial](http://daverupert.com/2016/06/ruby-on-rails-on-bash-on-ubuntu-on-windows/), except instead of Ruby 2.3 you will want 2.4.1, so do:
