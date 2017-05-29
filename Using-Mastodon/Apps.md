@@ -29,6 +29,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[TootyFruity](https://docs.google.com/forms/d/e/1FAIpQLScW2lvZaKrOm4AKJH5HLI_Ul0Yr3CsXulf5bcTJQ1xaN5jiPg/viewform?c=0&w=1) (beta)|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
 |[Mastodon-iOS](https://itunes.apple.com/us/app/mastodon-ios/id1229531204?l=zh&ls=1&mt=8)|N/A|[@darkcl@mastodon.cloud](https://mastodon.cloud/@darkcl)|
 |[Pawoo](https://itunes.apple.com/us/app/pawoo/id1229070679)|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
+|[Yawp](https://yawp.social) (beta)|N/A|[@paulyhedral@mastodon.cloud](https://wanderingmonster.org)|
 
 
 ## Desktop clients
