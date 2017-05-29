@@ -117,7 +117,7 @@ It is recommended to create a special user for mastodon on the server (you could
 
 ### Ubuntu / Debian
 
-    sudo apt-get install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git curl g++ libprotobuf-dev protobuf-compiler
+    sudo apt-get install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git curl g++ libprotobuf-dev protobuf-compiler pkg-config
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     sudo apt-get install nodejs
     sudo npm install -g yarn
