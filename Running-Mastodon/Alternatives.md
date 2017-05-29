@@ -206,15 +206,16 @@ Setting up Mastodon behind Apache is possible as well, although you will need to
 
    SSLCertificateFile example.pem
    SSLCertificateKeyFile example.key
-
-   <Location /assets>
+   
+   <LocationMatch "^/(emoji|packs|sounds|system)>
       Header always set Cache-Control "public, max-age=31536000, immutable"
-   </Location>
+   </LocationMatch>
 
    ProxyPreserveHost On
    RequestHeader set X-Forwarded-Proto "https"
    ProxyPass /500.html !
-   ProxyPass /oops.png !
+   ProxyPassMatch ^(/.*\.(gif|png|svg|ico)$) !
+   ProxyPassMatch ^/(emoji|packs|sounds|system) !
    ProxyPass /api/v1/streaming/ ws://localhost:4000/
    ProxyPassReverse /api/v1/streaming/ ws://localhost:4000/
    ProxyPass / http://localhost:3000/
