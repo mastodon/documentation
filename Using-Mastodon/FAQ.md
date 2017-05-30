@@ -4,6 +4,7 @@ Frequently Asked Questions
 Translations of this FAQ:
 
 * [Español](FAQ_ESP.md)
+* [日本語](FAQ_JA.md)
 
 #### What is a Mastodon?
 
