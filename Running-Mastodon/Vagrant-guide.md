@@ -17,11 +17,11 @@ To create and provision a new virtual machine for Mastodon development run:
 
     git clone https://github.com/tootsuite/mastodon.git
     cd mastodon
-    vagrant up
+    vagrant up --provider virtualbox
 
 **Note:** On Linux hosts, you will need to [enable NFS support](https://www.vagrantup.com/docs/synced-folders/nfs.html).
 
-Running `vagrant up` for the first time will run provisioning, which will:
+Running `vagrant up --provider virtualbox` for the first time will run provisioning, which will:
 
 - Download the Ubuntu 14.04 base image, if there isn't already a copy on your machine
 - Create a new VirtualBox virtual machine from that image
@@ -29,7 +29,7 @@ Running `vagrant up` for the first time will run provisioning, which will:
 
 ## Starting the server
 
-The Vagrant box will automatically start after provisioning. It can be started in future with `vagrant up` from the mastodon directory.
+The Vagrant box will automatically start after provisioning. It can be started in future with `vagrant up --provider virtualbox` from the mastodon directory.
 
 To start the application:
 
