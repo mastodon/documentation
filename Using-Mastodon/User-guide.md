@@ -1,6 +1,9 @@
 Mastodon User's Guide
 =====================
 
+Translations of this User Guide:
+* [Hungarian](User-guide_HUN.md)
+
 * [Intro](User-guide.md#intro)
   * [Decentralization and Federation](User-guide.md#decentralization-and-federation)
 * [Getting Started](User-guide.md#getting-started)
