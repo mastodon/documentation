@@ -27,7 +27,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |---|-----------|------------|
 |[Amaroq](https://itunes.apple.com/us/app/amarok-for-mastodon/id1214116200?ls=1&mt=8)|<https://github.com/ReticentJohn/Amaroq>|[@eurasierboy@mastodon.social](https://mastodon.social/users/eurasierboy)|
 |[TootyFruity](https://docs.google.com/forms/d/e/1FAIpQLScW2lvZaKrOm4AKJH5HLI_Ul0Yr3CsXulf5bcTJQ1xaN5jiPg/viewform?c=0&w=1) (beta)|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
-|[Mastodon-iOS](https://itunes.apple.com/us/app/mastodon-ios/id1229531204?l=zh&ls=1&mt=8)|N/A|[@darkcl@mastodon.cloud](https://mastodon.cloud/@darkcl)|
+|[Mustor](https://itunes.apple.com/us/app/mustor/id1229531204?l=zh&ls=1&mt=8)|N/A|[@darkcl@mastodon.cloud](https://mastodon.cloud/@darkcl)|
 |[Pawoo](https://itunes.apple.com/us/app/pawoo/id1229070679)|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
 |[11t](https://appsto.re/i67Q3LH)|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
 
