@@ -66,6 +66,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[tootstream](https://github.com/magicalraccoon/tootstream)|CLI|<https://github.com/magicalraccoon/tootstream>|[@Raccoon@mastodon.social](https://mastodon.social/users/Raccoon)|
 |[soCLIal](https://gitlab.com/IvanSanchez/soclial)|CLI|<https://gitlab.com/IvanSanchez/soclial>|[@IvanSanchez@mastodon.social](https://mastodon.social/@IvanSanchez)|
 |[Naumanni](https://naumanni.com/)(alpha)|Web browser|<https://github.com/naumanni/naumanni>|[shi3z@mstdn.onosendai.jp](https://mstdn.onosendai.jp/@shi3z)/[shn@oppai.tokyo](https://oppai.tokyo/@shn)|
+|[Halcyon](https://halcyon.social)|Web browser|<https://github.com/halcyon-suite/halcyon-for-mastodon>|[neet@mastodon.social](https://mastodon.social/@neet)|
 
 ## Browser add-ons/extensions
 
