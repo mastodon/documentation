@@ -314,12 +314,6 @@ Returns an array of [Accounts](#account) which have requested to follow the auth
     POST /api/v1/follow_requests/:id/authorize
     POST /api/v1/follow_requests/:id/reject
 
-Parameters:
-
-| Field             | Description                                                         | Optional   |
-| ----------------- | ------------------------------------------------------------------- | ---------- |
-| `id`              | The id of the account to authorize or reject                        | no         |
-
 Returns an empty object.
 
 ### Follows
