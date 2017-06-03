@@ -21,9 +21,8 @@ Then, you need to fill in the `.env.production` file:
 
 Do NOT change the `REDIS_*` or `DB_*` settings when running with the default docker configurations.
 
-You will need to fill in, at least: `LOCAL_DOMAIN`, `LOCAL_HTTPS`, `PAPERCLIP_SECRET`, `SECRET_KEY_BASE`, `OTP_SECRET`, and the `SMTP_*` settings.  To generate the `PAPERCLIP_SECRET`, `SECRET_KEY_BASE`, and `OTP_SECRET`, you may use:
+You will need to fill in, at least: `LOCAL_DOMAIN`, `LOCAL_HTTPS`, and the `SMTP_*` settings.
 
-    rake secret
 
 ## Building the app
 
@@ -31,9 +30,9 @@ Before running the first time, you need to build the images:
 
     docker-compose build
 
-    docker-compose run --rm web rake secret
+Now the image can be used to generate secrets. Run the command below for each of `PAPERCLIP_SECRET`, `SECRET_KEY_BASE`, and `OTP_SECRET` then copy the results into the `.env.production` file:
 
-Do this once for each of those keys, and copy the result into the `.env.production` file in the appropriate field.
+    docker-compose run --rm web rake secret
 
 Then you should run the `db:migrate` command to create the database, or migrate it from an older release:
 
