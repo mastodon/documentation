@@ -10,21 +10,22 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Zoë Quinn
 * Jimmy Tidey
 * Kit Redgrave
-* Zeipher
-* Effy Elden
 * Julie Moronuki
+* Zeipher
+* Pat Monaghan
+* Matteo De Micheli
 * Ted
-* Christoph Witzany
+* Effy Elden
+* CloudFleet
 * Philip James
 * David Hutchinson
 * Martin Seeger
 * James Wright
 * Jeff Elder
-* Chad Arnold
-* Jen Savage
 * Andreas Zabari
 * SDF.ORG
 * Ke_Ga
+* Wissam
 * Leslie Pajuelo
 * Alan Rowarth
 * Chu Ka-cheong
@@ -36,19 +37,20 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Nolan Lawson
 * Gen Knoxx
 * Moritz
-* Serhii Balbieko
-* Hugo Gameiro
 * Paco Hope
 * Great Scott Gadgets
 * slipstream/RoL
 * Danny O'Brien
 * Steve Johnson
-* demon
+* Masahito Zembutsu
+* Masto.host
+* Ben Werdmuller
+* nullkal
+* Sho Kusano / rosylilly
+* @mecab
 
 **Thank you to the following people**
 
-* Pat Monaghan
-* Matteo De Micheli
 * Christopher Gamble
 * Niels Abildgaard
 * Leif Halldor Asgeirsson
@@ -58,47 +60,39 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Spex
 * Jim Luke
 * Tyler Britten
-* Jess waldrip
 * Hbomb
+* Jess waldrip
 * Yoz Grahame
 * Jonas R. E.
-* Mark Wonnacott
-* Tim Ashley Jenkins
 * Austin Putman
 * J. C. Holder
-* Alex May
-* Mathew Woodyard
+* Mark Wonnacott
+* Tim Ashley Jenkins
+* Jen Savage
 * halcy
 * Sammie
+* Jenn Kaplan
 * Daniel Rosenfeld
+* Mathew Woodyard
+* David Yip
 * A shy person
 * Jeremy Penner
 * Scott Hammack
 * Todd Monotony
 * snorpey
-* David Yip
-* Erin Congden
-* Kevin Grasso
-* Christina Hendricks
+* Alex May
 * iliana weller
 * Greg Slepak
 * Kyle Bishop
+* Erin Congden
+* Kevin Grasso
+* Christina Hendricks
 * Irene Knapp
+* ティン・ルーフ
+* Crom
 * iris bull
 * Nicole Bacon
-* Crom
-* Brian Long
-* John Parker
-* André Koot
-* ティン・ルーフ
-* David Hayward
-* s a
-* Frank Meeuwsen
-* Joel
-* Emily Jordan Klassen
-* Gabriel Puliatti
-* Glenn
-* Matt Lee
+* Emily Marigold Klassen
 * nobody
 * Jeremy Farnum
 * Dmytro Gladkyi
@@ -109,7 +103,7 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Miki Habryn
 * Danielle McLean
 * Aaron Williamson
-* JantsoP
+* Yamagishi Kazutoshi
 * DJ Sundog
 * Ed Marshall
 * Gtom
@@ -118,7 +112,6 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Manesh Pillai
 * C J Silverio
 * Micah Elizabeth Scott
-* Adam
 * Ryan Sipes
 * Pierre Vanhulst
 * Paul Lindner
@@ -133,12 +126,10 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Alda
 * Jacob Helwig
 * Joe McLaughlin
-* Takopix
 * Michael Kosler
 * Michael
 * Eramdam
 * Andy Pook
-* Michel McBride-Charpentier
 * Jonathan McDowell
 * Maff
 * Keisuke Matsuura
@@ -168,16 +159,14 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * outofrange
 * Ryan Prior
 * Jesse Olson
-* Sonololo
 * Lars Trieloff
 * Kenneth Ken Sugar
-* USAMI Kenta
+* USAMI Kenta; Zonu.EXE (@tadsan)
 * Rick Byers
 * Anders Ekbom
 * Zaki
 * Brophey Wolf
 * Stolas
-* Bodil
 * Mark
 * Shinnosuke Iwaki
 * Alexander Zillion
@@ -185,18 +174,88 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * James Adney
 * Paul Nathan
 * Martin Hinrichs
-* c
 * Jerry Gnarcia
 * Mykola Bilokonsky
-* Karen Cravens
-* Sonya Mann
-* Brian
-* Jelle
+* Brian Long
+* André Koot
 * Ryan Frederick
-* Tom Harris
-* Syfaro
+* Karen Cravens
+* Michel McBride-Charpentier
+* Sonya Mann
+* David Hayward
+* s a
+* Frank Meeuwsen
+* Joel
 * Benjamin Boyer
-* hakoai
+* Tom Harris
+* Jelle
+* Matt Lee
+* whitequark
+* DANIEL OLIVAS
+* Yoshiki Kato
+* Jonathan Altman
+* Hiroyuki Wakimoto
+* Nicholas Frota
+* Scott Honey
+* Harukasan
+* Jennie Schilling
+* Stephan
+* K.G. Orphanides
+* Colin Mahns
+* Caelyn McAulay
+* Nicholas Hinds
+* AlK
+* Jay Shapiro
+* Guilhem BLANCHARD
+* Filippo Valsorda
+* William Hopkins
+* Paul Woolcock
+* WereK
+* Garret Kelly
+* Jer Thorp
+* August Bigelow
+* James Renken
+* Jessica Stokes
+* s18alg
+* Patrick O'Doherty
+* Valentin Ouvrard
+* Matt Brabbin
+* Nathaniel Smith
+* Dave Lane
+* Justus Seifert
+* Wes
+* Wladimir
+* Jemaleddin Cole
+* François Remy
+* Mike
+* j r conlin
+* Ash Furrow
+* Brian P.
+* Christoph Laszlo
+* Alexandre Dufournet
+* Rachel King
+* Joash Lewis
+* Tassels
+* Patrick Gibson
+* Wesley Moore
+* Zachary Spector
+* Brooke
+* Jeremy Stashewsky
+* Damien Nicolas
+* Alex
+* Crow Moore
+* Jason Rimmer
+* Chris Eppstein
+* Parker Higgins
+* Shinsaku Chikura
+* Alexander
+* Syfaro
+* Benoit Maison
+* nanoplink
+* Mathieu Chappuis
+* Chas Emerick
+* Joachim
+* Erika
 * Maddy T. Henry
 * Fletcher Cole
 * Arielle Grimes
@@ -225,66 +284,38 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Daria Ambrose
 * Sarah Ingram
 * Pablo Lopez Soriano
-* K.G. Orphanides
-* Colin Mahns
-* Caelyn McAulay
-* Nicholas Hinds
-* AlK
-* Jay Shapiro
-* Guilhem BLANCHARD
-* Filippo Valsorda
-* The Watercolor Gallery
-* William Hopkins
-* Paul Woolcock
-* WereK
-* Garret Kelly
-* Jer Thorp
-* August Bigelow
-* James Renken
-* Jessica Stokes
-* s18alg
-* Patrick O'Doherty
-* Valentin Ouvrard
-* Matt Brabbin
-* Nathaniel Smith
-* Dave Lane
-* Justus Seifert
-* Wes
-* Wladimir
-* Jemaleddin Cole
-* François Remy
-* Mike
-* j r conlin
-* Ash Furrow
-* Les Orchard
-* Brian P.
-* Christoph Laszlo
-* Alexandre Dufournet
-* Rachel King
-* Joash Lewis
-* Tassels
-* Patrick Gibson
-* Wesley Moore
-* Zachary Spector
-* Brooke
-* Jeremy Stashewsky
-* Damien Nicolas
-* Alex
-* Crow Moore
-* Jason Rimmer
-* Chris Eppstein
-* Parker Higgins
-* Shinsaku Chikura
-* Alexander
+* hakoai
+* h-izumi
+* Emmanuel Jacobs
+* Jan-Niklas Braak
+* Nathan Howell
+* Kai Engert
+* Gergo Lippai
+* Dirk Eisenacher
+* Hiroshi Seki
+* Brent P. Newhall
+* moult
+* Nikki W
+* Peter Gravelle
+* Will Thompson
+* Niclas Darville
+* Aaron Brady
+* Lurene Grenier
+* Ben Hamill
+* Michael Myers
+* Dale Price
+* mkatze
+* joachim robert
+* Bjarni R. Einarsson
+* Jack Grigg
 * Bitey Ferret
 * J. Allan Dale
 * Ickalo
-* Benoit Maison
-* nanoplink
-* Mathieu Chappuis
-* Chas Emerick
-* Joachim
-* Erika
+* Daniel Nix
+* Chris Garcia
+* Colby Dillion
+* Bryan Mitchell
+* Sjef
 * Benjamin Beck
 * Kris Jacque
 * Modern Modron
@@ -300,35 +331,6 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Memetic Hazard
 * Caitlin Collins
 * pixelguff
-* Emmanuel Jacobs
-* Jan-Niklas Braak
-* Nathan Howell
-* Kai Engert
-* Gergo Lippai
-* Dirk Eisenacher
-* Hiroshi Seki
-* Brent P. Newhall
-* moult
-* Nikki W
-* Peter Gravelle
-* Toot.Cat
-* Will Thompson
-* Niclas Darville
-* Aaron Brady
-* Lurene Grenier
-* Ben Hamill
-* Michael Myers
-* Dale Price
-* mkatze
-* joachim robert
-* Jack Grigg
-* Alex Dunn
-* Felix Laurie von Massenbach
-* Mike Kasprzak
-* Gareth Noyce
-* Colby Dillion
-* Bryan Mitchell
-* Sjef
 * Christine
 * Matija Han
 * gasche
@@ -346,7 +348,6 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Derek Gonyeo
 * colin mitchell
 * Jonathan Doda
-* Guillaume HERVIER
 * LoovtO
 * Kengo Nakajima
 * Ashley Fisher
@@ -363,28 +364,37 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Oreolek
 * donnerdrummel
 * Root
+* Alex Dunn
+* Felix Laurie von Massenbach
+* Mathieu Lecarme
+* Dijon Mendosa
+* Lee Starnes
+* noisebox
+* Matthew Gregg
+* Andrew Schmadel
+* Pierre BT
 * reacocard
 * Andrea
 * J
+* Sara Haworth
 * belabor jaql
 * bunnyhero
-* Andrew Schmadel
-* Pierre BT
+* Raphael Lullis
+* Glenn Dixon
+* Ondřej Hruška
+* Toootim
 * Stephen Burgess
 * Indi Latrani
-* MayakoLyyn
 * Christopher Armstrong
 * Keiji Matsuzaki
-* Melanie Kloes
+* Sumomi
 * neguse
 * RX14
 * Decio
 * Sean M Puckett
 * Connor Hudson
-* Joona Hoikkala
 * David Philipe Gil
 * mayoto
-* Bartleby
 * Richard Malone
 * dreid
 * Robbie Trencheny
@@ -396,14 +406,12 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Toby
 * Tobias Timpe
 * Jamie Bradway
-* Jean-Christophe Gatuingt
 * Claire Tolan
 * Pablo Defendini
 * Scott Moore
 * Kaylee
 * Ben Lee
 * Mel Reams
-* Supermarine Spitfire
 * Klastic
 * Matthew Cheely
 * koji narazaki
@@ -423,9 +431,7 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Andrew Roach
 * Sean Carrick
 * Cameron Callahan
-* George Ellenburg
 * Simon Tesla
-* Harald Wagener
 * Steve Phillips
 * Jon Pincus
 * HolyGrail
@@ -439,7 +445,6 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Larry Fine
 * Minivet
 * Willscire of the Many Tribes
-* Juho Makkonen
 * Bishnu Bhattacharyya
 * Krzysztof Jankowski
 * Claire
@@ -451,11 +456,10 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Nozomu Saito
 * Paul Houlihan
 * Ichigo Mayo
-* Gabriel Marcondes
+* LM
 * Frederick Doe
 * Jam
 * Balthasar Glättli
-* Lanicia
 * Nicolas Blanco
 * Paul Sheprow
 * Kota Ouchi
@@ -469,13 +473,11 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Drapher
 * Shawn
 * Raphaël Bevenot
-* Christopher Su
 * Holger Durer
 * Thomas Stojke
 * Decklin Foster
 * Julius Heyning
 * Casey Kolderup
-* Dyedgreen
 * Paul Chabane
 * Takeshi Umeda
 * Esteban Manchado Velázquez
@@ -503,7 +505,6 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Cait is making it rain slightly
 * Sud
 * Nathan Wittstock
-* VincenTimes
 * Anselm Hannemannn
 * Bryan Lunduke
 * Selena Knight
@@ -511,9 +512,9 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Felipe Martin
 * Kazunori Shinozaki
 * Jonas Wisser
-* Don Crimbchin
 * Justin Dorfman
 * ZmK
+* Andrew Davis
 * Katherine A Kearns
 * Shigure Yumesaki
 * Manu Quadros
@@ -525,9 +526,8 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Masafumi Otsune
 * Carl Friedrich Bolz
 * Jean-Philippe DUFRAIGNE
+* Antoine-Frédéric Raquin Strik
 * Stefan Hayden
-* Derek Lewis
-* Adam Dispenza
 * Lilith Saintcrow
 * Stephanie Northway
 * Spunkie
@@ -536,7 +536,6 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Chris Sakkas
 * Christian Ternus
 * Diego Islas Ocampo - Hyuchia
-* Avi Flax
 * Fabricio C Zuardi
 * Paul Leonard
 * Max Bruckner
@@ -546,12 +545,9 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Dmitri Sotnikov
 * Kate Cook
 * Bastien Remy
-* Øyvind Kolås
 * Shivian Morgan
 * Hirokazu Uzu
 * Thibaut
-* John McLaughlin
-* Emile Neuhaus
 * Loïc Guibert
 * Mark Davis
 * Pierre-Emmanuel Guerton
@@ -565,7 +561,6 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Mattias
 * Phil Nelson
 * LJ
-* Braxton Fair
 * Warren
 * Andy
 * Arno Rieux
@@ -573,9 +568,7 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Pierre Rudloff
 * Ben Tucci
 * Daniel Maxwell-Ross
-* Matthew Gregg
 * Abe Weishaupt
-* Kẏra
 * 8zu
 * Stephanie Pakrul
 * Reilly Grant
@@ -584,7 +577,6 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Forrest Oliphant
 * Sebastian Morr
 * Tim
-* umiyuki
 * socketwench
 * Salomao Becker
 * Loïc 'iooner' Keyeux
@@ -615,18 +607,40 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Adam Frey
 * T54r4n1
 * Alexander
-* h-izumi
 * Helly
 * Justin Humm
 * Sam Marshall
 * Arthur Wang
 * Kevin Menzel
-* Yamagishi Kazutoshi
-* Jennie Schilling
-* Maxime Borges
-* Bjarni R. Einarsson
-* LM
-* Pat Rafferty
-* Andrew Davis
-* Antoine-Frédéric Raquin Strik
-* daemoneye
+* Alexander Stiehl
+* Shumpei Urabe
+* pso2.club
+* Kyota Yasuda
+* Joshua Demallistre
+* KemoNine
+* Emmanuel Kasper
+* Sébastien Lalloué
+* Stefano Figura
+* Satoshi Endo
+* Trev
+* Craig Maloney
+* Andrew W
+* Tao Hansen
+* Matt Baer
+* uanrist
+* Yoshiaki Kiura
+* Vincent Zeng
+* abcang
+* Joe Constant
+* Avi Flax
+* Will R
+* Gabriele Lucci
+* Hiro Ishii
+* tateisu
+* Braxton Fair
+* HerrGilbert
+* masarakki
+* Steve Lawson
+* Jeff Mcneill
+* James Harris
+* Arkanosis
