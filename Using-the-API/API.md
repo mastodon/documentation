@@ -102,7 +102,7 @@ Query parameters:
 
 | Field      | Description                                                    | Optional   |
 | ---------- | -------------------------------------------------------------- | ---------- |
-| `max_id`   | Get a list of followers with ID less than or equal this value  | yes        |
+| `max_id`   | Get a list of followers with ID less than this value           | yes        |
 | `since_id` | Get a list of followers with ID greater than this value        | yes        |
 | `limit`    | Maximum number of followers to get (Default 40, Max 80)        | yes        |
 
@@ -118,7 +118,7 @@ Query parameters:
 
 | Field      | Description                                                    | Optional   |
 | ---------- | -------------------------------------------------------------- | ---------- |
-| `max_id`   | Get a list of followings with ID less than or equal this value | yes        |
+| `max_id`   | Get a list of followings with ID less than this value          | yes        |
 | `since_id` | Get a list of followings with ID greater than this value       | yes        |
 | `limit`    | Maximum number of followings to get (Default 40, Max 80)       | yes        |
 
@@ -136,7 +136,7 @@ Query parameters:
 | ----------------- | -----------------------------------------------------------  | ---------- |
 | `only_media`      | Only return statuses that have media attachments             | yes        |
 | `exclude_replies` | Skip statuses that reply to other statuses                   | yes        |
-| `max_id`          | Get a list of statuses with ID less than or equal this value | yes        |
+| `max_id`          | Get a list of statuses with ID less than this value          | yes        |
 | `since_id`        | Get a list of statuses with ID greater than this value       | yes        |
 | `limit`           | Maximum number of statuses to get (Default 20, Max 40)       | yes        |
 
@@ -223,7 +223,7 @@ Query parameters:
 
 | Field             | Description                                                   | Optional   |
 | ----------------- | ------------------------------------------------------------- | ---------- |
-| `max_id`          | Get a list of blocks with ID less than or equal this value    | yes        |
+| `max_id`          | Get a list of blocks with ID less than this value             | yes        |
 | `since_id`        | Get a list of blocks with ID greater than this value          | yes        |
 | `limit`           | Maximum number of blocks to get (Default 40, Max 80)          | yes        |
 
@@ -241,7 +241,7 @@ Query parameters:
 
 | Field             | Description                                                   | Optional   |
 | ----------------- | ------------------------------------------------------------- | ---------- |
-| `max_id`          | Get a list of blocks with ID less than or equal this value    | yes        |
+| `max_id`          | Get a list of blocks with ID less than this value             | yes        |
 | `since_id`        | Get a list of blocks with ID greater than this value          | yes        |
 | `limit`           | Maximum number of blocks to get (Default 40, Max 80)          | yes        |
 
@@ -283,7 +283,7 @@ Query parameters:
 
 | Field             | Description                                                    | Optional   |
 | ----------------- | -------------------------------------------------------------- | ---------- |
-| `max_id`          | Get a list of favourites with ID less than or equal this value | yes        |
+| `max_id`          | Get a list of favourites with ID less than this value          | yes        |
 | `since_id`        | Get a list of favourites with ID greater than this value       | yes        |
 | `limit`           | Maximum number of favourites to get (Default 20, Max 40)       | yes        |
 
@@ -301,7 +301,7 @@ Query parameters:
 
 | Field             | Description                                                         | Optional   |
 | ----------------- | ------------------------------------------------------------------- | ---------- |
-| `max_id`          | Get a list of follow requests with ID less than or equal this value | yes        |
+| `max_id`          | Get a list of follow requests with ID less than this value          | yes        |
 | `since_id`        | Get a list of follow requests with ID greater than this value       | yes        |
 | `limit`           | Maximum number of requests to get (Default 40, Max 80)              | yes        |
 
@@ -364,7 +364,7 @@ Query parameters:
 
 | Field             | Description                                                         | Optional   |
 | ----------------- | ------------------------------------------------------------------- | ---------- |
-| `max_id`          | Get a list of mutes with ID less than or equal this value           | yes        |
+| `max_id`          | Get a list of mutes with ID less than this value                    | yes        |
 | `since_id`        | Get a list of mutes with ID greater than this value                 | yes        |
 | `limit`           | Maximum number of mutes to get (Default 40, Max 80)                 | yes        |
 
@@ -382,7 +382,7 @@ Query parameters:
 
 | Field             | Description                                                         | Optional   |
 | ----------------- | ------------------------------------------------------------------- | ---------- |
-| `max_id`          | Get a list of notifications with ID less than or equal this value   | yes        |
+| `max_id`          | Get a list of notifications with ID less than this value            | yes        |
 | `since_id`        | Get a list of notifications with ID greater than this value         | yes        |
 | `limit`           | Maximum number of notifications to get (Default 15, Max 30)         | yes        |
 
@@ -486,7 +486,7 @@ Query parameters:
 
 | Field             | Description                                                              | Optional   |
 | ----------------- | ------------------------------------------------------------------------ | ---------- |
-| `max_id`          | Get a list of reblogged/favourited with ID less than or equal this value | yes        |
+| `max_id`          | Get a list of reblogged/favourited with ID less than this value          | yes        |
 | `since_id`        | Get a list of reblogged/favourited with ID greater than this value       | yes        |
 | `limit`           | Maximum number of reblogged/favourited to get (Default 40, Max 80)       | yes        |
 
@@ -546,7 +546,7 @@ Query parameters:
 | Field             | Description                                                                         | Optional   |
 | ----------------- | ----------------------------------------------------------------------------------- | ---------- |
 | `local`           | Only return statuses originating from this instance (public and tag timelines only) | yes        |
-| `max_id`          | Get a list of timelines with ID less than or equal this value                       | yes        |
+| `max_id`          | Get a list of timelines with ID less than this value                                | yes        |
 | `since_id`        | Get a list of timelines with ID greater than this value                             | yes        |
 | `limit`           | Maximum number of statuses on the requested timeline to get (Default 20, Max 40)    | yes        |
 
