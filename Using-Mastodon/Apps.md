@@ -74,6 +74,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |---|--------|----|------------|
 |Mastodon Lang Remover|[Chrome(ium)/Firefox](https://github.com/arthurlacoste/mastodon-lang-remover#install)|<https://github.com/arthurlacoste/mastodon-lang-remover>|[@arthak@mastodon.social](https://mastodon.social/users/arthak)|
 |Tooter|[Chrome(ium)](https://chrome.google.com/webstore/detail/tooter/okmlpjijminjkikninbkcnfmhkofgnnk)|<https://github.com/ineffyble/tooter>|[@effy@mastodon.social](https://mastodon.social/users/effy)|
+|Fastoot|[Chrome(ium)](https://chrome.google.com/webstore/detail/fastoot/hnmnnhfeigiogjagmmpnhelpnhnchaoj)|<https://github.com/noraworld/fastoot>|[@noraworld@mastodon.noraworld.jp](https://mastodon.noraworld.jp/users/noraworld)|
 
 ## Bridges from/to other platforms
 
