@@ -23,6 +23,7 @@ Mastodon User's Guide
   * [Toot Privacy](User-guide.md#toot-privacy)
   * [Blocking](User-guide.md#blocking)
   * [Reporting Toots or Users](User-guide.md#reporting-toots-or-users)
+* [Still questions?](User-guide.md#still-questions)
 
 ## Intro
 
@@ -216,3 +217,11 @@ If you encounter a toot or a user that is breaking the rules of your instance or
 ![Report form](screenshots/report.png)
 
 In this form, you can select any toots you would like to report to the instance administrators and fill in any comment that might be helpful in identifying or handling the issue (from "is a spammer" to "this post contains untagged pornography"). The report will be visible to server administrators once it is sent so they can take appropriate action, for example hiding the user's posts from the public timeline or banning their account.
+
+## Still questions?
+
+If you still have support questions, you can do two things:
+
+1. Ask on Mastodon itself with the hashtag #support (this will work better on larger instances than on smaller instances).
+2. Go to the [Mastodon Meta Discussion Board](https://discourse.joinmastodon.org/c/general) (powered by Discourse). Please [read the Guidelines](https://discourse.joinmastodon.org/faq) first.
+
