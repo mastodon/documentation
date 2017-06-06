@@ -10,12 +10,13 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 
 |App|Source code|Developer(s)|
 |---|-----------|------------|
+|[11t](https://play.google.com/store/apps/details?id=com.jeroensmeets.mastodon)|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
 |[AndStatus](http://andstatus.org/)|<https://github.com/andstatus/andstatus>|[@AndStatus@mastodon.social](https://mastodon.social/@AndStatus)|
 |[Subway Tooter](https://play.google.com/store/apps/details?id=jp.juggler.subwaytooter)|<https://github.com/tateisu/SubwayTooter>|[@tateisu@mastodon.juggler.jp](https://mastodon.juggler.jp/@tateisu)|
-|[Tusky](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky)|<https://github.com/Vavassor/Tusky>|[@Vavassor@mastodon.social](https://mastodon.social/users/Vavassor)|
+|[Tusky](https://f-droid.org/repository/browse/?fdcategory=Internet&fdid=com.keylesspalace.tusky&fdpage=3&fdstyle=grid)|<https://github.com/Vavassor/Tusky>|[@Vavassor@mastodon.social](https://mastodon.social/users/Vavassor)|
 |[Twidere](https://github.com/TwidereProject/Twidere-Android#twidere-for-android)|<https://github.com/TwidereProject/Twidere-Android>|[@mariotaku@pawoo.net](https://pawoo.net/@mariotaku)|
-|[11t](https://play.google.com/store/apps/details?id=com.jeroensmeets.mastodon)|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
 |[Mastobone](https://play.google.com/store/apps/details?id=com.mastobone) (alpha)|<https://github.com/deguchi/mastobone>|[@deguchi@bookn.me](https://bookn.me/@deguchi)|
+|[MouseApp](https://f-droid.org/repository/browse/?fdfilter=mastodon&fdid=fr.xtof54.mousetodon) (beta)|<https://github.com/cerisara/mousetodon>|[@cerisara@mastodon.etalab.gouv.fr](https://mastodon.etalab.gouv.fr/@cerisara)
 |[TootyFruity](https://play.google.com/store/apps/details?id=ch.kevinegli.tootyfruity221258) (beta)|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
 |[dndkodon](https://play.google.com/store/apps/details?id=jp.coe.dndkodon)|N/A|Tsuyoshi Hyuga|
 |[Pawoo](https://play.google.com/store/apps/details?id=jp.pxv.pawoo)|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
@@ -25,11 +26,17 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 
 |App|Source code|Developer(s)|
 |---|-----------|------------|
+|[11t](https://appsto.re/i67Q3LH)|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
 |[Amaroq](https://itunes.apple.com/us/app/amarok-for-mastodon/id1214116200?ls=1&mt=8)|<https://github.com/ReticentJohn/Amaroq>|[@eurasierboy@mastodon.social](https://mastodon.social/users/eurasierboy)|
 |[TootyFruity](https://docs.google.com/forms/d/e/1FAIpQLScW2lvZaKrOm4AKJH5HLI_Ul0Yr3CsXulf5bcTJQ1xaN5jiPg/viewform?c=0&w=1) (beta)|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
 |[Mustor](https://itunes.apple.com/us/app/mustor/id1229531204?l=zh&ls=1&mt=8)|N/A|[@darkcl@mastodon.cloud](https://mastodon.cloud/@darkcl)|
 |[Pawoo](https://itunes.apple.com/us/app/pawoo/id1229070679)|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
-|[11t](https://appsto.re/i67Q3LH)|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
+
+## Alternative web apps
+|App|Source code|Developer(s)|
+|---|-----------|------------|
+|[Halcyon](https://halcyon.social)|<https://github.com/halcyon-suite/halcyon-for-mastodon>|[@neet@mastodon.social](https://mastodon.social/@neet)|
+|[Naumanni](https://naumanni.com/)(alpha)|<https://github.com/naumanni/naumanni>|[@shi3z@mstdn.onosendai.jp](https://mstdn.onosendai.jp/@shi3z)/[@shn@oppai.tokyo](https://oppai.tokyo/@shn)|
 
 ## Desktop clients
 ### Linux
@@ -65,15 +72,14 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[toot](https://github.com/ihabunek/toot)|CLI|<https://github.com/ihabunek/toot>|[@ihabunek@mastodon.social](https://mastodon.social/users/ihabunek)|
 |[tootstream](https://github.com/magicalraccoon/tootstream)|CLI|<https://github.com/magicalraccoon/tootstream>|[@Raccoon@mastodon.social](https://mastodon.social/users/Raccoon)|
 |[soCLIal](https://gitlab.com/IvanSanchez/soclial)|CLI|<https://gitlab.com/IvanSanchez/soclial>|[@IvanSanchez@mastodon.social](https://mastodon.social/@IvanSanchez)|
-|[Naumanni](https://naumanni.com/)(alpha)|Web browser|<https://github.com/naumanni/naumanni>|[@shi3z@mstdn.onosendai.jp](https://mstdn.onosendai.jp/@shi3z)/[@shn@oppai.tokyo](https://oppai.tokyo/@shn)|
-|[Halcyon](https://halcyon.social)|Web browser|<https://github.com/halcyon-suite/halcyon-for-mastodon>|[@neet@mastodon.social](https://mastodon.social/@neet)|
 
 ## Browser add-ons/extensions
 
 |App|Browser|Source code|Developer(s)|
 |---|--------|----|------------|
 |Mastodon Lang Remover|[Chrome(ium)/Firefox](https://github.com/arthurlacoste/mastodon-lang-remover#install)|<https://github.com/arthurlacoste/mastodon-lang-remover>|[@arthak@mastodon.social](https://mastodon.social/users/arthak)|
-|Tooter|[Chrome(ium)](https://chrome.google.com/webstore/detail/tooter/okmlpjijminjkikninbkcnfmhkofgnnk)|<https://github.com/ineffyble/tooter>|[@effy@mastodon.social](https://mastodon.social/users/effy)|
+|Tooter|[Chrome(ium)](https://chrome.google.com/webstore/detail/tooter/okmlpjijminjkikninbkcnfmhkofgnnk)/[Firefox}(https://addons.mozilla.org/nl/firefox/addon/tooter/)|<https://github.com/ineffyble/tooter>|[@effy@mastodon.social](https://mastodon.social/users/effy)|
+|Mastodon Share|[Firefox](https://addons.mozilla.org/nl/firefox/addon/mastodon-share/)|<https://github.com/kernox/Mastoshare>|[@Hellexis@framapiaf.org](https://framapiaf.org/@Hellexis)
 |Fastoot|[Chrome(ium)](https://chrome.google.com/webstore/detail/fastoot/hnmnnhfeigiogjagmmpnhelpnhnchaoj)|<https://github.com/noraworld/fastoot>|[@noraworld@mastodon.noraworld.jp](https://mastodon.noraworld.jp/users/noraworld)|
 
 ## Bridges from/to other platforms
