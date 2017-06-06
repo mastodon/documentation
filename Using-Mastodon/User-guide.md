@@ -89,7 +89,7 @@ Additionally you can *boost* toots by clicking the "circular arrows" icon. Boost
 
 You can also simply drag and drop your image from your desktop into the text box of your Compose column. 
 
-![Image icon](screenshots/drag-and-drop-image.png)
+![Image icon](screenshots/drag-and-drop-image.gif)
 
 If the image is "not safe for work" or has otherwise sensitive content, you can select the ![NSFW toggle](screenshots/compose-nsfw.png) "NSFW" button which appears once you have added an image. This will hide the image in your post by default, making it clickable to show the preview. This is the "visual" version of [content warnings](User-guide.md#content-warnings) and could be combined with them if there is text to accompany the image - otherwise it's fine to just mark the image as sensitive and make the body of your post the content warning.
 
