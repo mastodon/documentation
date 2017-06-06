@@ -36,7 +36,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |App|Source code|Developer(s)|
 |---|-----------|------------|
 |[Halcyon](https://halcyon.social)|<https://github.com/halcyon-suite/halcyon-for-mastodon>|[@neet@mastodon.social](https://mastodon.social/@neet)|
-|[Naumanni](https://naumanni.com/)(alpha)|<https://github.com/naumanni/naumanni>|[@shi3z@mstdn.onosendai.jp](https://mstdn.onosendai.jp/@shi3z)/[@shn@oppai.tokyo](https://oppai.tokyo/@shn)|
+|[Naumanni](https://naumanni.com/) (alpha)|<https://github.com/naumanni/naumanni>|[@shi3z@mstdn.onosendai.jp](https://mstdn.onosendai.jp/@shi3z)/[@shn@oppai.tokyo](https://oppai.tokyo/@shn)|
 
 ## Desktop clients
 ### Linux
@@ -78,7 +78,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |App|Browser|Source code|Developer(s)|
 |---|--------|----|------------|
 |Mastodon Lang Remover|[Chrome(ium)/Firefox](https://github.com/arthurlacoste/mastodon-lang-remover#install)|<https://github.com/arthurlacoste/mastodon-lang-remover>|[@arthak@mastodon.social](https://mastodon.social/users/arthak)|
-|Tooter|[Chrome(ium)](https://chrome.google.com/webstore/detail/tooter/okmlpjijminjkikninbkcnfmhkofgnnk)/[Firefox}(https://addons.mozilla.org/nl/firefox/addon/tooter/)|<https://github.com/ineffyble/tooter>|[@effy@mastodon.social](https://mastodon.social/users/effy)|
+|Tooter|[Chrome(ium)](https://chrome.google.com/webstore/detail/tooter/okmlpjijminjkikninbkcnfmhkofgnnk)/[Firefox](https://addons.mozilla.org/nl/firefox/addon/tooter/)|<https://github.com/ineffyble/tooter>|[@effy@mastodon.social](https://mastodon.social/users/effy)|
 |Mastodon Share|[Firefox](https://addons.mozilla.org/nl/firefox/addon/mastodon-share/)|<https://github.com/kernox/Mastoshare>|[@Hellexis@framapiaf.org](https://framapiaf.org/@Hellexis)
 |Fastoot|[Chrome(ium)](https://chrome.google.com/webstore/detail/fastoot/hnmnnhfeigiogjagmmpnhelpnhnchaoj)|<https://github.com/noraworld/fastoot>|[@noraworld@mastodon.noraworld.jp](https://mastodon.noraworld.jp/users/noraworld)|
 
