@@ -82,3 +82,4 @@ List of Mastodon instances
 | [reveal.today](https://reveal.today/)|Open Registrations, General Purpose, About everyday events|Yes|Yes|
 | [m4570.xyz](https://m4570.xyz)|Open registrations, federates everywhere, instance hosted in France|Yes|Yes|
 | [Bonn.social](https://bonn.social)|Local topics from the federal city of Bonn, Germany|Yes|No|
+| [Mastodon.link](https://mastodon.link)|Mastodon for everyone.|Yes|No|
