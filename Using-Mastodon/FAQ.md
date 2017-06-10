@@ -140,7 +140,13 @@ Click on **Getting Started**, then **Extended Information**. An info page displa
 <img src="screenshots/admin_info.png" alt="Admin Info" height="200"/>
 
 #### Wow, I keep seeing offensive stuff from a particular instance, is there a way to block *all* of it?
-Not without a lot of clicking, sorry. But, your instance admin can do it! Please contact them.
+If your instance is running version 1.4.1 of Mastodon or later, yes! Visit the user page of a user on the instance you want to block, then click the drop-down menu on the left-hand side, just above their toots. You should see an option to hide everything from the instance that user is on:
+
+<img src="screenshots/hide-everything-drop-down.png" alt="Hide Everything drop-down" height="200" />
+
+If your instance is running a version of Mastodon prior to 1.4.1, you can't do this without a lot of clicking, sorry. But, your instance admin can do it! Please contact them.
+
+(You can tell what version of Mastodon your instance is running by following the steps in "[Who is my admin, and how do I contact/follow them?](#who-is-my-admin-and-how-do-i-contact-follow-them)". The version number is listed in the right-hand column of that extended information page.)
 
 #### Is Mastodon moderated?
 Each instance handles moderation differently, and each has their own moderators. It’s okay to ask what the rules are for the instance you are on. Usually the rules are posted on the instance's about page ([like the “more” page at Mastodon.social](https://mastodon.social/about/more))
