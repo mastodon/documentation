@@ -14,7 +14,7 @@ The following HTTP headers are already set internally and should not be set agai
 
 Regardless of whether you go with the Docker approach or not, here is an example Nginx server configuration.
 
-At a minimum, you'll want to replace any occurrence of `www.xample.com` with your actual hostname, and `/home/mastodon/live/public` with the location of your actual mastodon `public/` directory.
+At a minimum, you'll want to replace any occurrence of `www.example.com` with your actual hostname, and `/home/mastodon/live/public` with the location of your actual mastodon `public/` directory.
 
 ```nginx
 map $http_upgrade $connection_upgrade {
