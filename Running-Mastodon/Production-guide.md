@@ -14,7 +14,7 @@ The following HTTP headers are already set internally and should not be set agai
 
 Regardless of whether you go with the Docker approach or not, here is an example Nginx server configuration.
 
-At a minimum, you'll want to replace any occurrence of `example.com` with your actual hostname, and `/home/mastodon/live/public` with the location of your actual mastodon `public/` directory.
+At a minimum, you'll want to replace any occurrence of `www.xample.com` with your actual hostname, and `/home/mastodon/live/public` with the location of your actual mastodon `public/` directory.
 
 ```nginx
 map $http_upgrade $connection_upgrade {
@@ -25,7 +25,7 @@ map $http_upgrade $connection_upgrade {
 server {
   listen 80;
   listen [::]:80;
-  server_name example.com;
+  server_name www.example.com;
   # Useful for Let's Encrypt
   location /.well-known/acme-challenge/ { allow all; }
   location / { return 301 https://$host$request_uri; }
@@ -34,15 +34,15 @@ server {
 server {
   listen 443 ssl http2;
   listen [::]:443 ssl http2;
-  server_name example.com;
+  server_name www.example.com;
 
   ssl_protocols TLSv1.2;
   ssl_ciphers HIGH:!MEDIUM:!LOW:!aNULL:!NULL:!SHA;
   ssl_prefer_server_ciphers on;
   ssl_session_cache shared:SSL:10m;
 
-  ssl_certificate     /etc/letsencrypt/live/example.com/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+  ssl_certificate     /etc/letsencrypt/live/www.example.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/www.example.com/privkey.pem;
 
   keepalive_timeout    70;
   sendfile             on;
