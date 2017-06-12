@@ -128,6 +128,7 @@ They’re tasty, and they make people smile. Just go with it.
 #### I see “Awoo” a lot, what does that mean?
 Try saying it out loud. It’s fun!
 
+<a name="delete-account"></a>
 #### How do I delete my account?
 At the moment, you will have to toot the admin of your instance for help on that one.
 
