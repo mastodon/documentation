@@ -684,7 +684,7 @@ Note: Some attributes in the entity payload can have ``null`` value and are mark
 | Attribute                | Description                              | Nullable |
 | ------------------------ | ---------------------------------------- | -------- |
 | `accounts`               | An array of matched [Accounts](#account) | yes      |
-| `statuses`               | An array of matchhed [Statuses](#status) | yes      |
+| `statuses`               | An array of matched [Statuses](#status) | yes      |
 | `hashtags`               | An array of matched hashtags, as strings | yes      |
 
 ### Status
