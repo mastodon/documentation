@@ -111,7 +111,12 @@ server {
 
 ## Running in production without Docker
 
-It is recommended to create a special user for mastodon on the server (you could call the user `mastodon`), though remember to disable outside login for it. You should only be able to get into that user through `sudo -u mastodon`.
+It is recommended to create a special user for mastodon on the server (you could call the user `mastodon`), though remember to disable outside login for it. You should only be able to get into that user through `sudo su mastodon`.
+
+This command will create the user as needed:
+
+    sudo adduser --disabled-password --gecos "" mastodon
+
 
 ## General dependencies
 
@@ -207,13 +212,18 @@ It is recommended to use rbenv (exclusively from the `mastodon` user) to install
 [2]: https://github.com/rbenv/ruby-build#installation
 [3]: https://github.com/rbenv/ruby-build/wiki#suggested-build-environment
 
-Then once `rbenv` is ready, run `rbenv install 2.4.1` to install the Ruby version for Mastodon.
+Then once `rbenv` is ready, install and enable the Ruby version for Mastodon using: 
+
+```
+rbenv install 2.4.1
+rbenv global 2.4.1
+```
 
 ## Git
 
 You need the `git-core` package installed on your system. If it is so, run the shell from the `mastodon` user:
 
-    sudo -su mastodon
+    sudo su mastodon
 
 And enter the following commands:
 
@@ -237,7 +247,7 @@ Then you have to configure your instance:
 
 Fill in the important data, like host/port of the redis database, host/port/username/password of the postgres database, your domain name, SMTP details (e.g. from Mailgun or equivalent transactional e-mail service, many have free tiers), whether you intend to use SSL, etc. If you need to generate secrets, you can use:
 
-    rake secret
+    bundle exec rake secret
 
 To get a random string. If you are setting up on one single server (most likely), then `REDIS_HOST` is localhost and `DB_HOST` is `/var/run/postgresql`, `DB_USER` is `mastodon` and `DB_NAME` is `mastodon_production` while `DB_PASS` is empty because this setup will use the ident authentication method (system user "mastodon" maps to postgres user "mastodon").
 
