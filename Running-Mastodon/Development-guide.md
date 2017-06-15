@@ -10,6 +10,7 @@ In fact, all you need is described in the [production guide](Production-guide.md
 - Nginx
 - Systemd
 - An `.env.production` file. If you need to set any environment variables, you can use an `.env` file
+  - Use `LOCAL_HTTPS=false` if developing on the same machine
 - To prefix any commands with `RAILS_ENV=production` since the default environment is "development" anyway
 - Any cronjobs
 
