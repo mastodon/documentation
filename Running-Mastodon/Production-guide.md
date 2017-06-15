@@ -220,7 +220,7 @@ And enter the following commands:
     cd ~
     git clone https://github.com/tootsuite/mastodon.git live
     cd live
-    git checkout $(git tag | tail -n 1)
+    git checkout $(git tag -l | sort -V | tail -n 1)
 
 Then you can proceed to install project dependencies:
 
@@ -340,7 +340,7 @@ If you want a stable release for production use, you should use tagged releases.
 ```sh
     cd ~mastodon/live/
     git fetch
-    git checkout $(git tag | tail -n 1)
+    git checkout $(git tag -l | sort -V | tail -n 1)
 ```
 
 As part of your deploy, you may need to run:
