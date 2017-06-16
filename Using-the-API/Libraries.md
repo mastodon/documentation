@@ -26,7 +26,7 @@ Below, a list of libraries to interact with the Mastodon API, sorted by programm
 | PHP                  | [MastodonOAuthPHP](https://github.com/TheCodingCompany/MastodonOAuthPHP)       |                                                                                |
 | PHP                  | [Phediverse Mastodon REST Client](https://github.com/phediverse/mastodon-rest) |                                                                                |
 | PHP                  | [TootoPHP](https://framagit.org/MaxKoder/TootoPHP)                             |                                                                                |
-| Python               | [Mastodon.py](https://github.com/halcy/Mastodon.py)                            |                                                                                |
+| Python               | [Mastodon.py](https://github.com/halcy/Mastodon.py)                            | [@halcy@icosahedron.website](https://icosahedron.website/@halcy)               |
 | R                    | [mastodon](https://github.com/ThomasChln/mastodon)                             |                                                                                |
 | Ruby                 | [mastodon-api](https://github.com/tootsuite/mastodon-api)                      | [@Gargron@mastodon.social](https://mastodon.social/@Gargron)                   |
 | Rust                 | [mammut](https://github.com/Aaronepower/mammut)                                | [@Aaronepower@mastodon.social](https://mastodon.social/@Aaronepower)           |
