@@ -111,7 +111,14 @@ server {
 
 ## Running in production without Docker
 
-It is recommended to create a special user for mastodon on the server (you could call the user `mastodon`), though remember to disable outside login for it. You should only be able to get into that user through `sudo -u mastodon`.
+It is recommended to create a special user for mastodon on the server (you could call the user `mastodon`), though remember to disable outside login for it. You should only be able to get into that user through `sudo -iu mastodon`.
+
+This command will create the user as needed:
+
+    sudo useradd --system --user-group --shell /bin/false --create-home --home /home/mastodon mastodon
+    
+home can be changed as needed
+
 
 ## General dependencies
 
@@ -207,13 +214,18 @@ It is recommended to use rbenv (exclusively from the `mastodon` user) to install
 [2]: https://github.com/rbenv/ruby-build#installation
 [3]: https://github.com/rbenv/ruby-build/wiki#suggested-build-environment
 
-Then once `rbenv` is ready, run `rbenv install 2.4.1` to install the Ruby version for Mastodon.
+Then once `rbenv` is ready, install and enable the Ruby version for Mastodon using: 
+
+```
+rbenv install 2.4.1
+rbenv global 2.4.1
+```
 
 ## Git
 
 You need the `git-core` package installed on your system. If it is so, run the shell from the `mastodon` user:
 
-    sudo -su mastodon
+    sudo -iu mastodon
 
 And enter the following commands:
 
