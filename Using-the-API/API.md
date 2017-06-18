@@ -87,12 +87,12 @@ Returns the authenticated user's [Account](#account).
 
 Form data:
 
-| Field          | Description                                                                                                                            | Optional   |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| `display_name` | The name to display in the user's profile                                                                                              | yes        |
-| `note`         | A new biography for the user                                                                                                           | yes        |
-| `avatar`       | A base64 encoded image to display as the user's avatar (e.g. `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAADrCAYAAAA...`)       | yes        |
-| `header`       | A base64 encoded image to display as the user's header image (e.g. `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAADrCAYAAAA...`) | yes        |
+| Field          | Description                               | Optional   |
+| -------------- | ----------------------------------------- | ---------- |
+| `display_name` | The name to display in the user's profile | yes        |
+| `note`         | A new biography for the user              | yes        |
+| `avatar`       | An avatar for the user                    | yes        |
+| `header`       | A header image for the user               | yes        |
 
 #### Getting an account's followers:
 
