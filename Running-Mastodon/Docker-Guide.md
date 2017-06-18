@@ -26,9 +26,11 @@ You will need to fill in, at least: `LOCAL_DOMAIN`, `LOCAL_HTTPS`, and the `SMTP
 
 ## Building the app
 
-If you want to build your own image, run the command below; You can skip this step if you want to use the prebuilt images. 
+If you want to build your own image, run the command below:
 
     docker-compose build
+
+If you want to use prebuilt images on Docker Hub, just comment out all `build` keys in `docker-compose.yml` and continue.
 
 Now the image can be used to generate secrets. Run the command below for each of `PAPERCLIP_SECRET`, `SECRET_KEY_BASE`, and `OTP_SECRET` then copy the results into the `.env.production` file:
 
