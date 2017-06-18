@@ -26,7 +26,7 @@ You will need to fill in, at least: `LOCAL_DOMAIN`, `LOCAL_HTTPS`, and the `SMTP
 
 ## Building the app
 
-Before running the first time, you need to build the images:
+If you want to build your own image, run the command below; You can skip this step if you want to use the prebuilt images. 
 
     docker-compose build
 
