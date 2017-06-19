@@ -20,7 +20,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[dndkodon](https://play.google.com/store/apps/details?id=jp.coe.dndkodon)|N/A|Tsuyoshi Hyuga|
 |[Pawoo](https://play.google.com/store/apps/details?id=jp.pxv.pawoo)|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
 |[Stegodon](https://play.google.com/store/apps/details?id=com.gilawhost.stegolophodon)|N/A|[@GilaW@mastodon.cloud](https://mastodon.cloud/@Gilaw)|
-|[Panoramic](https://play.google.com/store/apps/details?id=com.fa.imaged)|<https://github.com/FlorentAnders/Panoramicy>|[@florentanders@social.tchncs.de](https://social.tchncs.de/web/accounts/12666)|
+|[Panoramic](https://play.google.com/store/apps/details?id=com.fa.imaged)|<https://github.com/FlorentAnders/Panoramic>|[@florentanders@social.tchncs.de](https://social.tchncs.de/web/accounts/12666)|
 
 ### iOS
 
