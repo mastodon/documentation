@@ -111,7 +111,7 @@ server {
 
 ## Running in production without Docker
 
-It is recommended to create a special user for mastodon on the server (you could call the user `mastodon`), though remember to disable outside login for it. You should only be able to get into that user through `sudo -iu mastodon`.
+It is recommended to create a special user for mastodon on the server (you could call the user `mastodon`), though remember to disable outside login for it. You should only be able to get into that user through `sudo -sHu mastodon`.
 
 This command will create the user as needed:
 
@@ -225,7 +225,7 @@ rbenv global 2.4.1
 
 You need the `git-core` package installed on your system. If it is so, run the shell from the `mastodon` user:
 
-    sudo -iu mastodon
+    sudo -sHu mastodon
 
 And enter the following commands:
 
