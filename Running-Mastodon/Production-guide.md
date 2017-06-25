@@ -116,7 +116,7 @@ It is recommended to create a special user for mastodon on the server (you could
 This command will create the user as needed:
 
     sudo useradd --system --user-group --shell /bin/false --create-home --home /home/mastodon mastodon
-    
+
 home can be changed as needed
 
 
@@ -214,7 +214,7 @@ It is recommended to use rbenv (exclusively from the `mastodon` user) to install
 [2]: https://github.com/rbenv/ruby-build#installation
 [3]: https://github.com/rbenv/ruby-build/wiki#suggested-build-environment
 
-Then once `rbenv` is ready, install and enable the Ruby version for Mastodon using: 
+Then once `rbenv` is ready, install and enable the Ruby version for Mastodon using:
 
 ```
 rbenv install 2.4.1
@@ -334,16 +334,6 @@ WantedBy=multi-user.target
 ```
 
 This allows you to `sudo systemctl enable /etc/systemd/system/mastodon-*.service` and `sudo systemctl start mastodon-web.service mastodon-sidekiq.service mastodon-streaming.service` to get things going.
-
-## Cronjobs
-
-There are several tasks that should be run once a day to ensure that mastodon is
-running smoothly. As your mastodon user run `crontab -e` and enter the following
-
-```sh
-    RAILS_ENV=production
-    @daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:daily > /dev/null
-```
 
 ## Things to look out for when upgrading Mastodon
 
