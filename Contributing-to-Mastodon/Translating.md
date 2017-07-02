@@ -175,7 +175,7 @@ bundle exec i18n-tasks add-missing hu
 
 Please note that `health` would simply check the existence of the language key.
 It does not check if they are different from the default (English). Also the
-command `add-missing` only copy the English translation for your lanuage.
+command `add-missing` only copy the English translation for your language.
 
 In short, running `add-missing` can help you pass the `health` test, but you'd
 still need to check your yml and translate the "added" strings.
@@ -193,9 +193,9 @@ Build the webpack assets for development use. Also generate the frontend
 translation reference files. You'll need to run this every time you clone /
 fetch the source code.
 
-You'll need to run this before using `yarn manage:translation`.
+You'll need to run this before using `yarn manage:translations`.
 
-**`yarn manage:translation`**
+**`yarn manage:translations`**
 
 Based on [react-intl-translations-manager](https://www.npmjs.com/package/react-intl-translations-manager).
 Sync and check the translation strings. It will:
@@ -208,19 +208,19 @@ Sync and check the translation strings. It will:
 You may use the help command to get usage instructions:
 
 ```
-yarn manage:translation -- --help
+yarn manage:translations -- --help
 ```
 
 ##### Key Usages
 
 You may specify the language to sync and check:
 ```
-yarn manage:translation -- [language code]
+yarn manage:translations -- [language code]
 ```
 
 For example, to synchronize translations for French (**fr**):
 ```
-yarn manage:translation -- fr
+yarn manage:translations -- fr
 ```
 
 You may also use this to create json language files. You'd need to apply the
@@ -228,7 +228,7 @@ You may also use this to create json language files. You'd need to apply the
 were not
 created yet:
 ```
-yarn manage:translation -- --force ar
+yarn manage:translations -- --force ar
 ```
 will create the following language files:
 * app/javascript/mastodon/locales/**ar**.json
