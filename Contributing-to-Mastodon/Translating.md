@@ -175,7 +175,7 @@ bundle exec i18n-tasks add-missing hu
 
 Please note that `health` would simply check the existence of the language key.
 It does not check if they are different from the default (English). Also the
-command `add-missing` only copy the English translation for your lanuage.
+command `add-missing` only copy the English translation for your language.
 
 In short, running `add-missing` can help you pass the `health` test, but you'd
 still need to check your yml and translate the "added" strings.
