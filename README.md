@@ -32,6 +32,7 @@
 - [Maintenance Tasks](Running-Mastodon/Maintenance-Tasks.md)
 - [Tuning Mastodon](Running-Mastodon/Tuning.md)
 - [System Configuration Alternatives](Running-Mastodon/Alternatives.md)
+- [List of Rake tasks](Running-Mastodon/List-of-Rake-tasks.md)
 
 ### [Contributing to Mastodon](Contributing-to-Mastodon)
 - [Sponsors](Contributing-to-Mastodon/Sponsors.md)
