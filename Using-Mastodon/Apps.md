@@ -74,6 +74,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[toot](https://github.com/ihabunek/toot)|CLI|<https://github.com/ihabunek/toot>|[@ihabunek@mastodon.social](https://mastodon.social/users/ihabunek)|
 |[tootstream](https://github.com/magicalraccoon/tootstream)|CLI|<https://github.com/magicalraccoon/tootstream>|[@Raccoon@mastodon.social](https://mastodon.social/users/Raccoon)|
 |[soCLIal](https://gitlab.com/IvanSanchez/soclial)|CLI|<https://gitlab.com/IvanSanchez/soclial>|[@IvanSanchez@mastodon.social](https://mastodon.social/@IvanSanchez)|
+|[Tooter](https://openrepos.net/content/dysko/tooter)|SailfishOS|<https://github.com/dysk0/harbour-tooter>|[@disko@mastodon.social](https://mastodon.social/@dysko)|
 
 ## Browser add-ons/extensions
 
