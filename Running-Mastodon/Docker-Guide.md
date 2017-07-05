@@ -75,14 +75,6 @@ The default docker-compose.yml maps them to the repository's `public/assets` and
 Running any of these tasks via docker-compose would look like this:
 
     docker-compose run --rm web rake mastodon:media:clear
-    
-## Cronjobs
-
-There are several tasks that should be run once a day to ensure that mastodon is running smoothly. We created a daily rake task that takes care of this. As your mastodon user run `crontab -e` and enter the following
-
-```sh
-    @daily cd /home/mastodon/live && /usr/local/bin/docker-compose run --rm web rake mastodon:daily
-```
 
 ## Updating
 
