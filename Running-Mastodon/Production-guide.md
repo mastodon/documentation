@@ -375,7 +375,7 @@ Copy and paste this script into that file:
 ```
 #!/usr/bin/env bash
 letsencrypt renew
-service nginx reload
+systemctl reload nginx
 ```
 
 Save and exit the file.
@@ -383,7 +383,7 @@ Save and exit the file.
 Make the script executable and restart the cron daemon so that the script runs daily:
 ```
 chmod +x /etc/cron.daily/letsencrypt-renew
-service cron restart
+systemctl restart cron
 ```
 
 That is it. Your server will now automatically renew your Let's Encrypt certificate(s).
