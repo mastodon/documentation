@@ -335,6 +335,59 @@ WantedBy=multi-user.target
 
 This allows you to `sudo systemctl enable /etc/systemd/system/mastodon-*.service` and `sudo systemctl start mastodon-web.service mastodon-sidekiq.service mastodon-streaming.service` to get things going.
 
+## Let's Encrypt
+
+This section is only relevant if you are using [Let's Encrypt](https://letsencrypt.org/)
+as your TLS certificate provider.
+
+Other assumptions - Ubuntu 16.04, letsencrypt tool installed from distro repositories.
+
+### Installation of tool
+
+This is how you install the `letsencrypt` package:
+
+`sudo apt -y install letsencrypt`
+
+### Generation of certificate
+
+This is the command you should use to generate a Let's Encrypt certificate.
+Make sure to replace any instances of 'example.com' with your Mastodon instance's domain.
+
+Additional note: This command will require that nginx or another web server is correctly
+configured with your Mastodon instance's domain.
+
+`letsencrypt certonly --webroot -d example.com -w /home/mastodon/live/public/`
+
+### Automated renewal of Let's Encrypt certificate
+
+Let's Encrypt certificates have a validity period of 90 days.
+
+You need to renew your certificate before the expiration date. Failure to do so will
+result in your users being unable to access your instance and other instances being unable 
+to federate with yours.
+
+We can do this with a cron job that runs daily:
+
+`nano /etc/cron.daily/letsencrypt-renew`
+
+Copy and paste this script into that file:
+
+```
+#!/usr/bin/env bash
+letsencrypt renew
+systemctl reload nginx
+```
+
+Save and exit the file.
+
+Make the script executable and restart the cron daemon so that the script runs daily:
+```
+chmod +x /etc/cron.daily/letsencrypt-renew
+systemctl restart cron
+```
+
+That is it. Your server will now automatically renew your Let's Encrypt certificate(s).
+
 ## Things to look out for when upgrading Mastodon
 
 If you want a stable release for production use, you should use tagged releases. To checkout the latest available tagged version:
