@@ -126,8 +126,9 @@ home can be changed as needed
 
     sudo apt-get install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git curl g++ libprotobuf-dev protobuf-compiler pkg-config
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
-    sudo apt-get install nodejs
-    sudo npm install -g yarn
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    sudo apt-get install nodejs yarn
 
 * **NOTE**: On Debian you have to first add the [Debian Backports](https://backports.debian.org/) repository to install `ffmpeg`.
 
@@ -141,8 +142,8 @@ home can be changed as needed
 
     sudo yum group install "Development tools"
     curl -sL https://rpm.nodesource.com/setup_6.x | sudo bash -
-    sudo yum install nodejs
-    sudo npm install -g yarn
+    sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+    sudo yum install nodejs yarn
 
 ## Redis
 
