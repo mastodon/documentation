@@ -22,6 +22,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[Pawoo](https://play.google.com/store/apps/details?id=jp.pxv.pawoo)|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
 |[Stegodon](https://play.google.com/store/apps/details?id=com.gilawhost.stegolophodon)|N/A|[@GilaW@mastodon.cloud](https://mastodon.cloud/@Gilaw)|
 |[Panoramic](https://play.google.com/store/apps/details?id=com.fa.imaged)|<https://github.com/FlorentAnders/Panoramic>|[@florentanders@social.tchncs.de](https://social.tchncs.de/web/accounts/12666)|
+|[Mastalab](https://play.google.com/store/apps/details?id=fr.gouv.etalab.mastodon)|<https://bitbucket.org/tom79/mastodon_etalab>|[@tschneider@mastodon.etalab.gouv.fr](https://mastodon.etalab.gouv.fr/@tschneider)|
 
 ### iOS
 
