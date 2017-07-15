@@ -5,6 +5,7 @@ Translations of this FAQ:
 
 * [Español](FAQ_ESP.md)
 * [日本語](FAQ_JA.md)
+* [Polish](FAQ_PL.md)
 
 #### What is a Mastodon?
 
@@ -219,7 +220,7 @@ In Firefox, **right-click** on your avatar picture. Select **Copy Link Location*
 
 <img src="screenshots/link_to_profile.png" alt="URL for Profile" height="200"/>
 
-#### Does clicking a #hashtag show  local results, or federated?
+#### Does clicking a #hashtag show local results, or federated?
 Federated.
 
 #### When I mute a boost, who gets muted, the booster or the original author?
@@ -268,4 +269,4 @@ Here’s more, from hardworking individuals trying to help, too.
 * [https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md](https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md)
 
 ---
-This FAQ was compiled with contributions from [@Gargron](https://mastodon.social/@Gargron),  [@raccoon](https://mastodon.social/@Raccoon), [@upside](https://octodon.social/@upside), [@zacanger](https://mastodon.social/@zacanger), [@NthTensor](https://octodon.social/@NthTensor), [@ametlles](https://mastodon.social/@ametlles) and many others in the fediverse!
+This FAQ was compiled with contributions from [@Gargron](https://mastodon.social/@Gargron), [@raccoon](https://mastodon.social/@Raccoon), [@upside](https://octodon.social/@upside), [@zacanger](https://mastodon.social/@zacanger), [@NthTensor](https://octodon.social/@NthTensor), [@ametlles](https://mastodon.social/@ametlles) and many others in the fediverse!
