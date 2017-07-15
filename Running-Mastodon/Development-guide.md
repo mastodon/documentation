@@ -110,6 +110,7 @@ These are self-contained instructions for setting up a development environment o
 ### Installation
 
 ```
+brew install libidn
 bundle install --with development
 yarn install --pure-lockfile
 gem install foreman --no-ri --no-rdoc
