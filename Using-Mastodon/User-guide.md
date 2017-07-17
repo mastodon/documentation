@@ -197,7 +197,7 @@ Toot Privacy | Visible on Profile | Visible on Public Timeline | Federates to ot
 ------------ | ------------------ | -------------------------- | ---------------------------
 Public | Anyone incl. anonymous viewers | Yes | Yes
 Unlisted | Anyone incl. anonymous viewers | No | Yes
-Private | Followers only | No | Only remote @mentions
+Private | Followers only | No | Yes
 Direct | No | No | Only remote @mentions
 
 #### Blocking
