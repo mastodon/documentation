@@ -34,6 +34,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[Mustor](https://itunes.apple.com/us/app/mustor/id1229531204?l=zh&ls=1&mt=8)|N/A|[@darkcl@mastodon.cloud](https://mastodon.cloud/@darkcl)|
 |[Pawoo](https://itunes.apple.com/us/app/pawoo/id1229070679)|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
 |[friends.nico](https://itunes.apple.com/us/app/friends-nico/id1230158182)|N/A|[@friends_nico@friends.nico](https://friends.nico/@friends_nico)|
+|[Tootter3.0](https://itunes.apple.com/us/app/id1229555793)|N/A|[@Tootter_for_Mastodon@mstdn.jp](https://mstdn.jp/@Tootter_for_Mastodon)|
 
 ## Alternative web apps
 |App|Source code|Developer(s)|
