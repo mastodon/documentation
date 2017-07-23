@@ -1,7 +1,9 @@
-![Mastodon](https://i.imgur.com/NhZc40l.png) documentation
+![Mastodon](https://i.imgur.com/NhZc40l.png)
 ====
 
 **Mastodon** is a free, open-source GNU social-compatible social network server. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Anyone can run Mastodon and participate in the social network seamlessly.
+
+## Documentation
 
 ### [Using Mastodon](Using-Mastodon)
 - [Frequently Asked Questions](Using-Mastodon/FAQ.md)
