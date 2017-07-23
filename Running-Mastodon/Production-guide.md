@@ -128,6 +128,7 @@ home can be changed as needed
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    sudo apt-get update
     sudo apt-get install nodejs yarn
 
 * **NOTE**: On Debian you have to first add the [Debian Backports](https://backports.debian.org/) repository to install `ffmpeg`.
