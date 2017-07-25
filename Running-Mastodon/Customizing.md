@@ -5,9 +5,8 @@ Customizing your instance
 
 You can make the application load a different CSS file than the default, you can optionally choose to use that mechanism to adjust variables and re-import the application CSS from your own CSS. Here is what you need to do:
 
-1. Create `app/javascript/packs/custom.js` with the contents `require('../styles/custom.scss');` - you can call the SCSS file anything you want, actually, it will still be compiled into custom.css because it uses the pack name, i.e. this js file
-2. Create `app/javascript/styles/custom.scss` (or whatever you chose). Here you can write whatever SCSS you want.
-3. If you just created the custom.js file, you'll need to restart your webpack-dev-server (if you're in development mode) for it to be recognized and start live reloading. Naturally, in production you'll need to compile assets and restart for the changes to take effect.
+2. Create `app/javascript/styles/custom.scss`. Here you can write whatever SCSS you want.
+3. Restart your webpack-dev-server (if you're in development mode) for it to be recognized and start live reloading. Naturally, in production you'll need to compile assets and restart for the changes to take effect.
 
 ## Changing colors and other variables
 
