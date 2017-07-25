@@ -28,6 +28,8 @@ To setup the `mastodon_development` database, run:
 
     bundle exec rails db:setup
 
+If this fails to create a user, you can still create one through the web interface (see below)
+
 You can then run Mastodon with:
 
     bundle exec rails server
@@ -35,7 +37,7 @@ You can then run Mastodon with:
 Since 1.4, we are using Webpack, which in development environment needs to be started as well as the command above:
 
     ./bin/webpack-dev-server
-    
+
 Another, optional approach to managing the different processes starting (Rails, Webpack, Sidekiq, and the Streaming API) is to use the foreman tool.
 
     gem install foreman
@@ -44,6 +46,11 @@ Another, optional approach to managing the different processes starting (Rails, 
 Finally, open `http://localhost:3000` in your browser.
 
 By default, your development environment will have an admin account created for you to use - the email address will be `admin@YOURDOMAIN` (e.g. admin@localhost:3000) and the password will be `mastodonadmin`.
+
+In case this did not work, create an account through the web interface, and use `rake` to confirm the email and grant the account admin rights.
+
+* Run `bundle exec rails mastodon:confirm_email USER_EMAIL=<email-you-just-used>`
+* Run `bundle exec rails mastodon:make_admin USERNAME=<username-your-just-used>`
 
 You can run tests with:
 
