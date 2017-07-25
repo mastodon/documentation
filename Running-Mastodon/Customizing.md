@@ -8,6 +8,12 @@ You can make the application load a different CSS file than the default, you can
 2. Create `app/javascript/styles/custom.scss`. Here you can write whatever SCSS you want.
 3. Restart your webpack-dev-server (if you're in development mode) for it to be recognized and start live reloading. Naturally, in production you'll need to compile assets and restart for the changes to take effect.
 
+If you just want to override some standard application css, you can import application.scss and custom.scss in `app/javascript/packs/custom.js` file :
+```javascript
+require('../styles/application.scss');
+require('../styles/custom.scss');
+```
+
 ## Changing colors and other variables
 
 See the `app/javascript/styles/variables.scss` file for the full list of available variables used throughout the application styles. You can redefine their values in your own `custom.scss` like this:
