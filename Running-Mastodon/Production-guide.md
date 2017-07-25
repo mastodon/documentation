@@ -124,7 +124,7 @@ home can be changed as needed
 
 ### Ubuntu / Debian
 
-    sudo apt-get install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git curl g++ libprotobuf-dev protobuf-compiler pkg-config
+    sudo apt-get install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev libreadline-dev file git curl g++ libprotobuf-dev protobuf-compiler pkg-config
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
@@ -135,7 +135,7 @@ home can be changed as needed
 
 ### CentOS / RHEL
 
-    sudo yum install libxml2-devel ImageMagick libxslt-devel git curl file protobuf-compiler protobuf-devel
+    sudo yum install libxml2-devel ImageMagick libxslt-devel readline-devel git curl file protobuf-compiler protobuf-devel
     sudo yum -y install epel-release
     sudo rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
     sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
