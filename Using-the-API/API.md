@@ -175,7 +175,7 @@ Query parameters:
 | ----- | ----------------------------  | ---------- |
 | `id`  | Account IDs (can be an array) | no         |
 
-Returns an array of [Relationships](#relationships) of the current user to a list of given accounts.
+Returns an array of [Relationships](#relationship) of the current user to a list of given accounts.
 
 #### Searching for accounts:
 
