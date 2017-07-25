@@ -66,7 +66,7 @@ These are self-contained instructions for setting up a development environment o
 - Get [Xcode](https://developer.apple.com/xcode/) Command Line Tools:
 
 	```
-	xcode-select install
+	xcode-select --install
 	```
 
 - Get [Homebrew](https://brew.sh) and use it to install the other dependencies:
