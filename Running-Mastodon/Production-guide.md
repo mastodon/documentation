@@ -65,6 +65,10 @@ server {
     try_files $uri @proxy;
   }
 
+  location /sw.js {
+      add_header Cache-Control no-cache;
+  }
+
   location ~ ^/(packs|system/media_attachments/files|system/accounts/avatars) {
     add_header Cache-Control "public, max-age=31536000, immutable";
     try_files $uri @proxy;
