@@ -122,7 +122,9 @@ Query parameters:
 | `since_id` | Get a list of followings with ID greater than this value       | yes        |
 | `limit`    | Maximum number of followings to get (Default 40, Max 80)       | yes        |
 
-`max_id` and `since_id` are usually get from the `Link` header.
+`max_id` and `since_id` are usually get from the `Link` header. Note the implied pagination.
+A typical case would be to call the URL without any parameters. Use the last `id` you see as
+the `max_id` for your next request until you get an empty array.
 
 Returns an array of [Accounts](#account).
 
