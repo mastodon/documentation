@@ -32,7 +32,7 @@ The records added are:
 > ### A Helpful And Optional Note
 >
 > Using `tmux` when following through with this guide will be helpful.
-> 
+>
 >
 > Not only will this help you not lose your place if you are disconnected, it will let you have multiple terminal windows open for switching contexts (root user versus the mastodon user).
 >
@@ -83,7 +83,7 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.lis
 apt update
 ```
 
-### Various Other Dependancies
+### Various Other Dependencies
 
 Now you need to install [Yarn](https://yarnpkg.com/en/) plus some more software.
 
@@ -281,14 +281,14 @@ server {
 
 Activate the [nginx](http://nginx.org) configuration added:
 
-```sh 
+```sh
 cd /etc/nginx/sites-enabled
 ln -s ../sites-available/example.com.conf
 ```
 
 This configuration makes the assumption you are using [Let's Encrypt](https://letsencrypt.org) as your TLS certificate provider.
 
-**If you are going to be using Let's Encrypt as your TLS certificate provider, see the 
+**If you are going to be using Let's Encrypt as your TLS certificate provider, see the
 next sub-section. If not edit the `ssl_certificate` and `ssl_certificate_key` values
 accordingly.**
 
@@ -312,7 +312,7 @@ systemctl stop nginx
 We will be creating the certificate twice, once with TLS SNI validation in standalone mode and the second time we will be using the webroot method. This is required due to the way
 [nginx](http://nginx.org) and the [Let's Encrypt](https://letsencrypt.org/) tool works.
 
-```sh 
+```sh
 letsencrypt certonly --standalone -d example.com
 ```
 
