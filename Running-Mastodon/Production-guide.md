@@ -124,7 +124,7 @@ home can be changed as needed
 
 ### Ubuntu / Debian
 
-    sudo apt-get install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev libreadline-dev file git curl g++ libprotobuf-dev protobuf-compiler pkg-config
+    sudo apt-get install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev libreadline-dev file curl g++ libprotobuf-dev protobuf-compiler pkg-config
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
@@ -135,7 +135,7 @@ home can be changed as needed
 
 ### CentOS / RHEL
 
-    sudo yum install libxml2-devel ImageMagick libxslt-devel readline-devel git curl file protobuf-compiler protobuf-devel
+    sudo yum install libxml2-devel ImageMagick libxslt-devel readline-devel curl file protobuf-compiler protobuf-devel
     sudo yum -y install epel-release
     sudo rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
     sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
@@ -223,18 +223,18 @@ rbenv install 2.4.1
 rbenv global 2.4.1
 ```
 
-## Git
+## Download
 
-You need the `git-core` package installed on your system. If it is so, run the shell from the `mastodon` user:
+Run the shell from the `mastodon` user:
 
     sudo -sHu mastodon
 
-And enter the following commands:
+And enter the following commands (replace 1.4.7 for version you like.):
 
     cd ~
-    git clone https://github.com/tootsuite/mastodon.git live
-    cd live
-    git checkout $(git tag -l | sort -V | tail -n 1)
+    wget https://github.com/tootsuite/mastodon/archive/v1.4.7.zip
+    unzip v1.4.7.zip
+    cd mastodon-v1.4.7
 
 Then you can proceed to install project dependencies:
 
