@@ -121,9 +121,9 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 ```
 
 Now that [`rbenv`](https://github.com/rbenv/rbenv) and [`ruby-build`](https://github.com/rbenv/ruby-build) are installed, we will install the
-[Ruby](https://github.com/rails/rails) version which [Mastodon](https://github.com/tootsuite/mastodon/) uses. That version will also need to be enabled.
+[Ruby](https://www.ruby-lang.org/en/) version which [Mastodon](https://github.com/tootsuite/mastodon/) uses. That version will also need to be enabled.
 
-To enable [Ruby](https://github.com/rails/rails), run:
+To enable [Ruby](https://www.ruby-lang.org/en/), run:
 
 ```sh
 rbenv install 2.4.1
@@ -134,7 +134,7 @@ rbenv global 2.4.1
 
 ### node.js And Ruby Dependencies
 
-Now that [Ruby](https://github.com/rails/rails) is enabled, we will clone the [Mastodon git repository](https://github.com/tootsuite/mastodon/) and install the [Ruby](https://github.com/rails/rails) and [node.js](https://nodejs.org/en/) dependancies.
+Now that [Ruby](https://www.ruby-lang.org/en/) is enabled, we will clone the [Mastodon git repository](https://github.com/tootsuite/mastodon/) and install the [Ruby](https://www.ruby-lang.org/en/) and [node.js](https://nodejs.org/en/) dependancies.
 
 Run the following to clone and install:
 
