@@ -50,22 +50,10 @@ All dependencies should be installed as root.
 
 You will need to add an external repository so we can have the version of [node.js](https://nodejs.org/en/) required.
 
-Download this script:
+We run this script to add the repository:
 
 ```sh
-wget https://deb.nodesource.com/setup_6.x
-```
-
-Review the script download before running:
-
-```sh
-less setup_6.x
-```
-
-Once you have reviewed the script, run it
-
-```sh
-bash setup_6.x
+curl -sL https://deb.nodesource.com/setup_6.x | bash -
 ```
 
 The [node.js](https://nodejs.org/en/) repository is now added.
