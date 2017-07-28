@@ -124,7 +124,7 @@ home can be changed as needed
 
 ### Ubuntu / Debian
 
-    sudo apt-get install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev libreadline-dev file git curl g++ libprotobuf-dev protobuf-compiler pkg-config
+    sudo apt-get install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev libreadline-dev file git curl build-essential libprotobuf-dev protobuf-compiler pkg-config
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
