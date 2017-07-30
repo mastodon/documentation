@@ -235,7 +235,7 @@ server {
     try_files $uri @proxy;
   }
 
-  location ~ ^/(packs|system/media_attachments/files|system/accounts/avatars) {
+  location ~ ^/(emoji|packs|system/accounts/avatars|system/media_attachments/files) {
     add_header Cache-Control "public, max-age=31536000, immutable";
     try_files $uri @proxy;
   }
