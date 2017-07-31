@@ -46,20 +46,20 @@ ___
 
 ## Notes
 
-### Parameter types
+###### Parameter types
 
 When an array parameter is mentioned, the Rails convention of specifying array parameters in query strings is meant.
 For example, a ruby array like `foo = [1, 2, 3]` should be encoded in the params as `foo[]=1&foo[]=2&foo[]=3`, with empty square brackets.
 
 When a file parameter is mentioned, a form-encoded upload is expected.
 
-### Selecting ranges
+###### Selecting ranges
 
 For most `GET` operations that return arrays, the query parameters `max_id` and `since_id` can be used to specify the range of IDs to return.
 API methods that return collections of items can return a `Link` header containing URLs for the `next` and `prev` pages.
 See the [Link header RFC](https://tools.ietf.org/html/rfc5988) for more information.
 
-### Errors
+###### Errors
 
 If the request you make doesn't go through, Mastodon will usually respond with an [Error](#error).
 
@@ -106,7 +106,7 @@ Query parameters:
 | `since_id` | Get a list of followers with ID greater than this value        | yes        |
 | `limit`    | Maximum number of followers to get (Default 40, Max 80)        | yes        |
 
-`max_id` and `since_id` are usually get from the `Link` header.
+> **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. It is **not** possible to use the `id` of the returned objects to construct your own URLs, because the results are sorted by an internal key.
 
 Returns an array of [Accounts](#account).
 
@@ -122,7 +122,7 @@ Query parameters:
 | `since_id` | Get a list of followings with ID greater than this value       | yes        |
 | `limit`    | Maximum number of followings to get (Default 40, Max 80)       | yes        |
 
-`max_id` and `since_id` are usually get from the `Link` header.
+> **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. It is **not** possible to use the `id` of the returned objects to construct your own URLs, because the results are sorted by an internal key.
 
 Returns an array of [Accounts](#account).
 
@@ -140,7 +140,7 @@ Query parameters:
 | `since_id`        | Get a list of statuses with ID greater than this value       | yes        |
 | `limit`           | Maximum number of statuses to get (Default 20, Max 40)       | yes        |
 
-`max_id` and `since_id` are usually get from the `Link` header.
+> **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. However, it is possible to use the `id` of the returned objects to construct your own URLs.
 
 Returns an array of [Statuses](#status).
 
@@ -227,7 +227,7 @@ Query parameters:
 | `since_id`        | Get a list of blocks with ID greater than this value          | yes        |
 | `limit`           | Maximum number of blocks to get (Default 40, Max 80)          | yes        |
 
-`max_id` and `since_id` are usually get from the `Link` header.
+> **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. It is **not** possible to use the `id` of the returned objects to construct your own URLs, because the results are sorted by an internal key.
 
 Returns an array of [Accounts](#account) blocked by the authenticated user.
 
@@ -245,7 +245,7 @@ Query parameters:
 | `since_id`        | Get a list of blocks with ID greater than this value          | yes        |
 | `limit`           | Maximum number of blocks to get (Default 40, Max 80)          | yes        |
 
-`max_id` and `since_id` are usually get from the `Link` header.
+> **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. It is **not** possible to use the `id` of the returned objects to construct your own URLs, because the results are sorted by an internal key.
 
 Returns an array of strings.
 
@@ -287,7 +287,7 @@ Query parameters:
 | `since_id`        | Get a list of favourites with ID greater than this value       | yes        |
 | `limit`           | Maximum number of favourites to get (Default 20, Max 40)       | yes        |
 
-`max_id` and `since_id` are usually get from the `Link` header.
+> **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. It is **not** possible to use the `id` of the returned objects to construct your own URLs, because the results are sorted by an internal key.
 
 Returns an array of [Statuses](#status) favourited by the authenticated user.
 
@@ -305,7 +305,7 @@ Query parameters:
 | `since_id`        | Get a list of follow requests with ID greater than this value       | yes        |
 | `limit`           | Maximum number of requests to get (Default 40, Max 80)              | yes        |
 
-`max_id` and `since_id` are usually get from the `Link` header.
+> **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. It is **not** possible to use the `id` of the returned objects to construct your own URLs, because the results are sorted by an internal key.
 
 Returns an array of [Accounts](#account) which have requested to follow the authenticated user.
 
@@ -368,7 +368,7 @@ Query parameters:
 | `since_id`        | Get a list of mutes with ID greater than this value                 | yes        |
 | `limit`           | Maximum number of mutes to get (Default 40, Max 80)                 | yes        |
 
-`max_id` and `since_id` are usually get from the `Link` header.
+> **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. It is **not** possible to use the `id` of the returned objects to construct your own URLs, because the results are sorted by an internal key.
 
 Returns an array of [Accounts](#account) muted by the authenticated user.
 
@@ -386,7 +386,7 @@ Query parameters:
 | `since_id`        | Get a list of notifications with ID greater than this value         | yes        |
 | `limit`           | Maximum number of notifications to get (Default 15, Max 30)         | yes        |
 
-`max_id` and `since_id` are usually get from the `Link` header.
+> **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. However, it is possible to use the `id` of the returned objects to construct your own URLs.
 
 Returns a list of [Notifications](#notification) for the authenticated user.
 
@@ -405,7 +405,13 @@ Returns an empty object.
 
 #### Dismissing a single notification:
 
-    POST /api/v1/notifications/dismiss/:id
+    POST /api/v1/notifications/dismiss
+    
+Form data:
+
+| Field | Description                   | Optional   |
+| ----- | ----------------------------  | ---------- |
+| `id`  | Notification ID | no         |    
 
 Deletes a single notification from the Mastodon server for the authenticated user.
 Returns an empty object.
@@ -449,8 +455,6 @@ Returns [Results](#results).
 
 If `q` is a URL, Mastodon will attempt to fetch the provided account or status. Otherwise, it will do a local account and hashtag search.
 
-Does not require authentication.
-
 ### Statuses
 
 #### Fetching a status:
@@ -490,7 +494,7 @@ Query parameters:
 | `since_id`        | Get a list of reblogged/favourited with ID greater than this value       | yes        |
 | `limit`           | Maximum number of reblogged/favourited to get (Default 40, Max 80)       | yes        |
 
-`max_id` and `since_id` are usually get from the `Link` header.
+> **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. It is **not** possible to use the `id` of the returned objects to construct your own URLs, because the results are sorted by an internal key.
 
 Returns an array of [Accounts](#account).
 
@@ -533,6 +537,15 @@ Returns the target [Status](#status).
 
 Returns the target [Status](#status).
 
+#### Muting/unmuting a conversation of a status
+
+    POST /api/v1/statuses/:id/mute
+    POST /api/v1/statuses/:id/unmute
+
+Only makes sense for statuses featured inside notifications directed at the user. Muting a status will prevent replies to it, favourites and replies of it from appearing in the user's notifications.
+
+Returns the target [Status](#status).
+
 ### Timelines
 
 #### Retrieving a timeline:
@@ -550,17 +563,17 @@ Query parameters:
 | `since_id`        | Get a list of timelines with ID greater than this value                             | yes        |
 | `limit`           | Maximum number of statuses on the requested timeline to get (Default 20, Max 40)    | yes        |
 
-`max_id` and `since_id` are usually get from the `Link` header.
+> **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. However, it is possible to use the `id` of the returned objects to construct your own URLs.
 
 Returns an array of [Statuses](#status), most recent ones first.
 
-'public' and 'tag' timelines do not require authentication.
+Public and tag timelines do not require authentication.
 
 ___
 
 ## Entities
 
-Note: Some attributes in the entity payload can have ``null`` value and are marked as _nullable_ on the tables below. Attributes that are not nullable are guaranteed to return a valid value.
+> **Note:** Some attributes in the entity payload can have ``null`` value and are marked as _nullable_ on the tables below. Attributes that are not nullable are guaranteed to return a valid value.
 
 ### Account
 
@@ -594,12 +607,14 @@ Note: Some attributes in the entity payload can have ``null`` value and are mark
 | Attribute                | Description                                                                       | Nullable |
 | ------------------------ | --------------------------------------------------------------------------------- | -------- |
 | `id`                     | ID of the attachment                                                              | no       |
-| `type`                   | One of: "image", "video", "gifv"                                                  | no       |
+| `type`                   | One of: "image", "video", "gifv", "unknown"                                       | no       |
 | `url`                    | URL of the locally hosted version of the image                                    | no       |
 | `remote_url`             | For remote images, the remote URL of the original image                           | yes      |
 | `preview_url`            | URL of the preview image                                                          | no       |
 | `text_url`               | Shorter URL for the image, for insertion into text (only present on local images) | yes      |
-| `meta`                   | `width`, `height`, `size` (width x height), `aspect` | yes |
+| `meta`                   | `small` and `original` containing: `width`, `height`, `size`, `aspect`            | yes      |
+
+> **Note**: When the type is "unknown", it is likely only `remote_url` is available and local `url` is missing
 
 ### Card
 
@@ -640,6 +655,7 @@ Note: Some attributes in the entity payload can have ``null`` value and are mark
 | `description`            | A description for the instance                                           | no       |
 | `email`                  | An email address which can be used to contact the instance administrator | no       |
 | `version`                | The Mastodon version used by instance.                                   | no       |
+| `urls`                   | `streaming_api`                                                          | no       |
 
 ### Mention
 
@@ -683,9 +699,9 @@ Note: Some attributes in the entity payload can have ``null`` value and are mark
 
 | Attribute                | Description                              | Nullable |
 | ------------------------ | ---------------------------------------- | -------- |
-| `accounts`               | An array of matched [Accounts](#account) | yes      |
-| `statuses`               | An array of matched [Statuses](#status) | yes      |
-| `hashtags`               | An array of matched hashtags, as strings | yes      |
+| `accounts`               | An array of matched [Accounts](#account) | no      |
+| `statuses`               | An array of matched [Statuses](#status)  | no      |
+| `hashtags`               | An array of matched hashtags, as strings | no      |
 
 ### Status
 
@@ -704,14 +720,15 @@ Note: Some attributes in the entity payload can have ``null`` value and are mark
 | `favourites_count`       | The number of favourites for the status                                       | no       |
 | `reblogged`              | Whether the authenticated user has reblogged the status                       | yes      |
 | `favourited`             | Whether the authenticated user has favourited the status                      | yes      |
-| `sensitive`              | Whether media attachments should be hidden by default                         | yes      |
+| `muted`                  | Whether the authenticated user has muted the conversation this status from    | yes      |
+| `sensitive`              | Whether media attachments should be hidden by default                         | no       |
 | `spoiler_text`           | If not empty, warning text that should be displayed before the actual content | no       |
 | `visibility`             | One of: `public`, `unlisted`, `private`, `direct`                             | no       |
 | `media_attachments`      | An array of [Attachments](#attachment)                                        | no       |
 | `mentions`               | An array of [Mentions](#mention)                                              | no       |
 | `tags`                   | An array of [Tags](#tag)                                                      | no       |
 | `application`            | [Application](#application) from which the status was posted                  | yes      |
-| `language`               | The detected language for the status (default: en)                            | no       |
+| `language`               | The detected language for the status, if detected                             | yes      |
 
 ### Tag
 
