@@ -236,7 +236,8 @@ server {
   }
 
   location /sw.js {
-      add_header Cache-Control no-cache;
+    add_header Cache-Control no-cache;
+    add_header Pragma "no-cache";
   }
 
   location ~ ^/(emoji|packs|system/accounts/avatars|system/media_attachments/files) {
