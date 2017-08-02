@@ -194,8 +194,8 @@ Setting up Mastodon behind Apache is possible as well, although you will need to
    Header always set Referrer-Policy "strict-origin-when-cross-origin"
    Header always set Strict-Transport-Security "max-age=31536000"
    SetEnvIf Request_URI "/pghero*" pghero
-   Header set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' wss://from.komic.eu; img-src 'self' data:; script-src 'self'"
-   Header set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' wss://from.komic.eu; img-src 'self' data:; script-src 'self' 'unsafe-inline'" env=pghero
+   Header set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' wss://example.com; img-src 'self' data:; script-src 'self'; frame-src https:"
+   Header set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' wss://example.com; img-src 'self' data:; script-src 'self' 'unsafe-inline'; frame-src https:" env=pghero
 
    SSLEngine on
    SSLProtocol -all +TLSv1.2
