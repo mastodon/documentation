@@ -88,7 +88,7 @@ Now you need to install [Yarn](https://yarnpkg.com/en/) plus some more software.
 - Other -dev packages, g++ - these are needed for the compilation of Ruby using ruby-build.
 
 ```sh
-apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc-6 autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev nginx redis-server redis-tools postgresql postgresql-contrib nginx letsencrypt yarn libidn11-dev libicu-dev
+apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc-6 autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev nginx redis-server redis-tools postgresql postgresql-contrib letsencrypt yarn libidn11-dev libicu-dev
 ```
 
 ### Dependencies That Need To Be Added As A Non-Root User
@@ -96,7 +96,7 @@ apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git g+
 Let us create this user first:
 
 ```sh
-adduser mastodon
+adduser --system --disabled-password mastodon
 ```
 
 Log in as the `mastodon` user:
@@ -503,9 +503,13 @@ systemctl enable /etc/systemd/system/mastodon-*.service
 Now start the services:
 
 ```sh
-systemctl start mastodon-web.service
-systemctl start mastodon-sidekiq.service
-systemctl start mastodon-streaming.service
+systemctl start mastodon-*.service
+```
+
+Check that they are properly running:
+
+```sh
+systemctl status mastodon-*.service
 ```
 
 That is all! If everything was done correctly, a [Mastodon](https://github.com/tootsuite/mastodon/) instance will appear when you visit `https://example.com` in a web browser.
