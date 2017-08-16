@@ -70,7 +70,7 @@ This will create a new user as if they had walked through the registration proce
 ## Reactivating a previously deleted user
 
     RAILS_ENV=production bundle exec rails c
-    account = Account.find_by(username: 'username', domain:'instance.domain')
+    account = Account.find_by(username: 'username', domain: null)
     account.suspended = false
     user = User.create!(email: 'email', password: 'password', account: account)
     user.confirm
