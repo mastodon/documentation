@@ -67,6 +67,18 @@ only have a user record and an avatar record, with no files uploaded.
 
 This will create a new user as if they had walked through the registration process and confirmed their account, and will immediately be able to log in.  Make sure the user resets their password away from the temporary password you give them!
 
+## Reactivating a previously deleted user
+
+    RAILS_ENV=production bundle exec rails c
+    account = Account.find_by(username: 'username', domain:'instance.domain')
+    account.suspended = false
+    user = User.create!(email: 'email', password: 'password', account: account)
+    user.confirm
+    account.save!
+    user.save!
+
+This will create a new user associated with the old account_id. They'll not have any followings, followers nor toots but depending on how much time has passed since the deletion, they might still appear in their old federated followers timeline. Previous federated toots might not have been deleted too.
+
 ## Activity monitoring
 
 Munin graphs can be generated to track your instance activity.
