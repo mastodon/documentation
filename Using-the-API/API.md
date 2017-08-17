@@ -730,6 +730,8 @@ ___
 | `application`            | [Application](#application) from which the status was posted                  | yes      |
 | `language`               | The detected language for the status, if detected                             | yes      |
 
+> **NOTE**: When `spoiler_text` is present, `sensitive` is true 
+
 ### Tag
 
 | Attribute                | Description                                  | Nullable |
