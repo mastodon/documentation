@@ -112,6 +112,7 @@ We will need to set up [`rbenv`](https://github.com/rbenv/rbenv) and [`ruby-buil
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 cd ~/.rbenv && src/configure && make -C src
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 # Restart shell
 exec bash
 # Check if rbenv is correctly installed
