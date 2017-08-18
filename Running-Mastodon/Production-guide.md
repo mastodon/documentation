@@ -96,7 +96,7 @@ apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git g+
 Let us create this user first:
 
 ```sh
-adduser --system --disabled-password mastodon
+adduser mastodon
 ```
 
 Log in as the `mastodon` user:
