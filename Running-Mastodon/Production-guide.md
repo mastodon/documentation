@@ -103,7 +103,7 @@ Log in as the `mastodon` user:
 
 
 ```sh
-su - mastodon
+sudo su - mastodon
 ```
 
 We will need to set up [`rbenv`](https://github.com/rbenv/rbenv) and [`ruby-build`](https://github.com/rbenv/ruby-build):
@@ -364,7 +364,7 @@ For this we will switch to the `mastodon` system user:
 
 
 ```sh
-su - mastodon
+sudo su - mastodon
 ```
 
 Change directory to `~live` and edit the [Mastodon](https://github.com/tootsuite/mastodon/) application configuration:
