@@ -53,6 +53,7 @@ You will need to add an external repository so we can have the version of [node.
 We run this script to add the repository:
 
 ```sh
+apt -y install curl
 curl -sL https://deb.nodesource.com/setup_6.x | bash -
 ```
 
@@ -65,7 +66,6 @@ Another repository needs to be added so we can get the version of [Yarn](https:/
 This is how you add the repository:
 
 ```sh
-apt -y install curl
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 apt update
