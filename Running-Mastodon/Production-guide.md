@@ -88,7 +88,7 @@ Now you need to install [Yarn](https://yarnpkg.com/en/) plus some more software.
 - Other -dev packages, g++ - these are needed for the compilation of Ruby using ruby-build.
 
 ```sh
-apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc-6 autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev nginx redis-server redis-tools postgresql postgresql-contrib letsencrypt yarn libidn11-dev libicu-dev
+apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev nginx redis-server redis-tools postgresql postgresql-contrib letsencrypt yarn libidn11-dev libicu-dev
 ```
 
 ### Dependencies That Need To Be Added As A Non-Root User
@@ -96,14 +96,14 @@ apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-co
 Let us create this user first:
 
 ```sh
-adduser --system --disabled-password mastodon
+adduser mastodon
 ```
 
 Log in as the `mastodon` user:
 
 
 ```sh
-su - mastodon
+sudo su - mastodon
 ```
 
 We will need to set up [`rbenv`](https://github.com/rbenv/rbenv) and [`ruby-build`](https://github.com/rbenv/ruby-build):
@@ -112,6 +112,7 @@ We will need to set up [`rbenv`](https://github.com/rbenv/rbenv) and [`ruby-buil
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 cd ~/.rbenv && src/configure && make -C src
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 # Restart shell
 exec bash
 # Check if rbenv is correctly installed
@@ -363,7 +364,7 @@ For this we will switch to the `mastodon` system user:
 
 
 ```sh
-su - mastodon
+sudo su - mastodon
 ```
 
 Change directory to `~live` and edit the [Mastodon](https://github.com/tootsuite/mastodon/) application configuration:
