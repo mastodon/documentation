@@ -399,10 +399,15 @@ LOCAL_DOMAIN=example.com
 LOCAL_HTTPS=true
 
 # Application secrets
-# Generate each eith `RAILS_ENV=production bundle exec rake secret`
+# Generate each with `RAILS_ENV=production bundle exec rake secret`
 PAPERCLIP_SECRET=
 SECRET_KEY_BASE=
 OTP_SECRET=
+
+# Web Push VAPID keys
+# Generate with `RAILS_ENV=production bundle exec rake mastodon:webpush:generate_vapid_key`
+VAPID_PRIVATE_KEY=
+VAPID_PUBLIC_KEY=
 
 # All SMTP details, Mailgun and Sparkpost have free tiers
 SMTP_SERVER=
