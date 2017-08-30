@@ -81,14 +81,14 @@ Now you need to install [Yarn](https://yarnpkg.com/en/) plus some more software.
 - ffmpeg - Mastodon uses ffmpeg for conversion of GIFs to MP4s
 - libprotobuf-dev and protobuf-compiler - Mastodon uses these for language detection
 - nginx - nginx is our frontend web server
-- redis-* - Mastodon uses redis for its in-memory data structure store
+- redis-tools - Mastodon uses redis for its in-memory data structure store
 - postgresql-* - Mastodon uses PostgreSQL as it's SQL database
 - nodejs - Node is used for Mastodon's streaming API
 - yarn - Yarn is a Node.js package manager
 - Other -dev packages, g++ - these are needed for the compilation of Ruby using ruby-build.
 
 ```sh
-apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git libprotobuf-dev protobuf-compiler pkg-config nodejs autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev libncurses5-dev libffi-dev libgdbm-dev openssl nginx redis-tools postgresql postgresql-contrib letsencrypt yarn libidn11-dev libicu-dev rbenv
+apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git libprotobuf-dev protobuf-compiler pkg-config nodejs autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev libncurses5-dev libffi-dev libgdbm-dev openssl nginx redis-tools postgresql postgresql-contrib certbot yarn libidn11-dev libicu-dev rbenv
 ```
 
 ### Dependencies That Need To Be Added As A Non-Root User
