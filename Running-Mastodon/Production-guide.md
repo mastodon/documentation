@@ -88,7 +88,7 @@ Now you need to install [Yarn](https://yarnpkg.com/en/) plus some more software.
 - Other -dev packages, g++ - these are needed for the compilation of Ruby using ruby-build.
 
 ```sh
-apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev nginx redis-server redis-tools postgresql postgresql-contrib letsencrypt yarn libidn11-dev libicu-dev
+apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git libprotobuf-dev protobuf-compiler pkg-config nodejs autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev libncurses5-dev libffi-dev libgdbm-dev openssl nginx redis-tools postgresql postgresql-contrib letsencrypt yarn libidn11-dev libicu-dev rbenv
 ```
 
 ### Dependencies That Need To Be Added As A Non-Root User
@@ -109,14 +109,9 @@ sudo su - mastodon
 We will need to set up [`rbenv`](https://github.com/rbenv/rbenv) and [`ruby-build`](https://github.com/rbenv/ruby-build):
 
 ```sh
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-cd ~/.rbenv && src/configure && make -C src
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-# Restart shell
-exec bash
-# Check if rbenv is correctly installed
-type rbenv
+# reload config
+source ~/.bashrc
 # Install ruby-build as rbenv plugin
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 ```
@@ -130,9 +125,13 @@ To enable [Ruby](https://www.ruby-lang.org/en/), run:
 rbenv install 2.4.1
 rbenv global 2.4.1
 ```
-
 **This will take some time. Go stretch for a bit and drink some water while the commands run.**
 
+To check if Ruby is installed correctly, run:
+
+```
+ruby -v
+```
 ### node.js And Ruby Dependencies
 
 Now that [Ruby](https://www.ruby-lang.org/en/) is enabled, we will clone the [Mastodon git repository](https://github.com/tootsuite/mastodon/) and install the [Ruby](https://www.ruby-lang.org/en/) and [node.js](https://nodejs.org/en/) dependancies.
@@ -166,11 +165,7 @@ Create a user for a [PostgreSQL](https://www.postgresql.org) instance:
 
 ```
 # Launch psql as the postgres user
-sudo -u postgres psql
-
-# In the following prompt
-CREATE USER mastodon CREATEDB;
-\q
+sudo -u postgres psql -c "CREATE USER mastodon CREATEDB;"
 ```
 
 **Note** that we do not set up a password of any kind, this is because we will be using ident authentication. This allows local users to access the database without a password.
@@ -181,7 +176,7 @@ You need to configure [nginx](http://nginx.org) to serve your [Mastodon](https:/
 
 **Reminder: Replace all occurrences of example.com with your own instance's domain or sub-domain.**
 
-`cd` to `/etc/nginx/sites-available` and open a new file:
+open a new file:
 
 `nano /etc/nginx/sites-available/example.com.conf`
 
@@ -217,7 +212,7 @@ server {
 
   keepalive_timeout    70;
   sendfile             on;
-  client_max_body_size 0;
+  client_max_body_size 100M;
 
   root /home/mastodon/live/public;
 
@@ -228,7 +223,7 @@ server {
   gzip_comp_level 6;
   gzip_buffers 16 8k;
   gzip_http_version 1.1;
-  gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+  gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss image/svg+xml text/javascript;
 
   add_header Strict-Transport-Security "max-age=31536000";
 
