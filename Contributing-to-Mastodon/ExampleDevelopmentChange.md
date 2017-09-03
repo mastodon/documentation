@@ -1,7 +1,6 @@
 Hat tip to Old Man Pan @agoni@mastodon.social who described this solution.
 
-Issue - how to make quick simple change to code base - so you know your system can be changed, like "Hello world"
-
+Issue - how to make quick simple change to code base - so you know your system can be changed, like "Hello world", 
 So change "Toot!" button in mastodon to "Awooga!" or anything you want!
 
 Solution: On Ubuntu ;)
