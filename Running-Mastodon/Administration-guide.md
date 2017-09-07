@@ -47,6 +47,10 @@ The following rake task:
 
     RAILS_ENV=production bundle exec rails mastodon:confirm_email USER_EMAIL=alice@alice.com
 
+or, in Docker,
+
+    docker-compose run --rm web rails mastodon:confirm_email USER_EMAIL=alice@alice.com
+
 Will confirm a user manually, in case they don't have access to their confirmation email for whatever reason.
 
 ## Clearing Unconfirmed Users Manually
@@ -66,6 +70,25 @@ only have a user record and an avatar record, with no files uploaded.
     user.save!
 
 This will create a new user as if they had walked through the registration process and confirmed their account, and will immediately be able to log in.  Make sure the user resets their password away from the temporary password you give them!
+
+## Bulk Subscribing to Initilly Populate FTL
+When an instance has been freshly created, it knows of very few accounts, and can only discover new ones and new servers via local users interacting with remote users. New local account entries will be constantly made as toots from currently-known accounts interact with or mention previously unknown accounts.
+
+While waiting for local users to follow remote users will gradually populate the federated timeline, initial bulk subscribing can much more rapidly discover users your community is likely to be interested in., avoiding the "deserted wasteland" feeling of a crawling FTL. Once you've used a real account to follow a handful of active, worthwhile individuals on other servers, wait for a bit to accumulate known accounts from seeing them interact. While your server knows of these newly encountered accounts, we must subscribe to them if we want them to appear in our FTL.
+
+The simplest approach is to just attempt to subscribe to every account you're not yet subscribed to. To do this, open an interactive rails console on your server:
+
+    RAILS_ENV=production bundle exec rails c
+
+or in docker:
+
+    docker-compose run --rm web rails c
+
+Then find all not-yet-subscribed-to accounts and bulk subscribe to them. THIS WILL ALMOST CERTAINLY RAPIDLY EXPAND THE SET OF KNOWN ACCOUNTS in a ballpark-exponential manner over multiple cycles, potentially resulting in excessive DB growth and FTL flooding if done too many times. Be Reasonable.
+    
+    uns = Account.where(subscription_expires_at: nil)
+    Pubsubhubbub::SubscribeWorker.push_bulk(uns.partitioned.pluck(:id))
+
 
 ## Activity monitoring
 
