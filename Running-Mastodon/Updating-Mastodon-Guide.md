@@ -1,6 +1,6 @@
 # Updating Mastodon
 
-This guide assumes you have the set up seen in the [Production Guide](./Production-Guide.md).
+This guide assumes you have the set up seen in the [Production Guide](./Production-guide.md).
 
 ## Read the release notes
 
