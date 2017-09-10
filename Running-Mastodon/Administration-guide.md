@@ -13,25 +13,17 @@ or, if using docker:
 
     docker-compose run --rm web rails mastodon:make_admin USERNAME=alice
 
-
 Would turn the local user "alice" into an admin.
 
 ## Administration web interface
 
-A user that is designated as `admin = TRUE` in the database is able to access a suite of administration tools:
-
-* View, edit, silence, or suspend users - https://yourmastodon.instance/admin/accounts
-* View PubSubHubbub subscriptions - https://yourmastodon.instance/admin/pubsubhubbub
-* View domain blocks - https://yourmastodon.instance/admin/domain_blocks
-* Sidekiq dashboard - https://yourmastodon.instance/sidekiq
-* PGHero dashboard for PostgreSQL - https://yourmastodon.instance/pghero
-* Edit site settings - https://yourmastodon.instance/admin/settings
+A user that is designated as `admin = TRUE` in the database is able to access a suite of administration tools, accessible from the sidebar under "Administration" from the preferences/edit profile page.
 
 ## Site settings
 
-Your site settings are stored in the `settings` database table, and editable through the admin interface at https://yourmastodon.instance/admin/settings.
+Your site settings are stored in the `settings` database table, and editable through the admin interface under "Administration" -> "Site settings".
 
-You are able to set the following settings:
+You are able to set settings such as, among others:
 
 - Site title
 - Contact username
@@ -41,7 +33,7 @@ You are able to set the following settings:
 
 You may wish to use the extended description (shown at https://yourmastodon.instance/about/more ) to display content guidelines or a user agreement (see https://mastodon.social/about/more for an example).
 
-## Confirming Users Manually
+## Confirming users manually
 
 The following rake task:
 
@@ -49,23 +41,11 @@ The following rake task:
 
 Will confirm a user manually, in case they don't have access to their confirmation email for whatever reason.
 
-## Clearing Unconfirmed Users Manually
+## Creating users while registration is closed
 
-    RAILS_ENV=production rake mastodon:users:clear
-    
-Will remove users that never confirmed their e-mail and never signed in, meaning they
-only have a user record and an avatar record, with no files uploaded.
+    RAILS_ENV=production bundle exec rails mastodon:add_user
 
-## Creating Users while Registration is Closed
-
-    RAILS_ENV=production bundle exec rails c
-    account = Account.create!(username: 'username')
-    user = User.create!(email: 'email', password: 'password', account: account)
-    user.confirm
-    account.save!
-    user.save!
-
-This will create a new user as if they had walked through the registration process and confirmed their account, and will immediately be able to log in.  Make sure the user resets their password away from the temporary password you give them!
+This will guide you through creating a new user interactively. The user will get a confirmation e-mail.
 
 ## Activity monitoring
 
@@ -75,8 +55,13 @@ Munin graphs can be generated to track your instance activity.
 * https://framagit.org/framasoft/munin-plugins/tree/master/mastodon
 * https://github.com/0xa/mastodon-munin
 
-## Mastodon-admin mailing list
+## Other admins
 
-There's a mailing list open for mastodon instance admins at
-https://lists.ffdn.org/wws/info/mastodon-admin. Feel free to join that list for all your questions and to get some feedback 
-from other admins!
+- There is a [Discourse messaging board](https://discourse.joinmastodon.org)
+- There's a mailing list at https://lists.ffdn.org/wws/info/mastodon-admin.
+
+Feel free to join for all your questions and to get some feedback from other admins!
+
+## Instance directory
+
+If you want your instance to appear on the instance picker on joinmastodon.org or the instance directory/wizard on instances.social, you can [submit it to instances.social here](https://instances.social/admin)
