@@ -321,7 +321,7 @@ These people make the development of Mastodon possible through [Patreon](https:/
 * Derek Gonyeo
 * colin mitchell
 * Jonathan Doda
-* 
+* tkpx
 * LoovtO
 * Kengo Nakajima
 * Toby Pinder
