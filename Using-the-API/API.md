@@ -434,7 +434,7 @@ Form data:
 | ----------------- | ------------------------------------------------------------------- | ---------- |
 | `account_id`      | The ID of the account to report                                     | no         |
 | `status_ids`      | The IDs of statuses to report (can be an array)                     | no         |
-| `comment`         | A comment to associate with the report                              | no         |
+| `comment`         | A comment to associate with the report (until 1000 characters)      | no         |
 
 Returns the finished [Report](#report).
 
