@@ -33,19 +33,39 @@ You are able to set settings such as, among others:
 
 You may wish to use the extended description (shown at https://yourmastodon.instance/about/more ) to display content guidelines or a user agreement (see https://mastodon.social/about/more for an example).
 
-## Confirming users manually
+## Helping users in trouble
 
-The following rake task:
+Under "Administration" -> "Accounts" you can find your users' accounts. You can:
 
-    RAILS_ENV=production bundle exec rails mastodon:confirm_email USER_EMAIL=alice@alice.com
-
-Will confirm a user manually, in case they don't have access to their confirmation email for whatever reason.
+- Manually confirm their account, in case they don't have access to their confirmation email for whatever reason
+- Disable their two factor authentication, in case they lost access and backup codes
+- Reset their password, which will send them an e-mail with a link to a form to set a new one
 
 ## Creating users while registration is closed
+
+The following rake task:
 
     RAILS_ENV=production bundle exec rails mastodon:add_user
 
 This will guide you through creating a new user interactively. The user will get a confirmation e-mail.
+
+## Moderating content
+
+You will e-mail notifications for new reports. Your users can report toots and accounts. You will find those reports under "Administration" -> "Reports". Your options for dealing with reports are as follows:
+
+- Mark as resolved: Just dismiss the report without taking any action.
+- Suspend the offender: This is the harshest option which will permanently remove all content from the user from your server and prevent them from posting again.
+- Silence the offender: Comparable to shadowban or sandbox. This hides the user from anyone who isn't following them. The offender sees only other silenced accounts in the public timelines.
+- Delete the offending toot(s).
+- Switch the media sensitivity toggle on the offending toot(s).
+
+When a whole instance is engaging in mass-scale hostile activity (spam, vandalism or harrassment), you can save yourself the effort of dealing with individual users by domain-blocking instead. You can create the following domain blocks:
+
+- Severity: None. Doesn't actually do anything by itself. Useful for choosing the "reject media" option without any other effects.
+- Severity: Silence. Applies silence (described in previous list) to all past and future accounts from the domain.
+- Severity: Suspend: Applies suspend (described in previous list) to all past and future accounts from the domain.
+
+Additionally you can toggle the "reject media" option. When enabled, media files from the domain will not be downloaded to your servers. That includes users' avatars and headers as well as media attachments for toots.
 
 ## Activity monitoring
 
