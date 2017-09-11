@@ -19,7 +19,7 @@ This is how you do that:
 su - mastodon
 cd ~/live
 git pull
-git checkout $(git tag -l | sort -V | tail -n 1)
+git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 ```
 
 The above commands will update your copy of your git repository to the latest available
