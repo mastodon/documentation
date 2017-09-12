@@ -106,6 +106,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |HackerNewsBot|CLI|<https://github.com/raymestalez/mastodon-hnbot>|[@rayalez@hackertribe.io](https://hackertribe.io/users/rayalez)|
 |mastodon-glossary-bot|CLI or Heroku|<https://github.com/michelbl/mastodon-glossary-bot>|[@Michel@mastodon.etalab.gouv.fr](https://mastodon.etalab.gouv.fr/@Michel)|
 |simpleMastodonBot|CLI|<https://github.com/M-D-M/simpleMastodonBot>|[M-D-M](https://github.com/M-D-M)
+|fluffy-broccoli|CLI|<https://github.com/algernon/fluffy-broccoli>|[@algernon@trunk.mad-scientist.club](https://trunk.mad-scientist.club/@algernon)
 
 ## Other tools
 |App|Platform|Source code|Developer(s)|
