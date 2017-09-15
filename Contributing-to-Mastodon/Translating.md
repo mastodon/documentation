@@ -236,7 +236,7 @@ will create the following language files:
 
 #### Check Your Translations
 
-To see if you lanuage is doing good, you may mix using the command tools, like
+To see if your language is doing good, you may mix using the command tools, like
 this:
 
 ```
