@@ -147,7 +147,7 @@ git clone https://github.com/tootsuite/mastodon.git live
 # Change directory to ~live
 cd ~/live
 # Checkout to the latest stable branch
-git checkout $(git tag -l | sort -V | tail -n 1)
+git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 # Install bundler
 gem install bundler
 # Use bundler to install the rest of the Ruby dependencies
