@@ -686,7 +686,7 @@ ___
 | `blocking`               | Whether the user is currently blocking the account           | no       |
 | `muting`                 | Whether the user is currently muting the account             | no       |
 | `requested`              | Whether the user has requested to follow the account         | no       |
-| `domain_blocking`        | Whether the user is currently blocking the user's domain     | no       |
+| `domain_blocking`        | Whether the user is currently blocking the accounts's domain | no       |
 
 ### Report
 
