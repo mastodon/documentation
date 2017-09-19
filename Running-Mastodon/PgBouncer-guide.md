@@ -36,7 +36,7 @@ Here's how you might reset the password:
 
 Then:
 
-    ALTER USER "mastodon" WITH PASSWORD "password";
+    ALTER USER "mastodon" WITH PASSWORD 'password';
 
 Then `\q` to quit.
 
