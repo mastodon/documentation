@@ -67,6 +67,18 @@ When a whole instance is engaging in mass-scale hostile activity (spam, vandalis
 
 Additionally you can toggle the "reject media" option. When enabled, media files from the domain will not be downloaded to your servers. That includes users' avatars and headers as well as media attachments for toots.
 
+## Reactivating a previously deleted user
+
+    RAILS_ENV=production bundle exec rails c
+    account = Account.find_by(username: 'username', domain: null)
+    account.suspended = false
+    user = User.create!(email: 'email', password: 'password', account: account)
+    user.confirm
+    account.save!
+    user.save!
+
+This will create a new user associated with the old account_id. They'll not have any followings, followers nor toots but depending on how much time has passed since the deletion, they might still appear in their old federated followers timeline. Previous federated toots might not have been deleted too.
+
 ## Activity monitoring
 
 Munin graphs can be generated to track your instance activity.
