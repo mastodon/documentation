@@ -86,6 +86,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |Tooter|[Chrome(ium)](https://chrome.google.com/webstore/detail/tooter/okmlpjijminjkikninbkcnfmhkofgnnk)/[Firefox](https://addons.mozilla.org/nl/firefox/addon/tooter/)|<https://github.com/ineffyble/tooter>|[@effy@mastodon.social](https://mastodon.social/users/effy)|
 |Mastodon Share|[Firefox](https://addons.mozilla.org/nl/firefox/addon/mastodon-share/)|<https://github.com/kernox/Mastoshare>|[@Hellexis@framapiaf.org](https://framapiaf.org/@Hellexis)
 |Fastoot|[Chrome(ium)](https://chrome.google.com/webstore/detail/fastoot/hnmnnhfeigiogjagmmpnhelpnhnchaoj)|<https://github.com/noraworld/fastoot>|[@noraworld@mastodon.noraworld.jp](https://mastodon.noraworld.jp/users/noraworld)|
+|oxpecker|Chrome(ium)/Firefox|<https://github.com/ttrace/oxpecker>|[@t_trace@ostatus.taiyolab.com](https://ostatus.taiyolab.com/@t_trace)
 
 ## Bridges from/to other platforms
 
