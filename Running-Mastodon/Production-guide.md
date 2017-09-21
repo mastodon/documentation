@@ -240,6 +240,11 @@ server {
     add_header Cache-Control "public, max-age=31536000, immutable";
     try_files $uri @proxy;
   }
+  
+  location /sw.js {
+    add_header Cache-Control "public, max-age=0";
+    try_files $uri @proxy;
+  }
 
   location @proxy {
     proxy_set_header Host $host;
