@@ -130,6 +130,25 @@ Go to http://localhost:3000 to see your development instance.
 
 Admin account is `admin@localhost:3000`. Password is `mastodonadmin`.
 
+## Bash on Windows
+
+_**Note:** Mastodon was not designed for Bash on Windows and may break. The dev team may not have access to Windows boxes and may not be able to help you if it breaks._
+
+To run Mastodon on [Bash on Ubuntu on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/about), you can follow the Ubuntu instructions with some small tweaks.
+
+First off, `rbenv` doesn't work, so you must follow [Dave Rupert's Ruby on Rails tutorial](http://daverupert.com/2016/06/ruby-on-rails-on-bash-on-ubuntu-on-windows/), except instead of Ruby 2.3 you will want 2.4.1, so do:
+
+    sudo apt-add-repository ppa:brightbox/ruby-ng
+    sudo apt update
+    sudo apt install ruby2.4 ruby2.4-dev ruby-switch
+
+Second off, `ffmpeg` isn't available by default and so you must run:
+
+    sudo add-apt-repository ppa:mc3man/trusty-media
+    sudo apt-get update
+    sudo apt-get dist-upgrade
+    sudo apt-get install ffmpeg
+
 ## Development tips
 
 You can use a localhost->world tunneling service like [ngrok](https://ngrok.com) if you want to test federation, **however** that should not be your primary mode of operation. If you want to have a permanently federating server, set up a proper instance on a VPS with a domain name, and simply keep it up to date with your own fork of the project while doing development on localhost.
