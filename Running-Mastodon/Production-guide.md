@@ -240,7 +240,7 @@ server {
     add_header Cache-Control "public, max-age=31536000, immutable";
     try_files $uri @proxy;
   }
-  
+
   location /sw.js {
     add_header Cache-Control "public, max-age=0";
     try_files $uri @proxy;
@@ -431,7 +431,7 @@ RAILS_ENV=production bundle exec rails db:setup
 Then we will need to precompile all CSS and JavaScript files:
 
 ```sh
-RAILS_ENV=production bundle exec rails assets:precompile
+RAILS_ENV=production DB_ADAPTER=nulldb bundle exec rails assets:precompile
 ```
 
 **The assets precompilation takes a couple minutes, so this is a good time to take another break.**

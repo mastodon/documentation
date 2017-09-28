@@ -28,7 +28,7 @@ tagged release.
 Always run tagged releases on production Mastodon instances. Never run the master branch
 on your production instance.
 
-You can always use `git status` to verify what tagged release your local 
+You can always use `git status` to verify what tagged release your local
 repository copy is at, for example:
 
 ```sh
@@ -77,13 +77,13 @@ The aforementioned release notes will mention if you need to do the rest of this
 This is how you pre-compile assets:
 ```sh
 cd ~/live
-RAILS_ENV=production bundle exec rails assets:precompile
+RAILS_ENV=production DB_ADAPTER=nulldb bundle exec rails assets:precompile
 ```
 
 A caveat:
 
-The assets pre-compiler ([Webpacker](https://github.com/rails/webpacker)) can take up 
-a non-trivial amount of resources, particularly RAM. If you find that your server is 
+The assets pre-compiler ([Webpacker](https://github.com/rails/webpacker)) can take up
+a non-trivial amount of resources, particularly RAM. If you find that your server is
 running out of RAM when running the pre-compile, I recommend stopping the Mastodon services
 before starting the pre-compile.
 
@@ -94,7 +94,7 @@ systemctl stop mastodon-*
 
 ## Restarting Mastodon services
 
-Mastodon runs in memory so you will need to restart it for any of the previous updates to take 
+Mastodon runs in memory so you will need to restart it for any of the previous updates to take
 effect.
 
 This is how you restart Mastodon services (as root):

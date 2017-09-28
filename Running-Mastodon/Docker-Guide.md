@@ -41,7 +41,7 @@ Now the image can be used to generate secrets. Run the command below for each of
 
     docker-compose run --rm web rake secret
 
-To enable Web Push notifications, you should generate a few extra secrets and put them into your `.env.production` file. Run Command below for each of `VAPID_PRIVATE_KEY` and `VAPID_PUBLIC_KEY` then copy the result into the `.env.production` file: 
+To enable Web Push notifications, you should generate a few extra secrets and put them into your `.env.production` file. Run Command below for each of `VAPID_PRIVATE_KEY` and `VAPID_PUBLIC_KEY` then copy the result into the `.env.production` file:
 
     docker-compose run --rm web rake mastodon:webpush:generate_vapid_key
 
@@ -51,7 +51,7 @@ Then you should run the `db:migrate` command to create the database, or migrate 
 
 Then, you will also need to precompile the assets:
 
-    docker-compose run --rm web rake assets:precompile
+    docker-compose run --rm web rake assets:precompile DB_ADAPTER=nulldb
 
 before you can launch the docker image with:
 
@@ -91,5 +91,5 @@ This approach makes updating to the latest version a real breeze.
 4. Only if you ran `git stash`, now run `git stash pop` to redo your changes to `docker-compose.yml`. Double check the contents of this file.
 5. `docker-compose build` to compile the Docker image out of the changed source files.
 6. (optional) `docker-compose run --rm web rake db:migrate` to perform database migrations. Does nothing if your database is up to date.
-7. (optional) `docker-compose run --rm web rake assets:precompile` to compile new JS and CSS assets.
+7. (optional) `docker-compose run --rm web rake assets:precompile DB_ADAPTER=nulldb` to compile new JS and CSS assets.
 8. `docker-compose up -d` to re-create (restart) containers and pick up the changes.
