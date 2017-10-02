@@ -456,6 +456,7 @@ WorkingDirectory=/home/mastodon/live
 Environment="RAILS_ENV=production"
 Environment="PORT=3000"
 ExecStart=/home/mastodon/.rbenv/shims/bundle exec puma -C config/puma.rb
+ExecReload=kill -SIGUSR2 $MAINPID
 TimeoutSec=15
 Restart=always
 
