@@ -98,6 +98,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |t2m - Twitter 2 Mastodon|CLI|<https://github.com/Psycojoker/t2m>|Psycojoker|
 |umrc|IRC|<https://github.com/Ulrar/umrc>|[@lemonnierk@ulrar.net](https://mastodon.ulrar.net/users/lemonnierk)|
 |[WordPress](http://mastodon.tools/wordpress/)|WordPress plugin|<https://github.com/DavidLibeau/mastodon-tools/tree/master/wordpress>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
+|[Autopost to Mastodon](https://wordpress.org/plugins/autopost-to-mastodon/)|Wordpress plugin|<https://github.com/L1am0/mastodon_wordpress_autopost>|[L1am0](http://l1am0.eu/)|
 |[ogp-share](http://mastodon.tools/ogp-share/) (beta)|Web browser|<https://github.com/DavidLibeau/mastodon-tools/tree/master/ogp-share>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 
 ## Bots
