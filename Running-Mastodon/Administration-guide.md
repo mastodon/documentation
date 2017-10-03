@@ -71,7 +71,7 @@ Additionally you can toggle the "reject media" option. When enabled, media files
 
     RAILS_ENV=production bundle exec rails c
     # in rails console.
-    account = Account.find_by(username: 'username', domain: null)
+    account = Account.find_by(username: 'username', domain: nil)
     account.suspended = false
     user = User.create!(email: 'email', password: 'password', account: account)
     user.confirm
