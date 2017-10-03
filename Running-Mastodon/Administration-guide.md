@@ -70,6 +70,7 @@ Additionally you can toggle the "reject media" option. When enabled, media files
 ## Reactivating a previously deleted user
 
     RAILS_ENV=production bundle exec rails c
+    # in rails console.
     account = Account.find_by(username: 'username', domain: null)
     account.suspended = false
     user = User.create!(email: 'email', password: 'password', account: account)
