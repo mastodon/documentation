@@ -8,6 +8,7 @@ Below, a list of libraries to interact with the Mastodon API, sorted by programm
 | Apex (Salesforce)    | [apex-mastodon](https://github.com/tzmfreedom/apex-mastodon)                   |                                                                                |
 | C# (.NET Standard)   | [Mastodot](https://github.com/yamachu/Mastodot)                                |                                                                                |
 | C# (.NET Standard)   | [Mastonet](https://github.com/glacasa/Mastonet)                                |                                                                                |
+| C# (.NET Standard)   | [TootNet](https://github.com/cucmberium/TootNet)                               | [@cucmberium@mstdn.maud.io](https://mstdn.maud.io/@cucmberium)                 |
 | C# (.NET)            | [mastodon-api-cs](https://github.com/pawotter/mastodon-api-cs)                 |                                                                                |
 | C# (.NET)            | [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net)                        |                                                                                |
 | Crystal              | [mastodon.cr](https://github.com/decors/mastodon.cr)                           |                                                                                |
