@@ -35,3 +35,31 @@ $valid-value-color:       $color7;
 $base-shadow-color:       $color8;
 $base-overlay-background: $color8;
 ```
+
+## Multiple themes
+
+As of Mastodon 2.0.0, you can provide multiple themes for your users to choose from. Modify `config/themes.yml` like so:
+
+```yml
+default: styles/awesome_theme.scss
+mastodon: styles/application.scss
+another: style/another_theme.scss
+```
+
+Note that any custom theme should call `@import "application";`, just as with `custom.scss`.
+
+One of these themes **must** be called `default`, and it will be the default one for your users. By default, the `default` theme is called "Mastodon" in the UI. To change this, modify `config/locales/en.yml` and change:
+
+```yml
+themes:
+  default: "Mastodon"
+```
+
+to e.g.:
+
+```yml
+themes:
+  default: "Awesome Theme"
+  mastodon: "Mastodon Default Theme"
+  another: "Another Theme"
+```
