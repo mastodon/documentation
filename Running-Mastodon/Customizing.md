@@ -5,7 +5,9 @@ Customizing your instance
 
 You can make the application load a different CSS file than the default, you can optionally choose to use that mechanism to adjust variables and re-import the application CSS from your own CSS. Here is what you need to do:
 
-2. Create `app/javascript/styles/custom.scss`. Here you can write whatever SCSS you want.
+1. Create `app/javascript/styles/custom.scss`. Here you can write whatever SCSS you want.
+2. Add `@import 'application';` to the end of the SCSS file.
+2. _(As of Mastodon 2.0.0)_ Update `config/themes.yml` to contain `default: styles/custom.scss`.
 3. Restart your webpack-dev-server (if you're in development mode) for it to be recognized and start live reloading. Naturally, in production you'll need to compile assets and restart for the changes to take effect.
 
 ## Changing colors and other variables
@@ -46,7 +48,7 @@ mastodon: styles/application.scss
 another: style/another_theme.scss
 ```
 
-Note that any custom theme should call `@import "application";`, just as with `custom.scss`.
+Note that any custom theme should call `@import "application";`.
 
 One of these themes **must** be called `default`, and it will be the default one for your users. By default, the `default` theme is called "Mastodon" in the UI. To change this, modify `config/locales/en.yml` and change:
 
