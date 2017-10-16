@@ -39,7 +39,7 @@ If you want to use prebuilt images on Docker Hub, just comment out all `build` k
 
 Now the image can be used to generate secrets. Run the command below for each of `PAPERCLIP_SECRET`, `SECRET_KEY_BASE`, and `OTP_SECRET` then copy the results into the `.env.production` file:
 
-    docker-compose run --rm web rake secret
+    docker-compose run --rm web rake secret[<the_secret>]
 
 To enable Web Push notifications, you should generate a few extra secrets and put them into your `.env.production` file. Run Command below for each of `VAPID_PRIVATE_KEY` and `VAPID_PUBLIC_KEY` then copy the result into the `.env.production` file: 
 
