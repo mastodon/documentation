@@ -14,7 +14,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[AndStatus](http://andstatus.org/)|<https://github.com/andstatus/andstatus>|[@AndStatus@mastodon.social](https://mastodon.social/@AndStatus)|
 |[Mastalab](https://play.google.com/store/apps/details?id=fr.gouv.etalab.mastodon)|<https://bitbucket.org/tom79/mastodon_etalab>|[@tschneider@mastodon.etalab.gouv.fr](https://mastodon.etalab.gouv.fr/@tschneider)|
 |[Subway Tooter](https://play.google.com/store/apps/details?id=jp.juggler.subwaytooter)|<https://github.com/tateisu/SubwayTooter>|[@tateisu@mastodon.juggler.jp](https://mastodon.juggler.jp/@tateisu)|
-|[Tusky](https://f-droid.org/repository/browse/?fdcategory=Internet&fdid=com.keylesspalace.tusky&fdpage=3&fdstyle=grid)|<https://github.com/Vavassor/Tusky>|[@Vavassor@mastodon.social](https://mastodon.social/users/Vavassor)|
+|[Tusky](https://f-droid.org/repository/browse/?fdcategory=Internet&fdid=com.keylesspalace.tusky&fdpage=3&fdstyle=grid)|<https://github.com/Vavassor/Tusky>|[@ConnyDuck@mastodon.social](https://mastodon.social/users/ConnyDuck)|
 |[Twidere](https://github.com/TwidereProject/Twidere-Android#twidere-for-android)|<https://github.com/TwidereProject/Twidere-Android>|[@mariotaku@pawoo.net](https://pawoo.net/@mariotaku)|
 |[Mastobone](https://play.google.com/store/apps/details?id=com.mastobone) (alpha)|<https://github.com/deguchi/mastobone>|[@deguchi@bookn.me](https://bookn.me/@deguchi)|
 |[MouseApp](https://f-droid.org/packages/fr.xtof54.mousetodon/) (beta)|<https://github.com/cerisara/mousetodon>|[@cerisara@mastodon.etalab.gouv.fr](https://mastodon.etalab.gouv.fr/@cerisara)
