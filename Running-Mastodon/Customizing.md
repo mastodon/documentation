@@ -35,3 +35,19 @@ $valid-value-color:       $color7;
 $base-shadow-color:       $color8;
 $base-overlay-background: $color8;
 ```
+
+## Link to source code
+
+Mastodon is distributed under the terms of AGPL. The source code must be offered to its user. To easily achieve this on your instance, an initializer like below can be added, as a file like `config/initializer/source.rb`, to customize the links at the bottom of the `/about` and `/about/more` pages:
+
+```ruby
+# frozen_string_literal: true
+module Mastodon
+  module Version
+    module_function
+    def source_base_url
+      'https://github.com/<your-github-account>/mastodon'
+    end
+  end
+end
+```
