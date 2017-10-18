@@ -14,7 +14,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[AndStatus](http://andstatus.org/)|<https://github.com/andstatus/andstatus>|[@AndStatus@mastodon.social](https://mastodon.social/@AndStatus)|
 |[Mastalab](https://play.google.com/store/apps/details?id=fr.gouv.etalab.mastodon)|<https://bitbucket.org/tom79/mastodon_etalab>|[@tschneider@mastodon.etalab.gouv.fr](https://mastodon.etalab.gouv.fr/@tschneider)|
 |[Subway Tooter](https://play.google.com/store/apps/details?id=jp.juggler.subwaytooter)|<https://github.com/tateisu/SubwayTooter>|[@tateisu@mastodon.juggler.jp](https://mastodon.juggler.jp/@tateisu)|
-|[Tusky](https://f-droid.org/repository/browse/?fdcategory=Internet&fdid=com.keylesspalace.tusky&fdpage=3&fdstyle=grid)|<https://github.com/Vavassor/Tusky>|[@Vavassor@mastodon.social](https://mastodon.social/users/Vavassor)|
+|[Tusky](https://f-droid.org/repository/browse/?fdcategory=Internet&fdid=com.keylesspalace.tusky&fdpage=3&fdstyle=grid)|<https://github.com/Vavassor/Tusky>|[@ConnyDuck@mastodon.social](https://mastodon.social/users/ConnyDuck)|
 |[Twidere](https://github.com/TwidereProject/Twidere-Android#twidere-for-android)|<https://github.com/TwidereProject/Twidere-Android>|[@mariotaku@pawoo.net](https://pawoo.net/@mariotaku)|
 |[Mastobone](https://play.google.com/store/apps/details?id=com.mastobone) (alpha)|<https://github.com/deguchi/mastobone>|[@deguchi@bookn.me](https://bookn.me/@deguchi)|
 |[MouseApp](https://f-droid.org/packages/fr.xtof54.mousetodon/) (beta)|<https://github.com/cerisara/mousetodon>|[@cerisara@mastodon.etalab.gouv.fr](https://mastodon.etalab.gouv.fr/@cerisara)
@@ -33,8 +33,9 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 
 |App|Source code|Developer(s)|
 |---|-----------|------------|
-|[11t](https://appsto.re/i67Q3LH)|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
+|[11t](https://itunes.apple.com/nl/app/11t-for-mastodon/id1180628189)|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
 |[Amaroq](https://itunes.apple.com/us/app/amarok-for-mastodon/id1214116200?ls=1&mt=8)|<https://github.com/ReticentJohn/Amaroq>|[@eurasierboy@mastodon.social](https://mastodon.social/users/eurasierboy)|
+|[iMast](https://itunes.apple.com/jp/app/imast/id1229461703)|<https://github.com/cinderella-project/iMast>|[@imast_ios@imastodon.net](https://imastodon.net/@imast_ios)|
 |[TootyFruity](https://docs.google.com/forms/d/e/1FAIpQLScW2lvZaKrOm4AKJH5HLI_Ul0Yr3CsXulf5bcTJQ1xaN5jiPg/viewform?c=0&w=1) (beta)|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
 |[Mustor](https://itunes.apple.com/us/app/mustor/id1229531204?l=zh&ls=1&mt=8)|N/A|[@darkcl@mastodon.cloud](https://mastodon.cloud/@darkcl)|
 |[Pawoo](https://itunes.apple.com/us/app/pawoo/id1229070679)|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
@@ -106,6 +107,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[WordPress](http://mastodon.tools/wordpress/)|WordPress plugin|<https://github.com/DavidLibeau/mastodon-tools/tree/master/wordpress>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 |[Autopost to Mastodon](https://wordpress.org/plugins/autopost-to-mastodon/)|Wordpress plugin|<https://github.com/L1am0/mastodon_wordpress_autopost>|[L1am0](http://l1am0.eu/)|
 |[ogp-share](http://mastodon.tools/ogp-share/) (beta)|Web browser|<https://github.com/DavidLibeau/mastodon-tools/tree/master/ogp-share>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
+|[Mastodon Twitter Poster](https://mastodon-twitter-poster.herokuapp.com)|Service|<https://github.com/renatolond/mastodon-twitter-poster>|[@renatolond@masto.donte.com.br](https://masto.donte.com.br/@renatolond)|
 
 ## Bots
 
