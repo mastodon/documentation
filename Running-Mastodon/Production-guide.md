@@ -232,7 +232,9 @@ server {
   gzip_http_version 1.1;
   gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
 
-  add_header Strict-Transport-Security "max-age=31536000";
+  # Please read more about HSTS before including this header.
+  # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
+  # add_header Strict-Transport-Security "max-age=31536000";
 
   location / {
     try_files $uri @proxy;
