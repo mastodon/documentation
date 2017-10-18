@@ -6,6 +6,8 @@ This guide was written for [Ubuntu Server 16.04](https://www.ubuntu.com/server),
 
 This document is also written with the expectation that you have a technical level high enough to administrate Linux servers.
 
+If you need help setting up your instance, you may want to try tooting at the [#MastoAdmins](https://mastodon.social/tags/mastoadmins) hashtag.
+
 ## What is this guide?
 
 This guide is a walk through of the setup process of a [Mastodon](https://github.com/tootsuite/mastodon/) instance.
