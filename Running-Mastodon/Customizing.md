@@ -5,7 +5,9 @@ Customizing your instance
 
 You can make the application load a different CSS file than the default, you can optionally choose to use that mechanism to adjust variables and re-import the application CSS from your own CSS. Here is what you need to do:
 
-2. Create `app/javascript/styles/custom.scss`. Here you can write whatever SCSS you want.
+1. Create `app/javascript/styles/custom.scss`. Here you can write whatever SCSS you want.
+2. Add `@import 'application';` to the end of the SCSS file.
+2. _(As of Mastodon 2.0.0)_ Update `config/themes.yml` to contain `default: styles/custom.scss`.
 3. Restart your webpack-dev-server (if you're in development mode) for it to be recognized and start live reloading. Naturally, in production you'll need to compile assets and restart for the changes to take effect.
 
 ## Changing colors and other variables
@@ -34,6 +36,34 @@ $error-value-color:       $color6;
 $valid-value-color:       $color7;
 $base-shadow-color:       $color8;
 $base-overlay-background: $color8;
+```
+
+## Multiple themes
+
+As of Mastodon 2.0.0, you can provide multiple themes for your users to choose from. Modify `config/themes.yml` like so:
+
+```yml
+default: styles/awesome_theme.scss
+mastodon: styles/application.scss
+another: style/another_theme.scss
+```
+
+Note that any custom theme should call `@import "application";`.
+
+One of these themes **must** be called `default`, and it will be the default one for your users. By default, the `default` theme is called "Mastodon" in the UI. To change this, modify `config/locales/en.yml` and change:
+
+```yml
+themes:
+  default: "Mastodon"
+```
+
+to e.g.:
+
+```yml
+themes:
+  default: "Awesome Theme"
+  mastodon: "Mastodon Default Theme"
+  another: "Another Theme"
 ```
 
 ## Link to source code
