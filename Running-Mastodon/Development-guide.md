@@ -35,7 +35,7 @@ You can then run Mastodon with:
 Since 1.4, we are using Webpack, which in development environment needs to be started as well as the command above:
 
     ./bin/webpack-dev-server
-    
+
 Another, optional approach to managing the different processes starting (Rails, Webpack, Sidekiq, and the Streaming API) is to use the foreman tool.
 
     gem install foreman
@@ -115,7 +115,7 @@ bundle install --with development
 yarn install --pure-lockfile
 gem install foreman --no-ri --no-rdoc
 bundle exec rails db:setup
-bin/rails assets:precompile
+DB_ADAPTER=nulldb bin/rails assets:precompile
 ```
 
 ### Running
