@@ -118,6 +118,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |simpleMastodonBot|CLI|<https://github.com/M-D-M/simpleMastodonBot>|[M-D-M](https://github.com/M-D-M)
 |fluffy-broccoli|CLI|<https://github.com/algernon/fluffy-broccoli>|[@algernon@trunk.mad-scientist.club](https://trunk.mad-scientist.club/@algernon)
 |mastodon-img-bot|CLI|<https://github.com/ZerataX/mastodon-img-bot>|[@peterspark@pawoo.net](https://pawoo.net/@peterspark)|
+|supportbot|CLI|<https://github.com/polymerwitch/SupportBot>|[@polymerwitch@toot.cat](https://toot.cat/@polymerwitch)|
 
 ## Other tools
 |App|Platform|Source code|Developer(s)|
