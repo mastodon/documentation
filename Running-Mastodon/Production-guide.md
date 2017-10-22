@@ -286,6 +286,7 @@ server {
   error_page 500 501 502 503 504 /500.html;
 }
 ```
+**Note: By default, ruby automatically creates an [HSTS header](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) for connections at the application level. If you are rolling your own SSL configuration in Nginx, care must be taken to not duplicate the HSTS header setting. Otherwise, [an invalid configuration may result](https://github.com/ssllabs/ssllabs-scan/issues/294).** This issue will impact your SSL quality score as your server would be returning two seperate HSTS headers.
 
 Activate the [nginx](http://nginx.org) configuration added:
 
