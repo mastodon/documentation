@@ -14,7 +14,7 @@ The project now includes a `Dockerfile` and a `docker-compose.yml` file (which r
 
 Clone Mastodon's repository.
 
-    git clone git@github.com:tootsuite/mastodon.git
+    git clone https://github.com/tootsuite/mastodon
     cd mastodon
 
 Review the settings in `docker-compose.yml`. Note that it is **not default** to store the postgresql database and redis databases in a persistent storage location. If you plan on running your instance in production, you **must** uncomment the [`volumes` directive](https://github.com/tootsuite/mastodon/blob/972f6bc861affd9bc40181492833108f905a04b6/docker-compose.yml#L7-L16) in `docker-compose.yml`.
@@ -64,6 +64,12 @@ If you wish to run this as a daemon process instead of monitoring it on console,
 ## Configuration
 
 Then you may login to your new Mastodon instance by browsing to http://localhost:3000/
+
+If your docker server is not on your local computer you may ssh to the docker first using this command:
+
+    ssh user@your-server -L 3000:localhost:3000
+    
+If you set `LOCAL_HTTPS` to true before, you have to prepare your TLS nginx first [production guide](Production-guide.md) because connecting to port 3000 redirects you to HTTPS. 
 
 Following that, make sure that you read the [production guide](Production-guide.md). You are probably going to want to understand how
 to configure Nginx to make your Mastodon instance available to the rest of the world.
