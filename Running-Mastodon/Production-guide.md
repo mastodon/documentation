@@ -519,17 +519,17 @@ systemctl enable /etc/systemd/system/mastodon-streaming.service
 Now start the services:
 
 ```sh
-systemctl start /etc/systemd/system/mastodon-sidekiq.service
-systemctl start /etc/systemd/system/mastodon-web.service
-systemctl start /etc/systemd/system/mastodon-streaming.service
+systemctl start "mastodon-sidekiq"
+systemctl start "mastodon-web"
+systemctl start "mastodon-streaming"
 ```
 
 Check that they are properly running:
 
 ```sh
-systemctl status /etc/systemd/system/mastodon-sidekiq.service
-systemctl status /etc/systemd/system/mastodon-web.service
-systemctl status /etc/systemd/system/mastodon-streaming.service
+systemctl status "mastodon-sidekiq"
+systemctl status "mastodon-web"
+systemctl status "mastodon-streaming"
 ```
 
 That is all! If everything was done correctly, a [Mastodon](https://github.com/tootsuite/mastodon/) instance will appear when you visit `https://example.com` in a web browser.
