@@ -65,10 +65,6 @@ If you wish to run this as a daemon process instead of monitoring it on console,
 
 Then you may login to your new Mastodon instance by browsing to http://localhost:3000/
 
-If your docker server is not on your local computer you may ssh to the docker first using this command:
-
-    ssh user@your-server -L 3000:localhost:3000
-    
 If you set `LOCAL_HTTPS` to true before, you have to prepare your TLS nginx first [production guide](Production-guide.md) because connecting to port 3000 redirects you to HTTPS. 
 
 Following that, make sure that you read the [production guide](Production-guide.md). You are probably going to want to understand how
