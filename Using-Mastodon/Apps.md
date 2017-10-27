@@ -11,7 +11,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |App|Source code|Developer(s)|
 |---|-----------|------------|
 |**11t**<br />([Play](https://play.google.com/store/apps/details?id=com.jeroensmeets.mastodon))|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
-|**[AndStatus](http://andstatus.org/)**<br />([Play]()/[F‑Droid]())|<https://github.com/andstatus/andstatus>|[@AndStatus@mastodon.social](https://mastodon.social/@AndStatus)|
+|**[AndStatus](http://andstatus.org/)**<br />([Play](https://play.google.com/store/apps/details?id=org.andstatus.app)/[F‑Droid](https://f-droid.org/repository/browse/?fdid=org.andstatus.app))|<https://github.com/andstatus/andstatus>|[@AndStatus@mastodon.social](https://mastodon.social/@AndStatus)|
 |**Mastalab**<br />([Play](https://play.google.com/store/apps/details?id=fr.gouv.etalab.mastodon)/[F‑Droid](https://f-droid.org/packages/fr.gouv.etalab.mastodon/))|<https://github.com/stom79/mastalab>|[@tschneider@mastodon.etalab.gouv.fr](https://mastodon.etalab.gouv.fr/@tschneider)|
 |**Subway&nbsp;Tooter**<br />([Play](https://play.google.com/store/apps/details?id=jp.juggler.subwaytooter))|<https://github.com/tateisu/SubwayTooter>|[@tateisu@mastodon.juggler.jp](https://mastodon.juggler.jp/@tateisu)|
 |**Tusky**<br />([Play](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky&hl=nl)/[F‑Droid](https://f-droid.org/repository/browse/?fdcategory=Internet&fdid=com.keylesspalace.tusky&fdpage=3&fdstyle=grid))|<https://github.com/Vavassor/Tusky>|[@ConnyDuck@mastodon.social](https://mastodon.social/users/ConnyDuck)|
@@ -36,7 +36,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |**11t**<br />([iTunes](https://itunes.apple.com/nl/app/11t-for-mastodon/id1180628189))|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
 |**Amaroq**<br />([iTunes](https://itunes.apple.com/us/app/amarok-for-mastodon/id1214116200?ls=1&mt=8))|<https://github.com/ReticentJohn/Amaroq>|[@eurasierboy@mastodon.social](https://mastodon.social/users/eurasierboy)|
 |**iMast**<br />([iTunes](https://itunes.apple.com/jp/app/imast/id1229461703))|<https://github.com/cinderella-project/iMast>|[@imast_ios@imastodon.net](https://imastodon.net/@imast_ios)|
-|**TootyFruity**<br />([iTunes](https://docs.google.com/forms/d/e/1FAIpQLScW2lvZaKrOm4AKJH5HLI_Ul0Yr3CsXulf5bcTJQ1xaN5jiPg/viewform?c=0&w=1)) *(beta)*|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
+|TootyFruity<br />([iTunes](https://docs.google.com/forms/d/e/1FAIpQLScW2lvZaKrOm4AKJH5HLI_Ul0Yr3CsXulf5bcTJQ1xaN5jiPg/viewform?c=0&w=1)) *(beta)*|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
 |Mustor<br />([iTunes](https://itunes.apple.com/us/app/mustor/id1229531204?l=zh&ls=1&mt=8))|N/A|[@darkcl@mastodon.cloud](https://mastodon.cloud/@darkcl)|
 |[Pawoo](https://pawoo.net/about)<br />([iTunes](https://itunes.apple.com/us/app/pawoo/id1229070679))|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
 |friends.nico<br />([iTunes](https://itunes.apple.com/us/app/friends-nico/id1230158182))|N/A|[@friends_nico@friends.nico](https://friends.nico/@friends_nico)|
@@ -101,7 +101,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |---|--------|-----------|------------|
 |**[Autopost to Mastodon](https://wordpress.org/plugins/autopost-to-mastodon/)**|Wordpress plugin|<https://github.com/L1am0/mastodon_wordpress_autopost>|[L1am0](http://l1am0.eu/)|
 |**MastodonToTwitter**|CLI|<https://github.com/halcy/MastodonToTwitter>|[@halcy@mastodon.social](https://mastodon.social/@halcy)|
-|Retoot|CLI|<https://gitlab.com/mojo42/retoot>|[@Mojo@apoil.org](https://apoil.org/users/mojo)|
+|**Retoot**|CLI|<https://gitlab.com/mojo42/retoot>|[@Mojo@apoil.org](https://apoil.org/users/mojo)|
 |**[Mastodon Twitter Poster](https://mastodon-twitter-poster.herokuapp.com)**|Service|<https://github.com/renatolond/mastodon-twitter-poster>|[@renatolond@masto.donte.com.br](https://masto.donte.com.br/@renatolond)|
 |**RSSTootalizer**|Web browser|<https://github.com/blind-coder/rsstootalizer>|[@blindcoder@toot.berlin](https://toot.berlin/users/blindcoder)|
 |**t2m – Twitter 2 Mastodon**|CLI|<https://github.com/Psycojoker/t2m>|Psycojoker|
