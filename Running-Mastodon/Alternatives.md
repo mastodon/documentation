@@ -223,8 +223,17 @@ Setting up Mastodon behind Apache is possible as well, although you will need to
    ProxyPassMatch ^(/.*\.(png|ico)$) !
    ProxyPassMatch ^/(assets|avatars|emoji|headers|packs|sounds|system|.well-known/acme-challenge) !
    
-   ProxyPass /api/v1/streaming/ ws://localhost:4000/
-   ProxyPassReverse /api/v1/streaming/ ws://localhost:4000/
+   RewriteEngine on
+
+   # Allows use of both ws and http for the streaming API
+   RewriteCond %{HTTP:Connection} Upgrade [NC]
+   RewriteCond %{HTTP:Upgrade} websocket [NC]
+   RewriteRule /api/v1/streaming/(.*) ws://127.0.0.1:4000/api/v1/streaming/$1 [QSA,P]
+
+   # This directive isn't used if the RewriteRule one was matched
+   ProxyPass /api/v1/streaming/ http://127.0.0.1:4000/api/v1/streaming/
+   ProxyPassReverse /api/v1/streaming/ http://127.0.0.1:4000/api/v1/streaming/
+
    ProxyPass / http://localhost:3000/
    ProxyPassReverse / http://localhost:3000/
 
