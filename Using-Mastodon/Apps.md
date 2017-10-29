@@ -102,7 +102,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |**[Autopost to Mastodon](https://wordpress.org/plugins/autopost-to-mastodon/)**|Wordpress plugin|<https://github.com/L1am0/mastodon_wordpress_autopost>|[L1am0](http://l1am0.eu/)|
 |**[MastodonToTwitter](https://github.com/halcy/MastodonToTwitter/blob/master/README.md)**|CLI|<https://github.com/halcy/MastodonToTwitter>|[@halcy@mastodon.social](https://mastodon.social/@halcy)|
 |**[Retoot](https://gitlab.com/mojo42/retoot/blob/master/README.md)**|CLI|<https://gitlab.com/mojo42/retoot>|[@Mojo@apoil.org](https://apoil.org/users/mojo)|
-|**[Mastodon Twitter Poster](https://mastodon-twitter-poster.herokuapp.com)**|Service|<https://github.com/renatolond/mastodon-twitter-poster>|[@renatolond@masto.donte.com.br](https://masto.donte.com.br/@renatolond)|
+|**[Mastodon Twitter Poster](https://crossposter.masto.donte.com.br)**|Service|<https://github.com/renatolond/mastodon-twitter-poster>|[@renatolond@masto.donte.com.br](https://masto.donte.com.br/@renatolond)|
 |**[RSSTootalizer](https://github.com/blind-coder/rsstootalizer/blob/master/README.md)**|Web browser|<https://github.com/blind-coder/rsstootalizer>|[@blindcoder@toot.berlin](https://toot.berlin/users/blindcoder)|
 |**[t2m – Twitter 2 Mastodon](https://github.com/Psycojoker/t2m/blob/master/README.md)**|CLI|<https://github.com/Psycojoker/t2m>|Psycojoker|
 |**[umrc](https://github.com/Ulrar/umrc/blob/master/README.md)**|IRC|<https://github.com/Ulrar/umrc>|[@lemonnierk@ulrar.net](https://mastodon.ulrar.net/users/lemonnierk)|
