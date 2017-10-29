@@ -10,24 +10,24 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 
 |App|Source code|Developer(s)|
 |---|-----------|------------|
-|**[11t](https://github.com/jeroensmeets/mastodon-app/blob/master/README.md)**<br />([Play](https://play.google.com/store/apps/details?id=com.jeroensmeets.mastodon))|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
+|**[11t](https://github.com/jeroensmeets/mastodon-app/blob/master/README.md)**<br />([Play Store](https://play.google.com/store/apps/details?id=com.jeroensmeets.mastodon))|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
 |**[AndStatus](http://andstatus.org/)**<br />([Play](https://play.google.com/store/apps/details?id=org.andstatus.app)/[F‑Droid](https://f-droid.org/repository/browse/?fdid=org.andstatus.app))|<https://github.com/andstatus/andstatus>|[@AndStatus@mastodon.social](https://mastodon.social/@AndStatus)|
 |**[Mastalab](https://github.com/stom79/mastalab/blob/master/README.md)**<br />([Play](https://play.google.com/store/apps/details?id=fr.gouv.etalab.mastodon)/[F‑Droid](https://f-droid.org/packages/fr.gouv.etalab.mastodon/))|<https://github.com/stom79/mastalab>|[@tschneider@mastodon.etalab.gouv.fr](https://mastodon.etalab.gouv.fr/@tschneider)|
-|**[Subway&nbsp;Tooter](https://github.com/tateisu/SubwayTooter/blob/master/README.md)**<br />([Play](https://play.google.com/store/apps/details?id=jp.juggler.subwaytooter))|<https://github.com/tateisu/SubwayTooter>|[@tateisu@mastodon.juggler.jp](https://mastodon.juggler.jp/@tateisu)|
+|**[Subway&nbsp;Tooter](https://github.com/tateisu/SubwayTooter/blob/master/README.md)**<br />([Play Store](https://play.google.com/store/apps/details?id=jp.juggler.subwaytooter))|<https://github.com/tateisu/SubwayTooter>|[@tateisu@mastodon.juggler.jp](https://mastodon.juggler.jp/@tateisu)|
 |**[Tusky](https://github.com/Vavassor/Tusky/blob/master/README.md)**<br />([Play](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky&hl=nl)/[F‑Droid](https://f-droid.org/repository/browse/?fdcategory=Internet&fdid=com.keylesspalace.tusky&fdpage=3&fdstyle=grid))|<https://github.com/Vavassor/Tusky>|[@ConnyDuck@mastodon.social](https://mastodon.social/users/ConnyDuck)|
 |**[Twidere](https://github.com/TwidereProject/Twidere-Android/blob/master/README.md)**<br />([Play](https://play.google.com/store/apps/details?id=org.mariotaku.twidere)/[F‑Droid](https://f-droid.org/packages/org.mariotaku.twidere/))|<https://github.com/TwidereProject/Twidere-Android>|[@mariotaku@pawoo.net](https://pawoo.net/@mariotaku)|
-|[Mastobone](https://github.com/deguchi/mastobone/blob/master/README.md)<br />([Play](https://play.google.com/store/apps/details?id=com.mastobone)) *(alpha)*|<https://github.com/deguchi/mastobone>|[@deguchi@bookn.me](https://bookn.me/@deguchi)|
+|[Mastobone](https://github.com/deguchi/mastobone/blob/master/README.md)<br />([Play Store](https://play.google.com/store/apps/details?id=com.mastobone)) *(alpha)*|<https://github.com/deguchi/mastobone>|[@deguchi@bookn.me](https://bookn.me/@deguchi)|
 |[MouseApp](https://github.com/cerisara/mousetodon/blob/master/README.md)<br />([F‑Droid](https://f-droid.org/packages/fr.xtof54.mousetodon/)) *(beta)*|<https://github.com/cerisara/mousetodon>|[@cerisara@mastodon.etalab.gouv.fr](https://mastodon.etalab.gouv.fr/@cerisara)
-|[TootyFruity](https://github.com/eggplantPrince/tootyFruity/blob/master/README.md)<br />([Play](https://play.google.com/store/apps/details?id=ch.kevinegli.tootyfruity221258)) *(beta)*|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
-|dndkodon<br />([Play](https://play.google.com/store/apps/details?id=jp.coe.dndkodon))|N/A|Tsuyoshi Hyuga|
-|Cosian<br />([Play](https://play.google.com/store/apps/details?id=com.yatsuhashi.crims0n))|N/A|083|
-|MastoPane<br />([Play](https://play.google.com/store/apps/details?id=com.mastopane))|N/A|Panecraft|
-|mastty<br />([Play](https://play.google.com/store/apps/details?id=com.sasaneko.mastodon))|N/A|White Cat Factory|
-|[Pawoo](https://pawoo.net/about)<br />([Play](https://play.google.com/store/apps/details?id=jp.pxv.pawoo))|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
-|Stegodon<br />([Play](https://play.google.com/store/apps/details?id=com.gilawhost.stegolophodon))|N/A|[@GilaW@mastodon.cloud](https://mastodon.cloud/@Gilaw)|
-|Tootaloo<br />([Play](https://play.google.com/store/apps/details?id=net.liverworks.tootalooa))|N/A|[liverworks.net](http://liverworks.net/)|
-|Tootdon<br />([Play](https://play.google.com/store/apps/details?id=club.tootdon.app))|N/A/|[@tootdon@mstdn.jp](https://mstdn.jp/@tootdon)|
-|Troutoss<br />([Play](https://play.google.com/store/apps/details?id=jp.gr.java_conf.miwax.troutoss))|N/A|[@tomoya0x00@mstdn.jp](https://mstdn.jp/@tomoya0x00)|
+|[TootyFruity](https://github.com/eggplantPrince/tootyFruity/blob/master/README.md)<br />([Play Store](https://play.google.com/store/apps/details?id=ch.kevinegli.tootyfruity221258)) *(beta)*|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
+|dndkodon<br />([Play Store](https://play.google.com/store/apps/details?id=jp.coe.dndkodon))|N/A|Tsuyoshi Hyuga|
+|Cosian<br />([Play Store](https://play.google.com/store/apps/details?id=com.yatsuhashi.crims0n))|N/A|083|
+|MastoPane<br />([Play Store](https://play.google.com/store/apps/details?id=com.mastopane))|N/A|Panecraft|
+|mastty<br />([Play Store](https://play.google.com/store/apps/details?id=com.sasaneko.mastodon))|N/A|White Cat Factory|
+|[Pawoo](https://pawoo.net/about)<br />([Play Store](https://play.google.com/store/apps/details?id=jp.pxv.pawoo))|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
+|Stegodon<br />([Play Store](https://play.google.com/store/apps/details?id=com.gilawhost.stegolophodon))|N/A|[@GilaW@mastodon.cloud](https://mastodon.cloud/@Gilaw)|
+|Tootaloo<br />([Play Store](https://play.google.com/store/apps/details?id=net.liverworks.tootalooa))|N/A|[liverworks.net](http://liverworks.net/)|
+|Tootdon<br />([Play Store](https://play.google.com/store/apps/details?id=club.tootdon.app))|N/A/|[@tootdon@mstdn.jp](https://mstdn.jp/@tootdon)|
+|Troutoss<br />([Play Store](https://play.google.com/store/apps/details?id=jp.gr.java_conf.miwax.troutoss))|N/A|[@tomoya0x00@mstdn.jp](https://mstdn.jp/@tomoya0x00)|
 
 ### iOS
 
