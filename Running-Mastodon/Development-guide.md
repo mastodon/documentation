@@ -53,6 +53,10 @@ You can check localization status with:
 
     i18n-tasks health
 
+And update localization files after adding new strings with:
+
+    yarn manage:translations
+
 You can check code quality with:
 
     rubocop
