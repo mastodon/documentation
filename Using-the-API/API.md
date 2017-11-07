@@ -386,6 +386,7 @@ Query parameters:
 | `max_id`          | Get a list of notifications with ID less than this value            | yes        |
 | `since_id`        | Get a list of notifications with ID greater than this value         | yes        |
 | `limit`           | Maximum number of notifications to get (Default 15, Max 30)         | yes        |
+| `exclude_types`   | Array of notifications to exclude (Allowed values: "follow", "favourite", "reblog", "mention")          | yes        |
 
 > **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. However, it is possible to use the `id` of the returned objects to construct your own URLs.
 
