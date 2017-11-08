@@ -136,6 +136,7 @@ Query parameters:
 | Field             | Description                                                  | Optional   |
 | ----------------- | -----------------------------------------------------------  | ---------- |
 | `only_media`      | Only return statuses that have media attachments             | yes        |
+| `pinned`          | Only return statuses that have been pinned                   | yes        |
 | `exclude_replies` | Skip statuses that reply to other statuses                   | yes        |
 | `max_id`          | Get a list of statuses with ID less than this value          | yes        |
 | `since_id`        | Get a list of statuses with ID greater than this value       | yes        |
