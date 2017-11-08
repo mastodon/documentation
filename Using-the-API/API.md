@@ -539,6 +539,13 @@ Returns the target [Status](#status).
 
 Returns the target [Status](#status).
 
+#### Pinning/unpinning a status:
+
+    POST /api/v1/statuses/:id/pin
+    POST /api/v1/statuses/:id/unpin
+
+Returns the target [Status](#status).
+
 #### Muting/unmuting a conversation of a status
 
     POST /api/v1/statuses/:id/mute
