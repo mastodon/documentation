@@ -68,7 +68,7 @@ themes:
 
 ## Link to source code
 
-Mastodon is distributed under the terms of AGPL. The source code must be offered to its user. To easily achieve this on your instance, an initializer like below can be added, as a file like `config/initializer/source.rb`, to customize the links at the bottom of the `/about` and `/about/more` pages:
+Mastodon is distributed under the terms of AGPL. The source code must be offered to its user. To easily achieve this on your instance, an initializer like below can be added, as a file like `config/initializers/source.rb`, to customize the links at the bottom of the `/about` and `/about/more` pages:
 
 ```ruby
 # frozen_string_literal: true
