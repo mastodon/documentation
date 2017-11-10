@@ -95,6 +95,8 @@ Form data:
 | `avatar`       | An avatar for the user                    | yes        |
 | `header`       | A header image for the user               | yes        |
 
+Returns the authenticated user's [Account](#account).
+
 #### Getting an account's followers:
 
     GET /api/v1/accounts/:id/followers
