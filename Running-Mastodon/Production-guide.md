@@ -526,6 +526,29 @@ Check that they are properly running:
 systemctl status mastodon-*.service
 ```
 
+## Email Service
+
+If you plan on receiving email notifications or running more than just a single-user instance, you likely will want to get set up with an email provider.
+
+There are several free email providers out there- a couple of decent ones are Mailgun.com, which requires a credit card but gives 10,000 free emails, and Sparkpost.com, which gives 15,000 with no credit card but requires you not be on a .space tld.
+
+It may be easier to use a subdomain to setup your email with a custom provider - in this case, when registering your domain with the email service, sign up as something like "mail.domain.com"
+
+Once you create your account, follow the instructions each provider gives you for updating your DNS records.  Once you have all the information ready to go and the service validates your DNS configuration, edit your config file.  These records should already exist in the configuration, but here's a sample setup that uses Mailgun that you can replace with your own personal info:
+
+SMTP_SERVER=smtp.mailgun.org
+SMTP_PORT=587
+SMTP_LOGIN=anAccountThatIsntPostmaster@mstdn.domain.com
+SMTP_PASSWORD=HolySnacksAPassword
+SMTP_FROM_ADDRESS=Domain.com Mastodon Admin <notifications@domain.com>
+
+Finally, to test this, spin up a Rails console (see [the administration guide](https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Administration-guide.md)) and run the following commands to test this out:
+
+```
+m = UserMailer.new.mail to:'email@address.com', subject: 'test', body: 'awoo'
+m.deliver
+```
+
 That is all! If everything was done correctly, a [Mastodon](https://github.com/tootsuite/mastodon/) instance will appear when you visit `https://example.com` in a web browser.
 
 Congratulations and welcome to the fediverse!
