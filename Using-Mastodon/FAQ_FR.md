@@ -35,51 +35,51 @@ appelons ce réseau le «fediverse». Le fediverse existait déjà avant Mastodo
 Bien que Mastodon soit compatible avec GNU social en termes de communication de serveur à serveur, l'API de client à serveur (autrement dit, la façon dont on accède à Mastodon) est différente. C'est pourquoi les applications qui ont été faites spécifiquement pour GNU social ne fonctionnent pas pour Mastodon. La raison est à la fois technique et idéologique.
 
 Comme Mastodon a été créé à partir de zéro, il est beacoup plus simple que l'API reflète la structure interne le plus fidèlement possible, plutôt que de construire une couche d'émulation. De plus, ll'API client de GNU social est en fait une implémentation partielle d'une version obsolète de l'API de Twitter. C'est pourquoi GNU social peut fonctionner avec certaines versions (anciennes) d'applications pour Twitter. Cependant, beaucoup de ces applications ne sont plus maintenues, l'API de GNU social ne suit pas forcément les évolutions de l'API de Twitter et n'a jamais implémenté la totalité de ses fonctionnalités. 
-                   Secondly, the GNU social client API is actually a half-way implementation of the legacy Twitter API - that's the reason why it works with some older Twitter client apps. However, many of those apps are not maintained anymore, the GNU social API does not actually keep up with the real Twitter API and never fully implemented all its features; at the same time, the Twitter API was never meant for a federated service and so obscures some of the functionality.
 
-#### How is Mastodon funded?
+#### Comment est financé Mastodon?
 
-Development of Mastodon and hosting of mastodon.social is funded through my [Patreon (also BTC/PayPal donations)](https://www.patreon.com/user?u=619786). Beyond that, I am not interested in VC funding, monetizing, advertising, or anything of that sort. I could offer setup/maintenance services on demand.
+Le développement de Mastodon et l'hébergement de mastodon.social sont financés grâce à mon [Patreon (ainsi que des dons BTC/PayPal)](https://www.patreon.com/user?u=619786). En dehors de ce financement, je ne suis pas intéressé par des financements capital risque, la monétisation, la publicité ou toute autre chose de la sorte. Je peux éventuellement proposer des services d'aide à la mise en place ou la maintenance selon la demande.
 
-The software is free and open source and communities should host their own servers if they can, that way the costs are more or less distributed. Obviously it'd be hard for me to pay the bills if literally everyone decided to use the mastodon.social instance only.
+Le logiciel est gratuit et open source, et les communautés doivent héberger elles-même leurs serveurs si elles le peuvent, de manière à ce que les coûts soient également plus ou moins distribués. Il serait évidemment trop diffile pour moi de payer les factures si tout le monde décidait d'utiliser uniquement ml'instance mastodon.social.
 
-#### This looks a lot like Twitter, what’s the difference?
-Mastodon is decentralized. Anyone can run a Mastodon server, under their own community rules. Twitter is run by a central authority, and sets the rules for everyone.
+#### Mastodon ressemble beaucoup à Twitter. Quelles sont les différences ?
+Mastodon est décentralisé. Chacun peut proposer son propre serveur Mastodon, avecses propres règles de communauté. Twitter est un service fourni par une seule autorité centrale, et fixe les règles pour tout le monde.
 
-#### What is a “federation”?
-It’s a group of mastodon servers that share toots with each other.
+#### Qu'est-ce qu'une ""fédération""?
+C'est un groupe de serveurs Mastodon qui partagent des pouets (toots) entre eux.
 
-#### What is an “instance”?
-It’s a server that you can have an account on. Each has its own policies, because they can be run by anyone!
+### Qu'est-ce qu'une ""instance""?
+C'est un serveur sur lequel il est possible d'avoir un compte. Chaque instance a ses propres règles, parce qu'elles peuvent être gérées par n'importe qui!
 
-#### How should I choose which instance to use?
-[Many instances exist](https://instances.mastodon.xyz/list) for almost every interest. It's okay to try a couple of public ones while looking for one that feels right. Talking about your interests on a public instance like [Mastodon.Social](https://mastodon.social) may help you get invited to other instances.
+#### Comment choisi-t-on quelle instance utiliser?
+[Il existe beaucoup d'instances](https://instances.mastodon.xyz/list) pour à peu près tous les goûts. Il est courant d'essayer quelques instances publiques lorsqu'on est à la recherche de celle qui semble convenir le mieux. Parler de ses centres d'intérêt sur une instance publique comme [Mastodon.Social](https://mastodon.social) peut aider à se faire inviter sur d'autres instances.
 
-To preview what an instance is saying, use [this preview tool](http://www.unmung.com/mastoview?url=mastodon.social&view=local) created by [Kevin Marks](https://mastodon.social/@kevinmarks).
+Pour avoir un aperçu de ce que les utilisateurs d'une instance disent, on peut utiliser [cet outil d'aperçu](http://www.unmung.com/mastoview?url=mastodon.social&view=local) créé par [Kevin Marks](https://mastodon.social/@kevinmarks).
 
-#### How many people signed up for Mastodon? Can I see a chart of user counts over time?
-Sure, you can follow [@mastodonusercount@social.lou.lt](https://social.lou.lt/@mastodonusercount).
+#### Combien de personnes sont sur Mastodon ? Il y a-t-il un historique du nombre d'utilisateur que je peux consulter ?
+Bien sûr ! Il suffit de suivre [@mastodonusercount@social.lou.lt](https://social.lou.lt/@mastodonusercount).
 
-#### How do you really spell “mast–don”?
-It’s **mastodon** with two Os. You will get it wrong at least once.
+#### Comment on prononce vraiment ""mast–don""?
+C'est **mastodon** avec deux ""O"". Tout le monde se trompe au moins une fois.
 
-#### How do I get this on Android?
-Try [Tusky](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky).
+#### Comment puis-je utiliser Mastodon sur Android?
+Essaye [Tusky](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky).
 
-#### On Android, I really want multiple account support.
-Try [TootyFruity](https://play.google.com/store/apps/details?id=ch.kevinegli.tootyfruity221258).
+#### Sur Android, j'aimerais pouvoir me connecter à plusieurs comptes à la fois.
+Essaye [TootyFruity](https://play.google.com/store/apps/details?id=ch.kevinegli.tootyfruity221258).
 
-#### How do I get this on iPhone?
-Try [Amaroq](https://itunes.apple.com/us/app/amaroq-for-mastodon/id1214116200). Also, Safari might be a choice.
+#### Comment puis-je utiliser Mastodon sur iPhone?
+Essaye [Amaroq](https://itunes.apple.com/us/app/amaroq-for-mastodon/id1214116200). Tu peux aussi utiliser Safari directement.
 
-#### Are there other mobile/desktop/cli apps?
-[Yep.](Apps.md)
+#### Est-ce qu'il y a d'autres applications mobile/de bureau/en ligne de commande?
+[Oui.](Apps.md)
 
-#### Can Tusky do ‘💇’? How about feature “🔥”? And what’s with Tusky’s “⛱”?
-You can follow or contact Tusky at [@Tusky@mastodon.social](https://mastodon.social/@Tusky), or the developers [@Vavassor@mastodon.social](https://mastodon.social/@Vavassor) and [@daycode@mastodon.social](https://mastodon.social/@daycode)
+#### Est-ce que ça serait possible que Tusky fasse ‘💇’? Et la fonctionnalité “🔥”? Quid de “⛱” sur Tusky?
+Il est possible de contacter Tusky sur [@Tusky@mastodon.social](https://mastodon.social/@Tusky), ou les développeurs [@Vavassor@mastodon.social](https://mastodon.social/@Vavassor) et [@daycode@mastodon.social](https://mastodon.social/@daycode)
 
-#### How do I search?
-You can search for people and hashtags, but not general text. Use the box above the tooting area.
+#### Comment puis-je rechercher quelque chose?
+Il est possible de rechercher des personnes ou des mots-dièse (hashtags), mais pas du texte. Utilise le champ au-dessus de la zone de pouet.
+>>>>>>> db0a35802a5aa470ee296d60b69d40a85b2c9fc0
 
 <img src="screenshots/search.png" alt="Search Box" height="200"/>
 
