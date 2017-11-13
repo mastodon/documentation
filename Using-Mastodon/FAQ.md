@@ -6,6 +6,7 @@ Translations of this FAQ:
 * [Español](FAQ_ESP.md)
 * [日本語](FAQ_JA.md)
 * [Polish](FAQ_PL.md)
+* [Français](FAQ_FR.md)
 
 #### What is a Mastodon?
 
