@@ -533,7 +533,9 @@ Returns an empty object.
     POST /api/v1/statuses/:id/reblog
     POST /api/v1/statuses/:id/unreblog
 
-Returns the target [Status](#status).
+Reblog: Returns the reblog [Status](#status).
+
+Unreblog: Returns the target [Status](#status).
 
 #### Favouriting/unfavouriting a status:
 
