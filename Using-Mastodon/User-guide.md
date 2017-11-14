@@ -36,6 +36,8 @@ Mastodon is a social network application based on the OStatus protocol. It behav
 
 #### Decentralization and Federation
 
+<img src="mastofed.png" align="right" width="48%" alt="Simple illustration about decentralization and federation" />
+
 Mastodon is a system decentralized through a concept called "*federation*" - rather than depending on a single person or organization to run its infrastructure, anyone can download and run the software and run their own server. Federation means different Mastodon servers can interact with each other seamlessly, similar to e.g. e-mail.
 
 As such, anyone can download Mastodon and e.g. run it for a small community of people, but any user registered on that instance can follow, send, and read posts from other Mastodon instances (as well as servers running other OStatus-compatible services, such as GNU Social and postActiv). This means that not only is users' data not inherently owned by a company with an interest in selling it to advertisers, but also that if any given server shuts down its users can set up a new one or migrate to another instance, rather than the entire service being lost.
