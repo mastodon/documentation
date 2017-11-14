@@ -526,6 +526,26 @@ Check that they are properly running:
 systemctl status mastodon-*.service
 ```
 
+## Remote media attachment cache cleanup
+
+Mastodon downloads media attachments from other instances and caches it locally for viewing. This cache can grow quite large if
+not cleaned up periodically and can cause issues such as low disk space or a bloated S3 bucket.
+
+The recommended method to clean up the remote media cache is a cron job that runs daily like so (put this in the mastodon system user's crontab with `crontab -e`.)
+
+```sh
+RAILS_ENV=production
+@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:media:remove_remote
+```
+
+That rake task removes cached remote media attachments that are older than NUM_DAYS, NUM_DAYS defaults to 7 days (1 week) if not specified. NUM_DAYS is another environment variable so you can specify it like so:
+
+```sh
+RAILS_ENV=production
+NUM_DAYS=14
+@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:media:remove_remote
+```
+
 ## Email Service
 
 If you plan on receiving email notifications or running more than just a single-user instance, you likely will want to get set up with an email provider.
