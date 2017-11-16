@@ -95,4 +95,4 @@ after you first deploy to set up the first database.
 
 To make yourself an admin, you may need to use the `heroku` CLI application after creating an account online:
 
-  `heroku rake mastodon:make_admin USERNAME=yourUsername`
+  `heroku run rake mastodon:make_admin USERNAME=yourUsername`
