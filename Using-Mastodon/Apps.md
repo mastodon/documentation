@@ -41,6 +41,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |[Pawoo](https://pawoo.net/about)<br />([iTunes](https://itunes.apple.com/us/app/pawoo/id1229070679))|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
 |friends.nico<br />([iTunes](https://itunes.apple.com/us/app/friends-nico/id1230158182))|N/A|[@friends_nico@friends.nico](https://friends.nico/@friends_nico)|
 |Tootter<br />([iTunes](https://itunes.apple.com/us/app/id1229555793))|N/A|[@Tootter_for_Mastodon@mstdn.jp](https://mstdn.jp/@Tootter_for_Mastodon)|
+|Tootdon<br />([iTunes](https://itunes.apple.com/us/app/tootdon-for-mastodon/id1282283934))|N/A/|[@tootdon@mstdn.jp](https://mstdn.jp/@tootdon)|
 
 ## Alternative web apps
 |App|Source code|Developer(s)|
