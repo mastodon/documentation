@@ -84,7 +84,7 @@ Now you need to install [Yarn](https://yarnpkg.com/en/) plus some more software.
 - libprotobuf-dev and protobuf-compiler - Mastodon uses these for language detection
 - nginx - nginx is our frontend web server
 - redis-* - Mastodon uses redis for its in-memory data structure store
-- postgresql-* - Mastodon uses PostgreSQL as it's SQL database
+- postgresql-* - Mastodon uses PostgreSQL as its SQL database
 - nodejs - Node is used for Mastodon's streaming API
 - yarn - Yarn is a Node.js package manager
 - Other -dev packages, g++ - these are needed for the compilation of Ruby using ruby-build.
