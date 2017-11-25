@@ -89,6 +89,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 
 |App|Browser|Source code|Developer(s)|
 |---|--------|----|------------|
+|**[BirdSite](https://gitlab.com/pmorinerie/birdsite/blob/master/README.md)**|[Chrome(ium)](https://chrome.google.com/webstore/detail/birdsite/lfmfhaopllgidldpmifdcjdckdggdjaj)/[Firefox](https://addons.mozilla.org/fr/firefox/addon/birdsite/)|<https://gitlab.com/pmorinerie/birdsite/>|[@pmorinerie@mastodon.xyz](https://mastodon.xyz/users/pmorinerie)|
 |**[Fastoot](https://github.com/noraworld/fastoot/blob/master/README.md)**|[Chrome(ium)](https://chrome.google.com/webstore/detail/fastoot/hnmnnhfeigiogjagmmpnhelpnhnchaoj)|<https://github.com/noraworld/fastoot>|[@noraworld@mastodon.noraworld.jp](https://mastodon.noraworld.jp/users/noraworld)|
 |**[Mastodon Lang Remover](https://github.com/arthurlacoste/mastodon-lang-remover/blob/master/README.md)**|[Chrome(ium)/Firefox](https://github.com/arthurlacoste/mastodon-lang-remover#install)|<https://github.com/arthurlacoste/mastodon-lang-remover>|[@arthak@mastodon.social](https://mastodon.social/users/arthak)|
 |**[Mastodon Share](https://github.com/kernox/Mastodon-Share/blob/master/README.md)**|[Firefox](https://addons.mozilla.org/nl/firefox/addon/mastodon-share/)|<https://github.com/kernox/Mastoshare>|[@Hellexis@framapiaf.org](https://framapiaf.org/@Hellexis)
