@@ -80,7 +80,7 @@ The bundle configuration as of Mastodon 2.0's Gemfile:
 
 ```sh
 bundle config build.nokogiri --use-system-libraries --with-xml2-include=/usr/local/include/libxml2/ --with-opt-include=/usr/local/include --with-xslt-include=/usr/local/include/libxslt --with-exslt-include=/usr/local/include/libexslt --with-xml2-lib=/usr/local/lib
-bundle config build.charlock_holms --with-icu-dir=-I/usr/local --with-opt-dir=/usr/local
+bundle config build.charlock_holmes --with-icu-dir=/usr/local --with-opt-dir=/usr/local
 bundle config build.idn-ruby --with-idn-dir=/usr/local
 ```
 
