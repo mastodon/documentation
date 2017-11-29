@@ -505,6 +505,15 @@ Returns an array of [Accounts](#account).
 
 Does not require authentication.
 
+
+#### Fetching custom emoji for an instance:
+
+    GET /api/v1/custom_emojis
+
+Returns a list of [Emoji](#emoji)
+
+Does not require authentication.
+
 #### Posting a new status:
 
     POST /api/v1/statuses
