@@ -130,7 +130,8 @@ They’re tasty, and they make people smile. Just go with it.
 Try saying it out loud. It’s fun!
 
 #### How do I delete my account?
-At the moment, you will have to toot the admin of your instance for help on that one.
+Click the Settings cog in the top left corner of the app, and select Security.
+From there, select "delete account"
 
 <a name="who-is-my-admin-and-how-do-i-contact-follow-them"></a>
 #### Who is my admin, and how do I contact/follow them?
