@@ -114,32 +114,32 @@ Pour savoir les tendances sur Mastodon, suis le bot d'estimations [@TrendingBot@
 #### Qu'est-ce que «CW»?
 «CW» signifie «Alerte sur le contenu» («Content Warning» en anglais). Il est utilisé pour cacher le contenu d'un pouet, comme les «spoilers».
 
-#### How does the “Mark Image as Sensitive” feature work (“NSFW”)?
-When you add a picture to your post using the camera icon, an additional toggle will appear [typically as "NSFW"]. Clicking this will hide your image behind a "Sensitive Content" warning, preventing others from seeing your images until they click on them.
+#### Comment fonctionne l'option «Marquer le média comme sensible» («NSFW» - Not Safe For Work)?
+Quand tu joint une image à ton post en utilisant l'icône «appareil photo», une option supplémentaire apparaît (en général «NSFW»). Cliquer dessus va cacher l'image derrière une alerte «Contenu Sensible», permettant aux autres de ne voir l'image postée que s'iels le souhaitent, en cliquant dessus.
 
-#### What’s with the pineapples?
-They’re tasty, and they make people smile. Just go with it.
+#### Qu'est-ce qui se passe sur Mastodon avec les ananas?
+L'ananas, c'est bon. Et ça fait rire les gens. Contente-toi de ça.
 
-#### I see “Awoo” a lot, what does that mean?
-Try saying it out loud. It’s fun!
+### Je vois souvent «Awoo», qu'est-ce que ça veut dire?
+Essaye de le dire à haute voix («Awou»). C'est rigolo!
 
-#### How do I delete my account?
-At the moment, you will have to toot the admin of your instance for help on that one.
+#### Comment puis-je supprimer mon compte?
+Pour l'instant, il faut demander de l'aide à l'admin de ton instance.
 
 <a name="qui-est-l-admin-de-mon-instance-et-comment-la-le-contacter-suivre"></a>
-#### Who is my admin, and how do I contact/follow them?
-Click on **Getting Started**, then **Extended Information**. An info page displays. Hopefully, they put their contact information in there!
+#### Qui est l'admin de mon instance et comment la·le contacter/suivre?
+Clique sur **Pour Commencer**, puis **Plus d'informations**. Cela affiche une page d'information. Normalement, les informations de contact de l'admin sont ici!
 
-<img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" height="200"/>
-<img src="screenshots/getting_started-extended_information.png" alt="Extended Information" height="200"/>
-<img src="screenshots/admin_info.png" alt="Admin Info" height="200"/>
+<img src="screenshots/toolbar-getting_started.png" alt="Bouton Pour Commencer" height="200"/>
+<img src="screenshots/getting_started-extended_information.png" alt="Plus d'informations" height="200"/>
+<img src="screenshots/admin_info.png" alt="Informations sur l'admin" height="200"/>
 
-#### Wow, I keep seeing offensive stuff from a particular instance, is there a way to block *all* of it?
-If your instance is running version 1.4.1 of Mastodon or later, yes! Visit the user page of a user on the instance you want to block, then click the drop-down menu on the left-hand side, just above their toots. You should see an option to hide everything from the instance that user is on:
+#### Oulah, je vois sonvent du contenu offensant qui provient d'une même instance, est-ce qu'il y a un moyen de bloquer *tous* ces contenus?
+Si ton instance est en version 1.4.1 de Mastodon ou plus récente, oui! Visite la page d'un utilisateur de l'instance que tu veux bloquer, puis clique sur le menu déroulant sur la gauche luste au dessus de ses pouets. Il devrait y avoir une option pour cacher tout le contenu provenant de l'instance de cet utilisateur:
 
-<img src="screenshots/hide-everything-drop-down.png" alt="Hide Everything drop-down" height="200" />
+<img src="screenshots/hide-everything-drop-down.png" alt="Menu déroulant Cacher Tout" height="200" />
 
-If your instance is running a version of Mastodon prior to 1.4.1, you can't do this without a lot of clicking, sorry. But, your instance admin can do it! Please contact them.
+Si ton instance est dans une version de Mastodon antérieure à 1.4.1, tu ne peux pas faire ça autrement qu'un utilisateur à la fois. Cependant, ton admin peut. Contacte-la·le.
 
 (You can tell what version of Mastodon your instance is running by following the steps in "[Who is my admin, and how do I contact/follow them?](#who-is-my-admin-and-how-do-i-contact-follow-them)". The version number is listed in the right-hand column of that extended information page.)
 
