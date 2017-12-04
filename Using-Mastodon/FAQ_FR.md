@@ -135,76 +135,76 @@ Clique sur **Pour Commencer**, puis **Plus d'informations**. Cela affiche une pa
 <img src="screenshots/admin_info.png" alt="Informations sur l'admin" height="200"/>
 
 #### Oulah, je vois sonvent du contenu offensant qui provient d'une même instance, est-ce qu'il y a un moyen de bloquer *tous* ces contenus?
-Si ton instance est en version 1.4.1 de Mastodon ou plus récente, oui! Visite la page d'un utilisateur de l'instance que tu veux bloquer, puis clique sur le menu déroulant sur la gauche luste au dessus de ses pouets. Il devrait y avoir une option pour cacher tout le contenu provenant de l'instance de cet utilisateur:
+Si ton instance est en version 1.4.1 de Mastodon ou plus récente, oui! Visite la page d'un·e utilisateur·rice de l'instance que tu veux bloquer, puis clique sur le menu déroulant sur la gauche juste au-dessus de ses pouets. Il devrait y avoir une option pour cacher tout le contenu provenant de l'instance de cet utilisateur:
 
 <img src="screenshots/hide-everything-drop-down.png" alt="Menu déroulant Cacher Tout" height="200" />
 
 Si ton instance est dans une version de Mastodon antérieure à 1.4.1, tu ne peux pas faire ça autrement qu'un utilisateur à la fois. Cependant, ton admin peut. Contacte-la·le.
 
-(You can tell what version of Mastodon your instance is running by following the steps in "[Who is my admin, and how do I contact/follow them?](#who-is-my-admin-and-how-do-i-contact-follow-them)". The version number is listed in the right-hand column of that extended information page.)
+(Pour connaître la version de Mastodon de ton instance, suis les différentes étapes de «[Qui est l'admin de mon instance et comment la·le contacter/suivre?](#qui-est-l-admin-de-mon-instance-et-comment-la-le-contacter-suivre)». Le numéro de version se trouve dans la colonne de droite de la page d'informations.)
 
-#### Is Mastodon moderated?
-Each instance handles moderation differently, and each has their own moderators. It’s okay to ask what the rules are for the instance you are on. Usually the rules are posted on the instance's about page ([like the “more” page at Mastodon.social](https://mastodon.social/about/more))
+#### Est-ce que Mastodon est modéré?
+Chaque instance gère sa modération différemment, et chaque instance a ses propres modérateur·rice·s. C'est une bonne chose de demander quelles sont les règles concernante ton instance. La plupart du temps, les règles concernants une instance se trouvent sur la page à «propos» ([comme la page «plus» sur Mastodon.social](https://mastodon.social/about/more))
 
-#### How do I report offensive content?
-Beneath each post, you will see three dots. Clicking on those will allow you to expand a post or report the content. When reporting content, select all posts that need moderator attention.
+#### Comment puis-je signaler du contenu offensant?
+Sous chaque post, il y a des points de suspension. En cliquant dessus, tu peux soit étendre le poste, soit signaler son contenu. Lors d'un signalement, pense à bien sélectioner tous les posts qui nécéssitent l'attention de ton admin.
 
-#### How do I handle harassment?
-If your admin takes harassment seriously, you can report it to them through the post-reporting system. This can be found through the ellipsis (“…”) beneath the post, or by contacting your admin directly.
+#### Que faire en cas de harcèlement?
+Si ton admin prend le harcèlement au sérieu, tu peux le lui signaler via le système de signalement des posts: via les points de suspension («…») sous le post, ou en contactant ton admin directement.
 
-#### Will my Private Messages reach people on other instances?
-Yes, they should. However, private messages are *not secure*. You should avoid sending sensitive information through them.
+#### Est-ce que je peux écrire des messages privés à des personnes d'autres instances?
+Oui, normalement. Cependant, les messages privés ne sont *pas sécurisés*. Il est déconseillé d'envoyer des informations sensibles via des messages privés.
 
-#### What does “Adjust Status Privacy” mean and how does it work?
-The **globe** icon under the toot area adjusts your status privacy by changing who can see your posts. This is what happens:
+#### À quoi sert l'option «Ajuster la confidentialité du message» et comment est-ce que ça marche?
+L'icône de **globe** sous la zone de pouet permet d'ajuster la confidentialité du post en changeant qui peut voir le message:
 
-| Privacy setting | Broadcasted to | Viewable by | Notes |
-| --------------- | ----------- | ------ | ----- |
-| Public          | Global, public timelines | Everyone | Federated. People on other instances will probably see it. |
-| Unlisted        | Followers only | Everyone | Can be boosted and thus seen on other instances.  |
-| Private         | Followers only |  Followers only | Cannot be boosted. |
-| Direct          | Mentioned people only  | Mentioned people only | Similar to email |
+| Option de confidentialité | Diffusé à                       | Visible par                     | Notes |
+| ------------------------- | ------------------------------- | ------------------------------- | ----- |
+| Public                    | Les fils publics et globaux     | Tout le monde                   | Ces messages sont fédérés. Des personnes d'autres instances pourront certainement les voir. |
+| Non-listé                 | Abonnés seulement               | Tout le monde                   | Ces messages peuvent êtres boostés (partagés) et donc visibles sur d'autres instances.  |
+| Privé                     | Abonnés seulement               | Abonné seulement                | Ne peuvent pas être boostés. |
+| Direct                    | Personnes mentionnées seulement | Personnes mentionnées seulement | Similaires aux courriels |
 
-#### Can I use hashtags? Should I?
-Yes! Hashtags are tracked and are often fun, but some tags help people avoid triggering posts. This is especially appreciated on public posts of #POLITICS, #HEALTH, #DEPRESSION, or #LEWD OR #NSFW topics. Such posts are also what the Content Warning system was designed for.
+#### Puisje utiliser des hashtags (mot-dièse)? Est-ce conseillé?
+Oui! Les Hashtags sont traqués et sont souvent rigolos, mais aussi servent parfois à éviter à certaines personnes de tomber sur des posts offensants. Les Hashtags sont particulièrements appréciés pour les posts publics à propos de #POLITIQUE (#POLITICS), #SANTÉ (#HEALTH), #DÉPRESSION (#DEPRESSION), ou de sujets #LEWD ou #NSFW. De tels posts sont aussi ce pourquoi la fonctionnalité d'alerte concernant le contenu (Content Warning) a été créée.
 
-#### How do I get verified with a “✅”?
-“✅” is an emoji, *only* for lulz. There is no verification on Mastodon. You can copy and paste “✅” into your bio if you wish, you cheeky monkey.
+#### Comment puis-je être vérifié, avec un “✅”?
+“✅” est un emojy, *juste* pour rire. Il n'y a pas de vérification de compte sur Mastodon. Tu peuy copier/coller un “✅” dans ta descruption si tu le souhaites, petit effronté.
 
-#### Can I edit a toot?
-No, sorry. But you could delete your toot and rewrite…
+#### Puis-je modifier un pouet?
+Non, désolé. Mais tu peux toujours supprimer un pouet et le réécrire…
 
-#### If I delete a post, does it get deleted everywhere?
-Deleting a post will delete it from the local timeline. However, if it has already been boosted, it may still be seen and may federate.
+#### Si je supprime un post, est-il supprimé partout?
+Supprimer un post le supprime de la file locale. Cependant, s'il aa déjà été boosté, il se peut qu'il soit encore visible et peut se fédérer.
 
-#### How do I view my favorite toots?
-Click **Getting Started**, then **Favourites**. Yes—Mastodon uses UK spelling!
+#### Comment puis-je voir mes pouets favoris?
+Clique sur **Pour Commencer**, puis **Favoris**
 
-<img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" height="200"/>
-<img src="screenshots/getting_started-favourites.png" alt="Favourites" height="200"/>
+<img src="screenshots/toolbar-getting_started.png" alt="Bouton Pour Commencer" height="200"/>
+<img src="screenshots/getting_started-favourites.png" alt="Favoris" height="200"/>
 
-#### Can I quote a toot?
-Not currently. You must manually copy and paste the text to quote it.
+#### Puis-je citer un pouet?
+Pas pour le moment. Tu dois copier et coller manuellement le texte pour le citer.
 
-#### If my instance shuts down forever, do I lose my data?
-Yes you do.
+#### Si mon instance ferme définitivement, est-ce que je perds mes données?
+Oui.
 
-#### Can I save my data?
-Yes, some of it! It‘s under **Preferences->Data export**
+#### Puis-je faire une sauvegarde de mes données?
+Oui, en partie! C'est sous le menu **Préférences->Export des données**
 
-<img src="screenshots/preferences-data_export.png" alt="Data Export" height="400"/>
+<img src="screenshots/preferences-data_export.png" alt="Export des données" height="400"/>
 
-#### I can’t see toots of a remote user under their bio!
-In **Expanded View**, click their avatar. This will take you directly to their instance, which displays all their public toots.
+#### Je ne peux pas voir les pouets d'un·e utilisateur·rice distant·e sous leur description!
+Dans la **Vue Étendue** du profil, clique sur son avatar. Cela vate rediriger sur son instance, et afficher tous ses pouets publics.
 
-<img src="screenshots/profile-avatar_click.png" alt="Click their avatar" height="200"/>
-<img src="screenshots/profile-webpage_URL.png" alt="Native webpage view" height="200"/>
+<img src="screenshots/profile-avatar_click.png" alt="Cliquer sur l'avatar" height="200"/>
+<img src="screenshots/profile-webpage_URL.png" alt="Vue en page web native" height="200"/>
 
-#### How do I see threads?
-Click the toot body for **Expanded View**. This will show threads the toot’s connected to.
+#### Comment puis-je voir les conversations (threads)?
+Clique sur un pouet pour accéder à sa **Vue Étendue**. Cela va afficher les autres pouets qui lui sont reliés.
 
-#### How do I link to toots?
-There are two permalinks for toots. With inline toots, **right-click** the timestamp. On expanded toots, **right-click** the date on the bottom.
+#### Comment puis-créer un lien vers un pouet?
+Il y a deux permaliens possibles pour un pouet. With inline toots, **right-click** the timestamp. On expanded toots, **right-click** the date on the bottom.
 
 <img src="screenshots/inline_toot-timestamp_link.png" alt="Inline View Permalink" height="200"/>
 <img src="screenshots/expanded_view-permalink.png" alt="Expanded View Permalink" height="200"/>
