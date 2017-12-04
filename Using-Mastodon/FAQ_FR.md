@@ -34,21 +34,21 @@ appelons ce réseau le «fediverse». Le fediverse existait déjà avant Mastodo
 
 Bien que Mastodon soit compatible avec GNU social en termes de communication de serveur à serveur, l'API de client à serveur (autrement dit, la façon dont on accède à Mastodon) est différente. C'est pourquoi les applications qui ont été faites spécifiquement pour GNU social ne fonctionnent pas pour Mastodon. La raison est à la fois technique et idéologique.
 
-Comme Mastodon a été créé à partir de zéro, il est beacoup plus simple que l'API reflète la structure interne le plus fidèlement possible, plutôt que de construire une couche d'émulation. De plus, ll'API client de GNU social est en fait une implémentation partielle d'une version obsolète de l'API de Twitter. C'est pourquoi GNU social peut fonctionner avec certaines versions (anciennes) d'applications pour Twitter. Cependant, beaucoup de ces applications ne sont plus maintenues, l'API de GNU social ne suit pas forcément les évolutions de l'API de Twitter et n'a jamais implémenté la totalité de ses fonctionnalités. 
+Comme Mastodon a été créé à partir de zéro, il est beaucoup plus simple que l'API reflète la structure interne le plus fidèlement possible, plutôt que de construire une couche d'émulation. De plus, ll'API client de GNU social est en fait une implémentation partielle d'une version obsolète de l'API de Twitter. C'est pourquoi GNU social peut fonctionner avec certaines versions (anciennes) d'applications pour Twitter. Cependant, beaucoup de ces applications ne sont plus maintenues, l'API de GNU social ne suit pas forcément les évolutions de l'API de Twitter et n'a jamais implémenté la totalité de ses fonctionnalités. 
 
 #### Comment est financé Mastodon?
 
 Le développement de Mastodon et l'hébergement de mastodon.social sont financés grâce à mon [Patreon (ainsi que des dons BTC/PayPal)](https://www.patreon.com/user?u=619786). En dehors de ce financement, je ne suis pas intéressé par des financements capital risque, la monétisation, la publicité ou toute autre chose de la sorte. Je peux éventuellement proposer des services d'aide à la mise en place ou la maintenance selon la demande.
 
-Le logiciel est gratuit et open source, et les communautés doivent héberger elles-même leurs serveurs si elles le peuvent, de manière à ce que les coûts soient également plus ou moins distribués. Il serait évidemment trop diffile pour moi de payer les factures si tout le monde décidait d'utiliser uniquement ml'instance mastodon.social.
+Le logiciel est gratuit et open source, et les communautés doivent héberger elles-même leurs serveurs si elles le peuvent, de manière à ce que les coûts soient également plus ou moins distribués. Il serait évidemment trop diffile pour moi de payer les factures si tout le monde décidait d'utiliser uniquement l'instance mastodon.social.
 
 #### Mastodon ressemble beaucoup à Twitter. Quelles sont les différences ?
 Mastodon est décentralisé. Chacun peut proposer son propre serveur Mastodon, avecses propres règles de communauté. Twitter est un service fourni par une seule autorité centrale, et fixe les règles pour tout le monde.
 
-#### Qu'est-ce qu'une ""fédération""?
+#### Qu'est-ce qu'une «fédération»?
 C'est un groupe de serveurs Mastodon qui partagent des pouets (toots) entre eux.
 
-### Qu'est-ce qu'une ""instance""?
+### Qu'est-ce qu'une «instance»?
 C'est un serveur sur lequel il est possible d'avoir un compte. Chaque instance a ses propres règles, parce qu'elles peuvent être gérées par n'importe qui!
 
 #### Comment choisi-t-on quelle instance utiliser?
@@ -59,8 +59,8 @@ Pour avoir un aperçu de ce que les utilisateurs d'une instance disent, on peut 
 #### Combien de personnes sont sur Mastodon ? Il y a-t-il un historique du nombre d'utilisateur que je peux consulter ?
 Bien sûr ! Il suffit de suivre [@mastodonusercount@social.lou.lt](https://social.lou.lt/@mastodonusercount).
 
-#### Comment on prononce vraiment ""mast–don""?
-C'est **mastodon** avec deux ""O"". Tout le monde se trompe au moins une fois.
+#### Comment on prononce vraiment «mast–don»?
+C'est **mastodon** avec deux «O». Tout le monde se trompe au moins une fois.
 
 #### Comment puis-je utiliser Mastodon sur Android?
 Essaye [Tusky](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky).
@@ -75,45 +75,44 @@ Essaye [Amaroq](https://itunes.apple.com/us/app/amaroq-for-mastodon/id1214116200
 [Oui.](Apps.md)
 
 #### Est-ce que ça serait possible que Tusky fasse ‘💇’? Et la fonctionnalité “🔥”? Quid de “⛱” sur Tusky?
-Il est possible de contacter Tusky sur [@Tusky@mastodon.social](https://mastodon.social/@Tusky), ou les développeurs [@Vavassor@mastodon.social](https://mastodon.social/@Vavassor) et [@daycode@mastodon.social](https://mastodon.social/@daycode)
+Il est possible de contacter Tusky via [@Tusky@mastodon.social](https://mastodon.social/@Tusky), ou les développeurs [@Vavassor@mastodon.social](https://mastodon.social/@Vavassor) et [@daycode@mastodon.social](https://mastodon.social/@daycode)
 
 #### Comment puis-je rechercher quelque chose?
 Il est possible de rechercher des personnes ou des mots-dièse (hashtags), mais pas du texte. Utilise le champ au-dessus de la zone de pouet.
->>>>>>> db0a35802a5aa470ee296d60b69d40a85b2c9fc0
 
 <img src="screenshots/search.png" alt="Search Box" height="200"/>
 
-#### How do I DM (Direct Message)?"
-Click on the **globe** beneath your toot for privacy options, including DM.
+#### Comment envoyer un message directement à quelqu'un?"
+En cliquant sur la **planète** en dessous de ton pouet, tu peux accéder aux paramètres de confidentialité, y compris les messages directs.
 
 <img src="screenshots/compose-globe.png" alt="Privacy Globe" height="400"/>
 
-#### I don’t get the local vs. federated timeline thing.
-“Local” toots are from the server you signed up at. “Federated” are the all the toots your server knows about. (It's complicated, but short version is: “toots from people that you and other locals follow.”)
+#### Je ne comprends pas la différence entre la timeline locale et la timeline fédérée.
+Les pouets «locaux» sont ceux du serveur sur lequel tu as un compte. les pouets «fédérés» sont tous les pouets que ce serveur connaît. (C'est compliqué, mais pour résumer: «Les pouets des personnes que toi et les autres utilisateurs de ton instance suivez»)
 
-#### Are there instances that my instance doesn't federate with? How do I know?
-Some instances are private and will not federate with your instance. Others may be blocked by your instance. To find out more about how your instance federates, ask your admin. (see also: “[Who is my admin, and how do I contact/follow them?](#who-is-my-admin-and-how-do-i-contact-follow-them)”)
+#### Est-ce qu'il y a des instances avec lesquelles mon instance ne se fédère pas? Comment puis-je le savoir?
+Certaines instances sont privées et ne se fédèreront pas avec ton instance. D'autres peuvent être bloquées par ton instance. Pour en savoir sur comment ton instance se fédère avec les autres, contacte ton admin. (cf: «[Qui est l'admin de mon instance, et comment puis-je la·le contacter/suivre?](#qui-est-l-admin-de-mon-instance-et-comment-la-le-contacter-suivre)»)
 
-#### Can I have more than one account? Can I use the same email on different instances?
-Yes and yes! If you find another instance you would like to join, sign up! Note that not all instances are open to new registrations and it’s possible that someone has already taken your preferred username.
+#### Est-ce que je peux avoir plusieurs comptes? Puis-je utiliser la même adresse email sur différentes instances?
+Oui et oui! Si tu trouves une autre instance que tu voudrais rejoindre, rejoins-la! Sache cependant que certaines instances ne permettent pas de s'y inscrire, et qu'il est possible que quelqu'un y utilise déjà ton pseudonyme favori.
 
-#### Can I import the people I follow to another instance?
-Yes. This may take time depending on the instance you move to. Talk to the admin of your new instance if you have difficulties. If your new instance does not federate with the instances of the people you follow, you may lose them.
+#### Est-il possible d'importer les comptes que je suis avec mon compte d'une instance à une autre?
+Oui. Cette opération peut prendre du temps en fonction de l'instance vers laquelle tu vas. Contacte l'admin de ta nouvelle instance si tu rencontres des difficultés. Si ta nouvelle instance n'est pas fédérée avec l'ancienne, tu risques de perdre les comptes importés.
 
-#### How do I prevent people from impersonating me?
-Because anyone can create a username on any instance, it is impossible to prevent others from using the same username on another instance. Some people have taken to running their own single-user instance to verify themselves, or use [Keybase](https://keybase.io/).
+#### Comment puis-je empêcher les gens d'usurper mon identité?
+Comme tout le monde peut créer un compte sur n'importe quelle instance, il est impossible d'empêcher les  autres utilisateurs d'utiliser le même nom d'utilisateur que toi sur une autre instance. Pour s'identifier auprès des autres utilisateurs, certaines personnes maintiennent leur propre instance avec pour unique utilisateur leur compte, ou utilisent [Keybase](https://keybase.io/).
 
-#### How do I enable Two Factor Authentication?
-If your instance supports it, the option will be in Preferences under Two-factor Authentication. [Mastodon's 2FA](2FA.md) uses both a QR code and plain-text secrets.
+#### Comment activer l'identification à deux facteurs (2FA)?
+Si ton instance le permet, l'option se trouve dans Préférences, sour le menu «Identification à deux facteurs». [Le 2FA de Mastodon](2FA.md) utilise un QR code et un mot de passe texte.
 
-#### Why can't I see someone's toots?
-This could occur for several reasons. A person's posts may be private. You must be a follower of a private account to see their non-public posts. Additionally, if someone has blocked you, you will no longer see their non-public posts.
+#### Pourquoi ne puis-je pas voir les pouets de certaines personnes?
+Il y a plusieur raisons pour que cela se produise. Les posts de cette personne sont peut-être privés. Il faut suivre un compte pour voir ses pouets qui ne sont pas publics. Si quelqu'un t'a bloqué, il ne sera plus possible de voir ses posts non publics.
 
-#### What’s trending?
-To find out what’s trending, follow the esteemed [@TrendingBot@mastodon.social](https://mastodon.social/@TrendingBot).
+#### Quelles sont les tendances?
+Pour savoir les tendances sur Mastodon, suis le bot d'estimations [@TrendingBot@mastodon.social](https://mastodon.social/@TrendingBot).
 
-#### What’s “CW”?
-“CW” stands for “Content Warning.” You can use it to hide your toot, like a spoiler.
+#### Qu'est-ce que «CW»?
+«CW» signifie «Alerte sur le contenu» («Content Warning» en anglais). Il est utilisé pour cacher le contenu d'un pouet, comme les «spoilers».
 
 #### How does the “Mark Image as Sensitive” feature work (“NSFW”)?
 When you add a picture to your post using the camera icon, an additional toggle will appear [typically as "NSFW"]. Clicking this will hide your image behind a "Sensitive Content" warning, preventing others from seeing your images until they click on them.
@@ -127,7 +126,7 @@ Try saying it out loud. It’s fun!
 #### How do I delete my account?
 At the moment, you will have to toot the admin of your instance for help on that one.
 
-<a name="who-is-my-admin-and-how-do-i-contact-follow-them"></a>
+<a name="qui-est-l-admin-de-mon-instance-et-comment-la-le-contacter-suivre"></a>
 #### Who is my admin, and how do I contact/follow them?
 Click on **Getting Started**, then **Extended Information**. An info page displays. Hopefully, they put their contact information in there!
 
