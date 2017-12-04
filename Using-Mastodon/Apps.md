@@ -129,6 +129,6 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |**[Mastoshare](https://github.com/koyuawsmbrtn/mastoshare/blob/master/README.md)**|Web browser|<https://github.com/koyuawsmbrtn/mastoshare>|[@koyuawsmbrtn@mastodon.social](https://mastodon.social/@koyuawsmbrtn)|
 |**[wall](http://mastodon.tools/wall/)**|Web browser|<https://github.com/DavidLibeau/mastodon-tools/tree/master/wall>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 |[Scheduler](http://mastodon.tools/scheduler/) *(beta)*|Web browser|<https://github.com/DavidLibeau/mastodon-scheduler>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
-|[mastodon-backup](https://github.com/kensanata/mastodon-backup#mastodon-backup)|CLI|<https://github.com/kensanata/mastodon-backup#mastodon-backup>|[Alex Schroeder](https://alexschroeder.ch/wiki/Contact)|
+|[mastodon-archive](https://github.com/kensanata/mastodon-backup#mastodon-archive)|CLI|<https://github.com/kensanata/mastodon-backup#mastodon-archive>|[Alex Schroeder](https://alexschroeder.ch/wiki/Contact)|
 
 If you have a project like this, make a PR to add it to the list!
