@@ -181,7 +181,7 @@ CREATE USER mastodon CREATEDB;
 
 You need to configure [nginx](http://nginx.org) to serve your [Mastodon](https://github.com/tootsuite/mastodon/) instance.
 
-**Reminder: Replace all occurrences of example.com with your own instance's domain or sub-domain. And find a good security template to complete this sample file (You can get one here : https://mozilla.github.io/server-side-tls/ssl-config-generator/).**
+**Reminder: Replace all occurrences of example.com with your own instance's domain or sub-domain.**
 
 `cd` to `/etc/nginx/sites-available` and open a new file:
 
@@ -209,20 +209,13 @@ server {
   listen [::]:443 ssl http2;
   server_name example.com;
 
-  ####################
-  # SECURITY WARNING #
-  ####################
-  #
-  # Providing a state of the art TLS configuration
-  # is beyond the scope of this documentation.
-  #
-  # You need to replace this comment with a proper
-  # ssl configuration template for nginx.
-  #
-  # If you don't know were to start, you can get one here :
-  # https://mozilla.github.io/server-side-tls/ssl-config-generator/
-  #
-  # This configuration file won't work without ssl configuration directives.
+  ssl_protocols TLSv1.2;
+  ssl_ciphers HIGH:!MEDIUM:!LOW:!aNULL:!NULL:!SHA;
+  ssl_prefer_server_ciphers on;
+  ssl_session_cache shared:SSL:10m;
+
+  ssl_certificate     /etc/letsencrypt/live/example.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
 
   keepalive_timeout    70;
   sendfile             on;
@@ -239,6 +232,8 @@ server {
   gzip_http_version 1.1;
   gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
 
+  add_header Strict-Transport-Security "max-age=31536000";
+
   location / {
     try_files $uri @proxy;
   }
@@ -247,7 +242,7 @@ server {
     add_header Cache-Control "public, max-age=31536000, immutable";
     try_files $uri @proxy;
   }
-
+  
   location /sw.js {
     add_header Cache-Control "public, max-age=0";
     try_files $uri @proxy;
