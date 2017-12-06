@@ -14,8 +14,10 @@ The project now includes a `Dockerfile` and a `docker-compose.yml` file (which r
 
 Clone Mastodon's repository.
 
-    git clone https://github.com/tootsuite/mastodon
-    cd mastodon
+    git clone https://github.com/tootsuite/mastodon live
+    cd live
+    # Checkout to the latest stable branch
+    git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 
 Review the settings in `docker-compose.yml`. Note that it is **not default** to store the postgresql database and redis databases in a persistent storage location. If you plan on running your instance in production, you **must** uncomment the [`volumes` directive](https://github.com/tootsuite/mastodon/blob/972f6bc861affd9bc40181492833108f905a04b6/docker-compose.yml#L7-L16) in `docker-compose.yml`.
 
@@ -89,7 +91,7 @@ This approach makes updating to the latest version a real breeze.
 1. `git fetch` to download updates from the repository.
 2. Now you need to tell git to use those updates. You have probably changed your `docker-compose.yml` file. Check with `git status`.
   - If the `docker-compose.yml` file is modified, run `git stash` to stash your changes.
-3. `git checkout TAG_NAME` to use the tag code. (If you have committed changes, use `git merge TAG_NAME` instead, though this isn't likely.)
+3. `git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)` to get the latest stable version or `git checkout TAG_NAME` to use the tag code. (If you have committed changes, use `git merge TAG_NAME` instead, though this isn't likely.)
 4. Only if you ran `git stash`, now run `git stash pop` to redo your changes to `docker-compose.yml`. Double check the contents of this file.
 5. `docker-compose build` to compile the Docker image out of the changed source files.
 6. (optional) `docker-compose run --rm web rake db:migrate` to perform database migrations. Does nothing if your database is up to date.
