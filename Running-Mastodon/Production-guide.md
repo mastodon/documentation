@@ -199,6 +199,7 @@ server {
   listen 80;
   listen [::]:80;
   server_name example.com;
+  root /home/mastodon/live/public;
   # Useful for Let's Encrypt
   location /.well-known/acme-challenge/ { allow all; }
   location / { return 301 https://$host$request_uri; }
