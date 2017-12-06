@@ -40,6 +40,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |Mustor<br />([iTunes](https://itunes.apple.com/us/app/mustor/id1229531204?l=zh&ls=1&mt=8))|N/A|[@darkcl@mastodon.cloud](https://mastodon.cloud/@darkcl)|
 |[Pawoo](https://pawoo.net/about)<br />([iTunes](https://itunes.apple.com/us/app/pawoo/id1229070679))|N/A|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
 |friends.nico<br />([iTunes](https://itunes.apple.com/us/app/friends-nico/id1230158182))|N/A|[@friends_nico@friends.nico](https://friends.nico/@friends_nico)|
+|Tootdon<br />([iTunes](https://itunes.apple.com/us/app/tootdon-for-mastodon/id1282283934))|N/A/|[@tootdon@mstdn.jp](https://mstdn.jp/@tootdon)|
 |Tootter<br />([iTunes](https://itunes.apple.com/us/app/id1229555793))|N/A|[@Tootter_for_Mastodon@mstdn.jp](https://mstdn.jp/@Tootter_for_Mastodon)|
 
 ## Alternative web apps
@@ -89,6 +90,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 
 |App|Browser|Source code|Developer(s)|
 |---|--------|----|------------|
+|**[BirdSite](https://gitlab.com/pmorinerie/birdsite/blob/master/README.md)**|[Chrome(ium)](https://chrome.google.com/webstore/detail/birdsite/lfmfhaopllgidldpmifdcjdckdggdjaj)/[Firefox](https://addons.mozilla.org/fr/firefox/addon/birdsite/)|<https://gitlab.com/pmorinerie/birdsite/>|[@pmorinerie@mastodon.xyz](https://mastodon.xyz/users/pmorinerie)|
 |**[Fastoot](https://github.com/noraworld/fastoot/blob/master/README.md)**|[Chrome(ium)](https://chrome.google.com/webstore/detail/fastoot/hnmnnhfeigiogjagmmpnhelpnhnchaoj)|<https://github.com/noraworld/fastoot>|[@noraworld@mastodon.noraworld.jp](https://mastodon.noraworld.jp/users/noraworld)|
 |**[Mastodon Lang Remover](https://github.com/arthurlacoste/mastodon-lang-remover/blob/master/README.md)**|[Chrome(ium)/Firefox](https://github.com/arthurlacoste/mastodon-lang-remover#install)|<https://github.com/arthurlacoste/mastodon-lang-remover>|[@arthak@mastodon.social](https://mastodon.social/users/arthak)|
 |**[Mastodon Share](https://github.com/kernox/Mastodon-Share/blob/master/README.md)**|[Firefox](https://addons.mozilla.org/nl/firefox/addon/mastodon-share/)|<https://github.com/kernox/Mastoshare>|[@Hellexis@framapiaf.org](https://framapiaf.org/@Hellexis)
@@ -128,5 +130,6 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |**[wall](http://mastodon.tools/wall/)**|Web browser|<https://github.com/DavidLibeau/mastodon-tools/tree/master/wall>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 |[Scheduler](http://mastodon.tools/scheduler/) *(beta)*|Web browser|<https://github.com/DavidLibeau/mastodon-scheduler>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 |**[Tootmap](https://tootmap.net/)**|Web browser|<https://github.com/wakin-/Tootmap>|[@wakin@biwakodon.com](https://biwakodon.com/@wakin)|
+|[mastodon-archive](https://github.com/kensanata/mastodon-backup#mastodon-archive)|CLI|<https://github.com/kensanata/mastodon-backup#mastodon-archive>|[Alex Schroeder](https://alexschroeder.ch/wiki/Contact)|
 
 If you have a project like this, make a PR to add it to the list!

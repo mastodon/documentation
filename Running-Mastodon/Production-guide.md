@@ -84,7 +84,7 @@ Now you need to install [Yarn](https://yarnpkg.com/en/) plus some more software.
 - libprotobuf-dev and protobuf-compiler - Mastodon uses these for language detection
 - nginx - nginx is our frontend web server
 - redis-* - Mastodon uses redis for its in-memory data structure store
-- postgresql-* - Mastodon uses PostgreSQL as it's SQL database
+- postgresql-* - Mastodon uses PostgreSQL as its SQL database
 - nodejs - Node is used for Mastodon's streaming API
 - yarn - Yarn is a Node.js package manager
 - Other -dev packages, g++ - these are needed for the compilation of Ruby using ruby-build.
@@ -181,7 +181,7 @@ CREATE USER mastodon CREATEDB;
 
 You need to configure [nginx](http://nginx.org) to serve your [Mastodon](https://github.com/tootsuite/mastodon/) instance.
 
-**Reminder: Replace all occurrences of example.com with your own instance's domain or sub-domain.**
+**Reminder: Replace all occurrences of example.com with your own instance's domain or sub-domain. And find a good security template to complete this sample file (You can get one here : https://mozilla.github.io/server-side-tls/ssl-config-generator/).**
 
 `cd` to `/etc/nginx/sites-available` and open a new file:
 
@@ -209,13 +209,20 @@ server {
   listen [::]:443 ssl http2;
   server_name example.com;
 
-  ssl_protocols TLSv1.2;
-  ssl_ciphers HIGH:!MEDIUM:!LOW:!aNULL:!NULL:!SHA;
-  ssl_prefer_server_ciphers on;
-  ssl_session_cache shared:SSL:10m;
-
-  ssl_certificate     /etc/letsencrypt/live/example.com/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+  ####################
+  # SECURITY WARNING #
+  ####################
+  #
+  # Providing a state of the art TLS configuration
+  # is beyond the scope of this documentation.
+  #
+  # You need to replace this comment with a proper
+  # ssl configuration template for nginx.
+  #
+  # If you don't know were to start, you can get one here :
+  # https://mozilla.github.io/server-side-tls/ssl-config-generator/
+  #
+  # This configuration file won't work without ssl configuration directives.
 
   keepalive_timeout    70;
   sendfile             on;
@@ -232,8 +239,6 @@ server {
   gzip_http_version 1.1;
   gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
 
-  add_header Strict-Transport-Security "max-age=31536000";
-
   location / {
     try_files $uri @proxy;
   }
@@ -242,7 +247,7 @@ server {
     add_header Cache-Control "public, max-age=31536000, immutable";
     try_files $uri @proxy;
   }
-  
+
   location /sw.js {
     add_header Cache-Control "public, max-age=0";
     try_files $uri @proxy;
@@ -524,6 +529,26 @@ Check that they are properly running:
 
 ```sh
 systemctl status mastodon-*.service
+```
+
+## Remote media attachment cache cleanup
+
+Mastodon downloads media attachments from other instances and caches it locally for viewing. This cache can grow quite large if
+not cleaned up periodically and can cause issues such as low disk space or a bloated S3 bucket.
+
+The recommended method to clean up the remote media cache is a cron job that runs daily like so (put this in the mastodon system user's crontab with `crontab -e`.)
+
+```sh
+RAILS_ENV=production
+@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:media:remove_remote
+```
+
+That rake task removes cached remote media attachments that are older than NUM_DAYS, NUM_DAYS defaults to 7 days (1 week) if not specified. NUM_DAYS is another environment variable so you can specify it like so:
+
+```sh
+RAILS_ENV=production
+NUM_DAYS=14
+@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:media:remove_remote
 ```
 
 ## Email Service
