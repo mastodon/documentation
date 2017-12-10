@@ -357,7 +357,11 @@ Copy and paste this script into that file:
 letsencrypt renew
 systemctl reload nginx
 ```
-
+For CentOS 7:
+```sh
+#!/usr/bin/env bash
+letsencrypt renew --pre-hook "service nginx stop" --post-hook "service nginx start"
+```
 Save and exit the file.
 
 Make the script executable and restart the cron daemon so that the script runs daily:
