@@ -8,7 +8,9 @@ Cloudflare is a service that provides SSL termination, DNS hosting, and addition
 
 If you are wanting Cloudflare to terminate your SSL, you will need to open port 80 to the world, and ensure that the CDN option is always on for your domain record.  However, you will need to create page rules to turn off the other acceleration features.
 
-In fact, all features, other than SSL termination must be off.
+In fact, all features, other than SSL termination must be off.  This will leave traffic between the Cloudflare POP and your endpoint unsecured, and potentially open to inspection/manipulation by a third party.
+
+With paid Cloudflare accounts, you can do shared SSL, but this would leave data prone to being MITM'd by Cloudflare themselves.
 
 ## Other CDNs
 Coming soon.
