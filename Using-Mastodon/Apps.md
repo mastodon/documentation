@@ -77,6 +77,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 
 |App|Platform|Source code|Developer(s)|
 |---|--------|-----------|------------|
+|**[bitlbee-mastodon](https://github.com/kensanata/bitlbee-mastodon#mastodon-plugin-for-bitlbee)**|IRC|<https://github.com/kensanata/bitlbee-mastodon>|[Alex Schroeder](https://alexschroeder.ch/wiki/Contact)|
 |**[madonctl](https://github.com/McKael/madonctl/blob/master/README.md)**|CLI|<https://github.com/McKael/madonctl>|[@McKael@mamot.fr](https://mamot.fr/@McKael)|
 |**[mastodon.el](https://github.com/jdenen/mastodon.el/blob/master/README.org)**|Emacs|<https://github.com/jdenen/mastodon.el>|[@johnson@mastodon.social](https://mastodon.social/users/johnson)|
 |**[Mstdn (Mastodon CLI)](https://github.com/mattn/go-mastodon/blob/master/README.md)**|CLI|<https://github.com/mattn/go-mastodon>|[@mattn@mstdn.jp](https://mstdn.jp/@mattn)|
