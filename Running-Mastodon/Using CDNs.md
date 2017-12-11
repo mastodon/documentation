@@ -1,5 +1,5 @@
 # Using Mastodon Behind A CDN
-Mastodon behind a CDN such as Cloudflare or Akamai, allows you to save bandwidth on your host, by offloading processing elsewhere.  Other benefits with many CDNs are also available, such as dynamic routing, or SSL termination.
+Mastodon behind a CDN such as Cloudflare or Akamai, allows you to save bandwidth on your host, by placing static assets closer to end users.  Other features include DDoS protection, dynamic routing, or SSL termination.
 
 While there are benefits to such a setup, it can be very complex, and make issues difficult to troubleshoot.  You will definitely want to have a development/testing instance of Mastodon that is not behind the CDN, in order to test new code deployed to your system.
 
