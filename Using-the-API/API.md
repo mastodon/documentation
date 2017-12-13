@@ -82,7 +82,13 @@ Returns an [Account](#account).
 
     GET /api/v1/accounts/verify_credentials
 
-Returns the authenticated user's [Account](#account).
+Returns the authenticated user's [Account](#account) with an extra attribute `source` which contains these keys:
+
+| Attribute   | Description                                              |
+| ----------- | -------------------------------------------------------- |
+| `privacy`   | Selected preference: Default privacy of new toots        |
+| `sensitive` | Selected preference: Mark media as sensitive by default? |
+| `note`      | Plain-text version of the account's `note`               |
 
 #### Updating the current user:
 
@@ -601,19 +607,19 @@ Public and tag timelines do not require authentication.
 
     GET /api/v1/lists
 
-Returns at most 50 results without pagination.
+Returns at most 50 [Lists](#list) without pagination.
 
 #### Retrieving lists by membership
 
     GET /api/v1/accounts/:id/lists
     
-Returns at most 50 results without pagination.
+Returns at most 50 [Accounts](#account) without pagination.
 
 #### Retrieving accounts in a list
 
     GET /api/v1/lists/:id/accounts
 
-Returns accounts in the list. If you specify `limit=0` in the query, all accounts will be returned without pagination. Otherwise, standard account pagination rules apply.
+Returns [Accounts](#account) in the list. If you specify `limit=0` in the query, all accounts will be returned without pagination. Otherwise, standard account pagination rules apply.
 
 #### Retrieving, creating, updating, deleting a list
 
@@ -724,6 +730,8 @@ ___
 | `url`                    | URL to the emoji image             | no       |
 
 ### Error
+
+The most important part of an error response is the HTTP status code. Standard semantics are followed. The body of an error is a JSON object with this structure:
 
 | Attribute                | Description                        | Nullable |
 | ------------------------ | ---------------------------------- | -------- |
