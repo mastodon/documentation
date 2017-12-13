@@ -613,7 +613,7 @@ Returns at most 50 [Lists](#list) without pagination.
 
     GET /api/v1/accounts/:id/lists
     
-Returns at most 50 [Accounts](#account) without pagination.
+Returns at most 50 [Lists](#list) without pagination.
 
 #### Retrieving accounts in a list
 
