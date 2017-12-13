@@ -1,6 +1,8 @@
 Protocol extensions
 ===================
 
+> **Note:** This document describes only additions to the OStatus protocol. The OStatus protocol is obsolete and Mastodon 1.6 and higher prefers ActivityPub, using OStatus only when nothing else is available.
+
 Some functionality in Mastodon required some additions to the protocols to enable seamless federation of those features:
 
 - [Federation of blocks/unblocks](#federation-of-blocksunblocks)
@@ -68,3 +70,5 @@ For example, bar.com subscribes to updates from alice@foo.com:
 - If there is only the subscription and nothing else, bar.com receives public/unlisted statuses of alice@foo.com
 - If alice@foo.com's account is not locked and bob@bar.com sends a follow Salmon, bar.com will start receiving alice@foo.com's private statuses
 - If alice@foo.com's account is locked and bob@bar.com sends a follow request, bar.com will only begin receiving alice@foo.com's private statuses if and after alice accepts bob as a follower
+
+> **Note:** Mastodon 2.0 and higher **does not** send any private or direct statuses through OStatus
