@@ -7,7 +7,7 @@ Specs and RFCs used
   User-on-domain lookups
 * [HTTP Signatures](https://tools.ietf.org/html/draft-cavage-http-signatures-06)  
   Server-to-server authentication of requests
-* [Linked Data Signatures](https://w3c-dvcg.github.io/ld-signatures/)
+* [Linked Data Signatures](https://w3c-dvcg.github.io/ld-signatures/)  
   Server-to-server authentication of forwarded payloads
 * [OStatus](https://www.w3.org/community/ostatus/wiki/images/9/93/OStatus_1.0_Draft_2.pdf)  
   Suite of federation protocols
