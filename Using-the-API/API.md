@@ -21,6 +21,7 @@ API overview
   - [Search](#search)
   - [Statuses](#statuses)
   - [Timelines](#timelines)
+  - [Lists](#lists)
 - [Entities](#entities)
   - [Account](#account)
   - [Application](#application)
@@ -36,6 +37,7 @@ API overview
   - [Results](#results)
   - [Status](#status)
   - [Tag](#tag)
+  - [List](#list)
 
 ___
 
@@ -576,6 +578,7 @@ Returns the target [Status](#status).
     GET /api/v1/timelines/home
     GET /api/v1/timelines/public
     GET /api/v1/timelines/tag/:hashtag
+    GET /api/v1/timelines/list/:list_id
 
 Query parameters:
 
@@ -591,6 +594,54 @@ Query parameters:
 Returns an array of [Statuses](#status), most recent ones first.
 
 Public and tag timelines do not require authentication.
+
+### Lists
+
+#### Retrieving lists
+
+    GET /api/v1/lists
+
+Returns at most 50 results without pagination.
+
+#### Retrieving lists by membership
+
+    GET /api/v1/accounts/:id/lists
+    
+Returns at most 50 results without pagination.
+
+#### Retrieving accounts in a list
+
+    GET /api/v1/lists/:id/accounts
+
+Returns accounts in the list. If you specify `limit=0` in the query, all accounts will be returned without pagination. Otherwise, standard account pagination rules apply.
+
+#### Retrieving, creating, updating, deleting a list
+
+    GET /api/v1/lists/:id
+    POST /api/v1/lists
+    PUT /api/v1/lists/:id
+    DELETE /api/v1/lists/:id
+
+Form data:
+
+| Field            | Description           | Optional  |
+| ---------------- | --------------------- | --------- |
+| `title`          | The title of the list | no        |
+
+> **Note:** There is a limit of 50 lists.
+
+#### Adding/removing accounts to/from a list
+
+    POST /api/v1/lists/:id/accounts
+    DELETE /api/v1/lists/:id/accounts
+
+Form data:
+
+| Field            | Description                               | Optional  |
+| ---------------- | ----------------------------------------- | --------- |
+| `account_ids`    | [Array](#parameter-types) of account IDs  | no        |
+
+> **Note:** Only accounts already followed by the authenticated user can be added to a list.
 
 ___
 
@@ -617,6 +668,7 @@ ___
 | `avatar_static`          | URL to the avatar static image (gif)                                               | no       |
 | `header`                 | URL to the header image                                                            | no       |
 | `header_static`          | URL to the header static image (gif)                                               | no       |
+| `moved_to_account`       | If the owner decided to switch accounts, new account is in this attribute          | yes      |
 
 ### Application
 
@@ -770,3 +822,10 @@ ___
 | ------------------------ | -------------------------------------------- | -------- |
 | `name`                   | The hashtag, not including the preceding `#` | no       |
 | `url`                    | The URL of the hashtag                       | no       |
+
+### List
+
+| Attribute | Description       | Nullable |
+|-----------|-------------------|----------|
+| `id`      | ID of the list    | no       |
+| `title`   | Title of the list | no       |
