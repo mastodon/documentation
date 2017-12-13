@@ -1,7 +1,7 @@
 ![Mastodon](https://i.imgur.com/NhZc40l.png)
 ====
 
-**Mastodon** is a free, open-source GNU social-compatible social network server. A decentralized alternative to commercial platforms, it avoids the risks of a single company monopolizing your communication. Anyone can run Mastodon and participate in the social network seamlessly.
+Mastodon is a free, open-source social network server based on open web protocols like ActivityPub and OStatus. The social focus of the project is a viable decentralized alternative to commercial social media silos that returns the control of the content distribution channels to the people.
 
 ## Documentation
 ### [Using Mastodon](Using-Mastodon)
@@ -52,7 +52,7 @@ The aforementioned guides presume using certain software, like Nginx. But using 
   - [Using Nanobox](Running-Mastodon/Nanobox-Guide.md)
 
 ### [Contributing to Mastodon](Contributing-to-Mastodon)
-- 🎉 [List of Sponsors](Contributing-to-Mastodon/Sponsors.md) - thank you to these people! 🎉
+- 🎉 [List of Sponsors](https://joinmastodon.org/sponsors) - thank you to these people! 🎉
 - [Translate Mastodon to your language](Contributing-to-Mastodon/Translating.md)
 - [Report bugs and submit ideas](https://github.com/tootsuite/mastodon/issues)
 
