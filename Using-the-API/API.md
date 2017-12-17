@@ -173,6 +173,15 @@ Returns the target account's [Relationship](#relationship).
 #### Muting/unmuting an account:
 
     POST /api/v1/accounts/:id/mute
+    
+    Form data:
+
+| Field          | Description                               | Optional   |
+| -------------- | ----------------------------------------- | ---------- |
+| `notifications` | Determines whether the mute will mute notifications or not. Default(true) | yes        |
+
+Returns the target account's [Relationship](#relationship).
+    
     POST /api/v1/accounts/:id/unmute
 
 Returns the target account's [Relationship](#relationship).
