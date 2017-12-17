@@ -41,7 +41,7 @@ Now the image can be used to generate secrets. Run the command below for each of
 
     docker-compose run --rm web rake secret
 
-To enable Web Push notifications, you should generate a few extra secrets and put them into your `.env.production` file. Run Command below for each of `VAPID_PRIVATE_KEY` and `VAPID_PUBLIC_KEY` then copy the result into the `.env.production` file: 
+To enable Web Push notifications, you should generate a private/public key pair and put them into your `.env.production` file. Run the command below to create `VAPID_PRIVATE_KEY` and `VAPID_PUBLIC_KEY` then copy the result into the `.env.production` file: 
 
     docker-compose run --rm web rake mastodon:webpush:generate_vapid_key
 
