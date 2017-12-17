@@ -776,6 +776,7 @@ The most important part of an error response is the HTTP status code. Standard s
 | `followed_by`            | Whether the user is currently being followed by the account  | no       |
 | `blocking`               | Whether the user is currently blocking the account           | no       |
 | `muting`                 | Whether the user is currently muting the account             | no       |
+| `muting_notifications`   | Whether the user is also muting notifications                | no       |
 | `requested`              | Whether the user has requested to follow the account         | no       |
 | `domain_blocking`        | Whether the user is currently blocking the accounts's domain | no       |
 
