@@ -674,7 +674,7 @@ ___
 | `avatar_static`          | URL to the avatar static image (gif)                                               | no       |
 | `header`                 | URL to the header image                                                            | no       |
 | `header_static`          | URL to the header static image (gif)                                               | no       |
-| `moved_to_account`       | If the owner decided to switch accounts, new account is in this attribute          | yes      |
+| `moved`       | If the owner decided to switch accounts, new account is in this attribute          | yes      |
 
 ### Application
 
