@@ -35,7 +35,7 @@ You may wish to use the extended description (shown at https://yourmastodon.inst
 
 ## Helping users in trouble
 
-Under "Administration" -> "Accounts" you can find your users' accounts. You can:
+Under "Moderation" -> "Accounts" you can find your users' accounts. You can:
 
 - Manually confirm their account, in case they don't have access to their confirmation email for whatever reason
 - Disable their two factor authentication, in case they lost access and backup codes
@@ -51,7 +51,7 @@ This will guide you through creating a new user interactively. The user will get
 
 ## Moderating content
 
-You will e-mail notifications for new reports. Your users can report toots and accounts. You will find those reports under "Administration" -> "Reports". Your options for dealing with reports are as follows:
+You will e-mail notifications for new reports. Your users can report toots and accounts. You will find those reports under "Moderation" -> "Reports". Your options for dealing with reports are as follows:
 
 - Mark as resolved: Just dismiss the report without taking any action.
 - Suspend the offender: This is the harshest option which will permanently remove all content from the user from your server and prevent them from posting again.
