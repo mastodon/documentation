@@ -12,7 +12,7 @@ You can make the application load a different CSS file than the default, you can
 
 ## Changing colors and other variables
 
-See the `app/javascript/styles/variables.scss` file for the full list of available variables used throughout the application styles. You can redefine their values in your own `custom.scss` like this:
+See the `app/javascript/styles/mastodon/variables.scss` file for the full list of available variables used throughout the application styles. You can redefine their values in your own `custom.scss` like this:
 
 ```scss
 $ui-highlight-color: #d3d900;
