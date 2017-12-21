@@ -32,7 +32,7 @@ Translations of this User Guide:
 
 ## Intro
 
-Mastodon is a social network application based on the OStatus protocol. It behaves a lot like other social networks, especially Twitter, with one key difference - it is open-source and anyone can start their own server (also called an "*instance*"), and users of any instance can interact freely with those of other instances (called "*federation*"). Thus, it is possible for small communities to set up their own servers to use amongst themselves while also allowing interaction with other communities.
+Mastodon is a social network application based on the ActivityPub protocol. It behaves a lot like other social networks, especially Twitter, with one key difference - it is open-source and anyone can start their own server (also called an "*instance*"), and users of any instance can interact freely with those of other instances (called "*federation*"). Thus, it is possible for small communities to set up their own servers to use amongst themselves while also allowing interaction with other communities.
 
 #### Decentralization and Federation
 
@@ -40,7 +40,7 @@ Mastodon is a social network application based on the OStatus protocol. It behav
 
 Mastodon is a system decentralized through a concept called "*federation*" - rather than depending on a single person or organization to run its infrastructure, anyone can download and run the software and run their own server. Federation means different Mastodon servers can interact with each other seamlessly, similar to e.g. e-mail.
 
-As such, anyone can download Mastodon and e.g. run it for a small community of people, but any user registered on that instance can follow, send, and read posts from other Mastodon instances (as well as servers running other OStatus-compatible services, such as GNU Social and postActiv). This means that not only is users' data not inherently owned by a company with an interest in selling it to advertisers, but also that if any given server shuts down its users can set up a new one or migrate to another instance, rather than the entire service being lost.
+As such, anyone can download Mastodon and e.g. run it for a small community of people, but any user registered on that instance can follow, send, and read posts from other Mastodon instances (as well as servers running OStatus-compatible services, such as GNU Social and postActiv). This means that not only is users' data not inherently owned by a company with an interest in selling it to advertisers, but also that if any given server shuts down its users can set up a new one or migrate to another instance, rather than the entire service being lost.
 
 Within each Mastodon instance, usernames just appear as `@username`, similar to other services such as Twitter. Users from other instances appear, and can be searched for and followed, as `@user@servername.ext` - so e.g. `@gargron` on the `mastodon.social` instance can be followed from other instances as `@gargron@mastodon.social`).
 
@@ -114,7 +114,7 @@ Once you follow a user, the Follow icon will be highlighted in blue on their pro
 
 If you know someone's user name you can also open their profile for following by entering it in the [Search box](User-guide.md#searching) in the Compose column. This also works for remote users, though depending on whether they are known to your home instance you might have to enter their full name including the domain (e.g. `gargron@mastodon.social`) into the search box before their profile will appear in the suggestions.
 
-Alternately, if you already have a user's profile open in a separate browser tab, most OStatus-related networks should have a "Follow" or "Subscribe" button on their profile page. This will ask you to enter the full user name to follow **from** (ie. if your account is on mastodon.social you would want to enter this as `myaccount@mastodon.social`)
+Alternately, if you already have a user's profile open in a separate browser tab, other Mastodon instances and OStatus-related instances should have a "Follow" or "Subscribe" button on their profile page. This will ask you to enter the full user name to follow **from** (ie. if your account is on mastodon.social you would want to enter this as `myaccount@mastodon.social`)
 
 #### Notifications
 
