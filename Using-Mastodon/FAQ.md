@@ -21,7 +21,7 @@ There are different ways in which something can be decentralized; in this case, 
 
 #### Technically, how does the federation work?
 
-Since Mastodon version 1.6 we use the [ActivityPub](https://www.w3.org/TR/activitypub/) protocol. Currently ActivityPub is a proroposed W3C standard.
+Since Mastodon version 1.6 we use the [ActivityPub](https://www.w3.org/TR/activitypub/) protocol. Currently ActivityPub is a proposed W3C standard.
 
 Before version 1.6 we used the OStatus suite of protocols:
 
