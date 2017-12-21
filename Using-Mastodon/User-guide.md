@@ -114,7 +114,7 @@ Once you follow a user, the Follow icon will be highlighted in blue on their pro
 
 If you know someone's user name you can also open their profile for following by entering it in the [Search box](User-guide.md#searching) in the Compose column. This also works for remote users, though depending on whether they are known to your home instance you might have to enter their full name including the domain (e.g. `gargron@mastodon.social`) into the search box before their profile will appear in the suggestions.
 
-Alternately, if you already have a user's profile open in a separate browser tab, other Mastodon instances and OStatus-related instances should have a "Follow" or "Subscribe" button on their profile page. This will ask you to enter the full user name to follow **from** (ie. if your account is on mastodon.social you would want to enter this as `myaccount@mastodon.social`)
+Alternately, if you already have a user's profile open in a separate browser tab, other Mastodon instances and most OStatus-related instances should have a "Follow" or "Subscribe" button on their profile page. This will ask you to enter the full user name to follow **from** (ie. if your account is on mastodon.social you would want to enter this as `myaccount@mastodon.social`)
 
 #### Notifications
 
