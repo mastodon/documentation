@@ -30,7 +30,7 @@ Before version 1.6 we used the OStatus suite of protocols:
 3. PubSubHubbub for subscribing to Atom feeds
 4. Salmon for delivering certain items from the Atom feeds to interested parties such as the mentioned user, author of the status being replied to, person being followed, etc
 
-We still use OStatus an extra protocol for reasons of compatibility.
+We still use OStatus as an additional protocol for reasons of compatibility.
 
 #### What is mastodon.social?
 
