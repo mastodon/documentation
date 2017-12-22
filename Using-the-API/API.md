@@ -54,7 +54,7 @@ ___
 When an array parameter is mentioned, the Rails convention of specifying array parameters in query strings is meant.
 For example, a ruby array like `foo = [1, 2, 3]` should be encoded in the params as `foo[]=1&foo[]=2&foo[]=3`, with empty square brackets.
 
-When a file parameter is mentioned, a form-encoded upload is expected.
+When sending binary data, such as files, Mastodon expects clients to use the `multipart/form-data` MIME type. This applies to media attachments, account avatars and account headers.
 
 ###### Selecting ranges
 
@@ -96,12 +96,12 @@ Returns the authenticated user's [Account](#account) with an extra attribute `so
 
 Form data:
 
-| Field          | Description                               | Optional   |
-| -------------- | ----------------------------------------- | ---------- |
-| `display_name` | The name to display in the user's profile | yes        |
-| `note`         | A new biography for the user              | yes        |
-| `avatar`       | An avatar for the user                    | yes        |
-| `header`       | A header image for the user               | yes        |
+| Field          | Description                                                       | Optional   |
+| -------------- | ----------------------------------------------------------------- | ---------- |
+| `display_name` | The name to display in the user's profile                         | yes        |
+| `note`         | A new biography for the user                                      | yes        |
+| `avatar`       | An avatar for the user (encoded using `multipart/form-data`)      | yes        |
+| `header`       | A header image for the user (encoded using `multipart/form-data`) | yes        |
 
 Returns the authenticated user's [Account](#account).
 
@@ -369,9 +369,10 @@ Does not require authentication.
 
 Form data:
 
-| Field             | Description                                                         | Optional   |
-| ----------------- | ------------------------------------------------------------------- | ---------- |
-| `file`            | Media to be uploaded ([form-encoded](#notes))                       | no         |
+| Field             | Description                                                               | Optional   |
+| ----------------- | ------------------------------------------------------------------------- | ---------- |
+| `file`            | Media to be uploaded (encoded using `multipart/form-data`)                | no         |
+| `description`     | A plain-text description of the media, for accessibility (max 420 chars)  | yes        |
 
 Returns an [Attachment](#attachment) that can be used when creating a status.
 
