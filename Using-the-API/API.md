@@ -371,7 +371,7 @@ Form data:
 
 | Field             | Description                                                         | Optional   |
 | ----------------- | ------------------------------------------------------------------- | ---------- |
-| `file`            | Media to be uploaded                                                | no         |
+| `file`            | Media to be uploaded ([form-encoded](#notes))                       | no         |
 
 Returns an [Attachment](#attachment) that can be used when creating a status.
 
@@ -683,7 +683,7 @@ ___
 | `avatar_static`          | URL to the avatar static image (gif)                                               | no       |
 | `header`                 | URL to the header image                                                            | no       |
 | `header_static`          | URL to the header static image (gif)                                               | no       |
-| `moved`       | If the owner decided to switch accounts, new account is in this attribute          | yes      |
+| `moved`                  | If the owner decided to switch accounts, new account is in this attribute          | yes      |
 
 ### Application
 
@@ -703,6 +703,7 @@ ___
 | `preview_url`            | URL of the preview image                                                          | no       |
 | `text_url`               | Shorter URL for the image, for insertion into text (only present on local images) | yes      |
 | `meta`                   | `small` and `original` containing: `width`, `height`, `size`, `aspect`            | yes      |
+| `description`            | A description of the image for the visually impaired (maximum 420 characters), or `null` if none provided  | yes      |
 
 > **Note**: When the type is "unknown", it is likely only `remote_url` is available and local `url` is missing
 
@@ -831,6 +832,7 @@ The most important part of an error response is the HTTP status code. Standard s
 | `tags`                   | An array of [Tags](#tag)                                                      | no       |
 | `application`            | [Application](#application) from which the status was posted                  | yes      |
 | `language`               | The detected language for the status, if detected                             | yes      |
+| `pinned`                 | Whether this is the pinned status for the account that posted it              | yes      |
 
 > **NOTE**: When `spoiler_text` is present, `sensitive` is true 
 
