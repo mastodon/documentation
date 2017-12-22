@@ -11,7 +11,7 @@ Un groupe de métal progressif dont je suis fan porte le même nom; c'est ce qui
 
 #### De quelle manière est-ce décentralisé?
 
-Il existe plusieur moyens de procéder pour décentraliser quelque chose. Dans le cas de Mastodon, il s'agit d'un système «fédéré». Penser «courrier electronique» plutôt que «BitTorrent». Il y a plusieurs serveurs différents appelées instances; les utilisateurs ont compte sur l'une d'entre elles mais peuvent interagir et se suivre les uns les autres, quelle que soit l'instance sur laquelle se trouve leur compte.
+Il existe plusieur moyens de procéder pour décentraliser quelque chose. Dans le cas de Mastodon, il s'agit d'un système «fédéré». Penser «courrier électronique» plutôt que «BitTorrent». C'est un réseau de plusieurs serveurs différents appelés «instances». Les utilisateur·trice·s ont chacun·e un compte sur une de ces instances, mais peuvent interagir entre elleux et se suivre les un·e·s les autres, quelles que soient leurs instances respectives.
 
 #### Techniquement, comment fonctionne la fédération?
 
@@ -32,13 +32,13 @@ C'est l'instance «phare» de Mastodon, autrement dit celle que je fais tourner 
 
 #### Quelles autres plateformes font aussi partie du réseau fédéré?
 
-appelons ce réseau le «fediverse». Le fediverse existait déjà avant Mastodon, peuplé par des serveurs de GNU social, Friendica, Hubzilla, Diaspora etc. Tous ces serveurs ne sont pas complètement compatibles entre eux. Mastodon s'efforce à être entièrement conformes aux standards, et la compatibilité avec GNU social considérée prioritaire par rapport aux autres systèmes.
+Appelons ce réseau le «fediverse». Le fediverse existait déjà avant Mastodon, peuplé par des serveurs de GNU social, Friendica, Hubzilla, Diaspora etc. Tous ces serveurs ne sont pas complètement compatibles entre eux. Mastodon s'efforce à être entièrement conformes aux standards, et la compatibilité avec GNU social considérée prioritaire par rapport aux autres systèmes.
 
 #### J'ai essayé de me connecter à Mastodon en utilisant une application pour GNU social et ça n'a pas marché. Pourquoi?
 
 Bien que Mastodon soit compatible avec GNU social en termes de communication de serveur à serveur, l'API de client à serveur (autrement dit, la façon dont on accède à Mastodon) est différente. C'est pourquoi les applications qui ont été faites spécifiquement pour GNU social ne fonctionnent pas pour Mastodon. La raison est à la fois technique et idéologique.
 
-Comme Mastodon a été créé à partir de zéro, il est beaucoup plus simple que l'API reflète la structure interne le plus fidèlement possible, plutôt que de construire une couche d'émulation. De plus, ll'API client de GNU social est en fait une implémentation partielle d'une version obsolète de l'API de Twitter. C'est pourquoi GNU social peut fonctionner avec certaines versions (anciennes) d'applications pour Twitter. Cependant, beaucoup de ces applications ne sont plus maintenues, l'API de GNU social ne suit pas forcément les évolutions de l'API de Twitter et n'a jamais implémenté la totalité de ses fonctionnalités. 
+Comme Mastodon a été créé à partir de zéro, il est beaucoup plus simple que l'API reflète la structure interne le plus fidèlement possible, plutôt que de construire une couche d'émulation. De plus, l'API client de GNU social est en fait une implémentation partielle d'une version obsolète de l'API de Twitter. C'est pourquoi GNU social peut fonctionner avec certaines versions (anciennes) d'applications pour Twitter. Cependant, beaucoup de ces applications ne sont plus maintenues, l'API de GNU social ne suit pas forcément les évolutions de l'API de Twitter et n'a jamais implémenté la totalité de ses fonctionnalités. 
 
 #### Comment est financé Mastodon?
 
@@ -170,17 +170,17 @@ L'icône de **globe** sous la zone de pouet permet d'ajuster la confidentialité
 | Privé                     | Abonnés seulement               | Abonné seulement                | Ne peuvent pas être boostés. |
 | Direct                    | Personnes mentionnées seulement | Personnes mentionnées seulement | Similaires aux courriels |
 
-#### Puisje utiliser des hashtags (mot-dièse)? Est-ce conseillé?
+#### Puis-je utiliser des hashtags (mot-dièse)? Est-ce conseillé?
 Oui! Les Hashtags sont traqués et sont souvent rigolos, mais aussi servent parfois à éviter à certaines personnes de tomber sur des posts offensants. Les Hashtags sont particulièrements appréciés pour les posts publics à propos de #POLITIQUE (#POLITICS), #SANTÉ (#HEALTH), #DÉPRESSION (#DEPRESSION), ou de sujets #LEWD ou #NSFW. De tels posts sont aussi ce pourquoi la fonctionnalité d'alerte concernant le contenu (Content Warning) a été créée.
 
 #### Comment puis-je être vérifié, avec un “✅”?
-“✅” est un emojy, *juste* pour rire. Il n'y a pas de vérification de compte sur Mastodon. Tu peuy copier/coller un “✅” dans ta descruption si tu le souhaites, petit effronté.
+“✅” est un emoji, *juste* pour rire. Il n'y a pas de vérification de compte sur Mastodon. Tu peux copier/coller un “✅” dans ta description si tu le souhaites, petit·e effronté·e.
 
 #### Puis-je modifier un pouet?
 Non, désolé. Mais tu peux toujours supprimer un pouet et le réécrire…
 
 #### Si je supprime un post, est-il supprimé partout?
-Supprimer un post le supprime de la file locale. Cependant, s'il aa déjà été boosté, il se peut qu'il soit encore visible et peut se fédérer.
+Supprimer un post le supprime du fil local. Cependant, s'il a déjà été boosté, il se peut qu'il soit encore visible et peut se fédérer.
 
 #### Comment puis-je voir mes pouets favoris?
 Clique sur **Pour Commencer**, puis **Favoris**
@@ -200,7 +200,7 @@ Oui, en partie! C'est sous le menu **Préférences->Export des données**
 <img src="screenshots/preferences-data_export.png" alt="Export des données" height="400"/>
 
 #### Je ne peux pas voir les pouets d'un·e utilisateur·rice distant·e sous leur description!
-Dans la **Vue Étendue** du profil, clique sur son avatar. Cela vate rediriger sur son instance, et afficher tous ses pouets publics.
+Dans la **Vue Étendue** du profil, clique sur son avatar. Cela va te rediriger sur son instance, et afficher tous ses pouets publics.
 
 <img src="screenshots/profile-avatar_click.png" alt="Cliquer sur l'avatar" height="200"/>
 <img src="screenshots/profile-webpage_URL.png" alt="Vue en page web native" height="200"/>
@@ -209,7 +209,7 @@ Dans la **Vue Étendue** du profil, clique sur son avatar. Cela vate rediriger s
 Clique sur un pouet pour accéder à sa **Vue Étendue**. Cela va afficher les autres pouets qui lui sont reliés.
 
 #### Comment puis-je créer un lien vers un pouet?
-Il y a deux permaliens possibles pour un pouet. Pour les pouets dans un fil, avec un **clic droit** sur ll'horodatage. Sur la vue étendue d'un pouet, avec un **clic droit** sur la date en bas du pouet.
+Il y a deux permaliens possibles pour un pouet. Pour les pouets dans un fil, avec un **clic droit** sur l'horodatage. Sur la vue étendue d'un pouet, avec un **clic droit** sur la date en bas du pouet.
 
 <img src="screenshots/inline_toot-timestamp_link.png" alt="Permalien dans un fil" height="200"/>
 <img src="screenshots/expanded_view-permalink.png" alt="Permalien sur la vue étendue" height="200"/>
@@ -228,7 +228,7 @@ L'auteur.
 #### Est-il possible d'avoir un aperçu des personnes d'une instance et de ce qu'elles postent?
 Oui, essaye cet excellent [outil d'aperçu d'instance](http://www.unmung.com/mastoview?url=mastodon.social&view=local).
 
-#### Comment pui-je masquer les pouets dans les langues que je ne comprends pas?
+#### Comment puis-je masquer les pouets dans les langues que je ne comprends pas?
 Les développeurs sont actuellement en train de travailler sur cette fonctionnalités ainsi que d'autres options de filtrage.
 
 #### La traduction automatique est-elle supportée?
@@ -252,10 +252,10 @@ Changer le 8 par une autre valeur entière pour changer la limite.
 Voir le [Guide Utilisateur](../README.md), sous la partie «Running Mastodon.»
 
 #### J'ai trouvé un bogue ou j'ai une suggestion pour Mastodon.
-Tu peux reporter un bogue ou soumettre des suggestions via le [Traqueur d'issues de Mastodon.](https://github.com/tootsuite/mastodon/issues)
+Tu peux reporter un bogue ou soumettre des suggestions via le [Traqueur de problèmes (issues en anglais) de Mastodon.](https://github.com/tootsuite/mastodon/issues)
 
 #### Hey, j'adore les FAQs sur Mastodon! Y en a-t-il d'autres?
-En voici quelques unes, issues du du labeur d'autres personnes souhaitant aussi aider la communauté de Mastodon.
+En voici quelques unes, fruit du dur labeur d'autres personnes souhaitant aussi aider la communauté de Mastodon (contenu externe, en anglais).
 
 * [https://hastebin.com/raw/xuqogukimu](https://hastebin.com/raw/xuqogukimu)
 
