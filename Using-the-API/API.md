@@ -371,7 +371,7 @@ Form data:
 
 | Field             | Description                                                         | Optional   |
 | ----------------- | ------------------------------------------------------------------- | ---------- |
-| `file`            | Media to be uploaded                                                | no         |
+| `file`            | Media to be uploaded ([form-encoded](#notes))                       | no         |
 
 Returns an [Attachment](#attachment) that can be used when creating a status.
 
@@ -703,7 +703,7 @@ ___
 | `preview_url`            | URL of the preview image                                                          | no       |
 | `text_url`               | Shorter URL for the image, for insertion into text (only present on local images) | yes      |
 | `meta`                   | `small` and `original` containing: `width`, `height`, `size`, `aspect`            | yes      |
-| `description`            | A description of the image for the visually impaired, or `null` if none provided  | yes      |
+| `description`            | A description of the image for the visually impaired (maximum 420 characters), or `null` if none provided  | yes      |
 
 > **Note**: When the type is "unknown", it is likely only `remote_url` is available and local `url` is missing
 
