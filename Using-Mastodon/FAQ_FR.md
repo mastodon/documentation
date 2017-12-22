@@ -15,12 +15,16 @@ Il existe plusieur moyens de procéder pour décentraliser quelque chose. Dans l
 
 #### Techniquement, comment fonctionne la fédération?
 
-Nous utilisons la suite de protocoles OStatus:
+Depuis la version 1.6 de Mastodon, nous utilisons le protocole [ActivityPub](https://www.w3.org/TR/activitypub/). À l'heure actuelle, ActivityPub est candidat pour devenir un standard W3C.
+
+Avant la version 1.6 nous utilisions la suite de protocoles OStatus:
 
 1. Webfinger pour la recherche des utilisateurs sur différents domaines
 2. Atom feeds (flux) avec les extensions ActivityStreams, Portable Contacts, et Threads pour le contenu
 3. PubSubHubbub pour gérer les abonnements aux flux Atom
 4. Salmon pour transmettre certains éléments des flux Atom à toutes les parties concernées comme les utilisateurs mentionnés, l'auteur du statut auquel une réponse a été rédigée, l'utilisateur que quelqu'un suit, etc.
+
+Nous utilisons toujours OStatus en tant que protocole additionnel, pour des raisons de compatibilité.
 
 #### Qu'est-ce que mastodon.social?
 
@@ -125,6 +129,7 @@ Essaye de le dire à haute voix («Awou»). C'est rigolo!
 
 #### Comment puis-je supprimer mon compte?
 Pour l'instant, il faut demander de l'aide à l'admin de ton instance.
+Clique sur **Préférences** (l'engrenage, dans la zone en haut à gauche de l'écran), puis dans le menu **Sécurité** clique sur lien sous **Supprimer le compte**.
 
 <a name="qui-est-l-admin-de-mon-instance-et-comment-la-le-contacter-suivre"></a>
 #### Qui est l'admin de mon instance et comment la·le contacter/suivre?
