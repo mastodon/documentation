@@ -203,54 +203,54 @@ Dans la **Vue Étendue** du profil, clique sur son avatar. Cela vate rediriger s
 #### Comment puis-je voir les conversations (threads)?
 Clique sur un pouet pour accéder à sa **Vue Étendue**. Cela va afficher les autres pouets qui lui sont reliés.
 
-#### Comment puis-créer un lien vers un pouet?
-Il y a deux permaliens possibles pour un pouet. With inline toots, **right-click** the timestamp. On expanded toots, **right-click** the date on the bottom.
+#### Comment puis-je créer un lien vers un pouet?
+Il y a deux permaliens possibles pour un pouet. Pour les pouets dans un fil, avec un **clic droit** sur ll'horodatage. Sur la vue étendue d'un pouet, avec un **clic droit** sur la date en bas du pouet.
 
-<img src="screenshots/inline_toot-timestamp_link.png" alt="Inline View Permalink" height="200"/>
-<img src="screenshots/expanded_view-permalink.png" alt="Expanded View Permalink" height="200"/>
+<img src="screenshots/inline_toot-timestamp_link.png" alt="Permalien dans un fil" height="200"/>
+<img src="screenshots/expanded_view-permalink.png" alt="Permalien sur la vue étendue" height="200"/>
 
-#### How do I link to my profile?
-In Firefox, **right-click** on your avatar picture. Select **Copy Link Location**.
+#### Comment puis-je avoir un lien vers mon profil?
+Avec Firefox, via un **clic droit** sur ton avatar, puis en choisissant **Copier la destination du lien**.
 
-<img src="screenshots/link_to_profile.png" alt="URL for Profile" height="200"/>
+<img src="screenshots/link_to_profile.png" alt="URL vers le profil" height="200"/>
 
-#### Does clicking a #hashtag show local results, or federated?
-Federated.
+#### Est-ce que le clic sur un #hashtag affiche des pouets locaux uniquement ou des pouets fédérés?
+Des pouets fédérés.
 
-#### When I mute a boost, who gets muted, the booster or the original author?
-The original author.
+#### Quand je masque un boost, qui est mis en sourdine: La personne qui booste le pouet ou l'auteur de celui-ci?
+L'auteur.
 
-#### Can I preview the people on an instance, and what they’re saying?
-Yes, try the excellent [instance preview tool](http://www.unmung.com/mastoview?url=mastodon.social&view=local).
+#### Est-il possible d'avoir un aperçu des personnes d'une instance et de ce qu'elles postent?
+Oui, essaye cet excellent [outil d'aperçu d'instance](http://www.unmung.com/mastoview?url=mastodon.social&view=local).
 
-#### How do I hide the toots of languages I don’t understand?
-The developers are working on this and other filtering options, stay tuned!
+#### Comment pui-je masquer les pouets dans les langues que je ne comprends pas?
+Les développeurs sont actuellement en train de travailler sur cette fonctionnalités ainsi que d'autres options de filtrage.
 
-#### Is automatic translation supported?
-Not yet, but there is a [Firefox TamperMonkey script](https://github.com/tomouchuu/mastodon-translate) that might work for you.
+#### La traduction automatique est-elle supportée?
+Pas encore, mais il existe un [script Firefox TamperMonkey](https://github.com/tomouchuu/mastodon-translate) qui pourrait te convenir.
 
-#### Do toots automatically broadcast federated, or stay local?
-By default, toots are federated (public), and will show on both timelines. You can change the default behavior through **Settings->Preferences->Post Privacy.**
+#### Est-ce que les pouets se fédèrent automatiquement ou sont-ils d'abord locaux?
+Par défaut, les pouets sont fédérés (publics), et apparaîtront dans les deux flux d'actualités. Tu peux changer le comportement par défaut via **Paramètres->Préférences->Confidentialité des posts.**
 
-<img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" height="200"/>
-<img src="screenshots/getting_started-preferences.png" alt="Preferences" height="200"/>
-<img src="screenshots/preferences-post_privacy.png" alt="Post Privacy" height="400"/>
+<img src="screenshots/toolbar-getting_started.png" alt="Bouton «Pour Commencer»" height="200"/>
+<img src="screenshots/getting_started-preferences.png" alt="Préférences" height="200"/>
+<img src="screenshots/preferences-post_privacy.png" alt="Confidentialité des Posts" height="400"/>
 
-#### What is the default image upload size limit and how can I change it?
-The default limit is 8 megabytes, however this can be changed by editing the following line in `mastodon/app/models/media_attachment.rb`:
+#### Quelle est la taille limite par défaut pour l'envoi d'images et comment puis-je la changer?
+La limite par défaut est de 8 megaoctets (8Mo), cependant elle peut être changée en modifiant la ligne suivante dans le fichier `mastodon/app/models/media_attachment.rb`:
 
 `  validates_attachment_size :file, less_than: 8.megabytes`
 
-Change the 8 to another integer to change the limit.
+Changer le 8 par une autre valeur entière pour changer la limite.
 
-#### How do I start my own instance?
-See the [User Guide](../README.md), under the heading “Running Mastodon.”
+#### Comment puis-je installer et démarrer ma propre instance de Mastodon?
+Voir le [Guide Utilisateur](../README.md), sous la partie «Running Mastodon.»
 
-#### I found a bug or have a suggestion for Mastodon.
-You can file a bug or submit suggestions at [Mastodon’s Issue Tracker.](https://github.com/tootsuite/mastodon/issues)
+#### J'ai trouvé un bogue ou j'ai une suggestion pour Mastodon.
+Tu peux reporter un bogue ou soumettre des suggestions via le [Traqueur d'issues de Mastodon.](https://github.com/tootsuite/mastodon/issues)
 
-#### Hey I love mastodon FAQs! Can I have more?
-Here’s more, from hardworking individuals trying to help, too.
+#### Hey, j'adore les FAQs sur Mastodon! Y en a-t-il d'autres?
+En voici quelques unes, issues du du labeur d'autres personnes souhaitant aussi aider la communauté de Mastodon.
 
 * [https://hastebin.com/raw/xuqogukimu](https://hastebin.com/raw/xuqogukimu)
 
@@ -263,4 +263,4 @@ Here’s more, from hardworking individuals trying to help, too.
 * [https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md](https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md)
 
 ---
-This FAQ was compiled with contributions from [@Gargron](https://mastodon.social/@Gargron), [@raccoon](https://mastodon.social/@Raccoon), [@upside](https://octodon.social/@upside), [@zacanger](https://mastodon.social/@zacanger), [@NthTensor](https://octodon.social/@NthTensor), [@ametlles](https://mastodon.social/@ametlles) and many others in the fediverse!
+Cette FAQ a été compilée avec les contributions de[@Gargron](https://mastodon.social/@Gargron), [@raccoon](https://mastodon.social/@Raccoon), [@upside](https://octodon.social/@upside), [@zacanger](https://mastodon.social/@zacanger), [@NthTensor](https://octodon.social/@NthTensor), [@ametlles](https://mastodon.social/@ametlles) et plein d'autres personnes du fediverse!
