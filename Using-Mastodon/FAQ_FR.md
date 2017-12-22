@@ -11,7 +11,7 @@ Un groupe de métal progressif dont je suis fan porte le même nom; c'est ce qui
 
 #### De quelle manière est-ce décentralisé?
 
-Il existe plusieur moyens de procéder pour décentraliser quelque chose. Dans le cas de Mastodon, il s'agit d'un système «fédéré». Penser «courrier électronique» plutôt que «BitTorrent». C'est un réseau de plusieurs serveurs différents appelés «instances». Les utilisateur·trice·s ont chacun·e un compte sur une de ces instances, mais peuvent interagir entre elleux et se suivre les un·e·s les autres, quelles que soient leurs instances respectives.
+Il existe plusieur moyens de procéder pour décentraliser quelque chose. Dans le cas de Mastodon, il s'agit d'un système «fédéré». Penser «courrier électronique» plutôt que «BitTorrent». Mastodon est un réseau constitué de différents serveurs appelés «instances» sur lesquels l'utilisateur·trice détient un ou plusieurs comptes, peut suivre et/ou interagir avec d'autres comptes quel que soit les instances sur lesquelles iels se trouvent.
 
 #### Techniquement, comment fonctionne la fédération?
 
