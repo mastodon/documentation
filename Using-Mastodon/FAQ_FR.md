@@ -11,7 +11,7 @@ Un groupe de métal progressif dont je suis fan porte le même nom; c'est ce qui
 
 #### De quelle manière est-ce décentralisé?
 
-Il existe plusieur moyens de procéder pour décentraliser quelque chose. Dans le cas de Mastodon, il s'agit d'un système «fédéré». Penser «courrier électronique» plutôt que «BitTorrent». Mastodon est un réseau constitué de différents serveurs appelés «instances» sur lesquels l'utilisateur·trice détient un ou plusieurs comptes, peut suivre et/ou interagir avec d'autres comptes quel que soit les instances sur lesquelles iels se trouvent.
+Il existe plusieur moyens de procéder pour décentraliser quelque chose. Dans le cas de Mastodon, il s'agit d'un système «fédéré». Penser «courrier électronique» plutôt que «BitTorrent». Mastodon est un réseau constitué de différents serveurs appelés «instances» sur lesquels l'utilisateur·trice détient un ou plusieurs comptes, peut suivre et/ou interagir avec d'autres comptes quel que soient les instances sur lesquelles iels se trouvent.
 
 #### Techniquement, comment fonctionne la fédération?
 
@@ -32,7 +32,7 @@ C'est l'instance «phare» de Mastodon, autrement dit celle que je fais tourner 
 
 #### Quelles autres plateformes font aussi partie du réseau fédéré?
 
-Appelons ce réseau le «fediverse». Le fediverse existait déjà avant Mastodon, peuplé par des serveurs de GNU social, Friendica, Hubzilla, Diaspora etc. Tous ces serveurs ne sont pas complètement compatibles entre eux. Mastodon s'efforce à être entièrement conformes aux standards, et la compatibilité avec GNU social considérée prioritaire par rapport aux autres systèmes.
+Appelons ce réseau le «fediverse». Le fediverse existait déjà avant Mastodon, peuplé par des serveurs de GNU social, Friendica, Hubzilla, Diaspora etc. Tous ces serveurs ne sont pas complètement compatibles entre eux. Mastodon s'efforce d'être entièrement conforme aux standards. La compatibilité avec GNU social est considérée comme prioritaire par rapport aux autres systèmes.
 
 #### J'ai essayé de me connecter à Mastodon en utilisant une application pour GNU social et ça n'a pas marché. Pourquoi?
 
@@ -44,10 +44,10 @@ Comme Mastodon a été créé à partir de zéro, il est beaucoup plus simple qu
 
 Le développement de Mastodon et l'hébergement de mastodon.social sont financés grâce à mon [Patreon (ainsi que des dons BTC/PayPal)](https://www.patreon.com/user?u=619786). En dehors de ce financement, je ne suis pas intéressé par des financements capital risque, la monétisation, la publicité ou toute autre chose de la sorte. Je peux éventuellement proposer des services d'aide à la mise en place ou la maintenance selon la demande.
 
-Le logiciel est gratuit et open source, et les communautés doivent héberger elles-même leurs serveurs si elles le peuvent, de manière à ce que les coûts soient également plus ou moins distribués. Il serait évidemment trop difficile pour moi de régler les factures si tout le monde décidait d'utiliser uniquement l'instance mastodon.social.
+Le logiciel est gratuit et open source, et les communautés doivent héberger elles-mêmes leurs serveurs si elles le peuvent, de manière à ce que les coûts soient également plus ou moins distribués. Il serait évidemment trop difficile pour moi de régler les factures si tout le monde décidait d'utiliser uniquement l'instance mastodon.social.
 
 #### Mastodon ressemble beaucoup à Twitter. Quelles sont les différences ?
-Mastodon est décentralisé. Chacun peut proposer son propre serveur Mastodon, avecses propres règles de communauté. Twitter est un service fourni par une seule autorité centrale, et fixe les règles pour tout le monde.
+Mastodon est décentralisé. Chacun peut proposer son propre serveur Mastodon, avec ses propres règles de communauté. Twitter est un service fourni par une seule autorité centrale, et fixe les règles pour tout le monde.
 
 #### Qu'est-ce qu'une «fédération»?
 C'est un groupe de serveurs Mastodon qui partagent des pouets (toots) entre eux.
@@ -110,7 +110,7 @@ Comme tout le monde peut créer un compte sur n'importe quelle instance, il est 
 Si ton instance le permet, l'option se trouve dans Préférences, sour le menu «Identification à deux facteurs». [Le 2FA de Mastodon](2FA.md) utilise un QR code et un mot de passe texte.
 
 #### Pourquoi ne puis-je pas voir les pouets de certaines personnes?
-Il y a plusieur raisons pour que cela se produise. Les posts de cette personne sont peut-être privés. Il faut suivre un compte pour voir ses pouets qui ne sont pas publics. Si quelqu'un t'a bloqué, il ne sera plus possible de voir ses posts non publics.
+Il y a plusieurs raisons pour que cela se produise. Les posts de cette personne sont peut-être privés. Il faut suivre un compte pour voir ses pouets qui ne sont pas publics. Si quelqu'un t'a bloqué.e, il ne sera plus possible de voir ses posts non publics.
 
 #### Quelles sont les tendances?
 Pour savoir les tendances sur Mastodon, suis le bot d'estimations [@TrendingBot@mastodon.social](https://mastodon.social/@TrendingBot).
@@ -155,7 +155,7 @@ Chaque instance gère sa modération différemment, et chaque instance a ses pro
 Sous chaque post, il y a des points de suspension. En cliquant dessus, tu peux soit étendre le poste, soit signaler son contenu. Lors d'un signalement, pense à bien sélectioner tous les posts qui nécéssitent l'attention de ton admin.
 
 #### Que faire en cas de harcèlement?
-Si ton admin prend le harcèlement au sérieu, tu peux le lui signaler via le système de signalement des posts: via les points de suspension («…») sous le post, ou en contactant ton admin directement.
+Si ton admin prend le harcèlement au sérieux, tu peux le lui signaler via le système de signalement des posts: via les points de suspension («…») sous le post, ou en contactant ton admin directement.
 
 #### Est-ce que je peux écrire des messages privés à des personnes d'autres instances?
 Oui, normalement. Cependant, les messages privés ne sont *pas sécurisés*. Il est déconseillé d'envoyer des informations sensibles via des messages privés.
@@ -222,8 +222,8 @@ Avec Firefox, via un **clic droit** sur ton avatar, puis en choisissant **Copier
 #### Est-ce que le clic sur un #hashtag affiche des pouets locaux uniquement ou des pouets fédérés?
 Des pouets fédérés.
 
-#### Quand je masque un boost, qui est mis en sourdine: La personne qui booste le pouet ou l'auteur de celui-ci?
-L'auteur.
+#### Quand je masque un boost, qui est mis en sourdine: La personne qui booste le pouet ou l'auteur.e de celui-ci?
+L'auteur.e.
 
 #### Est-il possible d'avoir un aperçu des personnes d'une instance et de ce qu'elles postent?
 Oui, essaye cet excellent [outil d'aperçu d'instance](http://www.unmung.com/mastoview?url=mastodon.social&view=local).
