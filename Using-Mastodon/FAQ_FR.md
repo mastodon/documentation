@@ -1,5 +1,6 @@
 Foire Aux Questions
 ==========================
+Ceci est une traduction de la [FAQ en anglais](FAQ.md) du réseau social décentralisé Mastodon, rédigée à l'origine par [@Gargron](https://mastodon.social/@Gargron), le créateur de Mastodon.
 
 #### Qu'est-ce qu'un Mastodon?
 
@@ -11,7 +12,7 @@ Un groupe de métal progressif dont je suis fan porte le même nom; c'est ce qui
 
 #### De quelle manière est-ce décentralisé?
 
-Il existe plusieur moyens de procéder pour décentraliser quelque chose. Dans le cas de Mastodon, il s'agit d'un système «fédéré». Penser «courrier électronique» plutôt que «BitTorrent». Mastodon est un réseau constitué de différents serveurs appelés «instances» sur lesquels l'utilisateur·trice détient un ou plusieurs comptes, peut suivre et/ou interagir avec d'autres comptes quel que soient les instances sur lesquelles iels se trouvent.
+Il existe plusieur moyens de décentraliser quelque chose. Dans le cas de Mastodon, il s'agit d'un système «fédéré», plus proche du fonctionnement du courrier électronique que celui de «BitTorrent». Mastodon est un réseau constitué de différents serveurs appelés «instances» sur lesquels l'utilisateur·trice détient un ou plusieurs comptes, peut suivre et/ou interagir avec d'autres comptes quel que soient les instances sur lesquelles iels se trouvent.
 
 #### Techniquement, comment fonctionne la fédération?
 
@@ -268,4 +269,4 @@ En voici quelques unes, fruit du dur labeur d'autres personnes souhaitant aussi 
 * [https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md](https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md)
 
 ---
-Cette FAQ a été compilée avec les contributions de[@Gargron](https://mastodon.social/@Gargron), [@raccoon](https://mastodon.social/@Raccoon), [@upside](https://octodon.social/@upside), [@zacanger](https://mastodon.social/@zacanger), [@NthTensor](https://octodon.social/@NthTensor), [@ametlles](https://mastodon.social/@ametlles) et plein d'autres personnes du fediverse!
+Cette FAQ a été compilée avec les contributions de [@Gargron](https://mastodon.social/@Gargron), [@raccoon](https://mastodon.social/@Raccoon), [@upside](https://octodon.social/@upside), [@zacanger](https://mastodon.social/@zacanger), [@NthTensor](https://octodon.social/@NthTensor), [@ametlles](https://mastodon.social/@ametlles) et plein d'autres personnes du fediverse!
