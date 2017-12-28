@@ -113,7 +113,7 @@ These are self-contained instructions for setting up a development environment o
 - Get [Homebrew](https://brew.sh) and use it to install the other dependencies:
 
 	```
-	brew install imagemagick ffmpeg yarn postgresql redis rbenv nodejs protobuf
+	brew install imagemagick ffmpeg yarn postgresql redis rbenv nodejs protobuf libidn
 	```
 
 - Configure Rbenv:
@@ -151,7 +151,6 @@ These are self-contained instructions for setting up a development environment o
 ### Installation
 
 ```
-brew install libidn
 bundle install --with development
 yarn install --pure-lockfile
 gem install foreman --no-ri --no-rdoc
