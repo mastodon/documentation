@@ -85,6 +85,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |**[tootstream](https://github.com/magicalraccoon/tootstream/blob/develop/README.md)**|CLI|<https://github.com/magicalraccoon/tootstream>|[@Raccoon@mastodon.social](https://mastodon.social/users/Raccoon)|
 |**[soCLIal](https://gitlab.com/IvanSanchez/soclial/blob/master/README.md)**|CLI|<https://gitlab.com/IvanSanchez/soclial>|[@IvanSanchez@mastodon.social](https://mastodon.social/@IvanSanchez)|
 |**[Tooter](https://openrepos.net/content/dysko/tooter)**|SailfishOS|<https://github.com/dysk0/harbour-tooter>|[@disko@mastodon.social](https://mastodon.social/@dysko)|
+|**[pynitel/ulla](https://github.com/cquest/pynitel)**|Minitel|<https://github.com/cquest/pynitel>|[@cquest@amicale.net](https://amicale.net/@cquest)|
 |**[vim-mastodon](https://github.com/mattn/vim-mastodon/blob/master/README.md)**|Vim|<https://github.com/mattn/vim-mastodon>|[@mattn@mstdn.jp](https://mstdn.jp/@mattn)|
 
 ## Browser add-ons/extensions
