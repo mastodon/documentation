@@ -353,11 +353,19 @@ Returns the local representation of the followed account, as an [Account](#accou
 
 ### Instances
 
-#### Getting instance information:
+#### Getting current instance information:
 
     GET /api/v1/instance
 
 Returns the current [Instance](#instance).
+
+Does not require authentication.
+
+#### Getting current instance's custom emojis:
+
+    GET /api/v1/custom_emojis
+
+Returns a list of [Emoji](#emoji)
 
 Does not require authentication.
 
@@ -520,15 +528,6 @@ Query parameters:
 > **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. It is **not** possible to use the `id` of the returned objects to construct your own URLs, because the results are sorted by an internal key.
 
 Returns an array of [Accounts](#account).
-
-Does not require authentication.
-
-
-#### Fetching custom emoji for an instance:
-
-    GET /api/v1/custom_emojis
-
-Returns a list of [Emoji](#emoji)
 
 Does not require authentication.
 
