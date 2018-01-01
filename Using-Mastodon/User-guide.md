@@ -98,7 +98,7 @@ You can also simply drag and drop your image from your desktop into the text box
 
 ![Image icon](screenshots/drag-and-drop-image.gif)
 
-If the image has "sensitive" content (such as nudity or violence), you can select the ![NSFW toggle](screenshots/compose-nsfw.png) "Hide Media" button which appears once you have added an image. This will hide the image in your post by default, making it clickable to show the preview.
+If the image has "sensitive" content (such as nudity or violence), you can select the "Hide Media" button, which looks like an eye symbol and appears once you have added an image. This will hide the image in your post by default, making it clickable to show the preview.
 
 Adding a [content warning](User-guide.md#content-warnings) to your toot forces any media attached to it to be hidden, but you can also use the Hide Media button to hide images without adding a content warning.
 
