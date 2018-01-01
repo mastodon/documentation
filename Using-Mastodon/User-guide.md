@@ -102,7 +102,7 @@ If the image has "sensitive" content (such as nudity or violence), you can selec
 
 Adding a [content warning](User-guide.md#content-warnings) to your toot forces any media attached to it to be hidden, but you can also use the Hide Media button to hide images without adding a content warning.
 
-You can also attach video files or GIF animations to toots. However, there is a 4MB file size limit for these files and videos must be in .webm or .mp4 format.
+You can also attach video files or GIF animations to toots. However, there is an 8MB file size limit for these files and videos must be in .webm or .mp4 format.
 
 #### Following Other Users
 
