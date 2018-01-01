@@ -86,7 +86,7 @@ If you're making a post belonging to a wider subject, it might be worth adding a
 
 ##### Boosts and Favourites
 
-You can *favourite* another user's toot by clicking the star icon underneath. This will send the user a notification that you have marked their post as a favourite; the meaning of this varies widely by context from a general "I'm listening" to signalling agreement or offering support for the ideas expressed.
+You can *favourite* another user's toot by clicking the star icon underneath. This will send the user a notification that you have marked their post as a favourite; the meaning of this varies widely by context from a general "I'm listening" to signalling agreement or offering support for the ideas expressed. Clicking the star icon also adds the toot to your list of saved toots, which can be found through the Getting Started menu.
 
 Additionally you can *boost* toots by clicking the "circular arrows" icon. Boosting a toot will show it on your profile timeline and make it appear to all your followers, even if they aren't following the user who made the original post. This is helpful if someone posts a message you think others should see, as it increases the message's reach while keeping the author information intact. 
 
