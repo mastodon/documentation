@@ -156,7 +156,25 @@ To view the Local Timeline, click the  "Local Timeline" in the Compose column or
 
 #### Searching
 
-Mastodon has a search function - you can use it to search for users and [hashtags](User-guide.md#hashtags). The search does not look through the entire text of posts, only hashtags. In order to start a search, just type into the search box in the Compose column and hit *enter*; This will open the search pane. The search pane will show suggestions as you type. Selecting any of these will open the user's profile or a view of all toots on the hashtag.
+Mastodon has a search box, which is above the "new toot" box. Clicking your cursor into the search box will provide a helpful pop-up that tells you what it can do.
+
+You can use the search for the following:
+
+* **[Hashtags](User-guide.md#hashtags)** - Hashtags known to your instance will show up in this search. Clicking them will run a search for public posts tagged with hashtags that are known to your instance. Unlisted toots don't show up in hashtag searches. The search is limited to posts that are known to your instance, loosely defined as "toots posted or boosted or replied to by people on your instance, and people *followed by* people on your instance".
+
+* **People** - If you search for `@username`, the search will show you anyone known to your instance with that username, which could include people on other instances. You can search more accurately with `@username@instance`, which will return anyone with that name and instance even if they are not known to your instance yet. You can click the search result to view that person's profile. If you search for the URL of someone's profile, such as `http://instan.ce/@username`, it will do the same thing - but it will also update someone's avatar, bio, and follower/following statistics if they are out of date on your instance.
+
+* **Toot URLs** - Typing in the URL of a specific toot into the search box and pressing enter will return that toot, allowing you to save it, reply to it or boost it. This will also make a toot "known" to your instance, bringing it into its federated timeline and, if it contains hashtags, any hashtag searches made by someone on your instance. You can click the toot to open it and view replies and favourite/boost numbers.
+
+In order to start a search, just type into the search box in the Compose column and hit *enter*. Results will pop up directly below the search box. Typing in a plaintext word will return any hashtags containing that word, as well as any people with that word in their username or display name or instance name. For example, typing `nonbinary` may return:
+
+* Nonbinary Friend (`@hannah@instance`)
+* Hannah (`@nonbinaryfriend@instance`)
+* Hannah (`@friend@nonbinary.instance`)
+* `#nonbinary`
+* `#nonbinaryheroes`
+
+The search function on Mastodon is deliberately limited to prevent abuse; it intentionally doesn't allow plaintext searches.
 
 ## Privacy, Safety and Security
 
