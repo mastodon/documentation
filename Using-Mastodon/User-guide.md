@@ -82,7 +82,13 @@ This will cause the body of your post to be hidden behind a "Show More" button i
 
 ##### Hashtags
 
-If you're making a post belonging to a wider subject, it might be worth adding a "hashtag" to it. This can be done simply by writing in the post a # sign followed by a phrase, e.g. #introductions (which is popular on mastodon.social for new users to introduce themselves to the community), or #politics for political discussions, etc. Clicking on a hashtag in a toot will show a timeline consisting only of public posts that include this hashtag (i.e. it's a shortcut to searching for it). This allows users to group messages of similar subjects together, forming a separate "timeline" for people interested in that subject. Hashtags can also be searched for from the search bar above the compose box.
+If you're making a post belonging to a wider subject, it might be worth adding a "hashtag" to it. This can be done simply by writing in the post a # sign followed by a phrase, e.g. #introductions (which is popular on mastodon.social for new users to introduce themselves to the community), or #politics for political discussions, etc. Hashtags can contain only letters and numbers, and must contain at least one letter - a space or an & will break your hashtag.
+
+When the toot is posted the hashtag becomes a clickable link; clicking on a hashtag in a toot will show a timeline consisting only of public posts that include this hashtag (i.e. it's a shortcut to searching for it). This allows users to group posts of similar subjects together, forming a separate "timeline" for people interested in that subject. Hashtags can also be searched for from the search bar above the compose box.
+
+When you have a hashtag search open, it will automatically update with new toots. You can pin the column to keep the search open by clicking the settings symbol at the top right of the hashtag search column and clicking "pin". If you open that menu again you can move the pinned hashtag column to the left or right, or you can unpin it.
+
+Unlisted, followers-only and direct toots do not end up in hashtag searches, but if they contain hashtags, those hashtags can still be clicked to [search](User-guide.md#searching) for public toots containing that hashtag. A hashtag search can only return toots known to your instance.
 
 ##### Boosts and Favourites
 
