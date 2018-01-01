@@ -10,7 +10,6 @@ API overview
   - [Apps](#apps)
   - [Blocks](#blocks)
   - [Domain blocks](#domain-blocks)
-  - [Emojis](#emojis)
   - [Favourites](#favourites)
   - [Follow Requests](#follow-requests)
   - [Follows](#follows)
@@ -295,16 +294,6 @@ Parameters:
 
 Returns an empty object.
 
-### Emojis
-
-#### Fetching current instance's custom emojis:
-
-    GET /api/v1/custom_emojis
-
-Returns a list of [Emoji](#emoji)
-
-Does not require authentication.
-
 ### Favourites
 
 #### Fetching a user's favourites:
@@ -364,11 +353,19 @@ Returns the local representation of the followed account, as an [Account](#accou
 
 ### Instances
 
-#### Getting instance information:
+#### Getting current instance information:
 
     GET /api/v1/instance
 
 Returns the current [Instance](#instance).
+
+Does not require authentication.
+
+#### Getting current instance's custom emojis:
+
+    GET /api/v1/custom_emojis
+
+Returns a list of [Emoji](#emoji)
 
 Does not require authentication.
 
