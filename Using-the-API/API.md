@@ -393,7 +393,7 @@ Returns [Accounts](#account) in the list. If you specify `limit=0` in the query,
 
     GET /api/v1/lists/:id
 
-Returns a [Lists](#list).
+Returns the specified [List](#list).
 
 #### Creating and updating a list
 
@@ -406,7 +406,7 @@ Form data:
 | ---------------- | --------------------- | --------- |
 | `title`          | The title of the list | no        |
 
-Returns a [Lists](#list).
+Returns a new or updated [List](#list).
 
 #### Deleting a list
 
