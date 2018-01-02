@@ -389,12 +389,16 @@ Returns at most 50 [Lists](#list) without pagination.
 
 Returns [Accounts](#account) in the list. If you specify `limit=0` in the query, all accounts will be returned without pagination. Otherwise, standard account pagination rules apply.
 
-#### Retrieving, creating, updating, deleting a list
+#### Retrieving a list
 
     GET /api/v1/lists/:id
+
+Returns a [Lists](#list).
+
+#### Creating and updating a list
+
     POST /api/v1/lists
     PUT /api/v1/lists/:id
-    DELETE /api/v1/lists/:id
 
 Form data:
 
@@ -402,7 +406,13 @@ Form data:
 | ---------------- | --------------------- | --------- |
 | `title`          | The title of the list | no        |
 
-> **Note:** There is a limit of 50 lists.
+Returns a [Lists](#list).
+
+#### Deleting a list
+
+    DELETE /api/v1/lists/:id
+
+Returns an empty object.
 
 #### Adding/removing accounts to/from a list
 
@@ -416,6 +426,8 @@ Form data:
 | `account_ids`    | [Array](#parameter-types) of account IDs  | no        |
 
 > **Note:** Only accounts already followed by the authenticated user can be added to a list.
+
+Returns an empty object.
 
 ### Media
 
