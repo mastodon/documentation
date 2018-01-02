@@ -14,6 +14,7 @@ API overview
   - [Follow Requests](#follow-requests)
   - [Follows](#follows)
   - [Instances](#instances)
+  - [Lists](#lists)
   - [Media](#media)
   - [Mutes](#mutes)
   - [Notifications](#notifications)
@@ -21,7 +22,6 @@ API overview
   - [Search](#search)
   - [Statuses](#statuses)
   - [Timelines](#timelines)
-  - [Lists](#lists)
 - [Entities](#entities)
   - [Account](#account)
   - [Application](#application)
@@ -31,13 +31,13 @@ API overview
   - [Emoji](#emoji)
   - [Error](#error)
   - [Instance](#instance)
+  - [List](#list)
   - [Mention](#mention)
   - [Notification](#notification)
   - [Relationship](#relationship)
   - [Results](#results)
   - [Status](#status)
   - [Tag](#tag)
-  - [List](#list)
 
 ___
 
@@ -369,6 +369,66 @@ Returns a list of [Emoji](#emoji)
 
 Does not require authentication.
 
+### Lists
+
+#### Retrieving lists
+
+    GET /api/v1/lists
+
+Returns at most 50 [Lists](#list) without pagination.
+
+#### Retrieving lists by membership
+
+    GET /api/v1/accounts/:id/lists
+    
+Returns at most 50 [Lists](#list) without pagination.
+
+#### Retrieving accounts in a list
+
+    GET /api/v1/lists/:id/accounts
+
+Returns [Accounts](#account) in the list. If you specify `limit=0` in the query, all accounts will be returned without pagination. Otherwise, standard account pagination rules apply.
+
+#### Retrieving a list
+
+    GET /api/v1/lists/:id
+
+Returns a [Lists](#list).
+
+#### Creating and updating a list
+
+    POST /api/v1/lists
+    PUT /api/v1/lists/:id
+
+Form data:
+
+| Field            | Description           | Optional  |
+| ---------------- | --------------------- | --------- |
+| `title`          | The title of the list | no        |
+
+Returns a [Lists](#list).
+
+#### Deleting a list
+
+    DELETE /api/v1/lists/:id
+
+Returns an empty object.
+
+#### Adding/removing accounts to/from a list
+
+    POST /api/v1/lists/:id/accounts
+    DELETE /api/v1/lists/:id/accounts
+
+Form data:
+
+| Field            | Description                               | Optional  |
+| ---------------- | ----------------------------------------- | --------- |
+| `account_ids`    | [Array](#parameter-types) of account IDs  | no        |
+
+> **Note:** Only accounts already followed by the authenticated user can be added to a list.
+
+Returns an empty object.
+
 ### Media
 
 #### Uploading a media attachment:
@@ -610,54 +670,6 @@ Returns an array of [Statuses](#status), most recent ones first.
 
 Public and tag timelines do not require authentication.
 
-### Lists
-
-#### Retrieving lists
-
-    GET /api/v1/lists
-
-Returns at most 50 [Lists](#list) without pagination.
-
-#### Retrieving lists by membership
-
-    GET /api/v1/accounts/:id/lists
-    
-Returns at most 50 [Lists](#list) without pagination.
-
-#### Retrieving accounts in a list
-
-    GET /api/v1/lists/:id/accounts
-
-Returns [Accounts](#account) in the list. If you specify `limit=0` in the query, all accounts will be returned without pagination. Otherwise, standard account pagination rules apply.
-
-#### Retrieving, creating, updating, deleting a list
-
-    GET /api/v1/lists/:id
-    POST /api/v1/lists
-    PUT /api/v1/lists/:id
-    DELETE /api/v1/lists/:id
-
-Form data:
-
-| Field            | Description           | Optional  |
-| ---------------- | --------------------- | --------- |
-| `title`          | The title of the list | no        |
-
-> **Note:** There is a limit of 50 lists.
-
-#### Adding/removing accounts to/from a list
-
-    POST /api/v1/lists/:id/accounts
-    DELETE /api/v1/lists/:id/accounts
-
-Form data:
-
-| Field            | Description                               | Optional  |
-| ---------------- | ----------------------------------------- | --------- |
-| `account_ids`    | [Array](#parameter-types) of account IDs  | no        |
-
-> **Note:** Only accounts already followed by the authenticated user can be added to a list.
-
 ___
 
 ## Entities
@@ -758,6 +770,13 @@ The most important part of an error response is the HTTP status code. Standard s
 | `version`                | The Mastodon version used by instance.                                   | no       |
 | `urls`                   | `streaming_api`                                                          | no       |
 
+### List
+
+| Attribute | Description       | Nullable |
+|-----------|-------------------|----------|
+| `id`      | ID of the list    | no       |
+| `title`   | Title of the list | no       |
+
 ### Mention
 
 | Attribute                | Description                                                           | Nullable |
@@ -842,10 +861,3 @@ The most important part of an error response is the HTTP status code. Standard s
 | ------------------------ | -------------------------------------------- | -------- |
 | `name`                   | The hashtag, not including the preceding `#` | no       |
 | `url`                    | The URL of the hashtag                       | no       |
-
-### List
-
-| Attribute | Description       | Nullable |
-|-----------|-------------------|----------|
-| `id`      | ID of the list    | no       |
-| `title`   | Title of the list | no       |
