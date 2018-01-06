@@ -134,5 +134,6 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |**[Tootmap](https://tootmap.net/)**|Web browser|<https://github.com/wakin-/Tootmap>|[@wakin@biwakodon.com](https://biwakodon.com/@wakin)|
 |**[Mastodon User Matching](http://vinayaka.distsn.org/)**|Web browser|<https://github.com/distsn/vinayaka>|[@hakabahitoyo@2.distsn.org](https://2.distsn.org/@hakabahitoyo)|
 |[mastodon-archive](https://github.com/kensanata/mastodon-backup#mastodon-archive)|CLI|<https://github.com/kensanata/mastodon-backup#mastodon-archive>|[Alex Schroeder](https://alexschroeder.ch/wiki/Contact)|
+|[MastoPurge](https://github.com/ThomasLeister/mastopurge)|CLI|<https://github.com/ThomasLeister/mastopurge>|[Thomas Leister](https://thomas-leister.de/en/about-me/)|
 
 If you have a project like this, make a PR to add it to the list!
