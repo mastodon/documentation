@@ -208,6 +208,7 @@ Query parameters:
 | ----------------- | ------------------------------------------------------------- | ---------- |
 | `q`               | What to search for                                            | no         |
 | `limit`           | Maximum number of matching accounts to return (default: `40`) | yes        |
+| `following`       | Limit the search to following (boolean, default `false`)      | yes        |
 
 Returns an array of matching [Accounts](#accounts).
 
