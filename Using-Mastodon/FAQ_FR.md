@@ -265,4 +265,4 @@ En voici quelques unes, fruit du dur labeur d'autres personnes souhaitant aussi 
 * [https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md](https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md)
 
 ---
-Cette FAQ a été compilée avec les contributions de [@Gargron](https://mastodon.social/@Gargron), [@raccoon](https://mastodon.social/@Raccoon), [@upside](https://octodon.social/@upside), [@zacanger](https://mastodon.social/@zacanger), [@NthTensor](https://octodon.social/@NthTensor), [@ametlles](https://mastodon.social/@ametlles) et plein d'autres personnes du fediverse!
+Cette FAQ a été compilée avec les contributions de [@Gargron](https://mastodon.social/@Gargron), [@raccoon](https://mastodon.social/@Raccoon), [@upside](https://octodon.social/@upside), [@zacanger](https://mastodon.social/@zacanger), [@NthTensor](https://octodon.social/@NthTensor), [@ametlles](https://mastodon.social/@ametlles), [@magikarp](https://hostux.social/@magikarp) et plein d'autres personnes du fediverse!
