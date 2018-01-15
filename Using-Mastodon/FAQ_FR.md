@@ -12,7 +12,7 @@ Un groupe de métal progressif dont je suis fan porte le même nom; c'est ce qui
 
 #### De quelle manière est-ce décentralisé?
 
-Il existe plusieur moyens de décentraliser quelque chose. Dans le cas de Mastodon, il s'agit d'un système «fédéré», plus proche du fonctionnement du courrier électronique que celui de «BitTorrent». Mastodon est un réseau constitué de différents serveurs appelés «instances» sur lesquels l'utilisateur·trice détient un ou plusieurs comptes, peut suivre et/ou interagir avec d'autres comptes quel que soient les instances sur lesquelles iels se trouvent.
+Il existe plusieurs moyens de décentraliser quelque chose. Dans le cas de Mastodon, il s'agit d'un système «fédéré», plus proche du fonctionnement du courrier électronique que celui de «BitTorrent». Mastodon est un réseau constitué de différents serveurs appelés «instances» sur lesquels l'utilisateur·trice détient un ou plusieurs comptes, peut suivre et/ou interagir avec d'autres comptes quel que soient les instances sur lesquelles iels se trouvent.
 
 #### Techniquement, comment fonctionne la fédération?
 
@@ -21,9 +21,9 @@ Depuis la version 1.6 de Mastodon, nous utilisons le protocole [ActivityPub](htt
 Avant la version 1.6 nous utilisions la suite de protocoles OStatus:
 
 1. Webfinger pour la recherche des utilisateurs sur différents domaines
-2. Atom feeds (flux) avec les extensions ActivityStreams, Portable Contacts, et Threads pour le contenu
+2. des flux Atom avec les extensions ActivityStreams, Portable Contacts, et Threads pour le contenu
 3. PubSubHubbub pour gérer les abonnements aux flux Atom
-4. Salmon pour transmettre certains éléments des flux Atom à toutes les parties concernées comme les utilisateurs mentionnés, l'auteur du statut auquel une réponse a été rédigée, l'utilisateur que quelqu'un suit, etc.
+4. Salmon pour transmettre certains éléments des flux Atom à toutes les parties concernées comme les utilisateur·trice·s mentionné·e·s, l'auteur·trice du statut auquel une réponse a été rédigée, l'utilisateur·trice que quelqu'un suit, etc.
 
 Nous utilisons toujours OStatus en tant que protocole additionnel, pour des raisons de compatibilité.
 
@@ -64,99 +64,96 @@ Pour avoir un aperçu de ce que les utilisateurs d'une instance disent, on peut 
 #### Combien de personnes sont sur Mastodon ? Il y a-t-il un historique du nombre d'utilisateur que je peux consulter ?
 Bien sûr ! Il suffit de suivre [@mastodonusercount@social.lou.lt](https://social.lou.lt/@mastodonusercount).
 
-#### Comment on prononce vraiment «mast–don»?
-C'est **mastodon** avec deux «O». Tout le monde se trompe au moins une fois.
-
 #### Comment puis-je utiliser Mastodon sur Android?
-Essaye [Tusky](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky).
+Essayez [Tusky](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky).
 
 #### Sur Android, j'aimerais pouvoir me connecter à plusieurs comptes à la fois.
-Essaye [TootyFruity](https://play.google.com/store/apps/details?id=ch.kevinegli.tootyfruity221258).
+Essayez [TootyFruity](https://play.google.com/store/apps/details?id=ch.kevinegli.tootyfruity221258).
 
 #### Comment puis-je utiliser Mastodon sur iPhone?
-Essaye [Amaroq](https://itunes.apple.com/us/app/amaroq-for-mastodon/id1214116200). Tu peux aussi utiliser Safari directement.
+Essayez [Amaroq](https://itunes.apple.com/us/app/amaroq-for-mastodon/id1214116200). Vous pouvez aussi utiliser Safari directement.
 
 #### Est-ce qu'il y a d'autres applications mobile/de bureau/en ligne de commande?
 [Oui.](Apps.md)
 
-#### Est-ce que ça serait possible que Tusky fasse ‘💇’? Et la fonctionnalité “🔥”? Quid de “⛱” sur Tusky?
+#### Est-ce que ça serait possible que Tusky fasse ‘💇’? Et la fonctionnalité “🔥”? Quid de “⛱” sur Tky?
 Il est possible de contacter Tusky via [@Tusky@mastodon.social](https://mastodon.social/@Tusky), ou les développeurs [@Vavassor@mastodon.social](https://mastodon.social/@Vavassor) et [@daycode@mastodon.social](https://mastodon.social/@daycode)
 
 #### Comment puis-je rechercher quelque chose?
-Il est possible de rechercher des personnes ou des mots-dièse (hashtags), mais pas du texte. Utilise le champ au-dessus de la zone de pouet.
+Il est possible de rechercher des personnes ou des mots-dièse (hashtags), mais pas du texte. Utilisez le champ au-dessus de la zone de pouet.
 
 <img src="screenshots/search.png" alt="Search Box" height="200"/>
 
 #### Comment envoyer un message directement à quelqu'un?"
-En cliquant sur la **planète** en dessous de ton pouet, tu peux accéder aux paramètres de confidentialité, y compris les messages directs.
+En cliquant sur la **planète** en dessous de votre pouet, vous pouvez accéder aux paramètres de confidentialité, y compris les messages directs.
 
 <img src="screenshots/compose-globe.png" alt="Privacy Globe" height="400"/>
 
 #### Je ne comprends pas la différence entre la timeline locale et la timeline fédérée.
-Les pouets «locaux» sont ceux du serveur sur lequel tu as un compte. les pouets «fédérés» sont tous les pouets que ce serveur connaît. (C'est compliqué, mais pour résumer: «Les pouets des personnes que toi et les autres utilisateurs de ton instance suivez»)
+Les pouets «locaux» sont ceux du serveur sur lequel se trouve votre compte. les pouets «fédérés» sont tous les pouets que ce serveur connaît. (C'est compliqué, mais pour résumer: «Les pouets des personnes que les utilisateur·trice·s de votre instance suivent»)
 
 #### Est-ce qu'il y a des instances avec lesquelles mon instance ne se fédère pas? Comment puis-je le savoir?
-Certaines instances sont privées et ne se fédèreront pas avec ton instance. D'autres peuvent être bloquées par ton instance. Pour en savoir plus sur la façon dont ton instance se fédère avec les autres, contacte ton admin. (cf: «[Qui est l'admin de mon instance, et comment puis-je la·le contacter/suivre?](#qui-est-l-admin-de-mon-instance-et-comment-la-le-contacter-suivre)»)
+Certaines instances sont privées et ne fédèreront pas avec votre instance. D'autres peuvent être bloquées par votre instance. Pour en savoir plus sur la façon dont votre instance se fédère avec les autres, contactez votre admin. (cf: «[Qui est l'admin de mon instance, et comment puis-je la·le contacter/suivre?](#qui-est-l-admin-de-mon-instance-et-comment-la-le-contacter-suivre)»)
 
 #### Est-ce que je peux avoir plusieurs comptes? Puis-je utiliser la même adresse email sur différentes instances?
-Oui et oui! Si tu trouves une autre instance que tu voudrais rejoindre, rejoins-la! Sache cependant que certaines instances ne permettent pas de s'y inscrire, et qu'il est possible que quelqu'un y utilise déjà ton pseudonyme favori.
+Oui et oui! Si vous trouvez une autre instance que vous voudriez rejoindre, rejoignez-la! Sachez cependant que certaines instances ne permettent pas de s'y inscrire, et qu'il est possible que quelqu'un y utilise déjà votre pseudonyme favori.
 
 #### Est-il possible d'importer les comptes que je suis avec mon compte d'une instance à une autre?
-Oui. Cette opération peut prendre du temps en fonction de l'instance vers laquelle tu vas. Contacte l'admin de ta nouvelle instance si tu rencontres des difficultés. Si ta nouvelle instance n'est pas fédérée avec l'ancienne, tu risques de perdre les comptes importés.
+Oui. Cette opération peut prendre du temps en fonction de l'instance vers laquelle vous allez. Contactez l'admin de votre nouvelle instance si vous rencontrez des difficultés. Si votre nouvelle instance n'est pas fédérée avec l'ancienne, vous risquez de perdre les comptes importés.
 
 #### Comment puis-je empêcher les gens d'usurper mon identité?
-Comme tout le monde peut créer un compte sur n'importe quelle instance, il est impossible d'empêcher les  autres utilisateurs d'utiliser le même nom d'utilisateur que toi sur une autre instance. Pour s'identifier auprès des autres utilisateurs, certaines personnes maintiennent leur propre instance avec pour unique utilisateur leur compte, ou utilisent [Keybase](https://keybase.io/).
+Comme tout le monde peut créer un compte sur n'importe quelle instance, il est impossible d'empêcher les  autres utilisateurs d'utiliser le même nom d'utilisateur que vous sur une autre instance. Pour s'identifier auprès des autres utilisateurs, certaines personnes maintiennent leur propre instance avec pour unique utilisateur leur compte, ou utilisent [Keybase](https://keybase.io/).
 
 #### Comment activer l'identification à deux facteurs (2FA)?
-Si ton instance le permet, l'option se trouve dans Préférences, sour le menu «Identification à deux facteurs». [Le 2FA de Mastodon](2FA.md) utilise un QR code et un mot de passe texte.
+Si votre instance le permet, l'option se trouve dans Préférences, sous le menu «Identification à deux facteurs». [Le 2FA de Mastodon](2FA.md) utilise un QR code et un mot de passe texte.
 
 #### Pourquoi ne puis-je pas voir les pouets de certaines personnes?
-Il y a plusieurs raisons pour que cela se produise. Les posts de cette personne sont peut-être privés. Il faut suivre un compte pour voir ses pouets qui ne sont pas publics. Si quelqu'un t'a bloqué.e, il ne sera plus possible de voir ses posts non publics.
+Il y a plusieurs raisons pour que cela se produise. Les posts de cette personne sont peut-être privés. Il faut suivre un compte pour voir ses pouets qui ne sont pas publics. Si quelqu'un vous a bloqué·e, il ne sera plus possible de voir ses posts non publics.
 
 #### Quelles sont les tendances?
-Pour savoir les tendances sur Mastodon, suis le bot d'estimations [@TrendingBot@mastodon.social](https://mastodon.social/@TrendingBot).
+Pour savoir les tendances sur Mastodon, suivez le bot d'estimations [@TrendingBot@mastodon.social](https://mastodon.social/@TrendingBot).
 
 #### Qu'est-ce que «CW»?
 «CW» signifie «Alerte sur le contenu» («Content Warning» en anglais). Il est utilisé pour cacher le contenu d'un pouet, comme les «spoilers».
 
 #### Comment fonctionne l'option «Marquer le média comme sensible» («NSFW» - Not Safe For Work)?
-Quand tu joint une image à ton post en utilisant l'icône «appareil photo», une option supplémentaire apparaît (en général «NSFW»). Cliquer dessus va cacher l'image derrière une alerte «Contenu Sensible», permettant aux autres de ne voir l'image postée que s'iels le souhaitent, en cliquant dessus.
+Quand vous joignez une image à votre post en utilisant l'icône «appareil photo», une option supplémentaire apparaît (en général «NSFW»). Cliquer dessus va cacher l'image derrière une alerte «Contenu Sensible», permettant aux autres de ne voir l'image postée que s'iels le souhaitent, en cliquant dessus.
 
 #### Qu'est-ce qui se passe sur Mastodon avec les ananas?
-L'ananas, c'est bon. Et ça fait rire les gens. Contente-toi de ça.
+L'ananas, c'est bon. Et ça fait rire les gens. Contentez-vous de ça.
 
 ### Je vois souvent «Awoo», qu'est-ce que ça veut dire?
-Essaye de le dire à haute voix («Awou»). C'est rigolo!
+Essayez de le dire à haute voix («Awou»). C'est rigolo!
 
 #### Comment puis-je supprimer mon compte?
 Pour l'instant, il faut demander de l'aide à l'admin de ton instance.
-Clique sur **Préférences** (l'engrenage, dans la zone en haut à gauche de l'écran), puis dans le menu **Sécurité** clique sur lien sous **Supprimer le compte**.
+Cliquez sur **Préférences** (l'engrenage, dans la zone en haut à gauche de l'écran), puis dans le menu **Sécurité** cliquez sur le lien sous **Supprimer le compte**.
 
 <a name="qui-est-l-admin-de-mon-instance-et-comment-la-le-contacter-suivre"></a>
 #### Qui est l'admin de mon instance et comment la·le contacter/suivre?
-Clique sur **Pour Commencer**, puis **Plus d'informations**. Cela affiche une page d'information. Normalement, les informations de contact de l'admin sont ici!
+Cliquez sur **Pour Commencer**, puis **Plus d'informations**. Cela affiche une page d'information. Normalement, les informations de contact de l'admin sont ici!
 
 <img src="screenshots/toolbar-getting_started.png" alt="Bouton Pour Commencer" height="200"/>
 <img src="screenshots/getting_started-extended_information.png" alt="Plus d'informations" height="200"/>
 <img src="screenshots/admin_info.png" alt="Informations sur l'admin" height="200"/>
 
 #### Oulah, je vois souvent du contenu offensant qui provient d'une même instance, est-ce qu'il y a un moyen de bloquer *tous* ces contenus?
-Si ton instance est en version 1.4.1 de Mastodon ou plus récente, oui! Visite la page d'un·e utilisateur·rice de l'instance que tu veux bloquer, puis clique sur le menu déroulant sur la gauche juste au-dessus de ses pouets. Il devrait y avoir une option pour cacher tout le contenu provenant de l'instance de cet utilisateur:
+Si votre instance est en version 1.4.1 de Mastodon ou plus récente, oui! Visitez la page d'un·e utilisateur·trice de l'instance que vous souhaitez bloquer, puis cliquez sur le menu déroulant sur la gauche juste au-dessus de ses pouets. Il devrait y avoir une option pour cacher tout le contenu provenant de l'instance de cet utilisateur:
 
 <img src="screenshots/hide-everything-drop-down.png" alt="Menu déroulant Cacher Tout" height="200" />
 
-Si ton instance est dans une version de Mastodon antérieure à 1.4.1, tu ne peux pas faire ça autrement qu'un utilisateur à la fois. Cependant, ton admin peut. Contacte-la·le.
+Si votre instance est dans une version de Mastodon antérieure à 1.4.1, vous ne pouvez pas faire ça autrement qu'un·e utilisateur·trice à la fois. Cependant, votre admin peut. Contactez-la·le.
 
-(Pour connaître la version de Mastodon de ton instance, suis les différentes étapes de «[Qui est l'admin de mon instance et comment la·le contacter/suivre?](#qui-est-l-admin-de-mon-instance-et-comment-la-le-contacter-suivre)». Le numéro de version se trouve dans la colonne de droite de la page d'informations.)
+(Pour connaître la version de Mastodon de votre instance, suivez les différentes étapes de «[Qui est l'admin de mon instance et comment la·le contacter/suivre?](#qui-est-l-admin-de-mon-instance-et-comment-la-le-contacter-suivre)». Le numéro de version se trouve dans la colonne de droite de la page d'informations.)
 
 #### Est-ce que Mastodon est modéré?
-Chaque instance gère sa modération différemment, et chaque instance a ses propres modérateur·rice·s. C'est une bonne chose de demander quelles sont les règles concernant ton instance. La plupart du temps, les règles concernants une instance se trouvent sur la page à «propos» ([comme la page «plus» sur Mastodon.social](https://mastodon.social/about/more))
+Chaque instance gère sa modération différemment, et chaque instance a ses propres modérateur·trice·s. C'est une bonne chose de demander quelles sont les règles concernant votre instance. La plupart du temps, les règles concernants une instance se trouvent sur la page à «propos» ([comme la page «plus» sur Mastodon.social](https://mastodon.social/about/more))
 
 #### Comment puis-je signaler du contenu offensant?
-Sous chaque post, il y a des points de suspension. En cliquant dessus, tu peux soit étendre le poste, soit signaler son contenu. Lors d'un signalement, pense à bien sélectioner tous les posts qui nécéssitent l'attention de ton admin.
+Sous chaque post, il y a des points de suspension. En cliquant dessus, vous pouvez soit étendre le poste, soit signaler son contenu. Lors d'un signalement, pensez à bien sélectioner tous les posts qui nécéssitent l'attention de votre admin.
 
 #### Que faire en cas de harcèlement?
-Si ton admin prend le harcèlement au sérieux, tu peux le lui signaler via le système de signalement des posts: via les points de suspension («…») sous le post, ou en contactant ton admin directement.
+Si votre admin prend le harcèlement au sérieux, vous pouvez le lui signaler via le système de signalement des posts: via les points de suspension («…») sous le post, ou en contactant votre admin directement.
 
 #### Est-ce que je peux écrire des messages privés à des personnes d'autres instances?
 Oui, normalement. Cependant, les messages privés ne sont *pas sécurisés*. Il est déconseillé d'envoyer des informations sensibles via des messages privés.
@@ -175,22 +172,22 @@ L'icône de **globe** sous la zone de pouet permet d'ajuster la confidentialité
 Oui! Les Hashtags sont traqués et sont souvent rigolos, mais aussi servent parfois à éviter à certaines personnes de tomber sur des posts offensants. Les Hashtags sont particulièrements appréciés pour les posts publics à propos de #POLITIQUE (#POLITICS), #SANTÉ (#HEALTH), #DÉPRESSION (#DEPRESSION), ou de sujets #LEWD ou #NSFW. De tels posts sont aussi ce pourquoi la fonctionnalité d'alerte concernant le contenu (Content Warning) a été créée.
 
 #### Comment puis-je être vérifié, avec un “✅”?
-“✅” est un emoji, *juste* pour rire. Il n'y a pas de vérification de compte sur Mastodon. Tu peux copier/coller un “✅” dans ta description si tu le souhaites, petit·e effronté·e.
+“✅” est un emoji, *juste* pour rire. Il n'y a pas de vérification de compte sur Mastodon. Vous pouvez copier/coller un “✅” dans votre description si vous le souhaitez.
 
 #### Puis-je modifier un pouet?
-Non, désolé. Mais tu peux toujours supprimer un pouet et le réécrire…
+Non, désolé. Mais vous pouvez toujours supprimer un pouet et le réécrire…
 
 #### Si je supprime un post, est-il supprimé partout?
 Supprimer un post le supprime du fil local. Cependant, s'il a déjà été boosté, il se peut qu'il soit encore visible et peut se fédérer.
 
 #### Comment puis-je voir mes pouets favoris?
-Clique sur **Pour Commencer**, puis **Favoris**
+Cliquez sur **Pour Commencer**, puis **Favoris**
 
 <img src="screenshots/toolbar-getting_started.png" alt="Bouton Pour Commencer" height="200"/>
 <img src="screenshots/getting_started-favourites.png" alt="Favoris" height="200"/>
 
 #### Puis-je citer un pouet?
-Pas pour le moment. Tu dois copier et coller manuellement le texte pour le citer.
+Non. Vous devez copier et coller manuellement le texte pour le citer.
 
 #### Si mon instance ferme définitivement, est-ce que je perds mes données?
 Oui.
@@ -200,14 +197,14 @@ Oui, en partie! C'est sous le menu **Préférences->Export des données**
 
 <img src="screenshots/preferences-data_export.png" alt="Export des données" height="400"/>
 
-#### Je ne peux pas voir les pouets d'un·e utilisateur·rice distant·e sous leur description!
-Dans la **Vue Étendue** du profil, clique sur son avatar. Cela va te rediriger sur son instance, et afficher tous ses pouets publics.
+#### Je ne peux pas voir les pouets d'un·e utilisateur·trice distant·e sous leur description!
+Dans la **Vue Étendue** du profil, cliquez sur son avatar. Cela va vous rediriger sur son instance, et afficher tous ses pouets publics.
 
 <img src="screenshots/profile-avatar_click.png" alt="Cliquer sur l'avatar" height="200"/>
 <img src="screenshots/profile-webpage_URL.png" alt="Vue en page web native" height="200"/>
 
 #### Comment puis-je voir les conversations (threads)?
-Clique sur un pouet pour accéder à sa **Vue Étendue**. Cela va afficher les autres pouets qui lui sont reliés.
+Cliquez sur un pouet pour accéder à sa **Vue Étendue**. Cela va afficher les autres pouets qui lui sont reliés.
 
 #### Comment puis-je créer un lien vers un pouet?
 Il y a deux permaliens possibles pour un pouet. Pour les pouets dans un fil, avec un **clic droit** sur l'horodatage. Sur la vue étendue d'un pouet, avec un **clic droit** sur la date en bas du pouet.
@@ -216,7 +213,7 @@ Il y a deux permaliens possibles pour un pouet. Pour les pouets dans un fil, ave
 <img src="screenshots/expanded_view-permalink.png" alt="Permalien sur la vue étendue" height="200"/>
 
 #### Comment puis-je avoir un lien vers mon profil?
-Avec Firefox, via un **clic droit** sur ton avatar, puis en choisissant **Copier la destination du lien**.
+Avec Firefox, via un **clic droit** sur votre avatar, puis en choisissant **Copier la destination du lien**.
 
 <img src="screenshots/link_to_profile.png" alt="URL vers le profil" height="200"/>
 
@@ -233,17 +230,17 @@ Oui, essaye cet excellent [outil d'aperçu d'instance](http://www.unmung.com/mas
 Les développeurs sont actuellement en train de travailler sur cette fonctionnalités ainsi que d'autres options de filtrage.
 
 #### La traduction automatique est-elle supportée?
-Pas encore, mais il existe un [script Firefox TamperMonkey](https://github.com/tomouchuu/mastodon-translate) qui pourrait te convenir.
+Pas encore, mais il existe un [script Firefox TamperMonkey](https://github.com/tomouchuu/mastodon-translate) qui pourrait vous convenir.
 
 #### Est-ce que les pouets se fédèrent automatiquement ou sont-ils d'abord locaux?
-Par défaut, les pouets sont fédérés (publics), et apparaîtront dans les deux flux d'actualités. Tu peux changer le comportement par défaut via **Paramètres->Préférences->Confidentialité des posts.**
+Par défaut, les pouets sont fédérés (publics), et apparaîtront dans les deux flux d'actualités. Vous pouvez changer le comportement par défaut via **Paramètres->Préférences->Confidentialité des posts.**
 
 <img src="screenshots/toolbar-getting_started.png" alt="Bouton «Pour Commencer»" height="200"/>
 <img src="screenshots/getting_started-preferences.png" alt="Préférences" height="200"/>
 <img src="screenshots/preferences-post_privacy.png" alt="Confidentialité des Posts" height="400"/>
 
 #### Quelle est la taille limite par défaut pour l'envoi d'images et comment puis-je la changer?
-La limite par défaut est de 8 megaoctets (8Mo), cependant elle peut être changée en modifiant la ligne suivante dans le fichier `mastodon/app/models/media_attachment.rb`:
+La limite par défaut est de 8 megaoctets (8Mo), cependant elle peut être changée par un·e administrateur·trice en modifiant la ligne suivante dans le fichier `mastodon/app/models/media_attachment.rb`:
 
 `  validates_attachment_size :file, less_than: 8.megabytes`
 
@@ -253,7 +250,7 @@ Changer le 8 par une autre valeur entière pour changer la limite.
 Voir le [Guide Utilisateur](../README.md), sous la partie «Running Mastodon.»
 
 #### J'ai trouvé un bogue ou j'ai une suggestion pour Mastodon.
-Tu peux reporter un bogue ou soumettre des suggestions via le [Traqueur de problèmes (issues en anglais) de Mastodon.](https://github.com/tootsuite/mastodon/issues)
+Vous pouvez reporter un bogue ou soumettre des suggestions via le [Traqueur de problèmes (issues en anglais) de Mastodon.](https://github.com/tootsuite/mastodon/issues)
 
 #### Hey, j'adore les FAQs sur Mastodon! Y en a-t-il d'autres?
 En voici quelques unes, fruit du dur labeur d'autres personnes souhaitant aussi aider la communauté de Mastodon (contenu externe, en anglais).
