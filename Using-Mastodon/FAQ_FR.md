@@ -126,7 +126,6 @@ L'ananas, c'est bon. Et ça fait rire les gens. Contentez-vous de ça.
 Essayez de le dire à haute voix («Awou»). C'est rigolo!
 
 #### Comment puis-je supprimer mon compte?
-Pour l'instant, il faut demander de l'aide à l'admin de ton instance.
 Cliquez sur **Préférences** (l'engrenage, dans la zone en haut à gauche de l'écran), puis dans le menu **Sécurité** cliquez sur le lien sous **Supprimer le compte**.
 
 <a name="qui-est-l-admin-de-mon-instance-et-comment-la-le-contacter-suivre"></a>
@@ -227,10 +226,10 @@ L'auteur.e.
 Oui, essaye cet excellent [outil d'aperçu d'instance](http://www.unmung.com/mastoview?url=mastodon.social&view=local).
 
 #### Comment puis-je masquer les pouets dans les langues que je ne comprends pas?
-Les développeurs sont actuellement en train de travailler sur cette fonctionnalités ainsi que d'autres options de filtrage.
+Il est possible de filtrer des langues pour qu'elles n'apparaissent pas dans votre fil public, dans **Paramètres->Préférences->Langues filtrées**
 
 #### La traduction automatique est-elle supportée?
-Pas encore, mais il existe un [script Firefox TamperMonkey](https://github.com/tomouchuu/mastodon-translate) qui pourrait vous convenir.
+Non, mais il existe un [script Firefox TamperMonkey](https://github.com/tomouchuu/mastodon-translate) qui pourrait vous convenir.
 
 #### Est-ce que les pouets se fédèrent automatiquement ou sont-ils d'abord locaux?
 Par défaut, les pouets sont fédérés (publics), et apparaîtront dans les deux flux d'actualités. Vous pouvez changer le comportement par défaut via **Paramètres->Préférences->Confidentialité des posts.**
