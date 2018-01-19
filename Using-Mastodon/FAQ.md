@@ -31,11 +31,11 @@ Before version 1.6 we used the OStatus suite of protocols:
 3. PubSubHubbub for subscribing to Atom feeds
 4. Salmon for delivering certain items from the Atom feeds to interested parties such as the mentioned user, author of the status being replied to, person being followed, etc
 
-We still use OStatus as an additional protocol for reasons of compatibility.
+Mastodon still supports OStatus for compatibility purposes.
 
 #### What is mastodon.social?
 
-The "flagship" instance of Mastodon, aka the server I run myself with the latest code. It's not supposed to be the only instance in the end.
+The "flagship" instance of Mastodon, aka the server Eugen (lead developer) runs with the latest code. It's not supposed to be the only instance in the end.
 
 #### What else is part of the federated network?
 
@@ -49,9 +49,9 @@ Because Mastodon has been created from a blank slate, it is much simpler to have
 
 #### How is Mastodon funded?
 
-Development of Mastodon and hosting of mastodon.social is funded through my [Patreon (also BTC/PayPal donations)](https://www.patreon.com/user?u=619786). Beyond that, I am not interested in VC funding, monetizing, advertising, or anything of that sort. I could offer setup/maintenance services on demand.
+Development of Mastodon and hosting of mastodon.social is funded through [Patreon (also BTC/PayPal donations)](https://www.patreon.com/user?u=619786) and [Liberapay](https://liberapay.com/Mastodon/). Beyond that, the project is not interested in VC funding, monetizing, advertising, or anything of that sort.
 
-The software is free and open source and communities should host their own servers if they can, that way the costs are more or less distributed. Obviously it'd be hard for me to pay the bills if literally everyone decided to use the mastodon.social instance only.
+The software is free and open source and communities should host their own servers if they can, that way the costs are more or less distributed. Many instances have their own Patreon and Liberapay pages, among other community funding methods.
 
 #### This looks a lot like Twitter, what’s the difference?
 Mastodon is decentralized. Anyone can run a Mastodon server, under their own community rules. Twitter is run by a central authority, and sets the rules for everyone.
