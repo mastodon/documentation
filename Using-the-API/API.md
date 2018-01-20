@@ -831,7 +831,7 @@ The most important part of an error response is the HTTP status code. Standard s
 | ------------------------ | ----------------------------------------------------------------------------- | -------- |
 | `id`                     | The ID of the status                                                          | no       |
 | `uri`                    | A Fediverse-unique resource ID                                                | no       |
-| `url`                    | URL to the status page (can be remote)                                        | no       |
+| `url`                    | URL to the status page (can be remote)                                        | yes      |
 | `account`                | The [Account](#account) which posted the status                               | no       |
 | `in_reply_to_id`         | `null` or the ID of the status it replies to                                  | yes      |
 | `in_reply_to_account_id` | `null` or the ID of the account it replies to                                 | yes      |
