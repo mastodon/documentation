@@ -209,6 +209,7 @@ Setting up Mastodon behind Apache is possible as well, although you will need to
    
    <LocationMatch "^/(assets|avatars|emoji|headers|packs|sounds|system)>
       Header always set Cache-Control "public, max-age=31536000, immutable"
+      Require all granted
    </LocationMatch>
 
    ProxyPreserveHost On
