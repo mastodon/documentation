@@ -147,10 +147,10 @@ The **globe** icon under the toot area adjusts your status privacy by changing w
 
 | Privacy setting | Broadcasted to | Viewable by | Notes |
 | --------------- | ----------- | ------ | ----- |
-| Public          | Global, public timelines | Everyone | |
+| Public          | Public timelines | Everyone | |
 | Unlisted        | Followers only | Everyone | |
 | Private         | Followers only |  Followers only | Cannot be boosted. Mentioned people will also receive a copy. |
-| Direct          | Mentioned people only  | Mentioned people only | Similar to email |
+| Direct          | Mentioned people only  | Mentioned people only | Cannot be boosted |
 
 #### Can I use hashtags? Should I?
 Yes! Hashtags are tracked and are often fun, but some tags help people avoid triggering posts. This is especially appreciated on public posts of #POLITICS, #HEALTH, #DEPRESSION, or #LEWD OR #NSFW topics. Such posts are also what the Content Warning system was designed for.
