@@ -12,14 +12,14 @@ Frequently Asked Questions
 
 #### What is a Mastodon?
 
-A prehistoric animal, predecessor of the mammoth. Goes "toot."
+A prehistoric animal, predecessor of the mammoth. Essentially a fluffy elephant. Goes "toot."
 
 #### Why the name Mastodon?
 
-There's a progressive metal band with the same name that I'm a fan of that brought the animal to my attention. I thought it's a pretty cool name/animal.
+It's pretty metal. (There's a progressive metal band with the same name)
 
 #### What is a “federation”?
-It’s a group of mastodon servers that share toots with each other.
+It’s a group of Mastodon servers whose users can talk to each other seamlessly.
 
 #### What is an “instance”?
 It’s a server that you can have an account on. Each has its own policies, because they can be run by anyone!
@@ -74,12 +74,12 @@ Mastodon is decentralized. Anyone can run a Mastodon server, under their own com
 You will find a preview of what the federated timeline of an instance looks like on their frontpage. Alternatively, to preview what an instance is saying, use [this preview tool](http://www.unmung.com/mastoview?url=mastodon.social&view=local) created by [Kevin Marks](https://mastodon.social/@kevinmarks).
 
 #### How do I get this on Android?
-If you use Chrome or Firefox for Android, you can add Mastodon to your homescreen. It will act as a native app in many ways including push notifications. Alternatively, try [Tusky](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky).
+If you use Chrome or Firefox for Android, you can add Mastodon to your homescreen. It will act as a native app in many ways including push notifications. Alternatively, try [Tusky](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky), [Mastalab](https://play.google.com/store/apps/details?id=fr.gouv.etalab.mastodon) or [Tootdon](http://tootdon.club/).
 
 #### How do I get this on iPhone?
 Try [Amaroq](https://itunes.apple.com/us/app/amaroq-for-mastodon/id1214116200).
 
-#### Are there other mobile/desktop/cli apps?
+#### Are there other mobile/desktop/CLI apps?
 [Yep.](Apps.md)
 
 #### How do I search?
@@ -107,7 +107,7 @@ The option will be in Preferences under Two-factor Authentication. [Mastodon's 2
 This could occur for several reasons. A person's posts may be private. You must be a follower of a private account to see their non-public posts. Additionally, if someone has blocked you, you will no longer see any of their posts.
 
 #### What’s trending?
-To find out what’s trending, follow the esteemed [@TrendingBot@mastodon.social](https://mastodon.social/@TrendingBot).
+Trending topics are not currently officially tracked.
 
 #### What’s “CW”?
 “CW” stands for “Content Warning.” You can use it to hide your toot's text and image behind a warning, like a spoiler.
