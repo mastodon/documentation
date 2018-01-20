@@ -221,11 +221,11 @@ You can file a bug or submit suggestions at [Mastodon’s Issue Tracker.](https:
 ## Hey I love mastodon FAQs! Can I have more?
 Here’s more, from hardworking individuals trying to help, too.
 
-* [https://hastebin.com/raw/xuqogukimu](https://hastebin.com/raw/xuqogukimu)
-* [https://github.com/ThomasLeister/masto-faq](https://github.com/ThomasLeister/masto-faq)
-* [http://mastoguide.info/Pages/FAQindex.html](http://mastoguide.info/Pages/FAQindex.html)
-* [https://medium.com/tebelorg/my-first-10-days-on-mastodon-fediverse-f6f1d73db8d7](https://medium.com/tebelorg/my-first-10-days-on-mastodon-fediverse-f6f1d73db8d7)
-* [https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md](https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md)
+* <https://gist.github.com/joyeusenoelle/74f6e6c0f349651349a0df9ae4582969>
+* <https://hastebin.com/raw/xuqogukimu>
+* <https://github.com/ThomasLeister/masto-faq>
+* <http://mastoguide.info/Pages/FAQindex.html](http://mastoguide.info/Pages/FAQindex.html>
+* <https://medium.com/tebelorg/my-first-10-days-on-mastodon-fediverse-f6f1d73db8d7>
 
 ---
 
