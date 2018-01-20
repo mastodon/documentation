@@ -147,7 +147,7 @@ The **globe** icon under the toot area adjusts your status privacy by changing w
 
 | Privacy setting | Broadcasted to | Viewable by | Notes |
 | --------------- | ----------- | ------ | ----- |
-| Public          | Public timelines | Everyone | |
+| Public          | Public timelines | Everyone | On your instance, it will appear on all timelines. It will also appear on federated and hashtag timelines of instances where you have followers. |
 | Unlisted        | Followers only | Everyone | |
 | Private         | Followers only |  Followers only | Cannot be boosted. Mentioned people will also receive a copy. |
 | Direct          | Mentioned people only  | Mentioned people only | Cannot be boosted |
