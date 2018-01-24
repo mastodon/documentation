@@ -1,7 +1,13 @@
 Administration guide
 ====================
 
-So, you have a working Mastodon instance... now what?
+So, you have a working Mastodon instance... now what? Here are the steps you will likely want to perform:
+
+1. [Give your account admin privileges](#turning-into-an-admin)
+2. [Customize settings like title, contact username/e-mail, description, and rules](#site-settings)
+3. [Submit your instance to a directory](#instance-directory)
+
+All of these are optional and depend on your use case.
 
 ## Turning into an admin
 
