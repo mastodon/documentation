@@ -344,26 +344,27 @@ letsencrypt certonly --webroot -d example.com -w /home/mastodon/live/public/
 
 You need to renew your certificate before the expiration date. Not doing so will make users of your instance unable to access the instance and users of other instances unable to federate with yours.
 
-We can create a cron job that runs daily to do this:
+We can create a cron job that runs monthly to do this:
 
 ```sh
-nano /etc/cron.daily/letsencrypt-renew
+nano /etc/cron.monthly/letsencrypt-renew
 ```
 
 Copy and paste this script into that file:
 
 ```sh
 #!/usr/bin/env bash
+systemctl stop nginx
 letsencrypt renew
-systemctl reload nginx
+systemctl start nginx
 ```
 
 Save and exit the file.
 
-Make the script executable and restart the cron daemon so that the script runs daily:
+Make the script executable and restart the cron daemon so that the script runs monthly:
 
 ```sh
-chmod +x /etc/cron.daily/letsencrypt-renew
+chmod +x /etc/cron.monthly/letsencrypt-renew
 systemctl restart cron
 ```
 
