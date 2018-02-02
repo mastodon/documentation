@@ -19,6 +19,8 @@ Furthermore, in the command, `rake` is interchangeable with `rails`
 |Task|Description|Usage|
 |----|-----------|-----|
 |mastodon:make_admin|Turn a user into an admin|USERNAME=yourname|
+|mastodon:make_mod|Turn a user into an moderator|USERNAME=yourname|
+|mastodon:revoke_staff|Revoke admin or moderator privileges of a specified user|USERNAME=yourname|
 |mastodon:confirm_email|Confirm a user manually|USER_EMAIL=your@email|
 |mastodon:add_user|Create new user|(Interactive)|
 |mastodon:users:admins|List e-mails of all admins|
