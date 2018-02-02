@@ -17,8 +17,9 @@ on how to disable password authentication for the OpenSSH server.
 
 ### Firewall rules 
 
-You may want to set up some firewall rules. A Mastodon server will require public incoming
-access to the following ports: 22 (SSH), 80 (HTTP), 443 (HTTPS). Here are a couple [example iptables rulesets](https://github.com/QueuingKoala/netfilter-samples/tree/master/rules-host)
+#### Inbound
+
+A Mastodon server will require public incoming access to the following ports: 22 (SSH), 80 (HTTP), 443 (HTTPS). Here are a couple [example iptables rulesets](https://github.com/QueuingKoala/netfilter-samples/tree/master/rules-host)
 that you can modify according to your needs. It is recommended to have access to your 
 server provider's out-of-band access method while adding any ruleset 
 in case you lock yourself out from SSH.
@@ -46,6 +47,27 @@ the case of a password compromise the admin account(s) themselves are not compro
 
 Setting up two-factor authentication in Mastodon is fairly simple:
 Settings -> Two-factor Authentication
+
+#### Outbound
+
+A Mastodon server will make HTTP requests to arbitrary remote servers. Therfore, an outbound firewall must be set up if:
+
+the server can access _private hosts_ via IP addresses other than loopback addresses.
+
+Here, a _private host_ means a server with IP address authentication to restrict its access to certain computers, including the server running Mastodon.
+
+Such a vulnerability is called Server Side Request Forgery (SSRF), and detailed explanations are available online.
+
+Use iptables or its frontend to set up outbound firewall if you are on Linux. The following example is to drop any request for `example.com` made by user `mastodon`.
+
+```sh
+iptables -A OUTPUT -d example.com -j DROP -m owner --uid-owner mastodon
+ip6tables -A OUTPUT -d example.com -j DROP -m owner --uid-owner mastodon
+```
+
+Mastodon usually requires only TCP port 53 (DNS), 80 (HTTP) 443 (HTTPS) and additional ports for email, but it may make a request for a different port if instructed by a remote server.
+
+Mastodon never makes UDP except DNS (port 53).
 
 ### Server provider client area account
 
