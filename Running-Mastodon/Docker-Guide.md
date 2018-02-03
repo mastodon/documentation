@@ -32,23 +32,24 @@ You will need to fill in, at least: `LOCAL_DOMAIN`, `LOCAL_HTTPS`, and the `SMTP
 
 ### Using a prebuilt image
 
-If you're not making any local code changes or customizations on your instance, you can use a prebuilt image to avoid the time and resource use of a build. Images for released versions are available from Docker Hub: https://hub.docker.com/r/gargron/mastodon/
+If you're not making any local code changes or customizations on your instance, you can use a prebuilt Docker image to avoid the time and resource consumption of a build. Images are available from Docker Hub: https://hub.docker.com/r/gargron/mastodon/
+    
+To use the prebuilt images:
 
-To grab the image from Docker Hub:
-
-    docker pull gargron/mastodon
-    
-If you want the image for a specific release, you can pull a tagged version. For example, if you want to use v2.2.0:
-    
-    docker pull gargron/mastodon:v2.2.0
-    
-Now that you have a copy of the image, edit `docker-compose.yml` on your system. Comment out the `build: .` lines for all images (web, streaming, sidekiq). The build will now use the prebuilt image.
+1. Open `docker-compose.yml` in your favorite text editor.
+2. Comment out the `build: .` lines for all images (web, streaming, sidekiq).
+3. Edit the `image: gargron/mastodon` lines for all images to include the release you want. The default is `latest` which may not be a tagged release. If you wanted to use v2.2.0 for example, you would edit the lines to say: `image: gargron/mastodon:v2.2.0`
+4. Save the file and exit the text editor.
+4. Run `docker-compose build`. It will now pull the correct image from Docker Hub.
 
 ### Building your own image
 
 You must build your own image if you've made any code modifications. To build your own image:
 
-    docker-compose build
+1. Open `docker-compose.yml` in your favorite text editor.
+2. Uncomment the `build: .` lines for all images (web, streaming, sidekiq) if needed.
+3. Save the file and exit the text editor.
+3. Run `docker-compose build`.
     
 ## Building the app
 
@@ -106,10 +107,10 @@ This approach makes updating to the latest version a real breeze.
   - If the `docker-compose.yml` file is modified, run `git stash` to stash your changes.
 3. `git checkout TAG_NAME` to use the tag code. (If you have committed changes, use `git merge TAG_NAME` instead, though this isn't likely.)
 4. Only if you ran `git stash`, now run `git stash pop` to redo your changes to `docker-compose.yml`. Double check the contents of this file.
-5. Get the updated Mastodon image. 
-- To compile the image yourself: `docker-compose build`
-- To use a prebuilt image: `docker pull gargron/mastodon:TAG_NAME`
+5. Build the updated Mastodon image. 
+- If you are using a prebuilt image: First, edit the `image: gargron/mastodon` lines in `docker-compose.yml` to include the tag for the new version. E.g. `image: gargron/mastodon:v2.2.0`
+- To pull the prebuilt image, or build your own from the updated code: `docker-compose build`
 6. (optional) `docker-compose run --rm web rake db:migrate` to perform database migrations. Does nothing if your database is up to date.
 7. (optional) `docker-compose run --rm web rake assets:precompile` to compile new JS and CSS assets.
-8. Follow any other additional special instructions in the release notes.
+8. Follow any other special instructions in the release notes.
 9. `docker-compose up -d` to re-create (restart) containers and pick up the changes.
