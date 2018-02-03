@@ -28,14 +28,29 @@ Do NOT change the `REDIS_*` or `DB_*` settings when running with the default doc
 
 You will need to fill in, at least: `LOCAL_DOMAIN`, `LOCAL_HTTPS`, and the `SMTP_*` settings.
 
+## Getting the Mastodon image
 
-## Building the app
+### Using a prebuilt image
 
-If you want to build your own image, run the command below:
+If you're not making any local code changes or customizations on your instance, you can use a prebuilt image to avoid the time and resource use of a build. Images for released versions are available from Docker Hub: https://hub.docker.com/r/gargron/mastodon/
+
+To grab the image from Docker Hub:
+
+    docker pull gargron/mastodon
+    
+If you want the image for a specific release, you can pull a tagged version. For example, if you want to use v2.2.0:
+    
+    docker pull gargron/mastodon:v2.2.0
+    
+Now that you have a copy of the image, edit `docker-compose.yml` on your system. Comment out the `build: .` lines for all images (web, streaming, sidekiq). The build will now use the prebuilt image.
+
+### Building your own image
+
+You must build your own image if you've made any code modifications. To build your own image:
 
     docker-compose build
-
-If you want to use prebuilt images on Docker Hub, just comment out all `build` keys in `docker-compose.yml` and continue.
+    
+## Building the app
 
 Now the image can be used to generate secrets. Run the command below for each of `PAPERCLIP_SECRET`, `SECRET_KEY_BASE`, and `OTP_SECRET` then copy the results into the `.env.production` file:
 
@@ -91,7 +106,10 @@ This approach makes updating to the latest version a real breeze.
   - If the `docker-compose.yml` file is modified, run `git stash` to stash your changes.
 3. `git checkout TAG_NAME` to use the tag code. (If you have committed changes, use `git merge TAG_NAME` instead, though this isn't likely.)
 4. Only if you ran `git stash`, now run `git stash pop` to redo your changes to `docker-compose.yml`. Double check the contents of this file.
-5. `docker-compose build` to compile the Docker image out of the changed source files.
+5. Get the updated Mastodon image. 
+- To compile the image yourself: `docker-compose build`
+- To use a prebuilt image: `docker pull gargron/mastodon:TAG_NAME`
 6. (optional) `docker-compose run --rm web rake db:migrate` to perform database migrations. Does nothing if your database is up to date.
 7. (optional) `docker-compose run --rm web rake assets:precompile` to compile new JS and CSS assets.
-8. `docker-compose up -d` to re-create (restart) containers and pick up the changes.
+8. Follow any other additional special instructions in the release notes.
+9. `docker-compose up -d` to re-create (restart) containers and pick up the changes.
