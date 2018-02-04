@@ -153,7 +153,7 @@ git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 # Install bundler
 gem install bundler
 # Use bundler to install the rest of the Ruby dependencies
-bundle install --deployment --without development test
+bundle install -j$(getconf _NPROCESSORS_ONLN) --deployment --without development test
 # Use yarn to install node.js dependencies
 yarn install --pure-lockfile
 ```
