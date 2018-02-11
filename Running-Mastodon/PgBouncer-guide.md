@@ -13,7 +13,7 @@ Note that you can check "PgHero" in the administration view to see how many Post
 Installing PgBouncer
 -----
 
-On Ubuntu:
+On Debian and Ubuntu:
 
     sudo apt install pgbouncer
 
@@ -113,6 +113,10 @@ The defaults are fine to start, and you can always increase them later:
 max_client_conn = 100
 default_pool_size = 20
 ```
+
+Don't forget to reload pgbouncer after making your changes:
+
+    service pgbouncer reload
 
 ### Debugging that it all works
 
