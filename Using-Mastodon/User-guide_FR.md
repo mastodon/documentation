@@ -388,11 +388,9 @@ Si vous avez d'autres questions, vous pouvez faire deux choses:
 <br />
 ***
 
-####Précisions
+### Précisions
 
-<a name="compatibilite">Compatibilité</a> (ou même des serveurs utilisant un service compatible avec OStatus, comme GNU Social et postActiv)
-
-####<a name="theming-local">Thèmes spécifiques</a>
+#### <a name="theming-local">Thèmes spécifiques</a>
 
 Certaines instances mastodon disposent d'un thème personnalisé (icônes et couleurs différentes) par rapport à l'instance Mastodon par défaut. C'est un choix laissé à la discrétion de l'administrateur de l'instance, mais il existe d'autres possibilités de personnaliser votre expérience avec Mastodon, comme utiliser une extension de modification d'apparence dans votre navigateur.
 Un exemple très utilisé parmi les extensions disponibles est "stylish" (gratuit pour firefox et chrome) et qui dispose déjà de bcp de thèmes tout prêt créés par d'autres utilisateurs. Par exemple, un des thèmes vous permet d'utiliser Mastodon sur une seule colonne (comme avec twitter par ex) si c'est ce que vous préférez, mais les possibilités de changements sont multiples : couleurs, taille et nombre de colonnes, etc.
