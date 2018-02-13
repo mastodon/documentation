@@ -113,7 +113,7 @@ Mettre en place un avertissement sur le contenu lorsque vous joignez des images 
 
 
 Si vous postez quelque chose qui fait référence à un sujet plus large, il peut être utile d'ajouter un "hashtag" à ce dernier. Cela se fait très simplement lors de la rédaction du post en ajoutant un signe # suivi d'un mot.
-Par exemple, #introduction qui est très populaire sur mastodon.social afin que les nouveaux inscrits se présentent, ou #art pour parler/montrer des sujets artistiques, etc.
+Par exemple, #introduction qui est très populaire sur mastodon.social afin que les nouveaux inscrits se présentent, ou #art pour parler/montrer de(s) sujets artistiques, etc.
 Un hashtag ne peut être composé que des lettres et des nombres, et doit obligatoirement comporter au moins une lettre. Un espace ou un & marquera la fin du hashtag.
 
 
@@ -121,7 +121,7 @@ Lorsque le pouet est posté, le hashtag devient un lien cliquable. Cliquer sur u
 Cela permet aux utilisateurs de grouper des posts ayant des sujets similaires, afin de former un fil spécialement dédié pour les gens ayant un intérêt pour le sujet en question. Les hashtags peuvent donc également être recherché via le champ "Rechercher" au dessus du champ de composition dans la colonne de gauche.
 
 
-Lorsque vous avez une recherche de hashtag en cours, le fil affiché sera automatiquement mis à jour avec les nouveaux pouets correspondants. Vous pouvez "épingler" la colonne affichant votre recherche pour conserver à la fois le fil de recherche et les fonctionnalités de la colonne de droite (Cependant cela nécessire un écran plus large, ou l'utilisation de [thèmes spécifiques](User-guide_FR.md#theming-local))
+Lorsque vous avez une recherche de hashtag en cours, le fil affiché sera automatiquement mis à jour avec les nouveaux pouets correspondants. Vous pouvez "épingler" la colonne affichant votre recherche pour conserver à la fois le fil de recherche et les fonctionnalités de la colonne de droite (Cependant cela nécessite un écran plus large, ou l'utilisation de [thèmes spécifiques](User-guide_FR.md#themes-specifiques))
 Pour épingler la colonne, cliquez sur le symbole "réglages" (à côte du lien "retour") puis "épingler". Si vous cliquez à nouveau sur ce menu, vous avez la possibilité de "retirer" votre épingle, ou bien de déplacer cette colonne (flèches gauche/droite)
 
 
@@ -171,19 +171,19 @@ La nécessité d'approuver tout nouvel utilisateur qui voudrait suivre un profil
 
 Lorsque vous suivez le compte d'un utilisateur, l'icône "suivre" deviendra bleue
 sur leur profil, et le + se transforme en x ![Following icon](screenshots/following-icon.png).
-Vous pouvez par la suite arrêter de suivre un profil en cliquant à nouveau sur cette icône, le x redeviendra un + et l'icône à nouveau grise.
+Vous pouvez par la suite arrêter de suivre un profil en cliquant à nouveau sur cette icône, le x redeviendra un + et l'icône sera à nouveau grise.
 
-Si vous connaissez le nom d'utilisateur de qqun que vous souhaitez suivre, vous pouvez également accéder à leur profil en entrant leur nom dans le champ [Rechercher](User-guide_FR.md#Recherche) de la colonne de composition à gauche. Cela fonctionne également pour les utilisateurs externe à votre instance, cependant, cela va dépendre de la connexion de votre instance à celle de l'utilisateur. Si l'instance n'est pas déjà connue de la vôtre, alors vous devrez entrer l'adresse complète de l'utilisateur (par ex. `gargron@mastodon.social`), composée comme vu précédemment par le nom/pseudo ainsi que le nom du serveur.
+Si vous connaissez le nom d'utilisateur de quelqu'un que vous souhaitez suivre, vous pouvez également accéder à son profil en entrant son nom dans le champ [Rechercher](User-guide_FR.md#Recherche) de la colonne de composition à gauche. Cela fonctionne également pour les utilisateurs externe à votre instance, cependant, cela va dépendre de la connexion de votre instance à celle de l'utilisateur. Si l'instance n'est pas déjà connue de la vôtre, alors vous devrez entrer l'adresse complète de l'utilisateur (par ex. `gargron@mastodon.social`), composée comme vu précédemment par le nom/pseudo ainsi que le nom du serveur.
 
 Une alternative permet de suivre un profil que vous auriez par exemple ouvert dans un autre onglet ou même un autre navigateur, et pas nécessairement à partir de Mastodon. Dans ce cas précis, lorsque vous cliquez sur "suivre" ou "s'abonner" sur le profil, vous allez devoir ensuite entrer l'adresse complète de **votre** compte Mastodon depuis lequel vous allez suivre ce profil. (par ex `myaccount@mastodon.social`, tjrs suivant le principe nom/pseudo@instance)
 
 
 #### Notifications
 
-Lorsqu'une personne suis votre profil ou émet une demande pour suivre votre profil, vous mentionne dans un pouet, partage ou met votre post en favoris, vous allez recevoir une notification. Celles-ci apparaissent dans la colonne "Notifications", et vous pouvez également recevoir des avertissements sonores et visuels si votre navigateur le supporte et que vous l'avez autorisé.
+Lorsqu'une personne suit votre profil ou émet une demande pour suivre votre profil, vous mentionne dans un pouet, partage ou met votre post en favoris, vous allez recevoir une notification. Celles-ci apparaissent dans la colonne "Notifications", et vous pouvez également recevoir des avertissements sonores et visuels si votre navigateur le supporte et que vous l'avez autorisé.
 
 
-![Notification Settings icon](screenshots/notifications-settings.png) Vous êtes en mesure de filtrer le type de notifications que vous souhaitez voir dans la colonne du même nom en cliquant sur l'icône "réglages" dans le coin haut/droit de la colonne, et en activant/desactivant les options selon vos préférences.
+![Notification Settings icon](screenshots/notifications-settings.png) Vous êtes en mesure de filtrer le type de notifications que vous souhaitez voir dans la colonne du même nom en cliquant sur l'icône "réglages" dans le coin haut/droit de la colonne, et en activant/désactivant les options selon vos préférences.
 
 
 ![Clear icon](screenshots/notifications-clear.png) Si votre colonne notification devient encombrée, vous pouvez en vider le contenu en cliquant sur "nettoyer" dans le menu accessible via l'icône réglages.
@@ -193,7 +193,7 @@ Lorsqu'une personne suis votre profil ou émet une demande pour suivre votre pro
 
 #### Applis pour mobiles
 
-Mastodon dispose d'une API ouverte, donc n'importe qui peut développer un client our une "appli" pour utiliser Mastodon à partir de n'importe quel périphérique (ordinateur, téléphone, etc.).
+Mastodon dispose d'une API ouverte, donc n'importe qui peut développer un client pour une "appli" pour utiliser Mastodon à partir de n'importe quel périphérique (ordinateur, téléphone, etc.).
 Beaucoup de gens ont déjà développé des appli pour iOS et Android. Vous pouvez en trouver une liste [ici](Apps.md). Un grand nombre de ces projets sont également open source et accueillent volontiers des collaborateurs.
 
 
@@ -204,7 +204,7 @@ En plus de votre fil d'accueil, il existe 2 autres fils disponibles. Le fil publ
 
 - #### Le fil public global
 
-Le fil public global montre tous les pouets public postés par les utilisateurs qui sont connus de votre instance. Cela signifie que les utilisateurs que vous voyez sont soit sur la même instance que vous, soit qu'un utilisateur de votre instance suit ce(s) profil(s). Le fil public global est un excellent moyen de connaître des utilisateurs du monde entier qui peuvent à leur tour élargir davantage votre cercle de connaissances et connecter votre instance avec une plus grande partie du réseau utilisé par Mastodon.
+Le fil public global montre tous les pouets publics postés par les utilisateurs qui sont connus de votre instance. Cela signifie que les utilisateurs que vous voyez sont soit sur la même instance que vous, soit qu'un utilisateur de votre instance suit ce(s) profil(s). Le fil public global est un excellent moyen de connaître des utilisateurs du monde entier qui peuvent à leur tour élargir davantage votre cercle de connaissances et connecter votre instance avec une plus grande partie du réseau utilisé par Mastodon.
 
 
  Pour voir le fil public global, cliquez sur l'icône "fil public global" ![Federated Timeline icon](screenshots/federated-timeline.png) dans le menu en haut de votre colonne de composition (ou bien dans la colonne de droite si le menu est disponible). Pour annuler cette action, cliquez sur le lien "retour" en haut de la colonne ou s'affiche le fil global public.
@@ -218,7 +218,7 @@ Le fil public local montre uniquement les posts créés par les utilisateurs de 
 
 ![Local Timeline icon](screenshots/local-timeline.png)
 
-Pour voir le fil public local public, cliquer sur l'icône "fil public local" dans le menu en haut de la colonne composition ou bien sur le lien du même nom s'il est disponible dans la colonne de droite ("pour commencer")
+Pour voir le fil public local, cliquer sur l'icône "fil public local" dans le menu en haut de la colonne composition ou bien sur le lien du même nom s'il est disponible dans la colonne de droite ("pour commencer")
 
 
 - #### Les listes
@@ -237,7 +237,7 @@ Puis vous éditez votre nouvelle liste pour y ajouter des profils.
 
 Dans la nouvelle pop-up qui s'ouvre, vous tapez le nom des profils que vous souhaitez dans votre liste puis cliquez sur le bouton + pour les y ajouter. Cette nouvelle liste commencera à afficher du contenu dès que les utilisateurs que vous avez ajoutés commenceront à publier de nouveaux pouets.
 
-Ensuite, pour pouvez "épingler" cette liste dans une colonne de la même façon qu'évoqué précédemment avec une recherche de [hashtags](User-guide_FR.md#hashtags), et ainsi conserver ce fil visible en plus des autres colonnes par défaut.
+Vous pouvez également "épingler" cette liste dans une colonne de la même façon qu'évoqué précédemment avec une recherche de [hashtags](User-guide_FR.md#hashtags), et ainsi conserver ce fil visible en plus des autres colonnes par défaut.
 
 Pour supprimer une liste, simplement cliquer sur son nom puis sur l'icône réglages en haut à droite comme pour l'éditer, et choisir "effacer la liste".
 
@@ -390,7 +390,7 @@ Si vous avez d'autres questions, vous pouvez faire deux choses:
 
 ### Précisions
 
-#### <a name="theming-local">Thèmes spécifiques</a>
+#### Thèmes spécifiques
 
 Certaines instances mastodon disposent d'un thème personnalisé (icônes et couleurs différentes) par rapport à l'instance Mastodon par défaut. C'est un choix laissé à la discrétion de l'administrateur de l'instance, mais il existe d'autres possibilités de personnaliser votre expérience avec Mastodon, comme utiliser une extension de modification d'apparence dans votre navigateur.
 Un exemple très utilisé parmi les extensions disponibles est "stylish" (gratuit pour firefox et chrome) et qui dispose déjà de bcp de thèmes tout prêt créés par d'autres utilisateurs. Par exemple, un des thèmes vous permet d'utiliser Mastodon sur une seule colonne (comme avec twitter par ex) si c'est ce que vous préférez, mais les possibilités de changements sont multiples : couleurs, taille et nombre de colonnes, etc.
