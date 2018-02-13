@@ -255,7 +255,7 @@ Mastodon dispose d'un champ de recherche, qui se trouve au-dessus du champ de r�
 Vous pouvez utiliser la recherche pour les choses suivantes:
 
 
-* **[Hashtags](User-guide_FR.md#hashtags)** - Les hashtags "connus" de votre instances et correspondant à votre recherche seront listés. Cliquer sur un hashtag lancera une recherche sur tous les pouets public comportant celui-ci sur toutes les instances connues de la vôtre. Les pouets non listés n'apparaîtrons pas dans les résultats.
+* **[Hashtags](User-guide_FR.md#hashtags)** - Les hashtags "connus" de votre instances et correspondants à votre recherche seront listés. Cliquer sur un hashtag lancera une recherche sur tous les pouets publics comportant celui-ci sur toutes les instances connues de la vôtre. Les pouets non listés n'apparaîtrons pas dans les résultats.
 La recherche est limitée aux posts connus de votre instance, ce qui peut en gros être décrit par "les pouets créées ou partagés par les membres de votre instance, ou bien par des gens dont le profil est *suivi par* des membres de votre instance.
 
 
@@ -296,7 +296,7 @@ Une fois installé, à chaque fois que vous vous identifierez, vous devrez gén�
 
 #### Caractère privé du compte
 
-Pour vous permettre un contrôle plus fin sur la visibilité de vos pouets, Mastodon propose des comptes "privés/verrouillés". Si votre compte est configuré comme étant verrouillé, vous recevrez une notification à chaque fois que quelqu'un souhaitera suivre votre profil, et vous serez en mesure d'accepter ou refuser cette demande. De puis, chaque nouveau pouet que vous rédigerez sera privé par défaut (voir la section [Statut du pouet](User-guide_FR.md#statut-du-pouet) plus bas)
+Pour vous permettre un contrôle plus fin sur la visibilité de vos pouets, Mastodon propose des comptes "privés/verrouillés". Si votre compte est configuré comme étant verrouillé, vous recevrez une notification à chaque fois que quelqu'un souhaitera suivre votre profil, et vous serez en mesure d'accepter ou refuser cette demande. De plus, chaque nouveau pouet que vous rédigerez sera privé par défaut (voir la section [Statut du pouet](User-guide_FR.md#statut-du-pouet) plus bas)
 
 
 ![Preferences icon](screenshots/preferences.png) Pour rendre votre compte "privé/verrouillé", cliquez sur le l'icône préférences dans le menu en haut de la colonne composition à gauche, (ou bien le lien du même nom si disponible dans la colonne de droite), puis "Réglages/Modifier le profil", et enfin, cochez la case "Verrouillez le compte". 
@@ -314,23 +314,23 @@ et approuver ou rejeter individuellement les demandes avec les boutons respectif
 
 #### Statut du Pouet
 
-Le statut du pouet est géré indépendamment du caractère privé du compte, et individuellement sur chaque pouet. Les 4 statuts possibles d'un pouet sont Public (par défaut), Non-listé, Privé, et Direct. Pour sélectionner le statut de votre pouet, cliquez sur l'icône globe ![Globe icon](screenshots/compose-privacy.png) (qui serait un cadenas fermé si votre compte était vérouillé). 
+Le statut du pouet est géré indépendamment du caractère privé du compte, et individuellement sur chaque pouet. Les 4 statuts possibles d'un pouet sont Public (par défaut), Non-listé, Privé, et Direct. Pour sélectionner le statut de votre pouet, cliquez sur l'icône globe ![Globe icon](screenshots/compose-privacy.png) (qui serait un cadenas fermé si votre compte était verrouillé). 
 Les changements concernant ce réglage sont persistants entre les pouets, donc si vous faites un pouet privé, les suivant seront également privés à moins que vous ne changiez à nouveau sur public. Vous pouvez changer le statut des pouets par défaut dans les préférences de votre compte (Préférences/Réglages/Préférences/Confidentialité des statuts).
 
 
-**Public** est le statut des pouets par défaut sur la plupart des compte. Les pouet public sont visibles par n'importe quel utilisateur sur les fils publics, fédérés aux autres instances Mastodon sans restriction, et est visible de toute le monde sur votre page de profil, incluant les "bots" des moteurs de recherche ainsi que les internautes non-inscrit sur Mastodon.
+**Public** est le statut des pouets par défaut sur la plupart des compte. Les pouets publics sont visibles par n'importe quel utilisateur sur les fils publics, fédérés aux autres instances Mastodon sans restriction, et est visible de toute le monde sur votre page de profil, incluant les "bots" des moteurs de recherche ainsi que les internautes non-inscrit sur Mastodon.
 
 
-**Non-listé** Ces pouets sont publics, sauf qu'ils n'apparaissent pas dans les fils public ou les résultats de recherche. Ils sont par contre visibles pour n'importe quel utilisateur suivant votre profil, ou n'importe quel internaute (utilisateur Mastodon ou non) visitant votre page profil. Donc mis à part le fait ne pas apparaître dans les résultats de recherche ou les fils publics, ils fonctionnent exactement comme les pouets public. 
+**Non-listé** Ces pouets sont publics, sauf qu'ils n'apparaissent pas dans les fils publics ou les résultats de recherche. Ils sont par contre visibles pour n'importe quel utilisateur suivant votre profil, ou n'importe quel internaute (utilisateur Mastodon ou non) visitant votre page profil. Donc mis à part le fait ne pas apparaître dans les résultats de recherche ou les fils publics, ils fonctionnent exactement comme les pouets publics. 
 
 
-**Privé** Ces pouets ne sont visibles des utilisateurs ni dans le fil public, ni sur votre page de profil disponible à tous, à moins qu'ils fassent partie des "abonnés/suiveur" autorisés de votre compte. Cette option est d'une utilité toute relative si votre compte n'est pas paramétré pour demander votre approbation à chaque nouvelle demande de suivi (sinon il suffit de vous suivre pour voir vos posts privés). Cependant, cette différentiation de statut entre le compte et les pouets signifie que si vous *verrouillez* effectivement votre compte, vous avez toujours la possibilité de changer le statut de certains pouets afin qu'ils deviennent non-listés ou bien même public alors que votre compte restera privé. 
+**Privé** Ces pouets ne sont visibles des utilisateurs ni dans le fil public, ni sur votre page de profil disponible à tous, à moins qu'ils fassent partie des "abonnés/suiveur" autorisés de votre compte. Cette option est d'une utilité toute relative si votre compte n'est pas paramétré pour demander votre approbation à chaque nouvelle demande de suivi (sinon il suffit de vous suivre pour voir vos posts privés). Cependant, cette différentiation de statut entre le compte et les pouets signifie que si vous *verrouillez* effectivement votre compte, vous avez toujours la possibilité de changer le statut de certains pouets afin qu'ils deviennent non-listés ou bien même publics alors que votre compte restera privé. 
 
 
 Les pouets privés ne peuvent pas être partagés. Si quelqu'un que vous suivez fait un pouet privé, il apparaîtra dans votre fil avec une icône cadenas fermé en lieu et place du bouton partager. **NOTEZ** que certaines instances peuvent éventuellement ne pas respecter cette règle.  
 
 
-Il n'y a pas de moyen fiable de vérifier qu'une instance respecte le statut des pouets. Les serveurs compatibles Mastodon utilisant le même protocole et pouvant par conséquent être inter-connectés, ne supportent pas les paramètres de confidentialité de Mastodon. Un utilisateur sur GNU Social (un réseau compatible) que vous @mentionnez dans un pouet privé ne pourrait même pas voir le statut du pouet et serait en mesure de le partager, ce qui rendrait le caractère privé complètement caduque.
+Il n'y a pas de moyen fiable de vérifier qu'une instance respecte le statut des pouets. Les serveurs compatibles Mastodon utilisant le même protocole et pouvant par conséquent faire partie de la fédération, ne supportent pas les paramètres de confidentialité de Mastodon. Un utilisateur sur GNU Social (un réseau compatible) que vous @mentionnez dans un pouet privé ne pourrait même pas voir le statut du pouet et serait en mesure de le partager, ce qui rendrait le caractère privé complètement caduque.
 Il n'y a pas non plus de moyen pour garantir qu'un administrateur ne modifie pas le code de son instance Mastodon afin qu'elle ne respecte plus les restrictions liées aux statuts des pouets. Un message d'avertissement s'affiche lorsque vous composez un pouet privé qui va fédérer une autre instance (en mentionnant quelqu'un), et à ce moment-là vous pouvez toujours vous demander à quel point vous avez confiance dans l'utilisateur que vous mentionnez ainsi que l'instance sur laquelle il est inscrit.
 
 
@@ -352,10 +352,10 @@ Direct | No | No | Seulement les utilisateurs @mentionnés
 
 Vous pouvez bloquer des utilisateurs pour les empêcher de vous contacter. Pour faire ceci, cliquez sur l'icône menu d'un de leur pouets (3 petits points) ou bien directement sur leur profil (3 barres horizontales), et sélectionnez "bloquer".
 
-**NOTEZ** que cela les empêche de voir vos pouets public lorsqu'ils sont connectés à leur compte Mastodon, mais ils *pourront* voir vos pouets publics simplement en regardant votre page profil dans un autre navigateur non connecté, un onglet privé, ou via un autre compte que vous n'auriez pas bloqué, etc.
+**NOTEZ** que cela les empêche de voir vos pouets publics lorsqu'ils sont connectés à leur compte Mastodon, mais ils *pourront* voir vos pouets publics simplement en regardant votre page profil dans un autre navigateur non connecté, un onglet privé, ou via un autre compte que vous n'auriez pas bloqué, etc.
 
 
-Les mentions, favoris, partages ou toute autre interaction avec vous depuis un compte bloqué ne vous seront pas visible. Vous ne verrez pas les réponses à une personne bloquée, même si la réponse contient une mention vous concernant. Et vous ne verrez pas plus les partages de ces même pouets. 
+Les mentions, favoris, partages ou toute autre interaction avec vous depuis un compte bloqué ne vous seront pas visible. Vous ne verrez pas les réponses à une personne bloquée, même si la réponse contient une mention vous concernant. Et vous ne verrez pas plus les partages de ces mêmes pouets. 
 
 L'utilisateur bloqué ne sera pas averti que vous l'avez bloqué. Ils seront par contre retirés de vos suiveurs/abonnés
 
@@ -374,7 +374,7 @@ Cela fera apparaître un pop-up comme celui-ci :
 
 ![Report form](screenshots/report_FR.gif)
 
-Dans ce pop-up, vous avez la possibilité de sélectionner les pouets qui vous semblent suspects vis à vis de votre instance, et laisser un petit commentaire en bas de la fenêtre avant d'envoyer votre signalement. La "signature" dans la capture d'écran n'est présente que pour le trait d'humour, puisque l'administrateur (et lui seul) qui reçoit le signalement sait également qui l'envoie.
+Dans ce pop-up, vous avez la possibilité de sélectionner les pouets qui vous semblent suspects vis-à-vis de votre instance, et laisser un petit commentaire en bas de la fenêtre avant d'envoyer votre signalement. La "signature" dans la capture d'écran n'est présente que pour le trait d'humour, puisque l'administrateur (et lui seul) qui reçoit le signalement sait également qui l'envoie.
 Une fois envoyé donc, l'administrateur pourra prendre les mesures appropriées s'il s'avère qu'elles sont nécessaires, par exemple masquer les pouets de l'utilisateur du fil public, ou bannir leur compte dans les cas les plus extrêmes.
 
 ## Encore des question ?
@@ -392,5 +392,5 @@ Si vous avez d'autres questions, vous pouvez faire deux choses:
 
 #### Thèmes spécifiques
 
-Certaines instances mastodon disposent d'un thème personnalisé (icônes et couleurs différentes) par rapport à l'instance Mastodon par défaut. C'est un choix laissé à la discrétion de l'administrateur de l'instance, mais il existe d'autres possibilités de personnaliser votre expérience avec Mastodon, comme utiliser une extension de modification d'apparence dans votre navigateur.
-Un exemple très utilisé parmi les extensions disponibles est "stylish" (gratuit pour firefox et chrome) et qui dispose déjà de bcp de thèmes tout prêt créés par d'autres utilisateurs. Par exemple, un des thèmes vous permet d'utiliser Mastodon sur une seule colonne (comme avec twitter par ex) si c'est ce que vous préférez, mais les possibilités de changements sont multiples : couleurs, taille et nombre de colonnes, etc.
+Certaines instances Mastodon disposent d'un thème personnalisé (icônes et couleurs différentes) par rapport à l'instance Mastodon par défaut. C'est un choix laissé à la discrétion de l'administrateur de l'instance, mais il existe d'autres possibilités de personnaliser votre expérience avec Mastodon, comme utiliser une extension de modification d'apparence dans votre navigateur.
+Un exemple très utilisé parmi les extensions disponibles est "stylish" (gratuit pour [firefox](https://addons.mozilla.org/fr/firefox/addon/stylish/) et [chrome](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe)) et qui dispose déjà de bcp de thèmes tout prêt créés par d'autres utilisateurs. Par exemple, un des thèmes vous permet d'utiliser Mastodon sur une seule colonne (comme avec twitter par ex) si c'est ce que vous préférez, mais les possibilités de changements sont multiples : couleurs, taille et nombre de colonnes, etc.
