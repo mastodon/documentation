@@ -40,7 +40,7 @@ Créé avec Mastodon v2.2.0 pour support.
 
 ## Intro
 
-Mastodon est une application de réseau social basé sur le protocole ActivityPub. Il se comporte presque comme les autres réseaux sociaux, avec toutefois une différence majeure : il est open-source et n'importe qui peut l'utiliser sur son propre serveur (également appelée "*instance*"), et chaque utilisateur d'instance peut interagir librement avec tous les autres utilisateurs des autres instances ( appelées "*fédération*" ). Par conséquent, il est tout à fait possible de mettre en place un serveur ("*instance*") pour l'usage d'une petite communauté, tout en permettant les interactions avec les autres communautés.
+Mastodon est une application de réseau social basée sur le protocole ActivityPub. Il se comporte presque comme les autres réseaux sociaux, avec toutefois une différence majeure : il est open-source et n'importe qui peut l'utiliser sur son propre serveur (également appelé "*instance*"), et chaque utilisateur d'instance peut interagir librement avec tous les autres utilisateurs des autres instances ( appelées "*fédération*" ). Par conséquent, il est tout à fait possible de mettre en place un serveur ("*instance*") pour l'usage d'une petite communauté, tout en permettant les interactions avec les autres communautés.
 
 Mini préambule en parlant de Mastodon:
 post = pouet
@@ -62,8 +62,8 @@ Par exemple, `@gargron` sur l'instance `mastodon.social` peut être suivi depuis
 En fait, voyez ça comme une adresse e-mail. La première partie est votre nom/pseudo, et la seconde partie concerne l'instance sur laquelle vous êtes inscrit(e), et ça c'est la même règle partout. Simple, non ?
 
 
-Les posts (pouets) des utilisateurs d'instances externes sont "*fédérés*" dans l'instance locale (la vôtre). Autrement dit, si `utilisateur1@mastodon.truc` suis `utilisateur2@mastodon.machin`, alors tous les posts (pouets) de `utilisateur2@mastodon.machin` apparaîtrons dans le fil de la colonne "accueil" (home feed) de `utilisateur1@mastodon.truc` ainsi que le fil public de l'instance `mastodon.truc`.
-Les administrateurs ont un certain contrôle sur ce paramètre et peuvent empêcher les posts d'utilisateurs d'apparaître sur le fil public de l'instance. Les paramètres des posts (pouets) d'utilisateurs permettent également de jouer sur le côté privé ou non. Voir plus bas dans la section [Pouet privé](User-guide_FR.md#toot-privacy).
+Les posts (pouets) des utilisateurs d'instances externes sont "*fédérés*" dans l'instance locale (la vôtre). Autrement dit, si l'`utilisateur1@mastodon.truc` suis l'`utilisateur2@mastodon.machin`, alors tous les posts (pouets) de l'`utilisateur2@mastodon.machin` apparaîtrons dans le fil de la colonne "accueil" (home feed) de l'`utilisateur1@mastodon.truc` ainsi que le fil public de l'instance `mastodon.truc`.
+Les administrateurs ont un certain contrôle sur ce paramètre et peuvent empêcher les posts d'utilisateurs d'apparaître sur le fil public de l'instance. Les paramètres des posts (pouets) d'utilisateurs permettent également de jouer sur le côté privé ou non. Voir plus bas dans la section [Statut du pouet](User-guide_FR.md#statut-du-pouet).
 
 
 ## Pour démarrer
@@ -72,7 +72,7 @@ Les administrateurs ont un certain contrôle sur ce paramètre et peuvent empêc
 
 Vous pouvez personnaliser votre profil de différentes façons. Vous pouvez choisir le nom/pseudo qui vous plaît, une photo/image de profil, une image pour la bannière de votre page profil, ainsi qu'une courte "bio" qui résume vos intérêts/activités en quelques mots.
 
-![Icône préférences](screenshots/preferences.png) Pour éditer votre profil, vous devez cliquer sur l'icône préférences dans la colonne de composition en haut à gauche (ou bien dans la colonne à l'extrême droite de l'écran si le menu est à l'affiche), et cliquer sur "Modifier le profil" dans le menu de gauche. Votre nom/pseudo est limité à 30 caractères, et votre "bio" à 160. Les format d'images acceptés pour votre avatar et bannière sont png, gif et jpg, et ne peuvent pas excéder 2Mo.
+![Icône préférences](screenshots/preferences.png) Pour éditer votre profil, vous devez cliquer sur l'icône préférences dans la colonne de composition en haut à gauche (ou bien dans la colonne à l'extrême droite de l'écran si le menu est à l'affiche), et cliquer sur "Modifier le profil" dans le menu de gauche. Votre nom/pseudo est limité à 30 caractères, et votre "bio" à 160. Les formats d'images acceptés pour votre avatar et bannière sont png, gif et jpg, et ne peuvent pas excéder 2Mo.
 La taille pour les avatars est de 120x120 pixels et celle des bannières de 700x335 pixels. Les images seront automatiquement redimensionnées si elles excédent ces dimensions.
 
 #### Notifications via e-mail
@@ -84,7 +84,7 @@ La taille pour les avatars est de 120x120 pixels et celle des bannières de 700x
 #### Poster du texte
 
 
-La façon la plus simple d’interagir avec Mastodon est de poster un message texte, appelé aussi "pouet". Pour faire un "pouet", entrez simplement un message dans le champ "qu'avez vous en tête ?" de la colonne de composition à gauche, et cliquez sur le bouton "POUET !". Il y a une limite de 500 caractères par pouet, mais si vous avez vraiment besoin de davantage de caractères, vous pouvez répondre à votre propre pouet et ils apparaîtrons comme le fil d'une conversation.
+La façon la plus simple d’interagir avec Mastodon est de poster un message texte, appelé aussi "pouet". Pour faire un "pouet", entrez simplement un message dans le champ "qu'avez vous en tête ?" de la colonne de composition à gauche, et cliquez sur le bouton "POUET !". Il y a une limite de 500 caractères par pouet, mais si vous avez vraiment besoin de davantage de caractères, vous pouvez répondre à votre propre pouet et ils apparaîtront comme le fil d'une conversation.
 
 Si vous souhaitez répondre au "pouet" d'un autre utilisateur, cliquez sur l'icône "Répondre". Votre message commencera alors automatiquement par l'adresse de l'utilisateur afin qu'il lui soit adressé, et ce dernier recevra automatiquement une notification de votre réponse.
 
@@ -95,14 +95,14 @@ Si vous commencez votre pouet par directement mentionner un utilisateur, il sera
 ##### Avertissements sur le contenu
 
 
-Lorsque vous souhaitez poster quelque chose qui ne serait pas visible par défaut (par exemple des informations sur un film qui vient de sortir, des opinions personnelles que vous pensez potentiellement énervantes, etc. référez-vous à la ligne de conduite de l'instance sur laquelle vous êtes inscrit), vous pouvez cacher ce contenu derrière un avertissement.
+Lorsque vous souhaitez poster quelque chose qui ne serait pas visible par défaut ; par exemple des informations sur un film qui vient de sortir, des opinions personnelles que vous pensez potentiellement énervantes, etc. (référez-vous à la ligne de conduite de l'instance sur laquelle vous êtes inscrit), vous pouvez cacher ce contenu derrière un avertissement.
 
-Pour faire ceci, cliquez sur ![CW icon](screenshots/compose-cw.png) le bouton "CW" sous le champ de composition des messages. Ceci fera apparaître un autre champ intitulé "écrivez ici votre avertissement" dans lequel vous pouvez entrer une courte description du contenu principal qui sera caché.
+Pour faire ceci, cliquez sur le bouton ![CW icon](screenshots/compose-cw.png) sous le champ de composition des messages. Ceci fera apparaître un autre champ intitulé "écrivez ici votre avertissement" dans lequel vous pouvez entrer une courte description du contenu principal qui sera caché.
 
 ![animation montrant comment activer l'avertissement sur le contenu](screenshots/content-warning_FR.gif)
 
 
-Ceci va permettre à votre contenu d'apparaître caché derrière un bouton "déplier" dans votre fil, et l'on ne pourra voir que la mention concernant le contenu ainsi que les utilisateurs éventuellement mentionnés dans le post caché.
+Ceci va permettre à votre contenu d'être caché derrière un bouton "déplier" dans votre fil, et l'on ne pourra voir que la mention concernant le contenu ainsi que les utilisateurs éventuellement mentionnés dans le post caché.
 
 ![animation showing content warnings in the timeline](screenshots/cw-toot_FR.gif)
 
