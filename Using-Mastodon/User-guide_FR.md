@@ -57,7 +57,7 @@ Donc, n'importe qui peut télécharger et mettre en place Mastodon pour une peti
 Cela signifie que non seulement aucune compagnie ne peut posséder et revendre les données des utilisateurs, mais également que si un serveur (instance) ferme pour une raison ou une autre, les utilisateurs peuvent en mettre en place un autre eux-mêmes ou bien simplement migrer sur une instance déjà existante pour continuer à profiter du service.
 
 
-Au sein d'une même instance Mastodon, les noms d'utilisateurs apparaissent sous la forme `@nom`, de la même façon qu'avec service comme Twitter. Les utilisateurs d'autres instances apparaissent et peuvent être recherchés et suivis, sous la forme `@nom@instance`.
+Au sein d'une même instance Mastodon, les noms d'utilisateurs apparaissent sous la forme `@nom`, de la même façon qu'avec un service comme Twitter. Les utilisateurs d'autres instances apparaissent et peuvent être recherchés et suivis, sous la forme `@nom@instance`.
 Par exemple, `@gargron` sur l'instance `mastodon.social` peut être suivi depuis une autre instance sous la forme `@gargron@mastodon.social`.
 En fait, voyez ça comme une adresse e-mail. La première partie est votre nom/pseudo, et la seconde partie concerne l'instance sur laquelle vous êtes inscrit(e), et ça c'est la même règle partout. Simple, non ?
 
@@ -73,7 +73,7 @@ Les administrateurs ont un certain contrôle sur ce paramètre et peuvent empêc
 Vous pouvez personnaliser votre profil de différentes façons. Vous pouvez choisir le nom/pseudo qui vous plaît, une photo/image de profil, une image pour la bannière de votre page profil, ainsi qu'une courte "bio" qui résume vos intérêts/activités en quelques mots.
 
 ![Icône préférences](screenshots/preferences.png) Pour éditer votre profil, vous devez cliquer sur l'icône préférences dans la colonne de composition en haut à gauche (ou bien dans la colonne à l'extrême droite de l'écran si le menu est à l'affiche), et cliquer sur "Modifier le profil" dans le menu de gauche. Votre nom/pseudo est limité à 30 caractères, et votre "bio" à 160. Les formats d'images acceptés pour votre avatar et bannière sont png, gif et jpg, et ne peuvent pas excéder 2Mo.
-La taille pour les avatars est de 120x120 pixels et celle des bannières de 700x335 pixels. Les images seront automatiquement redimensionnées si elles excédent ces dimensions.
+La taille pour les avatars est de 120x120 pixels et celle des bannières de 700x335 pixels. Les images seront automatiquement redimensionnées si elles excèdent ces dimensions.
 
 #### Notifications via e-mail
 
