@@ -46,11 +46,13 @@ Mini préambule en parlant de Mastodon:
 post = pouet
 serveur = instance
 
+
 #### <a name="decentralisation-et-federation">Décentralisation et Fédération</a>
 
 <img src="screenshots/mastofed_FR.png" align="right" width="48%" alt="Simple illustration à propos de la décentralisation et la fédération" />
 
 Mastodon est un système décentralisé par l'entremise du concept appelé "*fédération*" - cad : plutôt que d'utiliser et de dépendre de l'infrastructure d'une seule personne ou organisation, n'importe qui peut télécharger et mettre en place le logiciel sur son propre serveur. La fédération signifie que différents serveurs Mastodon peuvent interagir ensemble de façon transparente, un peu comme avec les e-mails.
+
 
 
 Donc, n'importe qui peut télécharger et mettre en place Mastodon pour une petite communauté, mais chaque utilisateur de l'instance en question peut suivre, envoyer à, et lire des posts ("*pouet*") d'autres utilisateurs sur d'autres instances.

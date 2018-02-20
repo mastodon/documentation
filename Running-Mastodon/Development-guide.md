@@ -120,7 +120,7 @@ These are self-contained instructions for setting up a development environment o
 
 	```
 	rbenv init
-	rbenv install 2.4.1
+	rbenv install 2.5.0
 	```
 
 - Install/configure bundler to use your local rbenv:
