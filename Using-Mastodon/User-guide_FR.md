@@ -28,7 +28,7 @@ Créé avec Mastodon v2.2.0 pour support.
     * [Le fil public global](User-guide_FR.md#le-fil-public-global)
     * [Le fil public local](User-guide_FR.md#le-fil-public-local)
     * [Les listes](User-guide_FR.md#les-listes)
-  * [Recherche](User-guide_FR.md#Recherche)
+  * [Recherche](User-guide_FR.md#recherche)
   * [Données privées, Securité](User-guide_FR.md#donnees-privees-securite)
   * [Authentification à deux facteurs](User-guide_FR.md#authentification-a-deux-facteurs)
   * [Caractère privé du compte](User-guide_FR.md#caractere-prive-du-compte)
@@ -46,14 +46,14 @@ Mini préambule en parlant de Mastodon:
 post = pouet
 serveur = instance
 
-#### Décentralisation et Fédération
+#### <a name="decentralisation-et-federation">Décentralisation et Fédération</a>
 
 <img src="screenshots/mastofed_FR.png" align="right" width="48%" alt="Simple illustration à propos de la décentralisation et la fédération" />
 
 Mastodon est un système décentralisé par l'entremise du concept appelé "*fédération*" - cad : plutôt que d'utiliser et de dépendre de l'infrastructure d'une seule personne ou organisation, n'importe qui peut télécharger et mettre en place le logiciel sur son propre serveur. La fédération signifie que différents serveurs Mastodon peuvent interagir ensemble de façon transparente, un peu comme avec les e-mails.
 
 
-Donc, n'importe qui peut télécharger et mettre en place Mastodon pour une petite communauté, mais chaque utilisateur de l'instance en question peut suivre, envoyer à, et lire des posts ("*pouet*") d'autres utilisateurs sur d'autres [instances](#compatibilite).
+Donc, n'importe qui peut télécharger et mettre en place Mastodon pour une petite communauté, mais chaque utilisateur de l'instance en question peut suivre, envoyer à, et lire des posts ("*pouet*") d'autres utilisateurs sur d'autres instances.
 Cela signifie que non seulement aucune compagnie ne peut posséder et revendre les données des utilisateurs, mais également que si un serveur (instance) ferme pour une raison ou une autre, les utilisateurs peuvent en mettre en place un autre eux-mêmes ou bien simplement migrer sur une instance déjà existante pour continuer à profiter du service.
 
 
@@ -66,9 +66,9 @@ Les posts (pouets) des utilisateurs d'instances externes sont "*fédérés*" dan
 Les administrateurs ont un certain contrôle sur ce paramètre et peuvent empêcher les posts d'utilisateurs d'apparaître sur le fil public de l'instance. Les paramètres des posts (pouets) d'utilisateurs permettent également de jouer sur le côté privé ou non. Voir plus bas dans la section [Statut du pouet](User-guide_FR.md#statut-du-pouet).
 
 
-## Pour démarrer
+## <a name="pour-demarrer">Pour démarrer</a>
 
-#### Paramétrer votre Profil
+#### <a name="parametrer-votre-profil">Paramétrer votre Profil</a>
 
 Vous pouvez personnaliser votre profil de différentes façons. Vous pouvez choisir le nom/pseudo qui vous plaît, une photo/image de profil, une image pour la bannière de votre page profil, ainsi qu'une courte "bio" qui résume vos intérêts/activités en quelques mots.
 
@@ -276,12 +276,12 @@ Par exemple, taper `pointu` peut donner:
 * `#chapeaupointu`
 
 
-## Données privées, Securité
+## <a name="donnees-privees-securite">Données privées, Securité</a>
 
 Mastodon a quelques paramètres de sécurité et vie privée un peu plus avancés que certains réseaux publics tels que Twitter. Les contrôles concernant la confidentialité sont notamment assez fins; cette section explique justement comment ces derniers fonctionnent.
 
 
-#### Authentification à deux facteurs
+#### <a name="authentification-a-deux-facteurs">Authentification à deux facteurs</a>
 
 L'authentification à deux facteurs (2FA) est un mécanisme qui améliore la sécurité de votre compte Mastodon en requérant la validation d'un code numérique depuis un second périphérique (habituellement un téléphone mobile) associé à votre compte Mastodon lorsque vous vous identifiez. Cela signifie que même si quelqu'un met par malchance la main sur votre e-mail + votre mot de passe, il ne pourra pas "entrer" dans votre compte puisqu'il lui faudrait aussi le second périphérique pour s'identifier.
 
@@ -294,7 +294,7 @@ Cette page [Wikipedia](https://en.wikipedia.org/wiki/Google_Authenticator#Implem
 Une fois installé, à chaque fois que vous vous identifierez, vous devrez générer un code utilisable une seule fois par l'appli installée sur le deuxième périphérique associé à votre compte.
 
 
-#### Caractère privé du compte
+#### <a name="caractere-prive-du-compte">Caractère privé du compte</a>
 
 Pour vous permettre un contrôle plus fin sur la visibilité de vos pouets, Mastodon propose des comptes "privés/verrouillés". Si votre compte est configuré comme étant verrouillé, vous recevrez une notification à chaque fois que quelqu'un souhaitera suivre votre profil, et vous serez en mesure d'accepter ou refuser cette demande. De plus, chaque nouveau pouet que vous rédigerez sera privé par défaut (voir la section [Statut du pouet](User-guide_FR.md#statut-du-pouet) plus bas)
 
