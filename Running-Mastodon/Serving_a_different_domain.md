@@ -70,6 +70,13 @@ With nginx, it would be as simple as adding:
 location = /.well-known/host-meta {
        return 301 https://social.example.org$request_uri;
 }
+location /api/ {
+		rewrite ^(.*) https://social.example.com$request_uri permanent;
+}
+location  /about/ {
+		rewrite ^(.*) https://social.example.com$request_uri permanent;
+}
+
 ```
 
 in example.org's server block.
