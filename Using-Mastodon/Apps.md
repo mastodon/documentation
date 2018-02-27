@@ -55,6 +55,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |App|Source code|Developer(s)|
 |---|-----------|------------|
 |**[Mstdn](https://github.com/rhysd/Mstdn/blob/master/README.md)** | <https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp)/[@inudog@mastodon.social](https://mastodon.social/@inudog) |
+|[TheDesk](https://github.com/cutls/TheDesk/blob/master/README.md) | <https://github.com/cutls/TheDesk>|[@Cutls@kirishima.cloud](https://kirishima.cloud/@Cutls) |
 
 ### Mac ###
 
@@ -72,7 +73,7 @@ Some people have started working on apps for the Mastodon API. Here is a list of
 |**[Tuuto](https://www.microsoft.com/store/apps/9nh0493n4tsb)**|10|<https://github.com/Tlaster/Tuuto>|[@Tlaster@mstdn.jp](https://mstdn.jp/@Tlaster)|
 |**[WinMasto](https://github.com/drasticactions/WinMasto/blob/master/README.md)**|10|<https://github.com/drasticactions/WinMasto>|[@drasticactions@mastodon.network](https://mastodon.network/users/drasticactions)|
 |[Mastodon UWP](https://rink.hockeyapp.net/apps/5199eba8bc914c4ab416aa8513d62826) *(beta)*|10|<https://github.com/woachk/mastodon>|[@my123@mastodon.social](https://mastodon.social/users/my123)|
-
+|[TheDesk](https://github.com/cutls/TheDesk/blob/master/README.md) |7~ |<https://github.com/cutls/TheDesk>|[@Cutls@kirishima.cloud](https://kirishima.cloud/@Cutls) |
 ## Other clients
 
 |App|Platform|Source code|Developer(s)|
