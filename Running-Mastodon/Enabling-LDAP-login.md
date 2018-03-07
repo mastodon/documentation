@@ -2,14 +2,6 @@
 
 Follow this guide to use LDAP for external authentication of users. When a user logs in to the Mastodon instance, their username and password will be verified by authenticating (binding) to an LDAP server. If a user exists in the LDAP directory and logs in to the Mastodon instance for the first time, a user account will be auto-created on the Mastodon instance for them.
 
-## Installing LDAP support
-
-First, install the gem(s) required for LDAP support, by running `bundle install` with the `LDAP_ENABLED` environment variable set to `true`:
-
-```bash
-LDAP_ENABLED=true bundle install
-```
-
 ## Configuring LDAP settings
 
 Then, edit your `.env.production` file to contain the following settings. Example values are given here, but you'll need to fill in values appropriate for your site.
@@ -31,13 +23,8 @@ Then, edit your `.env.production` file to contain the following settings. Exampl
 * `LDAP_UID=uid`
   * Set this to the LDAP attribute name that you want to use for the username part of Mastodon account names, when users log in using LDAP authentication. For example, if your Mastodon instance name is **social.your.domain**, and your LDAP user accounts have **uid** attributes with values like **alice** and **bob**, you can use `LDAP_UID=uid` here, and their corresponding Mastodon account names will be **\@alice\@social.your.domain** and **\@bob\@social.your.domain**
 
-## Setting LDAP_ENABLED in process environment
-
-The environment variable `LDAP_ENABLED` must be set to `true` in the environment of the processes that run Mastodon, outside of the `.env.production` file, because it's needed in the Gemfile. The method of doing this will depend on how you're running Mastodon, but for example if you've followed the Production Guide, you have probably created three systemd service files to run Mastodon processes - you can edit these to set the environment variable. In the `mastodon-web.service` and `mastodon-sidekiq.service` files, after the `Environment="RAILS_ENV=production"` line, add this line: `Environment=LDAP_ENABLED=true`, then run `systemctl daemon-reload` to reload changes to the service files.
-
 ## Troubleshooting
 
-* If you see an error `RuntimeError (Invalid strategy ldap_authenticatable)` logged, and an error page in the browser, this is probably caused by the `LDAP_ENABLED` environment variable not being set to `true` for the processes that run Mastodon - see the above section.
 * If you see an error like `Net::LDAP::Error (SSL_connect returned=1 errno=0 state=error: certificate verify failed)` logged when a user attempts to log in, this is probably because your LDAP server's TLS certificate is not trusted by default by OpenSSL. You need to add the LDAP server's CA certificate to the default OpenSSL trusted certificate store on the machine Mastodon runs on. For example, on Debian or Ubuntu you should add the LDAP server's CA certificate to `/usr/local/share/ca-certificates/` and then run `update-ca-certificates` as root.
 * If you see an error like this logged when a user attempts to log in:
     ```
