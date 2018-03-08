@@ -33,7 +33,7 @@ Furthermore, in the command, `rake` is interchangeable with `rails`
 |----|-----------|-----|
 |mastodon:media:remove_silenced|Purge all media uploads by silenced accounts. Completely removes records, as if their statuses never had attachments|
 |mastodon:media:remove_remote|Remove local cache of remote media attachments older than some time period (defaults to 7 days). Removes only cache, record of an attachment existing remains|NUM_DAYS=7|
-|mastadon:media:redownload_avatars|Redownload avatars/headers of remote users. Optionally limit to a particular domain with DOMAIN|DOMAIN=domain (optional)|
+|mastodon:media:redownload_avatars|Redownload avatars/headers of remote users. Optionally limit to a particular domain with DOMAIN|DOMAIN=domain (optional)|
 
 #### E-mails
 
