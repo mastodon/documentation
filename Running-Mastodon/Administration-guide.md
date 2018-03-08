@@ -39,6 +39,20 @@ You are able to set settings such as, among others:
 
 You may wish to use the extended description (shown at https://yourmastodon.instance/about/more ) to display content guidelines or a user agreement (see https://mastodon.social/about/more for an example).
 
+#### Formatting for HTML settings
+
+To achieve the best looking results, you must use well-structured HTML for the site description, site extended description, closed registrations message and others.
+
+First, site description is **one paragraph**, so it's already pre-wrapped in a `<p>` tag, you shouldn't add others. This text is really expected to be rather short, because it will appear on all OpenGraph previews.
+
+All other HTML fields don't have that requirement, so you are supposed to wrap your paragraphs in `<p>`s yourself, **do not use text not wrapped in a `<p>` or `<li>`** as it will be unstyled. You can use `<em>` tags to bolden/highlight parts of the text, and `<a>` tags for links.
+
+You can use `<ol>` tags for numbered lists, and `<ul>` tags for unordered lists, with `<li>` for each item in the list. Do not use `<li>` outside of `<ol>` or `<ul>`.
+
+You can use `<hr />` as a horizontal separator.
+
+You can use `<h1>`-`<h6>` tags for headlines. Inside the `<h1>` tag, you may use `<small>` for a subheader. The `<h3>` looks most natural in the current layout.
+
 ## Helping users in trouble
 
 Under "Moderation" -> "Accounts" you can find your users' accounts. You can:
