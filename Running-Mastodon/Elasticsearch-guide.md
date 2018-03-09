@@ -113,7 +113,7 @@ Change these lines in `/etc/elasticsearch/jvm.options`:
 
 #### Warning: The memory in this list, It's for Elasticsearch. It's not total memory of VPS.
 
-Probably you could start Elasticsearch.
+Probably you can start Elasticsearch.
 
 After changing these lines, Start Elasticsearch:
 
