@@ -168,7 +168,15 @@ ES_HOST=Put the IP of Elasticsearch server here.
 ES_PORT=9200
 ```
 
-And you need restart mastodon.
+### Run chewy:deploy to create & populate index
+
+```bash
+su - mastodon
+cd live
+RAILS_ENV=production bundle exec rails chewy:deploy
+```
+
+You need restart mastodon.
 
 Resources
 -----
