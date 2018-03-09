@@ -102,6 +102,7 @@ Form data:
 | `note`         | A new biography for the user                                      | yes        |
 | `avatar`       | An avatar for the user (encoded using `multipart/form-data`)      | yes        |
 | `header`       | A header image for the user (encoded using `multipart/form-data`) | yes        |
+| `locked`       | Manually approve followers?                                       | yes        |
 
 Returns the authenticated user's [Account](#account).
 
@@ -442,8 +443,26 @@ Form data:
 | ----------------- | ------------------------------------------------------------------------- | ---------- |
 | `file`            | Media to be uploaded (encoded using `multipart/form-data`)                | no         |
 | `description`     | A plain-text description of the media, for accessibility (max 420 chars)  | yes        |
+| `focus`           | Focal point: Two floating points, comma-delimited                         | yes        |
 
 Returns an [Attachment](#attachment) that can be used when creating a status.
+
+#### Updating a media attachment:
+
+    PUT /api/v1/media/:id
+
+Form data:
+
+| Field             | Description                                                               | Optional   |
+| ----------------- | ------------------------------------------------------------------------- | ---------- |
+| `description`     | A plain-text description of the media, for accessibility (max 420 chars)  | yes        |
+| `focus`           | Focal point: Two floating points, comma-delimited                         | yes        |
+
+Can only be done before the media is attached to a status. Returns an [Attachment](#attachment) that can be used when creating a status.
+
+#### Focal points
+
+Server-side preview images are never cropped, to support a variety of apps and user interfaces. Therefore, the cropping must be done by those apps. To crop intelligently, focal points can be used to ensure a certain section of the image is always within the cropped viewport. [See this for how to let users select focal point coordinates](https://github.com/jonom/jquery-focuspoint#1-calculate-your-images-focus-point).
 
 ### Mutes
 
@@ -605,7 +624,7 @@ Form data:
 | `media_ids`       | [Array](#parameter-types) of media IDs to attach to the status (maximum 4)                   | yes        |
 | `sensitive`       | Set this to mark the media of the status as NSFW                         | yes        |
 | `spoiler_text`    | Text to be shown as a warning before the actual content                  | yes        |
-| `visibility`       | Either "direct", "private", "unlisted" or "public"                      | yes        |
+| `visibility`      | Either "direct", "private", "unlisted" or "public"                       | yes        |
 
 Returns the new [Status](#status).
 
@@ -661,6 +680,7 @@ Query parameters:
 | Field             | Description                                                                         | Optional   |
 | ----------------- | ----------------------------------------------------------------------------------- | ---------- |
 | `local`           | Only return statuses originating from this instance (public and tag timelines only) | yes        |
+| `only_media`      | Only return statuses that have media attachments                                    | yes        |
 | `max_id`          | Get a list of timelines with ID less than this value                                | yes        |
 | `since_id`        | Get a list of timelines with ID greater than this value                             | yes        |
 | `limit`           | Maximum number of statuses on the requested timeline to get (Default 20, Max 40)    | yes        |
@@ -715,8 +735,12 @@ ___
 | `remote_url`             | For remote images, the remote URL of the original image                           | yes      |
 | `preview_url`            | URL of the preview image                                                          | no       |
 | `text_url`               | Shorter URL for the image, for insertion into text (only present on local images) | yes      |
-| `meta`                   | `small` and `original` containing: `width`, `height`, `size`, `aspect`            | yes      |
+| `meta`                   | See **attachment metadata** below                                                 | yes      |
 | `description`            | A description of the image for the visually impaired (maximum 420 characters), or `null` if none provided  | yes      |
+
+**Attachment metadata:**
+
+May contain `small` and `original` (referring to the preview and the original file). Images may contain `width`, `height`, `size`, `aspect`, while videos (including GIFV) may contain `width`, `height`, `frame_rate`, `duration` and `bitrate`. There may be another top-level object, `focus` with the coordinates `x` and `y`. These coordinates can be used for smart thumbnail cropping, [see this for reference](https://github.com/jonom/jquery-focuspoint#1-calculate-your-images-focus-point).
 
 > **Note**: When the type is "unknown", it is likely only `remote_url` is available and local `url` is missing
 
@@ -770,6 +794,8 @@ The most important part of an error response is the HTTP status code. Standard s
 | `email`                  | An email address which can be used to contact the instance administrator | no       |
 | `version`                | The Mastodon version used by instance.                                   | no       |
 | `urls`                   | `streaming_api`                                                          | no       |
+| `languages`              | Array of ISO 6391 language codes the instance has chosen to advertise    | no       |
+| `contact_account`        | [Account](#account) of the admin or another contact person               | no       |
 
 ### List
 
