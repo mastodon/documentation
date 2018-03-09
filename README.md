@@ -41,7 +41,7 @@ Mastodon is a free, open-source social network server based on open web protocol
 - Advanced:
   - [Serving Mastodon from a subdomain](Running-Mastodon/Serving_a_different_domain.md)
   - [Scaling up with PgBouncer](Running-Mastodon/PgBouncer-guide.md)
-  - [Elasticsearch Guide](Running-Mastodon/Elasticsearch-guide.md)
+  - [Enabling full-text search with Elasticsearch](Running-Mastodon/Elasticsearch-guide.md)
 
 The aforementioned guides presume using certain software, like Nginx. But using alternatives is possible: [Alternative system configurations](Running-Mastodon/Alternatives.md)
 
