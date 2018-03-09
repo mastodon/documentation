@@ -45,9 +45,9 @@ To enable Web Push notifications, you should generate a private/public key pair 
 
     docker-compose run --rm web rake mastodon:webpush:generate_vapid_key
 
-Then you should run the `db:migrate` command to create the database, or migrate it from an older release:
+Then you should run the `db:setup` command to create the database:
 
-    docker-compose run --rm web rake db:migrate
+    docker-compose run --rm web rake db:setup
 
 Then, you will also need to precompile the assets:
 
