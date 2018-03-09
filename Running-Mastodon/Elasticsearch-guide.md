@@ -176,7 +176,7 @@ cd live
 RAILS_ENV=production bundle exec rails chewy:deploy
 ```
 
-You need restart mastodon.
+You need to restart mastodon.
 
 Resources
 -----
