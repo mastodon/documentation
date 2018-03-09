@@ -375,67 +375,14 @@ For this we will switch to the `mastodon` system user:
 sudo su - mastodon
 ```
 
-Change directory to `~live` and edit the [Mastodon](https://github.com/tootsuite/mastodon/) application configuration:
+Change directory to `~/live` and run the [Mastodon](https://github.com/tootsuite/mastodon/) setup wizard:
 
 ```sh
 cd ~/live
-cp .env.production.sample .env.production
-nano .env.production
+RAILS_ENV=production bundle exec rake mastodon:setup
 ```
 
-For the purposes of this guide, these are the values to be edited:
-
-```
-# Your Redis host
-REDIS_HOST=127.0.0.1
-# Your Redis port
-REDIS_PORT=6379
-# Your PostgreSQL host
-DB_HOST=/var/run/postgresql
-# Your PostgreSQL user
-DB_USER=mastodon
-# Your PostgreSQL DB name
-DB_NAME=mastodon_production
-# Leave DB password empty
-DB_PASS=
-# Your DB_PORT
-DB_PORT=5432
-
-# Your instance's domain
-LOCAL_DOMAIN=example.com
-# We have HTTPS enabled
-LOCAL_HTTPS=true
-
-# Application secrets
-# Generate each with `RAILS_ENV=production bundle exec rake secret`
-PAPERCLIP_SECRET=
-SECRET_KEY_BASE=
-OTP_SECRET=
-
-# Web Push VAPID keys
-# Generate with `RAILS_ENV=production bundle exec rake mastodon:webpush:generate_vapid_key`
-VAPID_PRIVATE_KEY=
-VAPID_PUBLIC_KEY=
-
-# All SMTP details, Mailgun and Sparkpost have free tiers
-SMTP_SERVER=
-SMTP_PORT=
-SMTP_LOGIN=
-SMTP_PASSWORD=
-SMTP_FROM_ADDRESS=
-```
-
-We now need to set up the [PostgreSQL](https://www.postgresql.org) database for the first time:
-
-```sh
-RAILS_ENV=production bundle exec rails db:setup
-```
-
-Then we will need to precompile all CSS and JavaScript files:
-
-```sh
-RAILS_ENV=production bundle exec rails assets:precompile
-```
+The interactive wizard will guide you through basic and necessary options, generate new app secrets, setup the database schema and precompile the assets.
 
 **The assets precompilation takes a couple minutes, so this is a good time to take another break.**
 
