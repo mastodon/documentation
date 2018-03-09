@@ -8,7 +8,7 @@ Why you might need Elasticsearch
 
 If you want to use Full-text search, you should setup Elasticsearch.
 
-#### Note: If your VPS has not much memory, Elasticsearch can't be able to start. This guide also explains how to start with this case.
+#### Note: If your VPS has not much memory, Elasticsearch may not be able to start. This guide also explains how to start if it's the case.
 
 Installing Pre-required dependency
 ----
