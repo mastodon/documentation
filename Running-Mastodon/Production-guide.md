@@ -375,7 +375,7 @@ For this we will switch to the `mastodon` system user:
 sudo su - mastodon
 ```
 
-Change directory to `~live` and run the [Mastodon](https://github.com/tootsuite/mastodon/) setup wizard:
+Change directory to `~/live` and run the [Mastodon](https://github.com/tootsuite/mastodon/) setup wizard:
 
 ```sh
 cd ~/live
