@@ -113,9 +113,9 @@ Change these lines in `/etc/elasticsearch/jvm.options`:
 
 #### Warning: The memory in this list is for Elasticsearch. It's not the total memory of the VPS.
 
-Probably you can start Elasticsearch.
+You can probably start Elasticsearch.
 
-After changing these lines, Start Elasticsearch:
+After changing these lines, start Elasticsearch:
 
 ```bash
 sudo systemctl start elasticsearch
@@ -137,11 +137,11 @@ ES_HOST=localhost
 ES_PORT=9200
 ```
 
-#### Note: You can configure the mastodon to use an Elasticsearch on the different server.
+#### Note: You can configure Mastodon to use Elasticsearch on a different server.
 
-If you want to use an Elasticsearch on the different server, You should change these.
+If you want to use Elasticsearch on a different server, you should change these.
 
-Change these line in `/etc/elasticsearch/elasticsearch.yml`:
+Change these lines in `/etc/elasticsearch/elasticsearch.yml`:
 
 ```
 # Set the bind address to a specific IP (IPv4 or IPv6):
@@ -159,7 +159,7 @@ Restart Elasticsearch:
 sudo systemctl restart elasticsearch
 ```
 
-`.env.production` also need to be change.
+`.env.production` also need to be changed.
 
 ```
 # Optional ElasticSearch configuration
@@ -176,7 +176,7 @@ cd live
 RAILS_ENV=production bundle exec rails chewy:deploy
 ```
 
-You need to restart mastodon.
+You need to restart Mastodon.
 
 Resources
 -----
