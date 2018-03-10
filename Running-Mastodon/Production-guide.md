@@ -239,13 +239,13 @@ server {
     try_files $uri @proxy;
   }
 
-  location ~ ^/(emoji|packs|system/accounts/avatars|system/media_attachments/files) {
-    add_header Cache-Control "public, max-age=31536000, immutable";
+  location ~ ^/(sw.js|packs/manifest.json)$ {
+    add_header Cache-Control "public, max-age=0";
     try_files $uri @proxy;
   }
-  
-  location /sw.js {
-    add_header Cache-Control "public, max-age=0";
+
+  location ~ ^/(emoji|packs|system/accounts/avatars|system/media_attachments/files) {
+    add_header Cache-Control "public, max-age=31536000, immutable";
     try_files $uri @proxy;
   }
 
