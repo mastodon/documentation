@@ -41,6 +41,12 @@ Furthermore, in the command, `rake` is interchangeable with `rails`
 |----|-----------|-----|
 |mastodon:emails:digest|Sends out a personal digest to all eligible inactive users. Digest includes mentions since the last time the user was active. No e-mail is sent if there is no new content since last digest or user activity|
 
+#### ElasticSearch
+
+|Task|Description|Usage|
+|----|-----------|-----|
+|chewy:deploy|Rebuilds ElasticSearch indexes from scratch.  Useful when first deploying ES, to index existing toots|
+
 #### Misc
 
 |Task|Description|Usage|
