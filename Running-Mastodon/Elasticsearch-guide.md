@@ -16,7 +16,7 @@ Elasticsearch is built using Java, and requires at least Java 8 in order to run.
 Install Java 8:
 
 ```
-sudo apt install openjdk-8-jre
+sudo apt install openjdk-8-jre-headless
 ```
 
 > The openjdk-8-jre package contains just the Java Runtime Environment. If you want to develop Java programs then please install the openjdk-8-jdk package.
