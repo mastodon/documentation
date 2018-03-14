@@ -24,7 +24,7 @@ Review the settings in `docker-compose.yml`. Note that it is **not default** to 
 ### Using a prebuilt image
 
 If you're not making any local code changes or customizations on your instance, you can use a prebuilt Docker image to avoid the time and resource consumption of a build. Images are available from Docker Hub: https://hub.docker.com/r/gargron/mastodon/
-    
+
 To use the prebuilt images:
 
 1. Open `docker-compose.yml` in your favorite text editor.
@@ -39,9 +39,12 @@ You must build your own image if you've made any code modifications. To build yo
 
 1. Open `docker-compose.yml` in your favorite text editor.
 2. Uncomment the `build: .` lines for all images (web, streaming, sidekiq) if needed.
-3. Save the file and exit the text editor.
-3. Run `docker-compose build`.
-    
+3. Open the `Dockerfile` and change the UID and GID to those of the current user (one that cloned the repository), this
+   will later allow processes in docker containers to create files there (otherwise you'll probably have UNKNOWN user as the owner
+   of your files).
+4. Save the files and exit the text editor.
+5. Run `docker-compose build`.
+
 ## Building the app
 
 Now the image can be used to generate a configuration with:
@@ -79,7 +82,7 @@ This approach makes updating to the latest version a real breeze.
   - If the `docker-compose.yml` file is modified, run `git stash` to stash your changes.
 3. `git checkout TAG_NAME` to use the tag code. (If you have committed changes, use `git merge TAG_NAME` instead, though this isn't likely.)
 4. Only if you ran `git stash`, now run `git stash pop` to redo your changes to `docker-compose.yml`. Double check the contents of this file.
-5. Build the updated Mastodon image. 
+5. Build the updated Mastodon image.
 - If you are using a prebuilt image: First, edit the `image: tootsuite/mastodon` lines in `docker-compose.yml` to include the tag for the new version. E.g. `image: tootsuite/mastodon:v2.3.0`
 - To pull the prebuilt image, or build your own from the updated code: `docker-compose build`
 6. (optional) `docker-compose run --rm web rake db:migrate` to perform database migrations. Does nothing if your database is up to date.
