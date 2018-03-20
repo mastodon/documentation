@@ -41,7 +41,8 @@ You must build your own image if you've made any code modifications. To build yo
 2. Uncomment the `build: .` lines for all images (web, streaming, sidekiq) if needed.
 3. Save the file and exit the text editor.
 3. Run `docker-compose build`.
-    
+4. Set correct file-owner with `chown -R 991:991 public`
+
 ## Building the app
 
 Now the image can be used to generate a configuration with:
