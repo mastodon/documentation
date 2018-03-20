@@ -14,6 +14,7 @@ API overview
   - [Follow Requests](#follow-requests)
   - [Follows](#follows)
   - [Instances](#instances)
+  - [Lists](#lists)
   - [Media](#media)
   - [Mutes](#mutes)
   - [Notifications](#notifications)
@@ -30,6 +31,7 @@ API overview
   - [Emoji](#emoji)
   - [Error](#error)
   - [Instance](#instance)
+  - [List](#list)
   - [Mention](#mention)
   - [Notification](#notification)
   - [Relationship](#relationship)
@@ -52,7 +54,7 @@ ___
 When an array parameter is mentioned, the Rails convention of specifying array parameters in query strings is meant.
 For example, a ruby array like `foo = [1, 2, 3]` should be encoded in the params as `foo[]=1&foo[]=2&foo[]=3`, with empty square brackets.
 
-When a file parameter is mentioned, a form-encoded upload is expected.
+When sending binary data, such as files, Mastodon expects clients to use the `multipart/form-data` MIME type. This applies to media attachments, account avatars and account headers.
 
 ###### Selecting ranges
 
@@ -80,7 +82,13 @@ Returns an [Account](#account).
 
     GET /api/v1/accounts/verify_credentials
 
-Returns the authenticated user's [Account](#account).
+Returns the authenticated user's [Account](#account) with an extra attribute `source` which contains these keys:
+
+| Attribute   | Description                                              |
+| ----------- | -------------------------------------------------------- |
+| `privacy`   | Selected preference: Default privacy of new toots        |
+| `sensitive` | Selected preference: Mark media as sensitive by default? |
+| `note`      | Plain-text version of the account's `note`               |
 
 #### Updating the current user:
 
@@ -88,12 +96,15 @@ Returns the authenticated user's [Account](#account).
 
 Form data:
 
-| Field          | Description                               | Optional   |
-| -------------- | ----------------------------------------- | ---------- |
-| `display_name` | The name to display in the user's profile | yes        |
-| `note`         | A new biography for the user              | yes        |
-| `avatar`       | An avatar for the user                    | yes        |
-| `header`       | A header image for the user               | yes        |
+| Field          | Description                                                       | Optional   |
+| -------------- | ----------------------------------------------------------------- | ---------- |
+| `display_name` | The name to display in the user's profile                         | yes        |
+| `note`         | A new biography for the user                                      | yes        |
+| `avatar`       | An avatar for the user (encoded using `multipart/form-data`)      | yes        |
+| `header`       | A header image for the user (encoded using `multipart/form-data`) | yes        |
+| `locked`       | Manually approve followers?                                       | yes        |
+
+Returns the authenticated user's [Account](#account).
 
 #### Getting an account's followers:
 
@@ -136,6 +147,7 @@ Query parameters:
 | Field             | Description                                                  | Optional   |
 | ----------------- | -----------------------------------------------------------  | ---------- |
 | `only_media`      | Only return statuses that have media attachments             | yes        |
+| `pinned`          | Only return statuses that have been pinned                   | yes        |
 | `exclude_replies` | Skip statuses that reply to other statuses                   | yes        |
 | `max_id`          | Get a list of statuses with ID less than this value          | yes        |
 | `since_id`        | Get a list of statuses with ID greater than this value       | yes        |
@@ -162,6 +174,15 @@ Returns the target account's [Relationship](#relationship).
 #### Muting/unmuting an account:
 
     POST /api/v1/accounts/:id/mute
+    
+    Form data:
+
+| Field          | Description                               | Optional   |
+| -------------- | ----------------------------------------- | ---------- |
+| `notifications` | Determines whether the mute will mute notifications or not. Default(true) | yes        |
+
+Returns the target account's [Relationship](#relationship).
+    
     POST /api/v1/accounts/:id/unmute
 
 Returns the target account's [Relationship](#relationship).
@@ -188,6 +209,7 @@ Query parameters:
 | ----------------- | ------------------------------------------------------------- | ---------- |
 | `q`               | What to search for                                            | no         |
 | `limit`           | Maximum number of matching accounts to return (default: `40`) | yes        |
+| `following`       | Limit the search to following (boolean, default `false`)      | yes        |
 
 Returns an array of matching [Accounts](#accounts).
 
@@ -333,13 +355,81 @@ Returns the local representation of the followed account, as an [Account](#accou
 
 ### Instances
 
-#### Getting instance information:
+#### Getting current instance information:
 
     GET /api/v1/instance
 
 Returns the current [Instance](#instance).
 
 Does not require authentication.
+
+#### Getting current instance's custom emojis:
+
+    GET /api/v1/custom_emojis
+
+Returns a list of [Emoji](#emoji)
+
+Does not require authentication.
+
+### Lists
+
+#### Retrieving lists
+
+    GET /api/v1/lists
+
+Returns at most 50 [Lists](#list) without pagination.
+
+#### Retrieving lists by membership
+
+    GET /api/v1/accounts/:id/lists
+    
+Returns at most 50 [Lists](#list) without pagination.
+
+#### Retrieving accounts in a list
+
+    GET /api/v1/lists/:id/accounts
+
+Returns [Accounts](#account) in the list. If you specify `limit=0` in the query, all accounts will be returned without pagination. Otherwise, standard account pagination rules apply.
+
+#### Retrieving a list
+
+    GET /api/v1/lists/:id
+
+Returns the specified [List](#list).
+
+#### Creating and updating a list
+
+    POST /api/v1/lists
+    PUT /api/v1/lists/:id
+
+Form data:
+
+| Field            | Description           | Optional  |
+| ---------------- | --------------------- | --------- |
+| `title`          | The title of the list | no        |
+
+Returns a new or updated [List](#list).
+
+#### Deleting a list
+
+    DELETE /api/v1/lists/:id
+
+Returns an empty object.
+
+#### Adding/removing accounts to/from a list
+
+    POST /api/v1/lists/:id/accounts
+    DELETE /api/v1/lists/:id/accounts
+
+Form data:
+
+| Field            | Description                               | Optional  |
+| ---------------- | ----------------------------------------- | --------- |
+| `account_ids`    | [Array](#parameter-types) of account IDs  | no        |
+
+> **Note:** Only accounts already followed by the authenticated user can be added to a list.
+
+Returns an empty object.
 
 ### Media
 
@@ -349,11 +439,30 @@ Does not require authentication.
 
 Form data:
 
-| Field             | Description                                                         | Optional   |
-| ----------------- | ------------------------------------------------------------------- | ---------- |
-| `file`            | Media to be uploaded                                                | no         |
+| Field             | Description                                                               | Optional   |
+| ----------------- | ------------------------------------------------------------------------- | ---------- |
+| `file`            | Media to be uploaded (encoded using `multipart/form-data`)                | no         |
+| `description`     | A plain-text description of the media, for accessibility (max 420 chars)  | yes        |
+| `focus`           | Focal point: Two floating points, comma-delimited                         | yes        |
 
 Returns an [Attachment](#attachment) that can be used when creating a status.
+
+#### Updating a media attachment:
+
+    PUT /api/v1/media/:id
+
+Form data:
+
+| Field             | Description                                                               | Optional   |
+| ----------------- | ------------------------------------------------------------------------- | ---------- |
+| `description`     | A plain-text description of the media, for accessibility (max 420 chars)  | yes        |
+| `focus`           | Focal point: Two floating points, comma-delimited                         | yes        |
+
+Can only be done before the media is attached to a status. Returns an [Attachment](#attachment) that can be used when creating a status.
+
+#### Focal points
+
+Server-side preview images are never cropped, to support a variety of apps and user interfaces. Therefore, the cropping must be done by those apps. To crop intelligently, focal points can be used to ensure a certain section of the image is always within the cropped viewport. [See this for how to let users select focal point coordinates](https://github.com/jonom/jquery-focuspoint#1-calculate-your-images-focus-point).
 
 ### Mutes
 
@@ -515,7 +624,7 @@ Form data:
 | `media_ids`       | [Array](#parameter-types) of media IDs to attach to the status (maximum 4)                   | yes        |
 | `sensitive`       | Set this to mark the media of the status as NSFW                         | yes        |
 | `spoiler_text`    | Text to be shown as a warning before the actual content                  | yes        |
-| `visibility`       | Either "direct", "private", "unlisted" or "public"                      | yes        |
+| `visibility`      | Either "direct", "private", "unlisted" or "public"                       | yes        |
 
 Returns the new [Status](#status).
 
@@ -530,12 +639,21 @@ Returns an empty object.
     POST /api/v1/statuses/:id/reblog
     POST /api/v1/statuses/:id/unreblog
 
-Returns the target [Status](#status).
+Reblog: Returns the reblog [Status](#status).
+
+Unreblog: Returns the target [Status](#status).
 
 #### Favouriting/unfavouriting a status:
 
     POST /api/v1/statuses/:id/favourite
     POST /api/v1/statuses/:id/unfavourite
+
+Returns the target [Status](#status).
+
+#### Pinning/unpinning a status:
+
+    POST /api/v1/statuses/:id/pin
+    POST /api/v1/statuses/:id/unpin
 
 Returns the target [Status](#status).
 
@@ -555,12 +673,14 @@ Returns the target [Status](#status).
     GET /api/v1/timelines/home
     GET /api/v1/timelines/public
     GET /api/v1/timelines/tag/:hashtag
+    GET /api/v1/timelines/list/:list_id
 
 Query parameters:
 
 | Field             | Description                                                                         | Optional   |
 | ----------------- | ----------------------------------------------------------------------------------- | ---------- |
 | `local`           | Only return statuses originating from this instance (public and tag timelines only) | yes        |
+| `only_media`      | Only return statuses that have media attachments                                    | yes        |
 | `max_id`          | Get a list of timelines with ID less than this value                                | yes        |
 | `since_id`        | Get a list of timelines with ID greater than this value                             | yes        |
 | `limit`           | Maximum number of statuses on the requested timeline to get (Default 20, Max 40)    | yes        |
@@ -596,6 +716,7 @@ ___
 | `avatar_static`          | URL to the avatar static image (gif)                                               | no       |
 | `header`                 | URL to the header image                                                            | no       |
 | `header_static`          | URL to the header static image (gif)                                               | no       |
+| `moved`                  | If the owner decided to switch accounts, new account is in this attribute          | yes      |
 
 ### Application
 
@@ -614,7 +735,12 @@ ___
 | `remote_url`             | For remote images, the remote URL of the original image                           | yes      |
 | `preview_url`            | URL of the preview image                                                          | no       |
 | `text_url`               | Shorter URL for the image, for insertion into text (only present on local images) | yes      |
-| `meta`                   | `small` and `original` containing: `width`, `height`, `size`, `aspect`            | yes      |
+| `meta`                   | See **attachment metadata** below                                                 | yes      |
+| `description`            | A description of the image for the visually impaired (maximum 420 characters), or `null` if none provided  | yes      |
+
+**Attachment metadata:**
+
+May contain `small` and `original` (referring to the preview and the original file). Images may contain `width`, `height`, `size`, `aspect`, while videos (including GIFV) may contain `width`, `height`, `frame_rate`, `duration` and `bitrate`. There may be another top-level object, `focus` with the coordinates `x` and `y`. These coordinates can be used for smart thumbnail cropping, [see this for reference](https://github.com/jonom/jquery-focuspoint#1-calculate-your-images-focus-point).
 
 > **Note**: When the type is "unknown", it is likely only `remote_url` is available and local `url` is missing
 
@@ -652,6 +778,8 @@ ___
 
 ### Error
 
+The most important part of an error response is the HTTP status code. Standard semantics are followed. The body of an error is a JSON object with this structure:
+
 | Attribute                | Description                        | Nullable |
 | ------------------------ | ---------------------------------- | -------- |
 | `error`                  | A textual description of the error | no       |
@@ -666,6 +794,15 @@ ___
 | `email`                  | An email address which can be used to contact the instance administrator | no       |
 | `version`                | The Mastodon version used by instance.                                   | no       |
 | `urls`                   | `streaming_api`                                                          | no       |
+| `languages`              | Array of ISO 6391 language codes the instance has chosen to advertise    | no       |
+| `contact_account`        | [Account](#account) of the admin or another contact person               | no       |
+
+### List
+
+| Attribute | Description       | Nullable |
+|-----------|-------------------|----------|
+| `id`      | ID of the list    | no       |
+| `title`   | Title of the list | no       |
 
 ### Mention
 
@@ -695,6 +832,7 @@ ___
 | `followed_by`            | Whether the user is currently being followed by the account  | no       |
 | `blocking`               | Whether the user is currently blocking the account           | no       |
 | `muting`                 | Whether the user is currently muting the account             | no       |
+| `muting_notifications`   | Whether the user is also muting notifications                | no       |
 | `requested`              | Whether the user has requested to follow the account         | no       |
 | `domain_blocking`        | Whether the user is currently blocking the accounts's domain | no       |
 
@@ -726,7 +864,7 @@ ___
 | `reblog`                 | `null` or the reblogged [Status](#status)                                     | yes      |
 | `content`                | Body of the status; this will contain HTML (remote HTML already sanitized)    | no       |
 | `created_at`             | The time the status was created                                               | no       |
-| `emojis`                 | An array of [Emoji](#emoji)                                                   | yes      |
+| `emojis`                 | An array of [Emoji](#emoji)                                                   | no       |
 | `reblogs_count`          | The number of reblogs for the status                                          | no       |
 | `favourites_count`       | The number of favourites for the status                                       | no       |
 | `reblogged`              | Whether the authenticated user has reblogged the status                       | yes      |
@@ -740,6 +878,7 @@ ___
 | `tags`                   | An array of [Tags](#tag)                                                      | no       |
 | `application`            | [Application](#application) from which the status was posted                  | yes      |
 | `language`               | The detected language for the status, if detected                             | yes      |
+| `pinned`                 | Whether this is the pinned status for the account that posted it              | yes      |
 
 > **NOTE**: When `spoiler_text` is present, `sensitive` is true 
 

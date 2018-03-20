@@ -1,7 +1,13 @@
 Administration guide
 ====================
 
-So, you have a working Mastodon instance... now what?
+So, you have a working Mastodon instance... now what? Here are the steps you will likely want to perform:
+
+1. [Give your account admin privileges](#turning-into-an-admin)
+2. [Customize settings like title, contact username/e-mail, description, and rules](#site-settings)
+3. [Submit your instance to a directory](#instance-directory)
+
+All of these are optional and depend on your use case.
 
 ## Turning into an admin
 
@@ -33,9 +39,23 @@ You are able to set settings such as, among others:
 
 You may wish to use the extended description (shown at https://yourmastodon.instance/about/more ) to display content guidelines or a user agreement (see https://mastodon.social/about/more for an example).
 
+#### Formatting for HTML settings
+
+To achieve the best looking results, you must use well-structured HTML for the site description, site extended description, closed registrations message and others.
+
+First, site description is **one paragraph**, so it's already pre-wrapped in a `<p>` tag, you shouldn't add others. This text is really expected to be rather short, because it will appear on all OpenGraph previews.
+
+All other HTML fields don't have that requirement, so you are supposed to wrap your paragraphs in `<p>`s yourself, **do not use text not wrapped in a `<p>` or `<li>`** as it will be unstyled. You can use `<em>` tags to bolden/highlight parts of the text, and `<a>` tags for links.
+
+You can use `<ol>` tags for numbered lists, and `<ul>` tags for unordered lists, with `<li>` for each item in the list. Do not use `<li>` outside of `<ol>` or `<ul>`.
+
+You can use `<hr />` as a horizontal separator.
+
+You can use `<h1>`-`<h6>` tags for headlines. Inside the `<h1>` tag, you may use `<small>` for a subheader. The `<h3>` looks most natural in the current layout.
+
 ## Helping users in trouble
 
-Under "Administration" -> "Accounts" you can find your users' accounts. You can:
+Under "Moderation" -> "Accounts" you can find your users' accounts. You can:
 
 - Manually confirm their account, in case they don't have access to their confirmation email for whatever reason
 - Disable their two factor authentication, in case they lost access and backup codes
@@ -51,7 +71,7 @@ This will guide you through creating a new user interactively. The user will get
 
 ## Moderating content
 
-You will e-mail notifications for new reports. Your users can report toots and accounts. You will find those reports under "Administration" -> "Reports". Your options for dealing with reports are as follows:
+You will e-mail notifications for new reports. Your users can report toots and accounts. You will find those reports under "Moderation" -> "Reports". Your options for dealing with reports are as follows:
 
 - Mark as resolved: Just dismiss the report without taking any action.
 - Suspend the offender: This is the harshest option which will permanently remove all content from the user from your server and prevent them from posting again.
@@ -81,6 +101,8 @@ Additionally you can toggle the "reject media" option. When enabled, media files
 This will create a new user associated with the old account_id. They'll not have any followings, followers nor toots but depending on how much time has passed since the deletion, they might still appear in their old federated followers timeline. Previous federated toots might not have been deleted too.
 
 ## Activity monitoring
+
+Mastodon tracks some basic aggregated statistics about activity on your instance. This information is, by default, publicly available in the `/api/v1/instance/activitiy` API. It includes weekly unique logins, registrations and posted statuses. A "login" in this case means "using the website or API" rather than specifically using the login form.
 
 Munin graphs can be generated to track your instance activity.
 

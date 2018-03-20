@@ -61,6 +61,43 @@ You can check code quality with:
 
     rubocop
 
+## OpenBSD
+
+Follow the Linux setup as described above, but with these considerations:
+
+- If you use a Ruby version manager (chruby, rbenv, rvm, etc.), you _must_
+  configure Ruby with `CC=clang CXX=clang++`. This instructs Ruby to use that
+  compiler when compiling native C gems.
+- Many native C gems need to be told about `/usr/local`. You can do this by
+  configuring a `build.gem_name` value using `bundle config`.
+- Any C gem that uses mkmf.rb's `pkg_config` method might fail if the linker
+  produces warnings, as happens when a library links with `sprintf(3)`. The
+  `cld3` gem uses `pkg_config('protobuf')`; if you have protobuf installed but
+  it cannot be found while building the gem, this is likely the problem. You
+  will need to directly modify `mkmf.rb` to get this to install.
+
+The bundle configuration as of Mastodon 2.0's Gemfile:
+
+```sh
+bundle config build.nokogiri --use-system-libraries --with-xml2-include=/usr/local/include/libxml2/ --with-opt-include=/usr/local/include --with-xslt-include=/usr/local/include/libxslt --with-exslt-include=/usr/local/include/libexslt --with-xml2-lib=/usr/local/lib
+bundle config build.charlock_holmes --with-icu-dir=/usr/local --with-opt-dir=/usr/local
+bundle config build.idn-ruby --with-idn-dir=/usr/local
+```
+
+Modify `mfmk.rb`:
+
+```
+@@ -655,7 +655,7 @@
+   end
+ 
+   def try_ldflags(flags, opts = {})
+-    try_link(MAIN_DOES_NOTHING, flags, {:werror => true}.update(opts))
++    try_link(MAIN_DOES_NOTHING, flags, {:werror => false}.update(opts))
+   end
+ 
+   def append_ldflags(flags, *opts)
+```
+
 ## Mac
 
 These are self-contained instructions for setting up a development environment on a macOS system. It is assumed that you’ve cloned your fork of Mastodon to a local working directory and that you are in Terminal and in that directory.
@@ -76,14 +113,14 @@ These are self-contained instructions for setting up a development environment o
 - Get [Homebrew](https://brew.sh) and use it to install the other dependencies:
 
 	```
-	brew install imagemagick ffmpeg yarn postgresql redis rbenv nodejs protobuf
+	brew install imagemagick ffmpeg yarn postgresql redis rbenv nodejs protobuf libidn
 	```
 
 - Configure Rbenv:
 
 	```
 	rbenv init
-	rbenv install 2.4.1
+	rbenv install 2.5.0
 	```
 
 - Install/configure bundler to use your local rbenv:
@@ -114,7 +151,6 @@ These are self-contained instructions for setting up a development environment o
 ### Installation
 
 ```
-brew install libidn
 bundle install --with development
 yarn install --pure-lockfile
 gem install foreman --no-ri --no-rdoc

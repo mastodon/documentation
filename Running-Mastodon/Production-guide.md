@@ -84,7 +84,7 @@ Now you need to install [Yarn](https://yarnpkg.com/en/) plus some more software.
 - libprotobuf-dev and protobuf-compiler - Mastodon uses these for language detection
 - nginx - nginx is our frontend web server
 - redis-* - Mastodon uses redis for its in-memory data structure store
-- postgresql-* - Mastodon uses PostgreSQL as it's SQL database
+- postgresql-* - Mastodon uses PostgreSQL as its SQL database
 - nodejs - Node is used for Mastodon's streaming API
 - yarn - Yarn is a Node.js package manager
 - Other -dev packages, g++ - these are needed for the compilation of Ruby using ruby-build.
@@ -129,8 +129,8 @@ Now that [`rbenv`](https://github.com/rbenv/rbenv) and [`ruby-build`](https://gi
 To enable [Ruby](https://www.ruby-lang.org/en/), run:
 
 ```sh
-rbenv install 2.4.2
-rbenv global 2.4.2
+rbenv install 2.5.0
+rbenv global 2.5.0
 ```
 
 **This will take some time. Go stretch for a bit and drink some water while the commands run.**
@@ -153,7 +153,7 @@ git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 # Install bundler
 gem install bundler
 # Use bundler to install the rest of the Ruby dependencies
-bundle install --deployment --without development test
+bundle install -j$(getconf _NPROCESSORS_ONLN) --deployment --without development test
 # Use yarn to install node.js dependencies
 yarn install --pure-lockfile
 ```
@@ -199,6 +199,7 @@ server {
   listen 80;
   listen [::]:80;
   server_name example.com;
+  root /home/mastodon/live/public;
   # Useful for Let's Encrypt
   location /.well-known/acme-challenge/ { allow all; }
   location / { return 301 https://$host$request_uri; }
@@ -374,67 +375,14 @@ For this we will switch to the `mastodon` system user:
 sudo su - mastodon
 ```
 
-Change directory to `~live` and edit the [Mastodon](https://github.com/tootsuite/mastodon/) application configuration:
+Change directory to `~/live` and run the [Mastodon](https://github.com/tootsuite/mastodon/) setup wizard:
 
 ```sh
 cd ~/live
-cp .env.production.sample .env.production
-nano .env.production
+RAILS_ENV=production bundle exec rake mastodon:setup
 ```
 
-For the purposes of this guide, these are the values to be edited:
-
-```
-# Your Redis host
-REDIS_HOST=127.0.0.1
-# Your Redis port
-REDIS_PORT=6379
-# Your PostgreSQL host
-DB_HOST=/var/run/postgresql
-# Your PostgreSQL user
-DB_USER=mastodon
-# Your PostgreSQL DB name
-DB_NAME=mastodon_production
-# Leave DB password empty
-DB_PASS=
-# Your DB_PORT
-DB_PORT=5432
-
-# Your instance's domain
-LOCAL_DOMAIN=example.com
-# We have HTTPS enabled
-LOCAL_HTTPS=true
-
-# Application secrets
-# Generate each with `RAILS_ENV=production bundle exec rake secret`
-PAPERCLIP_SECRET=
-SECRET_KEY_BASE=
-OTP_SECRET=
-
-# Web Push VAPID keys
-# Generate with `RAILS_ENV=production bundle exec rake mastodon:webpush:generate_vapid_key`
-VAPID_PRIVATE_KEY=
-VAPID_PUBLIC_KEY=
-
-# All SMTP details, Mailgun and Sparkpost have free tiers
-SMTP_SERVER=
-SMTP_PORT=
-SMTP_LOGIN=
-SMTP_PASSWORD=
-SMTP_FROM_ADDRESS=
-```
-
-We now need to set up the [PostgreSQL](https://www.postgresql.org) database for the first time:
-
-```sh
-RAILS_ENV=production bundle exec rails db:setup
-```
-
-Then we will need to precompile all CSS and JavaScript files:
-
-```sh
-RAILS_ENV=production bundle exec rails assets:precompile
-```
+The interactive wizard will guide you through basic and necessary options, generate new app secrets, setup the database schema and precompile the assets.
 
 **The assets precompilation takes a couple minutes, so this is a good time to take another break.**
 
@@ -524,6 +472,49 @@ Check that they are properly running:
 
 ```sh
 systemctl status mastodon-*.service
+```
+
+## Remote media attachment cache cleanup
+
+Mastodon downloads media attachments from other instances and caches it locally for viewing. This cache can grow quite large if
+not cleaned up periodically and can cause issues such as low disk space or a bloated S3 bucket.
+
+The recommended method to clean up the remote media cache is a cron job that runs daily like so (put this in the mastodon system user's crontab with `crontab -e`.)
+
+```sh
+RAILS_ENV=production
+@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:media:remove_remote
+```
+
+That rake task removes cached remote media attachments that are older than NUM_DAYS, NUM_DAYS defaults to 7 days (1 week) if not specified. NUM_DAYS is another environment variable so you can specify it like so:
+
+```sh
+RAILS_ENV=production
+NUM_DAYS=14
+@daily cd /home/mastodon/live && /home/mastodon/.rbenv/shims/bundle exec rake mastodon:media:remove_remote
+```
+
+## Email Service
+
+If you plan on receiving email notifications or running more than just a single-user instance, you likely will want to get set up with an email provider.
+
+There are several free email providers out there- a couple of decent ones are Mailgun.com, which requires a credit card but gives 10,000 free emails, and Sparkpost.com, which gives 15,000 with no credit card but requires you not be on a .space tld.
+
+It may be easier to use a subdomain to setup your email with a custom provider - in this case, when registering your domain with the email service, sign up as something like "mail.domain.com"
+
+Once you create your account, follow the instructions each provider gives you for updating your DNS records.  Once you have all the information ready to go and the service validates your DNS configuration, edit your config file.  These records should already exist in the configuration, but here's a sample setup that uses Mailgun that you can replace with your own personal info:
+
+SMTP_SERVER=smtp.mailgun.org
+SMTP_PORT=587
+SMTP_LOGIN=anAccountThatIsntPostmaster@mstdn.domain.com
+SMTP_PASSWORD=HolySnacksAPassword
+SMTP_FROM_ADDRESS=Domain.com Mastodon Admin <notifications@domain.com>
+
+Finally, to test this, spin up a Rails console (see [the administration guide](https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Administration-guide.md)) and run the following commands to test this out:
+
+```
+m = UserMailer.new.mail to:'email@address.com', subject: 'test', body: 'awoo'
+m.deliver
 ```
 
 That is all! If everything was done correctly, a [Mastodon](https://github.com/tootsuite/mastodon/) instance will appear when you visit `https://example.com` in a web browser.

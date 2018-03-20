@@ -11,6 +11,7 @@ Below, a list of libraries to interact with the Mastodon API, sorted by programm
 | C# (.NET Standard)   | [TootNet](https://github.com/cucmberium/TootNet)                               | [@cucmberium@mstdn.maud.io](https://mstdn.maud.io/@cucmberium)                 |
 | C# (.NET)            | [mastodon-api-cs](https://github.com/pawotter/mastodon-api-cs)                 |                                                                                |
 | C# (.NET)            | [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net)                        |                                                                                |
+| C++                  | [mastodon-cpp](https://github.com/tastytea/mastodon-cpp)                       | [@tastytea@soc.ialis.me](https://soc.ialis.me/@tastytea)                       |
 | Crystal              | [mastodon.cr](https://github.com/decors/mastodon.cr)                           |                                                                                |
 | Elixir               | [hunter](https://github.com/milmazz/hunter)                                    |                                                                                |
 | Go                   | [go-mastodon](https://github.com/mattn/go-mastodon)                            |                                                                                |
@@ -24,6 +25,7 @@ Below, a list of libraries to interact with the Mastodon API, sorted by programm
 | Perl                 | [Mastodon::Client](https://metacpan.org/pod/Mastodon::Client)                  | [@jjatria@mastodon.cloud](https://mastodon.cloud/@jjatria)                     |
 | PHP                  | [Mastodon API for Laravel](https://github.com/kawax/laravel-mastodon-api)      |                                                                                |
 | PHP                  | [Mastodon-api-php](https://github.com/yks118/Mastodon-api-php)                 |                                                                                |
+| PHP                  | [Composer based php API wrapper](https://github.com/r-daneelolivaw/mastodon-api-php) | [@colorfield@mastodon.social](https://mastodon.social/@colorfield)       |
 | PHP                  | [MastodonOAuthPHP](https://github.com/TheCodingCompany/MastodonOAuthPHP)       |                                                                                |
 | PHP                  | [Phediverse Mastodon REST Client](https://github.com/phediverse/mastodon-rest) |                                                                                |
 | PHP                  | [TootoPHP](https://framagit.org/MaxKoder/TootoPHP)                             |                                                                               |

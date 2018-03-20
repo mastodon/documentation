@@ -32,13 +32,15 @@ Translations of this User Guide:
 
 ## Intro
 
-Mastodon is a social network application based on the OStatus protocol. It behaves a lot like other social networks, especially Twitter, with one key difference - it is open-source and anyone can start their own server (also called an "*instance*"), and users of any instance can interact freely with those of other instances (called "*federation*"). Thus, it is possible for small communities to set up their own servers to use amongst themselves while also allowing interaction with other communities.
+Mastodon is a social network application based on the ActivityPub protocol. It behaves a lot like other social networks, especially Twitter, with one key difference - it is open-source and anyone can start their own server (also called an "*instance*"), and users of any instance can interact freely with those of other instances (called "*federation*"). Thus, it is possible for small communities to set up their own servers to use amongst themselves while also allowing interaction with other communities.
 
 #### Decentralization and Federation
 
+<img src="mastofed.png" align="right" width="48%" alt="Simple illustration about decentralization and federation" />
+
 Mastodon is a system decentralized through a concept called "*federation*" - rather than depending on a single person or organization to run its infrastructure, anyone can download and run the software and run their own server. Federation means different Mastodon servers can interact with each other seamlessly, similar to e.g. e-mail.
 
-As such, anyone can download Mastodon and e.g. run it for a small community of people, but any user registered on that instance can follow, send, and read posts from other Mastodon instances (as well as servers running other OStatus-compatible services, such as GNU Social and postActiv). This means that not only is users' data not inherently owned by a company with an interest in selling it to advertisers, but also that if any given server shuts down its users can set up a new one or migrate to another instance, rather than the entire service being lost.
+As such, anyone can download Mastodon and e.g. run it for a small community of people, but any user registered on that instance can follow, send, and read posts from other Mastodon instances (as well as servers running OStatus-compatible services, such as GNU Social and postActiv). This means that not only is users' data not inherently owned by a company with an interest in selling it to advertisers, but also that if any given server shuts down its users can set up a new one or migrate to another instance, rather than the entire service being lost.
 
 Within each Mastodon instance, usernames just appear as `@username`, similar to other services such as Twitter. Users from other instances appear, and can be searched for and followed, as `@user@servername.ext` - so e.g. `@gargron` on the `mastodon.social` instance can be followed from other instances as `@gargron@mastodon.social`).
 
@@ -76,15 +78,21 @@ This will cause the body of your post to be hidden behind a "Show More" button i
 
 ![animation showing content warnings in the timeline](screenshots/cw-toot.gif)
 
-**NOTE** that this will not hide images included in your post - images can be marked as "sensitive" separately to hide them from view until clicked on. To find out how to do this, see the [Posting Images](User-guide.md#posting-images) section of this user guide.
+Adding a content warning to your post will force images attached to your post to be marked as "sensitive" separately to hide them from view until clicked on. To find out how to do this without adding a content warning, see the [Posting Images](User-guide.md#posting-images) section of this user guide.
 
 ##### Hashtags
 
-If you're making a post belonging to a wider subject, it might be worth adding a "hashtag" to it. This can be done simply by writing in the post a # sign followed by a phrase, e.g. #introductions (which is popular on mastodon.social for new users to introduce themselves to the community), or #politics for political discussions, etc. Clicking on a hashtag in a toot will show a timeline consisting only of public posts that include this hashtag (i.e. it's a shortcut to searching for it). This allows users to group messages of similar subjects together, forming a separate "timeline" for people interested in that subject. Hashtags can also be searched for from the search bar above the compose box.
+If you're making a post belonging to a wider subject, it might be worth adding a "hashtag" to it. This can be done simply by writing in the post a # sign followed by a phrase, e.g. #introductions (which is popular on mastodon.social for new users to introduce themselves to the community), or #politics for political discussions, etc. Hashtags can contain only letters and numbers, and must contain at least one letter - a space or an & will break your hashtag.
+
+When the toot is posted the hashtag becomes a clickable link; clicking on a hashtag in a toot will show a timeline consisting only of public posts that include this hashtag (i.e. it's a shortcut to searching for it). This allows users to group posts of similar subjects together, forming a separate "timeline" for people interested in that subject. Hashtags can also be searched for from the search bar above the compose box.
+
+When you have a hashtag search open, it will automatically update with new toots. You can pin the column to keep the search open by clicking the settings symbol at the top right of the hashtag search column and clicking "pin". If you open that menu again you can move the pinned hashtag column to the left or right, or you can unpin it.
+
+Unlisted, followers-only and direct toots do not end up in hashtag searches, but if they contain hashtags, those hashtags can still be clicked to [search](User-guide.md#searching) for public toots containing that hashtag. A hashtag search can only return toots known to your instance.
 
 ##### Boosts and Favourites
 
-You can *favourite* another user's toot by clicking the star icon underneath. This will send the user a notification that you have marked their post as a favourite; the meaning of this varies widely by context from a general "I'm listening" to signalling agreement or offering support for the ideas expressed.
+You can *favourite* another user's toot by clicking the star icon underneath. This will send the user a notification that you have marked their post as a favourite; the meaning of this varies widely by context from a general "I'm listening" to signalling agreement or offering support for the ideas expressed. Clicking the star icon also adds the toot to your list of saved toots, which can be found through the Getting Started menu.
 
 Additionally you can *boost* toots by clicking the "circular arrows" icon. Boosting a toot will show it on your profile timeline and make it appear to all your followers, even if they aren't following the user who made the original post. This is helpful if someone posts a message you think others should see, as it increases the message's reach while keeping the author information intact. 
 
@@ -96,9 +104,11 @@ You can also simply drag and drop your image from your desktop into the text box
 
 ![Image icon](screenshots/drag-and-drop-image.gif)
 
-If the image is "not safe for work" or has otherwise sensitive content, you can select the ![NSFW toggle](screenshots/compose-nsfw.png) "NSFW" button which appears once you have added an image. This will hide the image in your post by default, making it clickable to show the preview. This is the "visual" version of [content warnings](User-guide.md#content-warnings) and could be combined with them if there is text to accompany the image - otherwise it's fine to just mark the image as sensitive and make the body of your post the content warning.
+If the image has "sensitive" content (such as nudity or violence), you can select the "Hide Media" button, which looks like an eye symbol and appears once you have added an image. This will hide the image in your post by default, making it clickable to show the preview.
 
-You can also attach video files or GIF animations to Toots. However, there is a 4MB file size limit for these files and videos must be in .webm or .mp4 format.
+Adding a [content warning](User-guide.md#content-warnings) to your toot forces any media attached to it to be hidden, but you can also use the Hide Media button to hide images without adding a content warning.
+
+You can also attach video files or GIF animations to toots. However, there is an 8MB file size limit for these files and videos must be in .webm or .mp4 format.
 
 #### Following Other Users
 
@@ -112,7 +122,7 @@ Once you follow a user, the Follow icon will be highlighted in blue on their pro
 
 If you know someone's user name you can also open their profile for following by entering it in the [Search box](User-guide.md#searching) in the Compose column. This also works for remote users, though depending on whether they are known to your home instance you might have to enter their full name including the domain (e.g. `gargron@mastodon.social`) into the search box before their profile will appear in the suggestions.
 
-Alternately, if you already have a user's profile open in a separate browser tab, most OStatus-related networks should have a "Follow" or "Subscribe" button on their profile page. This will ask you to enter the full user name to follow **from** (ie. if your account is on mastodon.social you would want to enter this as `myaccount@mastodon.social`)
+Alternately, if you already have a user's profile open in a separate browser tab, other Mastodon instances and most OStatus-related instances should have a "Follow" or "Subscribe" button on their profile page. This will ask you to enter the full user name to follow **from** (ie. if your account is on mastodon.social you would want to enter this as `myaccount@mastodon.social`)
 
 #### Notifications
 
@@ -148,7 +158,25 @@ To view the Local Timeline, click the  "Local Timeline" in the Compose column or
 
 #### Searching
 
-Mastodon has a search function - you can use it to search for users and [hashtags](User-guide.md#hashtags). The search does not look through the entire text of posts, only hashtags. In order to start a search, just type into the search box in the Compose column and hit *enter*; This will open the search pane. The search pane will show suggestions as you type. Selecting any of these will open the user's profile or a view of all toots on the hashtag.
+Mastodon has a search box, which is above the "new toot" box. Clicking your cursor into the search box will provide a helpful pop-up that tells you what it can do.
+
+You can use the search for the following:
+
+* **[Hashtags](User-guide.md#hashtags)** - Hashtags known to your instance will show up in this search. Clicking them will run a search for public posts tagged with hashtags that are known to your instance. Unlisted toots don't show up in hashtag searches. The search is limited to posts that are known to your instance, loosely defined as "toots posted or boosted or replied to by people on your instance, and people *followed by* people on your instance".
+
+* **People** - If you search for `@username`, the search will show you anyone known to your instance with that username, which could include people on other instances. You can search more accurately with `@username@instance`, which will return anyone with that name and instance even if they are not known to your instance yet. You can click the search result to view that person's profile. If you search for the URL of someone's profile, such as `http://instan.ce/@username`, it will do the same thing - but it will also update someone's avatar, bio, and follower/following statistics if they are out of date on your instance.
+
+* **Toot URLs** - Typing in the URL of a specific toot into the search box and pressing enter will return that toot, allowing you to save it, reply to it or boost it. This will also make a toot "known" to your instance, bringing it into its federated timeline and, if it contains hashtags, any hashtag searches made by someone on your instance. You can click the toot to open it and view replies and favourite/boost numbers.
+
+In order to start a search, just type into the search box in the Compose column and hit *enter*. Results will pop up directly below the search box. Typing in a plaintext word will return any hashtags containing that word, as well as any people with that word in their username or display name or instance name. For example, typing `nonbinary` may return:
+
+* Nonbinary Friend (`@hannah@instance`)
+* Hannah (`@nonbinaryfriend@instance`)
+* Hannah (`@friend@nonbinary.instance`)
+* `#nonbinary`
+* `#nonbinaryheroes`
+
+The search function on Mastodon is deliberately limited to prevent abuse; it intentionally doesn't allow plaintext searches.
 
 ## Privacy, Safety and Security
 

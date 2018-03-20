@@ -13,9 +13,17 @@ Returns events that are relevant to the authorized user, i.e. home timeline and 
 
 Returns all public statuses
 
+**GET /api/v1/streaming/public/local**
+
+Returns all local statuses
+
 **GET /api/v1/streaming/hashtag**
 
 Returns all public statuses for a particular hashtag (query param `tag`)
+
+**GET /api/v1/streaming/list**
+
+Returns statuses for list (query param `list`)
 
 ### Stream contents
 

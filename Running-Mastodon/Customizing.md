@@ -12,7 +12,7 @@ You can make the application load a different CSS file than the default, you can
 
 ## Changing colors and other variables
 
-See the `app/javascript/styles/variables.scss` file for the full list of available variables used throughout the application styles. You can redefine their values in your own `custom.scss` like this:
+See the `app/javascript/styles/mastodon/variables.scss` file for the full list of available variables used throughout the application styles. You can redefine their values in your own `custom.scss` like this:
 
 ```scss
 $ui-highlight-color: #d3d900;
@@ -68,7 +68,7 @@ themes:
 
 ## Link to source code
 
-Mastodon is distributed under the terms of AGPL. The source code must be offered to its user. To easily achieve this on your instance, an initializer like below can be added, as a file like `config/initializer/source.rb`, to customize the links at the bottom of the `/about` and `/about/more` pages:
+Mastodon is distributed under the terms of AGPL. The source code must be offered to its user. To easily achieve this on your instance, an initializer like below can be added, as a file like `config/initializers/source.rb`, to customize the links at the bottom of the `/about` and `/about/more` pages:
 
 ```ruby
 # frozen_string_literal: true

@@ -19,6 +19,8 @@ Furthermore, in the command, `rake` is interchangeable with `rails`
 |Task|Description|Usage|
 |----|-----------|-----|
 |mastodon:make_admin|Turn a user into an admin|USERNAME=yourname|
+|mastodon:make_mod|Turn a user into an moderator|USERNAME=yourname|
+|mastodon:revoke_staff|Revoke admin or moderator privileges of a specified user|USERNAME=yourname|
 |mastodon:confirm_email|Confirm a user manually|USER_EMAIL=your@email|
 |mastodon:add_user|Create new user|(Interactive)|
 |mastodon:users:admins|List e-mails of all admins|
@@ -31,6 +33,7 @@ Furthermore, in the command, `rake` is interchangeable with `rails`
 |----|-----------|-----|
 |mastodon:media:remove_silenced|Purge all media uploads by silenced accounts. Completely removes records, as if their statuses never had attachments|
 |mastodon:media:remove_remote|Remove local cache of remote media attachments older than some time period (defaults to 7 days). Removes only cache, record of an attachment existing remains|NUM_DAYS=7|
+|mastodon:media:redownload_avatars|Redownload avatars/headers of remote users. Optionally limit to a particular domain with DOMAIN|DOMAIN=domain (optional)|
 
 #### E-mails
 
@@ -38,10 +41,17 @@ Furthermore, in the command, `rake` is interchangeable with `rails`
 |----|-----------|-----|
 |mastodon:emails:digest|Sends out a personal digest to all eligible inactive users. Digest includes mentions since the last time the user was active. No e-mail is sent if there is no new content since last digest or user activity|
 
+#### ElasticSearch
+
+|Task|Description|Usage|
+|----|-----------|-----|
+|chewy:deploy|Rebuilds ElasticSearch indexes from scratch.  Useful when first deploying ES, to index existing toots|
+
 #### Misc
 
 |Task|Description|Usage|
 |----|-----------|-----|
+|mastodon:maintenance:purge_removed_accounts| Check every known remote account and delete those locally that no longer exist on the account's home instance| -f, --force (optional - will not request confirmation of each deletion|
 |mastodon:push:clear| Normally, a subscription to a once-followed user remains forever, in case the user gets re-followed later. You can purge such subscriptions with 0 followers if you wish|
 |mastodon:feeds:clear_all|Purge all home timelines from redis. Useful only for troubleshooting, when e.g. resetting database during development|
 |mastodon:feeds:build|Regenerates home timelines for all active users. Useful only for troubleshooting, e.g. if you lost your redis database|
