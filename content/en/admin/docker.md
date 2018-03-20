@@ -23,7 +23,7 @@ Review the settings in `docker-compose.yml`. Note that it is **not default** to 
 
 ### Using a prebuilt image
 
-If you're not making any local code changes or customizations on your instance, you can use a prebuilt Docker image to avoid the time and resource consumption of a build. Images are available from Docker Hub: https://hub.docker.com/r/gargron/mastodon/
+If you're not making any local code changes or customizations on your instance, you can use a prebuilt Docker image to avoid the time and resource consumption of a build. Images are available from Docker Hub: https://hub.docker.com/r/tootsuite/mastodon/
     
 To use the prebuilt images:
 
