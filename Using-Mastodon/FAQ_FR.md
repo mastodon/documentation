@@ -177,7 +177,7 @@ L'horodatage (parfois affiché de façon relative; par exemple «2m» pour «il 
 #### Comment puis-je avoir un lien vers mon profil?
 Via un **clic droit** sur votre avatar ou votre nom d'utilisateur·trice, puis en choisissant **Copier la destination du lien**.
 
-#### Est-ce que le clic sur un #hashtag affiche des pouets locaux uniquement ou des pouets fédérés?
+#### Le clic sur un #hashtag affiche-t-il des pouets locaux uniquement ou des pouets fédérés?
 Le fil des hashtag est le fil fédéré auquel on applique un filtre. On peut donc voir tous les pouets fédérés.
 
 #### Quand je masque un boost, qui est mis en sourdine: La personne qui booste le pouet ou l'auteur·e de celui-ci?
