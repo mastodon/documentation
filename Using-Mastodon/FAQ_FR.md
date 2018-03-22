@@ -96,7 +96,7 @@ L'option se trouve dans Préférences, sous le menu «Identification à deux fac
 Il y a plusieurs raisons pour que cela se produise. Les posts de cette personne sont peut-être privés. Il faut suivre un compte pour voir ses pouets qui ne sont pas publics. Si quelqu'un vous a bloqué·e, il ne sera plus possible de voir ses posts non publics.
 
 #### Quelles sont les tendances?
-Le suivi des sujets tendances n'est pas officiellement supporté pour le moment.
+Le suivi des sujets tendances n'est pas supporté.
 
 #### Qu'est-ce que «CW»?
 «CW» signifie «Alerte sur le contenu» («Content Warning» en anglais). Il est utilisé pour cacher le contenu d'un pouet, comme les «spoilers».
@@ -178,7 +178,7 @@ L'horodatage (parfois affiché de façon relative; par exemple «2m» pour «il 
 Via un **clic droit** sur votre avatar ou votre nom d'utilisateur·trice, puis en choisissant **Copier la destination du lien**.
 
 #### Est-ce que le clic sur un #hashtag affiche des pouets locaux uniquement ou des pouets fédérés?
-Le fil des hashtag est le fil fédéré auquel on applique un filtre.
+Le fil des hashtag est le fil fédéré auquel on applique un filtre. On peut donc voir tous les pouets fédérés.
 
 #### Quand je masque un boost, qui est mis en sourdine: La personne qui booste le pouet ou l'auteur·e de celui-ci?
 L'auteur·e. Vous pouvez mettre en sourdine les boosts d'un·e utilisateur·trice que vous suivez depuis son profil.
@@ -195,10 +195,10 @@ Non, mais il existe un [script Firefox TamperMonkey](https://github.com/tomouchu
 #### Est-ce que les pouets se fédèrent automatiquement ou sont-ils d'abord locaux?
 La fonction première de Mastodon est de faire parvenir vos pouest à vos followers. Vos pouets ne quittent pas votre instance tant que vous n'avez pas de follower sur d'autres instances. Ils sont transmis uniquement aux instances de vos followers s'il sont sur d'autres instances. Il y a d'autres cas de figure, par exemple lorsque vous adressez un message à un·e utilisateur·trice d'une autre instance sans qu'iel vous suive. Mastodon ne fait aucune distinction de traitement des pouets, qu'ils soient destinés à des followers de votre instance ou d'une autre. Cependant, les fils «fédérés» et «locaux» que vous pouvez parcourir n'affichent que des pouets «publics». Choisir «Non-listé» ou un paramètre de confidentialité plus fort empêchera votre pouet de s'afficher dans ces fils. De la même manière, un pouet non listé n'apparaîtra pas dans un fil de hashtag, même si vous utilisez ce hashtag dans le contenu du pouet.
 
-#### Quelle est la taille limite par défaut pour l'envoi d'images et comment puis-je la changer?
+#### Quelle est la taille limite pour l'envoi d'images?
 La limite est de 8 megaoctets (8Mo).
 
-#### Quel type de fichier peut être posté (upload - téléversement)
+#### Quel type de fichier peut être posté?
 Les images PNG, JPEG, et GIF, ainsi que les vidéos WebM et MP4. Un GIF sera automatiquement converti en MP4 muet, qui se comportera comme un GIF sur l'interface de Mastodon. Pareil pour une vidéo MP4 ou WebM muette.
 
 #### Comment puis-je installer et démarrer ma propre instance de Mastodon?
