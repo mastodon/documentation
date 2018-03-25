@@ -628,6 +628,10 @@ Form data:
 
 Returns the new [Status](#status).
 
+> **Note:** In order to prevent duplicate statuses, this endpoint accepts an `Idempotency-Key` header, which should be set to a unique string for each new status. In the event of a network error, a request can be retried with the same `Idempotency-Key`. Only one status will be created regardless of how many requests with the same `Idempotency-Key` did go through.
+>
+> See <https://stripe.com/blog/idempotency> for more on idempotency and idempotency keys.
+
 #### Deleting a status:
 
     DELETE /api/v1/statuses/:id
