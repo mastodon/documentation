@@ -18,7 +18,7 @@ This is how you do that:
 ```sh
 su - mastodon
 cd ~/live
-git pull
+git fetch --tags
 git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 ```
 
