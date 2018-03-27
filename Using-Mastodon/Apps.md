@@ -1,7 +1,6 @@
 List of apps
 ============
 
-Some people have started working on apps for the Mastodon API. Here is a list of them:
 <!---Only list apps and tools that work with every (up-to-date) instance. Mobile apps should provide at least an installable package. Please list apps with stable versions before apps with only unstable versions *(alpha/beta/experimental)* (alphabetically). Mobile, desktop and web clients first (for the end-users) --->
 
 **Table of contents**
