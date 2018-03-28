@@ -29,7 +29,7 @@ To use the prebuilt images:
 
 1. Open `docker-compose.yml` in your favorite text editor.
 2. Comment out the `build: .` lines for all images (web, streaming, sidekiq).
-3. Edit the `image: tootsuite/mastodon` lines for all images to include the release you want. The default is `latest` which is the most recent stable version, however it recommended to explicitly pin a version: If you wanted to use v2.2.0 for example, you would edit the lines to say: `image: tootsuite/mastodon:v2.3.0`
+3. Edit the `image: tootsuite/mastodon` lines for all images to include the release you want. The default is `latest` which is the most recent stable version, however it recommended to explicitly pin a version: If you wanted to use v2.2.0 for example, you would edit the lines to say: `image: tootsuite/mastodon:v2.2.0`
 4. Save the file and exit the text editor.
 4. Run `docker-compose build`. It will now pull the correct image from Docker Hub.
 
