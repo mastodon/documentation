@@ -163,7 +163,7 @@ List of apps
 |**[wall](http://mastodon.tools/wall/)**|<https://github.com/DavidLibeau/mastodon-tools/tree/master/wall>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 |[Scheduler](http://mastodon.tools/scheduler/) *(beta)*|<https://github.com/DavidLibeau/mastodon-scheduler>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 |**[Tootmap](https://tootmap.net/)**|<https://github.com/wakin-/Tootmap>|[@wakin@biwakodon.com](https://biwakodon.com/@wakin)|
-|**[Mastodon User Matching](http://vinayaka.distsn.org/)**|<https://github.com/distsn/vinayaka>|[@hakabahitoyo@2.distsn.org](https://2.distsn.org/@hakabahitoyo)|
+|**[Mastodon User Matching](http://vinayaka.distsn.org/)**|<https://github.com/distsn/vinayaka>|[Hakaba Hitoyo](http://hakaba-hitoyo.github.io)|
 
 ## Other tools 
 <!--- Tools that don't fit elsewhere --->
