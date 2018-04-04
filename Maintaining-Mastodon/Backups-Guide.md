@@ -9,7 +9,7 @@ Data that needs to be backed up regularly:
 
 Data that needs to be backed up at least once:
 * Mastodon application secrets (see
-  [Production Guide](../Running-Mastodon/Production-Guide.md) for more details)
+  [Production Guide](../Running-Mastodon/Production-guide.md) for more details)
 
 In the following sub-sections, some suggestions on how to backup all of this
 data will be provided.
