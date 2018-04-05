@@ -48,7 +48,6 @@ List of apps
 |mastty<br />([Play Store](https://play.google.com/store/apps/details?id=com.sasaneko.mastodon))|White Cat Factory|
 |[Pawoo](https://pawoo.net/about)<br />([Play Store](https://play.google.com/store/apps/details?id=jp.pxv.pawoo))|[@pixiv@pawoo.net](https://pawoo.net/users/pixiv)|
 |Stegodon<br />([Play Store](https://play.google.com/store/apps/details?id=com.gilawhost.stegolophodon))|[@GilaW@mastodon.cloud](https://mastodon.cloud/@Gilaw)|
-|Tootaloo<br />([Play Store](https://play.google.com/store/apps/details?id=net.liverworks.tootalooa))|[liverworks.net](http://liverworks.net/)|
 |Tootdon<br />([Play Store](https://play.google.com/store/apps/details?id=club.tootdon.app))|[@tootdon@mstdn.jp](https://mstdn.jp/@tootdon)|
 |Troutoss<br />([Play Store](https://play.google.com/store/apps/details?id=jp.gr.java_conf.miwax.troutoss))|[@tomoya0x00@mstdn.jp](https://mstdn.jp/@tomoya0x00)|
 
