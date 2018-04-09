@@ -111,6 +111,7 @@ List of apps
 |---|-----------|------------|
 |**[Halcyon](https://halcyon.social)**|<https://github.com/halcyon-suite/halcyon>|[@halcyon@mastodon.social](https://mastodon.social/@halcyon)|
 |[Naumanni](https://naumanni.com/) *(alpha)*|<https://github.com/naumanni/naumanni>|[@shi3z@mstdn.onosendai.jp](https://mstdn.onosendai.jp/@shi3z)/[@shn@oppai.tokyo](https://oppai.tokyo/@shn)|
+|[Pinafore](https://pinafore.social/) *(beta)*|<https://github.com/nolanlawson/pinafore>|[@nolan@toot.cafe](https://toot.cafe/@nolan)|
 
 ## Browser add-ons/extensions
 
@@ -118,6 +119,7 @@ List of apps
 |---|--------|----|------------|
 |**[BirdSite](https://gitlab.com/pmorinerie/birdsite/blob/master/README.md)**|[Chrome(ium)](https://chrome.google.com/webstore/detail/birdsite/lfmfhaopllgidldpmifdcjdckdggdjaj)/[Firefox](https://addons.mozilla.org/fr/firefox/addon/birdsite/)|<https://gitlab.com/pmorinerie/birdsite/>|[@pmorinerie@mastodon.xyz](https://mastodon.xyz/users/pmorinerie)|
 |**[Fastoot](https://github.com/noraworld/fastoot/blob/master/README.md)**|[Chrome(ium)](https://chrome.google.com/webstore/detail/fastoot/hnmnnhfeigiogjagmmpnhelpnhnchaoj)|<https://github.com/noraworld/fastoot>|[@noraworld@mastodon.noraworld.jp](https://mastodon.noraworld.jp/users/noraworld)|
+|**[Mastodon Embed Improved](https://f2w.de/mastodon-embed)**|WordPress plugin|<https://github.com/ginsterbusch/mastodon-embed>|[@ginsterbusch@kosmos.social](https://kosmos.social/@ginsterbusch)|
 |**[Mastodon Lang Remover](https://github.com/arthurlacoste/mastodon-lang-remover/blob/master/README.md)**|[Chrome(ium)/Firefox](https://github.com/arthurlacoste/mastodon-lang-remover#install)|<https://github.com/arthurlacoste/mastodon-lang-remover>|[@arthak@mastodon.social](https://mastodon.social/users/arthak)|
 |**[Mastodon Share](https://github.com/kernox/Mastodon-Share/blob/master/README.md)**|[Firefox](https://addons.mozilla.org/nl/firefox/addon/mastodon-share/)|<https://github.com/kernox/Mastoshare>|[@Hellexis@framapiaf.org](https://framapiaf.org/@Hellexis)
 |**[oxpecker](https://github.com/ttrace/oxpecker/blob/master/README.md)**|Chrome(ium)/Firefox|<https://github.com/ttrace/oxpecker>|[@t_trace@ostatus.taiyolab.com](https://ostatus.taiyolab.com/@t_trace)
