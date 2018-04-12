@@ -61,6 +61,24 @@ curl -sL https://deb.nodesource.com/setup_6.x | bash -
 
 The [node.js](https://nodejs.org/en/) repository is now added.
 
+### GCC 6+
+
+The Ruby module libcld3 needs gcc 6 to compile - and Ubuntu 16.04 doesn't include gcc 6.
+However, a third-party ppa (personal package archive) is available.
+
+```sh
+apt -y install build-essential software-properties-common
+add-apt-repository -y ppa:jonathonf/gcc
+apt update
+```
+
+This will made the gcc-6 packages available to Ubuntu.  Then you will need to install them and make them the default compiler.
+```sh
+apt -y upgrade
+apt -y install gcc-6 g++-6
+update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 60 --slave /usr/bin/g++ g++ /usr/bin/g++-6
+```
+
 ###  Yarn Repository
 
 Another repository needs to be added so we can get the version of [Yarn](https://yarnpkg.com/en/) used by [Mastodon](https://github.com/tootsuite/mastodon/).
