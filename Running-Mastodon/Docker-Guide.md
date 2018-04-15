@@ -47,7 +47,13 @@ You must build your own image if you've made any code modifications. To build yo
 
 ## Building the app
 
-Now the image can be used to generate a configuration with:
+Let's start the configuration part by generating some secret keys. Run the following command *twice*:
+
+    docker-compose run --rm web rake secret
+
+Take these two keys and put them into `.env.production` values `SECRET_KEY_BASE` and `OTP_SECRET`.
+
+Now the image can be used to generate the rest of the configuration with:
 
     docker-compose run --rm web rake mastodon:setup
 
