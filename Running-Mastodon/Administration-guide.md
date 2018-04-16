@@ -102,7 +102,7 @@ This will create a new user associated with the old account_id. They'll not have
 
 ## Activity monitoring
 
-Mastodon tracks some basic aggregated statistics about activity on your instance. This information is, by default, publicly available in the `/api/v1/instance/activitiy` API. It includes weekly unique logins, registrations and posted statuses. A "login" in this case means "using the website or API" rather than specifically using the login form.
+Mastodon tracks some basic aggregated statistics about activity on your instance. This information is, by default, publicly available in the `/api/v1/instance/activity` API. It includes weekly unique logins, registrations and posted statuses. A "login" in this case means "using the website or API" rather than specifically using the login form.
 
 Munin graphs can be generated to track your instance activity.
 
