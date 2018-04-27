@@ -208,19 +208,19 @@ Sync and check the translation strings. It will:
 You may use the help command to get usage instructions:
 
 ```
-yarn manage:translations -- --help
+yarn manage:translations --help
 ```
 
 ##### Key Usages
 
 You may specify the language to sync and check:
 ```
-yarn manage:translations -- [language code]
+yarn manage:translations [language code]
 ```
 
 For example, to synchronize translations for French (**fr**):
 ```
-yarn manage:translations -- fr
+yarn manage:translations fr
 ```
 
 You may also use this to create json language files. You'd need to apply the
@@ -228,7 +228,7 @@ You may also use this to create json language files. You'd need to apply the
 were not
 created yet:
 ```
-yarn manage:translations -- --force ar
+yarn manage:translations --force ar
 ```
 will create the following language files:
 * app/javascript/mastodon/locales/**ar**.json
@@ -241,7 +241,7 @@ this:
 
 ```
 bundle exec i18n-tasks health zh-HK
-yarn manage:translations -- zh-HK
+yarn manage:translations zh-HK
 ```
 
 If you're doing good, you'd have a result like this:
@@ -252,7 +252,7 @@ Forest (zh-HK) has 422 keys in total. On average, values are 13 characters long,
 ✓ Good job! No translations are missing.
 ✓ Well done! Every translation is in use.
 
-$ yarn manage:translations -- zh-HK
+$ yarn manage:translations zh-HK
 yarn manage:translations v0.23.4
 $ node ./config/webpack/translationRunner.js zh-HK
 Maintaining zh-HK.json:
