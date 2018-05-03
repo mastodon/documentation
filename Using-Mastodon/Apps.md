@@ -168,6 +168,7 @@ List of apps
 |[Scheduler](http://mastodon.tools/scheduler/) *(beta)*|<https://github.com/DavidLibeau/mastodon-scheduler>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 |**[Tootmap](https://tootmap.net/)**|<https://github.com/wakin-/Tootmap>|[@wakin@biwakodon.com](https://biwakodon.com/@wakin)|
 |**[Mastodon User Matching](http://vinayaka.distsn.org/)**|<https://github.com/distsn/vinayaka>|[Hakaba Hitoyo](http://hakaba-hitoyo.github.io)|
+|**[Mastodon/Pleroma Newcomers](http://vinayaka.distsn.org/user-new.html)**|<https://github.com/distsn/vinayaka>|[Hakaba Hitoyo](http://hakaba-hitoyo.github.io)|
 
 ## Other tools 
 <!--- Tools that don't fit elsewhere --->
