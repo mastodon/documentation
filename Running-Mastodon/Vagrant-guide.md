@@ -23,7 +23,7 @@ To create and provision a new virtual machine for Mastodon development run:
 
 Running `vagrant up --provider virtualbox` for the first time will run provisioning, which will:
 
-- Download the Ubuntu 14.04 base image, if there isn't already a copy on your machine
+- Download the Ubuntu 14.04 base image, if there isn’t already a copy on your machine
 - Create a new VirtualBox virtual machine from that image
 - Run the provisioning script (located inside the Vagrantfile), which installs the system packages, Ruby gems, and JS modules required for Mastodon
 
@@ -35,7 +35,7 @@ To start the application:
 
     vagrant ssh -c "cd /vagrant && foreman start"
 
-The rails server, streaming server and webpack-dev-server will start up. You can then access your development site at http://mastodon.dev (or at http://localhost:3000 if you haven't installed vagrants-hostupdater). By default, your development environment will have an admin account created for you to use - the email address will be `admin@mastodon.dev` and the password will be `mastodonadmin`.
+The rails server, streaming server and webpack-dev-server will start up. You can then access your development site at http://mastodon.dev (or at http://localhost:3000 if you haven’t installed vagrants-hostupdater). By default, your development environment will have an admin account created for you to use – the email address will be `admin@mastodon.dev` and the password will be `mastodonadmin`.
 
 To stop the server, simply run `vagrant halt`.
 
@@ -43,7 +43,7 @@ To stop the server, simply run `vagrant halt`.
 
 You should now have a working Mastodon instance, although it will not federate, as it is not publicly accessible. Should you need temporary federation for development and testing, see the Ngrok information in the [Development Guide](Development-guide.md).
 
-By default, your instance's ActionMailer will use "Letter Opener Web" for email. This means that any email that would normally be sent, will instead be stored, and accessible at http://mastodon.dev/letter_opener - you can use this to verify a registered user account.
+By default, your instance’s ActionMailer will use “Letter Opener Web” for email. This means that any email that would normally be sent, will instead be stored, and accessible at http://mastodon.dev/letter_opener – you can use this to verify a registered user account.
 
 ## Making changes/developing
 
@@ -57,7 +57,7 @@ Should you need to access the virtual machine (for example, to manually restart 
 
 You can find the Rails server logs in in the `log` folder, which will often have the information you need.
 
-If your Mastodon instance or Vagrant box are really not behaving, you can re-run the provisioning process. Stop the box with `vagrant halt`, and then run `vagrant destroy` - this will delete the virtual machine. You may then run `vagrant up` to create a new box, and re-run provisioning.
+If your Mastodon instance or Vagrant box are really not behaving, you can re-run the provisioning process. Stop the box with `vagrant halt`, and then run `vagrant destroy` – this will delete the virtual machine. You may then run `vagrant up` to create a new box, and re-run provisioning.
 
 ## Testing
 

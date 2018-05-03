@@ -2,7 +2,7 @@ Alternative Server Components
 =============================
 
 This file provides some configurations for systems that will not be using
-the "stock" server components.
+the “stock” server components.
 
 ## Supervisord
 

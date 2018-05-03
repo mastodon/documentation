@@ -20,7 +20,7 @@ on how to disable password authentication for the OpenSSH server.
 You may want to set up some firewall rules. A Mastodon server will require public incoming
 access to the following ports: 22 (SSH), 80 (HTTP), 443 (HTTPS). Here are a couple [example iptables rulesets](https://github.com/QueuingKoala/netfilter-samples/tree/master/rules-host)
 that you can modify according to your needs. It is recommended to have access to your 
-server provider's out-of-band access method while adding any ruleset 
+server provider’s out-of-band access method while adding any ruleset 
 in case you lock yourself out from SSH.
 
 The rulesets mentioned above can be imported like so:
@@ -49,7 +49,7 @@ Settings -> Two-factor Authentication
 
 ### Server provider client area account
 
-Access to your server provider's client area account is very lucrative to any potential 
+Access to your server provider’s client area account is very lucrative to any potential 
 attacker as such accounts usually provide access to various root password reset methods and
 out-of-band access along with the ability to cancel your server service and wipe all data.
 

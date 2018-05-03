@@ -171,7 +171,7 @@ List of apps
 |**[Mastodon/Pleroma Newcomers](http://vinayaka.distsn.org/user-new.html)**|<https://github.com/distsn/vinayaka>|[Hakaba Hitoyo](http://hakaba-hitoyo.github.io)|
 
 ## Other tools 
-<!--- Tools that don't fit elsewhere --->
+<!--- Tools that don’t fit elsewhere --->
 |App|Platform|Source code|Developer(s)|
 |---|--------|-----------|------------|
 |**[mastodon.el](https://github.com/jdenen/mastodon.el/blob/master/README.org)**|Emacs|<https://github.com/jdenen/mastodon.el>|[@johnson@mastodon.social](https://mastodon.social/users/johnson)|

@@ -64,7 +64,7 @@ See the [Link header RFC](https://tools.ietf.org/html/rfc5988) for more informat
 
 ###### Errors
 
-If the request you make doesn't go through, Mastodon will usually respond with an [Error](#error).
+If the request you make doesn’t go through, Mastodon will usually respond with an [Error](#error).
 
 ___
 
@@ -82,13 +82,13 @@ Returns an [Account](#account).
 
     GET /api/v1/accounts/verify_credentials
 
-Returns the authenticated user's [Account](#account) with an extra attribute `source` which contains these keys:
+Returns the authenticated user’s [Account](#account) with an extra attribute `source` which contains these keys:
 
 | Attribute   | Description                                              |
 | ----------- | -------------------------------------------------------- |
 | `privacy`   | Selected preference: Default privacy of new toots        |
 | `sensitive` | Selected preference: Mark media as sensitive by default? |
-| `note`      | Plain-text version of the account's `note`               |
+| `note`      | Plain-text version of the account’s `note`               |
 
 #### Updating the current user:
 
@@ -98,15 +98,15 @@ Form data:
 
 | Field          | Description                                                       | Optional   |
 | -------------- | ----------------------------------------------------------------- | ---------- |
-| `display_name` | The name to display in the user's profile                         | yes        |
+| `display_name` | The name to display in the user’s profile                         | yes        |
 | `note`         | A new biography for the user                                      | yes        |
 | `avatar`       | An avatar for the user (encoded using `multipart/form-data`)      | yes        |
 | `header`       | A header image for the user (encoded using `multipart/form-data`) | yes        |
 | `locked`       | Manually approve followers?                                       | yes        |
 
-Returns the authenticated user's [Account](#account).
+Returns the authenticated user’s [Account](#account).
 
-#### Getting an account's followers:
+#### Getting an account’s followers:
 
     GET /api/v1/accounts/:id/followers
 
@@ -138,7 +138,7 @@ Query parameters:
 
 Returns an array of [Accounts](#account).
 
-#### Getting an account's statuses:
+#### Getting an account’s statuses:
 
     GET /api/v1/accounts/:id/statuses
 
@@ -162,14 +162,14 @@ Returns an array of [Statuses](#status).
     POST /api/v1/accounts/:id/follow
     POST /api/v1/accounts/:id/unfollow
 
-Returns the target account's [Relationship](#relationship).
+Returns the target account’s [Relationship](#relationship).
 
 #### Blocking/unblocking an account:
 
     POST /api/v1/accounts/:id/block
     POST /api/v1/accounts/:id/unblock
 
-Returns the target account's [Relationship](#relationship).
+Returns the target account’s [Relationship](#relationship).
 
 #### Muting/unmuting an account:
 
@@ -181,13 +181,13 @@ Returns the target account's [Relationship](#relationship).
 | -------------- | ----------------------------------------- | ---------- |
 | `notifications` | Determines whether the mute will mute notifications or not. Default(true) | yes        |
 
-Returns the target account's [Relationship](#relationship).
+Returns the target account’s [Relationship](#relationship).
     
     POST /api/v1/accounts/:id/unmute
 
-Returns the target account's [Relationship](#relationship).
+Returns the target account’s [Relationship](#relationship).
 
-#### Getting an account's relationships:
+#### Getting an account’s relationships:
 
     GET /api/v1/accounts/relationships
 
@@ -238,7 +238,7 @@ These values should be requested in the app itself from the API for each new app
 
 ### Blocks
 
-#### Fetching a user's blocks:
+#### Fetching a user’s blocks:
 
     GET /api/v1/blocks
 
@@ -256,7 +256,7 @@ Returns an array of [Accounts](#account) blocked by the authenticated user.
 
 ### Domain blocks
 
-#### Fetching a user's blocked domains:
+#### Fetching a user’s blocked domains:
 
     GET /api/v1/domain_blocks
 
@@ -298,7 +298,7 @@ Returns an empty object.
 
 ### Favourites
 
-#### Fetching a user's favourites:
+#### Fetching a user’s favourites:
 
     GET /api/v1/favourites
 
@@ -363,7 +363,7 @@ Returns the current [Instance](#instance).
 
 Does not require authentication.
 
-#### Getting current instance's custom emojis:
+#### Getting current instance’s custom emojis:
 
     GET /api/v1/custom_emojis
 
@@ -466,7 +466,7 @@ Server-side preview images are never cropped, to support a variety of apps and u
 
 ### Mutes
 
-#### Fetching a user's mutes:
+#### Fetching a user’s mutes:
 
     GET /api/v1/mutes
 
@@ -484,7 +484,7 @@ Returns an array of [Accounts](#account) muted by the authenticated user.
 
 ### Notifications
 
-#### Fetching a user's notifications:
+#### Fetching a user’s notifications:
 
     GET /api/v1/notifications
 
@@ -529,7 +529,7 @@ Returns an empty object.
 
 ### Reports
 
-#### Fetching a user's reports:
+#### Fetching a user’s reports:
 
     GET /api/v1/reports
 
@@ -560,7 +560,7 @@ Form data:
 | Field             | Description                                                         | Optional   |
 | ----------------- | ------------------------------------------------------------------- | ---------- |
 | `q`               | The search query                                                    | no         |
-| `resolve`         | Whether to resolve non-local accounts (default: don't resolve)      | yes        |
+| `resolve`         | Whether to resolve non-local accounts (default: don’t resolve)      | yes        |
 
 Returns [Results](#results).
 
@@ -666,7 +666,7 @@ Returns the target [Status](#status).
     POST /api/v1/statuses/:id/mute
     POST /api/v1/statuses/:id/unmute
 
-Only makes sense for statuses featured inside notifications directed at the user. Muting a status will prevent replies to it, favourites and replies of it from appearing in the user's notifications.
+Only makes sense for statuses featured inside notifications directed at the user. Muting a status will prevent replies to it, favourites and replies of it from appearing in the user’s notifications.
 
 Returns the target [Status](#status).
 
@@ -708,14 +708,14 @@ ___
 | `id`                     | The ID of the account                                                              | no       |
 | `username`               | The username of the account                                                        | no       |
 | `acct`                   | Equals `username` for local users, includes `@domain` for remote ones              | no       |
-| `display_name`           | The account's display name                                                         | no       |
+| `display_name`           | The account’s display name                                                         | no       |
 | `locked`                 | Boolean for when the account cannot be followed without waiting for approval first | no       |
 | `created_at`             | The time the account was created                                                   | no       |
 | `followers_count`        | The number of followers for the account                                            | no       |
 | `following_count`        | The number of accounts the given account is following                              | no       |
 | `statuses_count`         | The number of statuses the account has made                                        | no       |
 | `note`                   | Biography of user                                                                  | no       |
-| `url`                    | URL of the user's profile page (can be remote)                                     | no       |
+| `url`                    | URL of the user’s profile page (can be remote)                                     | no       |
 | `avatar`                 | URL to the avatar image                                                            | no       |
 | `avatar_static`          | URL to the avatar static image (gif)                                               | no       |
 | `header`                 | URL to the header image                                                            | no       |
@@ -793,7 +793,7 @@ The most important part of an error response is the HTTP status code. Standard s
 | Attribute                | Description                                                              | Nullable |
 | ------------------------ | ------------------------------------------------------------------------ | -------- |
 | `uri`                    | URI of the current instance                                              | no       |
-| `title`                  | The instance's title                                                     | no       |
+| `title`                  | The instance’s title                                                     | no       |
 | `description`            | A description for the instance                                           | no       |
 | `email`                  | An email address which can be used to contact the instance administrator | no       |
 | `version`                | The Mastodon version used by instance.                                   | no       |
@@ -812,7 +812,7 @@ The most important part of an error response is the HTTP status code. Standard s
 
 | Attribute                | Description                                                           | Nullable |
 | ------------------------ | --------------------------------------------------------------------- | -------- |
-| `url`                    | URL of user's profile (can be remote)                                 | no       |
+| `url`                    | URL of user’s profile (can be remote)                                 | no       |
 | `username`               | The username of the account                                           | no       |
 | `acct`                   | Equals `username` for local users, includes `@domain` for remote ones | no       |
 | `id`                     | Account ID                                                            | no       |
@@ -838,7 +838,7 @@ The most important part of an error response is the HTTP status code. Standard s
 | `muting`                 | Whether the user is currently muting the account             | no       |
 | `muting_notifications`   | Whether the user is also muting notifications                | no       |
 | `requested`              | Whether the user has requested to follow the account         | no       |
-| `domain_blocking`        | Whether the user is currently blocking the accounts's domain | no       |
+| `domain_blocking`        | Whether the user is currently blocking the accounts’s domain | no       |
 
 ### Report
 

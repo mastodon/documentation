@@ -5,7 +5,7 @@ Mastodon builds around the idea of being a server first, rather than a client it
 
 You can get a client ID and client secret required for OAuth [via an API end-point](API.md#apps).
 
-From these two, you will need to acquire an access token. It is possible to do using your account's e-mail and password like this:
+From these two, you will need to acquire an access token. It is possible to do using your account’s e-mail and password like this:
 
     curl -X POST -d "client_id=CLIENT_ID_HERE&client_secret=CLIENT_SECRET_HERE&grant_type=password&username=YOUR_EMAIL&password=YOUR_PASSWORD" -Ss https://mastodon.social/oauth/token
 
@@ -15,4 +15,4 @@ Use that token in any API requests by setting a header like this:
 
     curl --header "Authorization: Bearer ACCESS_TOKEN_HERE" -sS https://mastodon.social/api/v1/timelines/home
 
-Please note that the password-based approach is not recommended especially if you're dealing with other user's accounts and not just your own. Usually you would use the authorization grant approach where you redirect the user to a web page on the original site where they can login and authorize the application and are then redirected back to your application with an access code.
+Please note that the password-based approach is not recommended especially if you’re dealing with other user’s accounts and not just your own. Usually you would use the authorization grant approach where you redirect the user to a web page on the original site where they can login and authorize the application and are then redirected back to your application with an access code.

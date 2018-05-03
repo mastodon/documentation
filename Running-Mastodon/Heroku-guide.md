@@ -5,7 +5,7 @@ Heroku guide
 
 Mastodon on [Heroku](https://heroku.com) requires more than one Dyno. In theory
 and experience, running on free hobby Dynos is not practical for production use.
-Running on Heroku's hobby Dynos and free add-on tiers has limited testing
+Running on Heroku’s hobby Dynos and free add-on tiers has limited testing
 purposes and is not recommended in production. See [#1275](https://github.com/tootsuite/mastodon/issues/1275)
 for details.
 
@@ -24,14 +24,14 @@ the source. This tells Heroku to use the `app.json` file which does things like
 prompt for config variables, set up the right buildpacks, run a postdeploy task,
 and add the appropriate addons.
 
-If you don't use the deploy button and app.json approach, you will need to do
+If you don’t use the deploy button and app.json approach, you will need to do
 some of that manually.
 
 ## Domain names and SSL
 
-You can add your domain name to the Heroku app's setting, and then also use
-Heroku's (free) auto renewal program for Lets Encrypt certificates, by
-requesting a cert from the settings screen. You'll have to point your hostname
+You can add your domain name to the Heroku app’s setting, and then also use
+Heroku’s (free) auto renewal program for Lets Encrypt certificates, by
+requesting a cert from the settings screen. You’ll have to point your hostname
 DNS at Heroku using the values heroku gives you on this screen, using whatever
 method is appropriate for your DNS setup.
 

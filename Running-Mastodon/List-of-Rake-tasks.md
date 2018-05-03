@@ -7,7 +7,7 @@ If you want to confirm all Rake tasks from command line interface, you can run t
 bundle exec rails rake -T
 ```
 
-**General usage note:** Remember that each command will be invoked in a particular environment (configuration, database). The default environment when nothing is specified is "development". In production, you usually prepend all commands with `RAILS_ENV=production` to opt into the production environment. This is not necessary if you're using the Docker images, because that environment variable is set in the image for you. Similarly, prepending `bundle exec` is not necessary when using Docker. The following invocations are equivalent:
+**General usage note:** Remember that each command will be invoked in a particular environment (configuration, database). The default environment when nothing is specified is "development". In production, you usually prepend all commands with `RAILS_ENV=production` to opt into the production environment. This is not necessary if you’re using the Docker images, because that environment variable is set in the image for you. Similarly, prepending `bundle exec` is not necessary when using Docker. The following invocations are equivalent:
 
 Standalone: `RAILS_ENV=production bundle exec rake mastodon:users:admins`  
 Docker: `docker-compose run --rm web rake mastodon:users:admins`
@@ -51,7 +51,7 @@ Furthermore, in the command, `rake` is interchangeable with `rails`
 
 |Task|Description|Usage|
 |----|-----------|-----|
-|mastodon:maintenance:purge_removed_accounts| Check every known remote account and delete those locally that no longer exist on the account's home instance| -f, --force (optional - will not request confirmation of each deletion|
+|mastodon:maintenance:purge_removed_accounts| Check every known remote account and delete those locally that no longer exist on the account’s home instance| -f, --force (optional – will not request confirmation of each deletion|
 |mastodon:push:clear| Normally, a subscription to a once-followed user remains forever, in case the user gets re-followed later. You can purge such subscriptions with 0 followers if you wish|
 |mastodon:feeds:clear_all|Purge all home timelines from redis. Useful only for troubleshooting, when e.g. resetting database during development|
 |mastodon:feeds:build|Regenerates home timelines for all active users. Useful only for troubleshooting, e.g. if you lost your redis database|
@@ -59,7 +59,7 @@ Furthermore, in the command, `rake` is interchangeable with `rails`
  
 #### Data migrations
 
-These are one-off tasks for updating from one version of Mastodon to another. They are noted in the particular release's upgrade notes and are not relevant outside of that.
+These are one-off tasks for updating from one version of Mastodon to another. They are noted in the particular release’s upgrade notes and are not relevant outside of that.
 
 |Task|Description|Usage|
 |----|-----------|-----|

@@ -1,11 +1,11 @@
 Development guide
 =================
 
-**Don't use Docker to do development**. It's a quick way to get Mastodon running in production, it's **really really inconvenient for development**. Normally in Rails development environment you get hot reloading of backend code and on-the-fly compilation of assets like JS and CSS, but you lose those benefits by compiling a Docker image. If you want to contribute to Mastodon, it is worth it to simply set up a proper development environment.
+**Don’t use Docker to do development**. It’s a quick way to get Mastodon running in production, it’s **really really inconvenient for development**. Normally in Rails development environment you get hot reloading of backend code and on-the-fly compilation of assets like JS and CSS, but you lose those benefits by compiling a Docker image. If you want to contribute to Mastodon, it is worth it to simply set up a proper development environment.
 
 ## Linux
 
-In fact, all you need is described in the [production guide](Production-guide.md), **with the following exceptions**. You **don't** need:
+In fact, all you need is described in the [production guide](Production-guide.md), **with the following exceptions**. You **don’t** need:
 
 - Nginx
 - Systemd
@@ -43,7 +43,7 @@ Another, optional approach to managing the different processes starting (Rails, 
 
 Finally, open `http://localhost:3000` in your browser.
 
-By default, your development environment will have an admin account created for you to use - the email address will be `admin@YOURDOMAIN` (e.g. admin@localhost:3000) and the password will be `mastodonadmin`.
+By default, your development environment will have an admin account created for you to use – the email address will be `admin@YOURDOMAIN` (e.g. admin@localhost:3000) and the password will be `mastodonadmin`.
 
 You can run tests with:
 
@@ -70,13 +70,13 @@ Follow the Linux setup as described above, but with these considerations:
   compiler when compiling native C gems.
 - Many native C gems need to be told about `/usr/local`. You can do this by
   configuring a `build.gem_name` value using `bundle config`.
-- Any C gem that uses mkmf.rb's `pkg_config` method might fail if the linker
+- Any C gem that uses mkmf.rb’s `pkg_config` method might fail if the linker
   produces warnings, as happens when a library links with `sprintf(3)`. The
   `cld3` gem uses `pkg_config('protobuf')`; if you have protobuf installed but
   it cannot be found while building the gem, this is likely the problem. You
   will need to directly modify `mkmf.rb` to get this to install.
 
-The bundle configuration as of Mastodon 2.0's Gemfile:
+The bundle configuration as of Mastodon 2.0’s Gemfile:
 
 ```sh
 bundle config build.nokogiri --use-system-libraries --with-xml2-include=/usr/local/include/libxml2/ --with-opt-include=/usr/local/include --with-xslt-include=/usr/local/include/libxslt --with-exslt-include=/usr/local/include/libexslt --with-xml2-lib=/usr/local/lib
@@ -174,10 +174,10 @@ Admin account is `admin@localhost:3000`. Password is `mastodonadmin`.
 
 You can use a localhost->world tunneling service like [ngrok](https://ngrok.com) if you want to test federation, **however** that should not be your primary mode of operation. If you want to have a permanently federating server, set up a proper instance on a VPS with a domain name, and simply keep it up to date with your own fork of the project while doing development on localhost.
 
-Ngrok and similar services give you a random domain on each start up. This is good enough to test how the code you're working on handles real-world situations. But as soon as your domain changes, for everybody else concerned you're a different instance than before.
+Ngrok and similar services give you a random domain on each start up. This is good enough to test how the code you’re working on handles real-world situations. But as soon as your domain changes, for everybody else concerned you’re a different instance than before.
 
-Generally, federation bits are tricky to work on for exactly this reason - it's hard to test. And when you are testing with a disposable instance you are polluting the databases of the real servers you're testing against, usually not a big deal but can be annoying. The way I have handled this so far was thus: I have used ngrok for one session, and recorded the exchanges from its web interface to create fixtures and test suites. From then on I've been working with those rather than live servers.
+Generally, federation bits are tricky to work on for exactly this reason – it’s hard to test. And when you are testing with a disposable instance you are polluting the databases of the real servers you’re testing against, usually not a big deal but can be annoying. The way I have handled this so far was thus: I have used ngrok for one session, and recorded the exchanges from its web interface to create fixtures and test suites. From then on I’ve been working with those rather than live servers.
 
-I advise to study the existing code and the RFCs before trying to implement any federation-related changes. It's not *that* difficult, but I think "here be dragons" applies because it's easy to break.
+I advise to study the existing code and the RFCs before trying to implement any federation-related changes. It’s not *that* difficult, but I think “here be dragons” applies because it’s easy to break.
 
-If your development environment is running remotely (e.g. on a VPS or virtual machine), setting the `REMOTE_DEV` environment variable will swap your instance from using "letter opener" (which launches a local browser) to "letter opener web" (which collects emails and displays them at /letter_opener ).
+If your development environment is running remotely (e.g. on a VPS or virtual machine), setting the `REMOTE_DEV` environment variable will swap your instance from using “letter opener” (which launches a local browser) to “letter opener web” (which collects emails and displays them at /letter_opener ).

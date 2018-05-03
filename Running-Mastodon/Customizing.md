@@ -8,7 +8,7 @@ You can make the application load a different CSS file than the default, you can
 1. Create `app/javascript/styles/custom.scss`. Here you can write whatever SCSS you want.
 2. Add `@import 'application';` to the end of the SCSS file.
 2. _(As of Mastodon 2.0.0)_ Update `config/themes.yml` to contain `default: styles/custom.scss`.
-3. Restart your webpack-dev-server (if you're in development mode) for it to be recognized and start live reloading. Naturally, in production you'll need to compile assets and restart for the changes to take effect.
+3. Restart your webpack-dev-server (if you’re in development mode) for it to be recognized and start live reloading. Naturally, in production you’ll need to compile assets and restart for the changes to take effect.
 
 ## Changing colors and other variables
 

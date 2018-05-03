@@ -16,7 +16,7 @@ data will be provided.
 
 ## PostgreSQL database
 
-Mastodon uses a PostgreSQL database as it's relational database. This database
+Mastodon uses a PostgreSQL database as it’s relational database. This database
 needs to be backed up regularly.
 
 We will be providing two methods that can be used to backup your Mastodon
@@ -24,10 +24,10 @@ PostgreSQL database.
 
 ### wal-e
 
-[wal-e](https://github.com/wal-e/wal-e) is a program that is, "designed to
-perform continuous archiving of PostgreSQL WAL files and base backups."
+[wal-e](https://github.com/wal-e/wal-e) is a program that is, “designed to
+perform continuous archiving of PostgreSQL WAL files and base backups.”
 
-wal-e allows you to store the backups on services such as [AWS S3](https://aws.amazon.com/s3/) or it's work-alikes.
+wal-e allows you to store the backups on services such as [AWS S3](https://aws.amazon.com/s3/) or it’s work-alikes.
 
 The documentation provided by wal-e is excellent, so it is recommended to read
 [it](https://github.com/wal-e/wal-e/blob/master/README.rst) for help with
@@ -54,7 +54,7 @@ Please read the documentation page linked above for all relevant usage details.
 
 Here is an example:
 ```sh
-# Dump Mastodon's PostgreSQL database into a SQL-script file
+# Dump Mastodon’s PostgreSQL database into a SQL-script file
 pg_dump mastodon_production > mastodon_production.sql
 ```
 

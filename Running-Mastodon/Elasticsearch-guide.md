@@ -92,19 +92,19 @@ You now need to restart Mastodon.
 
 ### Advanced Elasticsearch Configuration (Optional)
 
-***If you can't start Elasticsearch, It's probable that the allocated memory is insufficient.***
+***If you can’t start Elasticsearch, It’s probable that the allocated memory is insufficient.***
 
 |RAM 1GB|RAM 4GB|
 |:--:|:--:|
 |![Elasticsearch-Guide-1GB](../images/Elasticsearch-Guide-1GB-status.png)|![Elasticsearch-Guide-4GB](../images/Elasticsearch-Guide-4GB-status.png)|
 
-This guide may be useful if you can't start Elasticsearch, or if Elasticsearch uses too much memory.
+This guide may be useful if you can’t start Elasticsearch, or if Elasticsearch uses too much memory.
 
 First, Elasticsearch needs a lot of memory.
 
 You should check [this page](https://www.elastic.co/guide/en/elasticsearch/guide/current/hardware.html).   
 But, as far as I can recollect, Mastodon does not require much memory for Elasticsearch.  
-When building Elasticsearch server on low memory VPS, It's necessary to change the configuration.
+When building Elasticsearch server on low memory VPS, It’s necessary to change the configuration.
 
 Change these lines in `/etc/elasticsearch/jvm.options`:
 
@@ -129,9 +129,9 @@ Change these lines in `/etc/elasticsearch/jvm.options`:
 |:--:|:--:|
 |![Elasticsearch-Guide-1GB](../images/Elasticsearch-Guide-1GB-htop.png)|![Elasticsearch-Guide-4GB](../images/Elasticsearch-Guide-4GB-htop.png)|
 
-***Please don't forget! This isn't necessarily the best configuration.***
+***Please don’t forget! This isn’t necessarily the best configuration.***
 
-#### Warning: The memory in this list is for Elasticsearch. It's not the total memory of the VPS.
+#### Warning: The memory in this list is for Elasticsearch. It’s not the total memory of the VPS.
 
 After changing any of these settings, start Elasticsearch:
 
@@ -162,5 +162,5 @@ Resources
 -----
 
 - [Install Elasticsearch with Debian Package](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html)
-- [Elasticsearch - Hardware](https://www.elastic.co/guide/en/elasticsearch/guide/current/hardware.html)
+- [Elasticsearch – Hardware](https://www.elastic.co/guide/en/elasticsearch/guide/current/hardware.html)
 - [How to download and install prebuilt OpenJDK packages](http://openjdk.java.net/install/index.html)

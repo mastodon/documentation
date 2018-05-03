@@ -7,7 +7,7 @@ Make sure that you allow your users to specify the domain they want to connect t
 
 In my opinion it is easier for people to understand what is being asked of them if you ask for a `username@domain` type input, since it looks like an e-mail address. Though the username part is not required for anything in the OAuth2 process. Once the user is logged in, you get information about the logged in user from `/api/v1/accounts/verify_credentials`
 
-**Do not** ask the user for the password, i.e. use the "password grant" flow. The user should not have to trust you. Furthermore, the password grant *purposefully* does not support two-factor authentication, i.e. it's impossible to use if you have 2FA enabled. **Use the authorization flow** instead, i.e. redirect the user to an authorization page in the browser.
+**Do not** ask the user for the password, i.e. use the “password grant” flow. The user should not have to trust you. Furthermore, the password grant *purposefully* does not support two-factor authentication, i.e. it’s impossible to use if you have 2FA enabled. **Use the authorization flow** instead, i.e. redirect the user to an authorization page in the browser.
 
 ## Usernames
 
@@ -15,7 +15,7 @@ Make sure that you make it possible to see the `acct` of any user in your app (s
 
 ## Formatting
 
-The API delivers already formatted HTML to your app. This isn't ideal since not all apps are based on HTML, but this is not fixable as it's part of the way federation between potentially different server software works.
+The API delivers already formatted HTML to your app. This isn’t ideal since not all apps are based on HTML, but this is not fixable as it’s part of the way federation between potentially different server software works.
 
 #### What HTML may come up
 
@@ -26,7 +26,7 @@ Only these elements can occur in the API:
 - `<p>`
 - `<br>`
 
-Please mind that it's HTML, not XML. If you're parsing it you may need to use it as a "fragment" rather than "document".
+Please mind that it’s HTML, not XML. If you’re parsing it you may need to use it as a “fragment” rather than “document”.
 
 #### Mentions and hashtags
 

@@ -39,7 +39,7 @@ data: payload
 
 ### Event types
 
-|Event|Description|What's in the payload|
+|Event|Description|What’s in the payload|
 |-----|-----------|---------------------|
 |`update`|A new status has appeared!|Status|
 |`notification`|A new notification|Notification|

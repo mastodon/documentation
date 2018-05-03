@@ -13,7 +13,7 @@ Some functionality in Mastodon required some additions to the protocols to enabl
 
 ### Federation of blocks/unblocks
 
-ActivityStreams was lacking verbs for block/unblock. Mastodon creates Salmon slaps for block and unblock events, which are not part of a user's public feed, but are nevertheless delivered to the target user. The intent of these Salmon slaps is not to notify the target user, but to notify the target user's server, so that it can perform any number of UX-related tasks such as removing the target user as a follower of the blocker, and/or displaying a message to the target user such as "You can't follow this person because you've been blocked"
+ActivityStreams was lacking verbs for block/unblock. Mastodon creates Salmon slaps for block and unblock events, which are not part of a user’s public feed, but are nevertheless delivered to the target user. The intent of these Salmon slaps is not to notify the target user, but to notify the target user’s server, so that it can perform any number of UX-related tasks such as removing the target user as a follower of the blocker, and/or displaying a message to the target user such as “You can’t follow this person because you’ve been blocked”
 
 The Salmon slaps have the exact same structure as standard follow/unfollow slaps, the verbs are namespaced:
 
@@ -31,11 +31,11 @@ Content warnings are encoded in plain-text as the `<summary>` element.
 ### Federation of privacy features
 #### Locked accounts and status privacy levels
 
-Accounts and statuses have an access "scope":
+Accounts and statuses have an access “scope”:
 
-Accounts can be "private" or "public". The former requires a follow request to be approved before a follow relationship can be established, the latter can be followed directly.
+Accounts can be “private” or “public”. The former requires a follow request to be approved before a follow relationship can be established, the latter can be followed directly.
 
-Statuses can be "private", "unlisted" or "public". Private must only be shown to the followers of the account or people mentioned in the status; public can be displayed publicly. Unlisted statuses may be displayed publicly but preferably outside of any spotlights e.g. "whole known network" or "public" timelines.
+Statuses can be “private”, “unlisted” or “public”. Private must only be shown to the followers of the account or people mentioned in the status; public can be displayed publicly. Unlisted statuses may be displayed publicly but preferably outside of any spotlights e.g. “whole known network” or “public” timelines.
 
 Namespace of the scope element is `http://mastodon.social/schema/1.0`. Example:
 
@@ -63,12 +63,12 @@ The activity object of the request-friend slap is the account in question. The a
 
 ### HTTP Signatures
 
-A PuSH subscription request may be signed on behalf of a random local user of the instance. The `keyId` part of the signature is expected to be the `acct:` URI of the user. It doesn't matter which user is used for the signing, because the main information to be carried here is which instance is doing the subscribing. That information is saved and used when sending out private statuses to subscribed instances. Only instances with authorized followers receive a user's private statuses.
+A PuSH subscription request may be signed on behalf of a random local user of the instance. The `keyId` part of the signature is expected to be the `acct:` URI of the user. It doesn’t matter which user is used for the signing, because the main information to be carried here is which instance is doing the subscribing. That information is saved and used when sending out private statuses to subscribed instances. Only instances with authorized followers receive a user’s private statuses.
 
 For example, bar.com subscribes to updates from alice@foo.com:
 
 - If there is only the subscription and nothing else, bar.com receives public/unlisted statuses of alice@foo.com
-- If alice@foo.com's account is not locked and bob@bar.com sends a follow Salmon, bar.com will start receiving alice@foo.com's private statuses
-- If alice@foo.com's account is locked and bob@bar.com sends a follow request, bar.com will only begin receiving alice@foo.com's private statuses if and after alice accepts bob as a follower
+- If alice@foo.com’s account is not locked and bob@bar.com sends a follow Salmon, bar.com will start receiving alice@foo.com’s private statuses
+- If alice@foo.com’s account is locked and bob@bar.com sends a follow request, bar.com will only begin receiving alice@foo.com’s private statuses if and after alice accepts bob as a follower
 
 > **Note:** Mastodon 2.0 and higher **does not** send any private or direct statuses through OStatus

@@ -16,11 +16,11 @@ and warn you about possible federation issues. It also assumes you have already 
 
 It is important to understand that for federation purposes, a user in Mastodon has two unique identifiers associated:
 - A webfinger `acct:` URI, used for discovery and as a verifiable global name for the user across Mastodon instances.
-  In our example, our account's `acct:` URI is `acct:user@example.org`
+  In our example, our account’s `acct:` URI is `acct:user@example.org`
 - An author/actor URI, used in every other aspect of federation. This is the way in which users are identified in
   OStatus, the underlying protocol used for federation with other Mastodon instances.
   In our case, it is `https://social.example.org/users/user`.
-  It is not strictly required to be an URL, but they are in Mastodon's case to ease discovery of unknown remote accounts.
+  It is not strictly required to be an URL, but they are in Mastodon’s case to ease discovery of unknown remote accounts.
 
 Both account identifiers are unique and required for Mastodon.
 *An important risk if you set up your Mastodon instance incorrectly is to create two users (with different `acct:` URIs) with conflicting author/actor URIs*.
@@ -72,15 +72,15 @@ location = /.well-known/host-meta {
 }
 ```
 
-in example.org's server block.
+in example.org’s server block.
 
 ## Known issues
 
 There are a few known issues with Mastodon:
 
-- Current mastodon instances won't correctly process inbound salmon requests from instances where `WEB_DOMAIN`!= `LOCAL_DOMAIN`,
+- Current mastodon instances won’t correctly process inbound salmon requests from instances where `WEB_DOMAIN`!= `LOCAL_DOMAIN`,
   and will try resolving `acct:user@WEB_DOMAIN` instead of `acct:user@LOCAL_DOMAIN`.
   Fortunately, since v1.3.0, Mastodon will reply to `acct:user@WEB_DOMAIN` queries with the account informations for `acct:user@LOCAL_DOMAIN`, effectively working around this issue at the cost of an extra webfinger discovery per interaction.
 - Mastodon does not actually use `WEB_DOMAIN` everywhere it should and will instead use whatever host it was accessed with.
   For this reason, your Mastodon instance should only be reachable on `WEB_DOMAIN` and not `LOCAL_DOMAIN` (HTTP redirects are fine, but avoid proxying from `LOCAL_DOMAIN` to `WEB_DOMAIN`)
-- Remote Mastodon instances on v1.3.0, v1.3.1 or v1.3.2 from which you are following people won't PuSH new messages to your instance. This is a known bug, see [#2672](https://github.com/tootsuite/mastodon/issues/2672)
+- Remote Mastodon instances on v1.3.0, v1.3.1 or v1.3.2 from which you are following people won’t PuSH new messages to your instance. This is a known bug, see [#2672](https://github.com/tootsuite/mastodon/issues/2672)

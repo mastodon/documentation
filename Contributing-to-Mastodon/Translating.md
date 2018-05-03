@@ -19,7 +19,7 @@ If you want to localize Mastodon into your language, here is how.
 
 ## Overview
 
-There are two parts to Mastodon, the server and the web client. The translations for the web client are in [`app/javascript/mastodon/locales`](https://github.com/tootsuite/mastodon/tree/master/app/javascript/mastodon/locales). For the server-side, the translations live in [`config/locales`](https://github.com/tootsuite/mastodon/tree/master/config/locales) and are divided into different files. In addition, email templates for the server are found in [`app/views/user_mailer`](https://github.com/tootsuite/mastodon/tree/master/app/views/user_mailer). Here are all the files you'll need to translate:
+There are two parts to Mastodon, the server and the web client. The translations for the web client are in [`app/javascript/mastodon/locales`](https://github.com/tootsuite/mastodon/tree/master/app/javascript/mastodon/locales). For the server-side, the translations live in [`config/locales`](https://github.com/tootsuite/mastodon/tree/master/config/locales) and are divided into different files. In addition, email templates for the server are found in [`app/views/user_mailer`](https://github.com/tootsuite/mastodon/tree/master/app/views/user_mailer). Here are all the files you’ll need to translate:
 
 | Original file (English) | Location | Description |
 |---|---|---|
@@ -44,7 +44,7 @@ For detailed instructions, you may read our
 
 ### Translating
 
-1. Duplicate the files in their folder and replace `en` in the filenames with your language's standard two-letter
+1. Duplicate the files in their folder and replace `en` in the filenames with your language’s standard two-letter
    [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code. Or [RFC5646](https://tools.ietf.org/html/rfc5646)
    language tags for regional languages.
 
@@ -55,7 +55,7 @@ For detailed instructions, you may read our
 
 3. Translate the right-side values from English to your language. Keep the indentation and punctuation.
 
-Since Devise and Doorkeeper are popular libraries, there may already be translation files for your language available on the Internet. [Devise's Wiki](https://github.com/plataformatec/devise/wiki/I18n) and [doorkeeper-i18n](https://github.com/doorkeeper-gem/doorkeeper-i18n) are official sources for these translations, respectively.
+Since Devise and Doorkeeper are popular libraries, there may already be translation files for your language available on the Internet. [Devise’s Wiki](https://github.com/plataformatec/devise/wiki/I18n) and [doorkeeper-i18n](https://github.com/doorkeeper-gem/doorkeeper-i18n) are official sources for these translations, respectively.
 
 ### Declaring the language
 
@@ -65,7 +65,7 @@ The locales are mentioned in several other files. To activate your translation, 
 |---|---|---|
 | [`index.js`](https://github.com/tootsuite/mastodon/blob/master/app/javascript/mastodon/locales/index.js) | `app/javascript/mastodon/locales/index.js` | 2 lines to add |
 |[`mastodon.js`](https://github.com/tootsuite/mastodon/blob/master/app/javascript/mastodon/containers/mastodon.js) | `app/javascript/mastodon/containers/mastodon.js` | 1 line to add + 1 list to complete |
-| [`settings_helper.rb`](https://github.com/tootsuite/mastodon/blob/master/app/helpers/settings_helper.rb) | `app/helpers/settings_helper.rb` | 1 line to add + your language's name |
+| [`settings_helper.rb`](https://github.com/tootsuite/mastodon/blob/master/app/helpers/settings_helper.rb) | `app/helpers/settings_helper.rb` | 1 line to add + your language’s name |
 | [`application.rb`](https://github.com/tootsuite/mastodon/blob/master/config/application.rb) | `config/application.rb` | 1 list to complete |
 
 ### Sending the translation
@@ -81,7 +81,7 @@ Once the pull request is accepted, wait for the code to be deployed on a Mastodo
 
 ## Updating the translation
 
-Keep an eye on the original English files in `app/javascript/mastodon/locales` and `config/locales`. When they are updated, pass on the changes to your language files. For new strings, add the new lines to the same position and translate them. Once you're finished with the updates, you can submit a new pull request.
+Keep an eye on the original English files in `app/javascript/mastodon/locales` and `config/locales`. When they are updated, pass on the changes to your language files. For new strings, add the new lines to the same position and translate them. Once you’re finished with the updates, you can submit a new pull request.
 
 ## Appendix
 
@@ -105,14 +105,14 @@ eat_apple:
 
 In both examples you can see a `one` case and an `other` case described for the pluralized strings. The exact strings is chosen by how many a certain quantity is -- when there is exactly one of something, the sentence goes to the `one` case; otherwise it goes to the `other` case. This how plualization works for English (`en`) and a few other languages.
 
-There are, however, many languages that don't operate in the one-other way. Polish has four plural forms, named `one`, `few`, `many`, and `other` respectively. Arabic has six. Chinese, Japanese, and Korean only have one form called `other`. If your language does not use one/other plural forms, be sure to check out the cardinal part of this [Unicode CLDR Plural Rules](http://www.unicode.org/cldr/charts/28/supplemental/language_plural_rules.html) chart. Also as a rule of thumb, always start translaing with the `other` case in the English files as they are better generalized than the `one` case.
+There are, however, many languages that don’t operate in the one-other way. Polish has four plural forms, named `one`, `few`, `many`, and `other` respectively. Arabic has six. Chinese, Japanese, and Korean only have one form called `other`. If your language does not use one/other plural forms, be sure to check out the cardinal part of this [Unicode CLDR Plural Rules](http://www.unicode.org/cldr/charts/28/supplemental/language_plural_rules.html) chart. Also as a rule of thumb, always start translaing with the `other` case in the English files as they are better generalized than the `one` case.
 
 ### Appendix B. Command Tools
 
 We have command line tools to help translators in their tasks. They are not
 essential. But they are really helpful.
 
-To use the tools, you'd need to properly setup your work station.
+To use the tools, you’d need to properly setup your work station.
 
 #### Setup
 
@@ -120,7 +120,7 @@ You need to have [Ruby](https://www.ruby-lang.org/en/) and [NodeJS](https://node
 setup in your machine. If you want to keep your global paths clean, you may use
 [rvm](https://rvm.io/) and [nvm](https://github.com/creationix/nvm).
 
-You'd also need to install [yarn](https://yarnpkg.com/) with your nodejs setup.
+You’d also need to install [yarn](https://yarnpkg.com/) with your nodejs setup.
 
 To install Ruby with rvm:
 ```
@@ -138,7 +138,7 @@ npm install -g yarn
 
 #### Update node packages and ruby gems
 
-You'll need to run these command in the root of your source code folder:
+You’ll need to run these command in the root of your source code folder:
 ```
 bundle install
 yarn install
@@ -177,23 +177,23 @@ Please note that `health` would simply check the existence of the language key.
 It does not check if they are different from the default (English). Also the
 command `add-missing` only copy the English translation for your language.
 
-In short, running `add-missing` can help you pass the `health` test, but you'd
-still need to check your yml and translate the "added" strings.
+In short, running `add-missing` can help you pass the `health` test, but you’d
+still need to check your yml and translate the “added” strings.
 
 #### Web Client Translation
 
 For web client, [NPM scripts](https://docs.npmjs.com/misc/scripts) are written
 to help.
 
-There are 2 specific scripts that you'll have to use:
+There are 2 specific scripts that you’ll have to use:
 
 **`yarn build:development`**
 
 Build the webpack assets for development use. Also generate the frontend
-translation reference files. You'll need to run this every time you clone /
+translation reference files. You’ll need to run this every time you clone /
 fetch the source code.
 
-You'll need to run this before using `yarn manage:translations`.
+You’ll need to run this before using `yarn manage:translations`.
 
 **`yarn manage:translations`**
 
@@ -223,7 +223,7 @@ For example, to synchronize translations for French (**fr**):
 yarn manage:translations fr
 ```
 
-You may also use this to create json language files. You'd need to apply the
+You may also use this to create json language files. You’d need to apply the
 `--force` option. For example, if Arabic (**ar**) javascript translation
 were not
 created yet:
@@ -244,7 +244,7 @@ bundle exec i18n-tasks health zh-HK
 yarn manage:translations zh-HK
 ```
 
-If you're doing good, you'd have a result like this:
+If you’re doing good, you’d have a result like this:
 
 ```
 $ bundle exec i18n-tasks health zh-HK

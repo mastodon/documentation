@@ -79,15 +79,15 @@ Now you need to install [Yarn](https://yarnpkg.com/en/) plus some more software.
 
 #### Explanation of the dependencies
 
-- imagemagick - Mastodon uses imagemagick for image related operations
-- ffmpeg - Mastodon uses ffmpeg for conversion of GIFs to MP4s
-- libprotobuf-dev and protobuf-compiler - Mastodon uses these for language detection
-- nginx - nginx is our frontend web server
-- redis-* - Mastodon uses redis for its in-memory data structure store
-- postgresql-* - Mastodon uses PostgreSQL as its SQL database
-- nodejs - Node is used for Mastodon's streaming API
-- yarn - Yarn is a Node.js package manager
-- Other -dev packages, g++ - these are needed for the compilation of Ruby using ruby-build.
+- imagemagick – Mastodon uses imagemagick for image related operations
+- ffmpeg – Mastodon uses ffmpeg for conversion of GIFs to MP4s
+- libprotobuf-dev and protobuf-compiler – Mastodon uses these for language detection
+- nginx – nginx is our frontend web server
+- redis-* – Mastodon uses redis for its in-memory data structure store
+- postgresql-* – Mastodon uses PostgreSQL as its SQL database
+- nodejs – Node is used for Mastodon’s streaming API
+- yarn – Yarn is a Node.js package manager
+- Other -dev packages, g++ – these are needed for the compilation of Ruby using ruby-build.
 
 ```sh
 apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev nginx redis-server redis-tools postgresql postgresql-contrib letsencrypt yarn libidn11-dev libicu-dev
@@ -142,7 +142,7 @@ Now that [Ruby](https://www.ruby-lang.org/en/) is enabled, we will clone the [Ma
 Run the following to clone and install:
 
 ```sh
-# Return to mastodon user's home directory
+# Return to mastodon user’s home directory
 cd ~
 # Clone the mastodon git repository into ~/live
 git clone https://github.com/tootsuite/mastodon.git live
@@ -181,7 +181,7 @@ CREATE USER mastodon CREATEDB;
 
 You need to configure [nginx](http://nginx.org) to serve your [Mastodon](https://github.com/tootsuite/mastodon/) instance.
 
-**Reminder: Replace all occurrences of example.com with your own instance's domain or sub-domain.**
+**Reminder: Replace all occurrences of example.com with your own instance’s domain or sub-domain.**
 
 `cd` to `/etc/nginx/sites-available` and open a new file:
 
@@ -200,7 +200,7 @@ server {
   listen [::]:80;
   server_name example.com;
   root /home/mastodon/live/public;
-  # Useful for Let's Encrypt
+  # Useful for Let’s Encrypt
   location /.well-known/acme-challenge/ { allow all; }
   location / { return 301 https://$host$request_uri; }
 }
@@ -295,22 +295,22 @@ cd /etc/nginx/sites-enabled
 ln -s ../sites-available/example.com.conf
 ```
 
-This configuration makes the assumption you are using [Let's Encrypt](https://letsencrypt.org) as your TLS certificate provider.
+This configuration makes the assumption you are using [Let’s Encrypt](https://letsencrypt.org) as your TLS certificate provider.
 
-**If you are going to be using Let's Encrypt as your TLS certificate provider, see the
+**If you are going to be using Let’s Encrypt as your TLS certificate provider, see the
 next sub-section. If not edit the `ssl_certificate` and `ssl_certificate_key` values
 accordingly.**
 
-## Let's Encrypt
+## Let’s Encrypt
 
-This section is only relevant if you are using [Let's Encrypt](https://letsencrypt.org/)
+This section is only relevant if you are using [Let’s Encrypt](https://letsencrypt.org/)
 as your TLS certificate provider.
 
 ### Generation Of The Certificate
 
-We need to generate Let's Encrypt certificates.
+We need to generate Let’s Encrypt certificates.
 
-**Make sure to replace any occurrence of 'example.com' with your Mastodon instance's domain.**
+**Make sure to replace any occurrence of 'example.com' with your Mastodon instance’s domain.**
 
 Make sure that [nginx](http://nginx.org) is stopped at this point:
 
@@ -319,7 +319,7 @@ systemctl stop nginx
 ```
 
 We will be creating the certificate twice, once with TLS SNI validation in standalone mode and the second time we will be using the webroot method. This is required due to the way
-[nginx](http://nginx.org) and the [Let's Encrypt](https://letsencrypt.org/) tool works.
+[nginx](http://nginx.org) and the [Let’s Encrypt](https://letsencrypt.org/) tool works.
 
 ```sh
 letsencrypt certonly --standalone -d example.com
@@ -333,9 +333,9 @@ systemctl start nginx
 letsencrypt certonly --webroot -d example.com -w /home/mastodon/live/public/
 ```
 
-### Automated Renewal Of Let's Encrypt Certificate
+### Automated Renewal Of Let’s Encrypt Certificate
 
-[Let's Encrypt](https://letsencrypt.org/) certificates have a validity period of 90 days.
+[Let’s Encrypt](https://letsencrypt.org/) certificates have a validity period of 90 days.
 
 You need to renew your certificate before the expiration date. Not doing so will make users of your instance unable to access the instance and users of other instances unable to federate with yours.
 
@@ -362,7 +362,7 @@ chmod +x /etc/cron.daily/letsencrypt-renew
 systemctl restart cron
 ```
 
-That is it. Your server will renew your [Let's Encrypt](https://letsencrypt.org/) certificate.
+That is it. Your server will renew your [Let’s Encrypt](https://letsencrypt.org/) certificate.
 
 ## Mastodon Application Configuration
 
@@ -479,7 +479,7 @@ systemctl status mastodon-*.service
 Mastodon downloads media attachments from other instances and caches it locally for viewing. This cache can grow quite large if
 not cleaned up periodically and can cause issues such as low disk space or a bloated S3 bucket.
 
-The recommended method to clean up the remote media cache is a cron job that runs daily like so (put this in the mastodon system user's crontab with `crontab -e`.)
+The recommended method to clean up the remote media cache is a cron job that runs daily like so (put this in the mastodon system user’s crontab with `crontab -e`.)
 
 ```sh
 RAILS_ENV=production
@@ -500,9 +500,9 @@ If you plan on receiving email notifications or running more than just a single-
 
 There are several free email providers out there- a couple of decent ones are Mailgun.com, which requires a credit card but gives 10,000 free emails, and Sparkpost.com, which gives 15,000 with no credit card but requires you not be on a .space tld.
 
-It may be easier to use a subdomain to setup your email with a custom provider - in this case, when registering your domain with the email service, sign up as something like "mail.domain.com"
+It may be easier to use a subdomain to setup your email with a custom provider – in this case, when registering your domain with the email service, sign up as something like "mail.domain.com"
 
-Once you create your account, follow the instructions each provider gives you for updating your DNS records.  Once you have all the information ready to go and the service validates your DNS configuration, edit your config file.  These records should already exist in the configuration, but here's a sample setup that uses Mailgun that you can replace with your own personal info:
+Once you create your account, follow the instructions each provider gives you for updating your DNS records.  Once you have all the information ready to go and the service validates your DNS configuration, edit your config file.  These records should already exist in the configuration, but here’s a sample setup that uses Mailgun that you can replace with your own personal info:
 
 ```
 SMTP_SERVER=smtp.mailgun.org
