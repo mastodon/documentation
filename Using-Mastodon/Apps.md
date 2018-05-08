@@ -133,13 +133,14 @@ List of apps
 |**[bitlbee-mastodon](https://github.com/kensanata/bitlbee-mastodon#mastodon-plugin-for-bitlbee)**|IRC|<https://github.com/kensanata/bitlbee-mastodon>|[Alex Schroeder](https://alexschroeder.ch/wiki/Contact)|
 |**[MastodonToTwitter](https://github.com/halcy/MastodonToTwitter/blob/master/README.md)**|CLI|<https://github.com/halcy/MastodonToTwitter>|[@halcy@mastodon.social](https://mastodon.social/@halcy)|
 |**[Mastodon Twitter Poster](https://crossposter.masto.donte.com.br)**|Service|<https://github.com/renatolond/mastodon-twitter-poster>|[@renatolond@masto.donte.com.br](https://masto.donte.com.br/@renatolond)|
+|**[Moa](https://moa.social)**|Service|<https://github.com/foozmeat/moa>|[@foozmeat@pdx.social](https://pdx.social/@foozmeat)|
+|[ogp-share](http://mastodon.tools/ogp-share/) *(beta)*|Web browser|<https://github.com/DavidLibeau/mastodon-tools/tree/master/ogp-share>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 |**[Retoot](https://gitlab.com/mojo42/retoot/blob/master/README.md)**|CLI|<https://gitlab.com/mojo42/retoot>|[@Mojo@apoil.org](https://apoil.org/users/mojo)|
 |**[RSSTootalizer](https://github.com/blind-coder/rsstootalizer/blob/master/README.md)**|Web browser|<https://github.com/blind-coder/rsstootalizer>|[@blindcoder@toot.berlin](https://toot.berlin/users/blindcoder)|
+|**[SPIP](https://contrib.spip.net/Mastodon)**|SPIP plugin|<https://github.com/Cerdic/mastodon>|[@cerdic@mamot.fr](https://mamot.fr/@cerdic)|
 |**[t2m – Twitter 2 Mastodon](https://github.com/Psycojoker/t2m/blob/master/README.md)**|CLI|<https://github.com/Psycojoker/t2m>|Psycojoker|
 |**[umrc](https://github.com/Ulrar/umrc/blob/master/README.md)**|IRC|<https://github.com/Ulrar/umrc>|[@lemonnierk@ulrar.net](https://mastodon.ulrar.net/users/lemonnierk)|
 |**[WordPress](http://mastodon.tools/wordpress/)**|WordPress plugin|<https://github.com/DavidLibeau/mastodon-tools/tree/master/wordpress>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
-|**[SPIP](https://contrib.spip.net/Mastodon)**|SPIP plugin|<https://github.com/Cerdic/mastodon>|[@cerdic@mamot.fr](https://mamot.fr/@cerdic)|
-|[ogp-share](http://mastodon.tools/ogp-share/) *(beta)*|Web browser|<https://github.com/DavidLibeau/mastodon-tools/tree/master/ogp-share>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 
 ## Command line tools
 
