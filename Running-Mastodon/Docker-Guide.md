@@ -28,18 +28,21 @@ If you're not making any local code changes or customizations on your instance, 
 To use the prebuilt images:
 
 1. Open `docker-compose.yml` in your favorite text editor.
-2. Comment out the `build: .` lines for all images (web, streaming, sidekiq).
-3. Edit the `image: tootsuite/mastodon` lines for all images to include the release you want. The default is `latest` which is the most recent stable version, however it recommended to explicitly pin a version: If you wanted to use v2.2.0 for example, you would edit the lines to say: `image: tootsuite/mastodon:v2.2.0`
-4. Save the file and exit the text editor.
-4. Run `docker-compose build`. It will now pull the correct image from Docker Hub.
+   1. Comment out the `build: .` lines for all images (web, streaming, sidekiq).
+   2. Edit the `image: tootsuite/mastodon` lines for all images to include the release you want. The default is `latest` which is the most recent stable version, however it recommended to explicitly pin a version: If you wanted to use v2.2.0 for example, you would edit the lines to say: `image: tootsuite/mastodon:v2.2.0`
+   3. Save the file and exit the text editor.
+2. Run `cp .env.production.sample .env.production` to bootstrap the configuration. You will need to edit this file later.
+3. Run `docker-compose build`. It will now pull the correct image from Docker Hub.
+4. Set correct file-owner with `chown -R 991:991 public`
 
 ### Building your own image
 
 You must build your own image if you've made any code modifications. To build your own image:
 
 1. Open `docker-compose.yml` in your favorite text editor.
-2. Uncomment the `build: .` lines for all images (web, streaming, sidekiq) if needed.
-3. Save the file and exit the text editor.
+   1. Uncomment the `build: .` lines for all images (web, streaming, sidekiq) if needed.
+   2. Save the file and exit the text editor.
+2. Run `cp .env.production.sample .env.production` to bootstrap the configuration. You will need to edit this file later.
 3. Run `docker-compose build`.
 4. Set correct file-owner with `chown -R 991:991 public`
 
