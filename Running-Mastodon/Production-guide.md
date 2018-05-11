@@ -18,7 +18,7 @@ We use example.com to represent a domain or sub-domain. Example.com should be re
 
 You will need the following for this guide:
 
-- A server running [Ubuntu Server 16.04](https://www.ubuntu.com/server).
+- A server running [Ubuntu Server 18.04](https://www.ubuntu.com/server).
 - Root access to the server.
 - A domain or sub-domain to use for the instance.
 
@@ -56,7 +56,7 @@ We run this script to add the repository:
 
 ```sh
 apt -y install curl
-curl -sL https://deb.nodesource.com/setup_6.x | bash -
+curl -sL https://deb.nodesource.com/setup_8.x | bash -
 ```
 
 The [node.js](https://nodejs.org/en/) repository is now added.
@@ -90,7 +90,7 @@ Now you need to install [Yarn](https://yarnpkg.com/en/) plus some more software.
 - Other -dev packages, g++ - these are needed for the compilation of Ruby using ruby-build.
 
 ```sh
-apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev nginx redis-server redis-tools postgresql postgresql-contrib letsencrypt yarn libidn11-dev libicu-dev
+apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev nginx redis-server redis-tools postgresql postgresql-contrib letsencrypt yarn libidn11-dev libicu-dev
 ```
 
 ### Dependencies That Need To Be Added As A Non-Root User
