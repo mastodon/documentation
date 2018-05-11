@@ -90,7 +90,7 @@ Now you need to install [Yarn](https://yarnpkg.com/en/) plus some more software.
 - Other -dev packages, g++ - these are needed for the compilation of Ruby using ruby-build.
 
 ```sh
-apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev nginx redis-server redis-tools postgresql postgresql-contrib letsencrypt yarn libidn11-dev libicu-dev
+apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev nginx redis-server redis-tools postgresql postgresql-contrib certbot yarn libidn11-dev libicu-dev
 ```
 
 ### Dependencies That Need To Be Added As A Non-Root User
@@ -322,15 +322,15 @@ We will be creating the certificate twice, once with TLS SNI validation in stand
 [nginx](http://nginx.org) and the [Let's Encrypt](https://letsencrypt.org/) tool works.
 
 ```sh
-letsencrypt certonly --standalone -d example.com
+certbot certonly --standalone -d example.com
 ```
 
 After that successfully completes, we will use the webroot method. This requires [nginx](http://nginx.org) to be running:
 
 ```sh
 systemctl start nginx
-# The letsencrypt tool will ask if you want issue a new cert, please choose that option
-letsencrypt certonly --webroot -d example.com -w /home/mastodon/live/public/
+# The certbot tool will ask if you want issue a new cert, please choose that option
+certbot certonly --webroot -d example.com -w /home/mastodon/live/public/
 ```
 
 ### Automated Renewal Of Let's Encrypt Certificate
@@ -349,7 +349,7 @@ Copy and paste this script into that file:
 
 ```sh
 #!/usr/bin/env bash
-letsencrypt renew
+certbot renew
 systemctl reload nginx
 ```
 
