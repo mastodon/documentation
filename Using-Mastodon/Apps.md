@@ -166,10 +166,11 @@ List of apps
 |**[Contest-draw](http://mastodon.tools/contest-draw/)**|<https://github.com/DavidLibeau/mastodon-tools/tree/master/contest-draw>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 |**[Mastoshare](https://github.com/koyuawsmbrtn/mastoshare/blob/master/README.md)**|<https://github.com/koyuawsmbrtn/mastoshare>|[@koyuawsmbrtn@mastodon.social](https://mastodon.social/@koyuawsmbrtn)|
 |**[wall](http://mastodon.tools/wall/)**|<https://github.com/DavidLibeau/mastodon-tools/tree/master/wall>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
-|[Scheduler](http://mastodon.tools/scheduler/) *(beta)*|<https://github.com/DavidLibeau/mastodon-scheduler>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
+|[Scheduler](https://scheduler.mastodon.tools/) *(beta)*|<https://github.com/DavidLibeau/mastodon-scheduler>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 |**[Tootmap](https://tootmap.net/)**|<https://github.com/wakin-/Tootmap>|[@wakin@biwakodon.com](https://biwakodon.com/@wakin)|
 |**[Mastodon User Matching](http://vinayaka.distsn.org/)**|<https://github.com/distsn/vinayaka>|[Hakaba Hitoyo](http://hakaba-hitoyo.github.io)|
 |**[Mastodon/Pleroma Newcomers](http://vinayaka.distsn.org/user-new.html)**|<https://github.com/distsn/vinayaka>|[Hakaba Hitoyo](http://hakaba-hitoyo.github.io)|
+|[Search Mastodon tools](http://search.mastodon.tools/)|<https://github.com/DavidLibeau/search-mastodon-tools>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 
 ## Other tools 
 <!--- Tools that don't fit elsewhere --->
