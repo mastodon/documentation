@@ -89,6 +89,7 @@ Returns the authenticated user's [Account](#account) with an extra attribute `so
 | `privacy`   | Selected preference: Default privacy of new toots        |
 | `sensitive` | Selected preference: Mark media as sensitive by default? |
 | `note`      | Plain-text version of the account's `note`               |
+| `fields`    | array of profile metadata. each element has 'name' and 'value' |
 
 #### Updating the current user:
 
@@ -726,6 +727,7 @@ ___
 | `header`                 | URL to the header image                                                            | no       |
 | `header_static`          | URL to the header static image (gif)                                               | no       |
 | `moved`                  | If the owner decided to switch accounts, new account is in this attribute          | yes      |
+| `fields`                 | array of profile metadata. each element has 'name' and 'value'                     | yes      |
 
 ### Application
 
