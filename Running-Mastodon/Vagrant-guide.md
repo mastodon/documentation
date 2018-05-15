@@ -23,7 +23,7 @@ To create and provision a new virtual machine for Mastodon development run:
 
 Running `vagrant up --provider virtualbox` for the first time will run provisioning, which will:
 
-- Download the Ubuntu 14.04 base image, if there isn't already a copy on your machine
+- Download the Ubuntu 16.04 base image, if there isn't already a copy on your machine
 - Create a new VirtualBox virtual machine from that image
 - Run the provisioning script (located inside the Vagrantfile), which installs the system packages, Ruby gems, and JS modules required for Mastodon
 
