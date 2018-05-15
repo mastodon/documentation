@@ -544,10 +544,10 @@ Form data:
 | `subscription[endpoint]`     | Endpoint URL that called when notification is happen.                                                 | no       |
 | `subscription[keys][p256dh]` | User agent public key. Base64 encoded string of public key of ECDH key that using 'prime256v1' curve. | no       |
 | `subscription[keys][auth]`   | Auth secret. Base64 encoded string of 16 bytes random data.                                           | no       |
-| `data[alerts][follow]`       | Boolean that indicates whether you want to receive follow notification event.                         | ?        |
-| `data[alerts][favourite]`    | Boolean that indicates whether you want to receive favourite notification event.                      | ?        |
-| `data[alerts][reblog]`       | Boolean that indicates whether you want to receive reblog notification event.                         | ?        |
-| `data[alerts][mention]`      | Boolean that indicates whether you want to receive mention notification event.                        | ?        |
+| `data[alerts][follow]`       | Boolean of whether you want to receive follow notification event.                         | ?        |
+| `data[alerts][favourite]`    | Boolean of whether you want to receive favourite notification event.                      | ?        |
+| `data[alerts][reblog]`       | Boolean of whether you want to receive reblog notification event.                         | ?        |
+| `data[alerts][mention]`      | Boolean of whether you want to receive mention notification event.                        | ?        |
 
 Each access token can have one push subscription.
 If you post new subscription. the old subscription is deleted.
