@@ -156,7 +156,7 @@ DB_PORT=6432
 
 The easiest way to reboot is:
 
-    sudo service pgbouncer restart
+    sudo systemctl restart pgbouncer
 
 But if you've set up a PgBouncer admin user, you can also connect as the admin:
 
