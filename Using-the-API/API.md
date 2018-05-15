@@ -89,7 +89,7 @@ Returns the authenticated user's [Account](#account) with an extra attribute `so
 | `privacy`   | Selected preference: Default privacy of new toots              |
 | `sensitive` | Selected preference: Mark media as sensitive by default?       |
 | `note`      | Plain-text version of the account's `note`                     |
-| `fields`    | array of profile metadata. each element has 'name' and 'value' |
+| `fields`    | Array of profile metadata, each element has 'name' and 'value' |
 
 #### Updating the current user:
 
@@ -104,8 +104,8 @@ Form data:
 | `avatar`       | An avatar for the user (encoded using `multipart/form-data`)      | yes        |
 | `header`       | A header image for the user (encoded using `multipart/form-data`) | yes        |
 | `locked`       | Manually approve followers?                                       | yes        |
-| `fields_attributes[0][name]` | (2.4 or later)label of profile metadata.            | yes        |
-| `fields_attributes[0][value]` | (2.4 or later)value of profile metadata.           | yes        |
+| `fields_attributes[0][name]` | (2.4 or later) Label of profile metadata field.     | yes        |
+| `fields_attributes[0][value]` | (2.4 or later) Value of profile metadata field.    | yes        |
 
 > **Note:** [0]…[3] is allowed in parameter name of fields_attributes. [] is not allowed.
 
@@ -727,7 +727,7 @@ ___
 | `header`                 | URL to the header image                                                            | no       |
 | `header_static`          | URL to the header static image (gif)                                               | no       |
 | `moved`                  | If the owner decided to switch accounts, new account is in this attribute          | yes      |
-| `fields`                 | array of profile metadata. each element has 'name' and 'value'                     | yes      |
+| `fields`                 | Array of profile metadata field, each element has 'name' and 'value'               | yes      |
 
 ### Application
 
