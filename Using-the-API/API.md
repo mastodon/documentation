@@ -84,11 +84,11 @@ Returns an [Account](#account).
 
 Returns the authenticated user's [Account](#account) with an extra attribute `source` which contains these keys:
 
-| Attribute   | Description                                              |
-| ----------- | -------------------------------------------------------- |
-| `privacy`   | Selected preference: Default privacy of new toots        |
-| `sensitive` | Selected preference: Mark media as sensitive by default? |
-| `note`      | Plain-text version of the account's `note`               |
+| Attribute   | Description                                                    |
+| ----------- | -------------------------------------------------------------- |
+| `privacy`   | Selected preference: Default privacy of new toots              |
+| `sensitive` | Selected preference: Mark media as sensitive by default?       |
+| `note`      | Plain-text version of the account's `note`                     |
 | `fields`    | array of profile metadata. each element has 'name' and 'value' |
 
 #### Updating the current user:
@@ -104,8 +104,8 @@ Form data:
 | `avatar`       | An avatar for the user (encoded using `multipart/form-data`)      | yes        |
 | `header`       | A header image for the user (encoded using `multipart/form-data`) | yes        |
 | `locked`       | Manually approve followers?                                       | yes        |
-| `fields_attributes[0][name]` | (2.4 or later)label of profile metadata. [0]…[3] is allowed. | yes        |
-| `fields_attributes[0][value]` | (2.4 or later)value of profile metadata. [0]…[3] is allowed. | yes        |
+| `fields_attributes[0][name]` | (2.4 or later)label of profile metadata.            | yes        |
+| `fields_attributes[0][value]` | (2.4 or later)value of profile metadata.           | yes        |
 
 > **Note:** [0]…[3] is allowed in parameter name of fields_attributes. [] is not allowed.
 
