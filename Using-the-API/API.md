@@ -34,6 +34,7 @@ API overview
   - [List](#list)
   - [Mention](#mention)
   - [Notification](#notification)
+  - [Push Subscription](#push_subscription)
   - [Relationship](#relationship)
   - [Results](#results)
   - [Status](#status)
@@ -549,6 +550,8 @@ Form data:
 | `data[alerts][reblog]`       | Boolean of whether you want to receive reblog notification event.                         | ?        |
 | `data[alerts][mention]`      | Boolean of whether you want to receive mention notification event.                        | ?        |
 
+Returns the [Push Subscription](#push_subscription).
+
 Each access token can have one push subscription.
 If you post new subscription. the old subscription is deleted.
 
@@ -558,9 +561,17 @@ see also:
 - https://developers.google.com/web/updates/2016/03/web-push-encryption
 - https://developers.google.com/web/fundamentals/push-notifications/web-push-protocol
 
+#### Get current push subscription status
+
+    GET /api/v1/push/subscription
+
+Returns the [Push Subscription](#push_subscription).
+
 #### Updating push subscription
 
     PUT /api/v1/push/subscription
+
+Returns the [Push Subscription](#push_subscription).
 
 This API updates 'data' part of push subscription.
 If you want to change 'subscription', you have to use 'POST /api/v1/push/subscription'.
@@ -873,6 +884,14 @@ The most important part of an error response is the HTTP status code. Standard s
 | `created_at`             | The time the notification was created                                 | no       |
 | `account`                | The [Account](#account) sending the notification to the user          | no       |
 | `status`                 | The [Status](#status) associated with the notification, if applicable | yes      |
+
+### Push Subscription
+| Attribute                | Description                                                     | Nullable |
+| ------------------------ | --------------------------------------------------------------- | -------- |
+| `id`                     | The push subscription ID                                        | no       |
+| `endpoint`               | The endpoint URL                                                | no       |
+| `server_key`             | The server public key                                           | no       |
+| `alerts`                 | Map of 'notification event type' and 'push is requested or not' | ?        |
 
 ### Relationship
 
