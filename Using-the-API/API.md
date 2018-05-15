@@ -562,14 +562,6 @@ see also:
 
     PUT /api/v1/push/subscription
 
-Form data: 
-| Field                        | Description                                                                                           | Optional |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------  | -------- |
-| `data[alerts][follow]`       | Boolean that indicates whether you want to receive follow notification event.                         | ?        |
-| `data[alerts][favourite]`    | Boolean that indicates whether you want to receive favourite notification event.                      | ?        |
-| `data[alerts][reblog]`       | Boolean that indicates whether you want to receive reblog notification event.                         | ?        |
-| `data[alerts][mention]`      | Boolean that indicates whether you want to receive mention notification event.                        | ?        |
-
 This API updates 'data' part of push subscription.
 If you want to change 'subscription', you have to use 'POST /api/v1/push/subscription'.
 
