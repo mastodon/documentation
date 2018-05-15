@@ -538,6 +538,7 @@ Returns an empty object.
     POST /api/v1/push/subscription
 
 Form data: 
+
 | Field                        | Description                                                                                           | Optional |
 | ---------------------------- | ----------------------------------------------------------------------------------------------------  | -------- |
 | `subscription[endpoint]`     | Endpoint URL that called when notification is happen.                                                 | no       |
