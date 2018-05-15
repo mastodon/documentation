@@ -6,6 +6,7 @@ Here are examples of hardware setups of some Mastodon instances for your perusal
 > **Notes:**
 >
 > - 4x10 threads means 40 threads in total spread across 4 different processes
+> - RPM stands for requests per minute
 > - An up-to-date number of users cannot be guaranteed in this document
 > - Listed setups may be underutilizing or overutilizing their hardware
 
