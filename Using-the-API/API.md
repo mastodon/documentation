@@ -533,6 +533,53 @@ Form data:
 Deletes a single notification from the Mastodon server for the authenticated user.
 Returns an empty object.
 
+#### Adding push subscription
+
+    POST /api/v1/push/subscription
+
+Form data: 
+| Field                        | Description                                                                                           | Optional |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------  | -------- |
+| `subscription[endpoint]`     | Endpoint URL that called when notification is happen.                                                 | no       |
+| `subscription[keys][p256dh]` | User agent public key. Base64 encoded string of public key of ECDH key that using 'prime256v1' curve. | no       |
+| `subscription[keys][auth]`   | Auth secret. Base64 encoded string of 16 bytes random data.                                           | no       |
+| `data[alerts][follow]`       | Boolean that indicates whether you want to receive follow notification event.                         | ?        |
+| `data[alerts][favourite]`    | Boolean that indicates whether you want to receive favourite notification event.                      | ?        |
+| `data[alerts][reblog]`       | Boolean that indicates whether you want to receive reblog notification event.                         | ?        |
+| `data[alerts][mention]`      | Boolean that indicates whether you want to receive mention notification event.                        | ?        |
+
+Each access token can have one push subscription.
+If you post new subscription. the old subscription is deleted.
+
+The endpoint URL is called when notification event is happen,
+and its payload is encrypted according to The Web Push Protocol.
+see also:
+- https://developers.google.com/web/updates/2016/03/web-push-encryption
+- https://developers.google.com/web/fundamentals/push-notifications/web-push-protocol
+
+#### Updating push subscription
+
+    PUT /api/v1/push/subscription
+
+Form data: 
+| Field                        | Description                                                                                           | Optional |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------  | -------- |
+| `data[alerts][follow]`       | Boolean that indicates whether you want to receive follow notification event.                         | ?        |
+| `data[alerts][favourite]`    | Boolean that indicates whether you want to receive favourite notification event.                      | ?        |
+| `data[alerts][reblog]`       | Boolean that indicates whether you want to receive reblog notification event.                         | ?        |
+| `data[alerts][mention]`      | Boolean that indicates whether you want to receive mention notification event.                        | ?        |
+
+This API updates 'data' part of push subscription.
+If you want to change 'subscription', you have to use 'POST /api/v1/push/subscription'.
+
+#### Removing push subscription
+
+    DELETE /api/v1/push/subscription
+
+This API removes push subscription that bind to access token.
+
+
+
 ### Reports
 
 #### Fetching a user's reports:
