@@ -103,6 +103,11 @@ Form data:
 | `avatar`       | An avatar for the user (encoded using `multipart/form-data`)      | yes        |
 | `header`       | A header image for the user (encoded using `multipart/form-data`) | yes        |
 | `locked`       | Manually approve followers?                                       | yes        |
+| `fields_attributes[0][name]` | (2.4 or later)label of profile metadata. [0]…[3] is allowed. | yes        |
+| `fields_attributes[0][value]` | (2.4 or later)value of profile metadata. [0]…[3] is allowed. | yes        |
+
+> **Note:** [0]…[3] is allowed in parameter name of fields_attributes. [] is not allowed.
+
 
 Returns the authenticated user's [Account](#account).
 
