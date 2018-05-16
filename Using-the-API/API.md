@@ -890,7 +890,7 @@ The most important part of an error response is the HTTP status code. Standard s
 | ------------------------ | --------------------------------------------------------------- | -------- |
 | `id`                     | The push subscription ID                                        | no       |
 | `endpoint`               | The endpoint URL                                                | no       |
-| `server_key`             | The server public key                                           | no       |
+| `server_key`             | The server public key for signature verification. (not for decoding) | no  |
 | `alerts`                 | Map of 'notification event type' and 'push is requested or not' | ?        |
 
 ### Relationship
