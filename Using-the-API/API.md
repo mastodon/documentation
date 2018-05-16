@@ -34,7 +34,7 @@ API overview
   - [List](#list)
   - [Mention](#mention)
   - [Notification](#notification)
-  - [Push Subscription](#push_subscription)
+  - [Push Subscription](#push-subscription)
   - [Relationship](#relationship)
   - [Results](#results)
   - [Status](#status)
@@ -550,7 +550,7 @@ Form data:
 | `data[alerts][reblog]`       | Boolean of whether you want to receive reblog notification event.                         | ?        |
 | `data[alerts][mention]`      | Boolean of whether you want to receive mention notification event.                        | ?        |
 
-Returns the [Push Subscription](#push_subscription).
+Returns the [Push Subscription](#push-subscription).
 
 Each access token can have one push subscription.
 If you post new subscription. the old subscription is deleted.
@@ -565,13 +565,13 @@ see also:
 
     GET /api/v1/push/subscription
 
-Returns the [Push Subscription](#push_subscription).
+Returns the [Push Subscription](#push-subscription).
 
 #### Updating push subscription
 
     PUT /api/v1/push/subscription
 
-Returns the [Push Subscription](#push_subscription).
+Returns the [Push Subscription](#push-subscription).
 
 This API updates 'data' part of push subscription.
 If you want to change 'subscription', you have to use 'POST /api/v1/push/subscription'.
