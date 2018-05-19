@@ -110,3 +110,45 @@ ports:
 ```
 
 for each service respectively, Docker will allocate random host ports of the services, allowing multiple containers to run alongside each other. But it will be on you to look up which host ports those are (e.g. with `docker ps`), and they will be different on each container restart.
+
+## Using nginx proxy caching
+
+A lot of data that Mastodon deals with is not immutable, and is therefore difficult to cache. However, some data *is* immutable and caching it in the reverse proxy (e.g. nginx) can have a positive impact on performance because those requests never have to touch Ruby and the database.
+
+Here is how to enable proxy caching in Nginx:
+
+```diff
+diff --git a/example.com.conf b/example.com.conf
+index 0b50542..1d3fac6 100644
+--- a/example.com.conf
++++ b/example.com.conf
+@@ -13,6 +13,8 @@ server {
+   location / { return 301 https://$host$request_uri; }
+ }
+
++proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=CACHE:10m inactive=7d max_size=1g;
++
+ server {
+   listen 443 ssl http2;
+   listen [::]:443 ssl http2;
+@@ -66,12 +68,17 @@ server {
+     proxy_pass_header Server;
+
+     proxy_pass http://127.0.0.1:3000;
+-    proxy_buffering off;
++    proxy_buffering on;
+     proxy_redirect off;
+     proxy_http_version 1.1;
+     proxy_set_header Upgrade $http_upgrade;
+     proxy_set_header Connection $connection_upgrade;
+
++    proxy_cache CACHE;
++    proxy_cache_valid 200 7d;
++    proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
++    add_header X-Cached $upstream_cache_status;
++
+     tcp_nodelay on;
+   }
+ ```
+ 
+ The /var/cache/nginx directory is going to be kept at around 1GB at most, feel free to adjust those values as you see fit. The proxy cache in this case will only cache server responses that do not contain any session data. At the time of writing, these are primarily webfinger and host-meta responses as well as individual statuses in ActivityPub format.
