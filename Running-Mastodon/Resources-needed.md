@@ -36,8 +36,8 @@ Here are examples of hardware setups of some Mastodon instances for your perusal
 |Users weekly|10|
 |Average RPM|20|
 |Approx. cost/mo|$25|
-|Puma|default|
-|Sidekiq|default|
-|Streaming API|default|
+|Puma|2x5|
+|Sidekiq|1x5|
+|Streaming API|1x1|
 |Hosting|Digital Ocean|
-|Special notes|"Default" means configured by following the production guide. Upgraded droplet from 2GB RAM/1vCPU to 4GB/2 vCPU to run elasticsearch. Total disk usage approx 15GB, increasing approx. 1 GB every 30 days.|
+|Special notes|Upgraded droplet from 2GB RAM/1vCPU to 4GB/2 vCPU to run elasticsearch. Total disk usage approx 15GB, increasing approx. 1 GB every 30 days.|
