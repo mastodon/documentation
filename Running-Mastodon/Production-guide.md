@@ -146,7 +146,7 @@ Run the following to clone and install:
 cd ~
 # Clone the mastodon git repository into ~/live
 git clone https://github.com/tootsuite/mastodon.git live
-# Change directory to ~live
+# Change directory to ~/live
 cd ~/live
 # Checkout to the latest stable branch
 git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
