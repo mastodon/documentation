@@ -7,6 +7,7 @@ Here are examples of hardware setups of some Mastodon instances for your perusal
 >
 > - 4x10 threads means 40 threads in total spread across 4 different processes
 > - RPM stands for requests per minute
+> - Users weekly means users who visit the site or use the API at least once per week
 > - An up-to-date number of users cannot be guaranteed in this document
 > - Listed setups may be underutilizing or overutilizing their hardware
 
