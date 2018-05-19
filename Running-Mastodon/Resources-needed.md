@@ -33,3 +33,15 @@ Here are examples of hardware setups of some Mastodon instances for your perusal
 |Streaming API|1x1 threads|
 |Hosting|self|
 |Special notes|Raspberry Pi 2 model B running Arch Linux Arm hosting mastodon-web, Pine64 running Armbian hosting mastodon-sidekiq and mastodon-streaming, Raspberry Pi 2 model B running postgres.  Raspberry Pi 1 B+ running Redis. All devices have 1GB RAM|
+
+|mspsocial.net| |
+|-------------------|-|
+|Users total|79|
+|Users weekly|10|
+|Average RPM|20|
+|Approx. cost/mo|$25|
+|Puma|default|
+|Sidekiq|default|
+|Streaming API|default|
+|Hosting|Digital Ocean|
+|Special notes|"Default" means configured by following the production guide. Upgraded droplet from 2GB RAM/1vCPU to 4GB/2 vCPU to run elasticsearch. Total disk usage approx 15GB, increasing approx. 1 GB every 30 days.|
