@@ -952,6 +952,8 @@ The most important part of an error response is the HTTP status code. Standard s
 
 > **NOTE**: When `spoiler_text` is present, `sensitive` is true 
 
+> **NOTE**: `in_reply_to_id` and `in_reply_to_account_id` are `null` if the status that is replied to is unknown
+
 ### Tag
 
 | Attribute                | Description                                  | Nullable |
