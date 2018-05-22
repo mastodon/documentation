@@ -1,6 +1,17 @@
 Tuning Mastodon
 ===============
 
+Table of contents:
+
+- [Concurrency tuning / utilizing your hardware](#)
+- [Using pgBouncer](#)
+- [Using nginx proxy caching](#)
+- [Using a separate Redis for the Rails cache](#)
+
+___
+
+## Concurrency tuning / utilizing your hardware
+
 Mastodon has three types of processes:
 
 - web
