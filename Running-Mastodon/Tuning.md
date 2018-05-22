@@ -3,10 +3,10 @@ Tuning Mastodon
 
 Table of contents:
 
-- [Concurrency tuning / utilizing your hardware](#)
-- [Using pgBouncer](#)
-- [Using nginx proxy caching](#)
-- [Using a separate Redis for the Rails cache](#)
+- [Concurrency tuning / utilizing your hardware](#concurrency-tuning--utilizing-your-hardware)
+- [Using pgBouncer](PgBouncer-guide.md)
+- [Using nginx proxy caching](#using-nginx-proxy-caching)
+- [Using a separate Redis for the Rails cache](#using-a-separate-redis-for-the-rails-cache)
 
 ___
 
