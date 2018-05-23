@@ -109,7 +109,7 @@ List of apps
 
 |App|Source code|Developer(s)|
 |---|-----------|------------|
-|**[Halcyon](https://halcyon.social)**|<https://github.com/halcyon-suite/halcyon>|[@halcyon@mastodon.social](https://mastodon.social/@halcyon)|
+|**[Halcyon](https://github.com/halcyon-suite/halcyon/blob/master/README.md)**|<https://github.com/halcyon-suite/halcyon>|[@halcyon@mastodon.social](https://mastodon.social/@halcyon)|
 |[Naumanni](https://naumanni.com/) *(alpha)*|<https://github.com/naumanni/naumanni>|[@shi3z@mstdn.onosendai.jp](https://mstdn.onosendai.jp/@shi3z)/[@shn@oppai.tokyo](https://oppai.tokyo/@shn)|
 |[Pinafore](https://pinafore.social/) *(beta)*|<https://github.com/nolanlawson/pinafore>|[@nolan@toot.cafe](https://toot.cafe/@nolan)|
 
