@@ -33,7 +33,7 @@ To use the prebuilt images:
    3. Save the file and exit the text editor.
 2. Run `cp .env.production.sample .env.production` to bootstrap the configuration. You will need to edit this file later.
 3. Run `docker-compose build`. It will now pull the correct image from Docker Hub.
-4. Set correct file-owner with `chown -R 991:991 public`
+4. Set correct file-owner with `chown -R 991:991 public/system`
 
 ### Building your own image
 
@@ -44,7 +44,7 @@ You must build your own image if you've made any code modifications. To build yo
    2. Save the file and exit the text editor.
 2. Run `cp .env.production.sample .env.production` to bootstrap the configuration. You will need to edit this file later.
 3. Run `docker-compose build`.
-4. Set correct file-owner with `chown -R 991:991 public`
+4. Set correct file-owner with `chown -R 991:991 public/system`
 
 ## Building the app
 
