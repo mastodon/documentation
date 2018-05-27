@@ -779,7 +779,7 @@ ___
 | `header_static`          | URL to the header static image (gif)                                               | no       |
 | `moved`                  | If the owner decided to switch accounts, new account is in this attribute          | yes      |
 | `fields`                 | Array of profile metadata field, each element has 'name' and 'value'               | yes      |
-| `bot`                    | Boolean tp indicate that the account performs automated actions                    | yes      |
+| `bot`                    | Boolean to indicate that the account performs automated actions                    | yes      |
 
 
 ### Application
