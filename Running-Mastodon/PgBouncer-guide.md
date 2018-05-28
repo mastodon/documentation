@@ -34,9 +34,9 @@ Here's how you might reset the password:
 
     psql -p 5432 -U mastodon mastodon_production -w
 
-Then:
+Then (obviously, use a different password than the word "password"):
 
-    ALTER USER "mastodon" WITH PASSWORD 'password';
+    ALTER USER mastodon WITH PASSWORD 'password';
 
 Then `\q` to quit.
 
