@@ -22,6 +22,7 @@ API overview
   - [Search](#search)
   - [Statuses](#statuses)
   - [Timelines](#timelines)
+  - [Trends](#trends)
 - [Entities](#entities)
   - [Account](#account)
   - [Application](#application)
@@ -623,6 +624,10 @@ Returns [Results](#results).
 
 If `q` is a URL, Mastodon will attempt to fetch the provided account or status. Otherwise, it will do a local account and hashtag search.
 
+    GET /api/v2/search
+
+Same as above, but returns [Results](#results) with [Tag](#tag) objects in the hashtag attribute.
+
 ### Statuses
 
 #### Fetching a status:
@@ -751,6 +756,16 @@ Query parameters:
 Returns an array of [Statuses](#status), most recent ones first.
 
 Public and tag timelines do not require authentication.
+
+### Trends
+
+#### Retrieving trending hashtags
+
+    GET /api/v1/trends
+
+Returns an array of [Tag](#tag), sorted by the internal trending algorithm.
+
+Does not require authentication.
 
 ___
 
@@ -962,3 +977,6 @@ The most important part of an error response is the HTTP status code. Standard s
 | ------------------------ | -------------------------------------------- | -------- |
 | `name`                   | The hashtag, not including the preceding `#` | no       |
 | `url`                    | The URL of the hashtag                       | no       |
+| `history`                | Array of daily usage history. Not included in statuses | yes |
+
+> **NOTE**: Each object in `history` has the following structure: `day` (UNIX timestamp), `uses` (total statuses using that hashtag during that day), and `accounts` (total unique accounts using that hashtag during that day). Last 7 days.
