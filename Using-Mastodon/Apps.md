@@ -37,6 +37,7 @@ List of apps
 |[Mastobone](https://github.com/deguchi/mastobone/blob/master/README.md)<br />([Play Store](https://play.google.com/store/apps/details?id=com.mastobone)) *(alpha)*|<https://github.com/deguchi/mastobone>|[@deguchi@bookn.me](https://bookn.me/@deguchi)|
 |[MouseApp](https://github.com/cerisara/mousetodon/blob/master/README.md)<br />([F‑Droid](https://f-droid.org/packages/fr.xtof54.mousetodon/)) *(beta)*|<https://github.com/cerisara/mousetodon>|[@cerisara@mastodon.etalab.gouv.fr](https://mastodon.etalab.gouv.fr/@cerisara)
 |[TootyFruity](https://github.com/eggplantPrince/tootyFruity/blob/master/README.md)<br />([Play Store](https://play.google.com/store/apps/details?id=ch.kevinegli.tootyfruity221258)) *(beta)*|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
+|[twitlatte](https://github.com/moko256/twitlatte)<br />([Play](https://play.google.com/store/apps/details?id=com.github.moko256.twitlatte)/[F-Droid](https://f-droid.org/app/com.github.moko256.twitlatte) *(beta)*)|<https://github.com/moko256/twitlatte>|[@moko256@mstdn.maud.io](https://mstdn.maud.io/@moko256)|
 
 ### Android - proprietary
 
