@@ -42,3 +42,13 @@ Here are examples of hardware setups of some Mastodon instances for your perusal
 |Streaming API|1x1|
 |Hosting|Digital Ocean|
 |Special notes|Upgraded droplet from 2GB RAM/1vCPU to 4GB/2 vCPU to run elasticsearch. Total disk usage approx 15GB, increasing approx. 1 GB every 30 days.|
+|**masto.donte.com.br**| |
+|Users total|480+|
+|Users weekly|100+|
+|Average RPM|150+|
+|Approx. cost/mo|USD25 (server USD20 + automated backups USD5)|
+|Puma|2x5 threads|
+|Sidekiq|1x6 threads|
+|Streaming API|1x1 threads|
+|Hosting|Linode|
+|Special notes|Running everything in one Linode 4096, used to run on a Linode 2048 before. Using ruby compiled with jmalloc, not using Docker. Database backup is at around 727MB compressed, production database around 6755MB (containing 5.4 million status, 39.5k accounts). |
