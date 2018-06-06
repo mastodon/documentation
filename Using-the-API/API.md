@@ -683,10 +683,11 @@ Form data:
 | ----------------- | ------------------------------------------------------------------------ | ---------- |
 | `status`          | The text of the status                                                   | no         |
 | `in_reply_to_id`  | local ID of the status you want to reply to                              | yes        |
-| `media_ids`       | [Array](#parameter-types) of media IDs to attach to the status (maximum 4)                   | yes        |
+| `media_ids`       | [Array](#parameter-types) of media IDs to attach to the status (maximum 4)| yes        |
 | `sensitive`       | Set this to mark the media of the status as NSFW                         | yes        |
 | `spoiler_text`    | Text to be shown as a warning before the actual content                  | yes        |
 | `visibility`      | Either "direct", "private", "unlisted" or "public"                       | yes        |
+| `language`        | ISO 639-2 language code of the toot, to skip automatic detection         | yes        |
 
 Returns the new [Status](#status).
 
