@@ -113,7 +113,7 @@ These are self-contained instructions for setting up a development environment o
 - Get [Homebrew](https://brew.sh) and use it to install the other dependencies:
 
 	```
-	brew install imagemagick ffmpeg yarn postgresql redis rbenv nodejs protobuf libidn
+	brew install imagemagick ffmpeg yarn postgresql redis rbenv nodejs protobuf libidn screen
 	```
 
 - Configure Rbenv:
@@ -135,11 +135,13 @@ These are self-contained instructions for setting up a development environment o
 
 	```
 	initdb /usr/local/var/postgres -E utf8
-	createdb
 	export PGDATA=/usr/local/var/postgres
-	/usr/local/bin/postgres
+	screen -dmS postgres /usr/local/bin/postgres
+	createdb
 	/usr/local/bin/psql
 	```
+	
+	(You can shut down the db later by running `screen -r postgres` and inside the postgres shell `\q`.)
 
 	In the prompt:
 
