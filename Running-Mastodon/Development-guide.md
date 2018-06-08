@@ -141,7 +141,7 @@ These are self-contained instructions for setting up a development environment o
 	/usr/local/bin/psql
 	```
 	
-	(You can shut down the db later by running `screen -r postgres` and inside the postgres shell `\q`.)
+	(You can shut down the db later by running `screen -r postgres` and inside the postgres shell `ctrl+c`.)
 
 	In the prompt:
 
