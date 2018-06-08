@@ -13,6 +13,7 @@ Below, a list of libraries to interact with the Mastodon API, sorted by programm
 | C# (.NET)            | [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net)                        |                                                                                |
 | C++                  | [mastodon-cpp](https://github.com/tastytea/mastodon-cpp)                       | [@tastytea@soc.ialis.me](https://soc.ialis.me/@tastytea)                       |
 | Crystal              | [mastodon.cr](https://github.com/decors/mastodon.cr)                           |                                                                                |
+| Common Lisp          | [tooter](https://github.com/Shinmera/tooter)                                   | [@shinmera@tymoon.eu](https://mastodon.tymoon.eu/@shinmera)         |
 | Elixir               | [hunter](https://github.com/milmazz/hunter)                                    |                                                                                |
 | Go                   | [go-mastodon](https://github.com/mattn/go-mastodon)                            |                                                                                |
 | Go                   | [madon](https://github.com/McKael/madon)                                       |                                                                                |
