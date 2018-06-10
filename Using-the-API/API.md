@@ -165,9 +165,18 @@ Query parameters:
 
 Returns an array of [Statuses](#status).
 
-#### Following/unfollowing an account:
+#### Following an account:
 
     POST /api/v1/accounts/:id/follow
+    
+| Field          | Description                               | Optional   |
+| -------------- | ----------------------------------------- | ---------- |
+| `reblogs` | Determines whether the followed account's reblogs will show up in the home timeline | yes        |
+
+Returns the target account's [Relationship](#relationship).
+
+#### Unfollowing an account:
+
     POST /api/v1/accounts/:id/unfollow
 
 Returns the target account's [Relationship](#relationship).
@@ -923,6 +932,7 @@ The most important part of an error response is the HTTP status code. Standard s
 | `muting_notifications`   | Whether the user is also muting notifications                | no       |
 | `requested`              | Whether the user has requested to follow the account         | no       |
 | `domain_blocking`        | Whether the user is currently blocking the accounts's domain | no       |
+| `showing_reblogs`        | Whether the user's reblogs will show up in the home timeline | no       |
 
 ### Report
 
