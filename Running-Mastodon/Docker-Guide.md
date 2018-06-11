@@ -50,7 +50,7 @@ You must build your own image if you've made any code modifications. To build yo
 
 Now the image can be used to generate a configuration with:
 
-    docker-compose run --rm web rake mastodon:setup
+    docker-compose run --rm web bundle exec rake mastodon:setup
 
 This is an interactive wizard that will guide you through the basic and necessary options and generate new app secrets. At some point it will output your configuration, copy and paste that configuration into the `.env.production` file.
 
@@ -72,7 +72,7 @@ The default docker-compose.yml maps them to the repository's `public/assets` and
 
 Running any of these tasks via docker-compose would look like this:
 
-    docker-compose run --rm web rake mastodon:media:clear
+    docker-compose run --rm web bundle exec rake mastodon:media:clear
 
 ## Updating
 
@@ -86,7 +86,7 @@ This approach makes updating to the latest version a real breeze.
 5. Build the updated Mastodon image. 
 - If you are using a prebuilt image: First, edit the `image: tootsuite/mastodon` lines in `docker-compose.yml` to include the tag for the new version. E.g. `image: tootsuite/mastodon:v2.3.0`
 - To pull the prebuilt image, or build your own from the updated code: `docker-compose build`
-6. (optional) `docker-compose run --rm web rake db:migrate` to perform database migrations. Does nothing if your database is up to date.
-7. (optional) `docker-compose run --rm web rake assets:precompile` to compile new JS and CSS assets.
+6. (optional) `docker-compose run --rm web bundle exec rake db:migrate` to perform database migrations. Does nothing if your database is up to date.
+7. (optional) `docker-compose run --rm web bundle exec rake assets:precompile` to compile new JS and CSS assets.
 8. Follow any other special instructions in the release notes.
 9. `docker-compose up -d` to re-create (restart) containers and pick up the changes.
