@@ -283,8 +283,14 @@ server {
 
     tcp_nodelay on;
   }
+  
+  location @change_upload_error {
+    default_type application/json;
+    return 422 "{\"error\":\"Validation failed: File file size must be less than 8 MB, File must be less than 8 MB\"}";
+  }
 
   error_page 500 501 502 503 504 /500.html;
+  error_page 413 = @change_upload_error;
 }
 ```
 
