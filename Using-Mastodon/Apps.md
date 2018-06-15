@@ -85,6 +85,7 @@ List of apps
 |**[Mstdn](https://github.com/rhysd/Mstdn/blob/master/README.md)** | <https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp)/[@inudog@mastodon.social](https://mastodon.social/@inudog) |
 |[TheDesk](https://github.com/cutls/TheDesk/blob/master/README.md) | <https://github.com/cutls/TheDesk>|[@Cutls@kirishima.cloud](https://kirishima.cloud/@Cutls) |
 |[mastodon-jfx](https://github.com/wakingrufus/mastodon-jfx) | <https://github.com/wakingrufus/mastodon-jfx>|[@wakingrufus@mastodon.technology](https://mastodon.technology/@wakingrufus) |
+|[Tootle](https://github.com/bleakgrey/tootle/blob/master/README.md) | <https://github.com/bleakgrey/tootle>|[@bleakgrey@mastodon.social](https://mastodon.social/@bleakgrey) |
 
 ### Mac ###
 
@@ -113,6 +114,7 @@ List of apps
 |**[Halcyon](https://halcyon.toromino.de)**|<https://notabug.org/halcyon-suite/halcyon>|[@halcyon@social.csswg.org](https://social.csswg.org/@halcyon)|
 |[Naumanni](https://naumanni.com/) *(alpha)*|<https://github.com/naumanni/naumanni>|[@shi3z@mstdn.onosendai.jp](https://mstdn.onosendai.jp/@shi3z)/[@shn@oppai.tokyo](https://oppai.tokyo/@shn)|
 |[Pinafore](https://pinafore.social/) *(beta)*|<https://github.com/nolanlawson/pinafore>|[@nolan@toot.cafe](https://toot.cafe/@nolan)|
+|[Brutaldon](https://brutaldon.online/)|<https://github.com/jfmcbrayer/brutaldon>|[@gcupc@glitch.social](https://glitch.social/@gcupc)|
 
 ## Browser add-ons/extensions
 
