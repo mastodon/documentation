@@ -133,7 +133,7 @@ List of apps
 |App|Platform|Source code|Developer(s)|
 |---|--------|-----------|------------|
 |**[Autopost to Mastodon](https://wordpress.org/plugins/autopost-to-mastodon/)**|Wordpress plugin|<https://github.com/L1am0/mastodon_wordpress_autopost>|[L1am0](http://l1am0.eu/)|
-|**[bitlbee-mastodon](https://github.com/kensanata/bitlbee-mastodon#mastodon-plugin-for-bitlbee)**|IRC|<https://github.com/kensanata/bitlbee-mastodon>|[Alex Schroeder](https://alexschroeder.ch/wiki/Contact)|
+|**[bitlbee-mastodon](https://alexschroeder.ch/software/Bitlbee_Mastodon)**|IRC|<https://alexschroeder.ch/cgit/bitlbee-mastodon/about/>|[Alex Schroeder](https://alexschroeder.ch/wiki/Contact)|
 |**[MastodonToTwitter](https://github.com/halcy/MastodonToTwitter/blob/master/README.md)**|CLI|<https://github.com/halcy/MastodonToTwitter>|[@halcy@mastodon.social](https://mastodon.social/@halcy)|
 |**[Mastodon Twitter Poster](https://crossposter.masto.donte.com.br)**|Service|<https://github.com/renatolond/mastodon-twitter-poster>|[@renatolond@masto.donte.com.br](https://masto.donte.com.br/@renatolond)|
 |**[Moa](https://moa.party)**|Service|<https://github.com/foozmeat/moa>|[@foozmeat@pdx.social](https://pdx.social/@foozmeat)|
