@@ -45,10 +45,7 @@ Ces chiffres sont seulement des estimations, car la collecte des données repose
 ## Organisation
 
 #### Comment est financé Mastodon?
-Le développement de Mastodon et l'hébergement de mastodon.social sont financés grâce à [Patreon](https://www.patreon.com/mastodon) et [Liberapay](https://liberapay.com/Mastodon/). En dehors de ce financement, le projet n'est pas intéressé par des financements capital risque, la monétisation, la publicité ou toute autre chose de la sorte. Il est aussi possible d'envoyer des dons via:
-- [PayPal](https://www.paypal.me/gargron)
-- BTC: `17j2g7vpgHhLuXhN4bueZFCvdxxieyRVWd`
-- ETH: `0xC2d182De4604655CD420aE5739aE603DD7305C85`
+Le développement de Mastodon et l'hébergement de mastodon.social sont financés grâce à [Patreon](https://www.patreon.com/mastodon) et [Liberapay](https://liberapay.com/Mastodon/). En dehors de ce financement, le projet n'est pas intéressé par des financements capital risque, la monétisation, la publicité ou toute autre chose de la sorte.
 
 Le logiciel est gratuit et open source, et les communautés doivent héberger elles-mêmes leurs serveurs si elles le peuvent, de manière à ce que les coûts soient également plus ou moins distribués. Beaucoup d'instances ont leur propre page Patreon ou Liberapay, ainsi que d'autres moyens de financement participatif.
 
