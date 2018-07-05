@@ -59,11 +59,7 @@ These should be taken as an estimate since all stats are voluntary and collectio
 
 #### How is Mastodon funded?
 
-Development of Mastodon and hosting of mastodon.social is funded through [Patreon](https://www.patreon.com/mastodon) and [Liberapay](https://liberapay.com/Mastodon/). Beyond that, the project is not interested in VC funding, monetizing, advertising, or anything of that sort. Beyond Patreon and Liberapay, donations can be sent via:
-
-- [PayPal](https://www.paypal.me/gargron)
-- BTC: `17j2g7vpgHhLuXhN4bueZFCvdxxieyRVWd`
-- ETH: `0xC2d182De4604655CD420aE5739aE603DD7305C85`
+Development of Mastodon and hosting of mastodon.social is funded through [Patreon](https://www.patreon.com/mastodon) and [Liberapay](https://liberapay.com/Mastodon/). Beyond that, the project is not interested in VC funding, monetizing, advertising, or anything of that sort.
 
 The software is free and open source and communities should host their own servers if they can, that way the costs are more or less distributed. Many instances have their own Patreon and Liberapay pages, among other community funding methods.
 
