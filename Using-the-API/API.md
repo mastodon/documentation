@@ -11,6 +11,7 @@ API overview
   - [Blocks](#blocks)
   - [Domain blocks](#domain-blocks)
   - [Favourites](#favourites)
+  - [Filters](#filters)
   - [Follow Requests](#follow-requests)
   - [Follow Suggestions](#follow-suggestions)
   - [Follows](#follows)
@@ -32,6 +33,7 @@ API overview
   - [Context](#context)
   - [Emoji](#emoji)
   - [Error](#error)
+  - [Filter](#filter)
   - [Instance](#instance)
   - [List](#list)
   - [Mention](#mention)
@@ -331,6 +333,52 @@ Query parameters:
 > **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. It is **not** possible to use the `id` of the returned objects to construct your own URLs, because the results are sorted by an internal key.
 
 Returns an array of [Statuses](#status) favourited by the authenticated user.
+
+### Filters
+
+####  Fetching a list of filters:
+
+    GET /api/v1/filters
+
+> **Note:** This API does not provide pagenation.
+
+Returns an array of [Filters](#filter).
+
+#### Creating a filter.
+
+    POST /api/v1/filters
+
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+| `phrase`          | String that contains keyword or phrase         | no         |
+| `context`         | Array of strings that means filtering context. each string is one of 'home', 'notifications', 'public', 'thread'. At least one context must be specified | no.         |
+| `irreversible`           | Boolean that indicates irreversible filtering on server side       | yes        |
+| `whole_word`           | Boolean that indicates word match.     | yes        |
+| `expires_in`           | Number that indicates seconds. Filter will be expire in seconds after API processed. null or blank string means "don't change". default is unlimited. | yes        |
+
+Returns a [Filter](#filter).
+
+#### Get a filter.
+
+    GET /api/v1/filters/:id
+
+Returns a [Filter](#filter).
+
+#### Update a filter.
+
+    PUT /api/v1/filters/:id
+
+The parameter is same with 'POST /api/v1/filters'.
+
+> **Note:** Currently there is noway to remove expires from existing filter.
+
+Returns a [Filter](#filter).
+
+#### Delete a filter.
+
+    DELETE /api/v1/filters/:id
+
+Returns a empty object.
 
 ### Follow Requests
 
@@ -894,6 +942,25 @@ The most important part of an error response is the HTTP status code. Standard s
 | Attribute                | Description                        | Nullable |
 | ------------------------ | ---------------------------------- | -------- |
 | `error`                  | A textual description of the error | no       |
+
+### Filter
+
+| Attribute                | Description                        | Nullable |
+| ------------------------ | ---------------------------------- | -------- |
+| `id`                  | ID of the filter | no       |
+| `phrase`                  | Keyword or phrase | no       |
+| `context`                  | Array of strings that indicate filter context. each string is ont of 'home', 'notifications', 'public', 'thread'  | no       |
+| `expires_at`                  | String such as "2018-07-06T00:59:13.161Z" that indicates when this filter is expired.  | yes       |
+| `irreversible`                  | Boolean that indicates irreversible server side filtering. | no       |
+| `whole_word`                  | Boolean that indicates word match.  | no       |
+
+If `whole_word` is true , client app should do:
+- Define 'Word constituent character' for your app. In official implementation, it's [A-Za-z0-9_] for JavaScript, it's [[:word:]] for Ruby. In Ruby case it's POSIX character class (Letter | Mark | Decimal_Number | Connector_Punctuation). 
+- If the phrase starts with word character, and if the previous character before matched range is word character, its matched range should treat to not match.
+- If the phrase ends with word character, and if the next character after matched range is word character, its matched range should treat to not match.
+
+Please check app/javascript/mastodon/selectors/index.js and app/lib/feed_manager.rb for more details.
+Most case client apps are compared to WebUI(JS), they should obey to JS implementation.
 
 ### Instance
 

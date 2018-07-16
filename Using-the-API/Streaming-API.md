@@ -32,7 +32,6 @@ The stream will contain events as well as heartbeat comments. Lines that begin w
 ```
 event: name
 data: payload
-
 ```
 
 [See MDN](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format)
@@ -44,5 +43,8 @@ data: payload
 |`update`|A new status has appeared!|Status|
 |`notification`|A new notification|Notification|
 |`delete`|A status has been deleted|ID of the deleted status|
+|`filters_changed`|Keyword filters have been changed|Not exists. (undefined)|
 
 The payload is JSON-encoded.
+
+> **Note:** In case of  `filters_changed` event, `payload` is not defined.
