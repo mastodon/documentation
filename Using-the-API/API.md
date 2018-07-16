@@ -351,7 +351,7 @@ Returns an array of [Filters](#filter).
 | Field             | Description                                                         | Optional   |
 | ----------------- | ------------------------------------------------------------------- | ---------- |
 | `phrase`          | String that contains keyword or phrase         | no         |
-| `context`         | Array of strings that means filtering context. each string is one of 'home', 'notifications', 'public', 'thread' at least one context must be specified | no.         |
+| `context`         | Array of strings that means filtering context. each string is one of 'home', 'notifications', 'public', 'thread'. At least one context must be specified | no.         |
 | `irreversible`           | Boolean that indicates irreversible filtering on server side       | yes        |
 | `whole_word`           | Boolean that indicates word match.     | yes        |
 | `expires_in`           | Number that indicates seconds. Filter will be expire in seconds after API processed. null or blank string means "don't change". default is unlimited. | yes        |
@@ -370,7 +370,7 @@ Returns a [Filter](#filter).
 
 The parameter is same with 'POST /api/v1/filters'.
 
-> **Note:** currently there is noway to remove expires from existing filter.
+> **Note:** Currently there is noway to remove expires from existing filter.
 
 Returns a [Filter](#filter).
 
@@ -950,14 +950,17 @@ The most important part of an error response is the HTTP status code. Standard s
 | `id`                  | ID of the filter | no       |
 | `phrase`                  | Keyword or phrase | no       |
 | `context`                  | Array of strings that indicate filter context. each string is ont of 'home', 'notifications', 'public', 'thread'  | no       |
-| `expires_at`                  | String like "2018-07-06T00:59:13.161Z" that indicates when this filter is expire.  | yes       |
+| `expires_at`                  | String such as "2018-07-06T00:59:13.161Z" that indicates when this filter is expired.  | yes       |
 | `irreversible`                  | Boolean that indicates irreversible server side filtering. | no       |
 | `whole_word`                  | Boolean that indicates word match.  | no       |
 
 If `whole_word` is true , client app should do:
-- Define 'Word constituent character' for your app. In official implementation, it's [A-Za-z0-9_] for JavaScript, it's [[:word:]] for Ruby. Ruby's Word constituent character may contains unicode character.
-- If the phrase starts with word character , then if previous character before the matched range is also word character, it should treat to not match.
-- If the phrase ends with word character , then if next character after the matched range is also word character, it should treat to not match.
+- Define 'Word constituent character' for your app. In official implementation, it's [A-Za-z0-9_] for JavaScript, it's [[:word:]] for Ruby. In Ruby case it's POSIX character class (Letter | Mark | Decimal_Number | Connector_Punctuation). 
+- If the phrase starts with word character, and if the previous character before matched range is word character, its matched range should treat to not match.
+- If the phrase ends with word character, and if the next character after matched range is word character, its matched range should treat to not match.
+
+Please check app/javascript/mastodon/selectors/index.js and app/lib/feed_manager.rb for more details.
+Most case client apps are compared to WebUI(JS), they should obey to JS implementation.
 
 ### Instance
 
