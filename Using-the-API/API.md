@@ -12,6 +12,7 @@ API overview
   - [Domain blocks](#domain-blocks)
   - [Favourites](#favourites)
   - [Follow Requests](#follow-requests)
+  - [Follow Suggestions](#follow-suggestions)
   - [Follows](#follows)
   - [Instances](#instances)
   - [Lists](#lists)
@@ -344,6 +345,27 @@ Returns an array of [Accounts](#account) which have requested to follow the auth
 
     POST /api/v1/follow_requests/:id/authorize
     POST /api/v1/follow_requests/:id/reject
+
+Returns an empty object.
+
+### Follow Suggestions
+
+#### Fetching a list of follow suggestions:
+
+    GET /api/v1/suggestions
+
+Query parameters:
+
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+
+> **Note:** follow suggestion API does not provides pagenation.
+
+Returns an array of [Accounts](#account) which is suggested.
+
+#### Delete a user from follow suggestions:
+
+    DELETE /api/v1/suggestions/:account_id
 
 Returns an empty object.
 
