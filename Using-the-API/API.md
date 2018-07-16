@@ -359,7 +359,7 @@ Query parameters:
 | Field             | Description                                                         | Optional   |
 | ----------------- | ------------------------------------------------------------------- | ---------- |
 
-> **Note:** follow suggestion API does not provides pagenation.
+> **Note:** This API does not provide pagenation.
 
 Returns an array of [Accounts](#account) which is suggested.
 
