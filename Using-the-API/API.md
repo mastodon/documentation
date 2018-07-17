@@ -701,7 +701,7 @@ Form data:
 
 Returns [Results](#results).
 
-If `q` is a URL, Mastodon will attempt to fetch the provided account or status. Otherwise, it will do a local account and hashtag search.
+If `q` is a URL, Mastodon will attempt to fetch the provided account or status. Otherwise, it will search for local accounts and hashtags, and if your instance allows it it will search for toots you've written, boosted, favourited or were mentioned in.
 
     GET /api/v2/search
 
