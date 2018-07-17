@@ -83,7 +83,7 @@ Try [Amaroq](https://itunes.apple.com/us/app/amaroq-for-mastodon/id1214116200).
 [Yep.](Apps.md)
 
 #### How do I search?
-You can search for people and hashtags, but not general text. Use the box above the tooting area. If you are on the mobile layout, click the pen in the navigation.
+You can search for people and hashtags, and if your instance allows it you can search for toots you've written, boosted, favourited or were mentioned in, but you cannot search for general text. Use the box above the tooting area. If you are on the mobile layout, click the pen in the navigation.
 
 #### How do I DM (Direct Message)?"
 Click on the **globe** beneath your toot for privacy options, including "direct" (DM).
