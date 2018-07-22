@@ -45,6 +45,11 @@ Finally, open `http://localhost:3000` in your browser.
 
 By default, your development environment will have an admin account created for you to use - the email address will be `admin@YOURDOMAIN` (e.g. admin@localhost:3000) and the password will be `mastodonadmin`.
 
+For the test suite, by default `.env.test` will enable testing for the optional PAM authentication. Install the system and gem group dependency with the following:
+
+    apt install libpam0g-dev
+    bundle install --with pam_authentication
+
 You can run tests with:
 
     rspec
