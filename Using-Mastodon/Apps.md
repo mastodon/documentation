@@ -58,7 +58,7 @@ List of apps
 |---|-----------|------------|
 |**[11t](https://github.com/jeroensmeets/mastodon-app/blob/master/README.md)**<br />([iTunes](https://itunes.apple.com/nl/app/11t-for-mastodon/id1180628189))|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
 |**[Amaroq](https://github.com/ReticentJohn/Amaroq/blob/master/README.md)**<br />([iTunes](https://itunes.apple.com/us/app/amarok-for-mastodon/id1214116200?ls=1&mt=8))|<https://github.com/ReticentJohn/Amaroq>|[@eurasierboy@mastodon.social](https://mastodon.social/users/eurasierboy)|
-|**[iMast](https://cinderella-project.github.io/iMast/)**<br />([iTunes](https://itunes.apple.com/jp/app/imast/id1229461703))|<https://github.com/cinderella-project/iMast>|[@imast_ios@imastodon.net](https://imastodon.net/@imast_ios)|
+|**[iMast](https://cinderella-project.github.io/iMast/)**<br />([iTunes](https://itunes.apple.com/jp/app/imast/id1229461703))|<https://github.com/cinderella-project/iMast>|[@imast_ios@mstdn.rinsuki.net](https://mstdn.rinsuki.net/@imast_ios)<br />[@rinsuki@mstdn.maud.io](https://mstdn.maud.io/@rinsuki)|
 |[TootyFruity](https://github.com/eggplantPrince/tootyFruity/blob/master/README.md)<br />([iTunes](https://docs.google.com/forms/d/e/1FAIpQLScW2lvZaKrOm4AKJH5HLI_Ul0Yr3CsXulf5bcTJQ1xaN5jiPg/viewform?c=0&w=1)) *(beta)*|<https://github.com/eggplantPrince/tootyFruity>|[@eggplant@mastodon.social](https://mastodon.social/users/eggplant)|
 
 ### iOS - proprietary
