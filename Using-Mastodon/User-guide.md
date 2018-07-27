@@ -22,6 +22,7 @@ Translations of this User Guide:
   * [The Federated Timeline](User-guide.md#the-federated-timeline)
   * [The Local Timeline](User-guide.md#the-local-timeline)
   * [Searching](User-guide.md#searching)
+  * [Lists](User-guide.md#lists)
 * [Privacy, Safety and Security](User-guide.md#privacy-safety-and-security)
   * [Two-Factor Authentication](User-guide.md#two-factor-authentication)
   * [Account Privacy](User-guide.md#account-privacy)
@@ -177,6 +178,10 @@ In order to start a search, just type into the search box in the Compose column 
 * Hannah (`@friend@nonbinary.instance`)
 * `#nonbinary`
 * `#nonbinaryheroes`
+
+#### Lists
+
+At this point in time you need to follow people you add to lists. And you add them from within the settings of the list. See [this topic](https://discourse.joinmastodon.org/t/user-lists-feature/921/2).
 
 ## Privacy, Safety and Security
 
