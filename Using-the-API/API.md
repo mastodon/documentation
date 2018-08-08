@@ -929,11 +929,12 @@ May contain `small` and `original` (referring to the preview and the original fi
 
 ### Emoji
 
-| Attribute                | Description                        | Nullable |
-|--------------------------|------------------------------------|----------|
-| `shortcode`              | The shortcode of the emoji         | no       |
-| `static_url`             | URL to the emoji static image      | no       |
-| `url`                    | URL to the emoji image             | no       |
+| Attribute                | Description                                              | Nullable |
+|--------------------------|----------------------------------------------------------|----------|
+| `shortcode`              | The shortcode of the emoji                               | no       |
+| `static_url`             | URL to the emoji static image                            | no       |
+| `url`                    | URL to the emoji image                                   | no       |
+| `visible_in_picker`      | Boolean that indicates if the emoji is visible in picker | no       |
 
 ### Error
 
