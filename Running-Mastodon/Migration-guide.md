@@ -63,6 +63,28 @@ This will copy the Postgres database from the old system to the new one. You may
 
 Note that you will need to re-run this process from scratch (i.e. on a fresh database) if the old database changes after the dump.
 
+#### Dump and load as a different Postgres user
+
+If the Postgres username on the old server is different from the Postgres username on the new server, then you will have to use a slightly different technique. Run this to dump:
+
+```bash
+pg_dump -Fc mastodon_production -f backup.dump
+```
+
+Create the database like normal:
+
+```bash
+createdb -T template0 mastodon_production
+```
+
+Then load the dump using a special mode where the new user overwrites the old user (`--no-owner --role=<new_username>`), and only public schemas are used (`-n public`):
+
+```bash
+pg_restore -U <new_username> -n public --no-owner --role=<new_username> -d mastodon_production backup.dump
+```
+
+(Replace `<new_username>` with the new Postgres username above.)
+
 ### Copy `system/` files
 
 This will probably take some time, and you'll want to avoid re-copying unnecessarily, so using `rsync` is recommended. On your old machine, as the `mastodon` user, run:
