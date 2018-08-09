@@ -224,6 +224,7 @@ Setting up Mastodon behind Apache is possible as well, although you will need to
    ProxyPassMatch ^(/.*\.(png|ico)$) !
    ProxyPassMatch ^/(assets|avatars|emoji|headers|packs|sounds|system|.well-known/acme-challenge) !
    
+   ProxyPassMatch /api/v1/streaming/(.+)$ http://localhost:4000/api/v1/streaming/$1
    ProxyPass /api/v1/streaming/ ws://localhost:4000/
    ProxyPassReverse /api/v1/streaming/ ws://localhost:4000/
    ProxyPass / http://localhost:3000/
