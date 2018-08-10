@@ -351,8 +351,8 @@ Returns an array of [Filters](#filter).
 | Field             | Description                                                         | Optional   |
 | ----------------- | ------------------------------------------------------------------- | ---------- |
 | `phrase`          | String that contains keyword or phrase         | no         |
-| `context`         | Array of strings that means filtering context. each string is one of 'home', 'notifications', 'public', 'thread'. At least one context must be specified | no.         |
-| `irreversible`           | Boolean that indicates irreversible filtering on server side       | yes        |
+| `context`         | Array of strings that means filtering context. each string is one of 'home', 'notifications', 'public', 'thread'. At least one context must be specified. | no.         |
+| `irreversible`    | Boolean that indicates irreversible filtering on server side. If you are implementing a client, then the client will have to do the filtering when `irreversible` is false. | yes        |
 | `whole_word`           | Boolean that indicates word match.     | yes        |
 | `expires_in`           | Number that indicates seconds. Filter will be expire in seconds after API processed. null or blank string means "don't change". default is unlimited. | yes        |
 
