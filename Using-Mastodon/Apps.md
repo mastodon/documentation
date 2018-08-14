@@ -107,8 +107,8 @@ List of apps
 |**[WinMasto](https://github.com/drasticactions/WinMasto/blob/master/README.md)**|10|<https://github.com/drasticactions/WinMasto>|[@drasticactions@mastodon.network](https://mastodon.network/users/drasticactions)|
 |[Mastodon UWP](https://rink.hockeyapp.net/apps/5199eba8bc914c4ab416aa8513d62826) *(beta)*|10|<https://github.com/woachk/mastodon>|[@my123@mastodon.social](https://mastodon.social/users/my123)|
 |[TheDesk](https://github.com/cutls/TheDesk/blob/master/README.md) |7~ |<https://github.com/cutls/TheDesk>|[@Cutls@kirishima.cloud](https://kirishima.cloud/@Cutls) |
-|[mastodon-jfx](https://github.com/wakingrufus/mastodon-jfx) | <https://github.com/wakingrufus/mastodon-jfx>|[@wakingrufus@mastodon.technology](https://mastodon.technology/@wakingrufus) |
-| [Whalebird](https://whalebird.org/) | <https://github.com/h3poteto/whalebird-desktop> | [@h3_poteto@mstdn.jp](https://mstdn.jp/@h3_poteto) |
+|[mastodon-jfx](https://github.com/wakingrufus/mastodon-jfx) | 0.8.1 | <https://github.com/wakingrufus/mastodon-jfx>|[@wakingrufus@mastodon.technology](https://mastodon.technology/@wakingrufus) |
+| [Whalebird](https://whalebird.org/) | 1.5.6 | <https://github.com/h3poteto/whalebird-desktop> | [@h3_poteto@mstdn.jp](https://mstdn.jp/@h3_poteto) |
 
 ## Alternative web clients
 
