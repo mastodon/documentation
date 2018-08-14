@@ -2,7 +2,7 @@
 
 **Disclaimer:**
 
-This guide was written for [Ubuntu Server 16.04](https://www.ubuntu.com/server), you may run into issues if you are using another operating system. We are welcoming contributions for guides to other distributions.
+This guide was written for [Ubuntu Server 18.04](https://www.ubuntu.com/server), you may run into issues if you are using another operating system. We are welcoming contributions for guides to other distributions.
 
 This document is also written with the expectation that you have a technical level high enough to administrate Linux servers.
 
