@@ -86,6 +86,7 @@ List of apps
 |[TheDesk](https://github.com/cutls/TheDesk/blob/master/README.md) | <https://github.com/cutls/TheDesk>|[@Cutls@kirishima.cloud](https://kirishima.cloud/@Cutls) |
 |[mastodon-jfx](https://github.com/wakingrufus/mastodon-jfx) | <https://github.com/wakingrufus/mastodon-jfx>|[@wakingrufus@mastodon.technology](https://mastodon.technology/@wakingrufus) |
 |[Tootle](https://github.com/bleakgrey/tootle/blob/master/README.md) | <https://github.com/bleakgrey/tootle>|[@bleakgrey@mastodon.social](https://mastodon.social/@bleakgrey) |
+| [Whalebird](https://whalebird.org/) | <https://github.com/h3poteto/whalebird-desktop> | [@h3_poteto@mstdn.jp](https://mstdn.jp/@h3_poteto) |
 
 ### Mac ###
 
@@ -93,6 +94,7 @@ List of apps
 |---|-----------|------------|
 |**[Mstdn](https://github.com/rhysd/Mstdn/blob/master/README.md)** | <https://github.com/rhysd/Mstdn>|[@Linda_pp@mstdn.jp](https://mstdn.jp/@Linda_pp)/[@inudog@mastodon.social](https://mastodon.social/@inudog) |
 |[mastodon-jfx](https://github.com/wakingrufus/mastodon-jfx) | <https://github.com/wakingrufus/mastodon-jfx>|[@wakingrufus@mastodon.technology](https://mastodon.technology/@wakingrufus) |
+| [Whalebird](https://whalebird.org/) | <https://github.com/h3poteto/whalebird-desktop> | [@h3_poteto@mstdn.jp](https://mstdn.jp/@h3_poteto) |
 
 ### Windows
 
@@ -106,6 +108,7 @@ List of apps
 |[Mastodon UWP](https://rink.hockeyapp.net/apps/5199eba8bc914c4ab416aa8513d62826) *(beta)*|10|<https://github.com/woachk/mastodon>|[@my123@mastodon.social](https://mastodon.social/users/my123)|
 |[TheDesk](https://github.com/cutls/TheDesk/blob/master/README.md) |7~ |<https://github.com/cutls/TheDesk>|[@Cutls@kirishima.cloud](https://kirishima.cloud/@Cutls) |
 |[mastodon-jfx](https://github.com/wakingrufus/mastodon-jfx) | <https://github.com/wakingrufus/mastodon-jfx>|[@wakingrufus@mastodon.technology](https://mastodon.technology/@wakingrufus) |
+| [Whalebird](https://whalebird.org/) | <https://github.com/h3poteto/whalebird-desktop> | [@h3_poteto@mstdn.jp](https://mstdn.jp/@h3_poteto) |
 
 ## Alternative web clients
 
@@ -175,7 +178,7 @@ List of apps
 |**[Mastodon/Pleroma Newcomers](http://vinayaka.distsn.org/user-new.html)**|<https://github.com/distsn/vinayaka>|[Hakaba Hitoyo](http://hakaba-hitoyo.github.io)|
 |[Search Mastodon tools](http://search.mastodon.tools/)|<https://github.com/DavidLibeau/search-mastodon-tools>|[@David@mastodon.xyz](https://mastodon.xyz/@David)|
 
-## Other tools 
+## Other tools
 <!--- Tools that don't fit elsewhere --->
 |App|Platform|Source code|Developer(s)|
 |---|--------|-----------|------------|
