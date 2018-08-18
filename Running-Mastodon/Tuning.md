@@ -7,6 +7,7 @@ Table of contents:
 - [Using pgBouncer](PgBouncer-guide.md)
 - [Using nginx proxy caching](#using-nginx-proxy-caching)
 - [Using a separate Redis for the Rails cache](#using-a-separate-redis-for-the-rails-cache)
+- [Using read replicas](#using-read-replicas)
 
 ___
 
@@ -169,3 +170,12 @@ index 0b50542..1d3fac6 100644
 Redis is used widely throughout the application, but some uses are more important than others. Home feeds, list feeds, and Sidekiq queues as well as the streaming API are backed by Redis and that's important data you wouldn't want to lose (even though the loss can be survived, unlike the loss of the PostgreSQL database - never lose that!). However, Redis is also used for volatile cache. If you are at a stage of scaling up where you are worried if your Redis can handle everything, you can use a different Redis database for the cache. In the environment, you can specify `CACHE_REDIS_URL` or individual parts like `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT` etc. Unspecified parts fallback to the same values as without the cache prefix.
 
 As far as configuring the Redis database goes, basically you can get rid of background saving to disk, since it doesn't matter if the data gets lost on restart and you can save some disk I/O on that. You can also add a maximum memory limit and a key eviction policy, for that, see this guide: [Using Redis as an LRU cache](https://redis.io/topics/lru-cache)
+
+## Using read replicas
+
+To reduce the load on your Postgresql server, you may wish to setup hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
+
+- The streaming API server does not issue writes at all, so you can connect it straight to the replica. But it's not querying the database very often anyway so the impact of this is little.
+- Use the Makara driver in the web and sidekiq processes, so that writes go to the master database, while reads go to the replica. Let's talk about that.
+
+You will have to edit the `config/database.yml` file and replace the `production` section as follows:
