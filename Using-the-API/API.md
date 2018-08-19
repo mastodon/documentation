@@ -1054,6 +1054,7 @@ Most case client apps are compared to WebUI(JS), they should obey to JS implemen
 | `content`                | Body of the status; this will contain HTML (remote HTML already sanitized)    | no       |
 | `created_at`             | The time the status was created                                               | no       |
 | `emojis`                 | An array of [Emoji](#emoji)                                                   | no       |
+| `replies_count`          | The number of replies for the status                                          | no       |
 | `reblogs_count`          | The number of reblogs for the status                                          | no       |
 | `favourites_count`       | The number of favourites for the status                                       | no       |
 | `reblogged`              | Whether the authenticated user has reblogged the status                       | yes      |
