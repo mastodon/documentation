@@ -1,6 +1,8 @@
 # Updating Mastodon
 
-This guide assumes you have the set up seen in the [Production Guide](./Production-guide.md).
+*This guide is for updating a* non-Docker *style Mastodon instance, as outlined in the
+[Production Guide](./Production-guide.md). For instructions on updating a* Docker *style
+Mastodon instance, see the 'Updating' section in [Docker-Guide.md](./Docker-Guide.md).*
 
 ## Read the release notes
 
