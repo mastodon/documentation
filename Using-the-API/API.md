@@ -109,6 +109,7 @@ Form data:
 | `avatar`       | An avatar for the user (encoded using `multipart/form-data`)      | yes        |
 | `header`       | A header image for the user (encoded using `multipart/form-data`) | yes        |
 | `locked`       | Manually approve followers?                                       | yes        |
+| `source`       | (2.4 or later) extra `source` attribute from `verify_credentials` | yes        |
 | `fields_attributes[0][name]` | (2.4 or later) Label of profile metadata field.     | yes        |
 | `fields_attributes[0][value]` | (2.4 or later) Value of profile metadata field.    | yes        |
 
