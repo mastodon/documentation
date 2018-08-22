@@ -24,7 +24,6 @@ API overview
   - [Search](#search)
   - [Statuses](#statuses)
   - [Timelines](#timelines)
-  - [Trends](#trends)
 - [Entities](#entities)
   - [Account](#account)
   - [Application](#application)
@@ -837,16 +836,6 @@ Query parameters:
 Returns an array of [Statuses](#status), most recent ones first.
 
 Public and tag timelines do not require authentication.
-
-### Trends
-
-#### Retrieving trending hashtags
-
-    GET /api/v1/trends
-
-Returns an array of [Tag](#tag), sorted by the internal trending algorithm.
-
-Does not require authentication.
 
 ___
 
