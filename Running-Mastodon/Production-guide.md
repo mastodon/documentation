@@ -66,7 +66,7 @@ We run this script to add the repository:
 
 ```sh
 apt -y install curl
-curl -sL https://deb.nodesource.com/setup_8.x | bash -
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 ```
 
 The [node.js](https://nodejs.org/en/) repository is now added.
