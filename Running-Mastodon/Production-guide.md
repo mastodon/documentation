@@ -47,6 +47,9 @@ The records added are:
 ## Dependency Installation
 
 All dependencies should be installed as root.
+```
+sudo /bin/bash
+```
 
 ## Extend Ubuntu repositories when using Ubuntu 18.04.1 LTS
 
