@@ -13,9 +13,14 @@ The project now includes a `Dockerfile` and a `docker-compose.yml` file (which r
 ## Setting up
 
 Clone Mastodon's repository.
-
-    git clone https://github.com/tootsuite/mastodon
-    cd mastodon
+    
+    # Clone mastodon to ~/live directory
+    git clone https://github.com/tootsuite/mastodon.git live
+    # Change directory to ~/live
+    cd ~/live
+    # Checkout to the latest stable branch
+    git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
+    
 
 Review the settings in `docker-compose.yml`. Note that it is **not default** to store the postgresql database and redis databases in a persistent storage location. If you plan on running your instance in production, you **must** uncomment the [`volumes` directive](https://github.com/tootsuite/mastodon/blob/972f6bc861affd9bc40181492833108f905a04b6/docker-compose.yml#L7-L16) in `docker-compose.yml`.
 
