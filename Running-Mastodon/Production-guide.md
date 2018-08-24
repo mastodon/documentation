@@ -468,6 +468,8 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 ```
+By default, Mastodon write set `RAILS_LOG_LEVEL` to info, so everything is write on syslog. To preserve your IO and disk space, you can add `Environment="RAILS_LOG_LEVEL=warn"` or `Environment="RAILS_LOG_LEVEL=error"` in `/etc/systemd/system/mastodon-sidekiq.service` and `/etc/systemd/system/mastodon-web.service`.
+
 
 Now you need to enable all of these services:
 
