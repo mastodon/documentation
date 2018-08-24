@@ -158,6 +158,10 @@ bundle exec rails db:setup
 bin/rails assets:precompile
 ```
 
+If `bundle install` fails, make sure you ran the line above to install all binary dependencies using brew.
+
+If `bundle exec rails db:setup` fails to run with an error about not being able to find icu4c, follow [this guide](https://stackoverflow.com/questions/3987683/homebrew-install-specific-version-of-formula#4158763) to ensure you have version 61.1 installed and activated. Sometimes it's as easy as checking using `brew info icu4c` that 61.1 is there and then a quick `brew switch icu4c 61.1`.
+
 ### Running
 
 In separate Terminal windows/tabs:
