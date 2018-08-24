@@ -50,13 +50,30 @@ What this example looks like as a cron job:
 [pg_dump](https://www.postgresql.org/docs/9.5/static/app-pgdump.html) is an utility that comes with PostgreSQL that can be used extract the contents of a
 PostgreSQL database.
 
-Please read the documentation page linked above for all relevant usage details.
+Here is how to use `pg_dump` to back up and restore a Mastodon PostgresSQL database:
 
-Here is an example:
+As the `mastodon` user, create a `backup.dump` file:
+
 ```sh
-# Dump Mastodon's PostgreSQL database into a SQL-script file
-pg_dump mastodon_production > mastodon_production.sql
+pg_dump -Fc mastodon_production > backup.dump
 ```
+
+To restore, first delete the database **(make sure it is backed up first!)**:
+
+```sh
+dropdb mastodon_production
+```
+
+Then restore using `createdb` and `pg_restore`:
+
+```sh
+createdb -T template0 mastodon_production
+pg_restore -Fc -n public -d mastodon_production backup.dump
+```
+
+You will want to make sure that Mastodon is not running during the backup/restore process.
+
+#### pg_dump maintenance scripts
 
 If you are looking for a pre-written set of scripts to maintain PostgreSQL backups using pg_dump, you can find them [here](https://wiki.postgresql.org/wiki/Automated_Backup_on_Linux).
 
