@@ -24,7 +24,6 @@ API overview
   - [Search](#search)
   - [Statuses](#statuses)
   - [Timelines](#timelines)
-  - [Trends](#trends)
 - [Entities](#entities)
   - [Account](#account)
   - [Application](#application)
@@ -109,6 +108,7 @@ Form data:
 | `avatar`       | An avatar for the user (encoded using `multipart/form-data`)      | yes        |
 | `header`       | A header image for the user (encoded using `multipart/form-data`) | yes        |
 | `locked`       | Manually approve followers?                                       | yes        |
+| `source`       | (2.4 or later) extra `source` attribute from `verify_credentials` | yes        |
 | `fields_attributes[0][name]` | (2.4 or later) Label of profile metadata field.     | yes        |
 | `fields_attributes[0][value]` | (2.4 or later) Value of profile metadata field.    | yes        |
 
@@ -837,16 +837,6 @@ Returns an array of [Statuses](#status), most recent ones first.
 
 Public and tag timelines do not require authentication.
 
-### Trends
-
-#### Retrieving trending hashtags
-
-    GET /api/v1/trends
-
-Returns an array of [Tag](#tag), sorted by the internal trending algorithm.
-
-Does not require authentication.
-
 ___
 
 ## Entities
@@ -1054,6 +1044,7 @@ Most case client apps are compared to WebUI(JS), they should obey to JS implemen
 | `content`                | Body of the status; this will contain HTML (remote HTML already sanitized)    | no       |
 | `created_at`             | The time the status was created                                               | no       |
 | `emojis`                 | An array of [Emoji](#emoji)                                                   | no       |
+| `replies_count`          | The number of replies for the status                                          | no       |
 | `reblogs_count`          | The number of reblogs for the status                                          | no       |
 | `favourites_count`       | The number of favourites for the status                                       | no       |
 | `reblogged`              | Whether the authenticated user has reblogged the status                       | yes      |

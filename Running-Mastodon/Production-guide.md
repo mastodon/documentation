@@ -47,6 +47,19 @@ The records added are:
 ## Dependency Installation
 
 All dependencies should be installed as root.
+```
+sudo -i
+```
+
+## Extend Ubuntu repositories when using Ubuntu 18.04.1 LTS
+
+Starting with .1-release Ubuntu 18.04.1 LTS (not 18.04), Canonical has removed the multiverse, universe and restricted repository from the sources.list file in /etc/apt/. It is now necessary to add those repositories, otherwise the installation of the following dependencies will fail. Simply run the following commands:
+
+```add-apt-repository universe
+add-apt-repository multiverse
+add-apt-repository restricted
+apt update
+```
 
 ### node.js Repository
 
@@ -427,7 +440,7 @@ User=mastodon
 WorkingDirectory=/home/mastodon/live
 Environment="RAILS_ENV=production"
 Environment="DB_POOL=5"
-ExecStart=/home/mastodon/.rbenv/shims/bundle exec sidekiq -c 5 -q default -q mailers -q pull -q push
+ExecStart=/home/mastodon/.rbenv/shims/bundle exec sidekiq -c 5 -q default -q push -q mailers -q pull
 TimeoutSec=15
 Restart=always
 

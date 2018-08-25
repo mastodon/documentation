@@ -171,6 +171,36 @@ Redis is used widely throughout the application, but some uses are more importan
 
 As far as configuring the Redis database goes, basically you can get rid of background saving to disk, since it doesn't matter if the data gets lost on restart and you can save some disk I/O on that. You can also add a maximum memory limit and a key eviction policy, for that, see this guide: [Using Redis as an LRU cache](https://redis.io/topics/lru-cache)
 
+With Docker, here's how you would do it with `docker-compose`:
+
+```yaml
+  redis:
+    image: redis:4.0-alpine
+    restart: always
+    networks:
+      - internal_network
+    volumes:
+      - ./redis:/data
+
+  redis_cache:
+    image: redis:4.0-alpine
+    restart: always
+    networks:
+      - internal_network
+    command: redis-server --save ""
+```
+
+The first Redis is the one you're used to run, and the second one is for the Rails cache. As we don't want it to save to disk, we specify `redis-server --save ""`, and we don't create any volume.
+
+Then your `.env.production` should look like this:
+
+```
+REDIS_HOST=redis
+REDIS_PORT=6379
+CACHE_REDIS_HOST=redis_cache
+CACHE_REDIS_PORT=6379
+```
+
 ## Using read replicas
 
 To reduce the load on your Postgresql server, you may wish to setup hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
