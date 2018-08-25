@@ -461,6 +461,7 @@ User=mastodon
 WorkingDirectory=/home/mastodon/live
 Environment="NODE_ENV=production"
 Environment="PORT=4000"
+Environment="BIND=127.0.0.1"
 ExecStart=/usr/bin/npm run start
 TimeoutSec=15
 Restart=always
