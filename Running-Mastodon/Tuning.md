@@ -179,3 +179,21 @@ To reduce the load on your Postgresql server, you may wish to setup hot streamin
 - Use the Makara driver in the web and sidekiq processes, so that writes go to the master database, while reads go to the replica. Let's talk about that.
 
 You will have to edit the `config/database.yml` file and replace the `production` section as follows:
+
+```yml
+production:
+  <<: *default
+  adapter: postgresql_makara
+  prepared_statements: false
+  makara:
+    id: postgres
+    sticky: true
+    connections:
+      - role: master
+        blacklist_duration: 0
+        url: postgresql://db_user:db_password@db_host:db_port/db_name
+      - role: slave
+        url: postgresql://db_user:db_password@db_host:db_port/db_name
+```
+
+Make sure the URLs point to wherever your PostgreSQL servers are. You can add multiple replicas. You could have a locally installed pgBouncer with configuration to connect to two different servers based on database name, e.g. "mastodon" going to master, "mastodon_replica" going to the replica, so in the file above both URLs would point to the local pgBouncer with the same user, password, host and port, but different database name. There are many possibilities how this could be setup! For more information on Makara, [see their documentation](https://github.com/taskrabbit/makara#databaseyml).
