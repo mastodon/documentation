@@ -31,7 +31,7 @@ It’s **mastodon** with two Os. You will get it wrong at least once.
 “Local” toots are from the server you signed up at. “Federated” are the all the toots your server knows about. (It's complicated, but short version is: “toots from people that you and other locals follow.”)
 
 #### What is the “fediverse”?
-Federated universe. The network of compatible social media servers such as Mastodon, Friendica, Hubzilla, Kroeg, PeerTube and more. Typically if you've got one account on a server in the fediverse, you can follow and befollowed by folks from other servers.
+Federated universe. The network of compatible social media servers such as Mastodon, Friendica, Hubzilla, Kroeg, PeerTube and more. Typically if you've got one account on a server in the fediverse, you can follow and be followed by folks from other servers.
 
 ## Federation
 
