@@ -350,13 +350,19 @@ Returns an array of [Filters](#filter).
 
 | Field             | Description                                                         | Optional   |
 | ----------------- | ------------------------------------------------------------------- | ---------- |
-| `phrase`          | String that contains keyword or phrase         | no         |
-| `context`         | Array of strings that means filtering context. each string is one of 'home', 'notifications', 'public', 'thread'. At least one context must be specified | no.         |
-| `irreversible`           | Boolean that indicates irreversible filtering on server side       | yes        |
+| `phrase`          | String that contains keyword or phrase.         | no         |
+| `context`         | Array of strings that means filtering context. Each string is one of 'home', 'notifications', 'public', 'thread'. At least one context must be specified. | no.         |
+| `irreversible`    | Boolean that indicates irreversible filtering on server side.     | yes        |
 | `whole_word`           | Boolean that indicates word match.     | yes        |
-| `expires_in`           | Number that indicates seconds. Filter will be expire in seconds after API processed. null or blank string means "don't change". default is unlimited. | yes        |
+| `expires_in`           | Number that indicates seconds. Filter will be expire in seconds after API processed. Null or blank string means "don't change". Default is unlimited. | yes        |
 
 Returns a [Filter](#filter).
+
+Notes:
+
+* The public context refers to both the local and the federated [timelines](#timelines); the home context refers to the home timeline. The thread context happens when looking at a status in [context](#context). No context applies when looking at the [statuses of an account](#getting-an-accounts-statuses).
+* Clients must do their own filtering based on these filters. The server will apply "irreversible" filters for home and notifications context. Anything else is still up to the client to filter!
+* Expired filters are not deleted by the server. They should no longer be applied but they are still stored by the server. It is up to clients to delete these filters eventually.
 
 #### Get a filter.
 
