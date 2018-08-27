@@ -5,9 +5,100 @@ We use the [Doorkeeper gem for OAuth](https://github.com/doorkeeper-gem/doorkeep
 
 The API is divided up into access scopes:
 
-- `read`: Read data
-- `write`: Post statuses and upload media for statuses
-- `follow`: Follow, unfollow, block, unblock
+* write
+  * write:accounts
+    * `PUT /api/v1/accounts/verify_credentials`
+    * `POST /api/v1/statuses/:id/pin`
+    * `POST /api/v1/statuses/:id/unpin`
+  * write:blocks
+    * `POST /api/v1/accounts/:id/block`
+    * `POST /api/v1/accounts/:id/unblock`
+    * `POST|DELETE /api/v1/domain_blocks`
+  * write:favourites
+    * `POST /api/v1/statuses/:id/favourite`
+    * `POST /api/v1/statuses/:id/unfavourite`
+  * write:filters
+    * `POST /api/v1/filters`
+    * `PUT|DELETE /api/v1/filters/:id`
+  * write:follows
+    * `POST /api/v1/accounts/:id/follow`
+    * `POST /api/v1/accounts/:id/unfollow`
+    * `POST /api/v1/follows`
+    * `POST /api/v1/follow_requests/:id/authorize`
+    * `POST /api/v1/follow_requests/:id/reject`
+  * write:lists
+    * `POST|DELETE /api/v1/lists/:id/accounts`
+    * `POST /api/v1/lists`
+    * `PUT|DELETE /api/v1/lists/:id`
+  * write:media
+    * `POST /api/v1/media`
+    * `PUT /api/v1/media/:id`
+  * write:mutes
+    * `POST /api/v1/statuses/:id/mute`
+    * `POST /api/v1/statuses/:id/unmute`
+    * `POST /api/v1/accounts/:id/mute`
+    * `POST /api/v1/accounts/:id/unmute`
+  * write:notifications
+    * `POST /api/v1/notifications/clear`
+    * `POST /api/v1/notifications/:id/dismiss`
+  * write:reports
+    * `POST /api/v1/reports`
+  * write:statuses
+    * `POST /api/v1/statuses/:id/reblog`
+    * `POST /api/v1/statuses/:id/unreblog`
+    * `POST /api/v1/statuses`
+    * `DELETE /api/v1/statuses/:id`
+* read
+  * read:accounts
+    * `GET /api/v1/accounts/verify_credentials`
+    * `GET /api/v1/accounts/:id/followers`
+    * `GET /api/v1/accounts/:id/following`
+    * `GET /api/v1/accounts/search`
+    * `GET /api/v1/statuses/:id/favourited_by`
+    * `GET /api/v1/statuses/:id/reblogged_by`
+    * `GET /api/v1/accounts/:id`
+  * read:blocks
+    * `GET /api/v1/blocks`
+    * `GET /api/v1/domain_blocks`
+  * read:favourites
+    * `GET /api/v1/favourites`
+  * read:filters
+    * `GET /api/v1/filters`
+    * `GET /api/v1/filters/:id`
+  * read:follows
+    * `GET /api/v1/accounts/relationships`
+    * `GET /api/v1/follow_requests`
+  * read:lists
+    * `GET /api/v1/accounts/:id/lists`
+    * `GET /api/v1/lists/:id/accounts`
+    * `GET /api/v1/lists`
+    * `GET /api/v1/lists/:id`
+  * read:mutes
+    * `GET /api/v1/mutes`
+  * read:notifications
+    * `GET /api/v1/notifications`
+    * `GET /api/v1/notifications/:id`
+  * read:reports
+    * `GET /api/v1/reports`
+  * read:search
+    * `GET /api/v1/search`
+    * `GET /api/v2/search`
+  * read:statuses
+    * `GET /api/v1/accounts/:id/statuses`
+    * `GET /api/v1/timelines/direct`
+    * `GET /api/v1/timelines/home`
+    * `GET /api/v1/timelines/list/:id`
+    * `GET /api/v1/statuses/:id`
+    * `GET /api/v1/statuses/:id/context`
+    * `GET /api/v1/statuses/:id/card`
+* follow (legacy)
+  * read:blocks
+  * read:follows
+  * read:mutes
+  * write:blocks
+  * write:follows
+  * write:mutes
+* push
 
 Multiple scopes can be requested during the authorization phase with the `scope` query param (space-separate the scopes). If you do not specify a `scope` in your authorization request, the resulting access token will default to `read` access.
 
