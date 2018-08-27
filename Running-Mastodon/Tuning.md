@@ -158,12 +158,13 @@ index 0b50542..1d3fac6 100644
 +    proxy_cache_valid 200 7d;
 +    proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
 +    add_header X-Cached $upstream_cache_status;
++    add_header Strict-Transport-Security "max-age=31536000";
 +
      tcp_nodelay on;
    }
  ```
  
- The /var/cache/nginx directory is going to be kept at around 1GB at most, feel free to adjust those values as you see fit. The proxy cache in this case will only cache server responses that do not contain any session data. At the time of writing, these are primarily webfinger and host-meta responses as well as individual statuses in ActivityPub format.
+The /var/cache/nginx directory is going to be kept at around 1GB at most, feel free to adjust those values as you see fit. The proxy cache in this case will only cache server responses that do not contain any session data. At the time of writing, these are primarily webfinger and host-meta responses as well as individual statuses in ActivityPub format.
  
 ## Using a separate Redis for the Rails cache
 
