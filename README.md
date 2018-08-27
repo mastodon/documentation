@@ -38,6 +38,7 @@ Mastodon is a free, open-source social network server based on open web protocol
   - [Tuning Mastodon performance](Running-Mastodon/Tuning.md)
   - [List of terminal commands](Running-Mastodon/List-of-Rake-tasks.md)
   - [Customizing the look](Running-Mastodon/Customizing.md)
+  - [Updating Mastodon](Running-Mastodon/Updating-Mastodon-Guide.md)
 - Advanced:
   - [Serving Mastodon from a subdomain](Running-Mastodon/Serving_a_different_domain.md)
   - [Scaling up with PgBouncer](Running-Mastodon/PgBouncer-guide.md)
