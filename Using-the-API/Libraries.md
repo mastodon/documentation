@@ -35,5 +35,6 @@ Below, a list of libraries to interact with the Mastodon API, sorted by programm
 | R                    | [mastodon](https://github.com/ThomasChln/mastodon)                             |                                                                                |
 | Ruby                 | [mastodon-api](https://github.com/tootsuite/mastodon-api)                      | [@Gargron@mastodon.social](https://mastodon.social/@Gargron)                   |
 | Rust                 | [mammut](https://github.com/Aaronepower/mammut)                                | [@Aaronepower@mastodon.social](https://mastodon.social/@Aaronepower)           |
+| Rust                 | [elefren](https://github.com/pwoolcoc/elefren)                                 | [@balrogboogie@ceilidh.space](https://ceilidh.space/@balrogboogie)             |
 | Scala                | [scaladon](https://github.com/schwitzerm/scaladon)                             |                                                                                |
 | Swift                | [MastodonKit](https://github.com/ornithocoder/MastodonKit)                     | [@ornithocoder@mastodon.technology](https://mastodon.technology/@ornithocoder) |
