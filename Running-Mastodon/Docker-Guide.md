@@ -14,10 +14,9 @@ The project now includes a `Dockerfile` and a `docker-compose.yml` file (which r
 
 Clone Mastodon's repository.
     
-    # Clone mastodon to ~/live directory
+    # Clone mastodon to live directory
     git clone https://github.com/tootsuite/mastodon.git live
-    # Change directory to ~/live
-    cd ~/live
+    cd live
     # Checkout to the latest stable branch
     git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
     
