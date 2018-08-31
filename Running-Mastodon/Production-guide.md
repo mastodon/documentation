@@ -233,7 +233,7 @@ server {
 
   keepalive_timeout    70;
   sendfile             on;
-  client_max_body_size 8m;
+  client_max_body_size 80m;
 
   root /home/mastodon/live/public;
 
