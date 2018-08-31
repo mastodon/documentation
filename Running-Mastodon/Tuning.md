@@ -8,6 +8,7 @@ Table of contents:
 - [Using nginx proxy caching](#using-nginx-proxy-caching)
 - [Using a separate Redis for the Rails cache](#using-a-separate-redis-for-the-rails-cache)
 - [Using read replicas](#using-read-replicas)
+- [Using jemalloc](#using-jemalloc)
 
 ___
 
@@ -228,3 +229,28 @@ production:
 ```
 
 Make sure the URLs point to wherever your PostgreSQL servers are. You can add multiple replicas. You could have a locally installed pgBouncer with configuration to connect to two different servers based on database name, e.g. "mastodon" going to master, "mastodon_replica" going to the replica, so in the file above both URLs would point to the local pgBouncer with the same user, password, host and port, but different database name. There are many possibilities how this could be setup! For more information on Makara, [see their documentation](https://github.com/taskrabbit/makara#databaseyml).
+
+## Using jemalloc
+
+Using [jemalloc](http://jemalloc.net/) can decrease the memory usage of the Ruby processes in your Mastodon instance, in particular the Sidekiq and Web processes. (See [this toot](https://toot.cafe/@nolan/99181460393222415) and [this toot](https://x0r.be/@szbalint/99128946006465749) for admin testimonials.)
+
+First, check if you have `jemalloc` installed. It should be somewhere like this:
+
+    ls /usr/lib/x86_64-linux-gnu/libjemalloc.so.1
+
+If it's not installed, you may need to run:
+
+    sudo apt install libjemalloc
+
+Then to enable `jemalloc`, add this line to both `mastodon-sidekiq.service` and `mastodon-web.service`:
+
+```
+Environment="LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.1"
+```
+
+Restart both processes, and enjoy the extra headroom!
+
+```
+sudo systemctl daemon-reload
+sudo systemctl restart mastodon-web.service mastodon-sidekiq.service
+```
