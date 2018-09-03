@@ -32,6 +32,7 @@ Your site settings are stored in the `settings` database table, and editable thr
 You are able to set settings such as, among others:
 
 - Site title
+- Site default theme
 - Contact username
 - Contact email
 - Site description

@@ -1,18 +1,25 @@
 Customizing your instance
 =========================
+As of Mastodon 2.0.0 you can create themes to customize look of your instance, provide multiple themes, set the default one and let users choose from them. 
+
+## Adding custom theme
+
+1. Create `app/javascript/styles/my_theme.scss`. Here you can write whatever SCSS you want.
+2. Add `@import 'application';` to the end of the SCSS file.
+3. Update `config/themes.yml` to contain `my_theme: styles/my_theme.scss`.
+4. Set name for your theme, in `config/locales/en.yml` under `themes` add new entry:
+```yml
+themes:
+  ...
+  my_theme: "My theme"
+```
+5. Restart your webpack-dev-server (if you're in development mode) for it to be recognized and start live reloading. Naturally, in production you'll need to compile assets and restart for the changes to take effect.
 
 ## Customizing style
 
-You can make the application load a different CSS file than the default, you can optionally choose to use that mechanism to adjust variables and re-import the application CSS from your own CSS. Here is what you need to do:
+### Changing colors and other variables
 
-1. Create `app/javascript/styles/custom.scss`. Here you can write whatever SCSS you want.
-2. Add `@import 'application';` to the end of the SCSS file.
-2. _(As of Mastodon 2.0.0)_ Update `config/themes.yml` to contain `default: styles/custom.scss`.
-3. Restart your webpack-dev-server (if you're in development mode) for it to be recognized and start live reloading. Naturally, in production you'll need to compile assets and restart for the changes to take effect.
-
-## Changing colors and other variables
-
-See the `app/javascript/styles/mastodon/variables.scss` file for the full list of available variables used throughout the application styles. You can redefine their values in your own `custom.scss` like this:
+See the `app/javascript/styles/mastodon/variables.scss` file for the full list of available variables used throughout the application styles. You can redefine their values in your own `my_theme.scss` like this:
 
 ```scss
 $ui-highlight-color: #d3d900;
@@ -20,7 +27,7 @@ $ui-highlight-color: #d3d900;
 @import 'application';
 ```
 
-#### Upgrading custom.scss variables from pre-1.4
+### Upgrading custom.scss variables from pre-1.4
 
 Here is a mapping of the renamed variables:
 
@@ -38,35 +45,26 @@ $base-shadow-color:       $color8;
 $base-overlay-background: $color8;
 ```
 
-## Multiple themes
 
-As of Mastodon 2.0.0, you can provide multiple themes for your users to choose from. Modify `config/themes.yml` like so:
+## Making custom theme the default
 
-```yml
-default: styles/awesome_theme.scss
-mastodon: styles/application.scss
-another: style/another_theme.scss
-```
+### Mastodon 2.5.0 and newer
+Visit your instance's Settings > Administration > Site settings and select desired default theme. The change will be applied immediately.
 
-Note that any custom theme should call `@import "application";`.
+### Before 2.5.0
 
-One of these themes **must** be called `default`, and it will be the default one for your users. By default, the `default` theme is called "Mastodon" in the UI. To change this, modify `config/locales/en.yml` and change:
-
+1. Update `config/themes.yml` - copy path from `my_theme` to `default` and remove `my_theme` entry.
+2. In `config/locales/en.yml` under `themes`, copy your theme name from `my_theme` to `default`:
 ```yml
 themes:
-  default: "Mastodon"
+  default: "My theme"
+  ...
+  my_theme: "My theme"
 ```
 
-to e.g.:
+Restart your webpack-dev-server (if you're in development mode) for it to be recognized and start live reloading. Naturally, in production you'll need to compile assets and restart for the changes to take effect.
 
-```yml
-themes:
-  default: "Awesome Theme"
-  mastodon: "Mastodon Default Theme"
-  another: "Another Theme"
-```
-
-## Link to source code
+## Linking to source code
 
 Mastodon is distributed under the terms of AGPL. The source code must be offered to its user. To easily achieve this on your instance, an initializer like below can be added, as a file like `config/initializers/source.rb`, to customize the links at the bottom of the `/about` and `/about/more` pages:
 
