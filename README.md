@@ -27,17 +27,18 @@ Mastodon is a free, open-source social network server based on open web protocol
 >**Please note**: It is highly recommended to run a [tagged release](https://github.com/tootsuite/mastodon/releases) of Mastodon and **not** run off the current `master` branch.
 
 - Before you start: [Examples of resource usage from other live instances](Running-Mastodon/Resources-needed.md)
-- If you want to use Docker: [Installation using Docker](Running-Mastodon/Docker-Guide.md)
-- If you want to run it standalone: [Standalone installation](Running-Mastodon/Production-guide.md)
-- There are other options:
-  - [Mastodon on Heroku](Running-Mastodon/Heroku-guide.md)
-  - [Mastodon on Scalingo](Running-Mastodon/Scalingo-guide.md)
-  - [Mastodon on Nanobox](Running-Mastodon/Nanobox-Guide.md)
+- Installing mastodon:
+  - [Using Docker](Running-Mastodon/Docker-Guide.md)
+  - [Standalone installation](Running-Mastodon/Production-guide.md)
+  - [On Heroku](Running-Mastodon/Heroku-guide.md)
+  - [On Scalingo](Running-Mastodon/Scalingo-guide.md)
+  - [On Nanobox](Running-Mastodon/Nanobox-Guide.md)
 - After installation:
   - [Administrating a Mastodon instance](Running-Mastodon/Administration-guide.md)
   - [Tuning Mastodon performance](Running-Mastodon/Tuning.md)
   - [List of terminal commands](Running-Mastodon/List-of-Rake-tasks.md)
   - [Customizing the look](Running-Mastodon/Customizing.md)
+  - [Updating Mastodon](Running-Mastodon/Updating-Mastodon-Guide.md)
 - Advanced:
   - [Serving Mastodon from a subdomain](Running-Mastodon/Serving_a_different_domain.md)
   - [Scaling up with PgBouncer](Running-Mastodon/PgBouncer-guide.md)

@@ -51,6 +51,7 @@ Furthermore, in the command, `rake` is interchangeable with `rails`
 
 |Task|Description|Usage|
 |----|-----------|-----|
+|mastodon:maintenance:purge_removed_accounts| Check every known remote account and delete those locally that no longer exist on the account's home instance| -f, --force (optional - will not request confirmation of each deletion|
 |mastodon:push:clear| Normally, a subscription to a once-followed user remains forever, in case the user gets re-followed later. You can purge such subscriptions with 0 followers if you wish|
 |mastodon:feeds:clear_all|Purge all home timelines from redis. Useful only for troubleshooting, when e.g. resetting database during development|
 |mastodon:feeds:build|Regenerates home timelines for all active users. Useful only for troubleshooting, e.g. if you lost your redis database|

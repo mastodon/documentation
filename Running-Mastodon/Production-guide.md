@@ -2,7 +2,7 @@
 
 **Disclaimer:**
 
-This guide was written for [Ubuntu Server 16.04](https://www.ubuntu.com/server), you may run into issues if you are using another operating system. We are welcoming contributions for guides to other distributions.
+This guide was written for [Ubuntu Server 18.04](https://www.ubuntu.com/server), you may run into issues if you are using another operating system. We are welcoming contributions for guides to other distributions.
 
 This document is also written with the expectation that you have a technical level high enough to administrate Linux servers.
 
@@ -18,7 +18,7 @@ We use example.com to represent a domain or sub-domain. Example.com should be re
 
 You will need the following for this guide:
 
-- A server running [Ubuntu Server 16.04](https://www.ubuntu.com/server).
+- A server running [Ubuntu Server 18.04](https://www.ubuntu.com/server).
 - Root access to the server.
 - A domain or sub-domain to use for the instance.
 
@@ -47,6 +47,19 @@ The records added are:
 ## Dependency Installation
 
 All dependencies should be installed as root.
+```
+sudo -i
+```
+
+## Extend Ubuntu repositories when using Ubuntu 18.04.1 LTS
+
+Starting with .1-release Ubuntu 18.04.1 LTS (not 18.04), Canonical has removed the multiverse, universe and restricted repository from the sources.list file in /etc/apt/. It is now necessary to add those repositories, otherwise the installation of the following dependencies will fail. Simply run the following commands:
+
+```add-apt-repository universe
+add-apt-repository multiverse
+add-apt-repository restricted
+apt update
+```
 
 ### node.js Repository
 
@@ -56,7 +69,7 @@ We run this script to add the repository:
 
 ```sh
 apt -y install curl
-curl -sL https://deb.nodesource.com/setup_6.x | bash -
+curl -sL https://deb.nodesource.com/setup_8.x | bash -
 ```
 
 The [node.js](https://nodejs.org/en/) repository is now added.
@@ -90,7 +103,7 @@ Now you need to install [Yarn](https://yarnpkg.com/en/) plus some more software.
 - Other -dev packages, g++ - these are needed for the compilation of Ruby using ruby-build.
 
 ```sh
-apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev nginx redis-server redis-tools postgresql postgresql-contrib letsencrypt yarn libidn11-dev libicu-dev
+apt -y install imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev nginx redis-server redis-tools postgresql postgresql-contrib certbot yarn libidn11-dev libicu-dev
 ```
 
 ### Dependencies That Need To Be Added As A Non-Root User
@@ -129,8 +142,8 @@ Now that [`rbenv`](https://github.com/rbenv/rbenv) and [`ruby-build`](https://gi
 To enable [Ruby](https://www.ruby-lang.org/en/), run:
 
 ```sh
-rbenv install 2.5.0
-rbenv global 2.5.0
+rbenv install 2.5.1
+rbenv global 2.5.1
 ```
 
 **This will take some time. Go stretch for a bit and drink some water while the commands run.**
@@ -146,7 +159,7 @@ Run the following to clone and install:
 cd ~
 # Clone the mastodon git repository into ~/live
 git clone https://github.com/tootsuite/mastodon.git live
-# Change directory to ~live
+# Change directory to ~/live
 cd ~/live
 # Checkout to the latest stable branch
 git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
@@ -220,7 +233,7 @@ server {
 
   keepalive_timeout    70;
   sendfile             on;
-  client_max_body_size 0;
+  client_max_body_size 80m;
 
   root /home/mastodon/live/public;
 
@@ -322,15 +335,15 @@ We will be creating the certificate twice, once with TLS SNI validation in stand
 [nginx](http://nginx.org) and the [Let's Encrypt](https://letsencrypt.org/) tool works.
 
 ```sh
-letsencrypt certonly --standalone -d example.com
+certbot certonly --standalone -d example.com
 ```
 
 After that successfully completes, we will use the webroot method. This requires [nginx](http://nginx.org) to be running:
 
 ```sh
 systemctl start nginx
-# The letsencrypt tool will ask if you want issue a new cert, please choose that option
-letsencrypt certonly --webroot -d example.com -w /home/mastodon/live/public/
+# The certbot tool will ask if you want issue a new cert, please choose that option
+certbot certonly --webroot -d example.com -w /home/mastodon/live/public/
 ```
 
 ### Automated Renewal Of Let's Encrypt Certificate
@@ -349,7 +362,7 @@ Copy and paste this script into that file:
 
 ```sh
 #!/usr/bin/env bash
-letsencrypt renew
+certbot renew
 systemctl reload nginx
 ```
 
@@ -427,7 +440,7 @@ User=mastodon
 WorkingDirectory=/home/mastodon/live
 Environment="RAILS_ENV=production"
 Environment="DB_POOL=5"
-ExecStart=/home/mastodon/.rbenv/shims/bundle exec sidekiq -c 5 -q default -q mailers -q pull -q push
+ExecStart=/home/mastodon/.rbenv/shims/bundle exec sidekiq -c 5 -q default -q push -q mailers -q pull
 TimeoutSec=15
 Restart=always
 
@@ -504,15 +517,17 @@ It may be easier to use a subdomain to setup your email with a custom provider -
 
 Once you create your account, follow the instructions each provider gives you for updating your DNS records.  Once you have all the information ready to go and the service validates your DNS configuration, edit your config file.  These records should already exist in the configuration, but here's a sample setup that uses Mailgun that you can replace with your own personal info:
 
+```
 SMTP_SERVER=smtp.mailgun.org
 SMTP_PORT=587
 SMTP_LOGIN=anAccountThatIsntPostmaster@mstdn.domain.com
 SMTP_PASSWORD=HolySnacksAPassword
 SMTP_FROM_ADDRESS=Domain.com Mastodon Admin <notifications@domain.com>
+```
 
 Finally, to test this, spin up a Rails console (see [the administration guide](https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Administration-guide.md)) and run the following commands to test this out:
 
-```
+```ruby
 m = UserMailer.new.mail to:'email@address.com', subject: 'test', body: 'awoo'
 m.deliver
 ```

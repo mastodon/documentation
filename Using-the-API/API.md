@@ -11,7 +11,9 @@ API overview
   - [Blocks](#blocks)
   - [Domain blocks](#domain-blocks)
   - [Favourites](#favourites)
+  - [Filters](#filters)
   - [Follow Requests](#follow-requests)
+  - [Follow Suggestions](#follow-suggestions)
   - [Follows](#follows)
   - [Instances](#instances)
   - [Lists](#lists)
@@ -30,10 +32,12 @@ API overview
   - [Context](#context)
   - [Emoji](#emoji)
   - [Error](#error)
+  - [Filter](#filter)
   - [Instance](#instance)
   - [List](#list)
   - [Mention](#mention)
   - [Notification](#notification)
+  - [Push Subscription](#push-subscription)
   - [Relationship](#relationship)
   - [Results](#results)
   - [Status](#status)
@@ -84,11 +88,12 @@ Returns an [Account](#account).
 
 Returns the authenticated user's [Account](#account) with an extra attribute `source` which contains these keys:
 
-| Attribute   | Description                                              |
-| ----------- | -------------------------------------------------------- |
-| `privacy`   | Selected preference: Default privacy of new toots        |
-| `sensitive` | Selected preference: Mark media as sensitive by default? |
-| `note`      | Plain-text version of the account's `note`               |
+| Attribute   | Description                                                    |
+| ----------- | -------------------------------------------------------------- |
+| `privacy`   | Selected preference: Default privacy of new toots              |
+| `sensitive` | Selected preference: Mark media as sensitive by default?       |
+| `note`      | Plain-text version of the account's `note`                     |
+| `fields`    | Array of profile metadata, each element has 'name' and 'value' |
 
 #### Updating the current user:
 
@@ -103,6 +108,12 @@ Form data:
 | `avatar`       | An avatar for the user (encoded using `multipart/form-data`)      | yes        |
 | `header`       | A header image for the user (encoded using `multipart/form-data`) | yes        |
 | `locked`       | Manually approve followers?                                       | yes        |
+| `source`       | (2.4 or later) extra `source` attribute from `verify_credentials` | yes        |
+| `fields_attributes[0][name]` | (2.4 or later) Label of profile metadata field.     | yes        |
+| `fields_attributes[0][value]` | (2.4 or later) Value of profile metadata field.    | yes        |
+
+> **Note:** [0]…[3] is allowed in parameter name of fields_attributes. [] is not allowed.
+
 
 Returns the authenticated user's [Account](#account).
 
@@ -157,9 +168,18 @@ Query parameters:
 
 Returns an array of [Statuses](#status).
 
-#### Following/unfollowing an account:
+#### Following an account:
 
     POST /api/v1/accounts/:id/follow
+    
+| Field          | Description                               | Optional   |
+| -------------- | ----------------------------------------- | ---------- |
+| `reblogs` | Determines whether the followed account's reblogs will show up in the home timeline | yes        |
+
+Returns the target account's [Relationship](#relationship).
+
+#### Unfollowing an account:
+
     POST /api/v1/accounts/:id/unfollow
 
 Returns the target account's [Relationship](#relationship).
@@ -314,6 +334,58 @@ Query parameters:
 
 Returns an array of [Statuses](#status) favourited by the authenticated user.
 
+### Filters
+
+####  Fetching a list of filters:
+
+    GET /api/v1/filters
+
+> **Note:** This API does not provide pagenation.
+
+Returns an array of [Filters](#filter).
+
+#### Creating a filter.
+
+    POST /api/v1/filters
+
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+| `phrase`          | String that contains keyword or phrase.         | no         |
+| `context`         | Array of strings that means filtering context. Each string is one of 'home', 'notifications', 'public', 'thread'. At least one context must be specified. | no.         |
+| `irreversible`    | Boolean that indicates irreversible filtering on server side.     | yes        |
+| `whole_word`           | Boolean that indicates word match.     | yes        |
+| `expires_in`           | Number that indicates seconds. Filter will be expire in seconds after API processed. Null or blank string means "don't change". Default is unlimited. | yes        |
+
+Returns a [Filter](#filter).
+
+Notes:
+
+* The public context refers to both the local and the federated [timelines](#timelines); the home context refers to the home timeline. The thread context happens when looking at a status in [context](#context). No context applies when looking at the [statuses of an account](#getting-an-accounts-statuses).
+* Clients must do their own filtering based on these filters. The server will apply "irreversible" filters for home and notifications context. Anything else is still up to the client to filter!
+* Expired filters are not deleted by the server. They should no longer be applied but they are still stored by the server. It is up to clients to delete these filters eventually.
+
+#### Get a filter.
+
+    GET /api/v1/filters/:id
+
+Returns a [Filter](#filter).
+
+#### Update a filter.
+
+    PUT /api/v1/filters/:id
+
+The parameter is same with 'POST /api/v1/filters'.
+
+> **Note:** Currently there is noway to remove expires from existing filter.
+
+Returns a [Filter](#filter).
+
+#### Delete a filter.
+
+    DELETE /api/v1/filters/:id
+
+Returns a empty object.
+
 ### Follow Requests
 
 #### Fetching a list of follow requests:
@@ -336,6 +408,27 @@ Returns an array of [Accounts](#account) which have requested to follow the auth
 
     POST /api/v1/follow_requests/:id/authorize
     POST /api/v1/follow_requests/:id/reject
+
+Returns an empty object.
+
+### Follow Suggestions
+
+#### Fetching a list of follow suggestions:
+
+    GET /api/v1/suggestions
+
+Query parameters:
+
+| Field             | Description                                                         | Optional   |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+
+> **Note:** This API does not provide pagenation.
+
+Returns an array of [Accounts](#account) which is suggested.
+
+#### Delete a user from follow suggestions:
+
+    DELETE /api/v1/suggestions/:account_id
 
 Returns an empty object.
 
@@ -527,6 +620,56 @@ Form data:
 Deletes a single notification from the Mastodon server for the authenticated user.
 Returns an empty object.
 
+#### Adding push subscription
+
+    POST /api/v1/push/subscription
+
+Form data: 
+
+| Field                        | Description                                                                                           | Optional |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------  | -------- |
+| `subscription[endpoint]`     | Endpoint URL that called when notification is happen.                                                 | no       |
+| `subscription[keys][p256dh]` | User agent public key. Base64 encoded string of public key of ECDH key that using 'prime256v1' curve. | no       |
+| `subscription[keys][auth]`   | Auth secret. Base64 encoded string of 16 bytes random data.                                           | no       |
+| `data[alerts][follow]`       | Boolean of whether you want to receive follow notification event.                         | ?        |
+| `data[alerts][favourite]`    | Boolean of whether you want to receive favourite notification event.                      | ?        |
+| `data[alerts][reblog]`       | Boolean of whether you want to receive reblog notification event.                         | ?        |
+| `data[alerts][mention]`      | Boolean of whether you want to receive mention notification event.                        | ?        |
+
+Returns the [Push Subscription](#push-subscription).
+
+Each access token can have one push subscription.
+If you post new subscription. the old subscription is deleted.
+
+The endpoint URL is called when notification event is happen,
+and its payload is encrypted according to The Web Push Protocol.
+see also:
+- https://developers.google.com/web/updates/2016/03/web-push-encryption
+- https://developers.google.com/web/fundamentals/push-notifications/web-push-protocol
+
+#### Get current push subscription status
+
+    GET /api/v1/push/subscription
+
+Returns the [Push Subscription](#push-subscription).
+
+#### Updating push subscription
+
+    PUT /api/v1/push/subscription
+
+Returns the [Push Subscription](#push-subscription).
+
+This API updates 'data' part of push subscription.
+If you want to change 'subscription', you have to use 'POST /api/v1/push/subscription'.
+
+#### Removing push subscription
+
+    DELETE /api/v1/push/subscription
+
+This API removes push subscription that bind to access token.
+
+
+
 ### Reports
 
 #### Fetching a user's reports:
@@ -564,7 +707,11 @@ Form data:
 
 Returns [Results](#results).
 
-If `q` is a URL, Mastodon will attempt to fetch the provided account or status. Otherwise, it will do a local account and hashtag search.
+If `q` is a URL, Mastodon will attempt to fetch the provided account or status. Otherwise, it will search for local accounts and hashtags, and if your instance allows it it will search for toots you've written, boosted, favourited or were mentioned in.
+
+    GET /api/v2/search
+
+Same as above, but returns [Results](#results) with [Tag](#tag) objects in the hashtag attribute.
 
 ### Statuses
 
@@ -621,12 +768,17 @@ Form data:
 | ----------------- | ------------------------------------------------------------------------ | ---------- |
 | `status`          | The text of the status                                                   | no         |
 | `in_reply_to_id`  | local ID of the status you want to reply to                              | yes        |
-| `media_ids`       | [Array](#parameter-types) of media IDs to attach to the status (maximum 4)                   | yes        |
+| `media_ids`       | [Array](#parameter-types) of media IDs to attach to the status (maximum 4)| yes        |
 | `sensitive`       | Set this to mark the media of the status as NSFW                         | yes        |
 | `spoiler_text`    | Text to be shown as a warning before the actual content                  | yes        |
 | `visibility`      | Either "direct", "private", "unlisted" or "public"                       | yes        |
+| `language`        | ISO 639-2 language code of the toot, to skip automatic detection         | yes        |
 
 Returns the new [Status](#status).
+
+> **Note:** In order to prevent duplicate statuses, this endpoint accepts an `Idempotency-Key` header, which should be set to a unique string for each new status. In the event of a network error, a request can be retried with the same `Idempotency-Key`. Only one status will be created regardless of how many requests with the same `Idempotency-Key` did go through.
+>
+> See <https://stripe.com/blog/idempotency> for more on idempotency and idempotency keys.
 
 #### Deleting a status:
 
@@ -680,7 +832,7 @@ Query parameters:
 | Field             | Description                                                                         | Optional   |
 | ----------------- | ----------------------------------------------------------------------------------- | ---------- |
 | `local`           | Only return statuses originating from this instance (public and tag timelines only) | yes        |
-| `only_media`      | Only return statuses that have media attachments                                    | yes        |
+| `only_media`      | Only return statuses that have media attachments (public and tag timelines only)    | yes        |
 | `max_id`          | Get a list of timelines with ID less than this value                                | yes        |
 | `since_id`        | Get a list of timelines with ID greater than this value                             | yes        |
 | `limit`           | Maximum number of statuses on the requested timeline to get (Default 20, Max 40)    | yes        |
@@ -716,7 +868,11 @@ ___
 | `avatar_static`          | URL to the avatar static image (gif)                                               | no       |
 | `header`                 | URL to the header image                                                            | no       |
 | `header_static`          | URL to the header static image (gif)                                               | no       |
+| `emojis`                 | Array of [Emoji](#emoji) in account username and note                              | no       |
 | `moved`                  | If the owner decided to switch accounts, new account is in this attribute          | yes      |
+| `fields`                 | Array of profile metadata field, each element has 'name' and 'value'               | yes      |
+| `bot`                    | Boolean to indicate that the account performs automated actions                    | yes      |
+
 
 ### Application
 
@@ -770,11 +926,12 @@ May contain `small` and `original` (referring to the preview and the original fi
 
 ### Emoji
 
-| Attribute                | Description                        | Nullable |
-|--------------------------|------------------------------------|----------|
-| `shortcode`              | The shortcode of the emoji         | no       |
-| `static_url`             | URL to the emoji static image      | no       |
-| `url`                    | URL to the emoji image             | no       |
+| Attribute                | Description                                              | Nullable |
+|--------------------------|----------------------------------------------------------|----------|
+| `shortcode`              | The shortcode of the emoji                               | no       |
+| `static_url`             | URL to the emoji static image                            | no       |
+| `url`                    | URL to the emoji image                                   | no       |
+| `visible_in_picker`      | Boolean that indicates if the emoji is visible in picker | no       |
 
 ### Error
 
@@ -783,6 +940,25 @@ The most important part of an error response is the HTTP status code. Standard s
 | Attribute                | Description                        | Nullable |
 | ------------------------ | ---------------------------------- | -------- |
 | `error`                  | A textual description of the error | no       |
+
+### Filter
+
+| Attribute                | Description                        | Nullable |
+| ------------------------ | ---------------------------------- | -------- |
+| `id`                  | ID of the filter | no       |
+| `phrase`                  | Keyword or phrase | no       |
+| `context`                  | Array of strings that indicate filter context. each string is ont of 'home', 'notifications', 'public', 'thread'  | no       |
+| `expires_at`                  | String such as "2018-07-06T00:59:13.161Z" that indicates when this filter is expired.  | yes       |
+| `irreversible`                  | Boolean that indicates irreversible server side filtering. | no       |
+| `whole_word`                  | Boolean that indicates word match.  | no       |
+
+If `whole_word` is true , client app should do:
+- Define 'Word constituent character' for your app. In official implementation, it's [A-Za-z0-9_] for JavaScript, it's [[:word:]] for Ruby. In Ruby case it's POSIX character class (Letter | Mark | Decimal_Number | Connector_Punctuation). 
+- If the phrase starts with word character, and if the previous character before matched range is word character, its matched range should treat to not match.
+- If the phrase ends with word character, and if the next character after matched range is word character, its matched range should treat to not match.
+
+Please check app/javascript/mastodon/selectors/index.js and app/lib/feed_manager.rb for more details.
+Most case client apps are compared to WebUI(JS), they should obey to JS implementation.
 
 ### Instance
 
@@ -823,6 +999,14 @@ The most important part of an error response is the HTTP status code. Standard s
 | `account`                | The [Account](#account) sending the notification to the user          | no       |
 | `status`                 | The [Status](#status) associated with the notification, if applicable | yes      |
 
+### Push Subscription
+| Attribute                | Description                                                     | Nullable |
+| ------------------------ | --------------------------------------------------------------- | -------- |
+| `id`                     | The push subscription ID                                        | no       |
+| `endpoint`               | The endpoint URL                                                | no       |
+| `server_key`             | The server public key for signature verification. (not for decoding) | no  |
+| `alerts`                 | Map of 'notification event type' and 'push is requested or not' | ?        |
+
 ### Relationship
 
 | Attribute                | Description                                                  | Nullable |
@@ -835,6 +1019,7 @@ The most important part of an error response is the HTTP status code. Standard s
 | `muting_notifications`   | Whether the user is also muting notifications                | no       |
 | `requested`              | Whether the user has requested to follow the account         | no       |
 | `domain_blocking`        | Whether the user is currently blocking the accounts's domain | no       |
+| `showing_reblogs`        | Whether the user's reblogs will show up in the home timeline | no       |
 
 ### Report
 
@@ -857,7 +1042,7 @@ The most important part of an error response is the HTTP status code. Standard s
 | ------------------------ | ----------------------------------------------------------------------------- | -------- |
 | `id`                     | The ID of the status                                                          | no       |
 | `uri`                    | A Fediverse-unique resource ID                                                | no       |
-| `url`                    | URL to the status page (can be remote)                                        | no       |
+| `url`                    | URL to the status page (can be remote)                                        | yes      |
 | `account`                | The [Account](#account) which posted the status                               | no       |
 | `in_reply_to_id`         | `null` or the ID of the status it replies to                                  | yes      |
 | `in_reply_to_account_id` | `null` or the ID of the account it replies to                                 | yes      |
@@ -865,6 +1050,7 @@ The most important part of an error response is the HTTP status code. Standard s
 | `content`                | Body of the status; this will contain HTML (remote HTML already sanitized)    | no       |
 | `created_at`             | The time the status was created                                               | no       |
 | `emojis`                 | An array of [Emoji](#emoji)                                                   | no       |
+| `replies_count`          | The number of replies for the status                                          | no       |
 | `reblogs_count`          | The number of reblogs for the status                                          | no       |
 | `favourites_count`       | The number of favourites for the status                                       | no       |
 | `reblogged`              | Whether the authenticated user has reblogged the status                       | yes      |
@@ -882,9 +1068,14 @@ The most important part of an error response is the HTTP status code. Standard s
 
 > **NOTE**: When `spoiler_text` is present, `sensitive` is true 
 
+> **NOTE**: `in_reply_to_id` and `in_reply_to_account_id` are `null` if the status that is replied to is unknown
+
 ### Tag
 
 | Attribute                | Description                                  | Nullable |
 | ------------------------ | -------------------------------------------- | -------- |
 | `name`                   | The hashtag, not including the preceding `#` | no       |
 | `url`                    | The URL of the hashtag                       | no       |
+| `history`                | Array of daily usage history. Not included in statuses | yes |
+
+> **NOTE**: Each object in `history` has the following structure: `day` (UNIX timestamp), `uses` (total statuses using that hashtag during that day), and `accounts` (total unique accounts using that hashtag during that day). Last 7 days.

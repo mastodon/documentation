@@ -13,9 +13,14 @@ The project now includes a `Dockerfile` and a `docker-compose.yml` file (which r
 ## Setting up
 
 Clone Mastodon's repository.
-
-    git clone https://github.com/tootsuite/mastodon
-    cd mastodon
+    
+    # Clone mastodon to ~/live directory
+    git clone https://github.com/tootsuite/mastodon.git live
+    # Change directory to ~/live
+    cd ~/live
+    # Checkout to the latest stable branch
+    git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
+    
 
 Review the settings in `docker-compose.yml`. Note that it is **not default** to store the postgresql database and redis databases in a persistent storage location. If you plan on running your instance in production, you **must** uncomment the [`volumes` directive](https://github.com/tootsuite/mastodon/blob/972f6bc861affd9bc40181492833108f905a04b6/docker-compose.yml#L7-L16) in `docker-compose.yml`.
 
@@ -23,30 +28,34 @@ Review the settings in `docker-compose.yml`. Note that it is **not default** to 
 
 ### Using a prebuilt image
 
-If you're not making any local code changes or customizations on your instance, you can use a prebuilt Docker image to avoid the time and resource consumption of a build. Images are available from Docker Hub: https://hub.docker.com/r/gargron/mastodon/
+If you're not making any local code changes or customizations on your instance, you can use a prebuilt Docker image to avoid the time and resource consumption of a build. Images are available from Docker Hub: https://hub.docker.com/r/tootsuite/mastodon/
     
 To use the prebuilt images:
 
 1. Open `docker-compose.yml` in your favorite text editor.
-2. Comment out the `build: .` lines for all images (web, streaming, sidekiq).
-3. Edit the `image: tootsuite/mastodon` lines for all images to include the release you want. The default is `latest` which is the most recent stable version, however it recommended to explicitly pin a version: If you wanted to use v2.2.0 for example, you would edit the lines to say: `image: tootsuite/mastodon:v2.3.0`
-4. Save the file and exit the text editor.
-4. Run `docker-compose build`. It will now pull the correct image from Docker Hub.
+   1. Comment out the `build: .` lines for all images (web, streaming, sidekiq).
+   2. Edit the `image: tootsuite/mastodon` lines for all images to include the release you want. The default is `latest` which is the most recent stable version, however it recommended to explicitly pin a version: If you wanted to use v2.2.0 for example, you would edit the lines to say: `image: tootsuite/mastodon:v2.2.0`
+   3. Save the file and exit the text editor.
+2. Run `cp .env.production.sample .env.production` to bootstrap the configuration. You will need to edit this file later.
+3. Run `docker-compose build`. It will now pull the correct image from Docker Hub.
+4. Set correct file-owner with `chown -R 991:991 public`
 
 ### Building your own image
 
 You must build your own image if you've made any code modifications. To build your own image:
 
 1. Open `docker-compose.yml` in your favorite text editor.
-2. Uncomment the `build: .` lines for all images (web, streaming, sidekiq) if needed.
-3. Save the file and exit the text editor.
+   1. Uncomment the `build: .` lines for all images (web, streaming, sidekiq) if needed.
+   2. Save the file and exit the text editor.
+2. Run `cp .env.production.sample .env.production` to bootstrap the configuration. You will need to edit this file later.
 3. Run `docker-compose build`.
-    
+4. Set correct file-owner with `chown -R 991:991 public`
+
 ## Building the app
 
 Now the image can be used to generate a configuration with:
 
-    docker-compose run --rm web rake mastodon:setup
+    docker-compose run --rm web bundle exec rake mastodon:setup
 
 This is an interactive wizard that will guide you through the basic and necessary options and generate new app secrets. At some point it will output your configuration, copy and paste that configuration into the `.env.production` file.
 
@@ -68,7 +77,7 @@ The default docker-compose.yml maps them to the repository's `public/assets` and
 
 Running any of these tasks via docker-compose would look like this:
 
-    docker-compose run --rm web rake mastodon:media:clear
+    docker-compose run --rm web bundle exec rake mastodon:media:clear
 
 ## Updating
 
@@ -82,7 +91,7 @@ This approach makes updating to the latest version a real breeze.
 5. Build the updated Mastodon image. 
 - If you are using a prebuilt image: First, edit the `image: tootsuite/mastodon` lines in `docker-compose.yml` to include the tag for the new version. E.g. `image: tootsuite/mastodon:v2.3.0`
 - To pull the prebuilt image, or build your own from the updated code: `docker-compose build`
-6. (optional) `docker-compose run --rm web rake db:migrate` to perform database migrations. Does nothing if your database is up to date.
-7. (optional) `docker-compose run --rm web rake assets:precompile` to compile new JS and CSS assets.
+6. (optional) `docker-compose run --rm web bundle exec rake db:migrate` to perform database migrations. Does nothing if your database is up to date.
+7. (optional) `docker-compose run --rm web bundle exec rake assets:precompile` to compile new JS and CSS assets.
 8. Follow any other special instructions in the release notes.
 9. `docker-compose up -d` to re-create (restart) containers and pick up the changes.

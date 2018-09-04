@@ -8,7 +8,7 @@ Why you might need PgBouncer
 
 If you start running out of available Postgres connections (the default is 100) then you may find PgBouncer to be a good solution. This document describes some common gotchas as well as good configuration defaults for Mastodon.
 
-Note that you can check "PgHero" in the administration view to see how many Postgres connections are currently being used.
+Note that you can check "PgHero" in the administration view to see how many Postgres connections are currently being used. Typically Mastodon uses as many connections as there are threads both in Puma, Sidekiq and the streaming API combined.
 
 Installing PgBouncer
 -----
@@ -19,7 +19,7 @@ On Debian and Ubuntu:
 
 Restarting:
 
-    sudo service pgbouncer restart
+    sudo systemctl restart pgbouncer
 
 (Note that this guide assumes you aren't using Docker.)
 
@@ -34,9 +34,9 @@ Here's how you might reset the password:
 
     psql -p 5432 -U mastodon mastodon_production -w
 
-Then:
+Then (obviously, use a different password than the word "password"):
 
-    ALTER USER "mastodon" WITH PASSWORD 'password';
+    ALTER USER mastodon WITH PASSWORD 'password';
 
 Then `\q` to quit.
 
@@ -46,7 +46,7 @@ PgBouncer has two config files: `pgbouncer.ini` and `userlist.txt` both in `/etc
 
 #### Configuring userlist.txt
 
-Add the `mastodon` user to the `userlist.txt`:
+As long as you specify a user/password in pgbouncer.ini later, the values in userlist.txt do *not* have to correspond to real PostgreSQL roles. You can arbitrarily define users and passwords, but you can reuse the "real" credentials for simplicity's sake. Add the `mastodon` user to the `userlist.txt`:
 
     "mastodon" "md5d75bb2be2d7086c6148944261a00f605"
 
@@ -114,7 +114,7 @@ max_client_conn = 100
 default_pool_size = 20
 ```
 
-Don't forget to reload pgbouncer after making your changes:
+Don't forget to reload or restart pgbouncer after making your changes:
 
     service pgbouncer reload
 
@@ -150,11 +150,13 @@ DB_PASS=password
 DB_PORT=6432
 ```
 
+> **Gotcha:** You cannot use pgBouncer to perform db:migrate tasks. But this is easy to work around. If your postgres and pgbouncer are on the same host, it can be as simple as defining `DB_PORT=5432` together with `RAILS_ENV=production` when calling the task, for example: `RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate` (you can specify `DB_HOST` too if it's different, etc)
+
 ### Administering PgBouncer
 
 The easiest way to reboot is:
 
-    sudo service pgbouncer restart
+    sudo systemctl restart pgbouncer
 
 But if you've set up a PgBouncer admin user, you can also connect as the admin:
 

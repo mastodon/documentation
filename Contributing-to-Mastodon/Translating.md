@@ -103,9 +103,9 @@ eat_apple:
   other: You ate %{count} apples.
 ```
 
-In both examples you can see a `one` case and an `other` case described for the pluralized strings. The exact strings is chosen by how many a certain quantity is -- when there is exactly one of something, the sentence goes to the `one` case; otherwise it goes to the `other` case. This how plualization works for English (`en`) and a few other languages.
+In both examples you can see a `one` case and an `other` case described for the pluralized strings. The exact strings is chosen by how many a certain quantity is -- when there is exactly one of something, the sentence goes to the `one` case; otherwise it goes to the `other` case. This how pluralization works for English (`en`) and a few other languages.
 
-There are, however, many languages that don't operate in the one-other way. Polish has four plural forms, named `one`, `few`, `many`, and `other` respectively. Arabic has six. Chinese, Japanese, and Korean only have one form called `other`. If your language does not use one/other plural forms, be sure to check out the cardinal part of this [Unicode CLDR Plural Rules](http://www.unicode.org/cldr/charts/28/supplemental/language_plural_rules.html) chart. Also as a rule of thumb, always start translaing with the `other` case in the English files as they are better generalized than the `one` case.
+There are, however, many languages that don't operate in the one-other way. Polish has four plural forms, named `one`, `few`, `many`, and `other` respectively. Arabic has six. Chinese, Japanese, and Korean only have one form called `other`. If your language does not use one/other plural forms, be sure to check out the cardinal part of this [Unicode CLDR Plural Rules](http://www.unicode.org/cldr/charts/28/supplemental/language_plural_rules.html) chart. Also as a rule of thumb, always start translating with the `other` case in the English files as they are better generalized than the `one` case.
 
 ### Appendix B. Command Tools
 
@@ -208,19 +208,19 @@ Sync and check the translation strings. It will:
 You may use the help command to get usage instructions:
 
 ```
-yarn manage:translations -- --help
+yarn manage:translations --help
 ```
 
 ##### Key Usages
 
 You may specify the language to sync and check:
 ```
-yarn manage:translations -- [language code]
+yarn manage:translations [language code]
 ```
 
 For example, to synchronize translations for French (**fr**):
 ```
-yarn manage:translations -- fr
+yarn manage:translations fr
 ```
 
 You may also use this to create json language files. You'd need to apply the
@@ -228,7 +228,7 @@ You may also use this to create json language files. You'd need to apply the
 were not
 created yet:
 ```
-yarn manage:translations -- --force ar
+yarn manage:translations --force ar
 ```
 will create the following language files:
 * app/javascript/mastodon/locales/**ar**.json
@@ -241,7 +241,7 @@ this:
 
 ```
 bundle exec i18n-tasks health zh-HK
-yarn manage:translations -- zh-HK
+yarn manage:translations zh-HK
 ```
 
 If you're doing good, you'd have a result like this:
@@ -252,7 +252,7 @@ Forest (zh-HK) has 422 keys in total. On average, values are 13 characters long,
 ✓ Good job! No translations are missing.
 ✓ Well done! Every translation is in use.
 
-$ yarn manage:translations -- zh-HK
+$ yarn manage:translations zh-HK
 yarn manage:translations v0.23.4
 $ node ./config/webpack/translationRunner.js zh-HK
 Maintaining zh-HK.json:

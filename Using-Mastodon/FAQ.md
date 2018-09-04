@@ -31,7 +31,7 @@ It’s **mastodon** with two Os. You will get it wrong at least once.
 “Local” toots are from the server you signed up at. “Federated” are the all the toots your server knows about. (It's complicated, but short version is: “toots from people that you and other locals follow.”)
 
 #### What is the “fediverse”?
-Federated universe. The network of compatible social media servers such as Mastodon, Friendica, Hubzilla, Kroeg, PeerTube and more. Typically if you've got one account on a server in the fediverse, you can follow and befollowed by folks from other servers.
+Federated universe. The network of compatible social media servers such as Mastodon, Friendica, Hubzilla, Kroeg, PeerTube and more. Typically if you've got one account on a server in the fediverse, you can follow and be followed by folks from other servers.
 
 ## Federation
 
@@ -59,11 +59,7 @@ These should be taken as an estimate since all stats are voluntary and collectio
 
 #### How is Mastodon funded?
 
-Development of Mastodon and hosting of mastodon.social is funded through [Patreon](https://www.patreon.com/mastodon) and [Liberapay](https://liberapay.com/Mastodon/). Beyond that, the project is not interested in VC funding, monetizing, advertising, or anything of that sort. Beyond Patreon and Liberapay, donations can be sent via:
-
-- [PayPal](https://www.paypal.me/gargron)
-- BTC: `17j2g7vpgHhLuXhN4bueZFCvdxxieyRVWd`
-- ETH: `0xC2d182De4604655CD420aE5739aE603DD7305C85`
+Development of Mastodon and hosting of mastodon.social is funded through [Patreon](https://www.patreon.com/mastodon) and [Liberapay](https://liberapay.com/Mastodon/). Beyond that, the project is not interested in VC funding, monetizing, advertising, or anything of that sort.
 
 The software is free and open source and communities should host their own servers if they can, that way the costs are more or less distributed. Many instances have their own Patreon and Liberapay pages, among other community funding methods.
 
@@ -87,7 +83,7 @@ Try [Amaroq](https://itunes.apple.com/us/app/amaroq-for-mastodon/id1214116200).
 [Yep.](Apps.md)
 
 #### How do I search?
-You can search for people and hashtags, but not general text. Use the box above the tooting area. If you are on the mobile layout, click the pen in the navigation.
+You can search for people and hashtags, and if your instance allows it you can search for toots you've written, boosted, favourited or were mentioned in, but you cannot search for general text. Use the box above the tooting area. If you are on the mobile layout, click the pen in the navigation.
 
 #### How do I DM (Direct Message)?"
 Click on the **globe** beneath your toot for privacy options, including "direct" (DM).

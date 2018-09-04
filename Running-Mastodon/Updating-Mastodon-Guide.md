@@ -1,6 +1,8 @@
 # Updating Mastodon
 
-This guide assumes you have the set up seen in the [Production Guide](./Production-guide.md).
+*This guide is for updating a* non-Docker *style Mastodon instance, as outlined in the
+[Production Guide](./Production-guide.md). For instructions on updating a* Docker *style
+Mastodon instance, see the 'Updating' section in [Docker-Guide.md](./Docker-Guide.md).*
 
 ## Read the release notes
 
@@ -18,7 +20,7 @@ This is how you do that:
 ```sh
 su - mastodon
 cd ~/live
-git pull
+git fetch --tags
 git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 ```
 
