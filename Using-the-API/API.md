@@ -826,6 +826,7 @@ Returns the target [Status](#status).
     GET /api/v1/timelines/public
     GET /api/v1/timelines/tag/:hashtag
     GET /api/v1/timelines/list/:list_id
+    GET /api/v1/timelines/direct
 
 Query parameters:
 
