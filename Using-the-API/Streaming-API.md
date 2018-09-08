@@ -25,6 +25,10 @@ Returns all public statuses for a particular hashtag (query param `tag`)
 
 Returns statuses for list (query param `list`)
 
+**GET /api/v1/streaming/direct**
+
+Returns all direct messages
+
 ### Stream contents
 
 The stream will contain events as well as heartbeat comments. Lines that begin with a colon (`:`) can be ignored by parsers, they are simply there to keep the connection open. Events have this structure:
