@@ -9,7 +9,6 @@ API overview
   - [Accounts](#accounts)
   - [Apps](#apps)
   - [Blocks](#blocks)
-  - [Custom Emojis](#custom-emojis)
   - [Domain blocks](#domain-blocks)
   - [Favourites](#favourites)
   - [Filters](#filters)
@@ -17,6 +16,7 @@ API overview
   - [Follow Suggestions](#follow-suggestions)
   - [Follows](#follows)
   - [Instances](#instances)
+    - [Custom Emojis](#custom-emojis)
   - [Lists](#lists)
   - [Media](#media)
   - [Mutes](#mutes)
@@ -275,16 +275,6 @@ Query parameters:
 
 Returns an array of [Accounts](#account) blocked by the authenticated user.
 
-### Custom Emojis
-
-#### Getting current instance's custom emojis:
-
-    GET /api/v1/custom_emojis
-
-Returns a list of [Emoji](#emoji)
-
-Does not require authentication.
-
 ### Domain blocks
 
 #### Fetching a user's blocked domains:
@@ -464,6 +454,16 @@ Returns the local representation of the followed account, as an [Account](#accou
     GET /api/v1/instance
 
 Returns the current [Instance](#instance).
+
+Does not require authentication.
+
+### Custom Emojis
+
+#### Getting current instance's custom emojis:
+
+    GET /api/v1/custom_emojis
+
+Returns a list of [Emoji](#emoji)
 
 Does not require authentication.
 
