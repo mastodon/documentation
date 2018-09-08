@@ -277,13 +277,13 @@ Returns an array of [Accounts](#account) blocked by the authenticated user.
 
 ### Custom Emojis
 
-#### Fetching a domain's custom emoji list:
+#### Getting current instance's custom emojis:
 
     GET /api/v1/custom_emojis
 
-Returns an array of [Emojis](#emoji)
+Returns a list of [Emoji](#emoji)
 
-Fetching a domain's custom emoji list does not require authentication.
+Does not require authentication.
 
 ### Domain blocks
 
@@ -464,14 +464,6 @@ Returns the local representation of the followed account, as an [Account](#accou
     GET /api/v1/instance
 
 Returns the current [Instance](#instance).
-
-Does not require authentication.
-
-#### Getting current instance's custom emojis:
-
-    GET /api/v1/custom_emojis
-
-Returns a list of [Emoji](#emoji)
 
 Does not require authentication.
 
