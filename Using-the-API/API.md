@@ -16,6 +16,7 @@ API overview
   - [Follow Suggestions](#follow-suggestions)
   - [Follows](#follows)
   - [Instances](#instances)
+    - [Custom Emojis](#custom-emojis)
   - [Lists](#lists)
   - [Media](#media)
   - [Mutes](#mutes)
@@ -455,6 +456,8 @@ Returns the local representation of the followed account, as an [Account](#accou
 Returns the current [Instance](#instance).
 
 Does not require authentication.
+
+### Custom Emojis
 
 #### Getting current instance's custom emojis:
 
