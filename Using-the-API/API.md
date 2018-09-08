@@ -9,6 +9,7 @@ API overview
   - [Accounts](#accounts)
   - [Apps](#apps)
   - [Blocks](#blocks)
+  - [Custom Emojis](#custom-emojis)
   - [Domain blocks](#domain-blocks)
   - [Favourites](#favourites)
   - [Filters](#filters)
@@ -273,6 +274,16 @@ Query parameters:
 > **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. It is **not** possible to use the `id` of the returned objects to construct your own URLs, because the results are sorted by an internal key.
 
 Returns an array of [Accounts](#account) blocked by the authenticated user.
+
+### Custom Emojis
+
+#### Fetching a domain's custom emoji list:
+
+    GET /api/v1/custom_emojis
+
+Returns an array of [Emojis](#emoji)
+
+Fetching a domain's custom emoji list does not require authentication.
 
 ### Domain blocks
 
