@@ -56,7 +56,7 @@ may cause remote instances to register different accounts with the same author/a
 - `WEB_DOMAIN` is the domain used for any URL generated for your instance, including the author/actor URIs.
   In our case, that would be `social.example.org`.
 
-### Configuring somedomain.org
+### Configuring example.org
 
 Now, you have Mastodon running at `https://social.example.org` as well as a website at `https://example.org`.
 If you recall how webfinger queries work, the first step is to query `https://example.org/.well-known/host-meta`,
@@ -78,7 +78,7 @@ Alternatively, you can serve the file from your hosting. The full content of the
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <XRD xmlns="http://docs.oasis-open.org/ns/xri/xrd-1.0">
-  <Link rel="lrdd" type="application/xrd+xml" template="https://somedomain.org/.well-known/webfinger?resource={uri}"/>
+  <Link rel="lrdd" type="application/xrd+xml" template="https://social.example.org/.well-known/webfinger?resource={uri}"/>
 </XRD>
 ```
 
