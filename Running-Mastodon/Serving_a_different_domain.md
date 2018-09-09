@@ -31,7 +31,7 @@ As said earlier, each Mastodon user has an `acct:` URI, which is used for discov
 When you add `@user@example.org`, a webfinger query is performed. This is done in two steps:
 1. Querying `https://example.org/.well-known/host-meta` (where the domain of the URL matches the domain part of the `acct:` URI)
    to get information on how to perform the query.
-   This file will indeed contain a URL template of the form `https://somedomain.org/.well-known/webfinger?resource={uri}` that
+   The host-meta file should contain a URL template of the form `https://somedomain.org/.well-known/webfinger?resource={uri}` that
    will be used in the second step.
 2. Fill the returned template with the `acct:` URI to be queried and perform the query:
    `https://somedomain.org/.well-known/webfinger?resource=acct:user@example.org`
@@ -56,7 +56,7 @@ may cause remote instances to register different accounts with the same author/a
 - `WEB_DOMAIN` is the domain used for any URL generated for your instance, including the author/actor URIs.
   In our case, that would be `social.example.org`.
 
-### Configuring domain.org
+### Configuring example.org
 
 Now, you have Mastodon running at `https://social.example.org` as well as a website at `https://example.org`.
 If you recall how webfinger queries work, the first step is to query `https://example.org/.well-known/host-meta`,
@@ -73,6 +73,14 @@ location = /.well-known/host-meta {
 ```
 
 in example.org's server block.
+
+Alternatively, you can serve the file from your hosting. The full content of the file:
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<XRD xmlns="http://docs.oasis-open.org/ns/xri/xrd-1.0">
+  <Link rel="lrdd" type="application/xrd+xml" template="https://social.example.org/.well-known/webfinger?resource={uri}"/>
+</XRD>
+```
 
 ## Known issues
 
