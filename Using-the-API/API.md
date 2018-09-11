@@ -10,6 +10,7 @@ API overview
   - [Apps](#apps)
   - [Blocks](#blocks)
   - [Domain blocks](#domain-blocks)
+  - [Endorsements](#endorsements)
   - [Favourites](#favourites)
   - [Filters](#filters)
   - [Follow Requests](#follow-requests)
@@ -208,6 +209,13 @@ Returns the target account's [Relationship](#relationship).
 
 Returns the target account's [Relationship](#relationship).
 
+#### Endorsing/unendorsing an account:
+
+    POST /api/v1/accounts/:id/pin
+    POST /api/v1/accounts/:id/unpin
+    
+Returns the target account's [Relationship](#relationship).
+
 #### Getting an account's relationships:
 
     GET /api/v1/accounts/relationships
@@ -316,6 +324,16 @@ Parameters:
 | `domain`          | Domain to unblock                                                   | no         |
 
 Returns an empty object.
+
+### Endorsements
+
+#### Fetching a user's endorsed accounts
+
+    GET /api/v1/endorsements
+    
+Returns an array of [Accounts](#account) endorsed by the authenticated user.
+
+> **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. However, it is possible to use the `id` of the returned objects to construct your own URLs.
 
 ### Favourites
 
@@ -1024,6 +1042,7 @@ Most case client apps are compared to WebUI(JS), they should obey to JS implemen
 | `requested`              | Whether the user has requested to follow the account         | no       |
 | `domain_blocking`        | Whether the user is currently blocking the accounts's domain | no       |
 | `showing_reblogs`        | Whether the user's reblogs will show up in the home timeline | no       |
+| `endorsed`               | Whether the user is currently endorsing the account          | no       |
 
 ### Report
 
