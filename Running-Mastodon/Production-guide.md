@@ -254,6 +254,7 @@ server {
 
   location ~ ^/(emoji|packs|system/accounts/avatars|system/media_attachments/files) {
     add_header Cache-Control "public, max-age=31536000, immutable";
+    add_header 'Access-Control-Allow-Origin' '*';
     try_files $uri @proxy;
   }
   
