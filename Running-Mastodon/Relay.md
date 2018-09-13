@@ -41,7 +41,7 @@ server {
 
                 proxy_pass http://localhost:8085;
                 proxy_pass_request_headers on;  # Relay might not work without this.
-                proxy_set_header Host $host;  # Relay WILL not work without this.
+                proxy_set_header Host $http_host;  # Relay WILL not work without this.
         }
 
 }
