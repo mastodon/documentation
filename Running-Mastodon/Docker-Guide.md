@@ -78,6 +78,12 @@ The default docker-compose.yml maps them to the repository's `public/assets` and
 Running any of these tasks via docker-compose would look like this:
 
     docker-compose run --rm web bundle exec rake mastodon:media:clear
+    
+Since version 2.5.0 it is recommended to use the `tootctl` tool for such tasks. The command above can be executed with:
+
+    docker-compose run --rm web bundle exec bin/tootctl media remove
+    
+See `bin/tootctl --help` for more infos on the available commands.
 
 ## Updating
 
