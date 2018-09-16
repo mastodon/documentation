@@ -35,7 +35,7 @@ To start the application:
 
     vagrant ssh -c "cd /vagrant && foreman start"
 
-The rails server, streaming server and webpack-dev-server will start up. You can then access your development site at http://mastodon.dev (or at http://localhost:3000 if you haven't installed vagrants-hostupdater). By default, your development environment will have an admin account created for you to use - the email address will be `admin@mastodon.dev` and the password will be `mastodonadmin`.
+The rails server, streaming server and webpack-dev-server will start up. You can then access your development site at http://mastodon.local (or at http://localhost:3000 if you haven't installed vagrants-hostupdater). By default, your development environment will have an admin account created for you to use - the email address will be `admin@mastodon.local` and the password will be `mastodonadmin`.
 
 To stop the server, simply run `vagrant halt`.
 
