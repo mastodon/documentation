@@ -855,8 +855,8 @@ Query parameters:
 | ----------------- | ----------------------------------------------------------------------------------- | ---------- |
 | `local`           | Only return statuses originating from this instance (public and tag timelines only) | yes        |
 | `only_media`      | Only return statuses that have media attachments (public and tag timelines only)    | yes        |
-| `max_id`          | Get a list of timelines with ID less than this value                                | yes        |
-| `since_id`        | Get a list of timelines with ID greater than this value                             | yes        |
+| `max_id`          | Get a list of statuses with ID less than this value                                 | yes        |
+| `since_id`        | Get a list of statuses with ID greater than this value                              | yes        |
 | `limit`           | Maximum number of statuses on the requested timeline to get (Default 20, Max 40)    | yes        |
 
 > **Note:** `max_id` and `since_id` for next and previous pages are provided in the `Link` header. However, it is possible to use the `id` of the returned objects to construct your own URLs.
