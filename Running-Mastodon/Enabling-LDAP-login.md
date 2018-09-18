@@ -12,6 +12,8 @@ Then, edit your `.env.production` file to contain the following settings. Exampl
   * This sets the method to use for TLS encryption of the communications between Mastodon and the LDAP server. The possible values are:
     * `start_tls` - Connect to the LDAP server, send an LDAP request to perform a Start TLS operation, wait for a successful LDAP response, then start the TLS handshake. Normally uses port 389.
     * `simple_tls` - Immediately start the TLS handshake after connecting to the LDAP server, before sending any LDAP traffic. Normally uses port 636.
+* `LDAP_TLS_NO_VERIFY=true`
+  * If you no verify LDAP server's CA, write this. See also **Troubleshooting**.
 * `LDAP_HOST=your.ldap.server`
 * `LDAP_PORT=389`
   * Set these to the hostname and port to connect to of your LDAP server. The standard port for LDAP is 389, but if you are using `LDAP_METHOD=simple_tls` you will need to specify the port that your LDAP server is expecting TLS connections on - this is normally port 636.
