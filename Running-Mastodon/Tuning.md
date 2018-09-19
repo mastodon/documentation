@@ -240,7 +240,7 @@ First, check if you have `jemalloc` installed. It should be somewhere like this:
 
 If it's not installed, you may need to run:
 
-    sudo apt install libjemalloc
+    sudo apt install libjemalloc1
 
 Then to enable `jemalloc`, add this line to both `mastodon-sidekiq.service` and `mastodon-web.service`:
 
