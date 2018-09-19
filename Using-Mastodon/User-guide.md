@@ -3,6 +3,7 @@ Mastodon User's Guide
 
 Translations of this User Guide:
 * [Hungarian](User-guide_HUN.md)
+* [Japanese](User-guide_JA.md)
 
 ## Table of Contents
 
