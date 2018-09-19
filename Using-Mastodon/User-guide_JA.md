@@ -223,9 +223,7 @@ Mastodon の2FA は、Google 認証システム (または Authy などの互換
 
 **未収載**トゥートは公開はされていますが、公開タイムラインや検索結果には表示されません。フォロワーのみに公開されます。ただし、プロフィールページに公開されるため、 Mastodon にログインしていない訪問者でも閲覧できます。 公開タイムラインや検索結果に表示されない以外は、公開投稿と同じように機能します。
 
-TODO
-**フォロワー限定**トゥートは、あなたのフォロワー以外に対しては、公開タイムラインでもプロフィールページでも表示されません。
-**Followers-only** toots do not appear in the public timeline nor on your profile page to anyone viewing it unless they are on your Followers list. The option is of limited use if your account is not also set to require approval of new followers (as anyone can follow you without confirmation and thus see your private toots). However the separation of this means that if you *do* set your entire account to private, you can switch this option off on a toot to make unlisted or even public toots from your otherwise private account.
+**フォロワー限定**トゥートは、あなたのフォロワー以外に対しては、公開タイムラインでもプロフィールページでも表示されません。これの選択肢は、アカウントがフォローリクエストの承認を必要とするよう設定されていなければ、限定的な効果しかありません（誰でも、あなたに確認されることなくフォローして、フォロワー限定トゥートを見ることができるからです）。しかしながら、この設定が別れていることは、アカウント全体を*非公開にしている場合*、トゥートのこの設定をオフにすれば、基本的には非公開なアカウントから未収載や公開のトゥートをすることができる、ということを意味しています。
 
 非公開トゥートは拡散できません。フォローしているユーザが非公開トゥートを作成した場合、タイムラインに表示はされますが、ブーストアイコンの代わりに南京錠アイコンが表示されます。**リモートインスタンスでは、これに応じた取り扱いをしない場合があるので注意**してください。
 
