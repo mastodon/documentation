@@ -18,15 +18,20 @@ enableGitInfo = true
   [[menu.docs]]
     name = "User guide"
     weight = 1
-    identifier = "using-mastodon"
-    url = "/using-mastodon/"
+    identifier = "usage"
+    url = "/usage/"
   [[menu.docs]]
     name = "Administrator guide"
     weight = 2
-    identifier = "running-mastodon"
-    url = "/running-mastodon/"
+    identifier = "administration"
+    url = "/administration/"
   [[menu.docs]]
     name = "Developer guide"
     weight = 3
-    identifier = "contributing-to-mastodon"
-    url = "/contributing-to-mastodon/"
+    identifier = "development"
+    url = "/development/"
+  [[menu.docs]]
+    name = "API"
+    weight = 4
+    identifier = "api"
+    url = "/api/"
