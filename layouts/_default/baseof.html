@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+  {{ partial "head" }}
+
+  <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+  {{ with .Description }}
+    <meta name="description" content="{{ . }}">
+  {{ end }}
+
+  <link rel="canonical" href="{{ .Permalink }}">
+</head>
+
+<body>
+  <div class="container sidebar-layout">
+    <nav class="sidebar">{{ partial "sidebar" . }}</nav>
+    <main>{{ block "main" . }}{{ end }}</main>
+  </div>
+
+  {{ partial "footer" . }}
+</body>
+
+</html>

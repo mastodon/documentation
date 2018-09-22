@@ -1,0 +1,32 @@
+baseURL = "http://docs.joinmastodon.org/"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "Mastodon documentation"
+pygmentsCodeFences = true
+pygmentsStyle = "dracula"
+metaDataFormat = "yaml"
+paginate = 100
+enableGitInfo = true
+
+[languages]
+  [languages.en]
+    contentDir = "content/en"
+    languageName = "English"
+    weight = 1
+
+[menu]
+  [[menu.docs]]
+    name = "User guide"
+    weight = 1
+    identifier = "using-mastodon"
+    url = "/using-mastodon/"
+  [[menu.docs]]
+    name = "Administrator guide"
+    weight = 2
+    identifier = "running-mastodon"
+    url = "/running-mastodon/"
+  [[menu.docs]]
+    name = "Developer guide"
+    weight = 3
+    identifier = "contributing-to-mastodon"
+    url = "/contributing-to-mastodon/"

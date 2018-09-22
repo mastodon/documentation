@@ -1,0 +1,15 @@
+{{ define "title"}} {{ .Title}} {{end}}
+
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+
+  <aside>{{ .TableOfContents }}</aside>
+
+  <div class="e-content">
+    {{ .Content }}
+
+    <p style="color: #687590;">
+      Last updated {{ .Lastmod.Format "January 2, 2006" }}
+    </p>
+  </div>
+{{ end }}
