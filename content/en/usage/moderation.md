@@ -6,9 +6,12 @@ menu:
     weight: 4
 ---
 ## Individual moderation
+
+Moderation in Mastodon is always applied locally, i.e. as seen from the particular server. An admin or moderator on one server cannot affect a user on another server, they can only affect the local copy on their own server.
+
 ### Disable login
 
-A Mastodon account can be disabled. This prevents the user from doing anything with the account, but all of the content is still there untouched. This limitation is reversible, the account can be re-enabled at any time.
+A Mastodon account can be disabled. This prevents the user from doing anything with the account, but all of the content is still there untouched. This limitation is reversible, the account can be re-enabled at any time. This limitation is only available for local users on your server.
 
 ### Silence
 
@@ -23,6 +26,9 @@ This limitation is reversible, the account can be unsilenced at any time.
 A Mastodon suspension is synonymous with deletion. The account no longer appears in search, the profile page is gone, all of the posts, uploads, followers, and all other data is removed. This limitation is **irreversible**. While the account can be unsuspended, allowing the user to take control of it again, the old data is gone for good.
 
 ## Server-wide moderation
+
+Because individually moderating a large volume of users from a misbehaving server can be exhausting, it is possible to pre-emptively moderate against all users from that particular server using a so-called **domain block**, which comes with several different levels of severity.
+
 ### Reject media
 
 With this option active, no files from the server will be processed locally. That includes avatars, headers, emojis and media attachments.
@@ -42,7 +48,7 @@ There are a few baseline measures for preventing spam in Mastodon:
 - Signing up requires confirming an e-mail address
 - Signing up is rate-limited by IP
 
-However, dedicated spammers will get through that. The other measure you can employ is `e-mail domain blacklisting`. During sign up, Mastodon resolves the given e-mail address for an A or MX record, i.e. the IP address of the e-mail server, and checks that IP address against a dynamically stored blacklist.
+However, dedicated spammers will get through that. The other measure you can employ is **e-mail domain blacklisting**. During sign up, Mastodon resolves the given e-mail address for an A or MX record, i.e. the IP address of the e-mail server, and checks that IP address against a dynamically stored blacklist.
 
 ### Blocking by e-mail server
 
