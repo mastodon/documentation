@@ -248,7 +248,9 @@ main table {
   main table th,
   main table td {
     font-size: 16px;
-    padding: 10px;
+    line-height: 28px;
+    padding: 10px 15px;
+    vertical-align: middle;
     border: 1px solid #303643; }
     main table th .fa-check,
     main table td .fa-check {

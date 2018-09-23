@@ -9,7 +9,8 @@
     {{ .Content }}
 
     <p style="color: #687590;">
-      Last updated {{ .Lastmod.Format "January 2, 2006" }}
+      Last updated {{ .Lastmod.Format "January 2, 2006" }} ·
+      <a href='https://source.joinmastodon.org/mastodon/docs/tree/master/content/{{.Lang}}/{{.File.Path}}' style="color: #687590;">Improve this page</a>
     </p>
   </div>
 {{ end }}
