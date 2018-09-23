@@ -109,7 +109,7 @@ default_pool_size = 20
 
 Don't forget to reload or restart pgbouncer after making your changes:
 
-    sudo systemctl pgbouncer reload
+    sudo systemctl reload pgbouncer
 
 #### Debugging that it all works
 
