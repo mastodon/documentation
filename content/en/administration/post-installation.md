@@ -33,8 +33,8 @@ A randomly generated password will be shown in the terminal.
 
 After logging in, navigate to the **Site settings** page. While there are no technical requirements for filling in this information, it is considered crucial for operating a server for humans.
 
-|Setting| |
-|-------|-|
+|Setting|Meaning|
+|-------|-------|
 |Contact username|Your username so people know who owns the server|
 |Business e-mail|An e-mail address so people locked out of their accounts, or people without accounts, can contact you|
 |Instance description|Why did you start this server? Who is it for? What makes it different?|
