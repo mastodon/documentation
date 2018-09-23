@@ -238,6 +238,26 @@ main ol > li::before {
 main li > ul,
 main li > ol {
   margin-top: 14px; }
+main table {
+  width: 100%;
+  margin-bottom: 26px;
+  color: #d9e1e8; }
+  main table tr:nth-child(2n),
+  main table thead tr {
+    background-color: #16191f; }
+  main table th,
+  main table td {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #303643; }
+    main table th .fa-check,
+    main table td .fa-check {
+      color: #79bd9a; }
+    main table th .fa-times,
+    main table td .fa-times {
+      color: #df405a; }
+  main table thead th {
+    font-weight: 500; }
 main figure figcaption {
   margin-top: 8px;
   text-align: center; }

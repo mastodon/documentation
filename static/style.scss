@@ -332,6 +332,36 @@ main {
     margin-top: 14px;
   }
 
+  table {
+    width: 100%;
+    margin-bottom: 26px;
+    color: $lightest;
+
+    tr:nth-child(2n),
+    thead tr {
+      background-color: darken($darkest, 4%);
+    }
+
+    th,
+    td {
+      font-size: 16px;
+      padding: 10px;
+      border: 1px solid lighten($darkest, 8%);
+
+      .fa-check {
+        color: $success;
+      }
+
+      .fa-times {
+        color: $error;
+      }
+    }
+
+    thead th {
+      font-weight: 500;
+    }
+  }
+
   figure {
     figcaption {
       margin-top: 8px;
