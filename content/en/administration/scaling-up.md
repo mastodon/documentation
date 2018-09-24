@@ -6,6 +6,75 @@ menu:
     weight: 4
 ---
 
+## Managing concurrency
+
+Mastodon has three types of processes:
+
+- Web (Puma)
+- Streaming API
+- Background processing (Sidekiq)
+
+### Web (Puma)
+
+The web process serves short-lived HTTP requests for most of the application. The following environment variables control it:
+
+- `WEB_CONCURRENCY` controls the number of worker processes
+- `MAX_THREADS` controls the number of threads per process
+
+Threads share the memory of their parent process. Different processes allocate their own memory, though they share some memory via copy-on-write. A larger number of threads maxes out your CPU first, a larger number of processes maxes out your RAM first.
+
+These values affect how many HTTP requests can be served at the same time.
+
+In terms of throughput, more processes are better than more threads.
+
+### Streaming API
+
+The streaming API handles long-lived HTTP and WebSockets connections, through which clients receive real-time updates. The following environment variables control it:
+
+- `STREAMING_CLUSTER_NUM` controls the number of worker processes
+- `STREAMING_API_BASE_URL` controls the base URL of the streaming API
+
+One process can handle a reasonably high number of connections. The streaming API can be hosted on a different subdomain if you want to e.g. avoid the overhead of nginx proxying the connections.
+
+### Background processing (Sidekiq)
+
+Many tasks in Mastodon are delegated to background processing to ensure the HTTP requests are fast, and to prevent HTTP request aborts from affecting the execution of those tasks. Sidekiq is a single process, with a configurable number of threads.
+
+#### Number of threads
+
+While the amount of threads in the web process affects the responsiveness of the Mastodon instance to the end-user, the amount of threads allocated to background processing affects how quickly posts can be delivered from the author to anyone else, how soon e-mails are sent out, etc.
+
+The amount of threads is not controlled by an environment variable in this case, but a command line argument in the invocation of Sidekiq, e.g.:
+
+```sh
+bundle exec sidekiq -c 15
+```
+
+Would start the sidekiq process with 15 threads. Please mind that each threads needs to be able to connect to the database, which means that the database pool needs to be large enough to support all the threads. The database pool size is controlled with the `DB_POOL` environment variable and must be at least the same as the number of threads.
+
+#### Queues
+
+Sidekiq uses different queues for tasks of varying importance, where importance is defined by how much it would impact the user experience of your server's local users if the queue wasn't working, in order of descending importance:
+
+|Queue|Significance|
+|:---:|------------|
+|`default`|All tasks that affect local users|
+|`push`|Delivery of payloads to other servers|
+|`mailers`|Delivery of e-mails|
+|`pull`|Fetching information from other servers|
+
+The default queues and their priorities are stored in `config/sidekiq.yml`, but can be overridden by the command-line invocation of Sidekiq, e.g.:
+
+```sh
+bundle exec sidekiq -q default
+```
+
+To run just the `default` queue.
+
+The way Sidekiq works with queues, it first checks for tasks from the first queue, and if there are none, checks the next queue. This means, if the first queue is overfilled, the other queues will lag behind.
+
+As a solution, it is possible to start different Sidekiq processes for the queues to ensure truly parallel execution, by e.g. creating multiple systemd services for Sidekiq with different arguments.
+
 ## Transaction pooling with pgBouncer
 ### Why you might need PgBouncer
 
@@ -143,7 +212,7 @@ DB_PASS=password
 DB_PORT=6432
 ```
 
-> **Gotcha:** You cannot use pgBouncer to perform db:migrate tasks. But this is easy to work around. If your postgres and pgbouncer are on the same host, it can be as simple as defining `DB_PORT=5432` together with `RAILS_ENV=production` when calling the task, for example: `RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate` (you can specify `DB_HOST` too if it's different, etc)
+> **Gotcha:** You cannot use pgBouncer to perform `db:migrate` tasks. But this is easy to work around. If your postgres and pgbouncer are on the same host, it can be as simple as defining `DB_PORT=5432` together with `RAILS_ENV=production` when calling the task, for example: `RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate` (you can specify `DB_HOST` too if it's different, etc)
 
 #### Administering PgBouncer
 
