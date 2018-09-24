@@ -7,9 +7,9 @@ menu:
 ---
 
 - All IDs are encoded as strings
-- All datetimes are in ISO8601 format
+- All datetimes are in ISO 8601 format
 - All HTML strings are sanitized by the server
-- All language codes are in ISO6391 format
+- All language codes are in ISO 6391 format
 
 ## Account
 
@@ -47,21 +47,21 @@ menu:
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `name` | String |{{< no >}}||
-| `website` | String (URL) |{{< yes >}}||
+| `name` | String |{{< no >}}|0.9.9|
+| `website` | String (URL) |{{< yes >}}|0.9.9|
 
 ## Attachment
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `id` |  String |{{< no >}}||
-| `type` | [String (Enum)](#type) |{{< no >}}||
-| `url` | String (URL) |{{< no >}}||
-| `remote_url` | String (URL) |{{< yes >}}||
-| `preview_url` | String (URL) |{{< no >}}||
-| `text_url` | String (URL) |{{< yes >}}||
-| `meta` | [Hash](#meta) |{{< yes >}}||
-| `description` | String |{{< yes >}}||
+| `id` |  String |{{< no >}}|0.6.0|
+| `type` | [String (Enum)](#type) |{{< no >}}|0.6.0|
+| `url` | String (URL) |{{< no >}}|0.6.0|
+| `remote_url` | String (URL) |{{< yes >}}|0.6.0|
+| `preview_url` | String (URL) |{{< no >}}|0.6.0|
+| `text_url` | String (URL) |{{< yes >}}|0.6.0|
+| `meta` | [Hash](#meta) |{{< yes >}}|1.5.0|
+| `description` | String |{{< yes >}}|2.0.0|
 
 ### Type
 
@@ -82,18 +82,18 @@ There may be another top-level object, `focus` with the coordinates `x` and `y`.
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `url` | String (URL) |{{< no >}}||
-| `title` | String |{{< no >}}||
-| `description` | String |{{< no >}}||
-| `image` | String (URL) |{{< yes >}}||
-| `type` | [String (Enum)](#type-1) |{{< no >}}||
-| `author_name` | String |{{< yes >}}||
-| `author_url` | String (URL) |{{< yes >}}||
-| `provider_name` | String |{{< yes >}}||
-| `provider_url` | String (URL) |{{< yes >}}||
-| `html` | String (HTML) |{{< yes >}}||
-| `width` | Number |{{< yes >}}||
-| `height` | Number |{{< yes >}}||
+| `url` | String (URL) |{{< no >}}|1.0.0|
+| `title` | String |{{< no >}}|1.0.0|
+| `description` | String |{{< no >}}|1.0.0|
+| `image` | String (URL) |{{< yes >}}|1.0.0|
+| `type` | [String (Enum)](#type-1) |{{< no >}}|1.3.0|
+| `author_name` | String |{{< yes >}}|1.3.0|
+| `author_url` | String (URL) |{{< yes >}}|1.3.0|
+| `provider_name` | String |{{< yes >}}|1.3.0|
+| `provider_url` | String (URL) |{{< yes >}}|1.3.0|
+| `html` | String (HTML) |{{< yes >}}|1.3.0|
+| `width` | Number |{{< yes >}}|1.3.0|
+| `height` | Number |{{< yes >}}|1.3.0|
 
 ### Type
 
@@ -106,17 +106,17 @@ There may be another top-level object, `focus` with the coordinates `x` and `y`.
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `ancestors` | Array of [Status](#status) |{{< no >}}||
-| `descendants` | Array of [Status](#status) |{{< no >}}||
+| `ancestors` | Array of [Status](#status) |{{< no >}}|0.6.0|
+| `descendants` | Array of [Status](#status) |{{< no >}}|0.6.0|
 
 ## Emoji
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `shortcode` | String |{{< no >}}||
-| `static_url` | String (URL) |{{< no >}}||
-| `url` | String (URL) |{{< no >}}||
-| `visible_in_picker` | Boolean |{{< no >}}||
+| `shortcode` | String |{{< no >}}|2.0.0|
+| `static_url` | String (URL) |{{< no >}}|2.0.0|
+| `url` | String (URL) |{{< no >}}|2.0.0|
+| `visible_in_picker` | Boolean |{{< no >}}|2.1.0|
 
 ## Error
 
@@ -124,7 +124,7 @@ The most important part of an error response is the HTTP status code. Standard s
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `error` | String |{{< no >}}||
+| `error` | String |{{< no >}}|0.6.0|
 
 ## Filter
 
@@ -158,46 +158,56 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `uri` | String |{{< no >}}||
-| `title` | String |{{< no >}}||
-| `description` | String |{{< no >}}||
-| `email` | String |{{< no >}}||
-| `version` | String |{{< no >}}||
-| `urls` | [Hash](#urls) |{{< no >}}||
-| `languages` | Array of String (ISO6391) |{{< no >}}||
-| `contact_account` | [Account](#account) |{{< no >}}||
+| `uri` | String |{{< no >}}|1.1.0|
+| `title` | String |{{< no >}}|1.1.0|
+| `description` | String |{{< no >}}|1.1.0|
+| `email` | String |{{< no >}}|1.1.0|
+| `version` | String |{{< no >}}|1.3.0|#
+| `thumbnail` | String (URL) |{{< yes >}}|1.6.1|
+| `urls` | [Hash](#urls) |{{< no >}}|1.4.2|
+| `stats` | [Hash](#stats) |{{< no >}}|1.6.0|
+| `languages` | Array of String (ISO6391) |{{< no >}}|2.3.0|
+| `contact_account` | [Account](#account) |{{< yes >}}|2.3.0|
 
 ### URLs
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-|`streaming_api`| String (URL) |{{< no >}}||
+|`streaming_api`| String (URL) |{{< no >}}|1.4.2|
+
+### Stats
+
+|Attribute|Type|Nullable|Added in|
+|---------|-----------|:------:|:------:|
+|`user_count`| Number |{{< no >}}|1.6.0|
+|`status_count`| Number |{{< no >}}|1.6.0|
+|`domain_count`| Number |{{< no >}}|1.6.0|
 
 ## List
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `id` | String |{{< no >}}||
-| `title` | String |{{< no >}}||
+| `id` | String |{{< no >}}|2.1.0|
+| `title` | String |{{< no >}}|2.1.0|
 
 ## Mention
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `url` | String (URL) |{{< no >}}||
-| `username` | String |{{< no >}}||
-| `acct` | String |{{< no >}}||
-| `id` | String |{{< no >}}||
+| `url` | String (URL) |{{< no >}}|0.6.0|
+| `username` | String |{{< no >}}|0.6.0|
+| `acct` | String |{{< no >}}|0.6.0|
+| `id` | String |{{< no >}}|0.6.0|
 
 ## Notification
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `id` | String |{{< no >}}|
-| `type` | [String (Enum)](#type-2) |{{< no >}}|
-| `created_at` | String (Datetime) |{{< no >}}|
-| `account` | [Account](#account) |{{< no >}}|
-| `status` | [Status](#status) |{{< yes >}}|
+| `id` | String |{{< no >}}|0.9.9|
+| `type` | [String (Enum)](#type-2) |{{< no >}}|0.9.9|
+| `created_at` | String (Datetime) |{{< no >}}|0.9.9|
+| `account` | [Account](#account) |{{< no >}}|0.9.9|
+| `status` | [Status](#status) |{{< yes >}}|0.9.9|
 
 ### Type
 
@@ -210,10 +220,10 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `id` | String |{{< no >}}||
-| `endpoint` | String (URL) |{{< no >}}||
-| `server_key` | String |{{< no >}}||
-| `alerts` | [Hash](#alerts) |{{< no >}}||
+| `id` | String |{{< no >}}|2.4.0|
+| `endpoint` | String (URL) |{{< no >}}|2.4.0|
+| `server_key` | String |{{< no >}}|2.4.0|
+| `alerts` | [Hash](#alerts) |{{< no >}}|2.4.0|
 
 ### Alerts
 
@@ -223,24 +233,24 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `id` | String |{{< no >}}||
-| `following` | Boolean |{{< no >}}||
-| `followed_by` | Boolean |{{< no >}}||
-| `blocking` | Boolean |{{< no >}}||
-| `muting` | Boolean |{{< no >}}||
-| `muting_notifications` | Boolean |{{< no >}}||
-| `requested` | Boolean |{{< no >}}||
-| `domain_blocking` | Boolean |{{< no >}}||
-| `showing_reblogs` | Boolean |{{< no >}}||
+| `id` | String |{{< no >}}|0.6.0|
+| `following` | Boolean |{{< no >}}|0.6.0|
+| `followed_by` | Boolean |{{< no >}}|0.6.0|
+| `blocking` | Boolean |{{< no >}}|0.6.0|
+| `muting` | Boolean |{{< no >}}|1.1.0|
+| `muting_notifications` | Boolean |{{< no >}}|2.1.0|
+| `requested` | Boolean |{{< no >}}|0.9.9|
+| `domain_blocking` | Boolean |{{< no >}}|1.4.0|
+| `showing_reblogs` | Boolean |{{< no >}}|2.1.0|
 | `endorsed` | Boolean |{{< no >}}|2.5.0|
 
 ## Results
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `accounts` | Array of [Account](#account) |{{< no >}}||
-| `statuses` | Array of [Status](#status)  |{{< no >}}||
-| `hashtags` | Array of String |{{< no >}}||
+| `accounts` | Array of [Account](#account) |{{< no >}}|1.1.0|
+| `statuses` | Array of [Status](#status)  |{{< no >}}|1.1.0|
+| `hashtags` | Array of String |{{< no >}}|1.1.0|
 
 > **Note:** The v2 API returns an array of [Tag](#tag) for the `hashtags` attribute.
 
@@ -248,31 +258,31 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `id` | String |{{< no >}}||
-| `uri` | String |{{< no >}}||
-| `url` | String (URL) |{{< yes >}}||
-| `account` | [Account](#account) |{{< no >}}||
-| `in_reply_to_id` | String |{{< yes >}}||
-| `in_reply_to_account_id` | String |{{< yes >}}||
-| `reblog` | [Status](#status) |{{< yes >}}||
-| `content` | String (HTML) |{{< no >}}||
-| `created_at` | String (Datetime) |{{< no >}}||
-| `emojis` | Array of [Emoji](#emoji) |{{< no >}}||
-| `replies_count` | Number |{{< no >}}||
-| `reblogs_count` | Number |{{< no >}}||
-| `favourites_count` | Number |{{< no >}}||
-| `reblogged` | Boolean |{{< yes >}}||
-| `favourited` | Boolean |{{< yes >}}||
-| `muted` | Boolean |{{< yes >}}||
-| `sensitive` | Boolean |{{< no >}}||
-| `spoiler_text` | String |{{< no >}}||
-| `visibility` | [String (Enum)](#visibility) |{{< no >}}||
-| `media_attachments` | Array of [Attachment](#attachment) |{{< no >}}||
-| `mentions` | Array of [Mention](#mention) |{{< no >}}||
-| `tags` | Array of [Tag](#tag) |{{< no >}}||
-| `application` | [Application](#application) |{{< no >}}||
-| `language` | String (ISO6391) |{{< yes >}}||
-| `pinned` | Boolean |{{< yes >}}||
+| `id` | String |{{< no >}}|0.1.0|
+| `uri` | String |{{< no >}}|0.1.0|
+| `url` | String (URL) |{{< yes >}}|0.1.0|
+| `account` | [Account](#account) |{{< no >}}|0.1.0|
+| `in_reply_to_id` | String |{{< yes >}}|0.1.0|
+| `in_reply_to_account_id` | String |{{< yes >}}|1.0.0|
+| `reblog` | [Status](#status) |{{< yes >}}|0.1.0|
+| `content` | String (HTML) |{{< no >}}|0.1.0|
+| `created_at` | String (Datetime) |{{< no >}}|0.1.0|
+| `emojis` | Array of [Emoji](#emoji) |{{< no >}}|2.0.0|
+| `replies_count` | Number |{{< no >}}|2.5.0|
+| `reblogs_count` | Number |{{< no >}}|0.1.0|
+| `favourites_count` | Number |{{< no >}}|0.1.0|
+| `reblogged` | Boolean |{{< yes >}}|0.1.0|
+| `favourited` | Boolean |{{< yes >}}|0.1.0|
+| `muted` | Boolean |{{< yes >}}|1.4.0|
+| `sensitive` | Boolean |{{< no >}}|0.9.9|
+| `spoiler_text` | String |{{< no >}}|1.0.0|
+| `visibility` | [String (Enum)](#visibility) |{{< no >}}|0.9.9|
+| `media_attachments` | Array of [Attachment](#attachment) |{{< no >}}|0.6.0|
+| `mentions` | Array of [Mention](#mention) |{{< no >}}|0.6.0|
+| `tags` | Array of [Tag](#tag) |{{< no >}}|0.9.0|
+| `application` | [Application](#application) |{{< no >}}|0.9.9|
+| `language` | String (ISO6391) |{{< yes >}}|1.4.0|
+| `pinned` | Boolean |{{< yes >}}|1.6.0|
 
 ### Visibility
 
@@ -285,8 +295,8 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
-| `name` | String |{{< no >}}||
-| `url` | String (URL) |{{< no >}}||
+| `name` | String |{{< no >}}|0.9.0|
+| `url` | String (URL) |{{< no >}}|0.9.0|
 | `history` | Array of [History](#history) |{{< yes >}}|2.4.1|
 
 ### History
