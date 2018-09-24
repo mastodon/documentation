@@ -325,3 +325,5 @@ systemctl enable mastodon-*
 ```
 
 They will now automatically start at boot time.
+
+**Hurray! This is it. You can visit your domain in the browser now!**
