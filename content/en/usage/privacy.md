@@ -10,10 +10,10 @@ menu:
 
 |Level|Public timelines|Permalink|Profile view|Home feeds|
 |-----|:--------------:|:-------:|:----------:|:--------:|
-|Public|<i class="fa fa-check"></i>|<i class="fa fa-check"></i>|<i class="fa fa-check"></i>|<i class="fa fa-check"></i>|
-|Unlisted|<i class="fa fa-times"></i>|<i class="fa fa-check"></i>|<i class="fa fa-check"></i>|<i class="fa fa-check"></i>|
-|Private|<i class="fa fa-times"></i>|<i class="fa fa-times"></i>|<i class="fa fa-times"></i>|<i class="fa fa-check"></i>|
-|Direct|<i class="fa fa-times"></i>|<i class="fa fa-times"></i>|<i class="fa fa-times"></i>|<i class="fa fa-times"></i>|
+|Public|{{< yes >}}|{{< yes >}}|{{< yes >}}|{{< yes >}}|
+|Unlisted|{{< no >}}|{{< yes >}}|{{< yes >}}|{{< yes >}}|
+|Private|{{< no >}}|{{< no >}}|{{< no >}}|{{< yes >}}|
+|Direct|{{< no >}}|{{< no >}}|{{< no >}}|{{< no >}}|
 
 No matter which level, every mentioned user can see the message in their notifications.
 
