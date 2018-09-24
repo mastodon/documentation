@@ -40,7 +40,7 @@ menu:
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
 | `name` | String |{{< no >}}|2.4.0|
-| `value` | String |{{< no >}}|2.4.0|
+| `value` | String (HTML) |{{< no >}}|2.4.0|
 | `verified_at` | String (Datetime) |{{< yes >}}|2.6.0|
 
 ## Application
