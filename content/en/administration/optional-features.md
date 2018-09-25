@@ -1,5 +1,6 @@
 ---
 title: Optional features
+description: How to enable Mastodon's optional features
 menu:
   docs:
     parent: administration

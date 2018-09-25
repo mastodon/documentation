@@ -1,5 +1,6 @@
 ---
 title: Entities
+description: Overview of entities returned from Mastodon's REST API
 menu:
   docs:
     parent: api

@@ -1,5 +1,6 @@
 ---
 title: Streaming API
+description: How to use Mastodon's streaming API for live, real-time updates
 menu:
   docs:
     parent: api

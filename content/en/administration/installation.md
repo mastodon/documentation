@@ -1,5 +1,6 @@
 ---
 title: Installation
+description: How to install Mastodon on an Ubuntu 18.04 server
 menu:
   docs:
     parent: administration

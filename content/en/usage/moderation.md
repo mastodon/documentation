@@ -1,5 +1,6 @@
 ---
 title: Moderation
+description: Overview of moderation tools on Mastodon
 menu:
   docs:
     parent: usage

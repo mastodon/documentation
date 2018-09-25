@@ -1,5 +1,6 @@
 ---
 title: Privacy
+overview: Overview of privacy-related features on Mastodon and their implications
 menu:
   docs:
     parent: usage

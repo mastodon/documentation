@@ -1,5 +1,6 @@
 ---
 title: Scaling up
+description: How to scale Mastodon horizontally to handle more requests
 menu:
   docs:
     parent: administration

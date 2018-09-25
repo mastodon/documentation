@@ -1,5 +1,6 @@
 ---
 title: Configuration
+description: Overview of Mastodon's configuration options
 menu:
   docs:
     parent: administration

@@ -1,5 +1,6 @@
 ---
 title: Permissions
+description: Overview of OAuth 2 access scopes in Mastodon
 menu:
   docs:
     parent: api

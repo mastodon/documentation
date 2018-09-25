@@ -1,5 +1,6 @@
 ---
 title: Post-installation steps
+description: What to do after the installation of Mastodon is complete
 menu:
   docs:
     parent: administration

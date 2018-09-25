@@ -1,5 +1,6 @@
 ---
 title: Web Push API
+overview: How to use the Web Push API in Mastodon to receive push notifications in a native or browser app
 menu:
   docs:
     parent: api

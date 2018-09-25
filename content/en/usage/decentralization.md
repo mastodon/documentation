@@ -1,5 +1,6 @@
 ---
 title: Decentralization
+description: How Mastodon is decentralized and what it means in practical terms
 menu:
   docs:
     parent: usage

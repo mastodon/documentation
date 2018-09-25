@@ -1,5 +1,6 @@
 ---
 title: Authentication
+description: How to authenticate with OAuth 2 on Mastodon
 menu:
   docs:
     parent: api

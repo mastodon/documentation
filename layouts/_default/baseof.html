@@ -4,11 +4,19 @@
 <head>
   {{ partial "head" }}
 
-  <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <title>{{ block "title" . }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{ .Permalink }}">
 
   {{ with .Description }}
     <meta name="description" content="{{ . }}">
+    <meta property="og:description" content="{{ . }}">
+    <meta name="twitter:description" content="{{ . }}">
   {{ end }}
+
+  <meta name="twitter:title" content="{{ .Title }}">
+  <meta name="twitter:site" content="@MastodonProject">
 
   <link rel="canonical" href="{{ .Permalink }}">
 </head>

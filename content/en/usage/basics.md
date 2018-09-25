@@ -1,5 +1,6 @@
 ---
 title: Basics
+description: Overview of Mastodon's basic functionality
 menu:
   docs:
     parent: usage
