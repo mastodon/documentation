@@ -11,9 +11,6 @@ Mastodon uses environment variables as its configuration.
 For convenience, it can read them from a flat file called `.env.production` in the Mastodon directory, but they can always be overridden by a specific process. For example, systemd service files can read environment variables from an `EnvironmentFile` or from inline definitions with `Environment`, so you can have different configuration parameters for specific services. They can also be specified when calling Mastodon from the command line.
 
 ## Basic
-
-- `RAILS_ENV`
-
 ### Federation
 
 - `LOCAL_DOMAIN`
@@ -26,6 +23,17 @@ For convenience, it can read them from a flat file called `.env.production` in t
 - `OTP_SECRET`
 - `VAPID_PRIVATE_KEY`
 - `VAPID_PUBLIC_KEY`
+
+### Deployment
+
+- `RAILS_ENV`
+- `RAILS_SERVE_STATIC_FILES`
+- `RAILS_LOG_LEVEL`
+- `TRUSTED_PROXY_IP`
+- `SOCKET`
+- `PORT`
+- `NODE_ENV`
+- `BIND`
 
 ### Scaling options
 
@@ -61,12 +69,20 @@ For convenience, it can read them from a flat file called `.env.production` in t
 - `ES_ENABLED`
 - `ES_HOST`
 - `ES_PORT`
+- `ES_PREFIX`
+
+### StatsD
+
+- `STATSD_ADDR`
+- `STATSD_NAMESPACE`
 
 ## Limits
 
 - `SINGLE_USER_MODE`
 - `EMAIL_DOMAIN_WHITELIST`
 - `DEFAULT_LOCALE`
+- `MAX_SESSION_ACTIVATIONS`
+- `USER_ACTIVE_DAYS`
 
 ## E-mail
 
@@ -193,3 +209,7 @@ For convenience, it can read them from a flat file called `.env.production` in t
 
 - `http_proxy`
 - `ALLOW_ACCESS_TO_HIDDEN_SERVICE`
+
+## Other
+
+- `SKIP_POST_DEPLOYMENT_MIGRATIONS`
