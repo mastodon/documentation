@@ -28,7 +28,7 @@ List of apps
 
 |App|Source code|Developer(s)|
 |---|-----------|------------|
-|**[11t](https://github.com/jeroensmeets/mastodon-app/blob/master/README.md)**<br />([Play Store](https://play.google.com/store/apps/details?id=com.jeroensmeets.mastodon))|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
+|**[11t](https://github.com/jeroensmeets/mastodon-app/blob/master/README.md)**<br />([Play Store](https://play.google.com/store/apps/details?id=com.jeroensmeets.mastodon)/[IzzyOnDroid](https://apt.izzysoft.de/fdroid/index/apk/com.jeroensmeets.mastodon))|<https://github.com/jeroensmeets/mastodon-app>|[@jeroensmeets@mastodon.social](https://mastodon.social/users/jeroensmeets)|
 |**[AndStatus](http://andstatus.org/)**<br />([Play](https://play.google.com/store/apps/details?id=org.andstatus.app)/[F‑Droid](https://f-droid.org/repository/browse/?fdid=org.andstatus.app))|<https://github.com/andstatus/andstatus>|[@AndStatus@mastodon.social](https://mastodon.social/@AndStatus)|
 |**[Mastalab](https://gitlab.com/tom79/mastalab/blob/master/README.md)**<br />([Play](https://play.google.com/store/apps/details?id=fr.gouv.etalab.mastodon)/[F‑Droid](https://f-droid.org/packages/fr.gouv.etalab.mastodon/))|<https://gitlab.com/tom79/mastalab>|[@tom79@mastodon.social](https://mastodon.social/@tom79)|
 |**[Subway&nbsp;Tooter](https://github.com/tateisu/SubwayTooter/blob/master/README.md)**<br />([Play](https://play.google.com/store/apps/details?id=jp.juggler.subwaytooter)/[IzzyOnDroid](https://apt.izzysoft.de/fdroid/index/apk/jp.juggler.subwaytooter))|<https://github.com/tateisu/SubwayTooter>|[@tateisu@mastodon.juggler.jp](https://mastodon.juggler.jp/@tateisu)|
