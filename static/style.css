@@ -340,4 +340,46 @@ main .mastodon-embed {
     color: #fff;
     font-size: 16px; }
 
+.cta-banner {
+  background: #2b90d9;
+  border-radius: 4px;
+  text-align: center;
+  padding: 40px; }
+  .cta-banner h4 {
+    font-size: 24px;
+    line-height: 1.08;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #fff; }
+  .cta-banner p {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.22;
+    margin-bottom: 20px; }
+  .cta-banner > a {
+    font-weight: 500;
+    color: #2b90d9;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: inherit;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    line-height: 36px;
+    padding: 4px 16px;
+    margin: 0 auto;
+    border: 0;
+    cursor: pointer; }
+    .cta-banner > a.secondary {
+      padding: 2px 14px;
+      border: 2px solid #fff;
+      background: transparent;
+      margin-left: 4px;
+      color: #fff; }
+    @media screen and (max-width: 375px) {
+      .cta-banner > a {
+        margin-bottom: 10px; } }
+
 /*# sourceMappingURL=style.css.map */

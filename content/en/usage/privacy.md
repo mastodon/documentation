@@ -3,7 +3,7 @@ title: Privacy
 menu:
   docs:
     parent: usage
-    weight: 1
+    weight: 3
 ---
 
 ## Publishing levels
