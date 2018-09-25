@@ -12,10 +12,12 @@ menu:
 |-----|:--------------:|:-------:|:----------:|:--------:|
 |Public|{{< yes >}}|{{< yes >}}|{{< yes >}}|{{< yes >}}|
 |Unlisted|{{< no >}}|{{< yes >}}|{{< yes >}}|{{< yes >}}|
-|Private|{{< no >}}|{{< no >}}|{{< no >}}|{{< yes >}}|
+|Followers-only|{{< no >}}|{{< no >}}|{{< no >}}|{{< yes >}}|
 |Direct|{{< no >}}|{{< no >}}|{{< no >}}|{{< no >}}|
 
 No matter which level, every mentioned user can see the message in their notifications.
+
+**Do not share dangerous and sensitive information over direct messages**. Mastodon is not an encrypted messaging app like Signal or Wire, the database administrators of the sender's and recipient's servers have access to the text. Use them with the same caution as you would use forum PMs, Discord PMs and Twitter DMs.
 
 ## Account locking
 

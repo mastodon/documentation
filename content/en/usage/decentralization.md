@@ -61,3 +61,25 @@ However if you come across someone's public profile hosted on a different server
 So when you click "follow", a dialog will pop up asking you to enter your own full username (with the domain part, most importantly). This way, the dialog actually sends you back to your home server, where you are logged in and can really do stuff.
 
 You will also notice that dialog when clicking on "reply", "boost" or "favourite" on public pages of other servers.
+
+### Browsing content
+
+To allow you to discover potentially interesting content, Mastodon provides a way to browse all public posts. Well, there is no global shared state between all servers, so there is no way to browse *all* public posts. When you browse the **federated timeline**, you see all public posts that the server you are on knows about. There are various ways your server may discover posts, but the bulk of them will be from people that other users on your server follow.
+
+There is a way to filter the federated timeline to view only public posts created on your server: The **local timeline**. Mind that "local" here refers to the server, not to a geographical location.
+
+### Funding and monetization
+
+All Mastodon servers are operated by different people or organizations completely independently. Mastodon does not implement any monetization strategies in the software.
+
+Some server operators choose to offer paid accounts, some server operators are companies who can utilize their existing infrastructure, and most server operators rely on crowdfunding from their users via Patreon and similar services. So if you want to support the server hosting your account, check if it offers a way to donate.
+
+Mastodon development is likewise crowdfunded via Patreon. No venture capital is involved.
+
+### Impersonation and verification
+
+The same username *can* be registered on different servers, there is no way to claim all of them ahead of time. Just like with e-mail, you should not expect `alice@hotmail.com` to be the same person as `alice@gmail.com`.
+
+Because Mastodon can be self-hosted, there is no better way to verify your identity than to host Mastodon on your own domain, which people already trust.
+
+Document-based verification and blue ticks are not possible without a central authority. However, Mastodon can cross-reference the links you put on your profile to prove that you are the real owner of those links. In case one of those links is your personal homepage that is known and trusted, it can serve as the next-best-thing to identity verification.
