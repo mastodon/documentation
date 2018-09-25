@@ -10,7 +10,7 @@ Your application can use a [server-sent events](https://developer.mozilla.org/en
 
 Alternatively, a WebSocket connection can also be established.
 
-## HTTP
+## Server-sent events (HTTP)
 ### Endpoints
 
 **GET /api/v1/streaming/user**
