@@ -13,31 +13,31 @@ Alternatively, a WebSocket connection can also be established.
 ## Server-sent events (HTTP)
 ### Endpoints
 
-**GET /api/v1/streaming/user**
+    GET /api/v1/streaming/user
 
 Returns events that are relevant to the authorized user, i.e. home timeline and notifications
 
-**GET /api/v1/streaming/public**
+    GET /api/v1/streaming/public
 
 Returns all public statuses
 
-**GET /api/v1/streaming/public/local**
+    GET /api/v1/streaming/public/local
 
 Returns all local statuses
 
-**GET /api/v1/streaming/hashtag**
+    GET /api/v1/streaming/hashtag?tag={id}
 
-Returns all public statuses for a particular hashtag (query param `tag`)
+Returns all public statuses for a particular hashtag
 
-**GET /api/v1/streaming/hashtag/local**
+    GET /api/v1/streaming/hashtag/local?tag={id}
 
-Returns all local statuses for a particular hashtag (query param `tag`)
+Returns all local statuses for a particular hashtag
 
-**GET /api/v1/streaming/list**
+    GET /api/v1/streaming/list?list={id}
 
-Returns statuses for a list (query param `list`)
+Returns statuses for a list
 
-**GET /api/v1/streaming/direct**
+    GET /api/v1/streaming/direct
 
 Returns all direct messages
 
@@ -68,8 +68,8 @@ Possible `stream` values:
 
 |Event|Description|What's in the payload|
 |-----|-----------|---------------------|
-|`update`|A new status has appeared!|Status|
-|`notification`|A new notification|Notification|
+|`update`|A new status has appeared|[Status]({{< relref "entities.md#status" >}})|
+|`notification`|A new notification has appeared|[Notification]({{< relref "entities.md#notification" >}})|
 |`delete`|A status has been deleted|ID of the deleted status|
 |`filters_changed`|Keyword filters have been changed||
 
