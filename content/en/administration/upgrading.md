@@ -36,6 +36,12 @@ RAILS_ENV=production bundle exec rails assets:precompile
 
 After you have executed all special release-specific instructions, the last thing remaining is restarting Mastodon. *Usually* the streaming API is not updated, and therefore does not require a restart. Restarting the streaming API can lead to an unusually high load on the server, so it is advised to avoid it if possible.
 
+Switch back to root:
+
+```sh
+exit
+```
+
 You would restart Sidekiq:
 
 ```sh
