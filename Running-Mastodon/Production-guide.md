@@ -179,7 +179,7 @@ That is all we need to do for now with the `mastodon` user, you can now `exit` b
 
 Create a user for a [PostgreSQL](https://www.postgresql.org) instance:
 
-```
+```sh
 # Launch psql as the postgres user
 sudo -u postgres psql
 
