@@ -9,6 +9,8 @@ menu:
 
 Mastodon is a **federated** social network.
 
+<img src="/decentralization.png" alt="" style="margin: 0; box-shadow: none">
+
 ## What is federation?
 
 **Federation** is a form of decentralization. Instead of a single central node that all people use, there are multiple nodes, that any number of people can use.
