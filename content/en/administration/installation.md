@@ -6,6 +6,9 @@ menu:
     parent: administration
     weight: 1
 ---
+
+![](/setup.png)
+
 ## Basic server setup (optional)
 
 If you are setting up a fresh machine, it is recommended that you secure it first. Assuming that you are running **Ubuntu 18.04**:
