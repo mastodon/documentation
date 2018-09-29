@@ -7,7 +7,7 @@ menu:
     weight: 1
 ---
 
-![](/setup.png)
+<img src="/setup.png" alt="" style="margin: 0; box-shadow: none">
 
 ## Basic server setup (optional)
 
