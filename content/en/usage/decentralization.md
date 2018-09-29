@@ -23,7 +23,7 @@ A Mastodon server can operate alone. Just like a traditional website, people sig
 
 <figure>
   <img src="/decentralization.png" alt="" style="margin: 0; box-shadow: none">
-  <figcaption>Left to right: Centralized, Federated, Distributed</figcaption>
+  <figcaption><p>Left to right: Centralized, Federated, Distributed</p></figcaption>
 </figure>
 
 In practical terms: Imagine if you could follow an Instagram user from your Twitter account and comment on their photos without leaving your account. If Twitter and Instagram were federated services, that would be possible.
