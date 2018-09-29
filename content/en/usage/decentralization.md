@@ -9,8 +9,6 @@ menu:
 
 Mastodon is a **federated** social network.
 
-<img src="/decentralization.png" alt="" style="margin: 0; box-shadow: none">
-
 ## What is federation?
 
 **Federation** is a form of decentralization. Instead of a single central node that all people use, there are multiple nodes, that any number of people can use.
@@ -22,6 +20,11 @@ Mastodon is a **federated** social network.
 |Distributed|BitTorrent, IPFS, Scuttlebutt|
 
 A Mastodon server can operate alone. Just like a traditional website, people sign up on it, post messages, upload pictures and talk to each other. *Unlike* a traditional website, Mastodon servers can interoperate, letting their users communicate with each other, just like you can send an e-mail from your GMail address to someone from Outlook.
+
+<figure>
+  <img src="/decentralization.png" alt="" style="margin: 0; box-shadow: none">
+  <figcaption>Left to right: Centralized, Federated, Distributed</figcaption>
+</figure>
 
 In practical terms: Imagine if you could follow an Instagram user from your Twitter account and comment on their photos without leaving your account. If Twitter and Instagram were federated services, that would be possible.
 
