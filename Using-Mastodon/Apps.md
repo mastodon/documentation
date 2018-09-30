@@ -70,6 +70,7 @@ List of apps
 |friends.nico<br />([iTunes](https://itunes.apple.com/us/app/friends-nico/id1230158182))|[@friends_nico@friends.nico](https://friends.nico/@friends_nico)|
 |Tootdon<br />([iTunes](https://itunes.apple.com/us/app/tootdon-for-mastodon/id1282283934))|[@tootdon@mstdn.jp](https://mstdn.jp/@tootdon)|
 |Tootter<br />([iTunes](https://itunes.apple.com/us/app/id1229555793))|[@Tootter_for_Mastodon@mstdn.jp](https://mstdn.jp/@Tootter_for_Mastodon)|
+|Linky<br />([iTunes](https://itunes.apple.com/app/id438090426))|[@pragmaticcode@mastodon.social](https://mastodon.social/@pragmaticcode)|
 
 ### Sailfish OS
 
