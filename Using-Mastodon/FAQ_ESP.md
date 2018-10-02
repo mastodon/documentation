@@ -115,6 +115,43 @@ Intenta decirlo en voz alta: “aúu”. ¡Es divertido!
 #### ¿Cómo puedo borrar mi cuenta?
 Haz clic en Ajustes, en el icono de la rueda dentada en la esquina superior izquierda de la aplicación y selecciona Ajustes, Editar Perfil. Desde ahí selecciona "Borrar cuenta". **Eliminar una cuenta es irreversible. Deleting an account is irreversible. El nombre de usuario permanecerá permanentemente como no disponible.**
 
+#### ¿Quién es mi administrador? ¿Cómo me pongo en contacto o sigo a esa persona?
+Haz clic en **Primeros pasos** en el icono de las tres barras horizontales en la esquina superior izquierda (*Getting Started*), luego en **Información adicional** (*Extended Information*). Se desplegará una página con información. Si esa información ha sido configurada por el administrador, se mostrará ahí.
+
+#### Wow, sigo viendo cosas ofensivas por parte de usuarios de una instancia en particular, ¿hay alguna manera de bloquearla *por completo*?
+Abre el perfil de cualquiera de esa instancia y haz clic en los tres puntos verticales que aparecen al lado de las estadísticas de sus publicaciones y escoje la opción "Silenciar todo de *nombre_instancia*".
+
+#### ¿Alguien modera Mastodon?
+Cada instancia maneja la moderación de manera distinta y cada uno tiene a sus propios moderadores. Es correcto preguntar qué reglas siguen la instancia en la que estás. Normalmente las reglas están publicadas en la página del nodo en el enlace **Acerca de esta instancia** (“About”), [como en la página de “more” en mastodon.social](https://mastodon.social/about/more).
+
+#### ¿Cómo reporto contenido ofensivo?
+Debajo de cada toot verás tres puntos. Haciendo clic en esos tres puntos te permitirá ver un menú que te ofrece las opciones de expandir un toot o reportar el contenido de éste. Al momento de reportar el contenido, por favor selecciona todos los toots que necesiten atención por parte de los moderadores.
+
+#### ¿Qué hago si me acosan en Mastodon?
+Si quien administra tu nodo o instancia se toma el acoso de manera seria, puedes reportarlo a través del sistema de reportes. Puedes acceder a éste por medio de los **tres puntos** debajo de cada toot o contactando directamente a tu admin.
+
+#### ¿Mis mensajes privados pueden llegar a personas de otras instancias?
+Desde la versión 1.6 o superior los mensajes privados (sólo para tus seguidores) y los mensajes directos deberían llegar a las personas que usen Mastodon. No se enviarán a los servidores que sólo implementan el protocolo OStatus. Sin embargo, es poco probable que encuentre tales servidores.
+
+#### ¿Qué significa el icono de **Ajustar privacidad** (*Adjust Status Privacy*) y cómo funciona?
+El **icono de globo terráqueo** debajo del área en la que escribes un toot te permite ajustar la privacidad del toot al modificar quién puede ver tu publicación. Esto es lo que sucede:
+
+| Ajustes de privacidad | Destinatarios | Quién lo puede ver | Notas |
+| --------------- | ----------- | ------ | ----- |
+| Público (*Public*)       | Global, historias (*TLs*) públicas | Todos | En tu instancia, aparecerá visible en todas las líneas de tiempo (*timeline*). También aparecerá en líneas de tiempo de instancias desde tu tengas seguidores. |
+| Sin federar (*Unlisted*) | Sólo tus seguidores | Todos |   |
+| Privado (*Private*)      | Sólo tus seguidores |  Sólo tus seguidores | No puede ser retooteado. Las personas que sean mencionadas también recibirán una copia. |
+| Directo (*Direct*)       | Sólo la gente mencionada  | Sólo la gente mencionada | No puede ser retooteado. |
+
+#### ¿Puedo usar hashtags? ¿Debería de hacerlo?
+¡Sí! Los hashtags son monitoreados y muchas veces son divertidos, pero algunos se usan para ayudar a otras personas a evitar contenido sensible. Esto es particularmente apreciado en toots públicos sobre política (#POLITICS), salud (#HEALTH), depresión (#DEPRESSION), temas osbscenos (#LEWD) o no apropiados en general (#NSFW). Para este tipo de temas sensibles es el motivo por el que se diseñó el sistema de *Content Warning*.
+
+#### ¿Cómo hago para que mi cuenta sea verificada y tenga “✅”?
+“✅” es un emoji, *sólo* usado por diversión. No hay cuentas verificadas en Mastodon, ya que para eso se necesita una autoridad central. Puedes copiar y pegar “✅” en tu biografía si quieres, pero no tiene mayor significado. Si de verdad quieres verificar tu identidad, enlaza tu perfil de Mastodon a otro sitio web donde tu identidad ya este confirmada, o utiliza Keybase para conseguir una verificación criptográfica.
+
+#### ¿Se puede editar un toot?
+No, lo siento. Pero puedes borrarlos y rescribirlos…
+
 #### ¿Qué es mastodon.social?
 Es la instancia (o nodo) “emblemática” de Mastodon, también conocida como el servidor que administro yo mismo ([@Gargron](https://mastodon.social/@Gargron)) con las modificaciones al código más recientes. No se supone que tenga que ser la única instancia al final de cuentas.
 
@@ -132,47 +169,6 @@ Puedes probar [TootyFruity](https://play.google.com/store/apps/details?id=ch.kev
 Puedes seguir o contactar a la cuenta de Tusky en  [@Tusky@mastodon.social](https://mastodon.social/@Tusky) o a los desarrolladores en [@Vavassor@mastodon.social](https://mastodon.social/@Vavassor) y [@daycode@mastodon.social](https://mastodon.social/@daycode).
 
 
-
-#### ¿Quién es mi admin? ¿Cómo me pongo en contacto o sigo a esa persona?
-Haz click en **Primeros pasos** (*Getting Started*), luego en **Información adicional** (*Extended Information*); se desplegará una página con información sobre el nodo o la instancia en la que estás. ¡Esperemos que tu admin haya puesto su información de contacto ahí!
-
-<img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" height="200"/>
-<img src="screenshots/getting_started-extended_information.png" alt="Extended Information" height="200"/>
-<img src="screenshots/admin_info.png" alt="Admin Info" height="200"/>
-
-#### Wow, sigo viendo cosas ofensivas por parte de usuarios de una instancia o nodo en particular, ¿hay alguna manera de bloquear a *todo* el nodo?
-No sin que hayan muchos clicks involucrados, lo lamento. ¡Pero tu admin sí puede hacerlo! Por favor ponte en contacto con tu admin.
-
-#### Alguien modera a Mastodon?
-Cada nodo o instancia maneja la moderación de manera distinta y cada uno tiene a sus propios moderadores. Está bien si preguntas qué reglas siguen en el nodo en el que estás. Usualmente las reglas están publicadas en la página del nodo en la liga **Acerca de esta instancia** (“About”), [como en la página de “more” en mastodon.social](https://mastodon.social/about/more).
-
-#### ¿Cómo reporto contenido ofensivo?
-Debajo de cada toot verás **tres puntos**, junto a la opción de darle favorito. Hacer click en esos tres puntos te permitirá ver un menú que te ofrece las opciones de expandir un toot o reportar el contenido de éste. Al momento de reportar el contenido, por favor selecciona todos los toots que necesiten atención por parte de los moderadores.
-
-#### ¿Qué hago si me acosan en Mastodon?
-Si quien administra tu nodo o instancia se tomo el acoso de manera seria, puedes reportarlo a través del sistema de reportes. Puedes acceder a éste por medio de los **tres puntos** debajo de cada toot o contactando directamente a tu admin.
-
-#### ¿Mis mensajes privados pueden llegar a personas de otras instancias?
-Sí, deberían de hacerlo. Sin embargo, los mensajes privados *no son seguros*; te recomendamos evitar enviar información confidencial por medio de ellos.
-
-#### ¿Qué significa el icono de **Ajustar privacidad** (*Adjust Status Privacy*) y cómo funciona?
-El **icono de globo terráqueo** debajo del área en la que escribes un toot te permite ajustar la privacidad del toot al modificar quién puede ver tu publicación. Esto es lo que sucede:
-
-| Configuración | Destinatarios | Quién lo puede ver | Notas |
-| --------------- | ----------- | ------ | ----- |
-| Público (*Public*)       | Global, historias (*TLs*) públicas | Todos | Contenido federado. Gente de otros nodos muy probablemente lo verán. |
-| Sin federar (*Unlisted*) | Sólo tus seguidores | Todos | Puede ser retooteado y así ser visto en otros nodos.  |
-| Privado (*Private*)      | Sólo tus seguidores |  Sólo tus seguidores | No puede ser retooteado. |
-| Directo (*Direct*)       | Sólo la gente mencionada  | Sólo la gente mencionada | Similar al correo electrónico. |
-
-#### ¿Puedo usar hashtags? ¿Debería de hacerlo?
-¡Sí! Los hashtags son monitoreados y muchas veces son divertidos, pero algunos se usan para ayudar a otras personas a evitar contenido sensible. Esto es particularmente apreciado en toots públicos sobre política (#POLITICS), salud (#HEALTH), depresión (#DEPRESSION), temas lascivos (#LEWD) o no apropiados en general (#NSFW). Para este tipo de temas sensibles es que se diseñó el sistema de **Content Warning**.
-
-#### ¿Cómo hago para que mi cuenta sea verificada y tenga “✅”?
-“✅” es un emoji, *sólo* se usa por los lulz. No hay cuentas verificadas en Mastodon. Puedes copiar y pegar “✅” en tu biografía si quieres.
-
-#### ¿Los toots se pueden editar?
-No, lo siento. Pero puedes borrarlos y rescribirlos…
 
 #### Si borro un toot, ¿es borrado de todos lados?
 Borrar un toot lo borrará de la historia (*timeline*) local. Sin embargo, si ya ha sido retooteado (*boosted*) todavía podrá ser visto y tal vez pueda ser federado.
