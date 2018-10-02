@@ -1,67 +1,86 @@
 Preguntas frecuentes
 ==========================
 
+## Terminología
+
 #### ¿Qué es un *Mastodon*?
-Es un animal prehistórico, predecesor del mamut. Los mastodontes hacen “toot” (al menos en inglés, en español berrearían, ¿no?).
+Es un animal prehistórico, predecesor del mamut. En esencia es un elefante peludo. Los mastodontes hacen “toot” (al menos en inglés, en español berrearían, ¿no?).
 
 #### ¿Por qué el nombre *Mastodon*?
-Existe una banda de metal progresivo con el mismo nombre del que soy fan, la cual hizo que este animal llamara mi atención. Pensé que el nombre/animal es muy cool.
+Existe una banda de metal progresivo con el mismo nombre.
+
+#### ¿Qué es una “federación”?
+Es un grupo de servidores de Mastodon que pueden hablar unos con otros sin problemas.
+
+#### ¿Qué es una “instancia”?
+Es un servidor en el que puedes tener una cuenta. Cada instancia tiene sus propias políticas y reglas, ¡porque pueden ser administradas por cualquiera!
+
+#### No entiendo la diferencia entre historia (*timeline*) local e historia federada.
+Los toots “locales” corresponden al servidor en el que te registraste. La “federada” son todos los toots que tu servidor recibe de distintos servidores (es más complicado, pero la versión corta es: “los toots de gente que tú y otros usuarios locales siguen”).
+
+#### ¿Qué otras plataformas son parte de la red federada (*fediverso*)?
+Llamemos a la red federada “fediverso”. Esto es la red de servidores de redes sociales que son compatibles como por ejemplo Mastodon, Friendica, Hubzilla, Kroeg, PeerTube y más. Normalmente si tiene una cuenta en un servidor del *fediverso*, puede seguir y ser seguido a personas de otros servidores compatibles.
+
+## Federación
 
 #### ¿Por qué Mastodon es una red descentralizada?
-Hay diferentes maneras en las cuales algo puede ser descentralizado;  en este caso, Mastodon es del tipo “federado”. Piensa en el correo electrónico, no tanto en los servicios torrent para compartir archivos: existen muchos servidores distintos (“instancias” o “nodos” en el caso de esta red) y los usuarios tienen una cuenta en alguno de estos servidores, pero pueden interactuar y seguirse entre ellos sin importar en qué servidor esté su cuenta.
+Hay diferentes maneras en las cuales algo puede ser descentralizado;  en este caso, Mastodon es del tipo “federado”. Piensa en el correo electrónico, no tanto en los servicios torrent para compartir archivos: existen muchos servidores distintos (“instancias”) y los usuarios tienen una cuenta en alguno de estos servidores, pero pueden interactuar y seguirse entre ellos sin importar en qué servidor esté su cuenta.
 
 #### Técnicamente, ¿cómo funciona la federación?
-Estamos utilizando el conjunto de protocolos OStatus:
 
-1. Webfinger para la búsqueda de usuarios en distintos dominios
-2. *Feeds* de Atom con las extensiones ActivityStreams, Portable Contacts y Threads para el contenido
-3. PubSubHubbub para la suscripción a los *feeds* de Atom
-4. Salmon para la entrega de ciertos elementos desde los *feeds* de Atom a todos los interesados, como un usuario siendo mencionado, el autor del estatus al que se le está respondiendo, una persona siendo seguida, etc.
+Desde la versión 1.6 de Mastodon estamos utilizando el protocolo [ActivityPub](https://www.w3.org/TR/activitypub/) que es un estándar recomendado por la w3C. Mastodon todavía mantiene el protocolo OStatus por cuestiones de compatibilidad.
+
+#### ¿Qué más forma parte de la red federada?
+
+La red ("fediverso") ha existido antes de que existiera Mastodon, poblada por servidores de GNU social, Friendica, Hubzilla, Diaspora etc. No todos esos servidores son totalmente compatibles con todos los demás. Mastodon es compatible con otro software que implemente el protocolo ActivityPub y con algún software que implemente OStatus. Algunas recientes incorporaciones al fediverso son PeerTube and Kroeg.
+
+#### ¿Cuánta gente está registrada en Mastodon? ¿Puedo ver una gráfica con el número de usuarios a través del tiempo? 
+Dos voluntarios independientes realizan un seguimiento de las estadísticas de la red Mastodon rastreando las API públicas de instancias conocidas:
+
+- [instances.social](https://instances.social) es la gráfica para ver las cuentas de usuarios: <https://instances.social/list/old> 
+- [mnm.social](https://mnm.social) es la gráfica que muestra el crecimiento: <https://dashboards.mnm.social/dashboard/db/user-growth?orgId=1>
+
+Estas gráficas tienen que ser tomadas como una estimación ya que todos los datos son voluntarios y la recopilación está basada en los descubrimientos (Los servidores de Mastodon no envían ninguna estadística a ninguna parte de manera automática).
+
+## Organización
+
+#### ¿Cómo se financia Mastodon?
+El desarrollo de Mastodon y el alojamiento web de mastodon.social es financiado por medio de [Patreon](https://www.patreon.com/mastodon) y [Liberapay](https://liberapay.com/Mastodon/). Más allá de lo anterior, no estoy interesado en financiamiento de capital de riesgo (*VC funding*), monetización, dinero a través de anunciantes, ni nada parecido.
+
+El software es libre y gratuito, y las comunidades deberían alojar sus propios servidores si pueden hacerlo, de esa manera los costos quedan más o menos distribuidos. Muchas instancias tienen sus propios medios de financiación mediante Patreon o Liberapay, entre otros métodos para financiar comunidades.
+
+## Uso personal
+
+#### Mastodon se parece mucho a Twitter, ¿cuál es la diferencia?
+Mastodon es una red social descentralizada; cualquiera puede iniciar y mantener su propio servidor de Mastodon, bajo las reglas para su comunidad que elija. Twitter es manejado por una autoridad centralizada y establece reglas que se aplican a todos.
+
+#### ¿Cómo elijo qué instancia o nodo usar?
+[Existen muchas instancias](https://joinmastodon.org/#getting-started) para  casi cualquier interés. Está bien si quieres probar un par de nodos públicos mientras encuentras algún otro que te agrade. Comentar tus intereses en una instancia pública, como [Mastodon.social](https://mastodon.social) puede ayudar a que te inviten a otras instancias más específicas.
+
+Puede tener un primer contacto con lo que sucede en el *timeline* de una instancia, echando un vistazo a su página principal. También puede ver una *preview* de lo que sucede en un nodo utilizando [esta herramienta](http://www.unmung.com/mastoview?url=mastodon.social&view=local) creada por [Kevin Marks](https://mastodon.social/@kevinmarks).
+
+#### ¿Cómo puedo usar Mastodon en mi Android?
+Si utiliza los navegadores Chrome o Firefox para Android, puede añadir Mastodon a su página de inicio. Esto hará que actúe como una aplicación nativa en muchos aspectos incluyendo las notificaciones *push*. También tiene la posibilidad de usarlo probando [Tusky](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky), [Mastalab](https://play.google.com/store/apps/details?id=fr.gouv.etalab.mastodon) o [Tootdon](http://tootdon.club/).
+
+#### ¿Cómo puedo usar Mastodon en mi iPhone?
+Pruebe [Amaroq](https://itunes.apple.com/us/app/amaroq-for-mastodon/id1214116200).
+
+#### ¿Existen otras apps para móvil/escritorio/cli?
+[Sí.](Apps.md)
 
 #### ¿Qué es mastodon.social?
 Es la instancia (o nodo) “emblemática” de Mastodon, también conocida como el servidor que administro yo mismo ([@Gargron](https://mastodon.social/@Gargron)) con las modificaciones al código más recientes. No se supone que tenga que ser la única instancia al final de cuentas.
 
-#### ¿Qué otras plataformas son parte de la red federada?
-Llamemos a la red federada “fediverso”.  El fediverso ha existido por más tiempo que Mastodon, poblado por servidores de GNU social, Friendica, Hubzilla, Diaspora, etc. No todos estos servidores son completamente compatibles entre ellos. Mastodon hace lo posible por adaptarse a los estándares actuales, por lo mismo, tener compatibilidad con GNU social es de mayor prioridad que tenerla con otras plataformas.
 
 #### Intenté iniciar sesión en Mastodon con una app cliente para GNU social, pero no funcionó, ¿por qué?
 Si bien Mastodon es compatible con GNU social en términos de comunicación de servidor a servidor, no sucede lo mismo con la comunicación de cliente a servidor API (o el cómo accedes a Mastodon). Por lo tanto, las apps que fueron hechas específicamente para GNU social no van a funcionar con Mastodon. La razón de esto es por una parte técnica y por la otra ideológica.
 
 Como Mastodon ha sido creado en blanco, es mucho más simple hacer que la API refleje las estructuras internas de la manera más fiel posible, en lugar de crear una capa que las emule. Por otra parte, la API cliente de GNU social es de hecho una implementación a medias de la API de legado (*legacy*) de Twitter –esta es la razón por la que funciona con algunos clientes viejos para Twitter–. Sin embargo, muchas de estas apps dejaron de ser mantenidas, la API de GNU social no se mantuvo a la par de la API real de Twitter y nunca implementó todas sus características; al mismo tiempo, la API de Twitter nunca fue pensada para un servicio federado y por lo tanto obscurece una parte de su funcionalidad.
 
-#### ¿Cómo se financia Mastodon?
-El desarrollo de Mastodon y el alojamiento web de mastodon.social es financiado por medio de mi [Patreon (y a través de donaciones en BTC/PayPal)](https://www.patreon.com/user?u=619786). ). Más allá de lo anterior, no estoy interesado en financiamiento de capital de riesgo (*VC funding*), monetización, dinero a través de anunciantes, ni nada parecido.  En todo caso puedo ofrecer servicios de instalación/mantenimiento sobre demanda.
-
-El software es libre y gratuito, y las comunidades deberían alojar sus propios servidores si pueden hacerlo, de esa manera los costos quedan más o menos distribuidos. Obviamente sería difícil para mí pagar las cuentas si literalmente todo el mundo decide usar sólo la instancia mastodon.social.
-
-#### Mastodon se parece mucho a Twitter, ¿cuál es la diferencia?
-Mastodon es una red social descentralizada; cualquiera puede iniciar y mantener su propio servidor de Mastodon, bajo las reglas para su comunidad que elija. Twitter es manejado por una autoridad centralizada y establece reglas que se aplican a todos.
-
-#### ¿Qué es una “federación”?
-Es un grupo de servidores de Mastodon que comparten toots entre ellos.
-
-#### ¿Qué es una “instancia” o “nodo”?
-Es un servidor en el que puedes tener una cuenta. Cada instancia tiene sus propias políticas y reglas, ¡porque pueden ser administradas por cualquiera!
-
-#### ¿Cómo elijo qué instancia o nodo usar?
-[Existen muchas instancias](https://instances.mastodon.xyz/list) para  casi cualquier interés. Está bien si quieres probar un par de nodos públicos mientras encuentras algún otro que te agrade. Comentar tus intereses en una instancia pública, como [mastodon.social](https://mastodon.social) puede ayudar a que te inviten a otras instancias más específicas.
-
-Para ver un *preview* de lo que sucede en un nodo puedes usar [esta herramienta](http://www.unmung.com/mastoview?url=mastodon.social&view=local) creada por [Kevin Marks](https://mastodon.social/@kevinmarks).
-
-#### ¿Cuánta gente está registrada en Mastodon? ¿Puedo ver una gráfica con el número de usuarios a través del tiempo? 
-Claro, sólo sigue a [@mastodonusercount@social.lou.lt](https://social.lou.lt/@mastodonusercount).
-
-#### ¿Cómo puedo acceder a Mastodon en Android?
-Puedes probar [Tusky](https://play.google.com/store/apps/details?id=com.keylesspalace.tusky).
 
 #### Me gustaría tener soporte para múltiples cuentas en Android.
 Puedes probar [TootyFruity](https://play.google.com/store/apps/details?id=ch.kevinegli.tootyfruity221258).
 
-#### ¿Cómo puedo acceder a Mastodon desde un iPhone?
-Puedes probar [Amaroq](https://itunes.apple.com/us/app/amaroq-for-mastodon/id1214116200). También puedes elegir hacerlo en Safari.
-
-#### ¿Existen otras apps para móvil/escritorio/cli?
-[Sí.](Apps.md)
 
 #### ¿Tusky puede hacer ‘💇’? ¿Qué tal la característica “🔥”? ¿Y qué pasa con “⛱” en Tusky?
 Puedes seguir o contactar a la cuenta de Tusky en  [@Tusky@mastodon.social](https://mastodon.social/@Tusky) o a los desarrolladores en [@Vavassor@mastodon.social](https://mastodon.social/@Vavassor) y [@daycode@mastodon.social](https://mastodon.social/@daycode).
@@ -75,9 +94,6 @@ Puedes buscar a usuarios o *hashtags*, pero no hacer búsquedas de texto general
 Haz click en el **icono de globo** que aparece debajo de tu toot para cambiar las opciones de privacidad, las cuales incluyen mensajes directos.
 
 <img src="screenshots/compose-globe.png" alt="Privacy Globe" height="400"/>
-
-#### No entiendo la diferencia entre historia (*timeline*) local e historia federada.
-Los toots “locales” corresponden al servidor en el que te registraste. La “federada” son todos los toots que tu servidor recibe de distintos servidores (es más complicado, pero la versión corta es: “los toots de gente que tú y otros usuarios locales siguen”).
 
 #### ¿Hay nodos o instancias con las cuales no federa la instancia en la que estoy? ¿Cómo puedo saberlo?
 Algunos nodos son privados y por lo tanto no estarán federados con el tuyo. U otros podrían haber sido bloqueados por el tuyo. Puedes preguntar a tu admin para saber más sobre con cuáles nodos están federando (ve a: “[¿Quién es mi admin? ¿Cómo me pongo en contacto o sigo a esa persona?](#who-is-my-admin-and-how-do-i-contact-follow-them)”).
