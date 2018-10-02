@@ -68,9 +68,55 @@ Pruebe [Amaroq](https://itunes.apple.com/us/app/amaroq-for-mastodon/id1214116200
 #### ¿Existen otras apps para móvil/escritorio/cli?
 [Sí.](Apps.md)
 
+#### ¿Cómo hago búsquedas?
+Puede realizar búsquedas de usuarios y etiquetas o *hashtags*, y si su instancia lo permite, puede realizar búsquedas de mensajes o *toots* que haya escrito, que haya vuelto a compartir, haya marcado como favorito o en los que haya sido mencionado, pero no puede realizar búsquedas de texto en general. Utilice el cuadro de texto superior que aparece encima del área donde se escriben los *toots*. Si está navegando mediante su dispositivo móvil, haga clic en el bolígrafo en la navegación.
+
+<img src="screenshots/search.png" alt="Search Box" height="200"/>
+
+#### ¿Cómo mando un DM (Mensaje Directo)?
+Haga clic en el **icono de globo** que aparece debajo de tu *toot* para cambiar las opciones de privacidad, las cuales incluyen mensajes directos (DM).
+
+<img src="screenshots/compose-globe.png" alt="Privacy Globe" height="400"/>
+
+#### ¿Hay instancias con las cuales no federa la instancia en la que estoy? ¿Cómo puedo saberlo?
+Algunas instancias son privadas y por lo tanto no federarán con su instancia. Otros podrían haber sido bloqueados por su instancia. Puedes preguntar a tu admin para saber más sobre con cuáles nodos están federando.
+
+#### ¿Puedo tener más de una cuenta? ¿Puedo usar la misma dirección de correo electrónico en diferentes instancias?
+¡Sí y sí! Si encuentras alguna otra instancia a la que te gustaría unirte, ¡regístrese! Tome nota de que no todas las instancias están abiertas para que se inscriban nuevos miembros y también es posible que alguien ya se haya registrado con su nombre de usuario preferido.
+
+#### ¿Puedo importar las cuentas que sigo si me mudo de instancia o nodo?
+Sí. Esto podría llevar bastante tiempo dependiendo la instancia a la que te estés mudando. Habla con quien administre tu nueva instancia si tienes dificultades.
+
+#### ¿Cómo evito que alguien se haga pasar por mí?
+Puesto que cualquiera puede crear cualquier nombre de usuario en cualquier instancia, es imposible prevenir que otras personas usen el mismo nombre de usuario en diferentes instancias. Algunas pesonas se han tomado el trabajo de instalar y mantener sus propias instancias personales de un solo usuario como forma de verificación, o usar [Keybase](https://keybase.io/).
+
+#### ¿Cómo activo la Autenticación en Dos Pasos (**“Autenticación de dos factores”** en la página)?
+La opción estará en **Preferencias** (*Preferences*). En el menú **Autenticación de Dos Factores** (*Two-factor Authentication*). La [Autenticación de Dos Factores de Mastodon](2FA.md) (enlace en inglés) usa tanto código QR como secretos en texto plano.
+
+#### ¿Por qué no puedo ver los toots algunas personas?
+Esto puede ocurrir por varias razones. Por una parte, puede que los toots de una persona sean privados. Tienes que seguir a una cuenta privada para poder ver el contenido no-público. Por otra parte, si alguien te ha bloqueado, ya no podrás ver ninguna de sus publicaciones.
+
+#### ¿Qué son las tendencias?
+Las tendencias o *Trending topics* no están actualmente registradas ni hay un seguimiento.
+
+#### ¿Qué es “CW”?
+“CW” son las siglas de “Content Warning” (advertencia sobre contenido). Puedes usar esta opción para esconder el texto o la imagen de un toot, como un *spoiler*.
+
+#### ¿Cómo funciona la característica de “Marcar contenido como sensible” (“NSFW”)?
+
+Cuando añades una imagen a un toot usando el icono de cámara, aparecerá un icono adicional (típicamente con la leyenda “NSFW”). Al hacer clic en este icono la imagen que acompaña el toot será ocultada por una advertencia de Contenido sensible, lo que previene que otros usuarios vean la imagen publicada a menos de que hagan clic en ella.
+
+#### ¿Qué son las piñas?
+Son deliciosas y hacen sonreír a la gente. Sólo sigue la corriente.
+
+#### Veo mucho “Awoo” por todos lados, ¿qué significa?
+Intenta decirlo en voz alta: “aúu”. ¡Es divertido!
+
+#### ¿Cómo puedo borrar mi cuenta?
+Haz clic en Ajustes, en el icono de la rueda dentada en la esquina superior izquierda de la aplicación y selecciona Ajustes, Editar Perfil. Desde ahí selecciona "Borrar cuenta". **Eliminar una cuenta es irreversible. Deleting an account is irreversible. El nombre de usuario permanecerá permanentemente como no disponible.**
+
 #### ¿Qué es mastodon.social?
 Es la instancia (o nodo) “emblemática” de Mastodon, también conocida como el servidor que administro yo mismo ([@Gargron](https://mastodon.social/@Gargron)) con las modificaciones al código más recientes. No se supone que tenga que ser la única instancia al final de cuentas.
-
 
 #### Intenté iniciar sesión en Mastodon con una app cliente para GNU social, pero no funcionó, ¿por qué?
 Si bien Mastodon es compatible con GNU social en términos de comunicación de servidor a servidor, no sucede lo mismo con la comunicación de cliente a servidor API (o el cómo accedes a Mastodon). Por lo tanto, las apps que fueron hechas específicamente para GNU social no van a funcionar con Mastodon. La razón de esto es por una parte técnica y por la otra ideológica.
@@ -85,55 +131,8 @@ Puedes probar [TootyFruity](https://play.google.com/store/apps/details?id=ch.kev
 #### ¿Tusky puede hacer ‘💇’? ¿Qué tal la característica “🔥”? ¿Y qué pasa con “⛱” en Tusky?
 Puedes seguir o contactar a la cuenta de Tusky en  [@Tusky@mastodon.social](https://mastodon.social/@Tusky) o a los desarrolladores en [@Vavassor@mastodon.social](https://mastodon.social/@Vavassor) y [@daycode@mastodon.social](https://mastodon.social/@daycode).
 
-#### ¿Cómo hago búsquedas?
-Puedes buscar a usuarios o *hashtags*, pero no hacer búsquedas de texto general. Usa el campo que está arriba del área donde escribes los toots.
 
-<img src="screenshots/search.png" alt="Search Box" height="200"/>
 
-#### ¿Cómo mando un DM (Mensaje Directo)?
-Haz click en el **icono de globo** que aparece debajo de tu toot para cambiar las opciones de privacidad, las cuales incluyen mensajes directos.
-
-<img src="screenshots/compose-globe.png" alt="Privacy Globe" height="400"/>
-
-#### ¿Hay nodos o instancias con las cuales no federa la instancia en la que estoy? ¿Cómo puedo saberlo?
-Algunos nodos son privados y por lo tanto no estarán federados con el tuyo. U otros podrían haber sido bloqueados por el tuyo. Puedes preguntar a tu admin para saber más sobre con cuáles nodos están federando (ve a: “[¿Quién es mi admin? ¿Cómo me pongo en contacto o sigo a esa persona?](#who-is-my-admin-and-how-do-i-contact-follow-them)”).
-
-#### ¿Puedo tener más de una cuenta? ¿Puedo usar la misma dirección de correo electrónico en diferentes instancias o nodos?
-¡Sí y sí! Si encuentras alguna otra instancia a la que te gustaría unirte, ¡regístrate! Toma nota de que no todas las instancias están abiertas para que se inscriban miembros nuevos y de que es posible que alguien ya haya tomado tu nombre de usuario preferido ahí.
-
-#### ¿Puedo importar las cuentas que sigo si me mudo de instancia o nodo?
-Sí. Esto puede tomar tiempo dependiendo del nodo al que te estés mudando. Habla con quien administre tu nuevo nodo si tienes dificultades. Si tu nuevo nodo no está federado con los nodos a los que pertenecen estas cuentas, posiblemente las pierdas.
-
-#### ¿Cómo evito que alguien se haga pasar por mí en Mastodon?
-Puesto que cualquiera puede crear cualquier nombre de usuario en cualquier nodo o instancia, siempre que no haya sido registrado antes, es imposible prevenir que otras personas usen el mismo nombre de usuario en diferentes instancias. Alguna gente se ha tomado el trabajo de instalar y mantener sus propias instancias personales de un solo usuario como forma de verificación, o usa [Keybase](https://keybase.io/).
-
-#### ¿Cómo activo la Autenticación en Dos Pasos (**“Autenticación de dos factores”** en la página)?
-Si el nodo en el que estás tiene soporte para hacerlo, la opción estará en **Preferencias** (*Preferences*) > **Autenticación de Dos Factores** (*Two-factor Authentication*). La [Autenticación de Dos Factores de Mastodon](2FA.md) (liga en inglés) usa tanto código QR como llaves en texto no enriquecido.
-
-#### ¿Por qué no puedo ver los toots de alguien?
-Esto puede ocurrir por varias razones. Por una parte, puede que los toots de una persona sean privados; tienes que seguir a una cuenta privada para poder ver el contenido no-público. Por otra parte, si alguien te ha bloqueado, no podrás ver aquellos toots no-públicos de su cuenta.
-
-#### ¿Cuáles son las tendencias en Mastodon?
-Para conocer las tendencias sigue al estimadísimo bot [@TrendingBot@mastodon.social](https://mastodon.social/@TrendingBot).
-
-#### ¿Qué es “CW”?
-“CW” son las siglas de “Content Warning” (advertencia sobre contenido). Puedes usar esta opción para esconder el contenido de un toot, como un *spoiler*.
-
-#### ¿Cómo funciona la característica de “Marcar contenido como sensible” (“NSFW”)?
-Cuando añades una imagen a un toot usando el icono de cámara, aparecerá un icono adicional (típicamente con la legenda “NSFW”). Al hacer click en este icono la imagen acompañando el toot será ocultada por una advertencia de **Contenido sensible**, la cual previene que otros usuarios vean la imagen publicada a menos de que hagan click en ella.
-
-"NSFW" son las siglas de *Not Safe For Work* (literalmente "No apropiado para el trabajo"). Se utiliza en diferentes lugares de Internet para advertir que el contenido no es apropiado para visualizar en el trabajo o en lugares públicos por ser pornográfico, sangriento, violento u ofensivo.
-
-#### ¿Por qué tanta piña/ananá?
-Son deliciosas y hacen sonreír a la gente. Sólo sigue la corriente.
-
-#### Veo mucho “Awoo” por todos lados, ¿qué significa?
-Intenta decirlo en voz alta: “aúu”. ¡Es divertido!
-
-#### ¿Cómo puedo borrar mi cuenta?
-Por el momento no puedes hacerlo directamente, tendrás que mandarle un toot a quien administre tu instancia para que te ayude.
-
-<a name="who-is-my-admin-and-how-do-i-contact-follow-them"></a>
 #### ¿Quién es mi admin? ¿Cómo me pongo en contacto o sigo a esa persona?
 Haz click en **Primeros pasos** (*Getting Started*), luego en **Información adicional** (*Extended Information*); se desplegará una página con información sobre el nodo o la instancia en la que estás. ¡Esperemos que tu admin haya puesto su información de contacto ahí!
 
