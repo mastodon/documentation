@@ -143,128 +143,89 @@ El **icono de globo terráqueo** debajo del área en la que escribes un toot te 
 | Privado (*Private*)      | Sólo tus seguidores |  Sólo tus seguidores | No puede ser retooteado. Las personas que sean mencionadas también recibirán una copia. |
 | Directo (*Direct*)       | Sólo la gente mencionada  | Sólo la gente mencionada | No puede ser retooteado. |
 
-#### ¿Puedo usar hashtags? ¿Debería de hacerlo?
-¡Sí! Los hashtags son monitoreados y muchas veces son divertidos, pero algunos se usan para ayudar a otras personas a evitar contenido sensible. Esto es particularmente apreciado en toots públicos sobre política (#POLITICS), salud (#HEALTH), depresión (#DEPRESSION), temas osbscenos (#LEWD) o no apropiados en general (#NSFW). Para este tipo de temas sensibles es el motivo por el que se diseñó el sistema de *Content Warning*.
+#### ¿Puedo usar etiquetas o *hashtags*? ¿Debería de hacerlo?
+¡Sí! Las etiquetas también conocidas como *hashtags* son monitoreadas y muchas veces son divertidas, pero algunas se usan para ayudar a otras personas a evitar contenido sensible. Eso es particularmente apreciado en toots públicos sobre política (#POLITICS), salud (#HEALTH), depresión (#DEPRESSION), temas osbscenos (#LEWD) o no apropiados en general (#NSFW). Por este tipo de temas sensibles  se diseñó el sistema de *Content Warning*.
 
 #### ¿Cómo hago para que mi cuenta sea verificada y tenga “✅”?
 “✅” es un emoji, *sólo* usado por diversión. No hay cuentas verificadas en Mastodon, ya que para eso se necesita una autoridad central. Puedes copiar y pegar “✅” en tu biografía si quieres, pero no tiene mayor significado. Si de verdad quieres verificar tu identidad, enlaza tu perfil de Mastodon a otro sitio web donde tu identidad ya este confirmada, o utiliza Keybase para conseguir una verificación criptográfica.
 
 #### ¿Se puede editar un toot?
-No, lo siento. Pero puedes borrarlos y rescribirlos…
+No, lo siento. Pero puedes borrarlo y rescribirlo…
 
-#### ¿Qué es mastodon.social?
-Es la instancia (o nodo) “emblemática” de Mastodon, también conocida como el servidor que administro yo mismo ([@Gargron](https://mastodon.social/@Gargron)) con las modificaciones al código más recientes. No se supone que tenga que ser la única instancia al final de cuentas.
-
-#### Intenté iniciar sesión en Mastodon con una app cliente para GNU social, pero no funcionó, ¿por qué?
-Si bien Mastodon es compatible con GNU social en términos de comunicación de servidor a servidor, no sucede lo mismo con la comunicación de cliente a servidor API (o el cómo accedes a Mastodon). Por lo tanto, las apps que fueron hechas específicamente para GNU social no van a funcionar con Mastodon. La razón de esto es por una parte técnica y por la otra ideológica.
-
-Como Mastodon ha sido creado en blanco, es mucho más simple hacer que la API refleje las estructuras internas de la manera más fiel posible, en lugar de crear una capa que las emule. Por otra parte, la API cliente de GNU social es de hecho una implementación a medias de la API de legado (*legacy*) de Twitter –esta es la razón por la que funciona con algunos clientes viejos para Twitter–. Sin embargo, muchas de estas apps dejaron de ser mantenidas, la API de GNU social no se mantuvo a la par de la API real de Twitter y nunca implementó todas sus características; al mismo tiempo, la API de Twitter nunca fue pensada para un servicio federado y por lo tanto obscurece una parte de su funcionalidad.
-
-
-#### Me gustaría tener soporte para múltiples cuentas en Android.
-Puedes probar [TootyFruity](https://play.google.com/store/apps/details?id=ch.kevinegli.tootyfruity221258).
-
-
-#### ¿Tusky puede hacer ‘💇’? ¿Qué tal la característica “🔥”? ¿Y qué pasa con “⛱” en Tusky?
-Puedes seguir o contactar a la cuenta de Tusky en  [@Tusky@mastodon.social](https://mastodon.social/@Tusky) o a los desarrolladores en [@Vavassor@mastodon.social](https://mastodon.social/@Vavassor) y [@daycode@mastodon.social](https://mastodon.social/@daycode).
-
-
-
-#### Si borro un toot, ¿es borrado de todos lados?
-Borrar un toot lo borrará de la historia (*timeline*) local. Sin embargo, si ya ha sido retooteado (*boosted*) todavía podrá ser visto y tal vez pueda ser federado.
+#### Si borro una publicación, ¿es borrado de todos los sitios?
+Borrar una publicación lo hace de todos los sitios a donde la publicación original llegó. Como regla general, esto significa que sí, se borrará de todos los sitios. Puede haber retrasos debido a la red o a retrasos a la hora de procesarlo. Bajo raras circunstancias puede que quede una copia en algún lugar, especialmente si la publicación fue realizada de manera pública.
 
 #### ¿Cómo veo mis toots favoritos?
-Haz click en **Primeros pasos** (*Getting Started*), luego en **Favoritos** (*Favourites*).
-
-<img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" height="200"/>
-<img src="screenshots/getting_started-favourites.png" alt="Favourites" height="200"/>
+Haz clic en **Primeros pasos** (*Getting Started*) en el icono de las tres barras horizontales en la esquina superior izquierda, luego en **Favoritos** (*Favourites*), en el icono de la estrella.
 
 #### ¿Se puede citar un toot?
-No por el momento. Debes copiar y pegar manualmente el texto del toot para citarlo.
+No. Es posible elazar a toots de igual manera que se pueden incluir enlaces a cualquier página web, pero creemos que la opción de citar, promueve comportamientos tóxicos y por eso se ha omitido de manera deliberada.
 
-#### Si cierran para siempre la instancia o el nodo en el que estoy, ¿perdería todos los datos de mi cuenta?
+#### Si cierran para siempre la instancia en la que estoy, ¿perdería todos los datos de mi cuenta?
 Sí, así es.
 
 #### ¿Puedo salvar los datos de mi cuenta?
 Sí, ¡una parte de ellos! Sólo ve a **Preferencias** (*Preferences*) y luego a **Exportar información** (*Data export*).
 
-<img src="screenshots/preferences-data_export.png" alt="Data Export" height="400"/>
-
-#### No puedo ver los toots de un usuario remoto (de otra instancia) al ir a su bio!
-Ve a la **vista expandida** de su perfil, luego haz click en su imagen de perfil. Al hacerlo irás directamente al servidor en el que se aloja la cuenta, el cual desplegará todos sus toots públicos.
-
-<img src="screenshots/profile-avatar_click.png" alt="Click their avatar" height="200"/>
-<img src="screenshots/profile-webpage_URL.png" alt="Native webpage view" height="200"/>
+#### ¡No puedo ver los toots de un usuario remoto (de otra instancia) al ir a su biografía!
+Si estás viendo su perfil desde la vista expandida, haz clic sobre su avatar. Esto te llevará directamente a su instancia, donde se muestran todos sus toots públicos. De manera alternativa, abriendo cualquier enlace de su nombre de usuario en una nueva pestaña también te llevará al mismo sitio.
 
 #### ¿Cómo veo un hilo de toots?
-Haz click en el texto del toot para ver la **vista expandida** de éste. Te mostrará el hilo al que el toot está conectado.
+Haz clic en el texto del toot para ver la **vista expandida** de éste. Te mostrará la conversación de la que ese toot forma parte.
 
-#### ¿Cómo obtengo la liga de un toot?
-Hay dos ligas permanentes (*permalinks*) para los toots. Puedes hacer **click derecho** en la marca de tiempo localizada en el encabezado del toot. O en los toots expandidos, haz **click derecho** en la fecha que aparece abajo del toot.
+#### ¿Cómo obtengo el enlace de un toot?
+La fecha y la hora (a veces mostradas de manera relativa como "2m", esto significa "hace 2 minutos") de un toot siempre enlaza a la página pública del toot ("permalink"). Haz clic con el botón derecho y copia la ubicación. Ese será el enlace al toot.
 
-<img src="screenshots/inline_toot-timestamp_link.png" alt="Inline View Permalink" height="200"/>
-<img src="screenshots/expanded_view-permalink.png" alt="Expanded View Permalink" height="200"/>
 
-#### ¿Cómo obtengo la liga de mi perfil?
-Haz **click derecho** en tu imagen de perfil y luego selecciona **Copiar dirección de enlace**.
+#### ¿Cómo obtengo un enlace de mi perfil?
+Haz **clic derecho** en tu avatar o nombre de usuario y copia la ubicación. El enlace normalmente tiene este aspecto: `https://dominio.tld/@nombre_usuario`
 
-<img src="screenshots/link_to_profile.png" alt="URL for Profile" height="200"/>
 
-#### Al hacer click en un #hashtag, ¿los resultados que se muestran son de toots locales o federados?
-Federados.
+#### Al hacer clic en una etiqueta o *hashtag*, ¿los resultados que se muestran son de toots locales o federados?
+La línea de tiempo o *timeline* de las etiquetas es esencialmente una línea de tiempo federada filtrada por ese campo.
 
 #### Cuando silencio un retoot (*boost*), ¿a quién estoy silenciando? ¿A quien hizo el retoot o al autor original?
-Al autor original del toot.
+Al autor original del toot. Puedes silenciar *boosts* de alguien a quien sigues, desde su perfil.
 
-#### ¿Puedo ver un *preview* de los miembros de una instancia cualquiera y de lo que están tooteando?
-Sí, prueba [esta excelente herramienta](http://www.unmung.com/mastoview?url=mastodon.social&view=local) para ver *previews* de instancias.
-
-#### ¿Cómo filtro los toots en idiomas que no entiendo?
-El equipo de desarrolladores están trabajando en un filtro para esto junto con otras opciones de filtrado. ¡Mantente en tu asiento!
+#### ¿Puedo ver una vista preliminar de los miembros de una instancia cualquiera y de lo que están tooteando?
+Sí, la página principal de cualquier instancia tiene una vista de las línea de tiempo propia, a menos que este inhabilitada por su administrador.
 
 #### ¿Hay soporte para hacer traducciones automáticas de los toots?
 Todavía no, pero el [script para TamperMonkey en Firefox](https://github.com/tomouchuu/mastodon-translate) podría funcionarte.
 
 #### ¿Los toots automáticamente son publicados en la federación o se quedan en la instancia local?
-Por default los toots están federados (son públicos) y se mostrarán tanto en la historia (*timeline*) local como en la federada. Puedes cambiar esté comportamiento default al hacer click en **Preferencias** (*Settings*) > **Preferencias** (*Preferences*) > **Privacidad de publicaciones** (*Post Privacy*).
+La función principal de Mastodon es ofrecer tus toots a tus seguidores. Tus toots no salen de tu instancia a menos que tengas seguidores en otras instancias. Hay otros casos, como cuando envías un mensaje a alguien de otra instancia sin necesidad de ser seguidores. Mastodon no discrimina entre seguidores locales o remotos. Sin embargo, en las líneas de tiempo "locales" y "remotas" pueden mostrar sólo los toots con los ajustes de privacidad "públicos". Si escoges "unlisted" o una privacidad menor en los ajustes de privacidad tus toots no se mostrarán en esas líneas de tiempo. De manera similar, esos toots tampoco se mostrarán en el listado relativo a una etiqueta incluso si incluiste esa etiqueta en el toot. 
 
-<img src="screenshots/toolbar-getting_started.png" alt="Getting Started Button" height="200"/>
-<img src="screenshots/getting_started-preferences.png" alt="Preferences" height="200"/>
-<img src="screenshots/preferences-post_privacy.png" alt="Post Privacy" height="400"/>
 
-#### ¿Cómo hago mi propia instancia o nodo?
+#### ¿Cual es el tamaño máximo predeterminado de las imágenes que puedo subir?
+El límite es de 8 Megabytes.
+
+#### ¿Qué tipo de archivos puedo subir?
+Imágenes en formatos PNG, JPEG, GIF y también vídeos en formatos WebM o MP4. Un GIF será automáticamente convertido a un MP4 sin sonido y se comportará como un GIF en la interfaz al reproducirlo. De manera similar un vídeo sin sonido en formatos WebM o MP4 también se reproducirá como un GIF en la interfaz.
+
+#### ¿Cómo hago mi propia instancia?
 Lee la [Guía de Usuario](../README.md), bajo el encabezado “Running Mastodon” (guía en inglés).
 
 #### Encontré un error/tengo una sugerencia para Mastodon.
-Puedes reportar errores o enviar sugerencias al [Rastreador de Problemas de Mastodon](https://github.com/tootsuite/mastodon/issues) (liga en inglés).
+Puedes reportar errores o enviar sugerencias al [Rastreador de Problemas de Mastodon en GitHub](https://github.com/tootsuite/mastodon/issues) (enlace en inglés).
+
+
 
 #### ¿Existen nodos o instancias sólo para hispanoparlantes o específicas para un país de habla española?
 Por supuesto, en este momento ya existen varias instancias dirigidas a hablantes de español y a comunidades de países específicos. Esta es la lista hasta hoy:
 
-*	Para hispanohablantes en general: [https://mastodones.club/](https://mastodones.club/)
-
 *	México: [https://mstdn.mx/](https://mstdn.mx/)
 
-*	Argentina: [https://mastodonar.club/](https://mastodonar.club/)
-
-*	Uruguay: [https://mastodon.undernet.uy/](https://mastodon.undernet.uy/)
-
-*	Perú: [https://mastodon.pe/](https://mastodon.pe/)
-
 #### Ey, ¡me encantan las Preguntas Frecuentes sobre Mastodon! ¿Dónde hay más?
-Aquí hay algunas más de individuos muy trabajadores que también quieren ayudar (ligas en inglés):
+Aquí hay algunas más de individuos muy trabajadores que también quieren ayudar (enlaces en inglés):
 
-* [https://hastebin.com/raw/xuqogukimu](https://hastebin.com/raw/xuqogukimu)
-
-* [https://github.com/ThomasLeister/masto-faq](https://github.com/ThomasLeister/masto-faq)
-
-* [http://mastoguide.info/Pages/FAQindex.html](http://mastoguide.info/Pages/FAQindex.html)
-
-* [https://medium.com/tebelorg/my-first-10-days-on-mastodon-fediverse-f6f1d73db8d7](https://medium.com/tebelorg/my-first-10-days-on-mastodon-fediverse-f6f1d73db8d7)
-
-* [https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md](https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md)
+* <https://gist.github.com/joyeusenoelle/74f6e6c0f349651349a0df9ae4582969>
+* <https://hastebin.com/raw/xuqogukimu>
+* <https://github.com/ThomasLeister/masto-faq>
+* <http://mastoguide.info/Pages/FAQindex.html](http://mastoguide.info/Pages/FAQindex.html>
+* <https://medium.com/tebelorg/my-first-10-days-on-mastodon-fediverse-f6f1d73db8d7>
 
 ---
 Este documento de Preguntas Frecuentes fue formado con las contribuciones de [@Gargron](https://mastodon.social/@Gargron),  [@raccoon](https://mastodon.social/@Raccoon), [@upside](https://octodon.social/@upside), [@zacanger](https://mastodon.social/@zacanger), [@NthTensor](https://octodon.social/@NthTensor), [@ametlles](https://mastodon.social/@ametlles), ¡y mucha otra gente del fediverso!
 
-Traducción al español por [@ametlles](https://mastodon.social/@ametlles). ¡Gracias a [@ara_batur](https://mastodones.club/@ara_batur) por los cambios sugeridos!
+Traducción al español por [@ametlles](https://mastodon.social/@ametlles). ¡Gracias a [@ara_batur](https://mastodones.club/@ara_batur) por los cambios sugeridos! Actualizado por [@victorhck.](https://mastodon.social/@victorhck)
