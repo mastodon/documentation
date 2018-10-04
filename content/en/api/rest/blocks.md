@@ -18,8 +18,6 @@ Returns array of [Account]({{< relref "entities.md#account" >}})
 
 |Name|Description|Required|Default|
 |----|-----------|:------:|:-----:|
-| `max_id` | Return results older than ID | Optional ||
-| `since_id` | Return results newer than ID | Optional ||
 | `limit` | Maximum number of results | Optional | 40 |
 
 ### Pagination
