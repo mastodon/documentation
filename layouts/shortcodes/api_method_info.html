@@ -15,10 +15,12 @@
       <td>{{ .Get "user" }}</td>
     </tr>
 
-    <tr>
-      <th style="text-align: left">Scope</th>
-      <td><code>{{ .Get "scope" }}</code></td>
-    </tr>
+    {{ with .Get "scope" }}
+      <tr>
+        <th style="text-align: left">Scope</th>
+        <td><code>{{.}}</code></td>
+      </tr>
+    {{ end }}
 
     <tr>
       <th style="text-align: left">Available since</th>
