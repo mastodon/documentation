@@ -8,6 +8,8 @@ menu:
 
 ## GET /api/v1/custom_emojis
 
+Custom emojis that are available on the server.
+
 Returns array of [Emoji]({{< relref "entities.md#emoji" >}})
 
 ### Resource information

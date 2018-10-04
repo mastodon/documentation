@@ -8,6 +8,8 @@ menu:
 
 ## GET /api/v1/endorsements
 
+Accounts the user chose to endorse.
+
 Returns array of [Account]({{< relref "entities.md#account" >}})
 
 ### Resource information

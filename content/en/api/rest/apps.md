@@ -8,6 +8,8 @@ menu:
 
 ## POST /api/v1/apps
 
+Create a new application to obtain OAuth2 credentials.
+
 Returns [App]({{< relref "entities.md#app" >}}) with `client_id` and `client_secret`
 
 ### Resource information

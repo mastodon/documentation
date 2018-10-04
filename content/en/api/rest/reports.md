@@ -7,6 +7,9 @@ menu:
 ---
 
 ## POST /api/v1/reports
+
+Report an account.
+
 ### Resource information
 
 {{< api_method_info auth="Yes" user="Yes" scope="write write:reports" version="0.0.0" >}}

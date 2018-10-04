@@ -8,6 +8,8 @@ menu:
 
 ## GET /api/v1/favourites
 
+Statuses the user has favourited.
+
 Returns array of [Status]({{< relref "entities.md#status" >}})
 
 ### Resource information

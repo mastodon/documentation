@@ -8,6 +8,8 @@ menu:
 
 ## GET /api/v1/instance
 
+Information about the server.
+
 Returns [Instance]({{< relref "entities.md#instance" >}})
 
 ### Resource information

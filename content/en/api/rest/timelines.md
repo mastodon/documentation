@@ -8,6 +8,8 @@ menu:
 
 ## GET /api/v1/timelines/home
 
+Statuses from accounts the user follows.
+
 Returns array of [Status]({{< relref "entities.md#status" >}})
 
 ### Resource information
@@ -27,6 +29,8 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 {{< api_dynamic_pagination >}}
 
 ## GET /api/v1/timelines/public
+
+Public statuses known to the server.
 
 Returns array of [Status]({{< relref "entities.md#status" >}})
 
@@ -50,6 +54,8 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 
 ## GET /api/v1/timelines/tag/:hashtag
 
+Public statuses known to the server marked with a given hashtag.
+
 Returns array of [Status]({{< relref "entities.md#status" >}})
 
 ### Resource information
@@ -71,6 +77,8 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 {{< api_dynamic_pagination >}}
 
 ## GET /api/v1/timelines/list/:list_id
+
+Statuses from accounts on a given list.
 
 Returns array of [Status]({{< relref "entities.md#status" >}})
 

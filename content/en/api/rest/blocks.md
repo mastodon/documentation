@@ -8,6 +8,8 @@ menu:
 
 ## GET /api/v1/blocks
 
+Accounts the user has blocked.
+
 Returns array of [Account]({{< relref "entities.md#account" >}})
 
 ### Resource information

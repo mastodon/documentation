@@ -8,6 +8,8 @@ menu:
 
 ## GET /api/v1/mutes
 
+Accounts the user has muted.
+
 Returns array of [Account]({{< relref "entities.md#account" >}})
 
 ### Resource information
