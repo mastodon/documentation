@@ -18,7 +18,7 @@
     {{ with .Get "scope" }}
       <tr>
         <th style="text-align: left">Scope</th>
-        <td><code>{{.}}</code></td>
+        <td>{{range split . " "}}<code>{{ . }}</code> {{ end }}</td>
       </tr>
     {{ end }}
 
