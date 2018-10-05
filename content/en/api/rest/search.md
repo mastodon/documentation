@@ -1,8 +1,8 @@
 ---
-title: Search API
+title: Search
 menu:
   docs:
-    parent: api
+    parent: rest-api
     weight: 10
 ---
 

@@ -1,8 +1,8 @@
 ---
-title: Custom emoji API
+title: Custom emoji
 menu:
   docs:
-    parent: api
+    parent: rest-api
     weight: 10
 ---
 

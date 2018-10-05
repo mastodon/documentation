@@ -1,8 +1,8 @@
 ---
-title: Apps API
+title: Apps
 menu:
   docs:
-    parent: api
+    parent: rest-api
     weight: 10
 ---
 

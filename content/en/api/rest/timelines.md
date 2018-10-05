@@ -1,8 +1,8 @@
 ---
-title: Timelines API
+title: Timelines
 menu:
   docs:
-    parent: api
+    parent: rest-api
     weight: 10
 ---
 

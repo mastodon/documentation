@@ -1,8 +1,8 @@
 ---
-title: Follow suggestions API
+title: Follow suggestions
 menu:
   docs:
-    parent: api
+    parent: rest-api
     weight: 10
 ---
 

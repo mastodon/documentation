@@ -1,8 +1,8 @@
 ---
-title: Blocks API
+title: Blocks
 menu:
   docs:
-    parent: api
+    parent: rest-api
     weight: 10
 ---
 

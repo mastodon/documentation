@@ -1,8 +1,8 @@
 ---
-title: Instances API
+title: Instances
 menu:
   docs:
-    parent: api
+    parent: rest-api
     weight: 10
 ---
 

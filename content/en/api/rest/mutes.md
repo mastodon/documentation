@@ -1,8 +1,8 @@
 ---
-title: Mutes API
+title: Mutes
 menu:
   docs:
-    parent: api
+    parent: rest-api
     weight: 10
 ---
 

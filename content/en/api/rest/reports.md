@@ -1,8 +1,8 @@
 ---
-title: Reports API
+title: Reports
 menu:
   docs:
-    parent: api
+    parent: rest-api
     weight: 10
 ---
 

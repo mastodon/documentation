@@ -31,7 +31,12 @@ enableGitInfo = true
     identifier = "development"
     url = "/development/"
   [[menu.docs]]
-    name = "API"
+    name = "API Overview"
     weight = 4
     identifier = "api"
     url = "/api/"
+  [[menu.docs]]
+    name = "REST API"
+    weight = 5
+    identifier = "rest-api"
+    url = "/api/rest/"

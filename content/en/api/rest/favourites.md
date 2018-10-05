@@ -1,8 +1,8 @@
 ---
-title: Favourites API
+title: Favourites
 menu:
   docs:
-    parent: api
+    parent: rest-api
     weight: 10
 ---
 
