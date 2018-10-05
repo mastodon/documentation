@@ -44,3 +44,9 @@ Links in Mastodon are not shortened using URL shorteners. However, URLs in text 
 ```
 
 The spans with the `invisible` class can be hidden. The middle span is intended to remain visible. It may have no class if the URL is not very long, otherwise it will have an `ellipsis` class. No ellipsis (`…`) character is inserted in the markup, instead, you are expected to insert it yourself if you need it in your app.
+
+## Filters
+
+Clients must do their own text filtering based on filters returned from the API. The server will apply `irreversible` filters for home and notifications context, but anything else is still up to the client to filter!
+
+Expired filters are not deleted by the server. They should no longer be applied but they are still stored by the server. It is up to clients to delete those filters eventually.
