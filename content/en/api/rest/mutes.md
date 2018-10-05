@@ -14,7 +14,7 @@ Returns array of [Account]({{< relref "entities.md#account" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read read:mutes follow" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read:mutes follow" version="0.0.0" >}}
 
 ### Parameters
 
@@ -25,3 +25,29 @@ Returns array of [Account]({{< relref "entities.md#account" >}})
 ### Pagination
 
 {{< api_pagination >}}
+
+## POST /api/v1/accounts/:id/mute
+
+Mute an account.
+
+Returns [Relationship]({{< relref "entities.md#relationship" >}})
+
+### Resource information
+
+{{< api_method_info auth="Yes" user="Yes" scope="write:mutes follow" version="0.0.0" >}}
+
+### Parameters
+
+|Name|Description|Required|Default|
+|----|-----------|:------:|:-----:|
+| `notifications` | Whether the mute will mute notifications or not | Optional | true |
+
+## POST /api/v1/accounts/:id/unmute
+
+Unmute an account.
+
+Returns [Relationship]({{< relref "entities.md#relationship" >}})
+
+### Resource information
+
+{{< api_method_info auth="Yes" user="Yes" scope="write:mutes follow" version="0.0.0" >}}

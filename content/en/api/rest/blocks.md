@@ -14,7 +14,7 @@ Returns array of [Account]({{< relref "entities.md#account" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read read:blocks follow" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read:blocks follow" version="0.0.0" >}}
 
 ### Parameters
 
@@ -25,3 +25,23 @@ Returns array of [Account]({{< relref "entities.md#account" >}})
 ### Pagination
 
 {{< api_pagination >}}
+
+## POST /api/v1/accounts/:id/block
+
+Block an account.
+
+Returns [Relationship]({{< relref "entities.md#relationship" >}})
+
+### Resource information
+
+{{< api_method_info auth="Yes" user="Yes" scope="write:blocks follow" version="0.0.0" >}}
+
+## POST /api/v1/accounts/:id/unblock
+
+Unblock an account.
+
+Returns [Relationship]({{< relref "entities.md#relationship" >}})
+
+### Resource information
+
+{{< api_method_info auth="Yes" user="Yes" scope="write:blocks follow" version="0.0.0" >}}
