@@ -12,4 +12,4 @@ Mastodon natively supports the [Web Push API](https://developer.mozilla.org/en-U
 - [toot-relay](https://github.com/DagAgren/toot-relay)
 - [PushToFCM](https://github.com/tateisu/PushToFCM)
 
-Using the Web Push API requires your app to have the `push` scope.
+Using the Web Push API requires your app to have the `push` scope. To create a new Web Push API subscription, use [POST /api/v1/push/subscription]({{< relref "notifications.md#post-api-v1-push-subscription" >}}).
