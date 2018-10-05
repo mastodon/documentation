@@ -34,7 +34,7 @@ Returns [Filter]({{< relref "entities.md#filter" >}})
 | `context` | Array of strings that means filtering context. Each string is one of `home`, `notifications`, `public`, `thread`. At least one context must be specified. | Required |
 | `irreversible` | Irreversible filtering will only work in `home` and `notifications` contexts by fully dropping the records. Otherwise, filtering is up to the client. | Optional |
 | `whole_word` | Whether to consider word boundaries when matching | Optional |
-| `expires_in` | Number that indicates seconds. Filter will be expire in seconds after API processed. Null or blank string means "don't change" | Optional |
+| `expires_in` | Number that indicates seconds. Filter will be expire in seconds after API processed. Leave blank for no expiration | Optional |
 
 ## GET /api/v1/filters/:id
 
@@ -64,7 +64,7 @@ Returns [Filter]({{< relref "entities.md#filter" >}})
 | `context` | Array of strings that means filtering context. Each string is one of `home`, `notifications`, `public`, `thread`. At least one context must be specified. | Required |
 | `irreversible` | Irreversible filtering will only work in `home` and `notifications` contexts by fully dropping the records. Otherwise, filtering is up to the client. | Optional |
 | `whole_word` | Whether to consider word boundaries when matching | Optional |
-| `expires_in` | Number that indicates seconds. Filter will be expire in seconds after API processed. Null or blank string means "don't change" | Optional |
+| `expires_in` | Number that indicates seconds. Filter will be expire in seconds after API processed. Leave blank to not change | Optional |
 
 ## DELETE /api/v1/filters/:id
 
