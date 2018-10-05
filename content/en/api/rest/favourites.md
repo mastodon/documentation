@@ -25,3 +25,19 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 ### Pagination
 
 {{< api_pagination >}}
+
+## POST /api/v1/statuses/:id/favourite
+
+Favourite a status.
+
+Returns [Status]({{< relref "entities.md#status" >}})
+
+### Resource information
+
+{{< api_method_info auth="Yes" user="Yes" scope="write write:favourites" version="0.0.0" >}}
+
+## POST /api/v1/statuses/:id/unfavourite
+
+Undo the favourite of a status.
+
+Returns [Status]({{< relref "entities.md#status" >}})

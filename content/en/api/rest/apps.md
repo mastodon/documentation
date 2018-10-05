@@ -26,3 +26,13 @@ Returns [App]({{< relref "entities.md#app" >}}) with `client_id` and `client_sec
 | `website` | URL to the homepage of your app | Optional |
 
 > To display the authorization code to the end-user instead of redirecting to a web page, use `urn:ietf:wg:oauth:2.0:oob` in `redirect_uris`
+
+## GET /api/v1/apps/verify_credentials
+
+Confirm that the app's OAuth2 credentials work.
+
+Returns [App]({{< relref "entities.md#app" >}})
+
+### Resource information
+
+{{< api_method_info auth="Yes" user="No" version="0.0.0" >}}

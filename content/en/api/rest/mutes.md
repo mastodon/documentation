@@ -51,3 +51,23 @@ Returns [Relationship]({{< relref "entities.md#relationship" >}})
 ### Resource information
 
 {{< api_method_info auth="Yes" user="Yes" scope="write:mutes follow" version="0.0.0" >}}
+
+## POST /api/v1/statuses/:id/mute
+
+Mute the conversation the status is part of, to no longer be notified about it.
+
+Returns [Status]({{< relref "entities.md#status" >}})
+
+### Resource information
+
+{{< api_method_info auth="Yes" user="Yes" scope="write write:mutes" version="0.0.0" >}}
+
+## POST /api/v1/statuses/:id/unmute
+
+Unmute the conversation the status is part of.
+
+Returns [Status]({{< relref "entities.md#status" >}})
+
+### Resource information
+
+{{< api_method_info auth="Yes" user="Yes" scope="write write:mutes" version="0.0.0" >}}
