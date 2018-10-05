@@ -36,9 +36,9 @@ Block a domain to hide all public posts from it, all notifications from it, and 
 
 ### Parameters
 
-|Name|Description|Required|Default|
-|----|-----------|:------:|:-----:|
-| `domain` | Domain to block| Required ||
+|Name|Description|Required|
+|----|-----------|:------:|
+| `domain` | Domain to block| Required |
 
 ## DELETE /api/v1/domain_blocks
 
@@ -50,6 +50,6 @@ Remove a domain block.
 
 ### Parameters
 
-|Name|Description|Required|Default|
-|----|-----------|:------:|:-----:|
-| `domain` | Domain to block| Required ||
+|Name|Description|Required|
+|----|-----------|:------:|
+| `domain` | Domain to unblock| Required |

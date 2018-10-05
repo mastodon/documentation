@@ -68,9 +68,9 @@ Returns [List]({{< relref "entities.md#list" >}})
 
 ### Parameters
 
-|Name|Description|Required|Default|
-|----|-----------|:------:|:-----:|
-| `title` | The title of the list | Required ||
+|Name|Description|Required|
+|----|-----------|:------:|
+| `title` | The title of the list | Required |
 
 ## PUT /api/v1/lists/:id
 
@@ -84,9 +84,9 @@ Returns [List]({{< relref "entities.md#list" >}})
 
 ### Parameters
 
-|Name|Description|Required|Default|
-|----|-----------|:------:|:-----:|
-| `title` | The title of the list | Required ||
+|Name|Description|Required|
+|----|-----------|:------:|
+| `title` | The title of the list | Required |
 
 ## DELETE /api/v1/lists/:id
 
@@ -108,9 +108,9 @@ Add accounts to a list.
 
 ### Parameters
 
-|Name|Description|Required|Default|
-|----|-----------|:------:|:-----:|
-| `account_ids` | Array of account IDs | Required ||
+|Name|Description|Required|
+|----|-----------|:------:|
+| `account_ids` | Array of account IDs | Required |
 
 ## DELETE /api/v1/lists/:id/accounts
 
@@ -122,6 +122,6 @@ Remove accounts from a list.
 
 ### Parameters
 
-|Name|Description|Required|Default|
-|----|-----------|:------:|:-----:|
-| `account_ids` | Array of account IDs | Required ||
+|Name|Description|Required|
+|----|-----------|:------:|
+| `account_ids` | Array of account IDs | Required |

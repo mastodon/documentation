@@ -16,8 +16,8 @@ Report an account.
 
 ### Parameters
 
-|Name|Description|Required|Default|
-|----|-----------|:------:|:-----:|
-| `account_id` | The ID of the account to report | Required ||
-| `status_ids` | The IDs of statuses to report as array | Optional ||
-| `comment` | Reason for the report (up to 1,000 characters) | Optional ||
+|Name|Description|Required|
+|----|-----------|:------:|
+| `account_id` | The ID of the account to report | Required |
+| `status_ids` | The IDs of statuses to report as array | Optional |
+| `comment` | Reason for the report (up to 1,000 characters) | Optional |

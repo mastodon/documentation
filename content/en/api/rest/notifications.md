@@ -55,9 +55,9 @@ Delete a single notification from the server.
 
 ### Parameters
 
-|Name|Description|Required|Default|
-|----|-----------|:------:|:-----:|
-| `id` | Notification ID | Required ||
+|Name|Description|Required|
+|----|-----------|:------:|
+| `id` | Notification ID | Required |
 
 ## POST /api/v1/push/subscription
 
@@ -73,15 +73,15 @@ Returns [Push Subscription]({{< relref "entities.md#push-subscription" >}})
 
 ### Parameters
 
-|Name|Description|Required|Default|
-|----|-----------|:------:|:-----:|
-| `subscription[endpoint]` | Endpoint URL that called when notification is happen. | Required ||
-| `subscription[keys][p256dh]` | User agent public key. Base64 encoded string of public key of ECDH key using 'prime256v1' curve. | Required ||
-| `subscription[keys][auth]` | Auth secret. Base64 encoded string of 16 bytes of random data. | Required ||
-| `data[alerts][follow]` | Boolean of whether you want to receive follow notification event. | Optional ||
-| `data[alerts][favourite]` | Boolean of whether you want to receive favourite notification event. | Optional ||
-| `data[alerts][reblog]` | Boolean of whether you want to receive reblog notification event. | Optional ||
-| `data[alerts][mention]` | Boolean of whether you want to receive mention notification event. | Optional ||
+|Name|Description|Required|
+|----|-----------|:------:|
+| `subscription[endpoint]` | Endpoint URL that called when notification is happen. | Required |
+| `subscription[keys][p256dh]` | User agent public key. Base64 encoded string of public key of ECDH key using 'prime256v1' curve. | Required |
+| `subscription[keys][auth]` | Auth secret. Base64 encoded string of 16 bytes of random data. | Required |
+| `data[alerts][follow]` | Boolean of whether you want to receive follow notification event. | Optional |
+| `data[alerts][favourite]` | Boolean of whether you want to receive favourite notification event. | Optional |
+| `data[alerts][reblog]` | Boolean of whether you want to receive reblog notification event. | Optional |
+| `data[alerts][mention]` | Boolean of whether you want to receive mention notification event. | Optional |
 
 ## GET /api/v1/push/subscription
 
@@ -103,12 +103,12 @@ Returns [Push Subscription]({{< relref "entities.md#push-subscription" >}})
 
 ### Parameters
 
-|Name|Description|Required|Default|
-|----|-----------|:------:|:-----:|
-| `data[alerts][follow]` | Boolean of whether you want to receive follow notification event. | Optional ||
-| `data[alerts][favourite]` | Boolean of whether you want to receive favourite notification event. | Optional ||
-| `data[alerts][reblog]` | Boolean of whether you want to receive reblog notification event. | Optional ||
-| `data[alerts][mention]` | Boolean of whether you want to receive mention notification event. | Optional ||
+|Name|Description|Required|
+|----|-----------|:------:|
+| `data[alerts][follow]` | Boolean of whether you want to receive follow notification event. | Optional |
+| `data[alerts][favourite]` | Boolean of whether you want to receive favourite notification event. | Optional |
+| `data[alerts][reblog]` | Boolean of whether you want to receive reblog notification event. | Optional |
+| `data[alerts][mention]` | Boolean of whether you want to receive mention notification event. | Optional |
 
 ## DELETE /api/v1/push/subscription
 

@@ -42,8 +42,8 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 
 |Name|Description|Required|Default|
 |----|-----------|:------:|:-----:|
-| `local` | Only local statuses | Optional ||
-| `only_media` | Only statuses with media attachments | Optional ||
+| `local` | Only local statuses | Optional |false|
+| `only_media` | Only statuses with media attachments | Optional |false|
 | `max_id` | Return results older than ID | Optional ||
 | `since_id` | Return results newer than ID | Optional ||
 | `limit` | Maximum number of results | Optional | 20 |
@@ -66,8 +66,8 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 
 |Name|Description|Required|Default|
 |----|-----------|:------:|:-----:|
-| `local` | Only local statuses | Optional ||
-| `only_media` | Only statuses with media attachments | Optional ||
+| `local` | Only local statuses | Optional |false|
+| `only_media` | Only statuses with media attachments | Optional |false|
 | `max_id` | Return results older than ID | Optional ||
 | `since_id` | Return results newer than ID | Optional ||
 | `limit` | Maximum number of results | Optional | 20 |

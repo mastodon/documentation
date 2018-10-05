@@ -18,9 +18,11 @@ Returns [App]({{< relref "entities.md#app" >}}) with `client_id` and `client_sec
 
 ### Parameters
 
-|Name|Description|Required|Default|
-|----|-----------|:------:|:-----:|
-| `client_name` | Name of your application | Required ||
-| `redirect_uris` | Where the user should be redirected after authorization (for no redirect, use `urn:ietf:wg:oauth:2.0:oob`) | Required ||
-| `scopes` | Space separated list of [scopes]({{< relref "permissions.md" >}}) | Required ||
-| `website` | URL to the homepage of your app | Optional ||
+|Name|Description|Required|
+|----|-----------|:------:|
+| `client_name` | Name of your application | Required |
+| `redirect_uris` | Where the user should be redirected after authorization | Required |
+| `scopes` | Space separated list of [scopes]({{< relref "permissions.md" >}}) | Required |
+| `website` | URL to the homepage of your app | Optional |
+
+> To display the authorization code to the end-user instead of redirecting to a web page, use `urn:ietf:wg:oauth:2.0:oob` in `redirect_uris`

@@ -21,4 +21,4 @@ Returns [Results]({{< relref "entities.md#results" >}})
 |Name|Description|Required|Default|
 |----|-----------|:------:|:-----:|
 | `q` | The search query | Required ||
-| `resolve` | | Optional ||
+| `resolve` | Attempt WebFinger look-up | Optional |false|
