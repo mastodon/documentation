@@ -18,7 +18,7 @@ Returns [Account]({{< relref "entities.md#account" >}})
 
 User's own account.
 
-Returns [Account]({{< relref "entities.md#account" >}}) with an extra `source` attribute.
+Returns [Account]({{< relref "entities.md#account" >}}) with an extra [`source` attribute]({{< relref "entities.md#source" >}}).
 
 ### Resource information
 
@@ -43,8 +43,10 @@ Returns [Account]({{< relref "entities.md#account" >}})
 | `avatar` | Avatar encoded using `multipart/form-data` | Optional |
 | `header` | Header image encoded using `multipart/form-data` | Optional |
 | `locked` | Enable follow requests | Optional |
-| `source` | Extra preferences | Optional |
-| `fields_attributes` | Profile metadata | Optional |
+| `source[privacy]` | Default post privacy preference | Optional |
+| `source[sensitive]`| Whether to mark statuses as sensitive by default | Optional |
+| `source[language]` | Override language on statuses by default (ISO6391) | Optional |
+| `fields_attributes` | Profile metadata (max. 4) | Optional |
 
 ## GET /api/v1/accounts/:id/followers
 
@@ -105,6 +107,7 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 | `exclude_replies` | Skip statuses that reply to other statuses | Optional |false|
 | `max_id` | Return results older than ID | Optional ||
 | `since_id` | Return results newer than ID | Optional ||
+| `min_id` | Return results immediately newer than ID | Optional ||
 | `limit` | Maximum number of results | Optional | 20 |
 
 ### Pagination

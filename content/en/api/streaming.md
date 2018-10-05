@@ -13,32 +13,31 @@ Alternatively, a WebSocket connection can also be established.
 
 ## Server-sent events (HTTP)
 ### Endpoints
-
-    GET /api/v1/streaming/user
+#### GET /api/v1/streaming/user
 
 Returns events that are relevant to the authorized user, i.e. home timeline and notifications
 
-    GET /api/v1/streaming/public
+#### GET /api/v1/streaming/public
 
 Returns all public statuses
 
-    GET /api/v1/streaming/public/local
+#### GET /api/v1/streaming/public/local
 
 Returns all local statuses
 
-    GET /api/v1/streaming/hashtag?tag={id}
+#### GET /api/v1/streaming/hashtag?tag=:hashtag
 
 Returns all public statuses for a particular hashtag
 
-    GET /api/v1/streaming/hashtag/local?tag={id}
+#### GET /api/v1/streaming/hashtag/local?tag=:hashtag
 
 Returns all local statuses for a particular hashtag
 
-    GET /api/v1/streaming/list?list={id}
+#### GET /api/v1/streaming/list?list=:list_id
 
 Returns statuses for a list
 
-    GET /api/v1/streaming/direct
+#### GET /api/v1/streaming/direct
 
 Returns all direct messages
 

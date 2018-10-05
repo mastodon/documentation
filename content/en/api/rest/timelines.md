@@ -22,6 +22,7 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 |----|-----------|:------:|:-----:|
 | `max_id` | Return results older than ID | Optional ||
 | `since_id` | Return results newer than ID | Optional ||
+| `min_id` | Return results immediately newer than ID | Optional ||
 | `limit` | Maximum number of results | Optional | 20 |
 
 ### Pagination
@@ -46,6 +47,7 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 | `only_media` | Only statuses with media attachments | Optional |false|
 | `max_id` | Return results older than ID | Optional ||
 | `since_id` | Return results newer than ID | Optional ||
+| `min_id` | Return results immediately newer than ID | Optional ||
 | `limit` | Maximum number of results | Optional | 20 |
 
 ### Pagination
@@ -70,6 +72,7 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 | `only_media` | Only statuses with media attachments | Optional |false|
 | `max_id` | Return results older than ID | Optional ||
 | `since_id` | Return results newer than ID | Optional ||
+| `min_id` | Return results immediately newer than ID | Optional ||
 | `limit` | Maximum number of results | Optional | 20 |
 
 ### Pagination
@@ -90,9 +93,10 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 
 |Name|Description|Required|Default|
 |----|-----------|:------:|:-----:|
-| `max_id` | Get a list of statuses with ID less than this value | Optional ||
-| `since_id` | Get a list of statuses with ID greater than this value | Optional ||
-| `limit` | Maximum number of statuses to return | Optional | 20 |
+| `max_id` | Return results older than ID | Optional ||
+| `since_id` | Return results newer than ID | Optional ||
+| `min_id` | Return results immediately newer than ID | Optional ||
+| `limit` | Maximum number of results | Optional | 20 |
 
 ### Pagination
 

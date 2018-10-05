@@ -44,6 +44,16 @@ menu:
 | `value` | String (HTML) |{{< no >}}|2.4.0|
 | `verified_at` | String (Datetime) |{{< yes >}}|2.6.0|
 
+### Source
+
+|Attribute|Type|Nullable|Added in|
+|---------|-----------|:------:|:------:|
+| `privacy` | String |{{< yes >}}|1.5.0|
+| `sensitive` | Boolean |{{< yes >}}|1.5.0|
+| `language` | String (ISO6391) |{{< yes >}}|2.4.2|
+| `note` | String |{{< no >}}|1.5.0|
+| `fields` | Array of Hash |{{< no >}}|2.4.0|
+
 ## Application
 
 |Attribute|Type|Nullable|Added in|
@@ -251,9 +261,7 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 |---------|-----------|:------:|:------:|
 | `accounts` | Array of [Account](#account) |{{< no >}}|1.1.0|
 | `statuses` | Array of [Status](#status)  |{{< no >}}|1.1.0|
-| `hashtags` | Array of String |{{< no >}}|1.1.0|
-
-> **Note:** The v2 API returns an array of [Tag](#tag) for the `hashtags` attribute.
+| `hashtags` | Array of [Tag](#tag) |{{< no >}}|1.1.0|
 
 ## Status
 

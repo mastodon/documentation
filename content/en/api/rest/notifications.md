@@ -22,6 +22,7 @@ Returns array of [Notification]({{< relref "entities.md#notification" >}})
 |----|-----------|:------:|:-----:|
 | `max_id` | Return results older than ID | Optional ||
 | `since_id` | Return results newer than ID | Optional ||
+| `min_id` | Return results immediately newer than ID | Optional ||
 | `limit` | Maximum number of results | Optional | 20 |
 | `exclude_types` | Array of types to exclude (e.g. `follow`, `favourite`, `reblog`, `mention`) | Optional ||
 
