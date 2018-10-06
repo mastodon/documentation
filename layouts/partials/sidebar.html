@@ -8,15 +8,15 @@
 
 <ul>
   {{ $currentPage := . }}
-  {{ range .Site.Menus.docs }}
+  {{ range .Site.Menus.docs.ByWeight }}
     {{ if .HasChildren }}
       <li>
-        <a href="#" class="{{ if $currentPage.HasMenuCurrent "docs" . }}active{{ end }}">
+        <a href="javascript:void(0)" class="menu-item{{ if $currentPage.HasMenuCurrent "docs" . }} active{{ end }}">
           {{ .Pre }}
           <span>{{ .Name }}</span>
         </a>
 
-        <ul class="sub-menu">
+        <ul class="sub-menu{{ if $currentPage.HasMenuCurrent "docs" . }}{{else}} collapsed{{ end }}">
           {{ range .Children }}
             <li>
               <a href="{{ .URL }}" class="{{ if $currentPage.IsMenuCurrent "docs" . }}active{{ end }}">{{ .Name }}</a>

@@ -1,13 +1,17 @@
 {{ define "title"}} Mastodon documentation {{end}}
 
 {{ define "main" }}
-  <h1>Mastodon documentation</h1>
+  <h1>{{ .Title }}</h1>
 
   <div class="e-content">
-    <p>Welcome to the Mastodon documentation!</p>
+    {{.Content}}
 
-    <p>Mastodon is a <strong>free, open-source social network server</strong> based on <strong>open web protocols</strong> like ActivityPub and OStatus. The social focus of the project is a viable decentralized alternative to commercial social media silos that returns the control of the content distribution channels to the people. The technical focus of the project is a good user interface, a clean REST API for 3rd party apps and robust anti-abuse tools.</p>
+    <p><i class="fas fa-language"></i> <strong>Available languages:</strong></p>
 
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/IPSbNdBmWKE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <ul>
+      {{ range $.Site.Home.AllTranslations }}
+        <li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+      {{ end }}
+    </ul>
   </div>
 {{ end }}

@@ -106,6 +106,8 @@ body {
   padding-bottom: 26px; }
   .sidebar .sub-menu a.active {
     color: #2b90d9; }
+  .sidebar .sub-menu.collapsed {
+    display: none; }
 
 .footer {
   padding-bottom: 30px; }
@@ -289,7 +291,8 @@ main code {
 main pre code {
   background: transparent;
   padding: 0; }
-main .mastodon-embed {
+main .mastodon-embed,
+main iframe {
   width: 100%;
   display: block;
   margin: 0 auto;

@@ -151,6 +151,10 @@ body {
     a.active {
       color: $vibrant;
     }
+
+    &.collapsed {
+      display: none;
+    }
   }
 }
 
@@ -407,7 +411,8 @@ main {
     padding: 0;
   }
 
-  .mastodon-embed {
+  .mastodon-embed,
+  iframe {
     width: 100%;
     display: block;
     margin: 0 auto;

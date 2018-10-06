@@ -26,11 +26,6 @@ enableGitInfo = true
     identifier = "administration"
     url = "/administration/"
   [[menu.docs]]
-    name = "Developer guide"
-    weight = 3
-    identifier = "development"
-    url = "/development/"
-  [[menu.docs]]
     name = "API Overview"
     weight = 4
     identifier = "api"
