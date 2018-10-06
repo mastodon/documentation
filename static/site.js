@@ -1,11 +1,7 @@
 (function () {
-  document.addEventListener('DOMContentLoaded', function () {
-    var menuLinks = document.getElementsByClassName('menu-item');
+  'use strict';
 
-    for (var i = 0; i < menuLinks.length; i++) {
-      menuLinks[i].addEventListener('click', toggleSubMenu, false);
-    }
-
+  function onLoaded () {
     function toggleSubMenu () {
       var subMenus = document.getElementsByClassName('sub-menu');
 
@@ -15,5 +11,17 @@
 
       this.parentNode.querySelector('.sub-menu').classList.remove('collapsed');
     }
-  });
+
+    var menuLinks = document.getElementsByClassName('menu-item');
+
+    for (var i = 0; i < menuLinks.length; i++) {
+      menuLinks[i].addEventListener('click', toggleSubMenu, false);
+    }
+  }
+
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    onLoaded();
+  } else {
+    document.addEventListener('DOMContentLoaded', onLoaded);
+  }
 })();
