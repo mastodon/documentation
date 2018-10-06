@@ -77,7 +77,13 @@ body {
   grid-template-columns: 260px minmax(300px, 700px);
   grid-template-rows: auto;
   margin-bottom: 30px; }
+  @media screen and (max-width: 600px) {
+    .sidebar-layout {
+      display: block; } }
 
+@media screen and (max-width: 600px) {
+  .sidebar {
+    margin-bottom: 60px; } }
 .sidebar .brand {
   display: flex;
   justify-content: flex-start;
@@ -89,6 +95,11 @@ body {
     position: relative;
     left: -14px;
     top: -4px; }
+  @media screen and (max-width: 600px) {
+    .sidebar .brand {
+      justify-content: center; }
+      .sidebar .brand img {
+        position: static; } }
 .sidebar a {
   display: inline-block;
   color: #9baec8;
@@ -113,13 +124,20 @@ body {
   padding-bottom: 30px; }
   .footer .legal {
     margin-top: 30px; }
+    .footer .legal--right {
+      float: right;
+      text-align: right; }
+      @media screen and (max-width: 600px) {
+        .footer .legal--right {
+          float: none;
+          text-align: left; } }
     .footer .legal a {
       color: #687590;
       text-decoration: none; }
 
 main h1 {
   font-size: 36px;
-  line-height: 1.08;
+  line-height: 1.48;
   font-weight: 600;
   color: #d9e1e8;
   padding-bottom: 35px;
@@ -305,6 +323,9 @@ main iframe {
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 60px; }
+  @media screen and (max-width: 600px) {
+    .mascot {
+      display: none; } }
 
 #TableOfContents {
   color: #9baec8;
@@ -331,6 +352,9 @@ main iframe {
   background-repeat: no-repeat;
   background-position: top right;
   text-align: left; }
+  @media screen and (max-width: 600px) {
+    .panel {
+      background-size: contain; } }
   .panel .overlay {
     padding: 20px; }
   .panel h5 {

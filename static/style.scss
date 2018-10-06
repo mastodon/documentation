@@ -16,6 +16,7 @@ $transition-in: 100ms linear;
 $transition-out: 250ms linear;
 
 $content-width: 960px;
+$mobile-width: 600px;
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -95,7 +96,7 @@ body {
   max-width: $content-width;
   margin: 0 auto;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: $mobile-width) {
     padding: 0 20px;
   }
 }
@@ -106,9 +107,17 @@ body {
   grid-template-columns: 260px minmax(300px, ($content-width - 260px));
   grid-template-rows: auto;
   margin-bottom: 30px;
+
+  @media screen and (max-width: $mobile-width) {
+    display: block;
+  }
 }
 
 .sidebar {
+  @media screen and (max-width: $mobile-width) {
+    margin-bottom: 60px;
+  }
+
   .brand {
     display: flex;
     justify-content: flex-start;
@@ -121,6 +130,14 @@ body {
       position: relative;
       left: -14px;
       top: -4px;
+    }
+
+    @media screen and (max-width: $mobile-width) {
+      justify-content: center;
+
+      img {
+        position: static;
+      }
     }
   }
 
@@ -164,6 +181,16 @@ body {
   .legal {
     margin-top: 30px;
 
+    &--right {
+      float: right;
+      text-align: right;
+
+      @media screen and (max-width: $mobile-width) {
+        float: none;
+        text-align: left;
+      }
+    }
+
     a {
       color: $darker;
       text-decoration: none;
@@ -174,7 +201,7 @@ body {
 main {
   h1 {
     font-size: 36px;
-    line-height: 1.08;
+    line-height: 1.48;
     font-weight: 600;
     color: $lightest;
     padding-bottom: 35px;
@@ -427,6 +454,10 @@ main {
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 60px;
+
+  @media screen and (max-width: $mobile-width) {
+    display: none;
+  }
 }
 
 #TableOfContents {
@@ -463,8 +494,11 @@ main {
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: top right;
-
   text-align: left;
+
+  @media screen and (max-width: $mobile-width) {
+    background-size: contain;
+  }
 
   .overlay {
     padding: 20px;
