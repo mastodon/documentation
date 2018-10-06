@@ -83,7 +83,7 @@ Since version 2.5.0 it is recommended to use the `tootctl` tool for such tasks. 
 
     docker-compose run --rm web bundle exec bin/tootctl media remove
     
-See `bin/tootctl --help` for more infos on the available commands.
+See `bin/tootctl --help` for more information on the available commands.
 
 ## Updating
 
