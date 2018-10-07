@@ -26,51 +26,51 @@ Serwer Mastodona może działać samodzielnie. Tak jak na tradycyjnej stronie in
   <figcaption><p>Od lewej do prawej: scentralizowana, sfederowana i dystrybuowana sieć</p></figcaption>
 </figure>
 
-In practical terms: Imagine if you could follow an Instagram user from your Twitter account and comment on their photos without leaving your account. If Twitter and Instagram were federated services, that would be possible.
+W praktyce – wyobraź sobie, że możesz obserwować użytkownika Instagrama ze swojego konta na Twitterze i komentować jego zdjęcia z tego konta. Gdyby Twitter i Instagram były sfederowanymi usługami, byłoby to możliwe.
 
-## The fediverse
+## Fediwersum
 
-Mastodon uses a standartized, open protocol to implement federation. It is called ActivityPub. Any software that likewise implements federation via ActivityPub can seamlessly communicate with Mastodon, just like Mastodon servers communicate with one another.
+Mastodon korzysta ze standaryzowanego, otwartego protokołu aby zaimplementować federację. Nazywa się on ActivityPub. Każde oprogramowanie, które zaimplementowało federację przez ActivityPub może komunikować się z Mastodonem, tak jak serwery Mastodona komunikują się ze sobą.
 
-The **fediverse** ("federated universe") is the name for all servers that can communicate with each other. That includes all Mastodon servers, but also other implementations:
+**Fediwersum** („sfederowane uniwersum”) to nazwa, którą określamy wszystkie serwery mogące się ze sobą komunikować. Wliczają się w to wszystkie serwery Mastodona wraz z innymi implementacjami, np.:
 
 - Misskey
 - Pleroma
 - PeerTube
 - Plume
-- and many more
+- i wiele więcej
 
-The fediverse does not have its own brand, so you will more often hear "follow me on Mastodon" than "follow me on the fediverse", but technically the latter is more correct.
+Fediwesum nie jest marką, więc częściej usłyszysz „obserwuj mnie na Mastodonie”, niż „obserwuj mnie w Fediwersum”, choć to drugie jest bardziej poprawne technicznie..
 
-## Practical implications
-### Addressing people
+## Co to w praktyce oznacza
+### Wspominanie o innych
 
-Mastodon usernames actually consist of two parts:
+Nazwy użytkownika na Mastodonie składają się z dwóch części:
 
-- The local username, e.g. `alice`
-- And the domain of the server, e.g. `example.com`
+- Lokalna nazwa użytkownika, np. `alice`
+- Domena serwera, np. `example.com`
 
-Just like an e-mail address. For convenience sake, Mastodon allows you to skip the second part when addressing people on the same server as you, but you have to keep in mind when sharing your username with other people, you need to include the domain or they won't be able to find you as easily.
+To tak jak adres e-mail. Dla ułatwienia, Mastodon pozwala na ominięcie drugiej części nazwy użytkownika, kiedy wspominasz o osobie na tym samym serwerze, ale pamiętaj – dzieląc się swoją nazwą z innymi, musisz uwzględnić domenę, aby mogli Cię łatwo znaleźć.
 
 |{{< no >}}|{{< yes >}}|
 |:--------:|:---------:|
-|I'm @alice on Mastodon!|I'm @alice@example.com on Mastodon!|
+|Nazywam się @alice na Mastodonie!|Nazywam się @alice@example.com na Mastodonie!|
 
-The search form in Mastodon will find people either with the above address form, or the link to the person's profile, so you can share that instead if you prefer.
+Formularz wyszukiwania na Mastodonie pozwala na znalezienie użytkowników zarówno korzystając z adresów takich jak powyższy, jak i odnośników do profili, więc możesz udostępniać tę wersję, którą wolisz.
 
-### Following people
+### Obserwowanie innych
 
-As long as you encounter a person within your app's user interface, e.g. the web interface on your home server, or your mobile app, you can just click "follow" and you won't notice a difference if that person is on your server or not.
+Jeżeli możesz spotkać osobę w interfejsie aplikacji, np. interfejsie sieciowym swojego serwera lub aplikacji mobilnej, możesz po prostu nacisnąć „śledź” – nie zauważysz różnicy, gdy ya osoba nie używa tego samego serwera.
 
-However if you come across someone's public profile hosted on a different server, there's an obstacle: That server sees you as just another anonymous visitor.
+Jeżeli jednak napotkasz publiczny profil osoby z innego serwera, zauważysz przeszkodę – dla tego serwera jesteś anonimowym odwiedzającym.
 
-So when you click "follow", a dialog will pop up asking you to enter your own full username (with the domain part, most importantly). This way, the dialog actually sends you back to your home server, where you are logged in and can really do stuff.
+Kiedy naciśniesz „śledź”, pojawi się formularz z zapytaniem o pełną nazwę użytkownika (przede wszystkim część zawierającą domenę). W ten sposób zostaniesz przekierowany(-a) na swój serwer, gdzie jesteś zalogowany(-a) i możesz zaobserwować tę osobę.
 
-You will also notice that dialog when clicking on "reply", "boost" or "favourite" on public pages of other servers.
+Zauważysz podobny formularz, gdy spróbujesz odpowiedzieć, podbić lub dodać do ulubionych wpis z publicznej strony na innym serwerze.
 
-### Browsing content
+### Przeglądanie zawartości
 
-To allow you to discover potentially interesting content, Mastodon provides a way to browse all public posts. Well, there is no global shared state between all servers, so there is no way to browse *all* public posts. When you browse the **federated timeline**, you see all public posts that the server you are on knows about. There are various ways your server may discover posts, but the bulk of them will be from people that other users on your server follow.
+Aby pozwolić na poznawanie zawartości, która może Cię zainteresować, Mastodon oferuje sposób na przeglądanie wszystkich publicznych wpisów. No dobra, nie istnieje dzielona pomiędzy wszystkimi serwerami oś czasu, więc nie możesz zobaczyć *wszystkich* publicznych wpisów. Kiedy przeglądasz **oś czasu federacji**, widzisz wszystkie publiczne wpisy znane przez serwer. Jest wiele sposobów, na które serwer może poznać wpisy, ale większość z nich pojawia się tam dlatego, że inni użytkownicy serwera śledzą ich autorów.
 
 There is a way to filter the federated timeline to view only public posts created on your server: The **local timeline**. Mind that "local" here refers to the server, not to a geographical location.
 
