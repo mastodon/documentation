@@ -1,75 +1,75 @@
 ---
-title: Privacy
-overview: Overview of privacy-related features on Mastodon and their implications
+title: Prywatność
+overview: Omówienie funkcji dotyczących prywatności na Mastodonie i ich skutków
 menu:
   docs:
     parent: usage
     weight: 3
 ---
 
-## Publishing levels
+## Poziomy prywatności
 
-|Level|Public timelines|Permalink|Profile view|Home feeds|
-|-----|:--------------:|:-------:|:----------:|:--------:|
-|Public|{{< yes >}}|{{< yes >}}|{{< yes >}}|{{< yes >}}|
-|Unlisted|{{< no >}}|{{< yes >}}|{{< yes >}}|{{< yes >}}|
-|Followers-only|{{< no >}}|{{< no >}}|{{< no >}}|{{< yes >}}|
-|Direct|{{< no >}}|{{< no >}}|{{< no >}}|{{< no >}}|
+|Poziom|Publiczna oś czasu|Odnośnik bezpośredni|Widok profilu|Osi czasu|
+|------|:----------------:|:------------------:|:-----------:|:-------:|
+|Publiczny|{{< yes >}}|{{< yes >}}|{{< yes >}}|{{< yes >}}|
+|Niewypisany|{{< no >}}|{{< yes >}}|{{< yes >}}|{{< yes >}}|
+|Tylko dla śledzących|{{< no >}}|{{< no >}}|{{< no >}}|{{< yes >}}|
+|Bezpośrednio|{{< no >}}|{{< no >}}|{{< no >}}|{{< no >}}|
 
-No matter which level, every mentioned user can see the message in their notifications.
+Niezależnie od poziomu, każdy wspomniany użytkownik może zobaczyć wiadomość w powiadomieniach.
 
-**Do not share dangerous and sensitive information over direct messages**. Mastodon is not an encrypted messaging app like Signal or Wire, the database administrators of the sender's and recipient's servers have access to the text. Use them with the same caution as you would use forum PMs, Discord PMs and Twitter DMs.
+**Nie udostępniaj niebezpiecznych i wrażliwych informacji używając bezpośrednich wiadomości**. Mastodon nie jest aplikacją do szyfrowanych połączeń taką jak Signal i Wire, administrator bazy danych serwera nadawcy i odbiorcy ma dostęp do tekstu. Używaj ich z taką ostrożnością, jak prywatnych wiadomości na forach, Discordzie i Twitterze.
 
-## Account locking
+## Blokada konta
 
-To effectively publish private (followers-only) posts, you must lock your account--otherwise, anyone could follow you to view older posts. Locking your account on Mastodon does one thing: Adds an authorization step to the process of following you.
+Aby mieć kontrolę nad tym, kto zobaczy wpisy tylko dla śledzących, musisz zablokować swoje konto – w innym przypadku, kazdy może zacząć Cię obserwować, aby zobaczyć Twoje starsze wpisy. Zablokowanie konta na Mastodonie dodaje krok autoryzacji do procesu śledzenia.
 
-Once locked, before someone can become your follower, you will receive a follow request, which you can either accept or reject.
+Po zablokowaniu konta, zanim ktoś będzie mógł zacząć Cię śledzić, otrzymasz prośbę o możliwość śledzenia, którą możesz przyjąć lub odrzucić.
 
-Please mind that post privacy on Mastodon is per-post, rather than account-wide, and as such there is no way to instantly make past public posts private.
+Pamiętaj, że prywatność na Mastodonie odnosi się do poszczególnych kont, nie całego konta – nie istnieje sposób na natychmiastowe uczynienie wszystkich starszych wpisów prywatnymi.
 
-## Blocking and muting
-### Hiding boosts
+## Blokowanie i wyciszanie
+### Ukrywanie podbić
 
-If you hide boosts from someone, you won't see their boosts in your home feed.
+Jeżeli ukryjesz czyjeś podbicia, nie będziesz ich widzieć na osiach czasu.
 
-### Muting
+### Wyciszanie
 
-When muting, you have the option to mute notifications from them or not. Muting without muting notifications hides the user from your view:
+Gdy wyciszysz użytkownika, masz też możliwość wyciszenia powiadomień dotyczących go. Wyciszenie oznacza, że nie będziesz widzieć:
 
-- You won't see the user in your home feed
-- You won't see other people boosting the user
-- You won't see other people mentioning the user
-- You won't see the user in public timelines
+- wpisów użytkownika na Twoim strumieniu
+- wpisów tego użytkownika podbitych przez innego
+- wpisów użytkowników wspominających o nim
+- wpisów użytkownika na publicznych osiach czasu
 
-If you choose to also mute notifications from them, you will additionally not see notifications from that user.
+Jeżeli wyciszysz też powiadomienia, nie będziesz widzieć powiadomień od tego użytkownika.
 
-The user has no way of knowing they have been muted.
+Użytkownik nie może dowiedzieć się, że został wyciszony.
 
-### Blocking
+### Blokowanie
 
-Blocking hides a user from your view:
+Blokowanie użytkownika ukrywa:
 
-- You won't see the user in your home feed
-- You won't see other people boosting the user
-- You won't see other people mentioning the user
-- You won't see the user in public timelines
-- You won't see notifications from that user
+- wpisy użytkownika na Twoim strumieniu
+- wpisy tego użytkownika podbitych przez innego
+- wpisy użytkowników wspominających o nim
+- wpisy użytkownika na publicznych osiach czasu
+- powiadomienia od tego użytkownika
 
-Additionally, on the blocked user's side:
+Dodatkowo, zablokowany użytkownik:
 
-- The user is forced to unfollow you
-- The user cannot follow you
-- The user won't see other people's boosts of you
-- The user won't see you in public timelines
+- zostaje zmuszony, aby przestał Cię zaobserwować
+- nie może Cię zaobserwować
+- nie zobaczy podbić Twoich wpisów od innych użytkowników
+- nie zobaczy Twoich wpisów na publicznej osi czasu
 
-If you and the blocked user are on the same server, the blocked user will not be able to view your posts on your profile while logged in.
+Jeżeli korzystasz z tego serwera co zablokowany użytkownik, nie będzie on mógł zobaczyć Twoich wpisów będąc zablokowany.
 
-### Hiding an entire server
+### Ukrywanie całego serwera
 
-If you hide an entire server:
+Jeżeli ukryjesz cały serwer:
 
-- You will not see posts from that server on the public timelines
-- You won't see other people's boosts of that server in your home feed
-- You won't see notifications from that server
-- You will lose any followers that you might have had on that server
+- nie zobaczysz wpisów z tego serwera na publicznej osi czasu
+- nie zobaczysz podbić wpisów z tego serwera od innych użytkowników
+- nie zobaczysz powiadomień z tego serwera
+- utracisz wszystkie obserwacje użytkowników z tego serwera

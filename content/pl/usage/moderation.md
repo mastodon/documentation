@@ -1,73 +1,73 @@
 ---
-title: Moderation
-description: Overview of moderation tools on Mastodon
+title: Moderacja
+description: Omówienie narzędzi moderacyjnych na Mastodonie
 menu:
   docs:
     parent: usage
     weight: 4
 ---
-## Individual moderation
+## Indywidualność moderacji
 
-Moderation in Mastodon is always applied locally, i.e. as seen from the particular server. An admin or moderator on one server cannot affect a user on another server, they can only affect the local copy on their own server.
+Moderacja na Mastodonie zawsze działa lokalnie, tzn. tylko dla konkretnego serwera. Administrator lub moderator jednego serwera nie może wpłynąć na użytkownika innego serwera, a jedynie kopię jego profilu na swoim serwerze.
 
-### Disable login
+### Wyłączenie logowania
 
-A Mastodon account can be disabled. This prevents the user from doing anything with the account, but all of the content is still there untouched. This limitation is reversible, the account can be re-enabled at any time. This limitation is only available for local users on your server.
+Konto na Mastodonie może zostać wyłączone. W ten sposób użytkownik nie może nic na nim zrobić, ale jego zawartość pozostaje nietknięta. To ograniczenie może zostać cofnięte w każdej chwili. Może zostać założone tylko na lokalnych użytkowników serwera.
 
-### Silence
+### Wyciszenie
 
-A Mastodon silence is synonymous with sandbox. A silenced account does not appear to users who are not already following it. All of the content is still there, and it can still be found via search, mentioned, and followed, but the content is invisible.
+Wyciszenie na Mastodonie jest sposobem na jego odizolowanie. Wyciszone konto nie jest widoczne dla użytkowników, które go nie obserwują. Jego zawartość wciąż istnieje i może zostać znaleziona z użyciem wyszukiwarki, a autor wspomniany i śledzony, ale pozostaje niewidoczna.
 
-At this moment, silence does not affect federation. A locally silenced account is *not* silenced automatically on other servers.
+Obecnie wyciszenie nie wpływa na federację. Lokalnie wyciszone konto *nie* jest automatycznie wyciszone na innych serwerach.
 
-This limitation is reversible, the account can be unsilenced at any time.
+To ograniczenie jest odwracalne, wyciszenie możę zostać cofnięte w każdej chwili.
 
-### Suspend
+### Zawieszenie
 
-A Mastodon suspension is synonymous with deletion. The account no longer appears in search, the profile page is gone, all of the posts, uploads, followers, and all other data is removed. This limitation is **irreversible**. While the account can be unsuspended, allowing the user to take control of it again, the old data is gone for good.
+Wyciszenie na Mastodonie jest równoznaczne z usunięciem go. Konto nie może zostać wyszukane, strona profilu, wraz ze wszystkimi jego wpisami, wysłanymi plikami i resztą danych zostają usunięte. To ograniczenie jest **nieodwracalne**. Choć zawieszenie może zostać cofnięte, a użytkownik może odzyskać konto, treść znika na zawsze.
 
-## Server-wide moderation
+## Moderacja całych serweróœ
 
-Because individually moderating a large volume of users from a misbehaving server can be exhausting, it is possible to pre-emptively moderate against all users from that particular server using a so-called **domain block**, which comes with several different levels of severity.
+Ponieważ samodzielne moderowanie dużej liczby użytkowników z nieprawidłowo zachowującego się serwera może być męczące, jest możliwa prewencyjna moderacja wszystkich użytkowników danego serwera nazywana **blokadą domeny**, która ma kilka poziomów swojego zakresu.
 
-### Reject media
+### Odrzucanie zawartości multimedialnej
 
-With this option active, no files from the server will be processed locally. That includes avatars, headers, emojis and media attachments.
+Jeżeli ta opcja jest włączona, żadne pliki z danego serwera nie będą przetwarzane. Wliczane są w to awatary, obrazy nagłówka, niestandardowe emoji i załączniki multimedialne.
 
-### Silence
+### Wyciszenie
 
-Applies a silence to all past and future accounts from the server.
+Wycisza wszystkich obecnych i przyszłych użytkowników serwera.
 
-### Suspend
+### Zawieszenie
 
-Applies a suspension to all past and future accounts from the server. No content from the server will be stored locally except for usernames.
+Zawiesza wszystkich obecnych i przyszłych użytkowników serwera. Nie jest przechowywana zawartość z serwera poza nazwami użytkowników.
 
-## Spam-fighting measures
+## Sposoby na zapobieganie spamu
 
-There are a few baseline measures for preventing spam in Mastodon:
+Istnieje kilka podstawowych sposobów na zapobieganie spamu na Mastodonie:
 
-- Signing up requires confirming an e-mail address
-- Signing up is rate-limited by IP
+- Rejestracja wymaga potwierdzenia adresu e-mail
+- Rejestracja jest ograniczana na podstawie adresu IP.
 
-However, dedicated spammers will get through that. The other measure you can employ is **e-mail domain blacklisting**. During sign up, Mastodon resolves the given e-mail address for an A or MX record, i.e. the IP address of the e-mail server, and checks that IP address against a dynamically stored blacklist.
+Doświadczony spamer może jednak ominąć je. Innym sposobem jest **czarna lista domen e-mail**. Podczas rejestracji, Mastodon sprawdza rekord A lub MX podanego adresu e-mail, np. adres IP serwera e-mail i porównuje ten adres e-mail z przechowywaną czarną listą.
 
-### Blocking by e-mail server
+### Blokowanie na podstawie serwerów e-mail
 
-Spammers will often use different e-mail domains so it looks like they are using a lot of different e-mail servers that would all be difficult to blacklist separately. However, sometimes all of those domains resolve to a single e-mail server IP. If you see a lot of spammers signing up at the same time, you can check for this, either using an online DNS lookup tool, or the Linux `dig` utility, e.g. `dig 1.2.3.4` will return all DNS records for that IP. If you notice the IP is the same for all domains, you can add it to the e-mail domain blacklist.
+Spamerzy będą często używać innych domen e-maili, aby wyglądało to tak, jakby używali innych serwerów e-mail, które ciężko byłoby dodawać oddzielnie na czarną listę. Często jednak one wszystkie prowadzą do jednego adresu IP serwera e-mail. Jeżeli widzisz, że dużo spamerów rejestruje się w tym samym czasie, możesz to sprawdzić używając narzędzia wyszukiwania po DNS online lub korzystając z linuksowego narzędzia `dig` – np. `dig 1.2.3.4` wyświetli wszystkie rekordy DNS dla tego IP. Jeżeli zauważysz, że IP jest to samo dla wszystkich domen, możesz dodać je do czarnej listy domen e-mail.
 
-### Blocking by IP
+### Blokowanie po IP
 
-It is not possible to block visitors by IP address in Mastodon itself, and it is not a fool-proof strategy. IPs are sometimes shared by a lot of different people, and sometimes change hands. But it is possible to block visitors by IP address in Linux using a firewall. Here is an example using `iptables` and `ipset`:
+Nie jest możliwe zablokowanie odwiedzających po adresie IP z użyciem Mastodona i nie jest to zbyt dobre rozwiązanie. Adresy IP czasem są używane przez wiele osób, zmieniają się ich właściciele. Jest możliwe zablokowanie odwiedzających po adresie IP na Linuksie używając firewalla. Oto przykład korzystający z `iptables` i `ipset`:
 
 ```bash
-# Install ipset
+# Zainstaluj ipset
 sudo apt install ipset
-# Create blacklist named "spambots"
+# Utwórz czarną listę o nazwie „spambots”
 sudo ipset create spambots nethash
-# Add 1.2.3.4 to the blacklist
+# Dodaj 1.2.3.4 na czarną listę
 sudo ipset add spambots 1.2.3.4
-# Add firewall rule based on the blacklist
+# Dodaj regułę firewalla opartą o czarną listę
 sudo iptables -I INPUT 1 -m set --match-set spambots src -j DROP
 ```
 
-Be careful not to lock yourself out of your machine.
+Uważaj, aby nie zablokować siebie na własnym urządzeniu.

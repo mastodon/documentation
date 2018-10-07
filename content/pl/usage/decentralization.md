@@ -72,20 +72,20 @@ Zauważysz podobny formularz, gdy spróbujesz odpowiedzieć, podbić lub dodać 
 
 Aby pozwolić na poznawanie zawartości, która może Cię zainteresować, Mastodon oferuje sposób na przeglądanie wszystkich publicznych wpisów. No dobra, nie istnieje dzielona pomiędzy wszystkimi serwerami oś czasu, więc nie możesz zobaczyć *wszystkich* publicznych wpisów. Kiedy przeglądasz **oś czasu federacji**, widzisz wszystkie publiczne wpisy znane przez serwer. Jest wiele sposobów, na które serwer może poznać wpisy, ale większość z nich pojawia się tam dlatego, że inni użytkownicy serwera śledzą ich autorów.
 
-There is a way to filter the federated timeline to view only public posts created on your server: The **local timeline**. Mind that "local" here refers to the server, not to a geographical location.
+Istnieje sposób na filtrowanie osi czasu, aby widzieć tylko publiczne wpisy ze swojego serwera – **lokalna oś czasu**. Pamiętaj, że „lokalna” odnosi się tu do serwera, nie położenia geograficznego.
 
-### Funding and monetization
+### Finansowanie i monetyzacja
 
-All Mastodon servers are operated by different people or organizations completely independently. Mastodon does not implement any monetization strategies in the software.
+Serwery Mastodona są prowadzone przez różne, działające zupełnie niezależnie osoby lub organizacje. Oprogramowanie Mastodona nie zaimplementowało żadnego rozwiązania pozwalającego na monetyzację go.
 
-Some server operators choose to offer paid accounts, some server operators are companies who can utilize their existing infrastructure, and most server operators rely on crowdfunding from their users via Patreon and similar services. So if you want to support the server hosting your account, check if it offers a way to donate.
+Niektóre serwery oferują płatne konta, niektóre należą do firm, które już posiadają odpowiednią infrastrukturę, a większość serwerów finansowana jest przez użytkowników za pośrednictwem Patreona i podobnych usług. Jeżeli chcesz pomóc w utrzymaniu serwera, sprawdź czy istnieje sposób na przekazanie dotacji.
 
-Mastodon development is likewise crowdfunded via Patreon. No venture capital is involved.
+Rozwój Mastodona również jest finansowany przez społeczność na Patreonie. Odbywa się to bez udziału kapitału podwyższonego ryzyka.
 
-### Impersonation and verification
+### Podszywanie się i weryfikacja
 
-The same username *can* be registered on different servers, there is no way to claim all of them ahead of time. Just like with e-mail, you should not expect `alice@hotmail.com` to be the same person as `alice@gmail.com`.
+Konto o tej samej nazwie użytkownika *może* zostać zarejestrowane na różnych serwerach, nie istnieje sposób na zajęcie ich wszystkich. Tak jak w przypadku adresów e-mail, nie oczekuj że `alice@hotmail.com` będzie tą samą osobą, co `alice@gmail.com`.
 
-Because Mastodon can be self-hosted, there is no better way to verify your identity than to host Mastodon on your own domain, which people already trust.
+Ponieważ możesz samodzielnie hostować Mastodona, nie istnieje lepszy sposób na potwierdzenie swojej tożsamości niż hostowanie Mastodona na własnej domenie, której inni ufają.
 
-Document-based verification and blue ticks are not possible without a central authority. However, Mastodon can cross-reference the links you put on your profile to prove that you are the real owner of those links. In case one of those links is your personal homepage that is known and trusted, it can serve as the next-best-thing to identity verification.
+Weryfikacja za okazaniem dokumentu i niebieski znaczek nie są możliwe na zdecentralizowanej usłudze. Możesz jednak potwerdzić, że odnośniki umieszczone w metadanych profilu należą do Ciebie. Jeżeli jeden z nich to Twoja osobista strona internetowa, może być to również sposób na weryfikację tożsamości tutaj.
