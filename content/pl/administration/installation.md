@@ -1,6 +1,6 @@
 ---
-title: Installation
-description: How to install Mastodon on an Ubuntu 18.04 server
+title: Instalacja
+description: Jak zainstalować Mastodona na serwerze z Ubuntu 18.04
 menu:
   docs:
     parent: administration
@@ -9,37 +9,37 @@ menu:
 
 <img src="/setup.png" alt="" style="margin: 0; box-shadow: none">
 
-## Basic server setup (optional)
+## Podstawowa konfiguracja serwera (nieobowiązkowa)
 
-If you are setting up a fresh machine, it is recommended that you secure it first. Assuming that you are running **Ubuntu 18.04**:
+Jeżeli konfigurujesz nowe urządzenie, zalecane jest zabezpieczenie go. Załóżmy, że korzystasz z **Ubuntu 18.04**:
 
-### Do not allow password-based SSH login (keys only)
+### Nie pozwól na logowanie przez SSH z użyciem hasła (tylko kluczem)
 
-First make sure you are actually logging in to the server using keys and not via a password, otherwise this will lock you out. Many hosting providers support uploading a public key and automatically set up key-based root login on new machines for you.
+Na początek upewnij się, że jesteś zalogowany(-a) z użyciem klucza, nie hasła – w przeciwnym razie zostaniesz zablokowany(-a). Wielu dostawców hostingu daje możliwość wysłania klucza publicznego i automatycznie konfiguruje logowanie użytkownika root z użyciem klucza.
 
-Edit `/etc/ssh/sshd_config` and find `PasswordAuthentication`. Make sure it's uncommented and set to `no`. If you made any changes, restart sshd:
+Edytuj `/etc/ssh/sshd_config` i znajdź `PasswordAuthentication`. Upewnij się, że nie jest ono skomentowane i jest ustawione na `no`. Po dokonaniu zmian uruchom ponownie sshd:
 
 ```sh
 systemctl restart ssh
 ```
 
-### Update system packages
+### Aktualizacja pakietów systemowych
 
 ```sh
 apt update && apt upgrade -y
 ```
 
-### Install fail2ban so it blocks repeated login attempts
+### Instalacja fail2ban, aby blokował po wielu nieudanych próbach logowania
 
 ```sh
 apt install fail2ban
 ```
 
-Edit `/etc/fail2ban/jail.local` and put this inside:
+Edytuj `/etc/fail2ban/jail.local` i dodaj:
 
 ```ini
 [DEFAULT]
-destemail = your@email.here
+destemail = twój@email.tutaj
 sendername = Fail2Ban
 
 [sshd]
@@ -51,21 +51,21 @@ enabled = true
 port = 22
 ```
 
-Finally restart fail2ban:
+Na koniec, uruchom ponownie fail2ban:
 
 ```sh
 systemctl restart fail2ban
 ```
 
-### Install a firewall and only whitelist SSH, HTTP and HTTPS ports
+### Zainstaluj firewall i odblokuj tylko porty SSH, HTTP i HTTPS
 
-First, install iptables-persistent. During installation it will ask you if you want to keep current rules--decline.
+Na początek, zainstaluj iptables-persistent. Podczas instalacji zostaniesz zapytany(-a), czy chcesz pozostawić obecne zasady – odmów.
 
 ```sh
 apt install -y iptables-persistent
 ```
 
-Edit `/etc/iptables/rules.v4` and put this inside:
+Edytuj `/etc/iptables/rules.v4` i dodaj:z
 
 ```
 *filter
@@ -101,27 +101,27 @@ Edit `/etc/iptables/rules.v4` and put this inside:
 COMMIT
 ```
 
-With iptables-persistent, that configuration will be loaded at boot time. But since we are not rebooting right now, we need to load it manually for the first time:
+Dzięki iptables-persistent, ta konfiguracja będzie ładowana w trakcie uruchomienia systemu. Ponieważ nie zamierzamy go teraz uruchomić ponownie, załadujmy ją ręcznie:
 
 ```sh
 iptables-restore < /etc/iptables/rules.v4
 ```
 
-## Pre-requisites
+## Wymagania wstępne
 
-- A machine running **Ubuntu 18.04** that you have root access to
-- A **domain name** (or a subdomain) for the Mastodon server, e.g. `example.com`
-- An e-mail delivery service or other **SMTP server**
+- Urządzenie z systemem **Ubuntu 18.04** wraz z dostępem do roota
+- **Domena** (lub subdomena) dla serwera Mastodona, np. `example.com`
+- Usługa doręczania e-maili lub inny **serwer SMTP**
 
-You will be running the commands as root. If you aren't already root, switch to root:
+Wykonaj te polecenia jako root. Jeżeli nie jesteś obecnie na koncie roota, przełącz się na nie:
 
 ```sh
 sudo -i
 ```
 
-### System repositories
+### Repozytoria systemu
 
-Make sure curl is installed first:
+Upewnij się, że curl jest zainstalowany:
 
 ```sh
 apt install -y curl
@@ -140,7 +140,7 @@ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 ```
 
-### System packages
+### Pakiety systemowe
 
 ```sh
 apt update
@@ -153,21 +153,21 @@ apt install -y \
   certbot yarn libidn11-dev libicu-dev libjemalloc-dev
 ```
 
-### Installing Ruby
+### Instalacja Ruby
 
-We will be using rbenv to manage Ruby versions, because it's easier to get the right versions and to update once a newer release comes out. rbenv must be installed for a single Linux user, therefore, first we must create the user Mastodon will be running as:
+Będziemy korzystać z rbenv, aby zarządzać wersjami Ruby, ponieważ ułatwia to przejście na prawidłową wersję po pojawieniu się nowego wydania. rbenv musi zostać zainstalowany dla każdego użytkownika który będzie go używał osobno, więc zacznijmy od utworzenia użytkownika, na którym uruchomimy Mastodona:
 
 ```sh
 adduser --disabled-login mastodon
 ```
 
-We can then switch to the user:
+Możemy teraz zalogować się na to konto:
 
 ```sh
 su - mastodon
 ```
 
-And proceed to install rbenv and rbenv-build:
+I przejść do instalacji rbenv i rbenv-build:
 
 ```sh
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
@@ -178,70 +178,70 @@ exec bash
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 ```
 
-Once this is done, we can install the correct Ruby version:
+Po zakończeniu, możemy zainstalować prawidłową wersję Ruby:
 
 ```sh
 RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.5.1
 rbenv global 2.5.1
 ```
 
-We'll also need to install bundler:
+Musimy też zainstalować bundler:
 
 ```sh
 gem install bundler --no-ri --no-rdoc
 ```
 
-Return to the root user:
+Wróćmy na konto root:
 
 ```sh
 exit
 ```
 
-## Setup
-### Setting up PostgreSQL
-#### Performance configuration (optional)
+## Konfiguracja
+### Konfiguracja PostgreSQL
+#### Ustawienia wydajności (nieobowiązkowe)
 
-For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/9.6/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
+Aby zwiększyć wydajność, możesz skorzystać z [pgTune](https://pgtune.leopard.in.ua/#/), aby wygenerować odpowiednie ustawienia i zmienić odpowiednie wartości w `/etc/postgresql/9.6/main/postgresql.conf` przed ponownym uruchomieniem PostgreSQL poleceniem `systemctl restart postgresql`
 
-#### Creating a user
+#### Tworzenie użytkownika
 
-You will need to create a PostgreSQL user that Mastodon could use. It is easiest to go with "ident" authentication in a simple setup, i.e. the PostgreSQL user does not have a separate password and can be used by the Linux user with the same username.
+Musisz utowrzyć użytkownika PostgreSQL, z którego będzie mógł korzystać Mastodon. Najprościej użyć uwierzytelniania „ident” w prostym ustawieniu, tzn. użytkownik PostgreSQL nie będzie miał oddzielnego hasła i będzie mógł z niego korzystać linuksowy użytkownik o tej samej nazwie.
 
-Open the prompt:
+Przejdź do powłoki:
 
 ```sh
 sudo -u postgres psql
 ```
 
-In the prompt, execute:
+Wykonaj:
 
 ```
 CREATE USER mastodon CREATEDB;
 \q
 ```
 
-Done!
+Gotowe!
 
-### Setting up Mastodon
+### Konfiguracja Mastodona
 
-It is time to download the Mastodon code. Switch to the mastodon user:
+Pora pobrać kod Mastodona. Przełącz się na użytkownika mastodon:
 
 ```sh
 su - mastodon
 ```
 
-#### Checking out the code
+#### Pobieranie kodu
 
-Use git to download the latest stable release of Mastodon:
+Użyj narzędzia git, aby pobrać najnowsze stabilne wydanie Mastodona:
 
 ```sh
 git clone https://github.com/tootsuite/mastodon.git live && cd live
 git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 ```
 
-#### Installing the last dependencies
+#### Instalacja ostatnich zależności
 
-Now to install Ruby and JavaScript dependencies:
+Pora na instalację zależności używających Ruby i JavaScript:
 
 ```sh
 bundle install \
@@ -250,84 +250,84 @@ bundle install \
 yarn install --pure-lockfile
 ```
 
-#### Generating a configuration
+#### Generowanie konfiguracji
 
-Run the interactive setup wizard:
+Uruchom interaktywny konfigurator:
 
 ```sh
 RAILS_ENV=production bundle exec rake mastodon:setup
 ```
 
-This will:
+W ten sposób:
 
-- Create a configuration file
-- Run asset precompilation
-- Create the database schema
+- utworzysz plik konfiguracyjny
+- wykonasz prekompilację zasobów
+- utworzysz schemat bazy danych
 
-The configuration file is saved as `.env.production`. You can review and edit it to your liking. Refer to the [documentation on configuration]({{< relref "configuration.md" >}}).
+Plik konfiguracyjny zostanie zapisany jako `.env.production`. Możesz przejrzeć i edytować go według swoich potrzeb. Możesz odwołać się do [documentacji konfiguracji]({{< relref "configuration.md" >}}).
 
-You're done with the mastodon user for now, so switch back to root:
+Możesz wrócić na użytkownika root:
 
 ```sh
 exit
 ```
 
-### Setting up nginx
+### Konfiguracja nginx
 
-Copy the configuration template for nginx from the Mastodon directory:
+Skopiuj przykładową konfigurację nginx z katalogu Mastodona:
 
 ```sh
 cp /home/mastodon/live/dist/nginx.conf /etc/nginx/sites-available/mastodon
 ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 ```
 
-Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with your own domain name, and make any other adjustments you might need.
+Zedytuj `/etc/nginx/sites-available/mastodon` u zamień `example.com` na swoją domenę i dokonaj niezbędnych zmian.
 
-Reload nginx for the changes to take effect:
+Załaduj ponownie nginx, aby wprowadzić zmiany:
 
 ```sh
 systemctl reload nginx
 ```
 
-### Acquiring a SSL certificate
+### Uzyskanie certyfikatu SSL
 
-We'll use Let's Encrypt to get a free SSL certificate:
+Skorzystamy z Let's Encrypt, aby uzyskać bezpłatny certyfikat SSL:
 
 ```sh
 certbot certonly --webroot -d example.com -w /home/mastodon/live/public/
 ```
 
-You can now edit `/etc/nginx/sites-available/mastodon` to uncomment and adjust the `ssl_certificate` and `ssl_certificate_key` lines.
+Możesz teraz zedytować `/etc/nginx/sites-available/mastodon`, aby zmodyfikowac wiersze `ssl_certificate` i `ssl_certificate_key`.
 
-Then, reload nginx for the changes to take effect:
+Załaduj ponownie nginx, aby wprowadzić zmiany:
 
 ```sh
 systemctl reload nginx
 ```
 
-At this point you should be able to visit your domain in the browser and see the elephant hitting the computer screen error page. This is because we haven't started the Mastodon process yet.
+W tym momencie, po odwiedzeniu domeny w przeglądarce powinieneś(-aś) zobaczyć stronę z błędem przedstawiającą słonia uderzającego w ekran komputera. To dlatego, że nie uruchomiliśmy jeszcze Mastodona.
 
-### Setting up systemd services
+### Konfiguracja usług systemd
 
-Copy the systemd service templates from the Mastodon directory:
+Skopiuj szablony usług systemd z katalogu Mastodona:
 
 ```sh
 cp /home/mastodon/live/dist/mastodon-*.service /etc/systemd/system/
 ```
 
-Then edit the files to make sure the username and paths are correct:
+Zedytuj następujące pliki, aby upewnić się czy nazwa użytkownika i ścieżki są prawidłowe:
 
 - `/etc/systemd/system/mastodon-web.service`
 - `/etc/systemd/system/mastodon-sidekiq.service`
 - `/etc/systemd/system/mastodon-streaming.service`
 
-Finally, start and enable the new systemd services:
+Na koniec, uruchom i aktywuj nowe usługi systemd:
 
 ```sh
 systemctl start mastodon-web mastodon-sidekiq mastodon-streaming
 systemctl enable mastodon-*
 ```
 
-They will now automatically start at boot time.
+Będą one automatycznie uruchamiane wraz z systemem.
 
-**Hurray! This is it. You can visit your domain in the browser now!**
+**Hurra! To wszystko. Możesz teraz odwiedzić swoją domenę w przeglądarce!**

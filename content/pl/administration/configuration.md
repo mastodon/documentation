@@ -1,24 +1,24 @@
 ---
-title: Configuration
-description: Overview of Mastodon's configuration options
+title: Konfigruacja
+description: Omówienie opcji konfiguracji Mastodona
 menu:
   docs:
     parent: administration
     weight: 2
 ---
 
-Mastodon uses environment variables as its configuration.
+Mastodon używa zmiennych środowiskowych do konfiguracji.
 
-For convenience, it can read them from a flat file called `.env.production` in the Mastodon directory, but they can always be overridden by a specific process. For example, systemd service files can read environment variables from an `EnvironmentFile` or from inline definitions with `Environment`, so you can have different configuration parameters for specific services. They can also be specified when calling Mastodon from the command line.
+Dla zwiększenia wygody, mogą one być odczytywane z pliku `.env.production` znajdującego się w katalogu Mastodona, ale mogą zostać zawsze nadpisane przez zewnętrzny proces. Dla przykładu, pliki usług systemd mogą odczytywać zmienne środowiskowe z `EnvironmentFile` lub definicji w `Environment`, więc możesz ustawić oddzielne parametry konfiguracji dla poszczególnych usług. Mogą też być określone podczas uruchamiania Mastodona z wiersza poleceń.
 
-## Basic
-### Federation
+## Podstawowe
+### Federacja
 
 - `LOCAL_DOMAIN`
 - `WEB_DOMAIN`
 - `ALTERNATE_DOMAINS`
 
-### Secrets
+### Tajne klucze
 
 - `SECRET_KEY_BASE`
 - `OTP_SECRET`
@@ -36,7 +36,7 @@ For convenience, it can read them from a flat file called `.env.production` in t
 - `NODE_ENV`
 - `BIND`
 
-### Scaling options
+### Opcje skalowania
 
 - `WEB_CONCURRENCY`
 - `MAX_THREADS`
@@ -44,7 +44,7 @@ For convenience, it can read them from a flat file called `.env.production` in t
 - `STREAMING_API_BASE_URL`
 - `STREAMING_CLUSTER_NUM`
 
-## Database connections
+## Połączenie z bazą danych
 ### PostgreSQL
 
 - `DB_HOST`
@@ -77,7 +77,7 @@ For convenience, it can read them from a flat file called `.env.production` in t
 - `STATSD_ADDR`
 - `STATSD_NAMESPACE`
 
-## Limits
+## Ograniczenia
 
 - `SINGLE_USER_MODE`
 - `EMAIL_DOMAIN_WHITELIST`
@@ -100,17 +100,17 @@ For convenience, it can read them from a flat file called `.env.production` in t
 - `SMTP_ENABLE_STARTTLS_AUTO`
 - `SMTP_TLS`
 
-## File storage
+## Przechowywanie plików
 
 - `CDN_HOST`
 - `S3_ALIAS_HOST`
 
-### Local file storage
+### Lokalne przechowywanie plików
 
 - `PAPERCLIP_ROOT_PATH`
 - `PAPERCLIP_ROOT_URL`
 
-### Amazon S3 and compatible
+### Amazon S3 i kompatybilne
 
 - `S3_ENABLED`
 - `S3_BUCKET`
@@ -136,7 +136,7 @@ For convenience, it can read them from a flat file called `.env.production` in t
 - `SWIFT_DOMAIN_NAME`
 - `SWIFT_CACHE_TTL`
 
-## External authentication
+## Zewnętrzne uwierzytelnianie
 
 - `OAUTH_REDIRECT_AT_SIGN_IN`
 
@@ -206,11 +206,11 @@ For convenience, it can read them from a flat file called `.env.production` in t
 - `SAML_ATTRIBUTES_STATEMENTS_VERIFIED`
 - `SAML_ATTRIBUTES_STATEMENTS_VERIFIED_EMAIL`
 
-## Hidden services
+## Ukryte usługi
 
 - `http_proxy`
 - `ALLOW_ACCESS_TO_HIDDEN_SERVICE`
 
-## Other
+## Inne
 
 - `SKIP_POST_DEPLOYMENT_MIGRATIONS`
