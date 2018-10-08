@@ -1,21 +1,20 @@
 ---
-title: Optional features
-description: How to enable Mastodon's optional features
+title: Dodatkowe funkcje
+description: Jak włączyć dodatkowe funkcje Mastodona
 menu:
   docs:
     parent: administration
     weight: 5
 ---
 
-## Full-text search
+## Wyszukiwanie tekstu
 
 TODO
 
-## Hidden services
+## Ukryte usługi
 
 TODO
 
-## Login via LDAP/PAM/CAS/SAML
+## Logowanie z użyciem LDAP/PAM/CAS/SAML
 
 TODO
-

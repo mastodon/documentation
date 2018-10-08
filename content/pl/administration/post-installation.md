@@ -1,39 +1,39 @@
 ---
-title: Post-installation steps
-description: What to do after the installation of Mastodon is complete
+title: Kroki po instalacji
+description: Co zrobić po zakończeniu instalacji Mastodona
 menu:
   docs:
     parent: administration
     weight: 3
 ---
 
-## Using the command-line interface
+## Korzystanie z interfejsu wiersza poleceń
 
-The command-line interface of Mastodon is an executable file called `tootctl` residing in the `bin` directory within the Mastodon root directory. You must specify which environment you intend to use whenever you execute it by specifying the `RAILS_ENV` environment variable. Unless you are a developer working on a local machine, you need to use `RAILS_ENV=production`. If you are sure that you will never need another environment (for development, testing, or staging), you can add it to your `.bashrc` file for convenience, e.g.:
+Interfejs wiersza poleceń Mastodona jest plikiem wykonywalnym o nazwie `tootctl` znajdującym się w katalogu `bin` wewnątrz głównego katalogu Mastodona. Musisz określić, którego środowiska chcesz używać określając zmienną środowiskową `RAILS_ENV`. Jeżeli nie jesteś programistą korzystającą z urządzenia lokalnie, musisz użyć `RAILS_ENV=production`. Jeżeli masz pewność, że nigdy nie będziesz potrzebować innego środowiska, możesz dodać je dla ułatwienia do pliku `.bashrc`, np.:
 
 ```bash
 echo "export RAILS_ENV=production" >> ~/.bashrc
 ```
 
-If so, you won't need to specify it each time inline. Otherwise, calls to `tootctl` will usually go like this, assuming that the Mastodon code is checked out in `/home/mastodon/live`:
+Jeżeli tak zrobisz, nie będziesz musiał(-a) uwzględniać go cały czas. W przeciwnym razie, wywołania `tootctl` będą wyglądały tak, zakładająć że kod Mastodona znajduje się w katalogu `/home/mastodon/live`:
 
 ```bash
 cd /home/mastodon/live
 RAILS_ENV=production bin/tootctl help
 ```
 
-## Creating an admin account
-### In the browser
+## Tworzenie konta administratora
+### W przeglądarce
 
-After signing up in the browser, you will need to use the command line to give your newly created account admin privileges. Assuming your username is `alice`:
+Po zarejestrowaniu się w przeglądarce, musisz użyć wiersza poleceń aby nadać nowo utworzonemu kontu prawa administratora. Załóżmy, że Twoja nazwa użytkownika to `alice`:
 
 ```bash
 RAILS_ENV=production bin/tootctl accounts update alice --role admin
 ```
 
-### From the command line
+### W wierszu poleceń
 
-You can create a new account using the command-line interface.
+Możesz utworzyć nowe konto używając interfejsu wiersza poleceń.
 
 ```bash
 RAILS_ENV=production bin/tootctl accounts create \
@@ -43,64 +43,65 @@ RAILS_ENV=production bin/tootctl accounts create \
   --role admin
 ```
 
-A randomly generated password will be shown in the terminal.
+W terminalu pojawi się wygenerowane losowo hasło.
 
-## Filling in server information
+## Wypełnianie informacji o serwerze
 
-After logging in, navigate to the **Site settings** page. While there are no technical requirements for filling in this information, it is considered crucial for operating a server for humans.
+Po zalogowaniu się, przejdź na stronę **Ustawienia strony**. Mimo braku technicznego wymogu wypełnienia tych informacji, są one istotne dla użytkowników.
 
-|Setting|Meaning|
-|-------|-------|
-|Contact username|Your username so people know who owns the server|
-|Business e-mail|An e-mail address so people locked out of their accounts, or people without accounts, can contact you|
-|Instance description|Why did you start this server? Who is it for? What makes it different?|
-|Custom extended information|You can put all sorts of information in here but a **code of conduct** is recommended|
+|Ustawienie|Opis|
+|----------|----|
+|Nazwa użytkownika do kontaktu|Twoja nazwa użytkownika, aby inni mogli wiedzieć, do kogo należy serwer|
+|Służbowy adres e-mail|Twój adres e-mail, aby osoby które nie mogą się zalogować lub nie mają konta mogły się z Tobą skontaktować|
+|Opis instancji|Dlaczego ten serwer powstał? Dla kogo jest on przeznaczony? Co czyni go wyjątkowym?|
+|Niestandardowy opis strony|Możesz tu umieścić różnego rodzaju informacje, ale zalecane jest umieszczenie **zasad**|
 
-After you fill these in, simply hit "Save changes".
+Po wypełnieniu tych pól, naciśnij „Zapisz zmiany”.
 
-## Setting up regular backups (optional, but not really)
+## Ustawienie regularnych kopii zapasowych (nieobowiązkowe, choć nie do końca)
 
+W przypadku rzeczywistego zastosowania, upewnij się że będziesz wykonywać kopie zapasowe serwera Mastodona.
 For any real-world use, you should make sure to regularly backup your Mastodon server.
 
-### Overview
+### Omówienie
 
 Things that need to be backed up in order of importance:
 
-1. PostgreSQL database
-2. Application secrets from the `.env.production` file or equivalent
-3. User-uploaded files
-4. Redis database
+1. Baza danych PostgreSQL
+2. Tajne klucze aplikacji z pliku `.env.production` lub odpowiadającego mu
+3. Pliki wysłane przez użytkowników
+4. Baza danych Redis
 
-### Failure modes
+### Tryby awaryjne
 
-There are two failure types that people in general may guard for: The failure of the hardware, such as data corruption on the disk; and human and software error, such as wrongful deletion of particular piece of data. In this documentation, only the former type is considered.
+Istnieją dwa rodzaje niepowodzeń przed którymi większość osób choni się: awaria sprzętu, taka jak uszkodzenie danych na dysku i błąd oprogramowania lub człowieka, taki jak przypadkowe usunięcie części danych. W tej dokumentacji omówiony zostaje tylko pierwszy przypadek.
 
-A lost PostgreSQL database is complete game over. Mastodon stores all the most important data in the PostgreSQL database. If the database disappears, all the accounts, posts and followers on your server will disappear with it.
+Utrata bazy danych PostgreSQL to najgorsza możliwość. Mastodon przechowuje tam wszystkie ważne dane. Jeżeli baza danych zniknie, wraz z nią znikną wszystkie konta i wpisy z Twojego serwera.
 
-If you lose application secrets, some functions of Mastodon will stop working for your users, they will be logged out, two-factor authentication will become unavailable, Web Push API subscriptions will stop working.
+Jeżeli utracisz tajne klucze aplikacji, część funkcji Mastodona przestanie działać użytkownikom, zostaną wylogowani, uwierzytelnianie dwuetapowe nie będzie dostępne i subskrypcje Web Push API przestaną działać.
 
-If you lose user-uploaded files, you will lose avatars, headers, and media attachments, but Mastodon *will* work moving forward.
+Jeżeli utracisz pliki wysłane przez użytkowników, znikną awatary, zdjęcia nagłówka i załączniki multimedialne, ale Mastodon wciąż *będzie* działać.
 
-Losing the Redis database is almost harmless: The only irrecoverable data will be the contents of the Sidekiq queues and scheduled retries of previously failed jobs. The home and list feeds are stored in Redis, but can be regenerated with tootctl.
+Utrata bazy danych Redis jest prawie bezbolesna: jedyne nieodwracalne dane to kolejki Sidekiq i zaplanowane ponowne próby nieudanych zadań. Strumienie list i osi czasu są przechowywane przez Redis, ale mogą zostać wygenerowane ponownie z użyciem tootctl.
 
-The best backups are so-called off-site backups, i.e. ones that are not stored on the same machine as Mastodon itself. If the server you are hosted on goes on fire and the hard disk drive explodes, backups stored on that same hard drive won't be of much use.
+Najlepsze kopie zapasowe to te na innym urządzeniu niż to, na którym uruchomiony jest Mastodon. Dla przykładu, jeżeli serwer spłonie, a dysk twardy wybuchnie, kopie zapasowe przechowywane na nim nie będą mogły zostać użyte…
 
-### Backing up application secrets
+### Kopia zapasowa tajnych kodów
 
-Application secrets are the easiest to backup, since they never change. You only need to store `.env.production` somewhere safe.
+Są one najprostsze do zabezpieczenia, ponieważ nigdy się nie zmieniają. Musisz tylko przechowywać `.env.production` w bezpiecznym miejscu.
 
-### Backing up PostgreSQL
+### Kopia zapasowa PostgreSQL
 
-PostgreSQL is at risk of data corruption from power cuts, hard disk drive failure, and botched schema migrations. For that reason, occassionally making a backup with `pg_dump` or `pg_dumpall` is recommended.
+PostgreSQL jest zagrożony utratą danych w wyniku utraty prądu, uszkodzeń dysku twardego i nieudanych migracji. Z tego powodu, zalecane jest tworzenie od czasu do czasu kopii zapasowej używając `pg_dump` lub `pg_dumpall`.
 
-For high-availability setups, it is possible to use hot streaming replication to have a second PostgreSQL server with always up-to-date data, ready to be switched over to if the other server goes down.
+Gdy ważna jest dostępność w każdym momencie, możesz używać replikacji przez strumieniowanie, aby mieć drugi serwer PostgreSQL z zawsze aktualnymi danymi i móc przełączyć się na niego, jeżeli jeden serwer przestanie działać.
 
-### Backing up user-uploaded files
+### Kopia zapasowa plików wysyłanych przez użytkowników
 
-If you are using an external object storage provider such as Amazon S3, Google Cloud or Wasabi, then you don't need to worry about backing those up. The respective companies are responsible for handling hardware failures.
+Jeżeli korzystasz z zewnętrznego dostawcy object storage takiego jak Amazon S3, Google Cloud lub Wasabi, nie musisz przejmować się tworzeniem kopii zapasowych. Te firmy są odpowiedzialne za radzenie sobie z awariami sprzętu.
 
-If you are using local file storage, then it's up to you to make copies of the sizeable `public/system` directory, where uploaded files are stored by default.
+Jeżeli przechowujesz pliki lokalnie, od Ciebie zależy, czy będziesz tworzyć kopie coraz większego katalogu `public/system`, gdzie domyślnie przechowywane są wysyłane pliki.
 
-### Backing up Redis
+### Kopia zapasowa Redis
 
-Backing up Redis is easy. Redis regularly writes to `/var/lib/redis/dump.rdb` which is the only file you need to make a copy of.
+Tworzenie kopii zapasowej Redis jest proste. Redis regularnie zapisuje wszystko w `/var/lib/redis/dump.rdb`, jedynym pliku który powinieneś(-naś) gdzieś przechowywać.
