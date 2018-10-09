@@ -37,7 +37,7 @@ To use the prebuilt images:
    2. Edit the `image: tootsuite/mastodon` lines for all images to include the release you want. The default is `latest` which is the most recent stable version, however it recommended to explicitly pin a version: If you wanted to use v2.2.0 for example, you would edit the lines to say: `image: tootsuite/mastodon:v2.2.0`
    3. Save the file and exit the text editor.
 2. Run `cp .env.production.sample .env.production` to bootstrap the configuration. You will need to edit this file later.
-3. Run `docker-compose build`. It will now pull the correct image from Docker Hub.
+3. Run `docker-compose pull`. It will now pull the correct image from Docker Hub.
 4. Set correct file-owner with `chown -R 991:991 public`
 
 ### Building your own image
@@ -55,7 +55,7 @@ You must build your own image if you've made any code modifications. To build yo
 
 Now the image can be used to generate a configuration with:
 
-    docker-compose run --rm web bundle exec rake mastodon:setup
+    docker-compose run --rm web bundle exec rails mastodon:setup
 
 This is an interactive wizard that will guide you through the basic and necessary options and generate new app secrets. At some point it will output your configuration, copy and paste that configuration into the `.env.production` file.
 
