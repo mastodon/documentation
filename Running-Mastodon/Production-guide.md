@@ -537,7 +537,7 @@ m.deliver
 After modification and test, you will have to restart service on your server to be sure every changes are kept.
 
 ```
-systemctl stop nginx
+systemctl stop mastodon-*
 ```
 
 That is all! If everything was done correctly, a [Mastodon](https://github.com/tootsuite/mastodon/) instance will appear when you visit `https://example.com` in a web browser.
