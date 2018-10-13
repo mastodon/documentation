@@ -518,12 +518,14 @@ It may be easier to use a subdomain to setup your email with a custom provider -
 Once you create your account, follow the instructions each provider gives you for updating your DNS records.  Once you have all the information ready to go and the service validates your DNS configuration, edit your config file.  These records should already exist in the configuration, but here's a sample setup that uses Mailgun that you can replace with your own personal info:
 
 ```
-SMTP_SERVER=smtp.mailgun.org
+SMTP_SERVER=smtp.domain.tld
 SMTP_PORT=587
-SMTP_LOGIN=anAccountThatIsntPostmaster@mstdn.domain.com
-SMTP_PASSWORD=HolySnacksAPassword
+SMTP_LOGIN='username'
+SMTP_PASSWORD='password'
 SMTP_FROM_ADDRESS=Domain.com Mastodon Admin <notifications@domain.com>
 ```
+
+Username and password must be kept between quote `' '`.
 
 Finally, to test this, spin up a Rails console (see [the administration guide](https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Administration-guide.md)) and run the following commands to test this out:
 
