@@ -534,6 +534,12 @@ m = UserMailer.new.mail to:'email@address.com', subject: 'test', body: 'awoo'
 m.deliver
 ```
 
+After modification and test, you will have to restart service on your server to be sure every changes are kept.
+
+```
+systemctl stop nginx
+```
+
 That is all! If everything was done correctly, a [Mastodon](https://github.com/tootsuite/mastodon/) instance will appear when you visit `https://example.com` in a web browser.
 
 Congratulations and welcome to the fediverse!
