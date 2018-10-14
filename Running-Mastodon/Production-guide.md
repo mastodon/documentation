@@ -342,7 +342,7 @@ After that successfully completes, we will use the webroot method. This requires
 
 ```sh
 systemctl start nginx
-# The certbot tool will ask if you want issue a new cert, please choose that option
+# The certbot tool will ask if you want to keep the existing certificate or renew it. Choose to renew it.
 certbot certonly --webroot -d example.com -w /home/mastodon/live/public/
 ```
 
