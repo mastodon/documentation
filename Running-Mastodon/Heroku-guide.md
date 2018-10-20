@@ -93,6 +93,6 @@ You can deploy from the Heroku web interface or from the command line. Run:
 
 after you first deploy to set up the first database.
 
-To make yourself an admin, you may need to use the `heroku` CLI application after creating an account online:
+To make yourself an admin, you will need to use `tootctl`. Run:
 
-  `heroku rake mastodon:make_admin USERNAME=yourUsername`
+  `heroku run tootctl accounts modify yourUsername --role=admin`
