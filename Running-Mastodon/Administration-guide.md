@@ -13,11 +13,11 @@ All of these are optional and depend on your use case.
 
 The following rake task:
 
-    RAILS_ENV=production bundle exec rails mastodon:make_admin USERNAME=alice
+    tootctl accounts modify alice --role=admin
 
 or, if using docker:
 
-    docker-compose run --rm web rails mastodon:make_admin USERNAME=alice
+    docker-compose run --rm web tootctl accounts modify alice --role=admin
 
 Would turn the local user "alice" into an admin.
 
@@ -65,9 +65,9 @@ Under "Moderation" -> "Accounts" you can find your users' accounts. You can:
 
 The following rake task:
 
-    RAILS_ENV=production bundle exec rails mastodon:add_user
+    tootctl accounts create (username) --email=your@email
 
-This will guide you through creating a new user interactively. The user will get a confirmation e-mail.
+This will create a new user. The user's password will be displayed in the shell prompt.
 
 ## Moderating content
 
