@@ -73,11 +73,11 @@ The default docker-compose.yml maps them to the repository's `public/assets` and
 
 **Note**: The `--rm` option for docker-compose will remove the container that is created to run a one-off command after it completes. As data is stored in volumes it is not affected by that container clean-up.
 
-## Running tasks
+## Using tootctl
 
-Running any of these tasks via docker-compose would look like this:
+Using tootctl via docker-compose would look like this:
 
-    docker-compose run --rm web bundle exec rake mastodon:media:clear
+    tootctl settings registrations close
 
 ## Updating
 
