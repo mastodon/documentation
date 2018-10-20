@@ -63,7 +63,7 @@ Under "Moderation" -> "Accounts" you can find your users' accounts. You can:
 
 ## Creating users while registration is closed
 
-The following rake task:
+The following tootctl command:
 
     tootctl accounts create (username) --email=your@email
 
