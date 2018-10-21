@@ -1,6 +1,8 @@
 ![Mastodon](https://i.imgur.com/NhZc40l.png)
 ====
 
+> **Note:** The documentation has moved to a [different repository](https://source.joinmastodon.org/mastodon/docs), where it is compiled to [docs.joinmastodon.org](https://docs.joinmastodon.org). This repository is no longer updated.
+
 Mastodon is a free, open-source social network server based on open web protocols like ActivityPub and OStatus. The social focus of the project is a viable decentralized alternative to commercial social media silos that returns the control of the content distribution channels to the people.
 
 ## Documentation
