@@ -132,10 +132,6 @@ Returns [Status]({{< relref "entities.md#status" >}})
 
 {{< api_method_info auth="Yes" user="Yes" scope="write write:statuses" version="0.0.0" >}}
 
-### Resource information
-
-{{< api_method_info auth="Yes" user="Yes" scope="write write:favourites" version="0.0.0" >}}
-
 ## POST /api/v1/statuses/:id/pin
 
 Pin user's own status to user's profile.
