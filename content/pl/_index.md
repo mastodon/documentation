@@ -12,4 +12,4 @@ Witaj w dokumentacji Mastodona!
 
 - [Dowiedz się jak korzystać z Mastodona]({{< relref "usage/basics.md" >}})
 - [Dowiedz się jak zainstalować Mastodona]({{< relref "administration/installation.md" >}})
-- [Dowiedz się jak napisać aplikację dla Mastodona]({{< relref "api/guidelines.md" >}})
+- [Dowiedz się jak napisać aplikację dla Mastodona]()
