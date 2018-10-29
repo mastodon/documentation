@@ -13,6 +13,10 @@ enableGitInfo = true
     contentDir = "content/en"
     languageName = "English"
     weight = 1
+  [languages.pl]
+    contentDir = "content/pl"
+    languageName = "Polski"
+    weight = 1
 
 [menu]
   [[menu.docs]]
