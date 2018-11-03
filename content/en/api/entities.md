@@ -289,6 +289,7 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 | `media_attachments` | Array of [Attachment](#attachment) |{{< no >}}|0.6.0|
 | `mentions` | Array of [Mention](#mention) |{{< no >}}|0.6.0|
 | `tags` | Array of [Tag](#tag) |{{< no >}}|0.9.0|
+| `card` | [Card](#card) |{{< yes >}}|2.6.0|
 | `application` | [Application](#application) |{{< no >}}|0.9.9|
 | `language` | String (ISO6391) |{{< yes >}}|1.4.0|
 | `pinned` | Boolean |{{< yes >}}|1.6.0|
