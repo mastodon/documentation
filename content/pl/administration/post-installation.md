@@ -28,7 +28,7 @@ RAILS_ENV=production bin/tootctl help
 Po zarejestrowaniu się w przeglądarce, musisz użyć wiersza poleceń aby nadać nowo utworzonemu kontu prawa administratora. Załóżmy, że Twoja nazwa użytkownika to `alice`:
 
 ```bash
-RAILS_ENV=production bin/tootctl accounts update alice --role admin
+RAILS_ENV=production bin/tootctl accounts modify alice --role admin
 ```
 
 ### W wierszu poleceń
