@@ -177,7 +177,7 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 | `thumbnail` | String (URL) |{{< yes >}}|1.6.1|
 | `urls` | [Hash](#urls) |{{< no >}}|1.4.2|
 | `stats` | [Hash](#stats) |{{< no >}}|1.6.0|
-| `languages` | Array of String (ISO6391) |{{< no >}}|2.3.0|
+| `languages` | Array of String (ISO 639, Part 1-5) |{{< no >}}|2.3.0|
 | `contact_account` | [Account](#account) |{{< yes >}}|2.3.0|
 
 ### URLs
