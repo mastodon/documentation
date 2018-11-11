@@ -13,7 +13,7 @@ The best way of working with Mastodon in a development environment is installing
 
 ## Environments
 
-An "environment" is a set of configuration values intended for a specific use case. Some environments could be: development, in which you intend to change the code; test, in which you intend to test the code; staging, which is meant to preview the code to end-users; and production, which is intended to face end-users. Mastodon comes with configurations for development, test and production.
+An "environment" is a set of configuration values intended for a specific use case. Some environments could be: development, in which you intend to change the code; test, in which you intend to run the automated test suite; staging, which is meant to preview the code to end-users; and production, which is intended to face end-users. Mastodon comes with configurations for development, test and production.
 
 The default value of `RAILS_ENV` is `development`, so you don't need to set anything extra to run Mastodon in development mode. In fact, all of Mastodon's configuration has correct defaults for the development environment, so you do not need an `.env` file unless you need to customize something. Here are some of the different behaviours between the development environment and the production environment:
 
@@ -24,3 +24,49 @@ The default value of `RAILS_ENV` is `development`, so you don't need to set anyt
 - An admin account with the e-mail `admin@localhost:3000` and password `mastodonadmin` is created automatically during `db:seed`
 
 It should be noted that the Docker configuration distributed with Mastodon is optimized for the production environment, and so is an extremely bad fit for development. The Vagrant configuration, on the other hand, is meant specifically for development and not production use.
+
+## Testing
+
+To confirm that your Mastodon code works, run the automated test suite with `rspec`
+
+## Most notable libraries used
+
+Knowledge and understanding of these libraries will simplify work with the Mastodon code.
+
+### Ruby
+
+- haml
+- devise
+- doorkeeper
+- paperclip
+- sidekiq
+
+### JavaScript
+
+- immutable
+- react
+- react-redux
+- react-router-dom
+- react-intl
+
+## Code structure
+### Ruby
+
+|Path|Description|
+|----|-----------|
+|`app/controllers`|Code that logically connects models, services and views, authentication layer|
+|`app/helpers`|Code that can be used from views, i.e. common operations|
+|`app/lib`|Code that doesn't fit in the other categories|
+|`app/models`|Code that operates on database records, or otherwise represents data entities|
+|`app/serializers`|Code that generates JSON from models|
+|`app/services`|Complex logical operations involving multiple models|
+|`app/views`|Templates for generating HTML or other output|
+|`app/workers`|Code that executes outside the request-response cycle, i.e. in Sidekiq|
+|`spec`|Automated test suite|
+
+### CSS and other assets
+
+|Path|Description|
+|----|-----------|
+|`app/javascript/images`|Images|
+|`app/javascript/styles`|Code that turns into CSS via Sass|
