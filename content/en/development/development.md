@@ -50,6 +50,9 @@ Knowledge and understanding of these libraries will simplify work with the Masto
 - react-intl
 
 ## Code structure
+
+The following overview should not be seen as complete or authoritative, but as a rough guidance to help you find your way in the application.
+
 ### Ruby
 
 |Path|Description|
@@ -63,6 +66,13 @@ Knowledge and understanding of these libraries will simplify work with the Masto
 |`app/views`|Templates for generating HTML or other output|
 |`app/workers`|Code that executes outside the request-response cycle, i.e. in Sidekiq|
 |`spec`|Automated test suite|
+
+### JavaScript
+
+|Path|Description|
+|----|-----------|
+|`app/javascript/mastodon`|Code for the multi-column React.js application|
+|`app/javascript/packs`|Code for non-React.js pages|
 
 ### CSS and other assets
 
