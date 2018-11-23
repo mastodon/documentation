@@ -25,6 +25,26 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 | `min_id` | Return results immediately newer than ID | Optional ||
 | `limit` | Maximum number of results | Optional | 20 |
 
+
+## GET /api/v1/conversations
+
+Conversations for an account
+
+Returns array of [Conversation]({{< relref "entities.md#conversation" >}})
+
+### Resource information
+
+{{< api_method_info auth="Yes" user="Yes" scope="read read:statuses" version="2.6.0" >}}
+
+### Parameters
+
+|Name|Description|Required|Default|
+|----|-----------|:------:|:-----:|
+| `max_id` | Return results older than ID | Optional ||
+| `since_id` | Return results newer than ID | Optional ||
+| `min_id` | Return results immediately newer than ID | Optional ||
+| `limit` | Maximum number of results | Optional | 20 |
+
 ### Pagination
 
 {{< api_dynamic_pagination >}}
