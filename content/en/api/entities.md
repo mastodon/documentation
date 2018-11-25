@@ -316,3 +316,12 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 | `day` | String (UNIX timestamp) |{{< no >}}|2.4.1|
 | `uses` | Number |{{< no >}}|2.4.1|
 | `accounts` | Number |{{< no >}}|2.4.1|
+
+### Conversation
+
+|Attribute|Type|Nullable|Added in|
+|---------|-----------|:------:|:------:|
+| `id` | String  |{{< no >}}|2.6.0|
+| `accounts` | Array of [Account](#account) |{{< no >}}|2.6.0|
+| `last_status` | [Status](#status) |{{< yes >}}|2.6.0|
+| `unread` | Boolean |{{< no >}}|2.6.0|
