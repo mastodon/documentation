@@ -53,19 +53,19 @@ Knowledge and understanding of these libraries will simplify work with the Masto
 
 ### Ruby
 
-- haml
-- devise
-- doorkeeper
-- paperclip
-- sidekiq
+- `haml`, a templating language
+- `devise`, for authentication
+- `doorkeeper`, for acting as an OAuth 2 provider
+- `paperclip`, for file uploads and attachments
+- `sidekiq`, for background processing
 
 ### JavaScript
 
-- immutable
-- react
-- react-redux
-- react-router-dom
-- react-intl
+- `immutable`, for immutable data structures
+- `react`, for rendering the dynamic web application
+- `react-redux`, for managing React state
+- `react-router-dom`, for navigation within React
+- `react-intl`, for localizations within React
 
 ## Code structure
 
@@ -75,14 +75,14 @@ The following overview should not be seen as complete or authoritative, but as a
 
 |Path|Description|
 |----|-----------|
-|`app/controllers`|Code that logically connects models, services and views, authentication layer|
+|`app/controllers`|Code that binds business logic to templates|
 |`app/helpers`|Code that can be used from views, i.e. common operations|
 |`app/lib`|Code that doesn't fit in the other categories|
-|`app/models`|Code that operates on database records, or otherwise represents data entities|
+|`app/models`|Code that represents data entities|
 |`app/serializers`|Code that generates JSON from models|
 |`app/services`|Complex logical operations involving multiple models|
 |`app/views`|Templates for generating HTML or other output|
-|`app/workers`|Code that executes outside the request-response cycle, i.e. in Sidekiq|
+|`app/workers`|Code that executes outside the request-response cycle|
 |`spec`|Automated test suite|
 
 ### JavaScript
