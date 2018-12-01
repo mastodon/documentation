@@ -1,5 +1,5 @@
 ---
-title: Development
+title: Overview
 description: How to setup a development environment for Mastodon
 menu:
   docs:
