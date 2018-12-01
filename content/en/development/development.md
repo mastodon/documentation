@@ -25,9 +25,27 @@ The default value of `RAILS_ENV` is `development`, so you don't need to set anyt
 
 It should be noted that the Docker configuration distributed with Mastodon is optimized for the production environment, and so is an extremely bad fit for development. The Vagrant configuration, on the other hand, is meant specifically for development and not production use.
 
+## Setup
+
+In the development environment, Mastodon will use PostgreSQL as the currently signed-in Linux user using the `ident` method, which usually works out of the box. The one command you need to run is `rails db:setup` which will create the databases `mastodon_development` and `mastodon_test`, load the schema into them, and then create seed data defined in `db/seed.rb` in `mastodon_development`. The only seed data is an admin account with the credentials `admin@localhost:3000` / `mastodonadmin`.
+
+> Please keep in mind, by default Mastodon will run on port 3000. If you configure a different port for it, the generated admin account will use that number.
+
+## Running
+
+There are multiple processes that need to be run for the full set of Mastodon's functionality, although they can be selectively omitted. To run all of them with just one command, you can install Foreman with `gem install foreman --no-ri --no-rdoc` and then use:
+
+    foreman start
+
+In the Mastodon directory. This will start processes defined in `Procfile.dev`, which will give you: A Rails server, a Webpack server, a streaming API server, and Sidekiq. Of course, you can run any of those things stand-alone depending on your needs.
+
 ## Testing
 
-To confirm that your Mastodon code works, run the automated test suite with `rspec`
+|Command|Description|
+|-------|-----------|
+|`rspec`|Run the Ruby test suite|
+|`yarn run test`|Run the JavaScript test suite|
+|`rubocop`|Check the Ruby code for conformance with our code style|
 
 ## Most notable libraries used
 
@@ -80,3 +98,19 @@ The following overview should not be seen as complete or authoritative, but as a
 |----|-----------|
 |`app/javascript/images`|Images|
 |`app/javascript/styles`|Code that turns into CSS via Sass|
+
+### Localizations
+
+|Path|Description|
+|----|-----------|
+|`config/locales`|Server-side localizations in the YML format|
+|`app/javascript/mastodon/locales`|Client-side localizations in the JSON format|
+
+## Localization maintenance
+
+All locale files are normalized to ensure consistent formatting and key order, which minimizes changesets in version control.
+
+|Command|Description|
+|-------|-----------|
+|`i18n-tasks normalize`|Normalize server-side translations|
+|`yarn run manage:translations`|Normalize client-side translations|
