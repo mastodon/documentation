@@ -54,6 +54,15 @@ menu:
 | `note` | String |{{< no >}}|1.5.0|
 | `fields` | Array of Hash |{{< no >}}|2.4.0|
 
+### Token
+
+|Attribute|Type|Nullable|Added in|
+|---------|-----------|:------:|:------:|
+| `access_token` | String |{{< no >}}|0.1.0|
+| `token_type` | String |{{< no >}}|0.1.0|
+| `scope` | String |{{< no >}}|0.1.0|
+| `created_at` | Number |{{< no >}}|0.1.0|
+
 ## Application
 
 |Attribute|Type|Nullable|Added in|

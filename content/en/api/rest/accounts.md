@@ -14,6 +14,32 @@ Returns [Account]({{< relref "entities.md#account" >}})
 
 {{< api_method_info auth="No" user="No" scope="read read:accounts" version="0.0.0" >}}
 
+## POST /api/v1/accounts
+
+Returns [Token]({{< relref "entities.md#token" >}})
+
+The method is available to apps with a token obtained via the client credentials grant. It creates a user and account records, as well as an access token for the app that initiated the request. The user is unconfirmed, and an e-mail is sent as usual.
+
+The method returns the access token, which the app should save for later. The REST API is not available to users with unconfirmed accounts, so the app must be smart to wait for the user to click a link in their e-mail inbox.
+
+The method is rate-limited by IP to 5 requests per 30 minutes.
+
+### Resource information
+
+{{< api_method_info auth="Yes" user="No" scope="write write:accounts" version="2.7.0" >}}
+
+### Parameters
+
+|Name|Description|Required|
+|----|-----------|:------:|
+| `username` | User name | Required |
+| `email` | E-mail address | Required |
+| `password` | Password text | Required |
+| `agreement` | Agreement to local rules, terms of use, privacy policy (Bool) | Required |
+| `locale` | The language of the e-mail to be sent first | Required |
+
+The `agreement` parameter must be set to true after presenting the local rules, terms of use, privacy policy for the user and obtaining consent.
+
 ## GET /api/v1/accounts/verify_credentials
 
 User's own account.
