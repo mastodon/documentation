@@ -15,10 +15,10 @@ menu:
 
 ## Restrictions
 
-- Mastodon requires all object IDs to use the HTTPS schema.
-- Mastodon also requires servers to offer a [WebFinger](https://tools.ietf.org/html/rfc7033) endpoint for converting username/domain pairs into actors.
-- Mastodon accepts `Application`, `Group`, `Organization`, `Person`, and `Service` as valid types for actors.
-- Mastodon requires activities attributed to an actor to have an ID on the same host as the actor.
+- All object IDs must use the `https://` schema.
+- Servers must offer a [WebFinger](https://tools.ietf.org/html/rfc7033) endpoint for turning usernames into actors.
+- Only `Application`, `Group`, `Organization`, `Person`, and `Service` are considered valid types for actors.
+- Activities attributed to an actor must have an ID on the same host as the actor.
 
 ## Activities
 
