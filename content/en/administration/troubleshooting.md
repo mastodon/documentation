@@ -12,3 +12,5 @@ menu:
 All error messages with stack traces are written to the system log. When using systemd, the logs of each systemd service can be browsed with `journalctl -u mastodon-web` (substitute with the correct service name). When using Docker, it's similar: `docker logs mastodon_web_1` (substitute with the correct container name).
 
 Specific details of server-side errors are *never* displayed to the public, as they can reveal what your setup looks like internally and give attackers clues how to get in, or how to abuse the system more efficiently.
+
+Each response from Mastodon's web server carries a header with a unique request ID, which is also reflected in the logs. By inspecting the headers of the error page, you can easily find the corresponding stack trace in the log.
