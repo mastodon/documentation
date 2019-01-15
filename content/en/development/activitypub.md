@@ -17,7 +17,7 @@ menu:
 
 - All object IDs must use the `https://` schema.
 - Servers must offer a [WebFinger](https://tools.ietf.org/html/rfc7033) endpoint for turning usernames into actors.
-- Only `Application`, `Group`, `Organization`, `Person`, and `Service` are considered valid types for actors.
+- `Application`, `Group`, `Organization`, `Person`, `Service` are considered valid types for actors.
 - Activities attributed to an actor must have an ID on the same host as the actor.
 
 ## Activities
