@@ -9,14 +9,14 @@ menu:
 
 ## APIs
 
-- Mastodon supports the server-to-server part of the ActivityPub spec.
-- It implements the HTTP signatures spec for authentication of inbox deliveries.
-- Mastodon also supports Linked Data Signatures for forwarded payloads.
+- Mastodon supports the server-to-server part of the [ActivityPub spec](https://www.w3.org/TR/activitypub/).
+- It implements the [HTTP signatures spec](https://tools.ietf.org/html/draft-cavage-http-signatures-10) for authentication of inbox deliveries.
+- Mastodon also supports [Linked Data Signatures](https://w3c-dvcg.github.io/ld-signatures/) for forwarded payloads.
 
 ## Restrictions
 
 - Mastodon requires all object IDs to use the HTTPS schema.
-- Mastodon also requires servers to offer a WebFinger endpoint for converting username/domain pairs into actors.
+- Mastodon also requires servers to offer a [WebFinger](https://tools.ietf.org/html/rfc7033) endpoint for converting username/domain pairs into actors.
 - Mastodon accepts `Application`, `Group`, `Organization`, `Person`, and `Service` as valid types for actors.
 - Mastodon requires activities attributed to an actor to have an ID on the same host as the actor.
 
