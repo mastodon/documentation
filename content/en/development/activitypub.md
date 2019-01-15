@@ -3,7 +3,7 @@ title: ActivityPub compliance
 description: What objects and properties of the ActivityPub spec Mastodon supports
 menu:
   docs:
-    parent: administration
+    parent: development
     weight: 5
 ---
 
@@ -101,3 +101,33 @@ Mastodon supports arbitrary emojis, that is, small images uploaded by admins and
 
 Mastodon supports setting a focal point on uploaded images, so that wherever that image is displayed, the focal point stays in view. This is implemented using an extra property `focalPoint` on the `Image` objects. The property is simply an array of two floating points between 0 and 1. Example:
 
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+        
+    {
+      "toot": "http://joinmastodon.org/ns#",
+      "focalPoint": {
+        "@container": "@list",
+        "@id": "toot:focalPoint"
+      }
+    }
+  ],
+
+  "id": "https://example.com/@alice/hello-world",
+  "type": "Note",
+  "content": "A picture attached!",
+  "attachment": [
+    {
+      "type": "Image",
+      "mediaType": "image/png",
+      "url": "https://example.com/files/cats.png",
+      "focalPoint": [
+        0.55,
+        0.43
+      ]
+    }
+  ]
+}
+```
