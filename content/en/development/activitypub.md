@@ -27,7 +27,7 @@ menu:
 |`Add`|`Note`|
 |`Announce`|`Object`|
 |`Block`|`Object`|
-|`Create`|`Note`, `Article`, `Image`, `Video`|
+|`Create`|`Note`, `Article`, `Image`, `Video`, `Page`|
 |`Delete`|`Object`|
 |`Flag`|`Object`|
 |`Follow`|`Object`|
@@ -38,7 +38,7 @@ menu:
 |`Undo`|`Accept`, `Announce`, `Block`, `Follow`, `Like`|
 |`Update`|`Object`|
 
-As far as the `Create` activity is concerned, only `Note` is a first-class citizen in Mastodon, because Mastodon is a microblogging engine. For other types of supported objects, Mastodon internally creates a toot representation, for example, an `Article` becomes a toot with the `title` and `url` of the original object, as users are expected to navigate to the original URL to read the article with rich text formatting. For `Image` and `Video` objects, the `title` is likewise used to fill the content of the toot, with the original file attached to the toot.
+As far as the `Create` activity is concerned, only `Note` is a first-class citizen in Mastodon, because Mastodon is a microblogging engine. For other types of supported objects, Mastodon internally creates a toot representation, for example, an `Article` or `Page` becomes a toot with the `name` and `url` of the original object, as users are expected to navigate to the original URL to read the article with rich text formatting. For `Image` and `Video` objects, the `name` is likewise used to fill the content of the toot, with the original file attached to the toot.
 
 The `Flag` activity allows reporting content on another server, and its `object` can be either one or more actors, or one or more objects attributed to various actors. The `Add` and `Remove` activities only work with [featured collections](#featured-collection). The `Delete` activity can be used to delete all local data of the sender when the `object` of it is the sender. The `Update` activity can only be used to update the profile of the sender. Likewise, the `Move` activity allows re-assigning followers from the sender (`object`) to another actor (`target`), but only if the other actor references the sender in the `alsoKnownAs` property.
 
