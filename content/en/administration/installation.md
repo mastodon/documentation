@@ -185,10 +185,16 @@ RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.5.3
 rbenv global 2.5.3
 ```
 
+Default gem version shipped with ruby_2.5.3 is incompatible with latest bundler, so we need to update gem:
+
+```
+gem update --system
+```
+
 We'll also need to install bundler:
 
 ```sh
-gem install bundler --no-ri --no-rdoc
+gem install bundler --no-document
 ```
 
 Return to the root user:
