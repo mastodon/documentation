@@ -21,22 +21,26 @@ menu:
 
 ## Activities
 
-|Supported activity|Supported objects|Notes|
-|------------------|-----------------|-----|
-|`Accept`|`Follow`|The `object` of the `Follow` is expected to be an actor from the receiving server|
-|`Add`|`Note`|Only the actor's own objects and only to the actor's featured collection URI as `target`|
-|`Announce`|`Object`|Any object supported by `Create` is supported here|
-|`Block`|`Object`|The `object` is expected to point to an actor from the receiving server|
-|`Create`|`Note`, `Article`, `Image`, `Video`||
-|`Delete`|`Object`|Only the actor's own objects will be deleted, such as anything created before
-|`Flag`|`Object`|The `object` is expected to point to one or multiple objects originating on the receiving server|
-|`Follow`|`Object`|The `object` is expected to point to an actor from the receiving server|
-|`Like`|`Object`|The `object` is expected to be something created on the receiving server|
-|`Move`|`Object`|Only the actor's own actor object can be moved to another actor object at `target`|
-|`Reject`|`Follow`|The `object` of the `Follow` is expected to be an actor from the receiving server|
-|`Remove`|`Note`|Only the actor's own objects and only from the actor's featured collection URI as `origin`|
-|`Undo`|`Accept`, `Announce`, `Block`, `Follow`, `Like`||
-|`Update`|`Object`|Only the actor's own actor object can be updated|
+|Supported activity|Supported objects|
+|------------------|-----------------|
+|`Accept`|`Follow`|
+|`Add`|`Note`|
+|`Announce`|`Object`|
+|`Block`|`Object`|
+|`Create`|`Note`, `Article`, `Image`, `Video`|
+|`Delete`|`Object`|
+|`Flag`|`Object`|
+|`Follow`|`Object`|
+|`Like`|`Object`|
+|`Move`|`Object`|
+|`Reject`|`Follow`|
+|`Remove`|`Note`|
+|`Undo`|`Accept`, `Announce`, `Block`, `Follow`, `Like`|
+|`Update`|`Object`|
+
+As far as the `Create` activity is concerned, only `Note` is a first-class citizen in Mastodon, because Mastodon is a microblogging engine. For other types of supported objects, Mastodon internally creates a toot representation, for example, an `Article` becomes a toot with the `title` and `url` of the original object, as users are expected to navigate to the original URL to read the article with rich text formatting. For `Image` and `Video` objects, the `title` is likewise used to fill the content of the toot, with the original file attached to the toot.
+
+The `Flag` activity allows reporting content on another server, and its `object` can be either one or more actors, or one or more objects attributed to various actors. The `Add` and `Remove` activities only work with [featured collections](#featured-collection). The `Delete` activity can be used to delete all local data of the sender when the `object` of it is the sender. The `Update` activity can only be used to update the profile of the sender. Likewise, the `Move` activity allows re-assigning followers from the sender (`object`) to another actor (`target`), but only if the other actor references the sender in the `alsoKnownAs` property.
 
 ## Extensions
 ### Featured collection
