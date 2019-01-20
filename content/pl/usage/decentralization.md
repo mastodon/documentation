@@ -40,7 +40,7 @@ Mastodon korzysta ze standaryzowanego, otwartego protokołu aby zaimplementować
 - Plume
 - i wiele więcej
 
-Fediwesum nie jest marką, więc częściej usłyszysz „obserwuj mnie na Mastodonie”, niż „obserwuj mnie w Fediwersum”, choć to drugie jest bardziej poprawne technicznie..
+Fediwesum nie jest marką, więc częściej usłyszysz „obserwuj mnie na Mastodonie”, niż „obserwuj mnie w Fediwersum”, choć to drugie jest bardziej poprawne technicznie.
 
 ## Co to w praktyce oznacza
 ### Wspominanie o innych

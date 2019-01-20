@@ -181,14 +181,20 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 Po zakończeniu, możemy zainstalować prawidłową wersję Ruby:
 
 ```sh
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.5.1
-rbenv global 2.5.1
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.5.3
+rbenv global 2.5.3
+```
+
+Domyślna wersja gem dołączona do ruby_2.5.3 nie jest kompatybilna z najnowszym bundlerem, więc musimy zaktualizować gem:
+
+```
+gem update --system
 ```
 
 Musimy też zainstalować bundler:
 
 ```sh
-gem install bundler --no-ri --no-rdoc
+gem install bundler --no-document
 ```
 
 Wróćmy na konto root:
