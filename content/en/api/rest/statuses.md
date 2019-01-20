@@ -140,7 +140,7 @@ Returns [Status]({{< relref "entities.md#status" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:accounts" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:accounts" version="1.6.0" >}}
 
 ## POST /api/v1/statuses/:id/unpin
 
@@ -150,4 +150,4 @@ Returns [Status]({{< relref "entities.md#status" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:accounts" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:accounts" version="1.6.0" >}}

@@ -14,7 +14,7 @@ Returns array of [List]({{< relref "entities.md#list" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read read:lists" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read read:lists" version="2.1.0" >}}
 
 ## GET /api/v1/accounts/:id/lists
 
@@ -24,7 +24,7 @@ Returns array of [List]({{< relref "entities.md#list" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read read:lists" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read read:lists" version="2.1.0" >}}
 
 ## GET /api/v1/lists/:id/accounts
 
@@ -34,7 +34,7 @@ Returns array of [Account]({{< relref "entities.md#account" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read read:lists" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read read:lists" version="2.1.0" >}}
 
 ### Parameters
 
@@ -54,7 +54,7 @@ Returns [List]({{< relref "entities.md#list" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read read:lists" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read read:lists" version="2.1.0" >}}
 
 ## POST /api/v1/lists
 
@@ -64,7 +64,7 @@ Returns [List]({{< relref "entities.md#list" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:lists" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:lists" version="2.1.0" >}}
 
 ### Parameters
 
@@ -80,7 +80,7 @@ Returns [List]({{< relref "entities.md#list" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:lists" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:lists" version="2.1.0" >}}
 
 ### Parameters
 
@@ -94,7 +94,7 @@ Remove a list.
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:lists" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:lists" version="2.1.0" >}}
 
 ## POST /api/v1/lists/:id/accounts
 
@@ -104,7 +104,7 @@ Add accounts to a list.
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:lists" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:lists" version="2.1.0" >}}
 
 ### Parameters
 
@@ -118,7 +118,7 @@ Remove accounts from a list.
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:lists" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:lists" version="2.1.0" >}}
 
 ### Parameters
 

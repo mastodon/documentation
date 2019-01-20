@@ -14,7 +14,7 @@ Returns array of string.
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read read:blocks follow" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read read:blocks follow" version="1.4.0" >}}
 
 ### Parameters
 
@@ -32,7 +32,7 @@ Block a domain to hide all public posts from it, all notifications from it, and 
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:blocks follow" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:blocks follow" version="1.4.0" >}}
 
 ### Parameters
 
@@ -46,7 +46,7 @@ Remove a domain block.
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:blocks follow" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:blocks follow" version="1.4.0" >}}
 
 ### Parameters
 

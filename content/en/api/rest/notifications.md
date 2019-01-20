@@ -70,7 +70,7 @@ Returns [Push Subscription]({{< relref "entities.md#push-subscription" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="push" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="push" version="2.4.0" >}}
 
 ### Parameters
 
@@ -90,7 +90,7 @@ Returns [Push Subscription]({{< relref "entities.md#push-subscription" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="push" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="push" version="2.4.0" >}}
 
 ## PUT /api/v1/push/subscription
 
@@ -100,7 +100,7 @@ Returns [Push Subscription]({{< relref "entities.md#push-subscription" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="push" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="push" version="2.4.0" >}}
 
 ### Parameters
 
@@ -117,4 +117,4 @@ Remove the current Web Push API subscription.
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="push" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="push" version="2.4.0" >}}

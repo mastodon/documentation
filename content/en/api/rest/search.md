@@ -14,7 +14,7 @@ Returns [Results]({{< relref "entities.md#results" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read read:search" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read read:search" version="2.4.1" >}}
 
 ### Parameters
 

@@ -14,7 +14,7 @@ Returns array of [Account]({{< relref "entities.md#account" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read read:account" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read read:account" version="2.5.0" >}}
 
 ### Pagination
 
@@ -28,7 +28,7 @@ Returns [Relationship]({{< relref "entities.md#relationship" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:accounts" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:accounts" version="2.5.0" >}}
 
 ## POST /api/v1/accounts/:id/unpin
 
@@ -38,4 +38,4 @@ Returns [Relationship]({{< relref "entities.md#relationship" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:accounts" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:accounts" version="2.5.0" >}}

@@ -12,7 +12,7 @@ Report an account.
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:reports" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:reports" version="1.1.0" >}}
 
 ### Parameters
 

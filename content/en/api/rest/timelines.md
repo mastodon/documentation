@@ -107,7 +107,7 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read read:statuses" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read read:statuses" version="2.1.0" >}}
 
 ### Parameters
 
