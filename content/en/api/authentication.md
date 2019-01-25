@@ -44,4 +44,5 @@ Once you have the access token, add the HTTP header `Authorization: Bearer ...` 
 ## Common gotchas
 
 - The OAuth param name is `scope`, but when registering the application using Mastodon's REST API, the param name is `scopes`. The OAuth param can be a subset of the scopes you registered initially, but cannot include anything that wasn't in the original set.
-- The `redirect_uri` must always be the same, between the registered application and all subsequent OAuth requests.
+- The OAuth param name is `redirect_uri`, but when registering the application using Mastodon's REST API, the param name is `redirect_uris`. The latter can actually consist of multiple allowed URIs, separated by newlines.
+- The `redirect_uri` in all OAuth requests must either be the same as the one registered with the application, or one of them, if you registered multiple URIs separated by newlines with the application.
