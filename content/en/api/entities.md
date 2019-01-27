@@ -7,7 +7,7 @@ menu:
     weight: 3
 ---
 
-- All IDs are encoded as string representation of 64bit integers. If you need to compare newer/older numbers, compare them as numerical values.
+- All IDs are encoded as strings
 - All datetimes are in ISO 8601 format
 - All HTML strings are sanitized by the server
 - All language codes are in ISO 6391 format
