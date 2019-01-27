@@ -310,6 +310,28 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 - `private`
 - `direct`
 
+## ScheduledStatus
+
+|Attribute|Type|Nullable|Added in|
+|---------|-----------|:------:|:------:|
+| `id` | String |{{< no >}}|2.7.0|
+| `scheduled_at` | String (Datetime) |{{< no >}}|2.7.0|
+| `params` | Array of [Hash](#statusparams) |{{< no >}}|2.7.0|
+| `media_attachments` | Array of [Attachment](#attachment) |{{< no >}}|2.7.0|
+
+### StatusParams
+
+|Attribute|Type|Nullable|Added in|
+|---------|-----------|:------:|:------:|
+| `text` | String |{{< no >}}|2.7.0|
+| `in_reply_to_id` | String |{{< yes >}}|2.7.0|
+| `media_ids` | Array of String |{{< yes >}}|2.7.0|
+| `sensitive` | Boolean |{{< yes >}}|2.7.0|
+| `spoiler_text` | String |{{< yes >}}|2.7.0|
+| `visibility` | [String (Enum)](#visibility) |{{< no >}}|2.7.0|
+| `scheduled_at` | String (Datetime) |{{< yes >}}|2.7.0|
+| `application_id` | String |{{< no >}}|2.7.0|
+
 ## Tag
 
 |Attribute|Type|Nullable|Added in|
