@@ -33,7 +33,7 @@ In the development environment, Mastodon will use PostgreSQL as the currently si
 
 ## Running
 
-There are multiple processes that need to be run for the full set of Mastodon's functionality, although they can be selectively omitted. To run all of them with just one command, you can install Foreman with `gem install foreman --no-ri --no-rdoc` and then use:
+There are multiple processes that need to be run for the full set of Mastodon's functionality, although they can be selectively omitted. To run all of them with just one command, you can install Foreman with `gem install foreman --no-document` and then use:
 
     foreman start
 
