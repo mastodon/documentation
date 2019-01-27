@@ -14,7 +14,7 @@ Returns array of [Account]({{< relref "entities.md#account" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read" version="2.4.3" >}}
 
 ## DELETE /api/v1/suggestions/:account_id
 
@@ -22,4 +22,4 @@ Remove account from suggestions.
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read" version="2.4.3" >}}

@@ -14,4 +14,4 @@ Returns array of [Emoji]({{< relref "entities.md#emoji" >}})
 
 ### Resource information
 
-{{< api_method_info auth="No" user="No" version="0.0.0" >}}
+{{< api_method_info auth="No" user="No" version="2.0.0" >}}

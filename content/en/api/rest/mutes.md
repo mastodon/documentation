@@ -60,7 +60,7 @@ Returns [Status]({{< relref "entities.md#status" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:mutes" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:mutes" version="1.4.2" >}}
 
 ## POST /api/v1/statuses/:id/unmute
 
@@ -70,4 +70,4 @@ Returns [Status]({{< relref "entities.md#status" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:mutes" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:mutes" version="1.4.2" >}}

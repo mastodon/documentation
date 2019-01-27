@@ -14,7 +14,7 @@ Returns array of [Filter]({{< relref "entities.md#filter" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read read:filters" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read read:filters" version="2.4.3" >}}
 
 ## POST /api/v1/filters
 
@@ -24,7 +24,7 @@ Returns [Filter]({{< relref "entities.md#filter" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:filters" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:filters" version="2.4.3" >}}
 
 ### Parameters
 
@@ -44,7 +44,7 @@ Returns [Filter]({{< relref "entities.md#filter" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="read read:filters" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="read read:filters" version="2.4.3" >}}
 
 ## PUT /api/v1/filters/:id
 
@@ -54,7 +54,7 @@ Returns [Filter]({{< relref "entities.md#filter" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:filters" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:filters" version="2.4.3" >}}
 
 ### Parameters
 
@@ -72,4 +72,4 @@ Delete a text filter.
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="Yes" scope="write write:filters" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="Yes" scope="write write:filters" version="2.4.3" >}}

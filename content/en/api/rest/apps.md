@@ -35,4 +35,4 @@ Returns [App]({{< relref "entities.md#app" >}})
 
 ### Resource information
 
-{{< api_method_info auth="Yes" user="No" version="0.0.0" >}}
+{{< api_method_info auth="Yes" user="No" version="2.0.0" >}}
