@@ -7,7 +7,8 @@ menu:
     weight: 3
 ---
 
-- All IDs are encoded as strings
+- All IDs are encoded as string representations of integers.
+    - IDs can be sorted first by size, and then lexically, to produce a chronological ordering of resources.
 - All datetimes are in ISO 8601 format
 - All HTML strings are sanitized by the server
 - All language codes are in ISO 6391 format
