@@ -126,15 +126,16 @@ Returns array of [Status]({{< relref "entities.md#status" >}})
 
 ### Parameters
 
-|Name|Description|Required|Default|
-|----|-----------|:------:|:-----:|
-| `only_media` | Only return statuses that have media attachments | Optional |false|
-| `pinned` | Only return statuses that have been pinned | Optional |false|
-| `exclude_replies` | Skip statuses that reply to other statuses | Optional |false|
-| `max_id` | Return results older than ID | Optional ||
-| `since_id` | Return results newer than ID | Optional ||
-| `min_id` | Return results immediately newer than ID | Optional ||
-| `limit` | Maximum number of results | Optional | 20 |
+|Name|Description|Required|Default|Added in|
+|----|-----------|:------:|:-----:|:------:|
+| `only_media` | Only return statuses that have media attachments | Optional | false | |
+| `pinned` | Only return statuses that have been pinned | Optional | false | |
+| `exclude_replies` | Skip statuses that reply to other statuses | Optional | false | |
+| `max_id` | Return results older than ID | Optional | | |
+| `since_id` | Return results newer than ID | Optional | | |
+| `min_id` | Return results immediately newer than ID | Optional | | |
+| `limit` | Maximum number of results | Optional | 20 | | |
+| `exclude_reblogs` | Skip statuses that are reblogs of other statuses | Optional | false | 2.7.0 |
 
 ### Pagination
 
