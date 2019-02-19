@@ -21,3 +21,4 @@ Report an account.
 | `account_id` | The ID of the account to report | Required |
 | `status_ids` | The IDs of statuses to report as array | Optional |
 | `comment` | Reason for the report (up to 1,000 characters) | Optional |
+| `forward` | Whether to forward to the remote admin (in case of a remote account) | Optional |
