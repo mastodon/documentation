@@ -181,8 +181,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 Once this is done, we can install the correct Ruby version:
 
 ```sh
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.0
-rbenv global 2.6.0
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.1
+rbenv global 2.6.1
 ```
 
 Default gem version shipped with ruby_2.6.0 is incompatible with latest bundler, so we need to update gem:
