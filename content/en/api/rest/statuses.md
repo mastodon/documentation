@@ -89,18 +89,28 @@ Returns [ScheduledStatus]({{< relref "entities.md#scheduledstatus" >}})
 
 ### Parameters
 
-|Name|Description|Required|
-|----|-----------|:------:|
+|Name|Description|Required|Added in|
+|----|-----------|:------:|:------:|
 | `status` | The text of the status | Optional\* |
 | `in_reply_to_id` | ID of the status you want to reply to | Optional |
 | `media_ids` | Array of media IDs to attach to the status | Optional\* |
+| `poll` | Nested parameters to attach a poll to the status | Optional\* |2.8.0|
 | `sensitive` | Mark the media in the status as sensitive | Optional |
 | `spoiler_text` | Text to be shown as a warning before the actual content | Optional |
 | `visibility` | One of `direct`, `private`, `unlisted` `public` | Optional |
-| `scheduled_at` | Timestamp string to schedule posting of status (ISO 8601) | Optional |
+| `scheduled_at` | Timestamp string to schedule posting of status (ISO 8601) | Optional |2.7.0|
 | `language` | Override language code of the toot (ISO 639-2) | Optional |
 
-> You must provide either `status` or `media_ids`, completely empty statuses are not allowed.
+> You must provide either `status` or `media_ids`, completely empty statuses are not allowed. Polls require a `status` and cannot be combined with `media_ids`.
+
+Poll parameters:
+
+|Name|Description|Required|
+|----|-----------|:------:|
+| `poll[options]` | Array of poll answer strings | Required |
+| `poll[expires_in]` | Duration the poll should be open for in seconds | Required |
+| `poll[multiple]` | Whether multiple choices should be allowed | Optional |
+| `poll[hide_totals]` | Whether to hide totals until the poll ends | Optional |
 
 ### Idempotency
 
