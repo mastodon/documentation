@@ -237,6 +237,25 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 - `reblog`
 - `favourite`
 
+## Poll
+
+|Attribute|Type|Nullable|Added in|
+|---------|-----------|:------:|:------:|
+| `id` | String |{{< no >}}|2.8.0|
+| `expires_at` | String (Datetime) |{{< yes >}}|2.8.0|
+| `expired` | Boolean |{{< no >}}|2.8.0|
+| `multiple` | Boolean |{{< no >}}|2.8.0|
+| `votes_count` | Number |{{< no >}}|2.8.0|
+| `options` | Array of [Poll option](#poll-option) |{{< no >}}|2.8.0|
+| `voted` | Boolean |{{< yes >}}|2.8.0|
+
+### Poll option
+
+|Attribute|Type|Nullable|Added in|
+|---------|-----------|:------:|:------:|
+| `title` | String |{{< no >}}|2.8.0|
+| `votes_count` | Number |{{< yes >}}|2.8.0|
+
 ## Push subscription
 
 |Attribute|Type|Nullable|Added in|
