@@ -61,7 +61,110 @@ Désormais, les nouveaux messages seront inscrits dans l'index ElasticSearch. La
 
 ## Services cachés (Tor)
 
-Bientôt.
+Mastodon peut être accédé via Tor à l'aide d'un service caché. Cela vous donnera une addresse .onion qui ne peut être utilisée qu'en se connectant au réseau Tor.
+
+### Installer Tor
+
+Tout d'abord, le dépôt logiciel de Tor pour Debian doit être ajouté à apt.
+
+```
+deb https://deb.torproject.org/torproject.org stretch main
+deb-src https://deb.torproject.org/torproject.org stretch main
+```
+
+Puis, ajoutez la clé GPG.
+
+```bash
+curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
+```
+
+Enfin, installez les paquets nécessaires.
+
+```bash
+apt install tor deb.torproject.org-keyring
+```
+
+### Configurer Tor
+
+Modifiez le fichier `/etc/tor/torrc` et ajoutez la configuration suivante.
+
+```bash
+HiddenServiceDir /var/lib/tor/mastodon/
+HiddenServiceVersion 3
+HiddenServicePort 80 127.0.0.1:80
+```
+
+Redémarrez tor.
+
+```bash
+sudo service tor restart
+```
+
+Vous pouvez désormais récupérer votre adresse .onion dans le fichier `/var/lib/tor/mastodon/hostname`. Cela ne fonctionne _que_ si vous servez Mastodon à travers le port 80 et _que_ s'il s'agit du seul site que vous avez sur votre serveur.
+
+### Configurer un serveur web multi-sites
+
+Si vous avez plusieurs sites sur votre serveur web, vous devrez indiquer à votre serveur web comment servir l'adresse .onion. Dans le fichier de configuration du serveur web pour Mastodon, ajoutez une entrée additionnelle. Par exemple pour Nginx :
+
+```bash
+server {
+  …
+  server_name mastodon.myhosting.com qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7.onion
+  …
+}
+```
+
+### Servir le service caché Tor via HTTP
+
+Même s'il est tentant de servir votre Mastodon "caché" via HTTPS, ce n'est pas une bonne idée. Lisez [cet article de blog](https://blog.torproject.org/facebook-hidden-services-and-https-certs) du Tor Project pour savoir pourquoi les certificats SSL ne changent rien ici. Puisque vous ne pouvez pas obtenir de certificat SSL pour un .onion, vous seriez submergé d'erreurs de certificat quand vous utiliseriez votre instance Mastodon.
+
+La solution est de servir votre instance Mastodon via HTTP, mais uniquement pour Tor.
+
+Prenez pour exemple cette configuration Nginx.
+
+```
+server {
+  listen 80;
+  server_name mastodon.myhosting.com;
+  return 301 https://$host$request_uri;
+}
+
+server {
+  listen 443 ssl http2;
+  server_name mastodon.myhomsting.com;
+  …
+}
+```
+
+Ajoutez une nouvelle entrée `server` qui recopie celle ayant SSL (sans pour autant recopier les lignes concernant SSL), mais qui définit l'utilisation du port 80 avec votre adresse .onion.
+
+```
+server {
+  listen 80;
+  server_name mastodon.myhosting.com;
+  return 301 https://$host$request_uri;
+}
+
+server {
+  listen 80;
+  server_name qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7.onion;
+  …
+}
+
+server {
+  listen 443 ssl http2;
+  server_name mastodon.myhosting.com;
+  …
+}
+```
+
+Redémarrez le serveur web.
+
+```bash
+service nginx restart
+```
+
+Vous pouvez également lire cette [réponse sur Server Fault](https://serverfault.com/a/373661) (en anglais) pour une solution plus [DRY](https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas).
 
 ## Connexion via LDAP/PAM/CAS/SAML
 
