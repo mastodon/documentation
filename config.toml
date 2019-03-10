@@ -17,6 +17,36 @@ enableGitInfo = true
     contentDir = "content/pl"
     languageName = "Polski"
     weight = 1
+  [languages.fr]
+    contentDir = "content/fr"
+    languageName = "Français"
+    weight = 1
+    [languages.fr.menu]
+	[[languages.fr.menu.docs]]
+	   name = "Guide d'utilisation"
+	   weight = 1
+    	   identifier = "usage"
+           url = "/usage/"
+	[[languages.fr.menu.docs]]
+	   name = "Guide d'administration"
+	   weight = 2
+	   identifier = "administration"
+	   url = "/administration/"
+	[[languages.fr.menu.docs]]
+	   name = "Guide de développement"
+	   weight = 3
+	   identifier = "development"
+	   url = "/development/"
+	[[languages.fr.menu.docs]]
+	   name = "Aperçu de l'API"
+	   weight = 4
+	   identifier = "api"
+	   url = "/api/"
+	[[languages.fr.menu.docs]]
+	   name = "API REST"
+	   weight = 5
+	   identifier = "rest-api"
+	   url = "/api/rest/"
 
 [menu]
   [[menu.docs]]
