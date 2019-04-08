@@ -369,7 +369,7 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 | `uses` | Number |{{< no >}}|2.4.1|
 | `accounts` | Number |{{< no >}}|2.4.1|
 
-### Conversation
+## Conversation
 
 |Attribute|Type|Nullable|Added in|
 |---------|-----------|:------:|:------:|
