@@ -150,7 +150,7 @@ apt install -y \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
   zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev \
   nginx redis-server redis-tools postgresql postgresql-contrib \
-  certbot yarn libidn11-dev libicu-dev libjemalloc-dev
+  certbot python-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
 ```
 
 ### Installing Ruby
@@ -300,16 +300,10 @@ systemctl reload nginx
 We'll use Let's Encrypt to get a free SSL certificate:
 
 ```sh
-certbot certonly --webroot -d example.com -w /home/mastodon/live/public/
+certbot --nginx -d example.com
 ```
 
-You can now edit `/etc/nginx/sites-available/mastodon` to uncomment and adjust the `ssl_certificate` and `ssl_certificate_key` lines.
-
-Then, reload nginx for the changes to take effect:
-
-```sh
-systemctl reload nginx
-```
+This will obtain the certificate, automatically update `/etc/nginx/sites-available/mastodon` to use the new certificate, and reload nginx for the changes to take effect.
 
 At this point you should be able to visit your domain in the browser and see the elephant hitting the computer screen error page. This is because we haven't started the Mastodon process yet.
 
