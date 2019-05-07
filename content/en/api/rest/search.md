@@ -22,3 +22,6 @@ Returns [Results]({{< relref "entities.md#results" >}})
 |----|-----------|:------:|:-----:|
 | `q` | The search query | Required ||
 | `resolve` | Attempt WebFinger look-up | Optional |false|
+| `limit` | Maximum number of results | Optional | 40 |
+| `offset` | Offset in the search results | Optional | 0 |
+| `following` | Only include accounts the user is following | Optional | false |
