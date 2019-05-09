@@ -50,6 +50,7 @@ menu:
 
 ## JavaScript
 
+- [masto.js](https://github.com/neet/masto.js)
 - [libodonjs](https://github.com/Zatnosk/libodonjs)
 
 ## JavaScript (Browser)
