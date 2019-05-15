@@ -30,7 +30,7 @@ In practical terms: Imagine if you could follow an Instagram user from your Twit
 
 ## The fediverse
 
-Mastodon uses a standartized, open protocol to implement federation. It is called ActivityPub. Any software that likewise implements federation via ActivityPub can seamlessly communicate with Mastodon, just like Mastodon servers communicate with one another.
+Mastodon uses a standardized, open protocol to implement federation. It is called ActivityPub. Any software that likewise implements federation via ActivityPub can seamlessly communicate with Mastodon, just like Mastodon servers communicate with one another.
 
 The **fediverse** ("federated universe") is the name for all servers that can communicate with each other. That includes all Mastodon servers, but also other implementations:
 
