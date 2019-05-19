@@ -153,7 +153,7 @@ The most important part of an error response is the HTTP status code. Standard s
 |---------|-----------|:------:|:------:|
 | `id` | String |{{< no >}}|2.4.3|
 | `phrase` | String |{{< no >}}|2.4.3|
-| `context` | Array of [String (Enum)](#context) |{{< no >}}|2.4.3|
+| `context` | Array of [String (Enum)](#context-1) |{{< no >}}|2.4.3|
 | `expires_at` | String (Datetime) |{{< yes >}}|2.4.3|
 | `irreversible` | Boolean |{{< no >}}|2.4.3|
 | `whole_word` | Boolean |{{< no >}}|2.4.3|
