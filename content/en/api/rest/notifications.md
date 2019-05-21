@@ -25,7 +25,7 @@ Returns array of [Notification]({{< relref "entities.md#notification" >}})
 | `min_id` | Return results immediately newer than ID | Optional ||
 | `limit` | Maximum number of results | Optional | 20 |
 | `exclude_types` | Array of types to exclude (e.g. `follow`, `favourite`, `reblog`, `mention`) | Optional ||
-| `from_account` | username@domain of user to include | Optional ||
+| `account_id` | account id of user to include | Optional ||
 
 ### Pagination
 
