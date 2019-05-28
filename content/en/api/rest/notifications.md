@@ -83,6 +83,7 @@ Returns [Push Subscription]({{< relref "entities.md#push-subscription" >}})
 | `data[alerts][favourite]` | Boolean of whether you want to receive favourite notification event. | Optional |
 | `data[alerts][reblog]` | Boolean of whether you want to receive reblog notification event. | Optional |
 | `data[alerts][mention]` | Boolean of whether you want to receive mention notification event. | Optional |
+| `data[alerts][poll]` | Boolean of whether you want to receive poll result notification event. | Optional |
 
 ## GET /api/v1/push/subscription
 
@@ -110,6 +111,7 @@ Returns [Push Subscription]({{< relref "entities.md#push-subscription" >}})
 | `data[alerts][favourite]` | Boolean of whether you want to receive favourite notification event. | Optional |
 | `data[alerts][reblog]` | Boolean of whether you want to receive reblog notification event. | Optional |
 | `data[alerts][mention]` | Boolean of whether you want to receive mention notification event. | Optional |
+| `data[alerts][poll]` | Boolean of whether you want to receive poll result notification event. | Optional |
 
 ## DELETE /api/v1/push/subscription
 
