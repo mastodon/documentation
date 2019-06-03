@@ -13,6 +13,10 @@ Alternatively, a WebSocket connection can also be established.
 
 ## Server-sent events (HTTP)
 ### Endpoints
+#### GET /api/v1/streaming/health
+
+Returns `OK` when streaming service is fine
+
 #### GET /api/v1/streaming/user
 
 Returns events that are relevant to the authorized user, i.e. home timeline and notifications
