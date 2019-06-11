@@ -19,11 +19,12 @@ Basic steps
 3. Dump and load the Postgres database using the instructions below.
 4. Copy the `system/` files using the instructions below. (Note: if you're using S3, you can skip this step.)
 5. Copy the `.env.production` file.
-6. Run `RAILS_ENV=production ./bin/tootctl feeds build` to rebuild the home timelines for each user.
-7. Start Mastodon on the new server.
-8. Update your DNS settings to point to the new server.
-9. Update or copy your Nginx configuration, re-run LetsEncrypt as necessary.
-10. Enjoy your new server!
+6. Run `RAILS_ENV=production bundle exec rails assets:precompile` to compile Mastodon
+7. Run `RAILS_ENV=production ./bin/tootctl feeds build` to rebuild the home timelines for each user.
+8. Start Mastodon on the new server.
+9. Update your DNS settings to point to the new server.
+10. Update or copy your Nginx configuration, re-run LetsEncrypt as necessary.
+11. Enjoy your new server!
 
 Detailed steps
 ----
