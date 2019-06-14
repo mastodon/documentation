@@ -337,7 +337,7 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 |---------|-----------|:------:|:------:|
 | `id` | String |{{< no >}}|2.7.0|
 | `scheduled_at` | String (Datetime) |{{< no >}}|2.7.0|
-| `params` | Array of [Hash](#statusparams) |{{< no >}}|2.7.0|
+| `params` | [StatusParams](#statusparams) |{{< no >}}|2.7.0|
 | `media_attachments` | Array of [Attachment](#attachment) |{{< no >}}|2.7.0|
 
 ### StatusParams
