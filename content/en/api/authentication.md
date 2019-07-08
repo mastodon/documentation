@@ -23,7 +23,7 @@ The following descriptions are taken from the [Doorkeeper documentation](https:/
 
 ### GET /oauth/authorize
 
-Redirect here with `response_type=code`, `client_id`, `client_secret`, `redirect_uri`, `scope`. Displays an authorization form to the user. If approved, it will create and return an authorization code, then redirect to the desired `redirect_uri`, or show the authorization code if `urn:ietf:wg:oauth:2.0:oob` was requested.
+Redirect here with `response_type=code`, `client_id`, `client_secret`, `redirect_uri`, `scope`, and optional `state`. Displays an authorization form to the user. If approved, it will create and return an authorization code, then redirect to the desired `redirect_uri`, or show the authorization code if `urn:ietf:wg:oauth:2.0:oob` was requested.
 
 ### POST /oauth/token
 
@@ -36,7 +36,7 @@ Post here with client credentials (in basic auth or in params `client_id` and `c
 ## Example authorization code flow
 
 1. Get `client_id` and `client_secret` from your local cache. If you don't have the two, you need to [register the application]({{< relref "api/rest/apps.md#post-api-v1-apps" >}}). Store `client_id` and `client_secret` in your local cache for next time. We actually don't need the `id` returned from this call.
-1. Tell the user to visit `/oauth/authorize` with parameters `scope`, `response_type=code`, `redirect_uri`, and your `client_id`. The user clicks on the URL and gets shown a page asking them to authorize your app for the scopes you requested. If the user clicks on the right button, they are redirected back to your `redirect_uri` with a `code` param in the query string. That is the authorization code.
+1. Tell the user to visit `/oauth/authorize` with parameters `scope`, `response_type=code`, `redirect_uri`, your `client_id`, and optionally a randomly-generated `state` parameter. The user clicks on the URL and gets shown a page asking them to authorize your app for the scopes you requested. If the user clicks on the right button, they are redirected back to your `redirect_uri` with a `code` param in the query string. That is the authorization code. If you provided a `state` value in the previous step, that will be passed along as well.
 1. Send a POST request to `/oauth/token` with the parameters `client_id`, `client_secret`, `grant_type=authorization_code`, `code`, `redirect_uri`. Save the `access_token` you get back in your local cache. Note that an authorization code can only be used once. If it has been used already, you need to repeat step two to get a new one.
 
 Once you have the access token, add the HTTP header `Authorization: Bearer ...` to any API call.
