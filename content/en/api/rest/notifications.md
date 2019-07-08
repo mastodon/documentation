@@ -39,15 +39,7 @@ Returns [Notification]({{< relref "entities.md#notification" >}})
 
 {{< api_method_info auth="Yes" user="Yes" scope="read read:notifications" version="0.0.0" >}}
 
-## POST /api/v1/notifications/clear
-
-Delete all notifications from the server.
-
-### Resource information
-
-{{< api_method_info auth="Yes" user="Yes" scope="write write:notifications" version="0.0.0" >}}
-
-## POST /api/v1/notifications/dismiss
+## POST /api/v1/notifications/:id/dismiss
 
 Delete a single notification from the server.
 
@@ -55,11 +47,13 @@ Delete a single notification from the server.
 
 {{< api_method_info auth="Yes" user="Yes" scope="write write:notifications" version="0.0.0" >}}
 
-### Parameters
+## POST /api/v1/notifications/clear
 
-|Name|Description|Required|
-|----|-----------|:------:|
-| `id` | Notification ID | Required |
+Delete all notifications from the server.
+
+### Resource information
+
+{{< api_method_info auth="Yes" user="Yes" scope="write write:notifications" version="0.0.0" >}}
 
 ## POST /api/v1/push/subscription
 
