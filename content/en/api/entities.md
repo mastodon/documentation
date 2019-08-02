@@ -236,6 +236,7 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 - `mention`
 - `reblog`
 - `favourite`
+- `poll`
 
 ## Poll
 
