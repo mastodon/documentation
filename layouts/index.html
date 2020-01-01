@@ -1,17 +1,28 @@
-{{ define "title"}} Mastodon documentation {{end}}
+{{ define "title"}}{{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
 
+  {{ with .Description }}
+    <p>{{.}}</p>
+  {{ end }}
+
   <div class="e-content">
     {{ .Content }}
 
-    <p><i class="fas fa-language"></i> <strong>Available languages:</strong></p>
+    <p style="color: #687590;">
+      {{ i18n "lastUpdated" }} {{ .Lastmod.Format "January 2, 2006" }}{{ with .File }} · <a href='https://source.joinmastodon.org/mastodon/docs/tree/master/content/{{ .Lang }}/{{ .Path }}' style="color: #687590;">{{ i18n "improvePage" }}{{ end }}</a>
 
-    <ul>
-      {{ range $.Site.Home.AllTranslations }}
-        <li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+      {{ if .IsTranslated }}
+        <br />
+
+        {{ i18n "otherTranslations" }}
+
+        {{ range .Translations }}
+          <a href="{{ .Permalink }}" style="color: #687590;" hreflang="{{ .Lang }}">{{ .Language.LanguageName }}</a>
+        {{ end }}
       {{ end }}
-    </ul>
+    </p>
+
   </div>
 {{ end }}

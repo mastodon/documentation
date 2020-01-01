@@ -1,0 +1,59 @@
+[improvePage]
+other = "Improve this page"
+
+[lastUpdated]
+other = "Last updated"
+
+[joinTitle]
+other = "Join the social media revolution"
+
+[joinText]
+other = "Mastodon is a free, decentralized platform with over three million people"
+
+[joinAction]
+other = "Join Mastodon now!"
+
+[merch]
+other = "Merch"
+
+[shirtsAndStickers]
+other = "T-shirts and stickers"
+
+[joinMastodon]
+other = "Join Mastodon"
+
+[blog]
+other = "Blog"
+
+[viewSource]
+other = "View source"
+
+[imprint]
+other = "Imprint"
+
+[formDataParameters]
+other = "Form Data Parameters"
+
+[headers]
+other = "Headers"
+
+[required]
+other = "required"
+
+[optional]
+other = "optional"
+
+[pathParameters]
+other = "Path Parameters"
+
+[queryParameters]
+other = "Query Parameters"
+
+[request]
+other = "Request"
+
+[response]
+other = "Response"
+
+[otherTranslations]
+other = "Also available in:"
