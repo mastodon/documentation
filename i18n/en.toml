@@ -2,10 +2,7 @@
 other = "Improve this page"
 
 [lastUpdated]
-other = "Last updated"
-
-[lastUpdatedDateFormat]
-other = "{{ .Format \"January 2, 2006\" }}"
+other = "Last updated {{ .Format \"January 2, 2006\" }}"
 
 [joinTitle]
 other = "Join the social media revolution"
