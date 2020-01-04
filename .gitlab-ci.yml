@@ -1,4 +1,4 @@
-image: registry.gitlab.com/pages/hugo:latest
+image: monachus/hugo:latest
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive

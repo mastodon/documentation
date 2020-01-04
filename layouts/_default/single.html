@@ -1,14 +1,26 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
 
-  <aside>{{ .TableOfContents }}</aside>
+  {{ with .Description }}
+    <p>{{.}}</p>
+  {{ end }}
 
   <div class="e-content">
     {{ .Content }}
 
     <p style="color: #687590;">
-      Last updated {{ .Lastmod.Format "January 2, 2006" }} ·
-      <a href='https://source.joinmastodon.org/mastodon/docs/tree/master/content/{{.Lang}}/{{.File.Path}}' style="color: #687590;">Improve this page</a>
+      {{ i18n "lastUpdated" }} {{ .Lastmod.Format "January 2, 2006" }}{{ with .File }} · <a href='https://source.joinmastodon.org/mastodon/docs/tree/master/content/{{ .Lang }}/{{ .Path }}' style="color: #687590;">{{ i18n "improvePage" }}{{ end }}</a>
+
+      {{ if .IsTranslated }}
+        <br />
+
+        {{ i18n "otherTranslations" }}
+
+        {{ range .Translations }}
+          <a href="{{ .Permalink }}" style="color: #687590;" hreflang="{{ .Lang }}">{{ .Language.LanguageName }}</a>
+        {{ end }}
+      {{ end }}
     </p>
+
   </div>
 {{ end }}
