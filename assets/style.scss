@@ -15,7 +15,7 @@ $success:  #79bd9a; // color7
 $transition-in: 100ms linear;
 $transition-out: 250ms linear;
 
-$content-width: 960px;
+$content-width: 1080px;
 $mobile-width: 600px;
 
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -93,12 +93,10 @@ body {
 }
 
 .container {
+  box-sizing: border-box;
   max-width: $content-width;
   margin: 0 auto;
-
-  @media screen and (max-width: $mobile-width) {
-    padding: 0 20px;
-  }
+  padding: 0 20px;
 }
 
 .sidebar-layout {
@@ -141,6 +139,10 @@ body {
 
   & > ul > li {
     margin-bottom: 26px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .sub-title {
@@ -433,6 +435,7 @@ main {
     font-family: 'Roboto Mono', monospace;
     background-color: lighten($darkest, 8%);
     border-radius: 3px;
+    hyphens: none;
   }
 
   pre code {

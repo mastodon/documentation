@@ -91,8 +91,6 @@ Unlike proprietary services, **anyone has the complete freedom to run, examine, 
 
 ## Choose your path
 
-![](/assets/elephant.svg)
-
 Learn how to use Mastodon:
 
 {{< page-ref page="user/signup.md" >}}
