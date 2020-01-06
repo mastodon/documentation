@@ -54,6 +54,10 @@ adduser --disabled-login mastodon
 
 We can then switch to the user:
 
+```bash
+su - mastodon
+```
+
 And proceed to install rbenv and rbenv-build:
 
 ```bash
@@ -68,8 +72,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 Once this is done, we can install the correct Ruby version:
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.1
-rbenv global 2.6.1
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.5
+rbenv global 2.6.5
 ```
 
 Default gem version shipped with ruby\_2.6.0 is incompatible with latest bundler, so we need to update gem:
@@ -86,6 +90,10 @@ gem install bundler --no-document
 
 Return to the root user:
 
+```bash
+exit
+```
+
 ## Setup <a id="setup"></a>
 
 ### Setting up PostgreSQL <a id="setting-up-postgresql"></a>
@@ -100,6 +108,10 @@ You will need to create a PostgreSQL user that Mastodon could use. It is easiest
 
 Open the prompt:
 
+```bash
+sudo -u postgres psql
+```
+
 In the prompt, execute:
 
 ```sql
@@ -112,6 +124,10 @@ Done!
 ### Setting up Mastodon <a id="setting-up-mastodon"></a>
 
 It is time to download the Mastodon code. Switch to the mastodon user:
+
+```bash
+su - mastodon
+```
 
 #### Checking out the code <a id="checking-out-the-code"></a>
 
@@ -150,6 +166,10 @@ This will:
 The configuration file is saved as `.env.production`. You can review and edit it to your liking. Refer to the [documentation on configuration.]({{< relref "config.md" >}})
 
 You’re done with the mastodon user for now, so switch back to root:
+
+```bash
+exit
+```
 
 ### Setting up nginx <a id="setting-up-nginx"></a>
 
@@ -193,6 +213,7 @@ Then edit the files to make sure the username and paths are correct:
 Finally, start and enable the new systemd services:
 
 ```bash
+systemctl daemon-reload
 systemctl start mastodon-web mastodon-sidekiq mastodon-streaming
 systemctl enable mastodon-*
 ```
