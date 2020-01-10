@@ -9,13 +9,13 @@ menu:
 
 Now that you know how to construct HTTP requests using cURL or your favorite programming language's HTTP utility or library, it is time to learn about endpoints and responses.
 
-## Endpoints explained
+## Endpoints explained <a id="endpoints"></a>
 
 All HTTP requests are made against a target URL. When you request data to or from a website, you do so by using a specific URL. Depending on the URL, your request will be interpreted by the HTTP server and the appropriate response will be returned to you.
 
 Examples will be written using the fictional Mastodon website, mastodon.example, which is hosted at `https://mastodon.example`. The root of this website is `/`, and specific subdirectories and paths are known as endpoints. Mastodon's API endpoints are nested under the `/api` namespace, and most methods currently have their endpoints under `/api/v1`. Requests will be listed by their HTTP method and their endpoint; for example, GET /api/v1/endpoint should be interpreted as a GET request made to that endpoint on your domain, or in other words, `https://mastodon.example/api/v1/endpoint`.
 
-## Fetching public timelines
+## Fetching public timelines <a id="timelines"></a>
 
 Let's take a look at one of the most basic use cases for public data from Mastodon -- the public timelines.
 
@@ -78,7 +78,7 @@ Parsing JSON and using it in your program is outside of the scope of this tutori
 [MastoVue](https://mastovue.glitch.me) is an example of an application that lets you browse public timelines.
 {{< /hint >}}
 
-## Fetching public accounts and statuses
+## Fetching public accounts and statuses <a id="toots"></a>
 
 Now that we are familiar with how to make requests and how to handle responses, you can experiment with more public data. The following methods may be of interest:
 
@@ -92,7 +92,7 @@ Now that we are familiar with how to make requests and how to handle responses, 
 
 IDs of accounts and statuses are local to the Mastodon website's database and will differ for each Mastodon website.
 
-## Fetching public instance data
+## Fetching public instance data <a id="instance"></a>
 
 One last thing you can do with anonymous requests is to view information about the Mastodon website.
 

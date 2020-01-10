@@ -54,13 +54,13 @@ menu:
 
 ## Base attributes
 
-### `name`
+### `name` <a id="name"></a>
 
 **Description:** The value of the hashtag after the \# sign.
 **Type:** String
 **Version history:** Added in 0.9.0
 
-### `url`
+### `url` <a id="url"></a>
 
 **Description:** A link to the hashtag on the instance.
 **Type:** String \(URL\)
@@ -68,7 +68,7 @@ menu:
 
 ## Optional attributes
 
-### `history`
+### `history` <a id="history"></a>
 
 **Description:** Usage statistics for given days.
 **Type:** Array of [History]({{< relref "history.md" >}})

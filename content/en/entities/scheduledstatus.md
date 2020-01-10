@@ -6,6 +6,10 @@ menu:
     parent: entities
 ---
 
+{{< hint style="warning" >}}
+This page is currently under construction.
+{{< /hint >}}
+
 ## Example
 
 ```javascript
@@ -30,7 +34,7 @@ menu:
 
 ## Required attributes
 
-### id
+### id <a id="id"></a>
 
 **Description:** ID of the scheduled status in the database.
 **Type:** String \(cast from an integer but not guaranteed to be a number\)

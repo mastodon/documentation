@@ -1,13 +1,13 @@
 ---
 title: Dealing with unwanted content
-description: 'Control what you see, for a more comfortable social media experience.'
+description: Control what you see, for a more comfortable social media experience.
 menu:
   docs:
     weight: 50
     parent: user
 ---
 
-## Filtering posts <a id="blocking-and-muting"></a>
+## Filtering posts <a id="filters"></a>
 
 It is possible to filter statuses for specific keywords and phrases so that they can be hidden automatically.
 
@@ -19,15 +19,15 @@ To create or manage your filters, go to Settings &gt; Filters. The "Add new filt
 
 Filters have the following settings:
 
-### Keyword or phrase
+### Keyword or phrase <a id="filter-phrase"></a>
 
 This is the string that will be matched. The keyword will be searched for in any status's content, including CW, media descriptions, and poll options.
 
-### Expire after
+### Expire after <a id="filter-expire"></a>
 
 Optionally only apply the filter for a limited amount of time. Expired filters are not automatically deleted, but can be reactivated by setting a new expiry date \(or changing it back to "never" expire\).
 
-### Filter contexts
+### Filter contexts <a id="filter-context"></a>
 
 Choose where the filter will be applied:
 
@@ -36,11 +36,11 @@ Choose where the filter will be applied:
 * Public timelines = matching statuses will not appear in local/federated timelines
 * Conversations = matching statuses will be hidden in threads and detailed views
 
-### Drop instead of hide
+### Drop instead of hide <a id="filter-drop"></a>
 
 Filtering is usually done client-side, so that disabling a filter will cause filtered statuses to be visible again. However, if you enable "drop instead of hide", any matching statuses will be disappear completely and will never be delivered to your home or notifications.
 
-### Whole word
+### Whole word <a id="filter-whole"></a>
 
 Filters normally apply to any status that contains the included characters, regardless of whether they are in the middle of a word. Enabling "whole word" will only apply the filter if the keyword is surrounded by spaces or other non-alphanumeric characters.
 
@@ -48,11 +48,11 @@ Filters normally apply to any status that contains the included characters, rega
 
 {{< figure src="/assets/image%20%2824%29.png" caption="The user dropdown menu offers various actions." >}}
 
-### Hiding boosts <a id="hiding-boosts"></a>
+### Hiding boosts <a id="hide-boosts"></a>
 
 If you hide boosts from someone, you won’t see their boosts in your home feed. This option only appears on users who you are currently following.
 
-### Muting <a id="muting"></a>
+### Muting <a id="mute"></a>
 
 {{< figure src="/assets/image%20%2852%29.png" caption="Sample of muted accounts." >}}
 
@@ -67,7 +67,7 @@ If you choose to also mute notifications from them, you will additionally not se
 
 The user has no way of knowing they have been muted.
 
-### Blocking <a id="blocking"></a>
+### Blocking <a id="block"></a>
 
 {{< figure src="/assets/image%20%2836%29.png" caption="Sample of blocked accounts." >}}
 
@@ -88,7 +88,7 @@ Additionally, on the blocked user’s side:
 
 If you and the blocked user are on the same server, the blocked user will not be able to view your posts on your profile while logged in.
 
-### Hiding an entire server <a id="hiding-an-entire-server"></a>
+### Hiding an entire server <a id="hide-domain"></a>
 
 ![](/assets/image%20%2861%29.png)
 
@@ -99,7 +99,7 @@ If you hide an entire server:
 * You won’t see notifications from that server
 * You will lose any followers that you might have had on that server
 
-## Reporting problematic content to moderators
+## Reporting problematic content to moderators <a id="report"></a>
 
 {{< figure src="/assets/image%20%283%29.png" caption="The report modal allows selecting example statuses, adding a note, and forwarding reports." >}}
 

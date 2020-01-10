@@ -1,33 +1,33 @@
 ---
 title: Promoting yourself and others
-description: 'Give visibility to hashtags, profiles, and posts.'
+description: Give visibility to hashtags, profiles, and posts.
 menu:
   docs:
     weight: 60
     parent: user
 ---
 
-## Featured links on your profile
+## Featured links on your profile <a id="featured"></a>
 
-### Featured hashtags
+### Featured hashtags <a id="featured-tags"></a>
 
 {{< figure src="/assets/image%20%2858%29.png" caption="A featured hashtag showing last usage date and total usage." >}}
 
 You can choose to feature certain hashtags that you use often. Go to Settings &gt; Profile &gt; Featured hashtags to manage which hashtags you are currently featuring. Once featured, a link to the hashtag will be shown on your profile, with the date of the last time it was used in a status, as well as the total number of statuses in which it was used.
 
-### Featured profiles
+### Featured profiles <a id="featured-profiles"></a>
 
 {{< figure src="/assets/image%20%2833%29.png" caption="Four randomly-selected featured profiles." >}}
 
 You can choose to feature profiles of people that you are following. Go to that person's profile dropdown menu and click "Feature on profile". When you feature a profile, a link to their profile will appear on your profile, under a section titled "your choices". Up to 4 profiles will be shown at a time, and these profiles are selected randomly from your pool of featured profiles every time the page is loaded.
 
-## Pinned posts
+## Pinned posts <a id="pinned"></a>
 
 {{< figure src="/assets/image%20%2837%29.png" caption="A pinned toot by mastodon.social/@gargron" >}}
 
 You can choose to feature up to 5 of your own public posts at the top of your profile. Go to the status dropdown menu and click "Pin on profile". When you pin a toot, it will appear at the top of your "toots" tab, before all other chronological status updates.
 
-## Profile directory
+## Profile directory <a id="directory"></a>
 
 {{< figure src="/assets/image%20%2831%29.png" caption="Profile directory as seen from mastodon.social" >}}
 

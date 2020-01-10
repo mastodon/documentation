@@ -1,5 +1,6 @@
 ---
-title: Configuring variables
+title: Configuring your environment
+description: Setting environment variables for your Mastodon installation.
 menu:
   docs:
     weight: 30
@@ -14,22 +15,22 @@ Mastodon uses environment variables as its configuration.
 
 For convenience, it can read them from a flat file called `.env.production` in the Mastodon directory, but they can always be overridden by a specific process. For example, systemd service files can read environment variables from an `EnvironmentFile` or from inline definitions with `Environment`, so you can have different configuration parameters for specific services. They can also be specified when calling Mastodon from the command line.
 
-### Basic <a id="basic"></a>
+## Basic <a id="basic"></a>
 
-#### Federation <a id="federation"></a>
+### Federation <a id="federation"></a>
 
 * `LOCAL_DOMAIN`
 * `WEB_DOMAIN`
 * `ALTERNATE_DOMAINS`
 
-#### Secrets <a id="secrets"></a>
+### Secrets <a id="secrets"></a>
 
 * `SECRET_KEY_BASE`
 * `OTP_SECRET`
 * `VAPID_PRIVATE_KEY`
 * `VAPID_PUBLIC_KEY`
 
-#### Deployment <a id="deployment"></a>
+### Deployment <a id="deployment"></a>
 
 * `RAILS_ENV`
 * `RAILS_SERVE_STATIC_FILES`
@@ -40,7 +41,7 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `NODE_ENV`
 * `BIND`
 
-#### Scaling options <a id="scaling-options"></a>
+### Scaling options <a id="scaling"></a>
 
 * `WEB_CONCURRENCY`
 * `MAX_THREADS`
@@ -48,9 +49,9 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `STREAMING_API_BASE_URL`
 * `STREAMING_CLUSTER_NUM`
 
-### Database connections <a id="database-connections"></a>
+## Database connections <a id="connections"></a>
 
-#### PostgreSQL <a id="postgresql"></a>
+### PostgreSQL <a id="postgresql"></a>
 
 * `DB_HOST`
 * `DB_USER`
@@ -59,7 +60,7 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `DB_PORT`
 * `DATABASE_URL`
 
-#### Redis <a id="redis"></a>
+### Redis <a id="redis"></a>
 
 * `REDIS_HOST`
 * `REDIS_PORT`
@@ -70,19 +71,19 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `CACHE_REDIS_URL`
 * `CACHE_REDIS_NAMESPACE`
 
-#### ElasticSearch <a id="elasticsearch"></a>
+### ElasticSearch <a id="elasticsearch"></a>
 
 * `ES_ENABLED`
 * `ES_HOST`
 * `ES_PORT`
 * `ES_PREFIX`
 
-#### StatsD <a id="statsd"></a>
+### StatsD <a id="statsd"></a>
 
 * `STATSD_ADDR`
 * `STATSD_NAMESPACE`
 
-### Limits <a id="limits"></a>
+## Limits <a id="limits"></a>
 
 * `SINGLE_USER_MODE`
 * `EMAIL_DOMAIN_WHITELIST`
@@ -90,7 +91,7 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `MAX_SESSION_ACTIVATIONS`
 * `USER_ACTIVE_DAYS`
 
-### E-mail <a id="e-mail"></a>
+## E-mail <a id="email"></a>
 
 * `SMTP_SERVER`
 * `SMTP_PORT`
@@ -105,17 +106,17 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `SMTP_ENABLE_STARTTLS_AUTO`
 * `SMTP_TLS`
 
-### File storage <a id="file-storage"></a>
+## File storage <a id="cdn"></a>
 
 * `CDN_HOST`
 * `S3_ALIAS_HOST`
 
-#### Local file storage <a id="local-file-storage"></a>
+### Local file storage <a id="paperclip"></a>
 
 * `PAPERCLIP_ROOT_PATH`
 * `PAPERCLIP_ROOT_URL`
 
-#### Amazon S3 and compatible <a id="amazon-s3-and-compatible"></a>
+### Amazon S3 and compatible <a id="s3"></a>
 
 * `S3_ENABLED`
 * `S3_BUCKET`
@@ -127,7 +128,7 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `S3_ENDPOINT`
 * `S3_SIGNATURE_VERSION`
 
-#### Swift <a id="swift"></a>
+### Swift <a id="swift"></a>
 
 * `SWIFT_ENABLED`
 * `SWIFT_USERNAME`
@@ -141,11 +142,11 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `SWIFT_DOMAIN_NAME`
 * `SWIFT_CACHE_TTL`
 
-### External authentication <a id="external-authentication"></a>
+## External authentication <a id="external-authentication"></a>
 
 * `OAUTH_REDIRECT_AT_SIGN_IN`
 
-#### LDAP <a id="ldap"></a>
+### LDAP <a id="ldap"></a>
 
 * `LDAP_ENABLED`
 * `LDAP_HOST`
@@ -157,14 +158,14 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `LDAP_UID`
 * `LDAP_SEARCH_FILTER`
 
-#### PAM <a id="pam"></a>
+### PAM <a id="pam"></a>
 
 * `PAM_ENABLED`
 * `PAM_EMAIL_DOMAIN`
 * `PAM_DEFAULT_SERVICE`
 * `PAM_CONTROLLED_SERVICE`
 
-#### CAS <a id="cas"></a>
+### CAS <a id="cas"></a>
 
 * `CAS_ENABLED`
 * `CAS_URL`
@@ -188,7 +189,7 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `CAS_IMAGE_KEY`
 * `CAS_PHONE_KEY`
 
-#### SAML <a id="saml"></a>
+### SAML <a id="saml"></a>
 
 * `SAML_ENABLED`
 * `SAML_ACS_URL`
@@ -211,12 +212,12 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `SAML_ATTRIBUTES_STATEMENTS_VERIFIED`
 * `SAML_ATTRIBUTES_STATEMENTS_VERIFIED_EMAIL`
 
-### Hidden services <a id="hidden-services"></a>
+## Hidden services <a id="hidden-services"></a>
 
 * `http_proxy`
 * `ALLOW_ACCESS_TO_HIDDEN_SERVICE`
 
-### Other <a id="other"></a>
+## Other <a id="other"></a>
 
 * `SKIP_POST_DEPLOYMENT_MIGRATIONS`
 

@@ -10,11 +10,11 @@ menu:
 This page is under construction.
 {{< /hint >}}
 
-### Code structure <a id="code-structure"></a>
+### Code structure <a id="structure"></a>
 
 The following overview should not be seen as complete or authoritative, but as a rough guidance to help you find your way in the application.
 
-#### Ruby <a id="ruby-1"></a>
+#### Ruby <a id="ruby"></a>
 
 | Path | Description |
 | :--- | :--- |
@@ -28,14 +28,14 @@ The following overview should not be seen as complete or authoritative, but as a
 | `app/workers` | Code that executes outside the request-response cycle |
 | `spec` | Automated test suite |
 
-#### JavaScript <a id="javascript-1"></a>
+#### JavaScript <a id="javascript"></a>
 
 | Path | Description |
 | :--- | :--- |
 | `app/javascript/mastodon` | Code for the multi-column React.js application |
 | `app/javascript/packs` | Code for non-React.js pages |
 
-#### CSS and other assets <a id="css-and-other-assets"></a>
+#### CSS and other assets <a id="assets"></a>
 
 | Path | Description |
 | :--- | :--- |

@@ -1,5 +1,6 @@
 ---
 title: Guidelines and best practices
+description: Things to keep in mind when implementing a Mastodon app.
 menu:
   docs:
     weight: 50
@@ -10,11 +11,11 @@ menu:
 
 **The user must be able to login to any Mastodon server from the app**. This means you must ask for the server's domain and use the app registrations API to dynamically obtain OAuth2 credentials.
 
-## Usernames <a id="usernames"></a>
+## Usernames <a id="username"></a>
 
 **Decentralization must be transparent to the user**. It should be possible to see that a given user is from another server, by e.g. displaying their `acct` somewhere. Note that `acct` is equal to username for local users, and equal to username@domain for remote users.
 
-## Handling and sorting IDs
+## Handling and sorting IDs <a id="id"></a>
 
 Vanilla Mastodon entity IDs are generated as integers and cast to string. However, this does not mean that IDs _are_ integers, nor should they be cast to integer! Doing so can lead to broken client apps due to integer overflow, so **always treat IDs as strings.**
 
@@ -27,11 +28,11 @@ With that said, because IDs are string representations of numbers, they can stil
 
 Plain text is not available for content from remote servers, and plain text syntax rules may vary wildly between Mastodon and other fediverse applications. For certain attributes, such as the content of statuses, **Mastodon provides sanitized HTML**. You may expect these tags to appear in the content: `<p>`, `<br>`, `<span>`, `<a>`. See [HTML Sanitization](../spec/activitypub.md#html-sanitization) for more details.
 
-### Mentions, hashtags, and custom emoji <a id="mentions-and-hashtags"></a>
+### Mentions, hashtags, and custom emoji <a id="tags"></a>
 
 Mentions and hashtags are `<a>` tags. Custom emoji remain in their plain text shortcode form. To give those entities their semantic meaning and add special handling, such as opening a mentioned profile within your app instead of as a web page, metadata is included with the [Status]({{< relref "../entities/status.md" >}}), which can be matched to a particular tag. See [Status &gt; Rendering attributes](../entities/status.md#rendering-attributes) for more information.
 
-### Link shortening <a id="other-links"></a>
+### Link shortening <a id="links"></a>
 
 Links in Mastodon are not shortened using URL shorteners, and the usage of URL shorteners is heavily discouraged. URLs in text always count for 23 characters, and are intended to be shortened visually. For that purpose, a link is marked up like this:
 

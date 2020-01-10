@@ -72,25 +72,25 @@ menu:
 
 ## Required attributes
 
-### `url`
+### `url` <a id="url"></a>
 
 **Description:** Location of linked resource.
 **Type:** String \(URL\)
 **Version history:** Added in 1.0.0
 
-### `title`
+### `title` <a id="title"></a>
 
 **Description:** Title of linked resource.
 **Type:** String
 **Version history:** Added in 1.0.0
 
-### `description`
+### `description` <a id="description"></a>
 
 **Description:** Description of preview.
 **Type:** String
 **Version history:** Added in 1.0.0
 
-### `type`
+### `type` <a id="type"></a>
 
 **Description:** The type of the preview card.
 **Type:** String \(Enumerable, oneOf\)
@@ -102,55 +102,55 @@ menu:
 
 ## Optional attributes
 
-### `author_name`
+### `author_name` <a id="author_name"></a>
 
 **Description:** The author of the original resource.
 **Type:** String
 **Version history:** Added in 1.3.0
 
-### `author_url`
+### `author_url` <a id="author_url"></a>
 
 **Description:** A link to the author of the original resource.
 **Type:** String \(URL\)
 **Version history:** Added in 1.3.0
 
-### `provider_name`
+### `provider_name` <a id="provider_name"></a>
 
 **Description:** The provider of the original resource.
 **Type:** String
 **Version history:** Added in 1.3.0
 
-### `provider_url`
+### `provider_url` <a id="provider_url"></a>
 
 **Description:** A link to the provider of the original resource.
 **Type:** String \(URL\)
 **Version history:** Added in 1.3.0
 
-### `html`
+### `html` <a id="html"></a>
 
 **Description:** HTML to be used for generating the preview card.
 **Type:** String \(HTML\)
 **Version history:** Added in 1.3.0
 
-### `width`
+### `width` <a id="width"></a>
 
 **Description:** Width of preview, in pixels.
 **Type:** Number
 **Version history:** Added in 1.3.0
 
-### `height`
+### `height` <a id="height"></a>
 
 **Description:** Height of preview, in pixels.
 **Type:** Number
 **Version history:** Added in 1.3.0
 
-### `image`
+### `image` <a id="image"></a>
 
 **Description:** Preview thumbnail.
 **Type:** String \(URL\)
 **Version history:** Added in 1.0.0
 
-### `embed_url`
+### `embed_url` <a id="embed_url"></a>
 
 **Description:** Used for photo embeds, instead of custom `html`.
 **Type:** String \(URL\)
@@ -161,8 +161,4 @@ menu:
 {{< page-ref page="status.md" >}}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/preview_card_serializer.rb" caption="app/serializers/rest/preview\_card\_serializer.rb" >}}
-
-
-
-###  <a id="type-1"></a>
 

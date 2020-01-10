@@ -7,7 +7,7 @@ menu:
     parent: user
 ---
 
-## Browsing content through public timelines
+## Browsing content through public timelines <a id="timelines"></a>
 
 {{< figure src="/assets/image%20%2830%29.png" caption="Posts within a public timeline" >}}
 
@@ -15,7 +15,7 @@ To allow you to discover potentially interesting content, Mastodon provides a wa
 
 There is a way to filter the federated timeline to view only public posts created on your server: The **local timeline**. Mind that “local” here refers to the server, not to a geographical location.
 
-## Interacting with people's posts
+## Interacting with people's posts <a id="actions"></a>
 
 {{< figure src="/assets/image%20%2821%29.png" caption="An expanded view can be loaded by clicking a status in the timeline." >}}
 
@@ -27,7 +27,7 @@ You can perform quick actions on a post directly from the timeline, or you can c
 * **Bookmark** a post by clicking the ribbon icon. The post will be privately added to your bookmarks list without generating a notification.
 * Access a **menu** of additional options by clicking the ellipsis icon.
 
-## Notifications
+## Notifications <a id="notifications"></a>
 
 {{< figure src="/assets/image%20%2850%29.png" caption="Notifications column" >}}
 
@@ -39,7 +39,7 @@ When other people interact with you or your posts, you will receive a notificati
 * **Polls:** Received when a poll that you have voted in or created has ended.
 * **Follows:** Received when someone has followed your profile.
 
-## Following profiles
+## Following profiles <a id="follow"></a>
 
 ![](/assets/image%20%2811%29.png)
 
@@ -49,7 +49,7 @@ However if you come across someone’s public profile hosted on a different serv
 
 If you are visiting a public page on another Mastodon site, see [Using Mastodon outside of your site](external.md#remote-interactions-on-another-mastodon-site).
 
-## Search
+## Search <a id="search"></a>
 
 {{< figure src="/assets/image%20%2819%29.png" caption="The search function can be accessed from the sidebar." >}}
 
@@ -69,7 +69,7 @@ The following operators are supported:
 * **-exclude** will exclude the term prepended by a minus sign. This allows filtering out certain terms, such as `animals -cats` to find posts about animals without posts about cats.
 * **+include** will include the term after the plus sign. This allows searching for multiple terms that must be included, such as `cat +dog` to find posts about both cats and dogs.
 
-## Direct conversations
+## Direct conversations <a id="direct"></a>
 
 {{< figure src="/assets/image%20%2812%29.png" caption="A list of conversations containing direct messages." >}}
 
@@ -77,7 +77,7 @@ In Mastodon, direct messages are simply toots that have the "direct" visibility 
 
 {{< figure src="/assets/image%20%2857%29.png" caption="A direct message in a thread." >}}
 
-## List timelines
+## List timelines <a id="lists"></a>
 
 Lists are subsets of your home timeline. You can create a list, give it a name, and add users that you follow to that list.
 

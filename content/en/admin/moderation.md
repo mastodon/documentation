@@ -14,7 +14,7 @@ Moderation in Mastodon is always applied locally, i.e. as seen from the particul
 
 A Mastodon account can be disabled. This prevents the user from doing anything with the account, but all of the content is still there untouched. This limitation is reversible, the account can be re-enabled at any time. This limitation is only available for local users on your server.
 
-### Silence <a id="silence"></a>
+### Silence <a id="silence-user"></a>
 
 A Mastodon silence is synonymous with sandbox. A silenced account does not appear to users who are not already following it. All of the content is still there, and it can still be found via search, mentioned, and followed, but the content is invisible.
 
@@ -22,7 +22,7 @@ At this moment, silence does not affect federation. A locally silenced account i
 
 This limitation is reversible, the account can be unsilenced at any time.
 
-### Suspend <a id="suspend"></a>
+### Suspend <a id="suspend-user"></a>
 
 A Mastodon suspension is synonymous with deletion. The account no longer appears in search, the profile page is gone, all of the posts, uploads, followers, and all other data is removed. This limitation is **irreversible**. While the account can be unsuspended, allowing the user to take control of it again, the old data is gone for good.
 
@@ -34,11 +34,11 @@ Because individually moderating a large volume of users from a misbehaving serve
 
 With this option active, no files from the server will be processed locally. That includes avatars, headers, emojis and media attachments.
 
-### Silence <a id="silence-1"></a>
+### Silence <a id="silence-server"></a>
 
 Applies a silence to all past and future accounts from the server.
 
-### Suspend <a id="suspend-1"></a>
+### Suspend <a id="suspend-server"></a>
 
 Applies a suspension to all past and future accounts from the server. No content from the server will be stored locally except for usernames.
 

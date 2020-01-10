@@ -67,97 +67,97 @@ menu:
 
 ## Required attributes
 
-### `uri`
+### `uri` <a id="uri"></a>
 
 **Description:** The domain name of the instance.
 **Type:** String
 **Version history:** Added in 1.1.0
 
-### `title`
+### `title` <a id="title"></a>
 
 **Description:** The title of the website.
 **Type:** String
 **Version history:** Added in 1.1.0
 
-### `description`
+### `description` <a id="description"></a>
 
 **Description:** Admin-defined description of the Mastodon site.
 **Type:** String
 **Version history:** Added in 1.1.0
 
-### `short_description`
+### `short_description` <a id="short_description"></a>
 
 **Description:** A shorter description defined by the admin.
 **Type:** String
 **Version history:** Added in 2.9.2
 
-### `email`
+### `email` <a id="email"></a>
 
 **Description:** An email that may be contacted for any inquiries.
 **Type:** String
 **Version history:** Added in 1.1.0
 
-### `version`
+### `version` <a id="version"></a>
 
 **Description:** The version of Mastodon installed on the instance.
 **Type:** String
 **Version history:** Added in 1.3.0
 
-### `languages`
+### `languages` <a id="languages"></a>
 
 **Description:** Primary langauges of the website and its staff.
 **Type:** Array of String \(ISO 639 Part 1-5 language codes\)
 **Version history:** Added in 2.3.0
 
-### `registrations`
+### `registrations` <a id="registrations"></a>
 
 **Description:** Whether registrations are enabled.
 **Type:** Boolean
 **Version history:** Added in 2.7.2
 
-### `approval_required`
+### `approval_required` <a id="approval_required"></a>
 
 **Description:** Whether registrations require moderator approval.
 **Type:** Boolean
 **Version history:** Added in 2.9.2
 
-### `urls`
+### `urls` <a id="urls"></a>
 
 **Description:** URLs of interest for clients apps.
 **Type:** Hash \(`streaming_api`\)
 **Version history:** Added in 1.4.2
 
-#### `urls[streaming_api]`
+#### `urls[streaming_api]` <a id="streaming_api"></a>
 
 Websockets address for push streaming. String \(URL\).
 
-### `stats`
+### `stats` <a id="stats"></a>
 
 **Description:** Statistics about how much information the instance contains.
 **Type:** Hash \(`user_count`, `status_count`, `domain_count`\)
 **Version history:** Added in 1.6.0
 
-#### `user_count`
+#### `user_count` <a id="user_count"></a>
 
 Users registered on this instance. Number.
 
-#### `status_count`
+#### `status_count` <a id="status_count"></a>
 
 Statuses authored by users on instance. Number.
 
-#### `domain_count`
+#### `domain_count` <a id="domain_count"></a>
 
 Domains federated with this instance. Number.
 
 ## Optional attributes
 
-### `thumbnail`
+### `thumbnail` <a id="thumbnail"></a>
 
 **Description:** Banner image for the website.
 **Type:** String \(URL\) or null
 **Version history:** Added in 1.6.1
 
-### `contact_account`
+### `contact_account` <a id="contact_account"></a>
 
 **Description:** A user that can be contacted, as an alternative to `email`.
 **Type:** [Account](account.md) or null

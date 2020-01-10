@@ -19,25 +19,25 @@ menu:
 
 ## Attributes
 
-### `week`
+### `week` <a id="week"></a>
 
 **Description:** Midnight at the first day of the week.
 **Type:** String \(UNIX Timestamp\)
 **Version history:** Added in 2.1.2
 
-### `statuses`
+### `statuses` <a id="statuses"></a>
 
 **Description:** Statuses created since the week began.
 **Type:** String \(cast from an integer\)
 **Version history:** Added in 2.1.2
 
-### `logins`
+### `logins` <a id="logins"></a>
 
 **Description:** User logins since the week began.
 **Type:** String \(cast from an integer\)
 **Version history:** Added in 2.1.2
 
-### `registrations`
+### `registrations` <a id="registrations"></a>
 
 **Description:** User registrations since the week began.
 **Type:** String \(cast from an integer\)
