@@ -289,6 +289,14 @@ Imports custom emoji from a .tar.gz archive at a given path. The archive should 
 Remove all custom emoji.
 
 **Version history:**
+3.1.0 - add `--remote_only`
+
+| Option | Description |
+| :--- | :--- |
+| --remote_only | If provided, remove only from remote domains. |
+
+
+**Version history:**
 2.8.0 - added
 
 ## Feeds CLI
