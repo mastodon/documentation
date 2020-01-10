@@ -48,14 +48,14 @@ menu:
 
 ### `ancestors` <a id="ancestors"></a>
 
-**Description:** Parents in the thread.
-**Type:** Array of [Status](status.md)
+**Description:** Parents in the thread.\
+**Type:** Array of [Status](status.md)\
 **Version history:** Added in 0.6.0
 
 ### `descendants` <a id="descendants"></a>
 
-**Description:** Children in the thread.
-**Type:** Array of [Status](status.md)
+**Description:** Children in the thread.\
+**Type:** Array of [Status](status.md)\
 **Version history:** Added in 0.6.0
 
 ## See also

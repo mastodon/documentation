@@ -20,20 +20,20 @@ menu:
 
 ### `day` <a id="day"></a>
 
-**Description:** UNIX timestamp on midnight of the given day.
-**Type:** String \(UNIX timestamp\)
+**Description:** UNIX timestamp on midnight of the given day.\
+**Type:** String \(UNIX timestamp\)\
 **Version history:** Added in 2.4.1
 
 ### `uses` <a id="uses"></a>
 
-**Description:** the counted usage of the tag within that day.
-**Type:** String \(cast from an integer\)
+**Description:** the counted usage of the tag within that day.\
+**Type:** String \(cast from an integer\)\
 **Version history:** Added in 2.4.1
 
 ### `accounts` <a id="accounts"></a>
 
-**Description:** the total of accounts using the tag within that day.
-**Type:** String \(cast from an integer\)
+**Description:** the total of accounts using the tag within that day.\
+**Type:** String \(cast from an integer\)\
 **Version history:** Added in 2.4.1
 
 ## See also

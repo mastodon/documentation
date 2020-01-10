@@ -150,51 +150,51 @@ menu:
 
 ### `id` <a id="id"></a>
 
-**Description:** The ID of the attachment in the database.
-**Type:** String \(cast from an integer but not guaranteed to be a number\)
+**Description:** The ID of the attachment in the database.\
+**Type:** String \(cast from an integer but not guaranteed to be a number\)\
 **Version history:** Added in 0.6.0.
 
 ### `type` <a id="type"></a>
 
-**Description:** The type of the attachment.
-**Type:** String \(Enumerable, oneOf\)
-- `unknown` = unsupported or unrecognized file type
-- `image` = Static image
-- `gifv` = Looping, soundless animation
-- `video` = Video clip
-- `audio` = Audio track
+**Description:** The type of the attachment.\
+**Type:** String \(Enumerable, oneOf\)\
+`unknown` = unsupported or unrecognized file type\
+`image` = Static image\
+`gifv` = Looping, soundless animation\
+`video` = Video clip\
+`audio` = Audio track\
 **Version history:** Added in 0.6.0. Audio added in 2.9.1.
 
 ### `url` <a id="url"></a>
 
-**Description:** The location of the original full-size attachment.
-**Type:** String \(URL\)
+**Description:** The location of the original full-size attachment.\
+**Type:** String \(URL\)\
 **Version history:** Added in 0.6.0.
 
 ### `preview_url` <a id="preview_url"></a>
 
-**Description:** The location of a scaled-down preview of the attachment.
-**Type:** String \(URL\)
+**Description:** The location of a scaled-down preview of the attachment.\
+**Type:** String \(URL\)\
 **Version history:** Added in 0.6.0.
 
 ## Optional attributes
 
 ### `remote_url` <a id="remote_url"></a>
 
-**Description:** The location of the full-size original attachment on the remote website.
-**Type:** String \(URL\), or null if the attachment is local
+**Description:** The location of the full-size original attachment on the remote website.\
+**Type:** String \(URL\), or null if the attachment is local\
 **Version history:** Added in 0.6.0.
 
 ### `text_url` <a id="text_url"></a>
 
-**Description:** A shorter URL for the attachment.
-**Type:** String \(URL\)
+**Description:** A shorter URL for the attachment.\
+**Type:** String \(URL\)\
 **Version history:** Added in 0.6.0.
 
 ### `meta` <a id="meta"></a>
 
-**Description:** Metadata returned by Paperclip.
-**Type:** Hash
+**Description:** Metadata returned by Paperclip.\
+**Type:** Hash\
 **Version history:** Added in 1.5.0. meta\[focus\] added in 2.3.0.
 
 May contain subtrees `small` and `original`, as well as various other top-level properties.
@@ -203,14 +203,14 @@ More importantly, there may be another top-level `focus` Hash object as of 2.3.0
 
 ### `description` <a id="description"></a>
 
-**Description:** Alternate text that describes what is in the media attachment, to be used for the visually impaired or when media attachments do not load.
-**Type:** String
+**Description:** Alternate text that describes what is in the media attachment, to be used for the visually impaired or when media attachments do not load.\
+**Type:** String\
 **Version history:** Added in 2.0.0
 
 ### `blurhash` <a id="blurhash"></a>
 
-**Description:** A hash computed by [the BlurHash algorithm](https://github.com/woltapp/blurhash), for generating colorful preview thumbnails when media has not been downloaded yet.
-**Type:** String
+**Description:** A hash computed by [the BlurHash algorithm](https://github.com/woltapp/blurhash), for generating colorful preview thumbnails when media has not been downloaded yet.\
+**Type:** String\
 **Version history:** Added in 2.8.1
 
 ## See also

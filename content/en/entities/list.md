@@ -19,14 +19,14 @@ menu:
 
 ### `id` <a id="id"></a>
 
-**Description:** The internal database ID of the list.
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)
+**Description:** The internal database ID of the list.\
+**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 2.1.0
 
 ### `title` <a id="title"></a>
 
-**Description:** The user-defined title of the list.
-**Type:** String
+**Description:** The user-defined title of the list.\
+**Type:** String\
 **Version history:** Added in 2.1.0
 
 ## See also

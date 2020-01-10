@@ -22,36 +22,36 @@ menu:
 
 ### `name` <a id="name"></a>
 
-**Description:** The name of your application.
-**Type:** String
+**Description:** The name of your application.\
+**Type:** String\
 **Version history:** Added in 0.9.9
 
 ## Optional attributes
 
 ### `website` <a id="website"></a>
 
-**Description:** The website associated with your application.
-**Type:** String \(URL\)
+**Description:** The website associated with your application.\
+**Type:** String \(URL\)\
 **Version history:** Added in 0.9.9
 
 ### `vapid_key` <a id="vapid_key"></a>
 
-**Description:** Used for Push Streaming API. Returned with [POST /api/v1/apps](../methods/apps/#create-an-application). Equivalent to [PushSubscription\#server\_key](push-subscription.md#server_key)
-**Type:** String
+**Description:** Used for Push Streaming API. Returned with [POST /api/v1/apps](../methods/apps/#create-an-application). Equivalent to [PushSubscription\#server\_key](push-subscription.md#server_key)\
+**Type:** String\
 **Version history:** Added in 2.8.0
 
 ## Client attributes
 
 ### `client_id` <a id="client_id"></a>
 
-**Description:** Client ID key, to be used for obtaining OAuth tokens
-**Type:** String
+**Description:** Client ID key, to be used for obtaining OAuth tokens\
+**Type:** String\
 **Version history:** Added in 0.9.9
 
 ### `client_secret` <a id="client_secret"></a>
 
-**Description:** Client secret key, to be used for obtaining OAuth tokens
-**Type:** String
+**Description:** Client secret key, to be used for obtaining OAuth tokens\
+**Type:** String\
 **Version history:** Added in 0.9.9
 
 ## See also

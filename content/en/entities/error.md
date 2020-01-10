@@ -23,16 +23,16 @@ menu:
 
 ### `error` <a id="error"></a>
 
-**Description:** The error message.
-**Type:** String
+**Description:** The error message.\
+**Type:** String\
 **Version history:** Added in 0.6.0
 
 ## Optional attributes
 
 ### `error_description` <a id="error_description"></a>
 
-**Description:** A longer description of the error, mainly provided with the OAuth API.
-**Type:** String
+**Description:** A longer description of the error, mainly provided with the OAuth API.\
+**Type:** String\
 **Version history:** Added in 0.6.0
 
 ## Possible reasons <a id="reasons"></a>

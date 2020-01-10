@@ -27,26 +27,26 @@ menu:
 
 ### `id` <a id="id"></a>
 
-**Description:** The id of the push subscription in the database.
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)
+**Description:** The id of the push subscription in the database.\
+**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 2.4.0
 
 ### `endpoint` <a id="endpoint"></a>
 
-**Description:** Where push alerts will be sent to.
-**Type:** String \(URL\)
+**Description:** Where push alerts will be sent to.\
+**Type:** String \(URL\)\
 **Version history:** Added in 2.4.0
 
 ### `server_key` <a id="server_key"></a>
 
-**Description:** The streaming server's VAPID key.
-**Type:** String
+**Description:** The streaming server's VAPID key.\
+**Type:** String\
 **Version history:** Added in 2.4.0
 
 ### `alerts` <a id="alerts"></a>
 
-**Description:** Which alerts should be delivered to the `endpoint`.
-**Type:** Hash
+**Description:** Which alerts should be delivered to the `endpoint`.\
+**Type:** Hash\
 **Version history:** Added in 2.4.0. `alerts[poll]` added in 2.8.0.
 
 #### `alerts[follow]`

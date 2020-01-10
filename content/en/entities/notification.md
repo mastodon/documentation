@@ -62,39 +62,39 @@ menu:
 
 ### `id` <a id="id"></a>
 
-**Description:** The id of the notification in the database.
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)
+**Description:** The id of the notification in the database.\
+**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 0.9.9
 
 ### `type` <a id="type"></a>
 
-**Description:** The type of event that resulted in the notification.
-**Type:** String \(Enumerable oneOf\)
-- `follow` = Someone followed you
-- `mention` = Someone mentioned you in their status
-- `reblog` = Someone boosted one of your statuses
-- `favourite` = Someone favourited one of your statuses
-- `poll` = A poll you have voted in or created has ended
+**Description:** The type of event that resulted in the notification.\
+**Type:** String \(Enumerable oneOf\)\
+`follow` = Someone followed you\
+`mention` = Someone mentioned you in their status\
+`reblog` = Someone boosted one of your statuses\
+`favourite` = Someone favourited one of your statuses\
+`poll` = A poll you have voted in or created has ended\
 **Version history:** Added in 0.9.9. `poll` added in 2.8.0.
 
 ### `created_at` <a id="created_at"></a>
 
-**Description:** The timestamp of the notification.
-**Type:** String \(ISO 8601 Datetime\)
+**Description:** The timestamp of the notification.\
+**Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 0.9.9
 
 ### `account` <a id="account"></a>
 
-**Description:** The account that performed the action that generated the notification.
-**Type:** [Account](account.md)
+**Description:** The account that performed the action that generated the notification.\
+**Type:** [Account](account.md)\
 **Version history:** Added in 0.9.9
 
 ## Optional attributes
 
 ### `status` <a id="status"></a>
 
-**Description:** Status that was the object of the notification, e.g. in mentions, reblogs, favourites, or polls.
-**Type:** [Status](status.md)
+**Description:** Status that was the object of the notification, e.g. in mentions, reblogs, favourites, or polls.\
+**Type:** [Status](status.md)\
 **Version history:** Added in 0.9.9
 
 ## See also

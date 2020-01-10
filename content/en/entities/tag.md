@@ -56,22 +56,22 @@ menu:
 
 ### `name` <a id="name"></a>
 
-**Description:** The value of the hashtag after the \# sign.
-**Type:** String
+**Description:** The value of the hashtag after the \# sign.\
+**Type:** String\
 **Version history:** Added in 0.9.0
 
 ### `url` <a id="url"></a>
 
-**Description:** A link to the hashtag on the instance.
-**Type:** String \(URL\)
+**Description:** A link to the hashtag on the instance.\
+**Type:** String \(URL\)\
 **Version history:** Added in 0.9.0
 
 ## Optional attributes
 
 ### `history` <a id="history"></a>
 
-**Description:** Usage statistics for given days.
-**Type:** Array of [History]({{< relref "history.md" >}})
+**Description:** Usage statistics for given days.\
+**Type:** Array of [History]({{< relref "history.md" >}})\
 **Version history:** Added in 2.4.1
 
 ## See also

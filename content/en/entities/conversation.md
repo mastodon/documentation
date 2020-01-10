@@ -34,28 +34,28 @@ menu:
 
 ### `id` <a id="id"></a>
 
-**Description:** Local database ID of the conversation.
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)
+**Description:** Local database ID of the conversation.\
+**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 2.6.0
 
 ### `accounts` <a id="accounts"></a>
 
-**Description:** Participants in the conversation.
-**Type:** Array of [Account](account.md)
+**Description:** Participants in the conversation.\
+**Type:** Array of [Account](account.md)\
 **Version history:** Added in 2.6.0
 
 ### `unread` <a id="unread"></a>
 
-**Description:** Is the conversation currently marked as unread?
-**Type:** Boolean
+**Description:** Is the conversation currently marked as unread?\
+**Type:** Boolean\
 **Version history:** Added in 2.6.0
 
 ## Optional attributes
 
 ### `last_status` <a id="last_status"></a>
 
-**Description:** The last status in the conversation, to be used for optional display.
-**Type:** [Status](status.md)
+**Description:** The last status in the conversation, to be used for optional display.\
+**Type:** [Status](status.md)\
 **Version history:** Added in 2.6.0
 
 ## See also

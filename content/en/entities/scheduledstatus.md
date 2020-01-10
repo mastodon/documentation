@@ -36,14 +36,14 @@ This page is currently under construction.
 
 ### id <a id="id"></a>
 
-**Description:** ID of the scheduled status in the database.
-**Type:** String \(cast from an integer but not guaranteed to be a number\)
+**Description:** ID of the scheduled status in the database.\
+**Type:** String \(cast from an integer but not guaranteed to be a number\)\
 **Version history:** Added in 2.7.0
 
 ### scheduled\_at
 
-**Description:** ID of the status in the database.
-**Type:** String \(ISO 8601 Datetime\)
+**Description:** ID of the status in the database.\
+**Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 2.7.0
 
 ### params

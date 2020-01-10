@@ -94,188 +94,188 @@ menu:
 
 ### `id` <a id="id"></a>
 
-**Description:** ID of the status in the database.
-**Type:** String \(cast from an integer but not guaranteed to be a number\)
+**Description:** ID of the status in the database.\
+**Type:** String \(cast from an integer but not guaranteed to be a number\)\
 **Version history:** Added in 0.1.0
 
 ### `uri` <a id="uri"></a>
 
-**Description:** URI of the status used for federation.
-**Type:** String
+**Description:** URI of the status used for federation.\
+**Type:** String\
 **Version history:** Added in 0.1.0
 
 ### `created_at` <a id="created_at"></a>
 
-**Description:** HTML-encoded status content.
-**Type:** String \(ISO 8601 Datetime\)
+**Description:** HTML-encoded status content.\
+**Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 0.1.0
 
 ### `account` <a id="account"></a>
 
-**Description:** The account that authored this status.
-**Type:** [Account](account.md)
+**Description:** The account that authored this status.\
+**Type:** [Account](account.md)\
 **Version history:** Added in 0.1.0
 
 ### `content` <a id="content"></a>
 
-**Description:** HTML-encoded status content.
-**Type:** String \(HTML\)
+**Description:** HTML-encoded status content.\
+**Type:** String \(HTML\)\
 **Version history:** Added in 0.1.0
 
 ### `text` <a id="text"></a>
 
-**Description:** Plain-text source of a status. Returned instead of `content` when status is deleted, so the user may redraft from the source text without the client having to reverse-engineer the original text from the HTML content.
-**Type:** String
+**Description:** Plain-text source of a status. Returned instead of `content` when status is deleted, so the user may redraft from the source text without the client having to reverse-engineer the original text from the HTML content.\
+**Type:** String\
 **Version history:** Added in 2.9.0
 
 ### `visibility` <a id="visibility"></a>
 
-**Description:** HTML-encoded status content.
-**Type:** String \(Enumerable oneOf\)
-- `public` = Visible to everyone, shown in public timelines.
-- `unlisted` = Visible to public, but not included in public timelines.
-- `private` = Visible to followers only, and to any mentioned users.
-- `direct` = Visible only to mentioned users.
+**Description:** HTML-encoded status content.\
+**Type:** String \(Enumerable oneOf\)\
+`public` = Visible to everyone, shown in public timelines.\
+`unlisted` = Visible to public, but not included in public timelines.\
+`private` = Visible to followers only, and to any mentioned users.\
+`direct` = Visible only to mentioned users.\
 **Version history:** Added in 0.9.9
 
 ### `sensitive` <a id="sensitive"></a>
 
-**Description:** Is this status marked as sensitive content?
-**Type:** Boolean
+**Description:** Is this status marked as sensitive content?\
+**Type:** Boolean\
 **Version history:** Added in 0.9.9
 
 ### `spoiler_text` <a id="spoiler_text"></a>
 
-**Description:** Subject or summary line, below which status content is collapsed until expanded.
-**Type:** String
+**Description:** Subject or summary line, below which status content is collapsed until expanded.\
+**Type:** String\
 **Version history:** Added in 1.0.0
 
 ### `media_attachments` <a id="media_attachments"></a>
 
-**Description:** Media that is attached to this status.
-**Type:** Array of [Attachment](attachment.md)
+**Description:** Media that is attached to this status.\
+**Type:** Array of [Attachment](attachment.md)\
 **Version history:** Added in 0.6.0
 
 ### `application` <a id="application"></a>
 
-**Description:** The application used to post this status.
-**Type:** [Application](application.md)
+**Description:** The application used to post this status.\
+**Type:** [Application](application.md)\
 **Version history:** Added in 0.9.9
 
 ## Rendering attributes
 
 ### `mentions` <a id="mentions"></a>
 
-**Description:** Mentions of users within the status content.
-**Type:** Array of [Mention]({{< relref "mention.md" >}})
+**Description:** Mentions of users within the status content.\
+**Type:** Array of [Mention]({{< relref "mention.md" >}})\
 **Version history:** Added in 0.6.0
 
 ### `tags` <a id="tags"></a>
 
-**Description:** Hashtags used within the status content.
-**Type:** Array of [Tag](tag.md)
+**Description:** Hashtags used within the status content.\
+**Type:** Array of [Tag](tag.md)\
 **Version history:** Added in 0.9.0
 
 ### `emojis` <a id="emojis"></a>
 
-**Description:** Custom emoji to be used when rendering status content.
-**Type:** Array of [Emoji](emoji.md)
+**Description:** Custom emoji to be used when rendering status content.\
+**Type:** Array of [Emoji](emoji.md)\
 **Version history:** Added in 2.0.0
 
 ## Informational attributes
 
 ### `reblogs_count` <a id="reblogs_count"></a>
 
-**Description:** How many boosts this status has received.
-**Type:** Number
+**Description:** How many boosts this status has received.\
+**Type:** Number\
 **Version history:** Added in 0.1.0
 
 ### `favourites_count` <a id="favorites_count"></a>
 
-**Description:** How many favourites this status has received.
-**Type:** Number
+**Description:** How many favourites this status has received.\
+**Type:** Number\
 **Version history:** Added in 0.1.0
 
 ### `replies_count` <a id="replies_count"></a>
 
-**Description:** How many replies this status has received.
-**Type:** Number
+**Description:** How many replies this status has received.\
+**Type:** Number\
 **Version history:** Added in 2.5.0
 
 ## Nullable attributes
 
 ### `url` <a id="url"></a>
 
-**Description:** A link to the status's HTML representation.
-**Type:** String \(URL\)
+**Description:** A link to the status's HTML representation.\
+**Type:** String \(URL\)\
 **Version history:** Added in 0.1.0
 
 ### `in_reply_to_id` <a id="in_reply_to_id"></a>
 
-**Description:** ID of the status being replied.
-**Type:** String \(cast from an integer but not guaranteed to be a number\)
+**Description:** ID of the status being replied.\
+**Type:** String \(cast from an integer but not guaranteed to be a number\)\
 **Version history:** Added in 0.1.0
 
 ### `in_reply_to_account_id` <a id="in_reply_to_account_id"></a>
 
-**Description:** ID of the account being replied to.
-**Type:** String \(cast from an integer but not guaranteed to be a number\)
+**Description:** ID of the account being replied to.\
+**Type:** String \(cast from an integer but not guaranteed to be a number\)\
 **Version history:** Added in 1.0.0
 
 ### `reblog` <a id="reblog"></a>
 
-**Description:** ID of the status in the database.
-**Type:** [Status](status.md)
+**Description:** ID of the status in the database.\
+**Type:** [Status](status.md)\
 **Version history:** Added in 0.1.0
 
 ### `poll` <a id="poll"></a>
 
-**Description:** The poll attached to the status.
-**Type:** [Poll]({{< relref "poll.md" >}})
+**Description:** The poll attached to the status.\
+**Type:** [Poll]({{< relref "poll.md" >}})\
 **Version history:** Added in 2.8.0
 
 ### `card` <a id="card"></a>
 
-**Description:** Preview card for links included within status content.
-**Type:** [Card]({{< relref "card.md" >}})
+**Description:** Preview card for links included within status content.\
+**Type:** [Card]({{< relref "card.md" >}})\
 **Version history:** Added in 2.6.0
 
 ### `language` <a id="language"></a>
 
-**Description:** A link to the status's HTML representation.
-**Type:** String \(ISO 639 Part 1 two-letter language code\)
+**Description:** A link to the status's HTML representation.\
+**Type:** String \(ISO 639 Part 1 two-letter language code\)\
 **Version history:** Added in 1.4.0
 
 ## Authorized user attributes
 
 ### `favourited` <a id="favourited"></a>
 
-**Description:** Have you favourited this status?
-**Type:** Boolean
+**Description:** Have you favourited this status?\
+**Type:** Boolean\
 **Version history:** Added in 0.1.0
 
 ### `reblogged` <a id="reblogged"></a>
 
-**Description:** Have you boosted this status?
-**Type:** Boolean
+**Description:** Have you boosted this status?\
+**Type:** Boolean\
 **Version history:** Added in 0.1.0
 
 ### `muted` <a id="muted"></a>
 
-**Description:** Have you muted notifications for this status's conversation?
-**Type:** Boolean
+**Description:** Have you muted notifications for this status's conversation?\
+**Type:** Boolean\
 **Version history:** Added in 1.4.0
 
 ### `bookmarked` <a id="bookmarked"></a>
 
-**Description:** Have you bookmarked this status?
-**Type:** Boolean
+**Description:** Have you bookmarked this status?\
+**Type:** Boolean\
 **Version history:** Added in 3.1.0
 
 ### `pinned` <a id="pinned"></a>
 
-**Description:** Have you pinned this status? Only appears if the status is pinnable.
-**Type:** Boolean
+**Description:** Have you pinned this status? Only appears if the status is pinnable.\
+**Type:** Boolean\
 **Version history:** Added in 1.6.0
 
 ## See also
