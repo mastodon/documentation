@@ -74,26 +74,26 @@ menu:
 
 ## Base attributes
 
-### **`id`** {#id"}
+### **`id`** {#id}
 
 **Description:** The account id`header`.\
 **Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 0.1.0
 
-### `username` {#username"}
+### `username` {#username}
 
 **Description:** The username of the account, not including domain.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `acct` {#acct"}
+### `acct` {#acct}
 
 **Description:** The Webfinger account URI.
 Equal to `username` for local users, or `username@domain` for remote users.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `url` {#url"}
+### `url` {#url}
 
 **Description:** The location of the user's profile page.\
 **Type:** String \(HTTPS URL\)\
@@ -101,57 +101,57 @@ Equal to `username` for local users, or `username@domain` for remote users.\
 
 ## Display attributes
 
-### `display_name` {#display_name"}
+### `display_name` {#display_name}
 
 **Description:** The profile's display name.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `note` {#note"}
+### `note` {#note}
 
 **Description:** The profile's bio / description.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `avatar` {#avatar"}
+### `avatar` {#avatar}
 
 **Description:** An image icon that is shown next to statuses and in the profile.\
 **Type:** String \(URL\)\
 **Version history:** Added in 0.1.0
 
-### `avatar_static` {#avatar_static"}
+### `avatar_static` {#avatar_static}
 
 **Description:** A static version of the avatar.
 Equal to `avatar` if its value is a static image; different if `avatar` is an animated GIF.\
 **Type:** String \(URL\)\
 **Version history:** Added in 1.1.2
 
-### `header` {#header"}
+### `header` {#header}
 
 **Description:** An image banner that is shown above the profile and in profile cards.\
 **Type:** String \(URL\)\
 **Version history:** Added in 0.1.0
 
-### `header_static` {#header_static"}
+### `header_static` {#header_static}
 
 **Description:** A static version of the header.
 Equal to `header` if its value is a static image; different if `header` is an animated GIF.\
 **Type:** String \(URL\)\
 **Version history:** Added in 1.1.2
 
-### `locked` {#locked"}
+### `locked` {#locked}
 
 **Description:** Whether the account manually approves follow requests.\
 **Type:** Boolean\
 **Version history:** Added in 0.1.0
 
-### `emojis` {#emojis"}
+### `emojis` {#emojis}
 
 **Description:** Custom emoji entities to be used when rendering the profile. If none, an empty array will be returned.\
 **Type:** Array of [Emoji](emoji.md)\
 **Version history:** Added in 2.4.0
 
-### `discoverable` {#discoverable"}
+### `discoverable` {#discoverable}
 
 **Description:** Whether the account has opted into discovery features such as the profile directory.\
 **Type:** Boolean\
@@ -159,25 +159,25 @@ Equal to `header` if its value is a static image; different if `header` is an an
 
 ## Statistical attributes 
 
-### `created_at` {#created_at"}
+### `created_at` {#created_at}
 
 **Description:** When the account was created.\
 **Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 0.1.0
 
-### `statuses_count` {#statuses_count"}
+### `statuses_count` {#statuses_count}
 
 **Description:** How many statuses are attached to this account.\
 **Type:** Number\
 **Version history:** Added in 0.1.0
 
-### `followers_count` {#followers_count"}
+### `followers_count` {#followers_count}
 
 **Description:** The reported followers of this profile.\
 **Type:** Number\
 **Version history:** Added in 0.1.0
 
-### `following_count` {#following_count"}
+### `following_count` {#following_count}
 
 **Description:** The reported follows of this profile.\
 **Type:** Number\
@@ -185,25 +185,25 @@ Equal to `header` if its value is a static image; different if `header` is an an
 
 ## Optional attributes
 
-### `moved` {#moved"}
+### `moved` {#moved}
 
 **Description:** Indicates that the profile is currently inactive and that its user has moved to a new account.\
 **Type:** [Account](account.md)\
 **Version history:** Added in 2.1.0
 
-### `fields` {#fields"}
+### `fields` {#fields}
 
 **Description:** Additional metadata attached to a profile as name-value pairs.\
 **Type:** Array of [Field]({{< relref "field.md" >}})\
 **Version history:** Added in 2.4.0
 
-### `bot` {#bot"}
+### `bot` {#bot}
 
 **Description:** A presentational flag. Indicates that the account may perform automated actions, may not be monitored, or identifies as a robot.\
 **Type:** Boolean\
 **Version history:** Added in 2.4.0
 
-### `source` {#source"}
+### `source` {#source}
 
 **Description:** An extra entity to be used with API methods to [verify credentials](../methods/accounts/#verify-account-credentials) and [update credentials](../methods/accounts/#update-account-credentials).\
 **Type:** [Source](source.md)\

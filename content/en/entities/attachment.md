@@ -148,13 +148,13 @@ menu:
 
 ## Required attributes
 
-### `id` {#id"}
+### `id` {#id}
 
 **Description:** The ID of the attachment in the database.\
 **Type:** String \(cast from an integer but not guaranteed to be a number\)\
 **Version history:** Added in 0.6.0.
 
-### `type` {#type"}
+### `type` {#type}
 
 **Description:** The type of the attachment.\
 **Type:** String \(Enumerable, oneOf\)\
@@ -165,13 +165,13 @@ menu:
 `audio` = Audio track\
 **Version history:** Added in 0.6.0. Audio added in 2.9.1.
 
-### `url` {#url"}
+### `url` {#url}
 
 **Description:** The location of the original full-size attachment.\
 **Type:** String \(URL\)\
 **Version history:** Added in 0.6.0.
 
-### `preview_url` {#preview_url"}
+### `preview_url` {#preview_url}
 
 **Description:** The location of a scaled-down preview of the attachment.\
 **Type:** String \(URL\)\
@@ -179,19 +179,19 @@ menu:
 
 ## Optional attributes
 
-### `remote_url` {#remote_url"}
+### `remote_url` {#remote_url}
 
 **Description:** The location of the full-size original attachment on the remote website.\
 **Type:** String \(URL\), or null if the attachment is local\
 **Version history:** Added in 0.6.0.
 
-### `text_url` {#text_url"}
+### `text_url` {#text_url}
 
 **Description:** A shorter URL for the attachment.\
 **Type:** String \(URL\)\
 **Version history:** Added in 0.6.0.
 
-### `meta` {#meta"}
+### `meta` {#meta}
 
 **Description:** Metadata returned by Paperclip.\
 **Type:** Hash\
@@ -201,13 +201,13 @@ May contain subtrees `small` and `original`, as well as various other top-level 
 
 More importantly, there may be another top-level `focus` Hash object as of 2.3.0, with coordinates can be used for smart thumbnail cropping -- see [Focal points](../methods/statuses/media.md#focal-points) for more.
 
-### `description` {#description"}
+### `description` {#description}
 
 **Description:** Alternate text that describes what is in the media attachment, to be used for the visually impaired or when media attachments do not load.\
 **Type:** String\
 **Version history:** Added in 2.0.0
 
-### `blurhash` {#blurhash"}
+### `blurhash` {#blurhash}
 
 **Description:** A hash computed by [the BlurHash algorithm](https://github.com/woltapp/blurhash), for generating colorful preview thumbnails when media has not been downloaded yet.\
 **Type:** String\

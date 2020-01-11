@@ -1,5 +1,6 @@
 ---
 title: Full-text search
+description: Setting up ElasticSearch to search for statuses authored, favourited, or mentioned in.
 menu:
   docs:
     weight: 10
@@ -8,7 +9,7 @@ menu:
 
 Mastodon supports full-text search when it ElasticSearch is available. Mastodon’s full-text search allows logged in users to find results from their own toots, their favourites, and their mentions. It deliberately does not allow searching for arbitrary strings in the entire database.
 
-## Installing ElasticSearch {#install"}
+## Installing ElasticSearch {#install}
 
 ElasticSearch requires a Java runtime. If you don’t have Java already installed, do it now. Assuming you are logged in as `root`:
 
@@ -41,7 +42,7 @@ systemctl enable elasticsearch
 systemctl start elasticsearch
 ```
 
-## Configuring Mastodon {#config"}
+## Configuring Mastodon {#config}
 
 Edit `.env.production` to add the following variables:
 

@@ -1,8 +1,6 @@
 ---
 title: Report
-description: >-
-  Reports filed against users and/or statuses, to be taken action on by
-  moderators.
+description: Reports filed against users and/or statuses, to be taken action on by moderators.
 menu:
   docs:
     parent: entities

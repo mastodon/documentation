@@ -67,97 +67,97 @@ menu:
 
 ## Required attributes
 
-### `uri` {#uri"}
+### `uri` {#uri}
 
 **Description:** The domain name of the instance.\
 **Type:** String\
 **Version history:** Added in 1.1.0
 
-### `title` {#title"}
+### `title` {#title}
 
 **Description:** The title of the website.\
 **Type:** String\
 **Version history:** Added in 1.1.0
 
-### `description` {#description"}
+### `description` {#description}
 
 **Description:** Admin-defined description of the Mastodon site.\
 **Type:** String\
 **Version history:** Added in 1.1.0
 
-### `short_description` {#short_description"}
+### `short_description` {#short_description}
 
 **Description:** A shorter description defined by the admin.\
 **Type:** String\
 **Version history:** Added in 2.9.2
 
-### `email` {#email"}
+### `email` {#email}
 
 **Description:** An email that may be contacted for any inquiries.\
 **Type:** String\
 **Version history:** Added in 1.1.0
 
-### `version` {#version"}
+### `version` {#version}
 
 **Description:** The version of Mastodon installed on the instance.\
 **Type:** String\
 **Version history:** Added in 1.3.0
 
-### `languages` {#languages"}
+### `languages` {#languages}
 
 **Description:** Primary langauges of the website and its staff.\
 **Type:** Array of String \(ISO 639 Part 1-5 language codes\)\
 **Version history:** Added in 2.3.0
 
-### `registrations` {#registrations"}
+### `registrations` {#registrations}
 
 **Description:** Whether registrations are enabled.\
 **Type:** Boolean\
 **Version history:** Added in 2.7.2
 
-### `approval_required` {#approval_required"}
+### `approval_required` {#approval_required}
 
 **Description:** Whether registrations require moderator approval.\
 **Type:** Boolean\
 **Version history:** Added in 2.9.2
 
-### `urls` {#urls"}
+### `urls` {#urls}
 
 **Description:** URLs of interest for clients apps.\
 **Type:** Hash \(`streaming_api`\)\
 **Version history:** Added in 1.4.2
 
-#### `urls[streaming_api]` {#streaming_api"}
+#### `urls[streaming_api]` {#streaming_api}
 
 Websockets address for push streaming. String \(URL\).
 
-### `stats` {#stats"}
+### `stats` {#stats}
 
 **Description:** Statistics about how much information the instance contains.\
 **Type:** Hash \(`user_count`, `status_count`, `domain_count`\)\
 **Version history:** Added in 1.6.0
 
-#### `user_count` {#user_count"}
+#### `user_count` {#user_count}
 
 Users registered on this instance. Number.
 
-#### `status_count` {#status_count"}
+#### `status_count` {#status_count}
 
 Statuses authored by users on instance. Number.
 
-#### `domain_count` {#domain_count"}
+#### `domain_count` {#domain_count}
 
 Domains federated with this instance. Number.
 
 ## Optional attributes
 
-### `thumbnail` {#thumbnail"}
+### `thumbnail` {#thumbnail}
 
 **Description:** Banner image for the website.\
 **Type:** String \(URL\) or null\
 **Version history:** Added in 1.6.1
 
-### `contact_account` {#contact_account"}
+### `contact_account` {#contact_account}
 
 **Description:** A user that can be contacted, as an alternative to `email`.\
 **Type:** [Account](account.md) or null\

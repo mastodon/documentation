@@ -1,12 +1,13 @@
 ---
 title: Installing from source
+description: Instructional guide on creating your own Mastodon-powered website.
 menu:
   docs:
     weight: 20
     parent: admin
 ---
 
-## Pre-requisites {#pre-requisites"}
+## Pre-requisites {#pre-requisites}
 
 * A machine running **Ubuntu 18.04** that you have root access to
 * A **domain name** \(or a subdomain\) for the Mastodon server, e.g. `example.com`
@@ -14,24 +15,24 @@ menu:
 
 You will be running the commands as root. If you aren’t already root, switch to root:
 
-### System repositories {#system-repositories"}
+### System repositories {#system-repositories}
 
 Make sure curl is installed first:
 
-#### Node.js {#node-js"}
+#### Node.js {#node-js}
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
 ```
 
-#### Yarn {#yarn"}
+#### Yarn {#yarn}
 
 ```bash
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 ```
 
-### System packages {#system-packages"}
+### System packages {#system-packages}
 
 ```bash
 apt update
@@ -44,7 +45,7 @@ apt install -y \
   certbot python-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
 ```
 
-### Installing Ruby {#installing-ruby"}
+### Installing Ruby {#installing-ruby}
 
 We will be using rbenv to manage Ruby versions, because it’s easier to get the right versions and to update once a newer release comes out. rbenv must be installed for a single Linux user, therefore, first we must create the user Mastodon will be running as:
 
@@ -94,15 +95,15 @@ Return to the root user:
 exit
 ```
 
-## Setup {#setup"}
+## Setup {#setup}
 
-### Setting up PostgreSQL {#setting-up-postgresql"}
+### Setting up PostgreSQL {#setting-up-postgresql}
 
-#### Performance configuration \(optional\) {#performance-configuration-optional"}
+#### Performance configuration \(optional\) {#performance-configuration-optional}
 
 For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/9.6/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
 
-#### Creating a user {#creating-a-user"}
+#### Creating a user {#creating-a-user}
 
 You will need to create a PostgreSQL user that Mastodon could use. It is easiest to go with “ident” authentication in a simple setup, i.e. the PostgreSQL user does not have a separate password and can be used by the Linux user with the same username.
 
@@ -121,7 +122,7 @@ CREATE USER mastodon CREATEDB;
 
 Done!
 
-### Setting up Mastodon {#setting-up-mastodon"}
+### Setting up Mastodon {#setting-up-mastodon}
 
 It is time to download the Mastodon code. Switch to the mastodon user:
 
@@ -129,7 +130,7 @@ It is time to download the Mastodon code. Switch to the mastodon user:
 su - mastodon
 ```
 
-#### Checking out the code {#checking-out-the-code"}
+#### Checking out the code {#checking-out-the-code}
 
 Use git to download the latest stable release of Mastodon:
 
@@ -138,7 +139,7 @@ git clone https://github.com/tootsuite/mastodon.git live && cd live
 git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 ```
 
-#### Installing the last dependencies {#installing-the-last-dependencies"}
+#### Installing the last dependencies {#installing-the-last-dependencies}
 
 Now to install Ruby and JavaScript dependencies:
 
@@ -149,7 +150,7 @@ bundle install \
 yarn install --pure-lockfile
 ```
 
-#### Generating a configuration {#generating-a-configuration"}
+#### Generating a configuration {#generating-a-configuration}
 
 Run the interactive setup wizard:
 
@@ -171,7 +172,7 @@ You’re done with the mastodon user for now, so switch back to root:
 exit
 ```
 
-### Setting up nginx {#setting-up-nginx"}
+### Setting up nginx {#setting-up-nginx}
 
 Copy the configuration template for nginx from the Mastodon directory:
 
@@ -184,7 +185,7 @@ Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with yo
 
 Reload nginx for the changes to take effect:
 
-### Acquiring a SSL certificate {#acquiring-a-ssl-certificate"}
+### Acquiring a SSL certificate {#acquiring-a-ssl-certificate}
 
 We’ll use Let’s Encrypt to get a free SSL certificate:
 
@@ -196,7 +197,7 @@ This will obtain the certificate, automatically update `/etc/nginx/sites-availab
 
 At this point you should be able to visit your domain in the browser and see the elephant hitting the computer screen error page. This is because we haven’t started the Mastodon process yet.
 
-### Setting up systemd services {#setting-up-systemd-services"}
+### Setting up systemd services {#setting-up-systemd-services}
 
 Copy the systemd service templates from the Mastodon directory:
 

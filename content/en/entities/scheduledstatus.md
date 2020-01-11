@@ -34,7 +34,7 @@ This page is currently under construction.
 
 ## Required attributes
 
-### id {#id"}
+### id {#id}
 
 **Description:** ID of the scheduled status in the database.\
 **Type:** String \(cast from an integer but not guaranteed to be a number\)\
@@ -70,7 +70,7 @@ This page is currently under construction.
 
 #### scheduled\_at
 
-## ScheduledStatus {#scheduledstatus"}
+## ScheduledStatus {#scheduledstatus}
 
 | Attribute | Type | Nullable | Added in |
 | :--- | :--- | :--- | :--- |
@@ -79,7 +79,7 @@ This page is currently under construction.
 | `params` | [StatusParams]() | No | 2.7.0 |
 | `media_attachments` | Array of [Attachment]() | No | 2.7.0 |
 
-### StatusParams {#statusparams"}
+### StatusParams {#statusparams}
 
 | Attribute | Type | Nullable | Added in |
 | :--- | :--- | :--- | :--- |

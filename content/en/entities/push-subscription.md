@@ -23,27 +23,27 @@ menu:
 }
 ```
 
-## Required attributes {#push-subscription"}
+## Required attributes {#push-subscription}
 
-### `id` {#id"}
+### `id` {#id}
 
 **Description:** The id of the push subscription in the database.\
 **Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 2.4.0
 
-### `endpoint` {#endpoint"}
+### `endpoint` {#endpoint}
 
 **Description:** Where push alerts will be sent to.\
 **Type:** String \(URL\)\
 **Version history:** Added in 2.4.0
 
-### `server_key` {#server_key"}
+### `server_key` {#server_key}
 
 **Description:** The streaming server's VAPID key.\
 **Type:** String\
 **Version history:** Added in 2.4.0
 
-### `alerts` {#alerts"}
+### `alerts` {#alerts}
 
 **Description:** Which alerts should be delivered to the `endpoint`.\
 **Type:** Hash\

@@ -60,13 +60,13 @@ menu:
 
 ## Required attributes
 
-### `id` {#id"}
+### `id` {#id}
 
 **Description:** The id of the notification in the database.\
 **Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 0.9.9
 
-### `type` {#type"}
+### `type` {#type}
 
 **Description:** The type of event that resulted in the notification.\
 **Type:** String \(Enumerable oneOf\)\
@@ -77,13 +77,13 @@ menu:
 `poll` = A poll you have voted in or created has ended\
 **Version history:** Added in 0.9.9. `poll` added in 2.8.0.
 
-### `created_at` {#created_at"}
+### `created_at` {#created_at}
 
 **Description:** The timestamp of the notification.\
 **Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 0.9.9
 
-### `account` {#account"}
+### `account` {#account}
 
 **Description:** The account that performed the action that generated the notification.\
 **Type:** [Account](account.md)\
@@ -91,7 +91,7 @@ menu:
 
 ## Optional attributes
 
-### `status` {#status"}
+### `status` {#status}
 
 **Description:** Status that was the object of the notification, e.g. in mentions, reblogs, favourites, or polls.\
 **Type:** [Status](status.md)\

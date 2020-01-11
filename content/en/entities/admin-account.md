@@ -1,5 +1,4 @@
 ---
-
 title: Admin::Account
 description: Admin-level information about a given account.
 menu:

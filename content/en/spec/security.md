@@ -7,7 +7,7 @@ menu:
     parent: spec
 ---
 
-## HTTP Signatures {#http"}
+## HTTP Signatures {#http}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/lib/request.rb" caption="app/lib/request.rb" >}}
 
@@ -40,7 +40,7 @@ The `keyId` should correspond to the actor and the key being used to generate th
 
 See also: [https://blog.joinmastodon.org/2018/07/how-to-make-friends-and-verify-requests/](https://blog.joinmastodon.org/2018/07/how-to-make-friends-and-verify-requests/)
 
-### Creating HTTP signatures {#http-sign"}
+### Creating HTTP signatures {#http-sign}
 
 To create an HTTP signature, you will have to define which headers are being hashed and signed. For example, consider the following request being sent out:
 
@@ -73,7 +73,7 @@ Signature: keyId="https://my-example.com/actor#main-key",headers="(request-targe
 
 This request is functionally equivalent to saying that `https://my-example.com/actor` is requesting `https://mastodon.example/users/username/inbox` and is proving that they sent this request by signing `(request-target)`, `Host:`, and `Date:` with their public key linked at `keyId`, resulting in the provided `signature`.
 
-### Verifying HTTP signatures {#http-verify"}
+### Verifying HTTP signatures {#http-verify}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/controllers/concerns/signature_verification.rb" caption="app/controllers/concerns/signature\_verification.rb" >}}
 
@@ -95,7 +95,7 @@ Mastodon verifies the signature using the following algorithm:
 * SHA256 hash the signature string and compare to the Base64-decoded `signature` as decrypted by `publicKey[publicKeyPem]`.
 * Use the Date: header to check that the signed request was made within the past 12 hours.
 
-## Linked Data Signatures {#ld"}
+## Linked Data Signatures {#ld}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/lib/activitypub/linked_data_signature.rb" caption="app/lib/activitypub/linked\_data\_signature.rb" >}}
 
@@ -104,7 +104,7 @@ Mastodon verifies the signature using the following algorithm:
 * When running a [self-destruct](../admin/tootctl.md#tootctl-self-destruct) sequence to send Delete activities to all known peers, the payload will use LD Signatures because HTTP Signatures will not be available. Receiving servers will process the signature by validating it against the locally cached actor key, since the HTTP server will no longer be hosting old actor information.
 * When accepting activities from a relay. Public activities can optionally be sent to a relay with LD Signatures, and any server subscribing to a relay does not have to manually refetch the activity from the origin. This prevents having potentially infinite servers attempt to load the status from your instance.
 
-### Creating LD signatures {#ld-sign"}
+### Creating LD signatures {#ld-sign}
 
 To create a signature, Mastodon uses the keypair attached to an actor at `https://mastodon.example/users/username#main-key`. It then creates an SHA256 hash of the document, signs it with the keypair, and Base64-strict-encodes the resulting output to derive a `signatureValue`. The following hash is merged into the JSON-LD document:
 
@@ -121,7 +121,7 @@ To create a signature, Mastodon uses the keypair attached to an actor at `https:
 Mastodon's current implementation of LD Signatures is somewhat outdated due to a change in the JSON-LD @context between the drafting stage and finalization stage of the specification. Mastodon expects a `type` of `RsaSignature2017` while the current specification instead defines `RsaSignature2018` via the namespace `https://w3id.org/security/v2`.
 {{< /hint >}}
 
-### Verifying LD signatures {#ld-verify"}
+### Verifying LD signatures {#ld-verify}
 
 To verify a signature, Mastodon uses the following algorithm:
 

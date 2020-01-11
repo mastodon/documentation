@@ -25,7 +25,7 @@ RAILS_ENV=production bin/tootctl help
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/cli.rb" caption="lib/cli.rb" >}}
 
-### `tootctl self-destruct` {#self-destruct"}
+### `tootctl self-destruct` {#self-destruct}
 
 Erase this server from the federation by broadcasting account Delete activities to all known other servers. This allows a "clean exit" from running a Mastodon server, as it leaves next to no cache behind on other servers. This command is always interactive and requires confirmation twice.
 
@@ -42,18 +42,18 @@ No local data is actually deleted, because emptying the database or deleting the
 | :--- | :--- |
 | `--dry_run` | Print expected results only, without performing any actions. |
 
-### `tootctl --version` {#version"}
+### `tootctl --version` {#version}
 
 Show the version of the currently running Mastodon instance.
 
 **Version history:**
 2.7.0 - added
 
-## Accounts CLI {#accounts"}
+## Accounts CLI {#accounts}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/accounts_cli.rb" caption="lib/mastodon/accounts\_cli.rb" >}}
 
-### `tootctl accounts rotate` {#accounts-rotate"}
+### `tootctl accounts rotate` {#accounts-rotate}
 
 Generate and broadcast new RSA keys, as part of security maintenance.
 
@@ -65,7 +65,7 @@ Generate and broadcast new RSA keys, as part of security maintenance.
 | `USERNAME` | Local username for an account. |
 | `--all` | Can be provided instead of USERNAME to rotate keys for all local accounts. |
 
-### `tootctl accounts create` {#accounts-create"}
+### `tootctl accounts create` {#accounts-create}
 
 Create a new user account with given USERNAME and provided --email.
 
@@ -81,7 +81,7 @@ Create a new user account with given USERNAME and provided --email.
 | `--reattach`    | Reuse an old USERNAME after its account has been deleted. |
 | `--force`       | Forcefully delete any existing account with this USERNAME and reattach the new account in place of the \(just-deleted\) account. |
 
-### `tootctl accounts modify` {#accounts-modify"}
+### `tootctl accounts modify` {#accounts-modify}
 
 Modify a user account's role, email, active status, approval mode, or 2FA requirement.
 
@@ -99,7 +99,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 | `--approve` | Approve the account, if you are/were in approval mode. |
 | `--disable_2fa` | Remove additional factors and allow login with password. |
 
-### `tootctl accounts delete` {#accounts-delete"}
+### `tootctl accounts delete` {#accounts-delete}
 
 Delete a user account with given USERNAME.
 
@@ -110,7 +110,7 @@ Delete a user account with given USERNAME.
 | :--- | :--- |
 | `USERNAME` | Local username for the account. Required. |
 
-### `tootctl accounts backup` {#accounts-backup"}
+### `tootctl accounts backup` {#accounts-backup}
 
 Request a backup for a user account with given USERNAME. The backup will be created in Sidekiq asynchronously, and the user will receive an email with a link to it once it's done.
 
@@ -121,7 +121,7 @@ Request a backup for a user account with given USERNAME. The backup will be crea
 | :--- | :--- |
 | `USERNAME` | Local username for the account. Required. |
 
-### `tootctl accounts cull` {#accounts-cull"}
+### `tootctl accounts cull` {#accounts-cull}
 
 Remove remote accounts that no longer exist. Queries every single remote account in the database to determine if it still exists on the origin server, and if it doesn't, then remove it from the database. Accounts that have had confirmed activity within the last week are excluded from the checks, in case the server is just down.
 
@@ -134,7 +134,7 @@ Remove remote accounts that no longer exist. Queries every single remote account
 | `--concurrency N` | The number of workers to use for this task. Defaults to N=5. |
 | `--dry_run` | Print expected results only, without performing any actions. |
 
-### `tootctl accounts refresh` {#accounts-refresh"}
+### `tootctl accounts refresh` {#accounts-refresh}
 
 Refetch remote user data and files for one or multiple accounts.
 
@@ -150,7 +150,7 @@ Refetch remote user data and files for one or multiple accounts.
 | `--verbose` | Print additional information while task is processing. |
 | `--dry_run` | Print expected results only, without performing any actions. |
 
-### `tootctl accounts follow` {#accounts-follow"}
+### `tootctl accounts follow` {#accounts-follow}
 
 Force all local accounts to follow a local account specified by username.
 
@@ -164,7 +164,7 @@ Force all local accounts to follow a local account specified by username.
 | `--concurrency N` | The number of workers to use for this task. Defaults to N=5. |
 | `--verbose` | Print additional information while task is processing. |
 
-### `tootctl accounts unfollow` {#accounts-unfollow"}
+### `tootctl accounts unfollow` {#accounts-unfollow}
 
 Force all local accounts to unfollow an account specified by their address.
 
@@ -177,7 +177,7 @@ Force all local accounts to unfollow an account specified by their address.
 | `--concurrency N` | The number of workers to use for this task. Defaults to N=5. |
 | `--verbose` | Print additional information while task is processing. |
 
-### `tootctl accounts reset-relationships` {#accounts-reset-relationships"}
+### `tootctl accounts reset-relationships` {#accounts-reset-relationships}
 
 Reset all follow and/or follower relationships for a local account.
 
@@ -190,7 +190,7 @@ Reset all follow and/or follower relationships for a local account.
 | `--follows` | Force USERNAME to unfollow everyone, then re-follow them. |
 | `--followers` | Remove all of USERNAME's followers. |
 
-### `tootctl accounts approve` {#accounts-approve"}
+### `tootctl accounts approve` {#accounts-approve}
 
 Approve new registrations when instance is in approval mode.
 
@@ -203,18 +203,18 @@ Approve new registrations when instance is in approval mode.
 | `--number N` | Approve the N most recent registrations. |
 | `--all` | Approve all pending registrations. |
 
-## Cache CLI {#cache"}
+## Cache CLI {#cache}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/cache_cli.rb" caption="lib/mastodon/cache\_cli.rb" >}}
 
-### `tootctl cache clear` {#cache-clear"}
+### `tootctl cache clear` {#cache-clear}
 
 Clear out the cache storage.
 
 **Version history:**
 2.8.1 - added
 
-### `tootctl cache recount` {#cache-recount"}
+### `tootctl cache recount` {#cache-recount}
 
 Update hard-cached counters of TYPE by counting referenced records from scratch. It may take a very long time to finish, depending on the size of the database. Accounts will have their follower, following, and status counts refreshed. Statuses will have their reply, boost, and favourite counts refreshed.
 
@@ -227,11 +227,11 @@ Update hard-cached counters of TYPE by counting referenced records from scratch.
 | `--concurrency N` | The number of workers to use for this task. Defaults to N=5. |
 | `--verbose` | Print additional information while task is processing. |
 
-## Domains CLI {#domains"}
+## Domains CLI {#domains}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/domains_cli.rb" caption="lib/mastodon/domains\_cli.rb" >}}
 
-### `tootctl domains purge` {#domains-purge"}
+### `tootctl domains purge` {#domains-purge}
 
 Remove all accounts from a given DOMAIN without leaving behind any records. Unlike a suspension, if the DOMAIN still exists in the wild, it means the accounts could return if they are resolved again.
 
@@ -249,7 +249,7 @@ Remove all accounts from a given DOMAIN without leaving behind any records. Unli
 | `--verbose` | Print additional information while task is processing. |
 | `--dry_run` | Print expected results only, without performing any actions. |
 
-### `tootctl domains crawl` {#domains-crawl"}
+### `tootctl domains crawl` {#domains-crawl}
 
 Crawl the known fediverse by using Mastodon REST API endpoints that expose all known peers, and collect statistics from those peers, as long as those peers support those API endpoints. When no START is given, the command uses the server's own database of known peers to seed the crawl. Returns total servers, total registered users, total active users in the last week, and total users joined in the last week.
 
@@ -264,11 +264,11 @@ Crawl the known fediverse by using Mastodon REST API endpoints that expose all k
 | `--format FORMAT` | Control how results are returned. `summary` will print a summary. `domains` will return a newline-delimited list of all discovered peers. `json` will dump aggregated raw data. Defaults to `summary`. |
 | `--exclude_suspended` | Do not include instances that you have suspended in the output. Also includes any subdomains. |
 
-## Emoji CLI {#emoji"}
+## Emoji CLI {#emoji}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/emoji_cli.rb" caption="lib/mastodon/emoji\_cli.rb" >}}
 
-### `tootctl emoji import` {#emoji-import"}
+### `tootctl emoji import` {#emoji-import}
 
 Imports custom emoji from a .tar.gz archive at a given path. The archive should contain PNG or GIF files no larger than 50KB, and the shortcode will be set equal to the filename minus the extension, with optional prefixes and/or suffixes.
 
@@ -284,7 +284,7 @@ Imports custom emoji from a .tar.gz archive at a given path. The archive should 
 | `--unlisted` | Processed emoji will not be shown in the emoji picker, but will be usable only by their direct shortcode. |
 | `--category CATEGORY` | Group the processed emoji under CATEGORY in the picker. |
 
-### `tootctl emoji purge` {#emoji-purge"}
+### `tootctl emoji purge` {#emoji-purge}
 
 Remove all custom emoji.
 
@@ -299,11 +299,11 @@ Remove all custom emoji.
 **Version history:**
 2.8.0 - added
 
-## Feeds CLI {#feeds"}
+## Feeds CLI {#feeds}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/feeds_cli.rb" caption="lib/mastodon/feeds\_cli.rb" >}}
 
-### `tootctl feeds build` {#feeds-build"}
+### `tootctl feeds build` {#feeds-build}
 
 Build home and list feeds for one or all users. Feeds will be built from the database and cached in-memory with Redis. Mastodon manages home feeds for active users automatically.
 
@@ -318,18 +318,18 @@ Build home and list feeds for one or all users. Feeds will be built from the dat
 | `--verbose` | Print additional information while task is processing. |
 | `--dry_run` | Print expected results only, without performing any actions. |
 
-### `tootctl feeds clear` {#feeds-clear"}
+### `tootctl feeds clear` {#feeds-clear}
 
 Remove all home and list feeds from Redis.
 
 **Version history:**
 2.6.0 - added
 
-## Media CLI {#media"}
+## Media CLI {#media}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/media_cli.rb" caption="lib/mastodon/media\_cli.rb" >}}
 
-### `tootctl media remove` {#media-remove"}
+### `tootctl media remove` {#media-remove}
 
 Remove locally cached copies of media attachments from other servers.
 
@@ -344,7 +344,7 @@ Remove locally cached copies of media attachments from other servers.
 | `--verbose` | Print additional information while task is processing. |
 | `--dry_run` | Print expected results only, without performing any actions. |
 
-### `tootctl media remove-orphans` {#media-remove-orphans"}
+### `tootctl media remove-orphans` {#media-remove-orphans}
 
 Scans for files that do not belong to existing media attachments, and remove them. Please mind that some storage providers charge for the necessary API requests to list objects. Also, this operation requires iterating over every single file individually, so it will be slow.
 
@@ -356,7 +356,7 @@ Scans for files that do not belong to existing media attachments, and remove the
 | `--start_after` | The Paperclip attachment key where the loop will start. Use this option if the command was interrupted before. |
 | `--dry_run` | Print expected results only, without performing any actions. |
 
-### `tootctl media refresh` {#media-refresh"}
+### `tootctl media refresh` {#media-refresh}
 
 Refetch remote media attachments from other servers. You must specify the source of media attachments with either --status, --account, or --domain. If an attachment already exists in the database, it will not be overwritten unless you use --force.
 
@@ -374,25 +374,25 @@ Refetch remote media attachments from other servers. You must specify the source
 | `--dry_run` | Print expected results only, without performing any actions. |
 | `--force` | Force redownload the remote resource and overwrite the local attachment. |
 
-### `tootctl media usage` {#media-usage"}
+### `tootctl media usage` {#media-usage}
 
 Calculate disk space consumed by Mastodon.
 
 **Version history:**
 3.0.1 - added
 
-### `tootctl media lookup` {#media-lookup"}
+### `tootctl media lookup` {#media-lookup}
 
 Prompts for a media URL, then looks up where the media is displayed.
 
 **Version history:**
 3.1.0 - added
 
-## Preview Cards CLI {#preview_cards"}
+## Preview Cards CLI {#preview_cards}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/preview_cards_cli.rb" caption="lib/mastodon/preview\_cards\_cli.rb" >}}
 
-### `tootctl preview_cards remove` {#preview_cards-remove"}
+### `tootctl preview_cards remove` {#preview_cards-remove}
 
 Remove local thumbnails for preview cards.
 
@@ -407,11 +407,11 @@ Remove local thumbnails for preview cards.
 | `--dry_run` | Print expected results only, without performing any actions. |
 | `--link` | Only delete link-type preview cards; leave video and photo cards untouched. |
 
-## Search CLI {#search"}
+## Search CLI {#search}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/search_cli.rb" caption="lib/mastodon/search\_cli.rb" >}}
 
-### `tootctl search deploy` {#search-deploy"}
+### `tootctl search deploy` {#search-deploy}
 
 Create or update an ElasticSearch index and populate it. If ElasticSearch is empty, this command will create the necessary indices and then import data from the database into those indices. This command will also upgrade indices if the underlying schema has been changed since the last run.
 
@@ -423,29 +423,29 @@ Create or update an ElasticSearch index and populate it. If ElasticSearch is emp
 | :--- | :--- |
 | `--processes N` | Parallelize execution of the command. Defaults to N=2. Can also specify `auto` to derive a number based on available CPUs. |
 
-## Settings CLI {#settings"}
+## Settings CLI {#settings}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/settings_cli.rb" caption="lib/mastodon/settings\_cli.rb" >}}
 
-### `tootctl settings registrations open` {#settings-registrations-open"}
+### `tootctl settings registrations open` {#settings-registrations-open}
 
 Opens registrations.
 
 **Version history:**
 2.6.0 - added
 
-### `tootctl settings registrations close` {#settings-registrations-close"}
+### `tootctl settings registrations close` {#settings-registrations-close}
 
 Closes registrations.
 
 **Version history:**
 2.6.0 - added
 
-## Statuses CLI {#statuses"}
+## Statuses CLI {#statuses}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/statuses_cli.rb" caption="lib/mastodon/statuses\_cli.rb" >}}
 
-### `tootctl statuses remove` {#statuses-remove"}
+### `tootctl statuses remove` {#statuses-remove}
 
 Remove unreferenced statuses from the database, such as statuses that came from relays or from users who are no longer followed by any local accounts, and have not been replied to or otherwise interacted with.
 

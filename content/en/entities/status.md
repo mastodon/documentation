@@ -92,43 +92,43 @@ menu:
 
 ## Base attributes
 
-### `id` {#id"}
+### `id` {#id}
 
 **Description:** ID of the status in the database.\
 **Type:** String \(cast from an integer but not guaranteed to be a number\)\
 **Version history:** Added in 0.1.0
 
-### `uri` {#uri"}
+### `uri` {#uri}
 
 **Description:** URI of the status used for federation.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `created_at` {#created_at"}
+### `created_at` {#created_at}
 
 **Description:** HTML-encoded status content.\
 **Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 0.1.0
 
-### `account` {#account"}
+### `account` {#account}
 
 **Description:** The account that authored this status.\
 **Type:** [Account](account.md)\
 **Version history:** Added in 0.1.0
 
-### `content` {#content"}
+### `content` {#content}
 
 **Description:** HTML-encoded status content.\
 **Type:** String \(HTML\)\
 **Version history:** Added in 0.1.0
 
-### `text` {#text"}
+### `text` {#text}
 
 **Description:** Plain-text source of a status. Returned instead of `content` when status is deleted, so the user may redraft from the source text without the client having to reverse-engineer the original text from the HTML content.\
 **Type:** String\
 **Version history:** Added in 2.9.0
 
-### `visibility` {#visibility"}
+### `visibility` {#visibility}
 
 **Description:** HTML-encoded status content.\
 **Type:** String \(Enumerable oneOf\)\
@@ -138,25 +138,25 @@ menu:
 `direct` = Visible only to mentioned users.\
 **Version history:** Added in 0.9.9
 
-### `sensitive` {#sensitive"}
+### `sensitive` {#sensitive}
 
 **Description:** Is this status marked as sensitive content?\
 **Type:** Boolean\
 **Version history:** Added in 0.9.9
 
-### `spoiler_text` {#spoiler_text"}
+### `spoiler_text` {#spoiler_text}
 
 **Description:** Subject or summary line, below which status content is collapsed until expanded.\
 **Type:** String\
 **Version history:** Added in 1.0.0
 
-### `media_attachments` {#media_attachments"}
+### `media_attachments` {#media_attachments}
 
 **Description:** Media that is attached to this status.\
 **Type:** Array of [Attachment](attachment.md)\
 **Version history:** Added in 0.6.0
 
-### `application` {#application"}
+### `application` {#application}
 
 **Description:** The application used to post this status.\
 **Type:** [Application](application.md)\
@@ -164,19 +164,19 @@ menu:
 
 ## Rendering attributes
 
-### `mentions` {#mentions"}
+### `mentions` {#mentions}
 
 **Description:** Mentions of users within the status content.\
 **Type:** Array of [Mention]({{< relref "mention.md" >}})\
 **Version history:** Added in 0.6.0
 
-### `tags` {#tags"}
+### `tags` {#tags}
 
 **Description:** Hashtags used within the status content.\
 **Type:** Array of [Tag](tag.md)\
 **Version history:** Added in 0.9.0
 
-### `emojis` {#emojis"}
+### `emojis` {#emojis}
 
 **Description:** Custom emoji to be used when rendering status content.\
 **Type:** Array of [Emoji](emoji.md)\
@@ -184,19 +184,19 @@ menu:
 
 ## Informational attributes
 
-### `reblogs_count` {#reblogs_count"}
+### `reblogs_count` {#reblogs_count}
 
 **Description:** How many boosts this status has received.\
 **Type:** Number\
 **Version history:** Added in 0.1.0
 
-### `favourites_count` {#favorites_count"}
+### `favourites_count` {#favorites_count}
 
 **Description:** How many favourites this status has received.\
 **Type:** Number\
 **Version history:** Added in 0.1.0
 
-### `replies_count` {#replies_count"}
+### `replies_count` {#replies_count}
 
 **Description:** How many replies this status has received.\
 **Type:** Number\
@@ -204,43 +204,43 @@ menu:
 
 ## Nullable attributes
 
-### `url` {#url"}
+### `url` {#url}
 
 **Description:** A link to the status's HTML representation.\
 **Type:** String \(URL\)\
 **Version history:** Added in 0.1.0
 
-### `in_reply_to_id` {#in_reply_to_id"}
+### `in_reply_to_id` {#in_reply_to_id}
 
 **Description:** ID of the status being replied.\
 **Type:** String \(cast from an integer but not guaranteed to be a number\)\
 **Version history:** Added in 0.1.0
 
-### `in_reply_to_account_id` {#in_reply_to_account_id"}
+### `in_reply_to_account_id` {#in_reply_to_account_id}
 
 **Description:** ID of the account being replied to.\
 **Type:** String \(cast from an integer but not guaranteed to be a number\)\
 **Version history:** Added in 1.0.0
 
-### `reblog` {#reblog"}
+### `reblog` {#reblog}
 
 **Description:** ID of the status in the database.\
 **Type:** [Status](status.md)\
 **Version history:** Added in 0.1.0
 
-### `poll` {#poll"}
+### `poll` {#poll}
 
 **Description:** The poll attached to the status.\
 **Type:** [Poll]({{< relref "poll.md" >}})\
 **Version history:** Added in 2.8.0
 
-### `card` {#card"}
+### `card` {#card}
 
 **Description:** Preview card for links included within status content.\
 **Type:** [Card]({{< relref "card.md" >}})\
 **Version history:** Added in 2.6.0
 
-### `language` {#language"}
+### `language` {#language}
 
 **Description:** A link to the status's HTML representation.\
 **Type:** String \(ISO 639 Part 1 two-letter language code\)\
@@ -248,31 +248,31 @@ menu:
 
 ## Authorized user attributes
 
-### `favourited` {#favourited"}
+### `favourited` {#favourited}
 
 **Description:** Have you favourited this status?\
 **Type:** Boolean\
 **Version history:** Added in 0.1.0
 
-### `reblogged` {#reblogged"}
+### `reblogged` {#reblogged}
 
 **Description:** Have you boosted this status?\
 **Type:** Boolean\
 **Version history:** Added in 0.1.0
 
-### `muted` {#muted"}
+### `muted` {#muted}
 
 **Description:** Have you muted notifications for this status's conversation?\
 **Type:** Boolean\
 **Version history:** Added in 1.4.0
 
-### `bookmarked` {#bookmarked"}
+### `bookmarked` {#bookmarked}
 
 **Description:** Have you bookmarked this status?\
 **Type:** Boolean\
 **Version history:** Added in 3.1.0
 
-### `pinned` {#pinned"}
+### `pinned` {#pinned}
 
 **Description:** Have you pinned this status? Only appears if the status is pinnable.\
 **Type:** Boolean\

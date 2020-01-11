@@ -1,5 +1,6 @@
 ---
 title: Marker
+description: Represents the last read position within a user's timelines.
 menu:
   docs:
     parent: entities
@@ -24,13 +25,13 @@ menu:
 
 ## Base attributes
 
-### `home` {#home"}
+### `home` {#home}
 
 **Description:** Information about the user's position in the home timeline.\
 **Type:** Hash\
 **Version history:** Added in 3.0.0
 
-### `notifications` {#notifications"}
+### `notifications` {#notifications}
 
 **Description:** Information about the user's position in their notifications.\
 **Type:** Hash\
@@ -38,19 +39,19 @@ menu:
 
 ## Nested attributes
 
-### `last_read_id` {#last_read_id"}
+### `last_read_id` {#last_read_id}
 
 **Description:** The ID of the most recently viewed entity.\
 **Type:** String \(cast from integer but not guaranteed to be a number\)\
 **Version history:** Added in 3.0.0
 
-### `updated_at` {#updated_at"}
+### `updated_at` {#updated_at}
 
 **Description:** The timestamp of when the marker was set.\
 **Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 3.0.0
 
-### `version` {#version"}
+### `version` {#version}
 
 **Description:** Used for locking to prevent write conflicts.\
 **Type:** Number\

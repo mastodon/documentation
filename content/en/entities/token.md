@@ -1,8 +1,6 @@
 ---
 title: Token
-description: >-
-  Represents an OAuth token used for authenticating with the API and performing
-  actions.
+description: Represents an OAuth token used for authenticating with the API and performing actions.
 menu:
   docs:
     parent: entities
@@ -21,25 +19,25 @@ menu:
 
 ## Attributes
 
-### `access_token` {#access_token"}
+### `access_token` {#access_token}
 
 **Description:** An OAuth token to be used for authorization.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `token_type` {#token_type"}
+### `token_type` {#token_type}
 
 **Description:** The OAuth token type. Mastodon uses `Bearer` tokens.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `scope` {#scope"}
+### `scope` {#scope}
 
 **Description:** The OAuth scopes granted by this token, space-separated.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `created_at` {#created_at"}
+### `created_at` {#created_at}
 
 **Description:** When the token was generated.\
 **Type:** Number \(UNIX Timestamp\)\

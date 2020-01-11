@@ -85,19 +85,19 @@ menu:
 
 ## Required attributes
 
-### `accounts` {#accounts"}
+### `accounts` {#accounts}
 
 **Description:** Accounts which match the given query\
 **Type:** Array of [Account](account.md)\
 **Version history:** Added in x.x.x
 
-### `statuses` {#statuses"}
+### `statuses` {#statuses}
 
 **Description:** Statuses which match the given query\
 **Type:** Array of [Status](status.md)\
 **Version history:** Added in x.x.x
 
-### `hashtags` {#hashtags"}
+### `hashtags` {#hashtags}
 
 **Description:** Hashtags which match the given query\
 **Type:** Array of [Tag](tag.md) \(v2\). Array of String \(v1\).\

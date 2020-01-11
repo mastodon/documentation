@@ -1,8 +1,6 @@
 ---
 title: Card
-description: >-
-  Represents a rich preview card that is generated using OpenGraph tags from a
-  URL.
+description: Represents a rich preview card that is generated using OpenGraph tags from a URL.
 menu:
   docs:
     parent: entities
@@ -72,25 +70,25 @@ menu:
 
 ## Required attributes
 
-### `url` {#url"}
+### `url` {#url}
 
 **Description:** Location of linked resource.\
 **Type:** String \(URL\)\
 **Version history:** Added in 1.0.0
 
-### `title` {#title"}
+### `title` {#title}
 
 **Description:** Title of linked resource.\
 **Type:** String\
 **Version history:** Added in 1.0.0
 
-### `description` {#description"}
+### `description` {#description}
 
 **Description:** Description of preview.\
 **Type:** String\
 **Version history:** Added in 1.0.0
 
-### `type` {#type"}
+### `type` {#type}
 
 **Description:** The type of the preview card.\
 **Type:** String \(Enumerable, oneOf\)\
@@ -102,55 +100,55 @@ menu:
 
 ## Optional attributes
 
-### `author_name` {#author_name"}
+### `author_name` {#author_name}
 
 **Description:** The author of the original resource.\
 **Type:** String\
 **Version history:** Added in 1.3.0
 
-### `author_url` {#author_url"}
+### `author_url` {#author_url}
 
 **Description:** A link to the author of the original resource.\
 **Type:** String \(URL\)\
 **Version history:** Added in 1.3.0
 
-### `provider_name` {#provider_name"}
+### `provider_name` {#provider_name}
 
 **Description:** The provider of the original resource.\
 **Type:** String\
 **Version history:** Added in 1.3.0
 
-### `provider_url` {#provider_url"}
+### `provider_url` {#provider_url}
 
 **Description:** A link to the provider of the original resource.\
 **Type:** String \(URL\)\
 **Version history:** Added in 1.3.0
 
-### `html` {#html"}
+### `html` {#html}
 
 **Description:** HTML to be used for generating the preview card.\
 **Type:** String \(HTML\)\
 **Version history:** Added in 1.3.0
 
-### `width` {#width"}
+### `width` {#width}
 
 **Description:** Width of preview, in pixels.\
 **Type:** Number\
 **Version history:** Added in 1.3.0
 
-### `height` {#height"}
+### `height` {#height}
 
 **Description:** Height of preview, in pixels.\
 **Type:** Number\
 **Version history:** Added in 1.3.0
 
-### `image` {#image"}
+### `image` {#image}
 
 **Description:** Preview thumbnail.\
 **Type:** String \(URL\)\
 **Version history:** Added in 1.0.0
 
-### `embed_url` {#embed_url"}
+### `embed_url` {#embed_url}
 
 **Description:** Used for photo embeds, instead of custom `html`.\
 **Type:** String \(URL\)\

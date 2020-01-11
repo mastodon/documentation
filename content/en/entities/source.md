@@ -44,13 +44,13 @@ menu:
 
 ## Base attributes
 
-### `note` {#note"}
+### `note` {#note}
 
 **Description:** Profile bio.\
 **Type:** String\
 **Version history:** Added in 1.5.0
 
-### `fields` {#fields"}
+### `fields` {#fields}
 
 **Description:** Metadata about the account.\
 **Type:** Array of [Field]({{< relref "field.md" >}})\
@@ -58,7 +58,7 @@ menu:
 
 ## Nullable attributes
 
-### `privacy` {#privacy"}
+### `privacy` {#privacy}
 
 **Description:** The default post privacy to be used for new statuses.\
 **Type:** String \(Enumerable, oneOf\)\
@@ -68,19 +68,19 @@ menu:
 `direct` = Direct post\
 **Version history:** Added in 1.5.0
 
-### `sensitive` {#sensitive"}
+### `sensitive` {#sensitive}
 
 **Description:** Whether new statuses should be marked sensitive by default.\
 **Type:** Boolean\
 **Version history:** Added in 1.5.0
 
-### `language` {#language"}
+### `language` {#language}
 
 **Description:** The default posting language for new statuses.\
 **Type:** String \(ISO 639-1 language two-letter code\)\
 **Version history:** Added in 2.4.2
 
-### `follow_requests_count` {#follow_requests_count"}
+### `follow_requests_count` {#follow_requests_count}
 
 **Description:** The number of pending follow requests.\
 **Type:** Number\
