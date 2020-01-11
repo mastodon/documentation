@@ -21,7 +21,7 @@ menu:
 
 ## C++ <a id="c"></a>
 
-* [mastodon-cpp](https://github.com/tastytea/mastodon-cpp)
+* [mastodonpp](https://schlomp.space/tastytea/mastodonpp)
 
 ## Crystal <a id="crystal"></a>
 
