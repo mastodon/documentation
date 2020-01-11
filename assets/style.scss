@@ -436,6 +436,7 @@ main {
     background-color: lighten($darkest, 8%);
     border-radius: 3px;
     hyphens: none;
+    white-space: pre;
   }
 
   pre code {
