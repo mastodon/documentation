@@ -18,19 +18,19 @@ menu:
 
 ## Required attributes
 
-### `day` <a id="day"></a>
+### `day` {#day"}
 
 **Description:** UNIX timestamp on midnight of the given day.\
 **Type:** String \(UNIX timestamp\)\
 **Version history:** Added in 2.4.1
 
-### `uses` <a id="uses"></a>
+### `uses` {#uses"}
 
 **Description:** the counted usage of the tag within that day.\
 **Type:** String \(cast from an integer\)\
 **Version history:** Added in 2.4.1
 
-### `accounts` <a id="accounts"></a>
+### `accounts` {#accounts"}
 
 **Description:** the total of accounts using the tag within that day.\
 **Type:** String \(cast from an integer\)\

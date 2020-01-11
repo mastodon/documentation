@@ -21,7 +21,7 @@ menu:
 
 ## Required attributes
 
-### `error` <a id="error"></a>
+### `error` {#error"}
 
 **Description:** The error message.\
 **Type:** String\
@@ -29,51 +29,51 @@ menu:
 
 ## Optional attributes
 
-### `error_description` <a id="error_description"></a>
+### `error_description` {#error_description"}
 
 **Description:** A longer description of the error, mainly provided with the OAuth API.\
 **Type:** String\
 **Version history:** Added in 0.6.0
 
-## Possible reasons <a id="reasons"></a>
+## Possible reasons {#reasons"}
 
-### 401 - Unauthorized <a id="401"></a>
+### 401 - Unauthorized {#401"}
 
-#### require\_authenticated\_user! <a id="auth"></a>
+#### require\_authenticated\_user! {#auth"}
 
 Error: This API requires an authenticated user. Appears when the instance is in secure mode, which disables all public use of API methods.
 
-### 403 - Forbidden <a id="403"></a>
+### 403 - Forbidden {#403"}
 
-#### current\_user.disabled? <a id="disabled"></a>
+#### current\_user.disabled? {#disabled"}
 
 Error: Your login is currently disabled. Appears when the OAuth token's authorized user has had their account disabled by a moderator.
 
-#### !current\_user.confirmed? <a id="unconfirmed"></a>
+#### !current\_user.confirmed? {#unconfirmed"}
 
 Error: Your login is missing a confirmed e-mail address. Appears when the email address associated with the OAuth token's authorized user's account has not yet been confirmed.
 
-#### !current\_user.approved? <a id="unapproved"></a>
+#### !current\_user.approved? {#unapproved"}
 
 Error: Your login is currently pending approval. Appears when the OAuth token's authorized user has signed up on an instance with approval-required registrations, and the user has not yet had their account approved by a moderator.
 
-### 404 - Not Found <a id="404"></a>
+### 404 - Not Found {#404"}
 
-#### RecordNotFound <a id="not-found"></a>
+#### RecordNotFound {#not-found"}
 
 Error: Record not found. Appears when an entity record does not exist, or the authorized user is not within the audience of a private entity.operates on a user.
 
-### 422 - Unprocessable Entity <a id="422"></a>
+### 422 - Unprocessable Entity {#422"}
 
-#### RecordInvalid <a id="invalid"></a>
+#### RecordInvalid {#invalid"}
 
 Error: {string}. May appear when entity creation failed.
 
-#### RecordNotUnique <a id="not-unique"></a>
+#### RecordNotUnique {#not-unique"}
 
 Error: Duplicate record. Appears when you are trying to pin an account or status that is already pinned.
 
-#### !current\_user <a id="user-required"></a>
+#### !current\_user {#user-required"}
 
 Error: This method requires an authenticated user. Appears when using an OAuth token without an authorized user \(or no token at all\), while trying to call an API method that requires a user to be processed.
 

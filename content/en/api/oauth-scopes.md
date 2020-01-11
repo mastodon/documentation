@@ -21,7 +21,7 @@ If you do not specify a `scope` in your authorization request, or a `scopes` in 
 
 The set of scopes saved during app creation must include all the scopes that you will request in the authorization request, otherwise authorization will fail.
 
-### Version history <a id="versions"></a>
+### Version history {#versions"}
 
 - 0.9.0 - read, write, follow
 - 2.4.0 - push
@@ -33,15 +33,15 @@ The set of scopes saved during app creation must include all the scopes that you
 
 ## List of scopes
 
-### `read` <a id="read"></a>
+### `read` {#read"}
 
 Grants access to read data. Requesting `read` will also grant child scopes shown in the left column of the table below.
 
-### `write` <a id="write"></a>
+### `write` {#write"}
 
 Grants access to write data. Requesting `write` will also grant child scopes shown in the right column of the table below.
 
-### `follow` <a id="follow"></a>
+### `follow` {#follow"}
 
 Grants access to manage relationships. Requesting `follow` will also grant the following child scopes, shown in bold in the table:
 
@@ -49,11 +49,11 @@ Grants access to manage relationships. Requesting `follow` will also grant the f
 * `read:follows`, `write:follows`
 * `read:mutes`, `write:mutes`
 
-### `push` <a id="push"></a>
+### `push` {#push"}
 
 Grants access to [Web Push API subscriptions.]({{< relref "../methods/notifications/push.md" >}}) Added in Mastodon 2.4.0.
 
-### Admin scopes <a id="admin"></a>
+### Admin scopes {#admin"}
 
 Used for moderation API. Added in Mastodon 2.9.1. The following granular scopes are available \(note that there is no singular `admin` scope\):
 
@@ -64,7 +64,7 @@ Used for moderation API. Added in Mastodon 2.9.1. The following granular scopes 
   * `admin:write:accounts`
   * `admin:write:reports`
 
-## Granular scopes <a id="granular"></a>
+## Granular scopes {#granular"}
 
 | read | write |
 | :--- | :--- |

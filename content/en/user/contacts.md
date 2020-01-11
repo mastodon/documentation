@@ -7,13 +7,13 @@ menu:
     parent: user
 ---
 
-## Generating invites <a id="invites"></a>
+## Generating invites {#invites"}
 
 {{< figure src="/assets/image%20%2862%29.png" caption="Invite people from your account&apos;s settings" >}}
 
 Invite links can be generated and shared with other people, and some servers require invites in order to register for an account. When generating an invite link, you can set the max uses to limit how many times a certain link is used, or how long it has been active. Invite links can be deactivated at any time.
 
-## Follows and followers <a id="relationships"></a>
+## Follows and followers {#relationships"}
 
 {{< figure src="/assets/image%20%2849%29.png" caption="Mutuals who have not moved their account, sorted by last activity" >}}
 
@@ -25,15 +25,15 @@ Within settings, you can find a relationship manager that lets you filter and so
 
 You can select certain users to unfollow, or to remove from your followers, by checking the boxes and clicking the corresponding button in the table header.
 
-## Account settings <a id="account"></a>
+## Account settings {#account"}
 
 From the account settings, you can change your email address, set a new password, revoke active sessions or authorized apps, and enable two-factor authentication.
 
-## Identity proofs <a id="proofs"></a>
+## Identity proofs {#proofs"}
 
 [Link verification](profile.md#link-verification) of profile metadata fields is one way to prove your identity by using rel=me links, but Mastodon also supports a more generalized proof provider subsystem. Currently, the only supported identity provider for this subsystem is Keybase.
 
-### Keybase identity verification <a id="keybase"></a>
+### Keybase identity verification {#keybase"}
 
 {{< figure src="/assets/image%20%2860%29.png" caption="An identity proof on a profile" >}}
 

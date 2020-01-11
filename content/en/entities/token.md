@@ -21,25 +21,25 @@ menu:
 
 ## Attributes
 
-### `access_token` <a id="access_token"></a>
+### `access_token` {#access_token"}
 
 **Description:** An OAuth token to be used for authorization.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `token_type` <a id="token_type"></a>
+### `token_type` {#token_type"}
 
 **Description:** The OAuth token type. Mastodon uses `Bearer` tokens.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `scope` <a id="scope"></a>
+### `scope` {#scope"}
 
 **Description:** The OAuth scopes granted by this token, space-separated.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `created_at` <a id="created_at"></a>
+### `created_at` {#created_at"}
 
 **Description:** When the token was generated.\
 **Type:** Number \(UNIX Timestamp\)\

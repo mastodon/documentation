@@ -20,7 +20,7 @@ menu:
 
 ## Attributes
 
-### `posting:default:visibility` <a id="visibility"></a>
+### `posting:default:visibility` {#visibility"}
 
 **Description:** Default visibility for new posts. Equivalent to [Source\#privacy](source.md#privacy).\
 **Type:** String \(Enumerable, oneOf\)\
@@ -30,19 +30,19 @@ menu:
 `direct` = Direct post\
 **Version history:** Added in 2.8.0
 
-### `posting:default:sensitive` <a id="sensitive"></a>
+### `posting:default:sensitive` {#sensitive"}
 
 **Description:** Default sensitivity flag for new posts. Equivalent to [Source\#sensitive](source.md#sensitive).\
 **Type:** Boolean\
 **Version history:** Added in 2.8.0
 
-### `posting:default:language` <a id="language"></a>
+### `posting:default:language` {#language"}
 
 **Description:** Default language for new posts. Equivalent to [Source\#language](source.md#language)\
 **Type:** String \(ISO 639-1 language two-letter code\), or null\
 **Version history:** Added in 2.8.0
 
-### `reading:expand:media` <a id="media"></a>
+### `reading:expand:media` {#media"}
 
 **Description:** Whether media attachments should be automatically displayed or blurred/hidden.\
 **Type:** String \(Enumerable, oneOf\)\
@@ -51,7 +51,7 @@ menu:
 `hide_all` = Always hide all media by default, regardless of sensitivity\
 **Version history:** Added in 2.8.0
 
-### `reading:expand:spoilers` <a id="cw"></a>
+### `reading:expand:spoilers` {#cw"}
 
 **Description:** Whether CWs should be expanded by default.\
 **Type:** Boolean\

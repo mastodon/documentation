@@ -18,25 +18,25 @@ menu:
 
 ## Attributes
 
-### `id` <a id="id"></a>
+### `id` {#id"}
 
 **Description:** The internal ID of the featured tag in the database.\
 **Type:** String \(cast from integer but not guaranteed to be a number\)\
 **Version history:** Added in 3.0.0
 
-### `name` <a id="name"></a>
+### `name` {#name"}
 
 **Description:** The name of the hashtag being featured.\
 **Type:** String\
 **Version history:** Added in 3.0.0
 
-### `statuses_count` <a id="statuses_count"></a>
+### `statuses_count` {#statuses_count"}
 
 **Description:** The number of authored statuses containing this hashtag.\
 **Type:** Number\
 **Version history:** Added in 3.0.0
 
-### `last_status_at` <a id="last_status_at"></a>
+### `last_status_at` {#last_status_at"}
 
 **Description:** The timestamp of the last authored status containing this hashtag.\
 **Type:** String \(ISO 8601 Datetime\)\

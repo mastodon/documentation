@@ -10,7 +10,7 @@ menu:
 This page is under construction.
 {{< /hint >}}
 
-### Setup <a id="setup"></a>
+### Setup {#setup"}
 
 Run following commands in the project directory `bundle install`, `yarn install`.
 
@@ -18,7 +18,7 @@ In the development environment, Mastodon will use PostgreSQL as the currently si
 
 > Please keep in mind, by default Mastodon will run on port 3000. If you configure a different port for it, the generated admin account will use that number.
 
-### Running <a id="running"></a>
+### Running {#running"}
 
 There are multiple processes that need to be run for the full set of Mastodon’s functionality, although they can be selectively omitted. To run all of them with just one command, you can install Foreman with `gem install foreman --no-document` and then use:
 
@@ -28,7 +28,7 @@ foreman start
 
 In the Mastodon directory. This will start processes defined in `Procfile.dev`, which will give you: A Rails server, a Webpack server, a streaming API server, and Sidekiq. Of course, you can run any of those things stand-alone depending on your needs.
 
-### Testing <a id="testing"></a>
+### Testing {#testing"}
 
 | Command | Description |
 | :--- | :--- |

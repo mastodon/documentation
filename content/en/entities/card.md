@@ -72,25 +72,25 @@ menu:
 
 ## Required attributes
 
-### `url` <a id="url"></a>
+### `url` {#url"}
 
 **Description:** Location of linked resource.\
 **Type:** String \(URL\)\
 **Version history:** Added in 1.0.0
 
-### `title` <a id="title"></a>
+### `title` {#title"}
 
 **Description:** Title of linked resource.\
 **Type:** String\
 **Version history:** Added in 1.0.0
 
-### `description` <a id="description"></a>
+### `description` {#description"}
 
 **Description:** Description of preview.\
 **Type:** String\
 **Version history:** Added in 1.0.0
 
-### `type` <a id="type"></a>
+### `type` {#type"}
 
 **Description:** The type of the preview card.\
 **Type:** String \(Enumerable, oneOf\)\
@@ -102,55 +102,55 @@ menu:
 
 ## Optional attributes
 
-### `author_name` <a id="author_name"></a>
+### `author_name` {#author_name"}
 
 **Description:** The author of the original resource.\
 **Type:** String\
 **Version history:** Added in 1.3.0
 
-### `author_url` <a id="author_url"></a>
+### `author_url` {#author_url"}
 
 **Description:** A link to the author of the original resource.\
 **Type:** String \(URL\)\
 **Version history:** Added in 1.3.0
 
-### `provider_name` <a id="provider_name"></a>
+### `provider_name` {#provider_name"}
 
 **Description:** The provider of the original resource.\
 **Type:** String\
 **Version history:** Added in 1.3.0
 
-### `provider_url` <a id="provider_url"></a>
+### `provider_url` {#provider_url"}
 
 **Description:** A link to the provider of the original resource.\
 **Type:** String \(URL\)\
 **Version history:** Added in 1.3.0
 
-### `html` <a id="html"></a>
+### `html` {#html"}
 
 **Description:** HTML to be used for generating the preview card.\
 **Type:** String \(HTML\)\
 **Version history:** Added in 1.3.0
 
-### `width` <a id="width"></a>
+### `width` {#width"}
 
 **Description:** Width of preview, in pixels.\
 **Type:** Number\
 **Version history:** Added in 1.3.0
 
-### `height` <a id="height"></a>
+### `height` {#height"}
 
 **Description:** Height of preview, in pixels.\
 **Type:** Number\
 **Version history:** Added in 1.3.0
 
-### `image` <a id="image"></a>
+### `image` {#image"}
 
 **Description:** Preview thumbnail.\
 **Type:** String \(URL\)\
 **Version history:** Added in 1.0.0
 
-### `embed_url` <a id="embed_url"></a>
+### `embed_url` {#embed_url"}
 
 **Description:** Used for photo embeds, instead of custom `html`.\
 **Type:** String \(URL\)\

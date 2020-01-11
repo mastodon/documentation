@@ -47,7 +47,7 @@ menu:
       "spoiler_text": "Cats",
       ...
 
-      "content": "<p>Cats are inherently good at self-care. </p><p><a href=\"https://mspsocial.net/tags/cats\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>cats</span></a></p>",
+      "content": "<p>Cats are inherently good at self-care. </p><p><a href=\"https://mspsocial.net/tags/cats\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>cats</span}</p>",
       ...
 
   ],
@@ -85,19 +85,19 @@ menu:
 
 ## Required attributes
 
-### `accounts` <a id="accounts"></a>
+### `accounts` {#accounts"}
 
 **Description:** Accounts which match the given query\
 **Type:** Array of [Account](account.md)\
 **Version history:** Added in x.x.x
 
-### `statuses` <a id="statuses"></a>
+### `statuses` {#statuses"}
 
 **Description:** Statuses which match the given query\
 **Type:** Array of [Status](status.md)\
 **Version history:** Added in x.x.x
 
-### `hashtags` <a id="hashtags"></a>
+### `hashtags` {#hashtags"}
 
 **Description:** Hashtags which match the given query\
 **Type:** Array of [Tag](tag.md) \(v2\). Array of String \(v1\).\

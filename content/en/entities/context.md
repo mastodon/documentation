@@ -46,13 +46,13 @@ menu:
 
 ## Required attributes
 
-### `ancestors` <a id="ancestors"></a>
+### `ancestors` {#ancestors"}
 
 **Description:** Parents in the thread.\
 **Type:** Array of [Status](status.md)\
 **Version history:** Added in 0.6.0
 
-### `descendants` <a id="descendants"></a>
+### `descendants` {#descendants"}
 
 **Description:** Children in the thread.\
 **Type:** Array of [Status](status.md)\

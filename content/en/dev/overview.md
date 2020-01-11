@@ -14,7 +14,7 @@ Mastodon is a Ruby on Rails application with a React.js front-end.  It follows s
 
 The best way of working with Mastodon in a development environment is installing all the dependencies on your system, rather than using Docker or Vagrant. You need Ruby, Node.js, PostgreSQL and Redis, which is a pretty standard set of dependencies for Rails applications.
 
-### Environments <a id="environments"></a>
+### Environments {#environments"}
 
 An “environment” is a set of configuration values intended for a specific use case. Some environments could be: development, in which you intend to change the code; test, in which you intend to run the automated test suite; staging, which is meant to preview the code to end-users; and production, which is intended to face end-users. Mastodon comes with configurations for development, test and production.
 

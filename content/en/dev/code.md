@@ -10,11 +10,11 @@ menu:
 This page is under construction.
 {{< /hint >}}
 
-### Code structure <a id="structure"></a>
+### Code structure {#structure"}
 
 The following overview should not be seen as complete or authoritative, but as a rough guidance to help you find your way in the application.
 
-#### Ruby <a id="ruby"></a>
+#### Ruby {#ruby"}
 
 | Path | Description |
 | :--- | :--- |
@@ -28,28 +28,28 @@ The following overview should not be seen as complete or authoritative, but as a
 | `app/workers` | Code that executes outside the request-response cycle |
 | `spec` | Automated test suite |
 
-#### JavaScript <a id="javascript"></a>
+#### JavaScript {#javascript"}
 
 | Path | Description |
 | :--- | :--- |
 | `app/javascript/mastodon` | Code for the multi-column React.js application |
 | `app/javascript/packs` | Code for non-React.js pages |
 
-#### CSS and other assets <a id="assets"></a>
+#### CSS and other assets {#assets"}
 
 | Path | Description |
 | :--- | :--- |
 | `app/javascript/images` | Images |
 | `app/javascript/styles` | Code that turns into CSS via Sass |
 
-#### Localizations <a id="localizations"></a>
+#### Localizations {#localizations"}
 
 | Path | Description |
 | :--- | :--- |
 | `config/locales` | Server-side localizations in the YML format |
 | `app/javascript/mastodon/locales` | Client-side localizations in the JSON format |
 
-### Localization maintenance <a id="localization-maintenance"></a>
+### Localization maintenance {#localization-maintenance"}
 
 All locale files are normalized to ensure consistent formatting and key order, which minimizes changesets in version control.
 

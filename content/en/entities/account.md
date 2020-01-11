@@ -17,7 +17,7 @@ menu:
   "locked": false,
   "bot": false,
   "created_at": "2017-02-08T02:00:53.274Z",
-  "note": "<p>:ms_rainbow_flag:​ :ms_bisexual_flagweb:​ :ms_nonbinary_flag:​ <a href=\"https://awoo.space/tags/awoo\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>awoo</span></a>.space <a href=\"https://awoo.space/tags/admin\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>admin</span></a> ~ <a href=\"https://awoo.space/tags/bi\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>bi</span></a> ~ <a href=\"https://awoo.space/tags/nonbinary\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>nonbinary</span></a> ~ compsci student ~ likes video <a href=\"https://awoo.space/tags/games\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>games</span></a> and weird/ old electronics and will post obsessively about both ~ avatar by <span class=\"h-card\"><a href=\"https://weirder.earth/@dzuk\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>dzuk</span></a></span></p>",
+  "note": "<p>:ms_rainbow_flag:​ :ms_bisexual_flagweb:​ :ms_nonbinary_flag:​ <a href=\"https://awoo.space/tags/awoo\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>awoo</span}.space <a href=\"https://awoo.space/tags/admin\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>admin</span} ~ <a href=\"https://awoo.space/tags/bi\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>bi</span} ~ <a href=\"https://awoo.space/tags/nonbinary\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>nonbinary</span} ~ compsci student ~ likes video <a href=\"https://awoo.space/tags/games\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>games</span} and weird/ old electronics and will post obsessively about both ~ avatar by <span class=\"h-card\"><a href=\"https://weirder.earth/@dzuk\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>dzuk</span}</span></p>",
   "url": "https://awoo.space/@noiob",
   "avatar": "https://files.mastodon.social/accounts/avatars/000/023/634/original/6ca8804dc46800ad.png",
   "avatar_static": "https://files.mastodon.social/accounts/avatars/000/023/634/original/6ca8804dc46800ad.png",
@@ -55,17 +55,17 @@ menu:
     },
     {
       "name": "Alt",
-      "value": "<span class=\"h-card\"><a href=\"https://cybre.space/@noiob\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>noiob</span></a></span>",
+      "value": "<span class=\"h-card\"><a href=\"https://cybre.space/@noiob\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>noiob</span}</span>",
       "verified_at": null
     },
     {
       "name": "Bots",
-      "value": "<span class=\"h-card\"><a href=\"https://botsin.space/@darksouls\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>darksouls</span></a></span>, <span class=\"h-card\"><a href=\"https://botsin.space/@nierautomata\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>nierautomata</span></a></span>, <span class=\"h-card\"><a href=\"https://mastodon.social/@fedi\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>fedi</span></a></span>, code for <span class=\"h-card\"><a href=\"https://botsin.space/@awoobot\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>awoobot</span></a></span>",
+      "value": "<span class=\"h-card\"><a href=\"https://botsin.space/@darksouls\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>darksouls</span}</span>, <span class=\"h-card\"><a href=\"https://botsin.space/@nierautomata\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>nierautomata</span}</span>, <span class=\"h-card\"><a href=\"https://mastodon.social/@fedi\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>fedi</span}</span>, code for <span class=\"h-card\"><a href=\"https://botsin.space/@awoobot\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>awoobot</span}</span>",
       "verified_at": null
     },
     {
       "name": "Website",
-      "value": "<a href=\"http://shork.xyz\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">http://</span><span class=\"\">shork.xyz</span><span class=\"invisible\"></span></a>",
+      "value": "<a href=\"http://shork.xyz\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">http://</span><span class=\"\">shork.xyz</span><span class=\"invisible\"></span}",
       "verified_at": "2019-11-10T10:31:10.744+00:00"
     }
   ]
@@ -74,26 +74,26 @@ menu:
 
 ## Base attributes
 
-### **`id`** <a id="id"></a>
+### **`id`** {#id"}
 
 **Description:** The account id`header`.\
 **Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 0.1.0
 
-### `username` <a id="username"></a>
+### `username` {#username"}
 
 **Description:** The username of the account, not including domain.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `acct` <a id="acct"></a>
+### `acct` {#acct"}
 
 **Description:** The Webfinger account URI.
 Equal to `username` for local users, or `username@domain` for remote users.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `url` <a id="url"></a>
+### `url` {#url"}
 
 **Description:** The location of the user's profile page.\
 **Type:** String \(HTTPS URL\)\
@@ -101,57 +101,57 @@ Equal to `username` for local users, or `username@domain` for remote users.\
 
 ## Display attributes
 
-### `display_name` <a id="display_name"></a>
+### `display_name` {#display_name"}
 
 **Description:** The profile's display name.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `note` <a id="note"></a>
+### `note` {#note"}
 
 **Description:** The profile's bio / description.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `avatar` <a id="avatar"></a>
+### `avatar` {#avatar"}
 
 **Description:** An image icon that is shown next to statuses and in the profile.\
 **Type:** String \(URL\)\
 **Version history:** Added in 0.1.0
 
-### `avatar_static` <a id="avatar_static"></a>
+### `avatar_static` {#avatar_static"}
 
 **Description:** A static version of the avatar.
 Equal to `avatar` if its value is a static image; different if `avatar` is an animated GIF.\
 **Type:** String \(URL\)\
 **Version history:** Added in 1.1.2
 
-### `header` <a id="header"></a>
+### `header` {#header"}
 
 **Description:** An image banner that is shown above the profile and in profile cards.\
 **Type:** String \(URL\)\
 **Version history:** Added in 0.1.0
 
-### `header_static` <a id="header_static"></a>
+### `header_static` {#header_static"}
 
 **Description:** A static version of the header.
 Equal to `header` if its value is a static image; different if `header` is an animated GIF.\
 **Type:** String \(URL\)\
 **Version history:** Added in 1.1.2
 
-### `locked` <a id="locked"></a>
+### `locked` {#locked"}
 
 **Description:** Whether the account manually approves follow requests.\
 **Type:** Boolean\
 **Version history:** Added in 0.1.0
 
-### `emojis` <a id="emojis"></a>
+### `emojis` {#emojis"}
 
 **Description:** Custom emoji entities to be used when rendering the profile. If none, an empty array will be returned.\
 **Type:** Array of [Emoji](emoji.md)\
 **Version history:** Added in 2.4.0
 
-### `discoverable` <a id="discoverable"></a>
+### `discoverable` {#discoverable"}
 
 **Description:** Whether the account has opted into discovery features such as the profile directory.\
 **Type:** Boolean\
@@ -159,25 +159,25 @@ Equal to `header` if its value is a static image; different if `header` is an an
 
 ## Statistical attributes 
 
-### `created_at` <a id="created_at"></a>
+### `created_at` {#created_at"}
 
 **Description:** When the account was created.\
 **Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 0.1.0
 
-### `statuses_count` <a id="statuses_count"></a>
+### `statuses_count` {#statuses_count"}
 
 **Description:** How many statuses are attached to this account.\
 **Type:** Number\
 **Version history:** Added in 0.1.0
 
-### `followers_count` <a id="followers_count"></a>
+### `followers_count` {#followers_count"}
 
 **Description:** The reported followers of this profile.\
 **Type:** Number\
 **Version history:** Added in 0.1.0
 
-### `following_count` <a id="following_count"></a>
+### `following_count` {#following_count"}
 
 **Description:** The reported follows of this profile.\
 **Type:** Number\
@@ -185,25 +185,25 @@ Equal to `header` if its value is a static image; different if `header` is an an
 
 ## Optional attributes
 
-### `moved` <a id="moved"></a>
+### `moved` {#moved"}
 
 **Description:** Indicates that the profile is currently inactive and that its user has moved to a new account.\
 **Type:** [Account](account.md)\
 **Version history:** Added in 2.1.0
 
-### `fields` <a id="fields"></a>
+### `fields` {#fields"}
 
 **Description:** Additional metadata attached to a profile as name-value pairs.\
 **Type:** Array of [Field]({{< relref "field.md" >}})\
 **Version history:** Added in 2.4.0
 
-### `bot` <a id="bot"></a>
+### `bot` {#bot"}
 
 **Description:** A presentational flag. Indicates that the account may perform automated actions, may not be monitored, or identifies as a robot.\
 **Type:** Boolean\
 **Version history:** Added in 2.4.0
 
-### `source` <a id="source"></a>
+### `source` {#source"}
 
 **Description:** An extra entity to be used with API methods to [verify credentials](../methods/accounts/#verify-account-credentials) and [update credentials](../methods/accounts/#update-account-credentials).\
 **Type:** [Source](source.md)\

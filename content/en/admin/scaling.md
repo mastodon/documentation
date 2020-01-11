@@ -6,7 +6,7 @@ menu:
     parent: admin
 ---
 
-## Managing concurrency <a id="concurrency"></a>
+## Managing concurrency {#concurrency"}
 
 Mastodon has three types of processes:
 
@@ -14,7 +14,7 @@ Mastodon has three types of processes:
 * Streaming API
 * Background processing \(Sidekiq\)
 
-### Web \(Puma\) <a id="web"></a>
+### Web \(Puma\) {#web"}
 
 The web process serves short-lived HTTP requests for most of the application. The following environment variables control it:
 
@@ -27,7 +27,7 @@ These values affect how many HTTP requests can be served at the same time.
 
 In terms of throughput, more processes are better than more threads.
 
-### Streaming API <a id="streaming"></a>
+### Streaming API {#streaming"}
 
 The streaming API handles long-lived HTTP and WebSockets connections, through which clients receive real-time updates. The following environment variables control it:
 
@@ -36,11 +36,11 @@ The streaming API handles long-lived HTTP and WebSockets connections, through wh
 
 One process can handle a reasonably high number of connections. The streaming API can be hosted on a different subdomain if you want to e.g. avoid the overhead of nginx proxying the connections.
 
-### Background processing \(Sidekiq\) <a id="sidekiq"></a>
+### Background processing \(Sidekiq\) {#sidekiq"}
 
 Many tasks in Mastodon are delegated to background processing to ensure the HTTP requests are fast, and to prevent HTTP request aborts from affecting the execution of those tasks. Sidekiq is a single process, with a configurable number of threads.
 
-#### Number of threads <a id="sidekiq-threads"></a>
+#### Number of threads {#sidekiq-threads"}
 
 While the amount of threads in the web process affects the responsiveness of the Mastodon instance to the end-user, the amount of threads allocated to background processing affects how quickly posts can be delivered from the author to anyone else, how soon e-mails are sent out, etc.
 
@@ -52,7 +52,7 @@ bundle exec sidekiq -c 15
 
 Would start the sidekiq process with 15 threads. Please mind that each threads needs to be able to connect to the database, which means that the database pool needs to be large enough to support all the threads. The database pool size is controlled with the `DB_POOL` environment variable and must be at least the same as the number of threads.
 
-#### Queues <a id="sidekiq-queues"></a>
+#### Queues {#sidekiq-queues"}
 
 Sidekiq uses different queues for tasks of varying importance, where importance is defined by how much it would impact the user experience of your server’s local users if the queue wasn’t working, in order of descending importance:
 
@@ -75,15 +75,15 @@ The way Sidekiq works with queues, it first checks for tasks from the first queu
 
 As a solution, it is possible to start different Sidekiq processes for the queues to ensure truly parallel execution, by e.g. creating multiple systemd services for Sidekiq with different arguments.
 
-## Transaction pooling with pgBouncer <a id="pgbouncer"></a>
+## Transaction pooling with pgBouncer {#pgbouncer"}
 
-### Why you might need PgBouncer <a id="pgbouncer-why"></a>
+### Why you might need PgBouncer {#pgbouncer-why"}
 
 If you start running out of available Postgres connections \(the default is 100\) then you may find PgBouncer to be a good solution. This document describes some common gotchas as well as good configuration defaults for Mastodon.
 
 Note that you can check “PgHero” in the administration view to see how many Postgres connections are currently being used. Typically Mastodon uses as many connections as there are threads both in Puma, Sidekiq and the streaming API combined.
 
-### Installing PgBouncer <a id="pgbouncer-install"></a>
+### Installing PgBouncer {#pgbouncer-install"}
 
 On Debian and Ubuntu:
 
@@ -91,9 +91,9 @@ On Debian and Ubuntu:
 sudo apt install pgbouncer
 ```
 
-### Configuring PgBouncer <a id="pgbouncer-config"></a>
+### Configuring PgBouncer {#pgbouncer-config"}
 
-#### Setting a password <a id="pgbouncer-password"></a>
+#### Setting a password {#pgbouncer-password"}
 
 First off, if your `mastodon` user in Postgres is set up wthout a password, you will need to set a password.
 
@@ -111,7 +111,7 @@ ALTER USER mastodon WITH PASSWORD 'password';
 
 Then `\q` to quit.
 
-#### Configuring userlist.txt <a id="pgbouncer-userlist"></a>
+#### Configuring userlist.txt {#pgbouncer-userlist"}
 
 Edit `/etc/pgbouncer/userlist.txt`
 
@@ -141,7 +141,7 @@ You’ll also want to create a `pgbouncer` admin user to log in to the PgBouncer
 
 In both cases the password is just `password`.
 
-#### Configuring pgbouncer.ini <a id="pgbouncer-ini"></a>
+#### Configuring pgbouncer.ini {#pgbouncer-ini"}
 
 Edit `/etc/pgbouncer/pgbouncer.ini`
 
@@ -180,7 +180,7 @@ Don’t forget to reload or restart pgbouncer after making your changes:
 sudo systemctl reload pgbouncer
 ```
 
-#### Debugging that it all works <a id="pgbouncer-debug"></a>
+#### Debugging that it all works {#pgbouncer-debug"}
 
 You should be able to connect to PgBouncer just like you would with Postgres:
 
@@ -196,7 +196,7 @@ You can also check the PgBouncer logs like so:
 tail -f /var/log/postgresql/pgbouncer.log
 ```
 
-#### Configuring Mastodon to talk to PgBouncer <a id="pgbouncer-mastodon"></a>
+#### Configuring Mastodon to talk to PgBouncer {#pgbouncer-mastodon"}
 
 In your `.env.production` file, first off make sure that this is set:
 
@@ -220,7 +220,7 @@ DB_PORT=6432
 You cannot use pgBouncer to perform `db:migrate` tasks. But this is easy to work around. If your postgres and pgbouncer are on the same host, it can be as simple as defining `DB_PORT=5432` together with `RAILS_ENV=production` when calling the task, for example: `RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate` \(you can specify `DB_HOST` too if it’s different, etc\)
 {{< /hint >}}
 
-#### Administering PgBouncer <a id="pgbouncer-admin"></a>
+#### Administering PgBouncer {#pgbouncer-admin"}
 
 The easiest way to reboot is:
 
@@ -242,13 +242,13 @@ RELOAD;
 
 Then use `\q` to quit.
 
-## Separate Redis for cache <a id="redis"></a>
+## Separate Redis for cache {#redis"}
 
 Redis is used widely throughout the application, but some uses are more important than others. Home feeds, list feeds, and Sidekiq queues as well as the streaming API are backed by Redis and that’s important data you wouldn’t want to lose \(even though the loss can be survived, unlike the loss of the PostgreSQL database - never lose that!\). However, Redis is also used for volatile cache. If you are at a stage of scaling up where you are worried if your Redis can handle everything, you can use a different Redis database for the cache. In the environment, you can specify `CACHE_REDIS_URL` or individual parts like `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT` etc. Unspecified parts fallback to the same values as without the cache prefix.
 
 As far as configuring the Redis database goes, basically you can get rid of background saving to disk, since it doesn’t matter if the data gets lost on restart and you can save some disk I/O on that. You can also add a maximum memory limit and a key eviction policy, for that, see this guide: [Using Redis as an LRU cache](https://redis.io/topics/lru-cache)
 
-## Read-replicas <a id="read-replicas"></a>
+## Read-replicas {#read-replicas"}
 
 To reduce the load on your Postgresql server, you may wish to setup hot streaming replication \(read replica\). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
 

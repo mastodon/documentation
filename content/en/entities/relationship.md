@@ -26,69 +26,69 @@ menu:
 }
 ```
 
-## Required attributes <a id="relationship"></a>
+## Required attributes {#relationship"}
 
-### `id` <a id="id"></a>
+### `id` {#id"}
 
 **Description:** The account id.\
 **Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 0.6.0
 
-### `following` <a id="following"></a>
+### `following` {#following"}
 
 **Description:** Are you following this user?\
 **Type:** Boolean\
 **Version history:** Added in 0.6.0
 
-### `requested` <a id="requested"></a>
+### `requested` {#requested"}
 
 **Description:** Do you have a pending follow request for this user?\
 **Type:** Boolean\
 **Version history:** Added in 0.9.9
 
-### `endorsed` <a id="endorsed"></a>
+### `endorsed` {#endorsed"}
 
 **Description:** Are you featuring this user on your profile?\
 **Type:** Boolean\
 **Version history:** Added in 2.5.0
 
-### `followed_by` <a id="followed_by"></a>
+### `followed_by` {#followed_by"}
 
 **Description:** Are you followed by this user?\
 **Type:** Boolean\
 **Version history:** Added in 0.6.0
 
-### `muting` <a id="muting"></a>
+### `muting` {#muting"}
 
 **Description:** Are you muting this user?\
 **Type:** Boolean\
 **Version history:** Added in 1.1.0
 
-### `muting_notifications` <a id="muting_notifications"></a>
+### `muting_notifications` {#muting_notifications"}
 
 **Description:** Are you muting notifications from this user?\
 **Type:** Boolean\
 **Version history:** Added in 2.1.0
 
-### `showing_reblogs` <a id="showing_reblogs"></a>
+### `showing_reblogs` {#showing_reblogs"}
 
 **Description:** Are you receiving this user's boosts in your home timeline?\
 **Type:** Boolean\
 **Version history:** Added in 2.1.0
 
-### `blocking` <a id="blocking"></a>
+### `blocking` {#blocking"}
 
 **Description:** Are you blocking this user?\
 **Type:** Boolean\
 **Version history:** Added in 0.6.0
 
-### `domain_blocking` <a id="domain_blocking"></a>
+### `domain_blocking` {#domain_blocking"}
 
 **Description:** Are you blocking this user's domain?\
 **Type:** Boolean\
 **Version history:** Added in 1.4.0
 
-### `blocked_by` <a id="blocked_by"></a>
+### `blocked_by` {#blocked_by"}
 
 **Description:** Is this user blocking you?\
 **Type:** Boolean\

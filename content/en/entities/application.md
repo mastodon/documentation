@@ -20,7 +20,7 @@ menu:
 
 ## Required attributes
 
-### `name` <a id="name"></a>
+### `name` {#name"}
 
 **Description:** The name of your application.\
 **Type:** String\
@@ -28,13 +28,13 @@ menu:
 
 ## Optional attributes
 
-### `website` <a id="website"></a>
+### `website` {#website"}
 
 **Description:** The website associated with your application.\
 **Type:** String \(URL\)\
 **Version history:** Added in 0.9.9
 
-### `vapid_key` <a id="vapid_key"></a>
+### `vapid_key` {#vapid_key"}
 
 **Description:** Used for Push Streaming API. Returned with [POST /api/v1/apps](../methods/apps/#create-an-application). Equivalent to [PushSubscription\#server\_key](push-subscription.md#server_key)\
 **Type:** String\
@@ -42,13 +42,13 @@ menu:
 
 ## Client attributes
 
-### `client_id` <a id="client_id"></a>
+### `client_id` {#client_id"}
 
 **Description:** Client ID key, to be used for obtaining OAuth tokens\
 **Type:** String\
 **Version history:** Added in 0.9.9
 
-### `client_secret` <a id="client_secret"></a>
+### `client_secret` {#client_secret"}
 
 **Description:** Client secret key, to be used for obtaining OAuth tokens\
 **Type:** String\

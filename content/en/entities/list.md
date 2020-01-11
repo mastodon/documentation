@@ -17,13 +17,13 @@ menu:
 
 ## Required attributes
 
-### `id` <a id="id"></a>
+### `id` {#id"}
 
 **Description:** The internal database ID of the list.\
 **Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 2.1.0
 
-### `title` <a id="title"></a>
+### `title` {#title"}
 
 **Description:** The user-defined title of the list.\
 **Type:** String\

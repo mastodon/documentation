@@ -27,7 +27,7 @@ menu:
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
-  "content": "<p>&quot;I lost my inheritance with one wrong digit on my sort code&quot;</p><p><a href=\"https://www.theguardian.com/money/2019/dec/07/i-lost-my-193000-inheritance-with-one-wrong-digit-on-my-sort-code\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">theguardian.com/money/2019/dec</span><span class=\"invisible\">/07/i-lost-my-193000-inheritance-with-one-wrong-digit-on-my-sort-code</span></a></p>",
+  "content": "<p>&quot;I lost my inheritance with one wrong digit on my sort code&quot;</p><p><a href=\"https://www.theguardian.com/money/2019/dec/07/i-lost-my-193000-inheritance-with-one-wrong-digit-on-my-sort-code\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">theguardian.com/money/2019/dec</span><span class=\"invisible\">/07/i-lost-my-193000-inheritance-with-one-wrong-digit-on-my-sort-code</span}</p>",
   "reblog": null,
   "application": {
     "name": "Web",
@@ -57,12 +57,12 @@ menu:
     "fields": [
       {
         "name": "Patreon",
-        "value": "<a href=\"https://www.patreon.com/mastodon\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"\">patreon.com/mastodon</span><span class=\"invisible\"></span></a>",
+        "value": "<a href=\"https://www.patreon.com/mastodon\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"\">patreon.com/mastodon</span><span class=\"invisible\"></span}",
         "verified_at": null
       },
       {
         "name": "Homepage",
-        "value": "<a href=\"https://zeonfederated.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">zeonfederated.com</span><span class=\"invisible\"></span></a>",
+        "value": "<a href=\"https://zeonfederated.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">zeonfederated.com</span><span class=\"invisible\"></span}",
         "verified_at": "2019-07-15T18:29:57.191+00:00"
       }
     ]
@@ -92,43 +92,43 @@ menu:
 
 ## Base attributes
 
-### `id` <a id="id"></a>
+### `id` {#id"}
 
 **Description:** ID of the status in the database.\
 **Type:** String \(cast from an integer but not guaranteed to be a number\)\
 **Version history:** Added in 0.1.0
 
-### `uri` <a id="uri"></a>
+### `uri` {#uri"}
 
 **Description:** URI of the status used for federation.\
 **Type:** String\
 **Version history:** Added in 0.1.0
 
-### `created_at` <a id="created_at"></a>
+### `created_at` {#created_at"}
 
 **Description:** HTML-encoded status content.\
 **Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 0.1.0
 
-### `account` <a id="account"></a>
+### `account` {#account"}
 
 **Description:** The account that authored this status.\
 **Type:** [Account](account.md)\
 **Version history:** Added in 0.1.0
 
-### `content` <a id="content"></a>
+### `content` {#content"}
 
 **Description:** HTML-encoded status content.\
 **Type:** String \(HTML\)\
 **Version history:** Added in 0.1.0
 
-### `text` <a id="text"></a>
+### `text` {#text"}
 
 **Description:** Plain-text source of a status. Returned instead of `content` when status is deleted, so the user may redraft from the source text without the client having to reverse-engineer the original text from the HTML content.\
 **Type:** String\
 **Version history:** Added in 2.9.0
 
-### `visibility` <a id="visibility"></a>
+### `visibility` {#visibility"}
 
 **Description:** HTML-encoded status content.\
 **Type:** String \(Enumerable oneOf\)\
@@ -138,25 +138,25 @@ menu:
 `direct` = Visible only to mentioned users.\
 **Version history:** Added in 0.9.9
 
-### `sensitive` <a id="sensitive"></a>
+### `sensitive` {#sensitive"}
 
 **Description:** Is this status marked as sensitive content?\
 **Type:** Boolean\
 **Version history:** Added in 0.9.9
 
-### `spoiler_text` <a id="spoiler_text"></a>
+### `spoiler_text` {#spoiler_text"}
 
 **Description:** Subject or summary line, below which status content is collapsed until expanded.\
 **Type:** String\
 **Version history:** Added in 1.0.0
 
-### `media_attachments` <a id="media_attachments"></a>
+### `media_attachments` {#media_attachments"}
 
 **Description:** Media that is attached to this status.\
 **Type:** Array of [Attachment](attachment.md)\
 **Version history:** Added in 0.6.0
 
-### `application` <a id="application"></a>
+### `application` {#application"}
 
 **Description:** The application used to post this status.\
 **Type:** [Application](application.md)\
@@ -164,19 +164,19 @@ menu:
 
 ## Rendering attributes
 
-### `mentions` <a id="mentions"></a>
+### `mentions` {#mentions"}
 
 **Description:** Mentions of users within the status content.\
 **Type:** Array of [Mention]({{< relref "mention.md" >}})\
 **Version history:** Added in 0.6.0
 
-### `tags` <a id="tags"></a>
+### `tags` {#tags"}
 
 **Description:** Hashtags used within the status content.\
 **Type:** Array of [Tag](tag.md)\
 **Version history:** Added in 0.9.0
 
-### `emojis` <a id="emojis"></a>
+### `emojis` {#emojis"}
 
 **Description:** Custom emoji to be used when rendering status content.\
 **Type:** Array of [Emoji](emoji.md)\
@@ -184,19 +184,19 @@ menu:
 
 ## Informational attributes
 
-### `reblogs_count` <a id="reblogs_count"></a>
+### `reblogs_count` {#reblogs_count"}
 
 **Description:** How many boosts this status has received.\
 **Type:** Number\
 **Version history:** Added in 0.1.0
 
-### `favourites_count` <a id="favorites_count"></a>
+### `favourites_count` {#favorites_count"}
 
 **Description:** How many favourites this status has received.\
 **Type:** Number\
 **Version history:** Added in 0.1.0
 
-### `replies_count` <a id="replies_count"></a>
+### `replies_count` {#replies_count"}
 
 **Description:** How many replies this status has received.\
 **Type:** Number\
@@ -204,43 +204,43 @@ menu:
 
 ## Nullable attributes
 
-### `url` <a id="url"></a>
+### `url` {#url"}
 
 **Description:** A link to the status's HTML representation.\
 **Type:** String \(URL\)\
 **Version history:** Added in 0.1.0
 
-### `in_reply_to_id` <a id="in_reply_to_id"></a>
+### `in_reply_to_id` {#in_reply_to_id"}
 
 **Description:** ID of the status being replied.\
 **Type:** String \(cast from an integer but not guaranteed to be a number\)\
 **Version history:** Added in 0.1.0
 
-### `in_reply_to_account_id` <a id="in_reply_to_account_id"></a>
+### `in_reply_to_account_id` {#in_reply_to_account_id"}
 
 **Description:** ID of the account being replied to.\
 **Type:** String \(cast from an integer but not guaranteed to be a number\)\
 **Version history:** Added in 1.0.0
 
-### `reblog` <a id="reblog"></a>
+### `reblog` {#reblog"}
 
 **Description:** ID of the status in the database.\
 **Type:** [Status](status.md)\
 **Version history:** Added in 0.1.0
 
-### `poll` <a id="poll"></a>
+### `poll` {#poll"}
 
 **Description:** The poll attached to the status.\
 **Type:** [Poll]({{< relref "poll.md" >}})\
 **Version history:** Added in 2.8.0
 
-### `card` <a id="card"></a>
+### `card` {#card"}
 
 **Description:** Preview card for links included within status content.\
 **Type:** [Card]({{< relref "card.md" >}})\
 **Version history:** Added in 2.6.0
 
-### `language` <a id="language"></a>
+### `language` {#language"}
 
 **Description:** A link to the status's HTML representation.\
 **Type:** String \(ISO 639 Part 1 two-letter language code\)\
@@ -248,31 +248,31 @@ menu:
 
 ## Authorized user attributes
 
-### `favourited` <a id="favourited"></a>
+### `favourited` {#favourited"}
 
 **Description:** Have you favourited this status?\
 **Type:** Boolean\
 **Version history:** Added in 0.1.0
 
-### `reblogged` <a id="reblogged"></a>
+### `reblogged` {#reblogged"}
 
 **Description:** Have you boosted this status?\
 **Type:** Boolean\
 **Version history:** Added in 0.1.0
 
-### `muted` <a id="muted"></a>
+### `muted` {#muted"}
 
 **Description:** Have you muted notifications for this status's conversation?\
 **Type:** Boolean\
 **Version history:** Added in 1.4.0
 
-### `bookmarked` <a id="bookmarked"></a>
+### `bookmarked` {#bookmarked"}
 
 **Description:** Have you bookmarked this status?\
 **Type:** Boolean\
 **Version history:** Added in 3.1.0
 
-### `pinned` <a id="pinned"></a>
+### `pinned` {#pinned"}
 
 **Description:** Have you pinned this status? Only appears if the status is pinnable.\
 **Type:** Boolean\

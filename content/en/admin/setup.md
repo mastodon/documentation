@@ -6,9 +6,9 @@ menu:
     parent: admin
 ---
 
-## Creating an admin account <a id="admin"></a>
+## Creating an admin account {#admin"}
 
-### In the browser <a id="admin-gui"></a>
+### In the browser {#admin-gui"}
 
 After signing up in the browser, you will need to use the command line to give your newly created account admin privileges. Assuming your username is `alice`:
 
@@ -16,7 +16,7 @@ After signing up in the browser, you will need to use the command line to give y
 RAILS_ENV=production bin/tootctl accounts modify alice --role admin
 ```
 
-### From the command line <a id="admin-cli"></a>
+### From the command line {#admin-cli"}
 
 You can create a new account using the command-line interface.
 
@@ -30,7 +30,7 @@ RAILS_ENV=production bin/tootctl accounts create \
 
 A randomly generated password will be shown in the terminal.
 
-## Filling in server information <a id="info"></a>
+## Filling in server information {#info"}
 
 After logging in, navigate to the **Site settings** page. While there are no technical requirements for filling in this information, it is considered crucial for operating a server for humans.
 
