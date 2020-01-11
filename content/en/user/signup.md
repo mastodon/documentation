@@ -7,7 +7,7 @@ menu:
     parent: user
 ---
 
-## Choosing a website {#picker"}
+## Choosing a website {#picker}
 
 You have to choose a website to sign up on, like you would choose an e-mail provider, or a World of Warcraft realm for your new character. The website will be your service provider, hosting your account, your profile, and your home feed.
 
@@ -15,27 +15,27 @@ You have to choose a website to sign up on, like you would choose an e-mail prov
 You can [browse a list of servers by categories and languages on joinmastodon.org](https://joinmastodon.org/#getting-started).
 {{< /hint >}}
 
-### Understanding a website's policies {#tos"}
+### Understanding a website's policies {#tos}
 
 Before you sign up for a service, it is important to understand its policies and terms of use. A Mastodon website will usually have its policies listed on the `/about/more` page, which can be found by clicking "learn more" on the landing page while not logged in to that website.
 
-### Signup modes {#signup"}
+### Signup modes {#signup}
 
 Mastodon allows website administrators to set one of three different signup modes: open signups, invites, and approval mode.
 
-#### Open signup {#open"}
+#### Open signup {#open}
 
 Some websites may allow you to register immediately -- simply fill out the registration with your username, email address, and password, and you can start using your account.
 
-#### Server invites {#invite"}
+#### Server invites {#invite}
 
 Some websites disable the registration form, and instead require invite links to be generated and shared in order to allow people to register.
 
-#### Approval-based registration {#approval"}
+#### Approval-based registration {#approval}
 
 Some websites allow you to fill out a registration form, but with an additional form entry for mentioning why you want to join that website. Once you submit the form, your account must be approved by a moderator before you can start using it.
 
-## Your username and your domain {#address"}
+## Your username and your domain {#address}
 
 Mastodon usernames actually consist of two parts:
 
