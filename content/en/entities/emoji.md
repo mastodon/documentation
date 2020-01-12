@@ -20,36 +20,36 @@ menu:
 
 ## Required attributes
 
-### `shortcode`
+### `shortcode` {#shortcode}
 
-**Description:** The name of the custom emoji.
-**Type:** String
+**Description:** The name of the custom emoji.\
+**Type:** String\
 **Version history:** Added in 2.0.0
 
-### `url`
+### `url` {#url}
 
-**Description:** A link to the custom emoji.
-**Type:** String \(URL\)
+**Description:** A link to the custom emoji.\
+**Type:** String \(URL\)\
 **Version history:** Added in 2.0.0
 
-### `static_url`
+### `static_url` {#static_url}
 
-**Description:** A link to a static copy of the custom emoji.
-**Type:** String \(URL\)
+**Description:** A link to a static copy of the custom emoji.\
+**Type:** String \(URL\)\
 **Version history:** Added in 2.0.0
 
-### `visible_in_picker`
+### `visible_in_picker` {#visible_in_picker}
 
-**Description:** Whether this Emoji should be visible in the picker or unlisted.
-**Type:** Boolean
+**Description:** Whether this Emoji should be visible in the picker or unlisted.\
+**Type:** Boolean\
 **Version history:** Added in 2.0.0
 
 ## Optional attributes
 
-### `category`
+### `category` {#category}
 
-**Description:** Used for sorting custom emoji in the picker.
-**Type:** String
+**Description:** Used for sorting custom emoji in the picker.\
+**Type:** String\
 **Version history:** Added in 3.0.0
 
 ## See also

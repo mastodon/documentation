@@ -32,30 +32,30 @@ menu:
 
 ## Required attributes
 
-### `id`
+### `id` {#id}
 
-**Description:** Local database ID of the conversation.
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)
+**Description:** Local database ID of the conversation.\
+**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 2.6.0
 
-### `accounts`
+### `accounts` {#accounts}
 
-**Description:** Participants in the conversation.
-**Type:** Array of [Account](account.md)
+**Description:** Participants in the conversation.\
+**Type:** Array of [Account](account.md)\
 **Version history:** Added in 2.6.0
 
-### `unread`
+### `unread` {#unread}
 
-**Description:** Is the conversation currently marked as unread?
-**Type:** Boolean
+**Description:** Is the conversation currently marked as unread?\
+**Type:** Boolean\
 **Version history:** Added in 2.6.0
 
 ## Optional attributes
 
-### `last_status`
+### `last_status` {#last_status}
 
-**Description:** The last status in the conversation, to be used for optional display.
-**Type:** [Status](status.md)
+**Description:** The last status in the conversation, to be used for optional display.\
+**Type:** [Status](status.md)\
 **Version history:** Added in 2.6.0
 
 ## See also

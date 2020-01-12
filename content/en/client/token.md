@@ -7,13 +7,13 @@ menu:
     parent: client
 ---
 
-## Authentication and authorization
+## Authentication and authorization {#auth}
 
 Up until this point, we've been working with publicly available information, but not all information is public. Some information requires permission before viewing it, in order to audit who is requesting that information \(and to potentially revoke or deny access\).
 
 This is where [OAuth]({{< relref "../spec/oauth.md" >}}) comes in. OAuth is a mechanism for generating access tokens which can be used to _authenticate \(verify\)_ that a request is coming from a specific client, and ensure that the requested action is _authorized \(allowed\)_ by the server's access control policies.
 
-## **Creating our application**
+## Creating our application {#app}
 
 The first thing we will need to do is to register an application, in order to be able to generate access tokens later. The application can be created like so:
 
@@ -33,7 +33,7 @@ In the above example, we specify the client name and website, which will be show
 
 We should see an Application entity returned, but for now we only care about client\_id and client\_secret. These values will be used to generate access tokens, so they should be cached for later use. See [POST /api/v1/apps](../methods/apps/#create-an-application) for more details on registering applications.
 
-## **Example authentication code flow**
+## Example authentication code flow {#flow}
 
 Now that we have an application, let's obtain an access token that will authenticate our requests as that client application. To do so, use [POST /oauth/token](../methods/apps/oauth.md#obtain-a-token) like so:
 
@@ -62,7 +62,7 @@ curl \
 
 If we've obtained our token and formatted our request correctly, we should see our details returned to us as an [Application]({{< relref "../entities/application.md" >}}) entity.
 
-## What we can do with authentication
+## What we can do with authentication {#methods}
 
 With our authenticated client application, we can view relations of an account with [GET /api/v1/accounts/:id/following](../methods/accounts/#following) and [GET /api/v1/accounts/:id/followers](../methods/accounts/#followers). Also, some instances may require authentication for methods that would otherwise be public, so if you encountered any authentication errors while playing around with public methods, then those methods should now work.
 

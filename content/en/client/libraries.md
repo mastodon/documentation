@@ -7,11 +7,11 @@ menu:
     parent: client
 ---
 
-## Apex \(Salesforce\) <a id="apex-salesforce"></a>
+## Apex \(Salesforce\) {#apex-salesforce}
 
 * [apex-mastodon](https://github.com/tzmfreedom/apex-mastodon)
 
-## C\# \(.NET Standard\) <a id="c-net-standard"></a>
+## C\# \(.NET Standard\) {#c-net-standard}
 
 * [Mastodot](https://github.com/yamachu/Mastodot)
 * [Mastonet](https://github.com/glacasa/Mastonet)
@@ -19,54 +19,54 @@ menu:
 * [mastodon-api-cs](https://github.com/pawotter/mastodon-api-cs)
 * [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net)
 
-## C++ <a id="c"></a>
+## C++ {#c}
 
 * [mastodon-cpp](https://github.com/tastytea/mastodon-cpp)
 
-## Crystal <a id="crystal"></a>
+## Crystal {#crystal}
 
 * [mastodon.cr](https://github.com/decors/mastodon.cr)
 
-## Common Lisp <a id="common-lisp"></a>
+## Common Lisp {#common-lisp}
 
 * [tooter](https://github.com/Shinmera/tooter)
 
-## Elixir <a id="elixir"></a>
+## Elixir {#elixir}
 
 * [hunter](https://github.com/milmazz/hunter)
 
-## Go <a id="go"></a>
+## Go {#go}
 
 * [go-mastodon](https://github.com/mattn/go-mastodon)
 * [madon](https://github.com/McKael/madon)
 
-## Haskell <a id="haskell"></a>
+## Haskell {#haskell}
 
 * [hastodon](https://github.com/syucream/hastodon)
 
-## Java <a id="java"></a>
+## Java {#java}
 
 * [mastodon4j](https://github.com/sys1yagi/mastodon4j)
 
-## JavaScript <a id="javascript"></a>
+## JavaScript {#javascript}
 
 * [masto.js](https://github.com/neet/masto.js)
 * [libodonjs](https://github.com/Zatnosk/libodonjs)
 
-## JavaScript \(Browser\) <a id="javascript-browser"></a>
+## JavaScript \(Browser\) {#javascript-browser}
 
 * [mastodon.js](https://github.com/Kirschn/mastodon.js)
 
-## JavaScript \(Node.js\) <a id="javascript-node-js"></a>
+## JavaScript \(Node.js\) {#javascript-node-js}
 
 * [node-mastodon](https://github.com/jessicahayley/node-mastodon)
 * [mastodon-api](https://github.com/vanita5/mastodon-api)
 
-## Perl <a id="perl"></a>
+## Perl {#perl}
 
 * [Mastodon::Client](https://metacpan.org/pod/Mastodon::Client)
 
-## PHP <a id="php"></a>
+## PHP {#php}
 
 * [Mastodon API for Laravel](https://github.com/kawax/laravel-mastodon-api)
 * [Mastodon-api-php](https://github.com/yks118/Mastodon-api-php)
@@ -77,28 +77,28 @@ menu:
 * [oauth2-mastodon](https://github.com/lrf141/oauth2-mastodon)
 * [Mastodon Wordpress API](https://github.com/L1am0/mastodon_wordpress_api)
 
-## Python <a id="python"></a>
+## Python {#python}
 
 * [Mastodon.py](https://github.com/halcy/Mastodon.py)
 
-## R <a id="r"></a>
+## R {#r}
 
 * [mastodon](https://github.com/ThomasChln/mastodon)
 
-## Ruby <a id="ruby"></a>
+## Ruby {#ruby}
 
 * [mastodon-api](https://github.com/tootsuite/mastodon-api)
 
-## Rust <a id="rust"></a>
+## Rust {#rust}
 
 * [mammut](https://github.com/Aaronepower/mammut)
 * [elefren](https://github.com/pwoolcoc/elefren)
 
-## Scala <a id="scala"></a>
+## Scala {#scala}
 
 * [scaladon](https://github.com/schwitzerm/scaladon)
 
-## Swift <a id="swift"></a>
+## Swift {#swift}
 
 * [MastodonKit](https://github.com/ornithocoder/MastodonKit)
 

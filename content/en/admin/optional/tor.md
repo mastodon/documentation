@@ -1,5 +1,6 @@
 ---
 title: Hidden services
+description: Serving Mastodon through TOR hidden services.
 menu:
   docs:
     weight: 20
@@ -8,7 +9,7 @@ menu:
 
 Mastodon can be served through Tor as an onion service. This will give you a \*.onion address that can only be used while connected to the Tor network.
 
-## Installing Tor
+## Installing Tor {#install}
 
 First Tor’s Debian archive needs to be added to apt.
 
@@ -29,7 +30,7 @@ Finally install the required packages.
 apt install tor deb.torproject.org-keyring
 ```
 
-## Configure Tor
+## Configure Tor {#configure}
 
 Edit the file at `/etc/tor/torrc` and add the following configuration.
 
@@ -47,7 +48,7 @@ sudo service tor restart
 
 Your tor hostname can now be found at `/var/lib/tor/hidden_service/hostname`.
 
-## Move your Mastodon configuration
+## Move your Mastodon configuration {#nginx}
 
 We will need to tell Nginx about your Mastodon configuration twice. To keep things [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) we need to move the Mastodon configuration into its own file that can be referenced.
 
@@ -95,7 +96,7 @@ server {
 }
 ```
 
-## Serve Tor over http
+## Serve Tor over http {#http}
 
 While it may be tempting to serve your Tor version of Mastodon over https it is not a good idea for most people. See [this](https://blog.torproject.org/facebook-hidden-services-and-https-certs) blog post from the Tor Project about why https certificates do not add value. Since you cannot get an SSL cert for an onion domain, you will also be plagued with certificate errors when trying to use your Mastodon instance. A Tor developer has more recently spelled out the reasons why serving a Tor service over https is not beneficial for most use cases [here](https://matt.traudt.xyz/p/o44SnkW2.html).
 
@@ -142,7 +143,7 @@ Restart your web server.
 service nginx restart
 ```
 
-## Gotchas
+## Gotchas {#gotchas}
 
 There are a few things you will need to be aware of. Certain redirects will push your users to https. They will have to manually replace the URL with http to continue.
 

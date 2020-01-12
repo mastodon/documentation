@@ -17,16 +17,16 @@ menu:
 
 ## Required attributes
 
-### `id`
+### `id` {#id}
 
-**Description:** The internal database ID of the list.
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)
+**Description:** The internal database ID of the list.\
+**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 2.1.0
 
-### `title`
+### `title` {#title}
 
-**Description:** The user-defined title of the list.
-**Type:** String
+**Description:** The user-defined title of the list.\
+**Type:** String\
 **Version history:** Added in 2.1.0
 
 ## See also

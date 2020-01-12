@@ -1,8 +1,6 @@
 ---
 title: Filter
-description: >-
-  Represents a user-defined filter for determining which statuses should not be
-  shown to the user.
+description: Represents a user-defined filter for determining which statuses should not be shown to the user.
 menu:
   docs:
     parent: entities
@@ -28,44 +26,44 @@ menu:
 
 ## Attributes
 
-### `id`
+### `id` {#id}
 
-**Description:** The ID of the filter in the database.
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)
+**Description:** The ID of the filter in the database.\
+**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 2.4.3
 
-### `phrase`
+### `phrase` {#phrase}
 
-**Description:** The text to be filtered.
-**Type:** String
+**Description:** The text to be filtered.\
+**Type:** String\
 **Version history:** Added in 2.4.3
 
-### `context`
+### `context` {#context}
 
-**Description:** The contexts in which the filter should be applied.
-**Type:** Array of String \(Enumerable anyOf\)
-- `home` = home timeline
-- `notifications` = notifications timeline
-- `public` = public timelines
-- `thread` = expanded thread of a detailed status
+**Description:** The contexts in which the filter should be applied.\
+**Type:** Array of String \(Enumerable anyOf\)\
+`home` = home timeline\
+`notifications` = notifications timeline\
+`public` = public timelines\
+`thread` = expanded thread of a detailed status\
 **Version history:** Added in 2.4.3
 
-### `expires_at`
+### `expires_at` {#expires_at}
 
-**Description:** When the filter should no longer be applied
-**Type:** String \(ISO 8601 Datetime\), or null if the filter does not expire
+**Description:** When the filter should no longer be applied\
+**Type:** String \(ISO 8601 Datetime\), or null if the filter does not expire\
 **Version history:** Added in 2.4.3
 
-### `irreversible`
+### `irreversible` {#irreversible}
 
-**Description:** Should matching entities in home and notifications be dropped by the server?
-**Type:** Boolean
+**Description:** Should matching entities in home and notifications be dropped by the server?\
+**Type:** Boolean\
 **Version history:** Added in 2.4.3
 
-### `whole_word`
+### `whole_word` {#whole_word}
 
-**Description:** Should the filter consider word boundaries?
-**Type:** Boolean
+**Description:** Should the filter consider word boundaries?\
+**Type:** Boolean\
 **Version history:** Added in 2.4.3
 
 ## Implementation notes

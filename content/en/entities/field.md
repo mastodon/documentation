@@ -37,24 +37,24 @@ menu:
 
 ## Required attributes
 
-### `name`
+### `name` {#name}
 
-**Description:** The key of a given field's key-value pair.
-**Type:** String
+**Description:** The key of a given field's key-value pair.\
+**Type:** String\
 **Version history:** Added in 2.4.0
 
-### `value`
+### `value` {#value}
 
-**Description:** The value associated with the `name` key.
-**Type:** String \(HTML\)
+**Description:** The value associated with the `name` key.\
+**Type:** String \(HTML\)\
 **Version history:** Added in 2.4.0
 
 ## Optional attributes
 
-### `verified_at`
+### `verified_at` {#verified_at}
 
-**Description:** Timestamp of when the server verified a URL value for a rel="me" link.
-**Type:** String \(ISO 8601 Datetime\) if `value` is a verified URL. Otherwise, null
+**Description:** Timestamp of when the server verified a URL value for a rel="me" link.\
+**Type:** String \(ISO 8601 Datetime\) if `value` is a verified URL. Otherwise, null\
 **Version history:** Added in 2.6.0
 
 ## See also

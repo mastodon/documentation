@@ -1,8 +1,6 @@
 ---
 title: Context
-description: >-
-  Represents the tree around a given status. Used for reconstructing threads of
-  statuses.
+description: Represents the tree around a given status. Used for reconstructing threads of statuses.
 menu:
   docs:
     parent: entities
@@ -46,16 +44,16 @@ menu:
 
 ## Required attributes
 
-### `ancestors`
+### `ancestors` {#ancestors}
 
-**Description:** Parents in the thread.
-**Type:** Array of [Status](status.md)
+**Description:** Parents in the thread.\
+**Type:** Array of [Status](status.md)\
 **Version history:** Added in 0.6.0
 
-### `descendants`
+### `descendants` {#descendants}
 
-**Description:** Children in the thread.
-**Type:** Array of [Status](status.md)
+**Description:** Children in the thread.\
+**Type:** Array of [Status](status.md)\
 **Version history:** Added in 0.6.0
 
 ## See also

@@ -9,39 +9,39 @@ menu:
 
 {{< figure src="/assets/image%20%2859%29.png" caption="Compose form with CW enabled" >}}
 
-## Text
+## Text {#text}
 
 The main body of each status update can be composed using the text field. The default character limit is 500 characters.
 
-### Links
+### Links {#links}
 
 {{< figure src="/assets/image%20%287%29.png" caption="Links must start with http\(s\):// and are counted as 23 characters regardless of length." >}}
 
 If you include links in your post, they must begin with `http://` or `https://`. All links are counted as 23 characters, no matter how long they actually are, so there is no need to use a link shortener to save characters. In fact, using a link shortener is actively discouraged.
 
-### Mentions
+### Mentions {#mentions}
 
 {{< figure src="/assets/image%20%2820%29.png" caption="Suggested mentions for both local and remote users." >}}
 
 You can mention users by typing out their full address, e.g. `@alice@example.com`. Note that any usage of`@word` will be interpreted as mentioning the local user with the username `word`, if that user exists. Only the username part will count against your character limit -- the domain is not counted.
 
-### Hashtags
+### Hashtags {#hashtags}
 
 {{< figure src="/assets/image%20%2825%29.png" caption="Hashtags are autosuggested by usage frequency." >}}
 
 You can use a `#hashtag` to make your post discoverable to anyone searching for that hashtag. Hashtags can contain alphanumeric characters and underscores, but cannot contain numbers only.
 
-### Custom emoji
+### Custom emoji {#emoji}
 
 {{< figure src="/assets/image%20%2838%29.png" caption="An array of custom emoji are available in the selector." >}}
 
 Each server offers a set of custom emoji you can use, like on Discord. You can use an emoji using its shortcode like `:thounking:`, or by clicking the emoji face in the compose box and browsing through the "Custom" category. You can also browse through and search for standard unicode emoji.
 
-## Attachments
+## Attachments {#attachments}
 
 You can attach either files or a poll to your status.
 
-### Files
+### Files {#media}
 
 {{< figure src="/assets/image%20%2844%29.png" caption="Thumbnail for attached media, with options to delete, edit, or mark as sensitive" >}}
 
@@ -52,13 +52,13 @@ Click the paper clip to attach a file to your post. You can attach the following
 * **Videos** \(MP4, M4V, MOV, WebM\) **up to 40MB**. Video will be transcoded to H.264 MP4 with a maximum bitrate of 1300kbps and framerate of 60fps.
 * **Audio** \(MP3, OGG, WAV, FLAC, OPUS, AAC, M4A, 3GP\) **up to 40MB**. Audio will be transcoded to MP3 using V2 VBR \(roughly 192kbps\).
 
-#### Editing media
+#### Editing media {#edit}
 
 {{< figure src="/assets/image%20%2826%29.png" caption="Edit media to add a media description or choose a focal point for the preview thumbnail." >}}
 
 By clicking the "Edit" link on the attachment thumbnail, you can load a modal which will allow adding a media description or changing the focal point. Although optional, it is a good idea to add media descriptions that briefly describe what is in contained in the media. These descriptions will be shown when the media fails to load for any reason, or when accessed by screen readers and other assistive technology. Setting the focal point is also optional, but can make preview thumbnails looks better when they are not shown in a 16:9 aspect ratio.
 
-### Polls
+### Polls {#polls}
 
 {{< figure src="/assets/image%20%2841%29.png" caption="A poll with 2 one-of choices, expiring in 1 day" >}}
 
@@ -68,7 +68,7 @@ Click the bar graph icon to attach a poll to your post.
 * Polls default to one-of / single-choice. Click on the radio button to switch your poll to any-of / multiple-choice checkboxes.
 * Polls can be set to expire in 5 minutes, 30 minutes, 1 hour, 6 hours, 1 day, 3 days, or 7 days.
 
-## Publishing levels
+## Publishing levels {#privacy}
 
 | Level | Public timelines | Permalink | Profile view | Home feeds |
 | :--- | :--- | :--- | :--- | :--- |
@@ -79,7 +79,7 @@ Click the bar graph icon to attach a poll to your post.
 
 Posts can be published with four different privacy levels:
 
-### Public
+### Public {#public}
 
 The default option.
 
@@ -88,13 +88,13 @@ The default option.
 * Your followers will receive the post in their home feeds, and anyone mentioned will receive the post in notifications.
 * Your post can be boosted into other home feeds.
 
-### Unlisted
+### Unlisted {#unlisted}
 
 Exactly the same as public, but with the following difference:
 
 * Your post will not appear in Mastodon's public timelines.
 
-### Followers-only
+### Followers-only {#private}
 
 A more limited delivery option.
 
@@ -111,7 +111,7 @@ To effectively publish private \(followers-only\) posts, you must **lock your ac
 Please mind that post privacy on Mastodon is per-post, rather than account-wide, and as such **there is no way to make past public posts private.**
 {{< /hint >}}
 
-### Direct
+### Direct {#direct}
 
 Send your post only to mentioned users.
 
@@ -124,7 +124,7 @@ Send your post only to mentioned users.
 **Do not share dangerous and sensitive information over direct messages**. Mastodon is not an encrypted messaging app like Signal or Wire, the database administrators of the sender’s and recipient’s servers have access to the text. Use them with the same caution as you would use forum PMs, Discord PMs and Twitter DMs.
 {{< /hint >}}
 
-## Content warnings and sensitive content
+## Content warnings and sensitive content {#cw}
 
 {{< figure src="/assets/image.png" caption="A status with a CW that is marked as sensitive content." >}}
 

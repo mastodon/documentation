@@ -13,39 +13,39 @@ Your application can use a [server-sent events](https://developer.mozilla.org/en
 
 Alternatively, a WebSocket connection can also be established.
 
-## Server-sent events \(HTTP\) <a id="server-sent-events-http"></a>
+## Server-sent events \(HTTP\)
 
 ### Endpoints <a id="endpoints"></a>
 
-#### GET /api/v1/streaming/health <a id="get-api-v1-streaming-health"></a>
+#### GET /api/v1/streaming/health
 
 Returns `OK` when streaming service is fine. Added in 2.5.0
 
-#### GET /api/v1/streaming/user <a id="get-api-v1-streaming-user"></a>
+#### GET /api/v1/streaming/user
 
 Returns events that are relevant to the authorized user, i.e. home timeline and notifications
 
-#### GET /api/v1/streaming/public <a id="get-api-v1-streaming-public"></a>
+#### GET /api/v1/streaming/public
 
 Returns all public statuses
 
-#### GET /api/v1/streaming/public/local <a id="get-api-v1-streaming-public-local"></a>
+#### GET /api/v1/streaming/public/local
 
 Returns all local statuses
 
-#### GET /api/v1/streaming/hashtag?tag=:hashtag <a id="get-api-v1-streaming-hashtag-tag-hashtag"></a>
+#### GET /api/v1/streaming/hashtag?tag=:hashtag
 
 Returns all public statuses for a particular hashtag
 
-#### GET /api/v1/streaming/hashtag/local?tag=:hashtag <a id="get-api-v1-streaming-hashtag-local-tag-hashtag"></a>
+#### GET /api/v1/streaming/hashtag/local?tag=:hashtag
 
 Returns all local statuses for a particular hashtag
 
-#### GET /api/v1/streaming/list?list=:list_id <a id="get-api-v1-streaming-list-list-list-id"></a>
+#### GET /api/v1/streaming/list?list=:list_id
 
 Returns statuses for a list
 
-#### GET /api/v1/streaming/direct <a id="get-api-v1-streaming-direct"></a>
+#### GET /api/v1/streaming/direct
 
 Returns all direct messages
 

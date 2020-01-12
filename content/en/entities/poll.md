@@ -6,6 +6,8 @@ menu:
     parent: entities
 ---
 
+## Example
+
 ```javascript
 {
   "id": "34830",
@@ -32,60 +34,60 @@ menu:
 }
 ```
 
-## Poll attributes <a id="poll"></a>
+## Attributes
 
-### `id`
+### `id` {#id}
 
-**Description:** The ID of the poll in the database.
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)
+**Description:** The ID of the poll in the database.\
+**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 2.8.0
 
-### `expires_at`
+### `expires_at` {#expires_at}
 
-**Description:** When the poll ends.
-**Type:** String \(ISO 8601 Datetime\), or null if the poll does not end
+**Description:** When the poll ends.\
+**Type:** String \(ISO 8601 Datetime\), or null if the poll does not end\
 **Version history:** Added in 2.8.0
 
-### `expired`
+### `expired` {#expired}
 
-**Description:** Is the poll currently expired?
-**Type:** Boolean
+**Description:** Is the poll currently expired?\
+**Type:** Boolean\
 **Version history:** Added in 2.8.0
 
-### `multiple`
+### `multiple` {#multiple}
 
-**Description:** Does the poll allow multiple-choice answers?
-**Type:** Boolean
+**Description:** Does the poll allow multiple-choice answers?\
+**Type:** Boolean\
 **Version history:** Added in 2.8.0
 
-### `votes_count`
+### `votes_count` {#votes_count}
 
-**Description:** How many votes have been received.
-**Type:** Number
+**Description:** How many votes have been received.\
+**Type:** Number\
 **Version history:** Added in 2.8.0
 
-### `voters_count`
+### `voters_count` {#voters_count}
 
-**Description:** How many unique accounts have voted on a multiple-choice poll.
-**Type:** Number, or null if `multiple` is false.
+**Description:** How many unique accounts have voted on a multiple-choice poll.\
+**Type:** Number, or null if `multiple` is false.\
 **Version history:** Added in 2.8.0
 
-### `voted`
+### `voted` {#voted}
 
-**Description:** When called with a user token, has the authorized user voted?
-**Type:** Boolean, or null if no current user
+**Description:** When called with a user token, has the authorized user voted?\
+**Type:** Boolean, or null if no current user\
 **Version history:** Added in 2.8.0
 
-### `own_votes`
+### `own_votes` {#own_votes}
 
-**Description:** When called with a user token, which options has the authorized user chosen? Contains an array of index values for `options`.
-**Type:** Array of Number, or null if no current user
+**Description:** When called with a user token, which options has the authorized user chosen? Contains an array of index values for `options`.\
+**Type:** Array of Number, or null if no current user\
 **Version history:** Added in 2.8.0
 
-### `options[]`
+### `options[]` {#options}
 
-**Description:** Possible answers for the poll.
-**Type:** Array of Hash
+**Description:** Possible answers for the poll.\
+**Type:** Array of Hash\
 **Version history:** Added in 2.8.0
 
 #### `options[][title]`
@@ -96,10 +98,10 @@ The text value of the poll option. String.
 
 The number of received votes for this option. Number, or null if results are not published yet.
 
-### `emojis`
+### `emojis` {#emojis}
 
-**Description:** Custom emoji to be used for rendering poll options.
-**Type:** Array of Emoji
+**Description:** Custom emoji to be used for rendering poll options.\
+**Type:** Array of Emoji\
 **Version history:** Added in 2.8.0
 
 ## See also

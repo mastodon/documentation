@@ -1,5 +1,6 @@
 ---
 title: IdentityProof
+description: Represents a proof from an external identity provider.
 menu:
   docs:
     parent: entities
@@ -17,34 +18,34 @@ menu:
 
 ## Attributes
 
-### `provider`
+### `provider` {#provider}
 
-**Description:** The name of the identity provider.
-**Type:** String
+**Description:** The name of the identity provider.\
+**Type:** String\
 **Version history:** Added in 2.8.0
 
-### `provider_username`
+### `provider_username` {#provider_username}
 
-**Description:** The account owner's username on the identity provider's service.
-**Type:** String
+**Description:** The account owner's username on the identity provider's service.\
+**Type:** String\
 **Version history:** Added in 2.8.0
 
-### `profile_url`
+### `profile_url` {#profile_url}
 
-**Description:** The account owner's profile URL on the identity provider.
-**Type:** String \(URL\)
+**Description:** The account owner's profile URL on the identity provider.\
+**Type:** String \(URL\)\
 **Version history:** Added in 2.8.0
 
-### `proof_url`
+### `proof_url` {#proof_url}
 
-**Description:** A link to a statement of identity proof, hosted by the identity provider.
-**Type:** String \(URL\)
+**Description:** A link to a statement of identity proof, hosted by the identity provider.\
+**Type:** String \(URL\)\
 **Version history:** Added in 2.8.0
 
-### `updated_at`
+### `updated_at` {#updated_at}
 
-**Description:** The name of the identity provider.
-**Type:** String \(ISO 8601 Datetime\)
+**Description:** The name of the identity provider.\
+**Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 2.8.0
 
 ## See also

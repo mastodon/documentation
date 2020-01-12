@@ -1,5 +1,6 @@
 ---
 title: Migrating to a new machine
+description: Copying your Mastodon installation to a new server without losing anything.
 menu:
   docs:
     weight: 90
@@ -12,7 +13,7 @@ Sometimes, for various reasons, you may want to migrate your Mastodon instance f
 This guide was written with Ubuntu Server in mind; your mileage may vary for other setups.
 {{< /hint >}}
 
-## Basic steps <a id="basic-steps"></a>
+## Basic steps {#basic-steps}
 
 1. Set up a new Mastodon server using the [Production Guide]({{< relref "install.md" >}}) \(however, don’t run `mastodon:setup`\).
 2. Stop Mastodon on the old server \(e.g. `systemctl stop 'mastodon-*.service'`\).
@@ -26,9 +27,9 @@ This guide was written with Ubuntu Server in mind; your mileage may vary for oth
 10. Update or copy your Nginx configuration, re-run LetsEncrypt as necessary.
 11. Enjoy your new server!
 
-## Detailed steps <a id="detailed-steps"></a>
+## Detailed steps {#detailed-steps}
 
-### What data needs to be migrated <a id="what-data-needs-to-be-migrated"></a>
+### What data needs to be migrated {#what-data-needs-to-be-migrated}
 
 At a high level, you’ll need to copy over the following:
 
@@ -42,7 +43,7 @@ Less crucially, you’ll probably also want to copy the following for convenienc
 * The systemd config files \(`/etc/systemd/system/mastodon-*.service`\), which may contain your server tweaks and customizations
 * The pgbouncer configuration under `/etc/pgbouncer` \(if you’re using it\)
 
-### Dump and load Postgres <a id="dump-and-load-postgres"></a>
+### Dump and load Postgres {#dump-and-load-postgres}
 
 Instead of running `mastodon:setup`, we’re going to create an empty Postgres database using the `template0` database \(which is useful when restoring a Postgres dump, [as described in the pg\_dump documentation](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)\).
 
@@ -67,7 +68,7 @@ pg_restore -U mastodon -n public --no-owner --role=mastodon \
 
 \(Note that if the username is not `mastodon` on the new server, you should change the `-U` AND `--role` values above. It’s okay if the username is different between the two servers.\)
 
-### Copy files <a id="copy-files"></a>
+### Copy files {#copy-files}
 
 This will probably take some time, and you’ll want to avoid re-copying unnecessarily, so using `rsync` is recommended. On your old machine, as the `mastodon` user, run:
 
@@ -81,13 +82,13 @@ You should also copy over the `.env.production` file, which contains secrets.
 
 Optionally, you may copy over the nginx, systemd, and pgbouncer config files, or rewrite them from scratch.
 
-### During migration <a id="during-migration"></a>
+### During migration {#during-migration}
 
 You can edit the `~/live/public/500.html` page on the old machine if you want to show a nice error message to let existing users know that a migration is in progress.
 
 You’ll probably also want to set the DNS TTL to something small \(30-60 minutes\) about a day in advance, so that DNS can propagate quickly once you point it to the new IP address.
 
-### After migrating <a id="after-migrating"></a>
+### After migrating {#after-migrating}
 
 You can check [whatsmydns.net](https://whatsmydns.net/) to see the progress of DNS propagation. To jumpstart the process, you can always edit your own `/etc/hosts` file to point to your new server so you can start playing around with it early.
 

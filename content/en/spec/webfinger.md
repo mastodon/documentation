@@ -7,7 +7,7 @@ menu:
     parent: spec
 ---
 
-## What is WebFinger, and why is it used?
+## What is WebFinger, and why is it used? {#intro}
 
 On Mastodon, user profiles can be hosted either locally on the same website as yours, or remotely on a completely different website. The same username may be used on a different domain. Therefore, a Mastodon user's full mention consists of both the username and the domain, in the form `@username@domain`. In practical terms, `@user@example.com` is not the same as `@user@example.org`. If the domain is not included, Mastodon will try to find a local user named `@username`. However, in order to deliver to someone over ActivityPub, the `@username@domain` mention is not enough -- **mentions must be translated to an HTTPS URI first**, so that the remote actor's inbox and outbox can be found.
 
@@ -17,7 +17,7 @@ Enter WebFinger. WebFinger as described in [RFC 7033](https://tools.ietf.org/htm
 **Because Mastodon heavily relies on mentions for addressing other profiles, WebFinger is required for fully interoperating with Mastodon.** Users can generally load profiles by searching for the direct HTTPS URI if they know it, or for the `username@domain` address, but Mastodon's internal logic depends almost completely on `acct`: URIs or `username@domain` representations. Searching for any objects or profiles from an ActivityPub implementation without WebFinger will fail because the author cannot be converted to a user in the local database.
 {{< /hint >}}
 
-## Sample WebFinger flow
+## Sample WebFinger flow {#example}
 
 Suppose we want to lookup the user `@Gargron` hosted on the `mastodon.social` website.
 

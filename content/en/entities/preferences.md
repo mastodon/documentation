@@ -20,41 +20,41 @@ menu:
 
 ## Attributes
 
-### `posting:default:visibility`
+### `posting:default:visibility` {#visibility}
 
-**Description:** Default visibility for new posts. Equivalent to [Source\#privacy](source.md#privacy).
-**Type:** String \(Enumerable, oneOf\)
-- `public` = Public post
-- `unlisted` = Unlisted post
-- `private` = Followers-only post
-- `direct` = Direct post
+**Description:** Default visibility for new posts. Equivalent to [Source\#privacy](source.md#privacy).\
+**Type:** String \(Enumerable, oneOf\)\
+`public` = Public post\
+`unlisted` = Unlisted post\
+`private` = Followers-only post\
+`direct` = Direct post\
 **Version history:** Added in 2.8.0
 
-### `posting:default:sensitive`
+### `posting:default:sensitive` {#sensitive}
 
-**Description:** Default sensitivity flag for new posts. Equivalent to [Source\#sensitive](source.md#sensitive).
-**Type:** Boolean
+**Description:** Default sensitivity flag for new posts. Equivalent to [Source\#sensitive](source.md#sensitive).\
+**Type:** Boolean\
 **Version history:** Added in 2.8.0
 
-### `posting:default:language`
+### `posting:default:language` {#language}
 
-**Description:** Default language for new posts. Equivalent to [Source\#language](source.md#language)
-**Type:** String \(ISO 639-1 language two-letter code\), or null
+**Description:** Default language for new posts. Equivalent to [Source\#language](source.md#language)\
+**Type:** String \(ISO 639-1 language two-letter code\), or null\
 **Version history:** Added in 2.8.0
 
-### `reading:expand:media`
+### `reading:expand:media` {#media}
 
-**Description:** Whether media attachments should be automatically displayed or blurred/hidden.
-**Type:** String \(Enumerable, oneOf\)
-- `default` = Hide media marked as sensitive
-- `show_all` = Always show all media by default, regardless of sensitivity
-- `hide_all` = Always hide all media by default, regardless of sensitivity
+**Description:** Whether media attachments should be automatically displayed or blurred/hidden.\
+**Type:** String \(Enumerable, oneOf\)\
+`default` = Hide media marked as sensitive\
+`show_all` = Always show all media by default, regardless of sensitivity\
+`hide_all` = Always hide all media by default, regardless of sensitivity\
 **Version history:** Added in 2.8.0
 
-### `reading:expand:spoilers`
+### `reading:expand:spoilers` {#cw}
 
-**Description:** Whether CWs should be expanded by default.
-**Type:** Boolean
+**Description:** Whether CWs should be expanded by default.\
+**Type:** Boolean\
 **Version history:** Added in 2.8.0
 
 ## See also

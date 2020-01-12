@@ -52,12 +52,12 @@ menu:
     "fields": [
       {
         "name": "Patreon",
-        "value": "<a href=\"https://www.patreon.com/mastodon\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"\">patreon.com/mastodon</span><span class=\"invisible\"></span></a>",
+        "value": "<a href=\"https://www.patreon.com/mastodon\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"\">patreon.com/mastodon</span><span class=\"invisible\"></span}",
         "verified_at": null
       },
       {
         "name": "Homepage",
-        "value": "<a href=\"https://zeonfederated.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">zeonfederated.com</span><span class=\"invisible\"></span></a>",
+        "value": "<a href=\"https://zeonfederated.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">zeonfederated.com</span><span class=\"invisible\"></span}",
         "verified_at": "2019-07-15T18:29:57.191+00:00"
       }
     ]
@@ -67,100 +67,100 @@ menu:
 
 ## Required attributes
 
-### `uri`
+### `uri` {#uri}
 
-**Description:** The domain name of the instance.
-**Type:** String
+**Description:** The domain name of the instance.\
+**Type:** String\
 **Version history:** Added in 1.1.0
 
-### `title`
+### `title` {#title}
 
-**Description:** The title of the website.
-**Type:** String
+**Description:** The title of the website.\
+**Type:** String\
 **Version history:** Added in 1.1.0
 
-### `description`
+### `description` {#description}
 
-**Description:** Admin-defined description of the Mastodon site.
-**Type:** String
+**Description:** Admin-defined description of the Mastodon site.\
+**Type:** String\
 **Version history:** Added in 1.1.0
 
-### `short_description`
+### `short_description` {#short_description}
 
-**Description:** A shorter description defined by the admin.
-**Type:** String
+**Description:** A shorter description defined by the admin.\
+**Type:** String\
 **Version history:** Added in 2.9.2
 
-### `email`
+### `email` {#email}
 
-**Description:** An email that may be contacted for any inquiries.
-**Type:** String
+**Description:** An email that may be contacted for any inquiries.\
+**Type:** String\
 **Version history:** Added in 1.1.0
 
-### `version`
+### `version` {#version}
 
-**Description:** The version of Mastodon installed on the instance.
-**Type:** String
+**Description:** The version of Mastodon installed on the instance.\
+**Type:** String\
 **Version history:** Added in 1.3.0
 
-### `languages`
+### `languages` {#languages}
 
-**Description:** Primary langauges of the website and its staff.
-**Type:** Array of String \(ISO 639 Part 1-5 language codes\)
+**Description:** Primary langauges of the website and its staff.\
+**Type:** Array of String \(ISO 639 Part 1-5 language codes\)\
 **Version history:** Added in 2.3.0
 
-### `registrations`
+### `registrations` {#registrations}
 
-**Description:** Whether registrations are enabled.
-**Type:** Boolean
+**Description:** Whether registrations are enabled.\
+**Type:** Boolean\
 **Version history:** Added in 2.7.2
 
-### `approval_required`
+### `approval_required` {#approval_required}
 
-**Description:** Whether registrations require moderator approval.
-**Type:** Boolean
+**Description:** Whether registrations require moderator approval.\
+**Type:** Boolean\
 **Version history:** Added in 2.9.2
 
-### `urls`
+### `urls` {#urls}
 
-**Description:** URLs of interest for clients apps.
-**Type:** Hash \(`streaming_api`\)
+**Description:** URLs of interest for clients apps.\
+**Type:** Hash \(`streaming_api`\)\
 **Version history:** Added in 1.4.2
 
-#### `urls[streaming_api]`
+#### `urls[streaming_api]` {#streaming_api}
 
 Websockets address for push streaming. String \(URL\).
 
-### `stats`
+### `stats` {#stats}
 
-**Description:** Statistics about how much information the instance contains.
-**Type:** Hash \(`user_count`, `status_count`, `domain_count`\)
+**Description:** Statistics about how much information the instance contains.\
+**Type:** Hash \(`user_count`, `status_count`, `domain_count`\)\
 **Version history:** Added in 1.6.0
 
-#### `user_count`
+#### `user_count` {#user_count}
 
 Users registered on this instance. Number.
 
-#### `status_count`
+#### `status_count` {#status_count}
 
 Statuses authored by users on instance. Number.
 
-#### `domain_count`
+#### `domain_count` {#domain_count}
 
 Domains federated with this instance. Number.
 
 ## Optional attributes
 
-### `thumbnail`
+### `thumbnail` {#thumbnail}
 
-**Description:** Banner image for the website.
-**Type:** String \(URL\) or null
+**Description:** Banner image for the website.\
+**Type:** String \(URL\) or null\
 **Version history:** Added in 1.6.1
 
-### `contact_account`
+### `contact_account` {#contact_account}
 
-**Description:** A user that can be contacted, as an alternative to `email`.
-**Type:** [Account](account.md) or null
+**Description:** A user that can be contacted, as an alternative to `email`.\
+**Type:** [Account](account.md) or null\
 **Version history:** Added in 2.3.0
 
 ## See also

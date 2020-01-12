@@ -8,11 +8,11 @@ menu:
 
 {{< youtube id="IPSbNdBmWKE" caption="An introductory video explaining basic Mastodon concepts with visual animations" >}}
 
-## What is a microblog?
+## What is a microblog? {#microblogging}
 
 Similar to how blogging is the act of publishing updates to a website, **microblogging** is the act of publishing small updates to a stream of updates on your profile. You can publish text posts and optionally attach media such as pictures, audio, video, or polls. Mastodon lets you follow friends and discover new ones.
 
-## What is federation? <a id="what-is-federation"></a>
+## What is federation? {#federation}
 
 **Federation** is a form of decentralization. Instead of a single central service that all people use, there are multiple services, that any number of people can use.
 
@@ -28,7 +28,7 @@ A Mastodon website can operate alone. Just like a traditional website, people si
 
 
 
-## What is ActivityPub? <a id="the-fediverse"></a>
+## What is ActivityPub? {#fediverse}
 
 Mastodon uses a standardized, open protocol to implement federation. It is called **ActivityPub**. Any software that likewise implements federation via ActivityPub can seamlessly communicate with Mastodon, just like Mastodon websites communicate with one another.
 
@@ -43,9 +43,9 @@ The **fediverse** \(“federated universe”\) is the name for all websites that
 
 The fediverse does not have its own brand, so you might more often hear “follow me on Mastodon” than “follow me on the fediverse”, but technically the latter is more correct.
 
-## Practical implications <a id="practical-implications"></a>
+## Practical implications {#implications}
 
-### Choice of service provider and policy
+### Choice of service provider and policy {#choice}
 
 Because Mastodon is simply software that can be used to power any website, potential users of Mastodon have the option of choosing a service provider from already-existing Mastodon websites, or to create their own Mastodon website if they wish. The Mastodon project maintains a list of recommended service providers at [joinmastodon.org](https://joinmastodon.org), sortable by category and/or language. Some websites may have moderation policies that go beyond this, such as requiring the use of certain tags on potentially sensitive content, and some websites may have more relaxed moderation policies, but websites listed in the picker all agree to adopt the [Mastodon Server Covenant](https://joinmastodon.org/covenant), meaning that they pledge to actively moderate against hate speech, to take daily backups, to have at least one emergency admin, and to provide at least 3 months advance notice in case of shutdown.
 
@@ -57,7 +57,7 @@ Because Mastodon is simply software that can be used to power any website, poten
 >
 > -- Eugen Rochko, Dec 30 2018, ["Why does decentralization matter?"](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
 
-### Funding and monetization <a id="funding-and-monetization"></a>
+### Funding and monetization {#monetization}
 
 Mastodon websites are operated by different people or organizations completely independently. Mastodon does not implement any monetization strategies in the software.
 
@@ -69,7 +69,7 @@ Mastodon development is likewise crowdfunded via [Patreon](https://patreon.com/m
 >
 > -- Eugen Rochko, Mar 3 2018, ["Twitter is not a public utility"](https://blog.joinmastodon.org/2018/03/twitter-is-not-a-public-utility/)
 
-### Interoperability between different software <a id="impersonation-and-verification"></a>
+### Interoperability between different software {#interoperability}
 
 In practical terms: Imagine if you could follow an Instagram user from your Twitter account and comment on their photos without leaving your account. If Twitter and Instagram were federated services that used the same protocol, that would be possible. With a Mastodon account, **you can communicate with any other compatible website,** _**even if it is not running on Mastodon**_. All that is necessary is that the software support the same subset of the ActivityPub protocol that allows for creating and interacting with status updates. To find out more about the technical specifications required to interoperate with Mastodon, see [ActivityPub](spec/activitypub.md), [WebFinger](spec/webfinger.md), and [Security](spec/security.md). To read more about what ActivityPub allows us to do, see [Why ActivityPub is the future](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/).
 
@@ -77,7 +77,7 @@ In practical terms: Imagine if you could follow an Instagram user from your Twit
 >
 > -- Eugen Rochko, Jun 27 2018, ["Why ActivityPub is the future"](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/)
 
-### Free/libre software
+### Free/libre software {#libre}
 
 Unlike proprietary services, **anyone has the complete freedom to run, examine, inspect, copy, modify, distribute, and reuse the Mastodon source code, provided they guarantee the same freedoms for any derivative work.** Just like how users of Mastodon can choose their service provider, you as an individual are free to contribute features to Mastodon or publish a modified version of Mastodon that includes different features. These modified versions, also known as software forks, are required to also uphold the same freedoms as the original Mastodon project. For example, [glitch-soc](https://glitch-soc.github.io/docs/) is a software distribution that adds various experimental features. Many individual forks exist as well, perhaps themed slightly differently or including small modifications to the codebase. Because Mastodon is libre software that respects your freedom, personalizations like this are not only allowed but encouraged.
 
@@ -89,7 +89,7 @@ Unlike proprietary services, **anyone has the complete freedom to run, examine, 
 >
 > -- Eugen Rochko, Dec 30 2018, ["Why does decentralization matter?"](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
 
-## Choose your path
+## Choose your path {#next-steps}
 
 Learn how to use Mastodon:
 

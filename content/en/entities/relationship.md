@@ -1,8 +1,6 @@
 ---
 title: Relationship
-description: >-
-  Represents the relationship between accounts, such as following / blocking /
-  muting / etc.
+description: Represents the relationship between accounts, such as following / blocking / muting / etc.
 menu:
   docs:
     parent: entities
@@ -26,72 +24,72 @@ menu:
 }
 ```
 
-## Required attributes <a id="relationship"></a>
+## Required attributes {#relationship}
 
-### `id`
+### `id` {#id}
 
-**Description:** The account id.
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)
+**Description:** The account id.\
+**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
 **Version history:** Added in 0.6.0
 
-### `following`
+### `following` {#following}
 
-**Description:** Are you following this user?
-**Type:** Boolean
+**Description:** Are you following this user?\
+**Type:** Boolean\
 **Version history:** Added in 0.6.0
 
-### `requested`
+### `requested` {#requested}
 
-**Description:** Do you have a pending follow request for this user?
-**Type:** Boolean
+**Description:** Do you have a pending follow request for this user?\
+**Type:** Boolean\
 **Version history:** Added in 0.9.9
 
-### `endorsed`
+### `endorsed` {#endorsed}
 
-**Description:** Are you featuring this user on your profile?
-**Type:** Boolean
+**Description:** Are you featuring this user on your profile?\
+**Type:** Boolean\
 **Version history:** Added in 2.5.0
 
-### `followed_by`
+### `followed_by` {#followed_by}
 
-**Description:** Are you followed by this user?
-**Type:** Boolean
+**Description:** Are you followed by this user?\
+**Type:** Boolean\
 **Version history:** Added in 0.6.0
 
-### `muting`
+### `muting` {#muting}
 
-**Description:** Are you muting this user?
-**Type:** Boolean
+**Description:** Are you muting this user?\
+**Type:** Boolean\
 **Version history:** Added in 1.1.0
 
-### `muting_notifications`
+### `muting_notifications` {#muting_notifications}
 
-**Description:** Are you muting notifications from this user?
-**Type:** Boolean
+**Description:** Are you muting notifications from this user?\
+**Type:** Boolean\
 **Version history:** Added in 2.1.0
 
-### `showing_reblogs`
+### `showing_reblogs` {#showing_reblogs}
 
-**Description:** Are you receiving this user's boosts in your home timeline?
-**Type:** Boolean
+**Description:** Are you receiving this user's boosts in your home timeline?\
+**Type:** Boolean\
 **Version history:** Added in 2.1.0
 
-### `blocking`
+### `blocking` {#blocking}
 
-**Description:** Are you blocking this user?
-**Type:** Boolean
+**Description:** Are you blocking this user?\
+**Type:** Boolean\
 **Version history:** Added in 0.6.0
 
-### `domain_blocking`
+### `domain_blocking` {#domain_blocking}
 
-**Description:** Are you blocking this user's domain?
-**Type:** Boolean
+**Description:** Are you blocking this user's domain?\
+**Type:** Boolean\
 **Version history:** Added in 1.4.0
 
-### `blocked_by`
+### `blocked_by` {#blocked_by}
 
-**Description:** Is this user blocking you?
-**Type:** Boolean
+**Description:** Is this user blocking you?\
+**Type:** Boolean\
 **Version history:** Added in 2.8.0
 
 ## See also

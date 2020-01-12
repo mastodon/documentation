@@ -7,15 +7,13 @@ menu:
     parent: dev
 ---
 
-
-
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/config/routes.rb" caption="config/routes.rb" >}}
 
-## Explanation of routes
+## Explanation of routes {#routes}
 
 Mastodon uses Ruby on Rails, which defines its router configuration at config/routes.rb. You may view the [Ruby on Rails routing guide](https://guides.rubyonrails.org/routing.html) for more detailed information, but this page will explain the basics of how Mastodon handles routing.
 
-### How routes are constructed
+### How routes are constructed {#router}
 
 `namespace` is a prefix for routes mapped to a certain controller directory. `resources` are mapped to controllers within that namespace directory. `scope` passes to the `module`'s controller. For example, consider the following abbreviated code:
 
@@ -43,7 +41,7 @@ Within /api/v1/statuses, there is a scope for a module :statuses, where addition
 
 There is also a custom method defined for any `member` within this scope, or in other words, for any status to be controlled by `app/controllers/api/v1/statuses_controller.rb`, which is mapped to GET /api/v1/statuses/:id/context and handled by the :context action defined within that controller.
 
-### Available methods
+### Available methods {#methods}
 
 #### :index
 
@@ -65,25 +63,25 @@ Maps to HTTP PUT. Handled by the \#update action in a controller.
 
 Maps to HTTP DELETE. Handled by the \#destroy action in a controller.
 
-## .well-known
+## .well-known {#well-known}
 
-### /.well-known/host-meta
+### /.well-known/host-meta {#host-meta}
 
 Extensible Resource Descriptor \(XRD\). Advertises existence of Webfinger.
 
-### /.well-known/nodeinfo
+### /.well-known/nodeinfo {#nodeinfo}
 
 Maps to NodeInfo 2.0 endpoint at `/nodeinfo/2.0`, used for advertising software name and version, protocols, usage statistics, and whether registrations are open.
 
-### /.well-know/webfinger
+### /.well-know/webfinger {#webfinger}
 
 Used for discovering ActivityPub actor id. See [Spec compliance &gt; WebFinger]({{< relref "../spec/webfinger.md" >}}) for more information.
 
-### /.well-known/change-password
+### /.well-known/change-password {#change-password}
 
 Maps to account settings page.
 
-### /.well-known/keybase-proof-config
+### /.well-known/keybase-proof-config {#keybase}
 
 Used for integration with Keybase, defining which usernames are acceptable and where proofs may be checked.
 
@@ -91,7 +89,7 @@ Used for integration with Keybase, defining which usernames are acceptable and w
 The sections below this point are under construction.
 {{< /hint >}}
 
-## Public URIs
+## Public URIs {#public}
 
 * `/users/username` = user URI
 * `/users/username/remote_follow` = remote follow dialog
@@ -110,7 +108,7 @@ The sections below this point are under construction.
 * `/about/more` = extended description
 * `/terms` = terms of service
 
-## API
+## API {#api}
 
 * /api/oembed
 * /api/proofs

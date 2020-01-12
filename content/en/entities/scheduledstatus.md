@@ -6,6 +6,10 @@ menu:
     parent: entities
 ---
 
+{{< hint style="warning" >}}
+This page is currently under construction.
+{{< /hint >}}
+
 ## Example
 
 ```javascript
@@ -30,16 +34,16 @@ menu:
 
 ## Required attributes
 
-### id
+### id {#id}
 
-**Description:** ID of the scheduled status in the database.
-**Type:** String \(cast from an integer but not guaranteed to be a number\)
+**Description:** ID of the scheduled status in the database.\
+**Type:** String \(cast from an integer but not guaranteed to be a number\)\
 **Version history:** Added in 2.7.0
 
 ### scheduled\_at
 
-**Description:** ID of the status in the database.
-**Type:** String \(ISO 8601 Datetime\)
+**Description:** ID of the status in the database.\
+**Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 2.7.0
 
 ### params
@@ -66,7 +70,7 @@ menu:
 
 #### scheduled\_at
 
-## ScheduledStatus <a id="scheduledstatus"></a>
+## ScheduledStatus {#scheduledstatus}
 
 | Attribute | Type | Nullable | Added in |
 | :--- | :--- | :--- | :--- |
@@ -75,7 +79,7 @@ menu:
 | `params` | [StatusParams]() | No | 2.7.0 |
 | `media_attachments` | Array of [Attachment]() | No | 2.7.0 |
 
-### StatusParams <a id="statusparams"></a>
+### StatusParams {#statusparams}
 
 | Attribute | Type | Nullable | Added in |
 | :--- | :--- | :--- | :--- |

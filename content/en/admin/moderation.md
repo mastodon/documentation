@@ -1,20 +1,21 @@
 ---
 title: Moderation actions
+description: Actions that can be taken against unwanted users or domains.
 menu:
   docs:
     weight: 110
     parent: admin
 ---
 
-## Individual moderation <a id="individual-moderation"></a>
+## Individual moderation {#individual-moderation}
 
 Moderation in Mastodon is always applied locally, i.e. as seen from the particular server. An admin or moderator on one server cannot affect a user on another server, they can only affect the local copy on their own server.
 
-### Disable login <a id="disable-login"></a>
+### Disable login {#disable-login}
 
 A Mastodon account can be disabled. This prevents the user from doing anything with the account, but all of the content is still there untouched. This limitation is reversible, the account can be re-enabled at any time. This limitation is only available for local users on your server.
 
-### Silence <a id="silence"></a>
+### Silence {#silence-user}
 
 A Mastodon silence is synonymous with sandbox. A silenced account does not appear to users who are not already following it. All of the content is still there, and it can still be found via search, mentioned, and followed, but the content is invisible.
 
@@ -22,27 +23,27 @@ At this moment, silence does not affect federation. A locally silenced account i
 
 This limitation is reversible, the account can be unsilenced at any time.
 
-### Suspend <a id="suspend"></a>
+### Suspend {#suspend-user}
 
 A Mastodon suspension is synonymous with deletion. The account no longer appears in search, the profile page is gone, all of the posts, uploads, followers, and all other data is removed. This limitation is **irreversible**. While the account can be unsuspended, allowing the user to take control of it again, the old data is gone for good.
 
-## Server-wide moderation <a id="server-wide-moderation"></a>
+## Server-wide moderation {#server-wide-moderation}
 
 Because individually moderating a large volume of users from a misbehaving server can be exhausting, it is possible to pre-emptively moderate against all users from that particular server using a so-called **domain block**, which comes with several different levels of severity.
 
-### Reject media <a id="reject-media"></a>
+### Reject media {#reject-media}
 
 With this option active, no files from the server will be processed locally. That includes avatars, headers, emojis and media attachments.
 
-### Silence <a id="silence-1"></a>
+### Silence {#silence-server}
 
 Applies a silence to all past and future accounts from the server.
 
-### Suspend <a id="suspend-1"></a>
+### Suspend {#suspend-server}
 
 Applies a suspension to all past and future accounts from the server. No content from the server will be stored locally except for usernames.
 
-## Spam-fighting measures <a id="spam-fighting-measures"></a>
+## Spam-fighting measures {#spam-fighting-measures}
 
 There are a few baseline measures for preventing spam in Mastodon:
 
@@ -51,11 +52,11 @@ There are a few baseline measures for preventing spam in Mastodon:
 
 However, dedicated spammers will get through that. The other measure you can employ is **e-mail domain blacklisting**. During sign up, Mastodon resolves the given e-mail address for an A or MX record, i.e. the IP address of the e-mail server, and checks that IP address against a dynamically stored blacklist.
 
-### Blocking by e-mail server <a id="blocking-by-e-mail-server"></a>
+### Blocking by e-mail server {#blocking-by-e-mail-server}
 
 Spammers will often use different e-mail domains so it looks like they are using a lot of different e-mail servers that would all be difficult to blacklist separately. However, sometimes all of those domains resolve to a single e-mail server IP. If you see a lot of spammers signing up at the same time, you can check for this, either using an online DNS lookup tool, or the Linux `dig` utility, e.g. `dig 1.2.3.4` will return all DNS records for that IP. If you notice the IP is the same for all domains, you can add it to the e-mail domain blacklist.
 
-### Blocking by IP <a id="blocking-by-ip"></a>
+### Blocking by IP {#blocking-by-ip}
 
 It is not possible to block visitors by IP address in Mastodon itself, and it is not a fool-proof strategy. IPs are sometimes shared by a lot of different people, and sometimes change hands. But it is possible to block visitors by IP address in Linux using a firewall. Here is an example using `iptables` and `ipset`:
 
