@@ -113,7 +113,7 @@ menu:
 ### `account` {#account}
 
 **Description:** The account that authored this status.\
-**Type:** [Account](account.md)\
+**Type:** [Account]({{< relref "account.md" >}})\
 **Version history:** Added in 0.1.0
 
 ### `content` {#content}
@@ -153,13 +153,13 @@ menu:
 ### `media_attachments` {#media_attachments}
 
 **Description:** Media that is attached to this status.\
-**Type:** Array of [Attachment](attachment.md)\
+**Type:** Array of [Attachment]({{< relref "attachment.md" >}})\
 **Version history:** Added in 0.6.0
 
 ### `application` {#application}
 
 **Description:** The application used to post this status.\
-**Type:** [Application](application.md)\
+**Type:** [Application]({{< relref "application.md" >}}%)\
 **Version history:** Added in 0.9.9
 
 ## Rendering attributes
@@ -173,13 +173,13 @@ menu:
 ### `tags` {#tags}
 
 **Description:** Hashtags used within the status content.\
-**Type:** Array of [Tag](tag.md)\
+**Type:** Array of [Tag]({{< relref "tag.md" >}})\
 **Version history:** Added in 0.9.0
 
 ### `emojis` {#emojis}
 
 **Description:** Custom emoji to be used when rendering status content.\
-**Type:** Array of [Emoji](emoji.md)\
+**Type:** Array of [Emoji]({{< relref "emoji.md" >}})\
 **Version history:** Added in 2.0.0
 
 ## Informational attributes
@@ -225,7 +225,7 @@ menu:
 ### `reblog` {#reblog}
 
 **Description:** ID of the status in the database.\
-**Type:** [Status](status.md)\
+**Type:** [Status]({{< relref "status.md" >}})\
 **Version history:** Added in 0.1.0
 
 ### `poll` {#poll}
