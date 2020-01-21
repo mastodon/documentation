@@ -22,6 +22,24 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `LOCAL_DOMAIN`
 * `WEB_DOMAIN`
 * `ALTERNATE_DOMAINS`
+* `AUTHORIZED_FETCH`
+
+  When set to `true`, Mastodon will stop inline-signing activities, and will require remote servers to authenticate when fetching public and unlisted toots.
+  
+  This prevents blocked domains from fetching your public toots, at the cost of possibly increased computations, and broken compatibility with software that does not sign fetch requests (such as Mastodon prior to version 3.0).
+  
+  Note that this mode cannot guarantee that bad actors do not access your public and unlisted toots, it merely makes it a bit more difficult.
+* `WHITELIST_MODE`
+
+  When set to `true`, Mastodon will restrict federation to whitelisted servers only, as well as disable public pages and some client APIs.
+  Whitelist mode implies authorized fetch mode.
+  
+  When switching an existing instance to whitelist mode, the following command should be used to remove any already existent data on non-whitelisted domains:
+  ```
+  tootctl domain purge --whitelist-mode
+  ```
+  
+  Note that, while introduced in Mastodon 3.0, `WHITELIST_MODE` is broken on Mastodon 3.0 and 3.0.1.
 
 ### Secrets {#secrets}
 
