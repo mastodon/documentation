@@ -110,7 +110,7 @@ Equal to `username` for local users, or `username@domain` for remote users.\
 ### `note` {#note}
 
 **Description:** The profile's bio / description.\
-**Type:** String\
+**Type:** String \(HTML\)\
 **Version history:** Added in 0.1.0
 
 ### `avatar` {#avatar}
