@@ -22,7 +22,7 @@ Make sure curl is installed first:
 #### Node.js {#node-js}
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_8.x | bash -
+curl -sL https://deb.nodesource.com/setup_10.x | bash -
 ```
 
 #### Yarn {#yarn}
