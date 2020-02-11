@@ -18,14 +18,29 @@ su - mastodon
 
 And navigate to the Mastodon root directory:
 
-Download the releases’s code, assuming that the version is called `v2.5.0`:
+Download the latest releases’s code:
 
 ```bash
 git fetch --tags
-git checkout v2.5.0
+git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 ```
 
 **The release page contains a changelog, and below it, upgrade instructions**. This is where you would execute them, for example, if the release mentions that you need to re-compile assets, you would execute:
+
+Update the Ruby and JavaScript dependencies
+
+```bash
+bundle install
+yarn install --pure-lockfile
+```
+
+Migrate database changes (it can take long, depends on database size):
+
+```bash
+RAILS_ENV=production bundle exec rails db:migrate
+```
+
+Update the assets:
 
 ```bash
 RAILS_ENV=production bundle exec rails assets:precompile
