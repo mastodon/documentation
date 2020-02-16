@@ -4,7 +4,7 @@ description: How to obtain authorization from a user and perform actions on thei
 menu:
   docs:
     weight: 40
-    parent: user
+    parent: client
 ---
 
 ## Scopes explained {#scopes}
