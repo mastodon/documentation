@@ -218,7 +218,7 @@ menu:
 
 ### `reblog` {#reblog}
 
-**Description:** The status which boosted by this status.\
+**Description:** The status being reblogged.\
 **Type:** [Status]({{< relref "status.md" >}})\
 **Version history:** Added in 0.1.0
 
@@ -236,7 +236,7 @@ menu:
 
 ### `language` {#language}
 
-**Description:** Primary langauges of this status.\
+**Description:** Primary languages of this status.\
 **Type:** String \(ISO 639 Part 1 two-letter language code\)\
 **Version history:** Added in 1.4.0
 
