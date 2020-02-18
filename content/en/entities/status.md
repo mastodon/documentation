@@ -218,7 +218,7 @@ menu:
 
 ### `reblog` {#reblog}
 
-**Description:** ID of the status in the database.\
+**Description:** The status which boosted by this status.\
 **Type:** [Status]({{< relref "status.md" >}})\
 **Version history:** Added in 0.1.0
 
