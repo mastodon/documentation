@@ -106,7 +106,7 @@ menu:
 
 ### `created_at` {#created_at}
 
-**Description:** HTML-encoded status content.\
+**Description:** The date when the status was created.\
 **Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 0.1.0
 
