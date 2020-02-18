@@ -124,7 +124,7 @@ menu:
 
 ### `visibility` {#visibility}
 
-**Description:** HTML-encoded status content.\
+**Description:** Visibility of this status.\
 **Type:** String \(Enumerable oneOf\)\
 `public` = Visible to everyone, shown in public timelines.\
 `unlisted` = Visible to public, but not included in public timelines.\
