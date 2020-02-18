@@ -106,7 +106,7 @@ menu:
 
 ### `created_at` {#created_at}
 
-**Description:** The date when the status was created.\
+**Description:** The date when this status was created.\
 **Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 0.1.0
 
