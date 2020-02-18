@@ -236,7 +236,7 @@ menu:
 
 ### `language` {#language}
 
-**Description:** Primary languages of this status.\
+**Description:** Primary language of this status.\
 **Type:** String \(ISO 639 Part 1 two-letter language code\)\
 **Version history:** Added in 1.4.0
 
