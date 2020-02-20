@@ -106,7 +106,7 @@ menu:
 
 ### `created_at` {#created_at}
 
-**Description:** HTML-encoded status content.\
+**Description:** The date when this status was created.\
 **Type:** String \(ISO 8601 Datetime\)\
 **Version history:** Added in 0.1.0
 
@@ -122,15 +122,9 @@ menu:
 **Type:** String \(HTML\)\
 **Version history:** Added in 0.1.0
 
-### `text` {#text}
-
-**Description:** Plain-text source of a status. Returned instead of `content` when status is deleted, so the user may redraft from the source text without the client having to reverse-engineer the original text from the HTML content.\
-**Type:** String\
-**Version history:** Added in 2.9.0
-
 ### `visibility` {#visibility}
 
-**Description:** HTML-encoded status content.\
+**Description:** Visibility of this status.\
 **Type:** String \(Enumerable oneOf\)\
 `public` = Visible to everyone, shown in public timelines.\
 `unlisted` = Visible to public, but not included in public timelines.\
@@ -224,7 +218,7 @@ menu:
 
 ### `reblog` {#reblog}
 
-**Description:** ID of the status in the database.\
+**Description:** The status being reblogged.\
 **Type:** [Status]({{< relref "status.md" >}})\
 **Version history:** Added in 0.1.0
 
@@ -242,9 +236,15 @@ menu:
 
 ### `language` {#language}
 
-**Description:** A link to the status's HTML representation.\
+**Description:** Primary language of this status.\
 **Type:** String \(ISO 639 Part 1 two-letter language code\)\
 **Version history:** Added in 1.4.0
+
+### `text` {#text}
+
+**Description:** Plain-text source of a status. Returned instead of `content` when status is deleted, so the user may redraft from the source text without the client having to reverse-engineer the original text from the HTML content.\
+**Type:** String\
+**Version history:** Added in 2.9.0
 
 ## Authorized user attributes
 
