@@ -31,6 +31,10 @@ menu:
 
 * [tooter](https://github.com/Shinmera/tooter)
 
+## Dart
+
+* [mastodon_dart](https://pub.dev/packages/mastodon_dart)
+
 ## Elixir {#elixir}
 
 * [hunter](https://github.com/milmazz/hunter)
