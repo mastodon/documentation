@@ -138,8 +138,8 @@ git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 Now to install Ruby and JavaScript dependencies:
 
 ```bash
-bundle config set deployment 'true'
-bundle config set without 'development test'
+bundle config deployment 'true'
+bundle config without 'development test'
 bundle install -j$(getconf _NPROCESSORS_ONLN)
 yarn install --pure-lockfile
 ```
