@@ -13,6 +13,10 @@ menu:
 - You are *not* isolated on your own server. You can follow anyone on any other server, and they can follow you and you can exchange messages just like if you were on the same server.
 - You can either limit sign-ups to be the only one on the server and run it like personal (micro)blog, maintain an invite-only community for family or friends or run a server anyone can sign up on, it's up to you!
 
+{{< hint style="warning" >}}
+Please mind that providing a public internet service involves moderation work and community management, and that such work becomes more complicated the larger your server grows.
+{{< /hint >}}
+
 ## So you want to run your own Mastodon server
 
 Here is what you need:
