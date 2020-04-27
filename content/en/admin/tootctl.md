@@ -286,7 +286,7 @@ Imports custom emoji from a .tar.gz archive at a given path. The archive should 
 
 ### `tootctl emoji export` {#emoji-export}
 
-Exports custom emoji to a .tar.gz archive at a given path. The archive will be named `export.tar.gz`. By default, all emoji are exported.
+Exports custom emoji to a .tar.gz archive at a given path. The archive will be named `export.tar.gz`. By default, all emoji will be exported.
 
 **Version history:**
 `TBD` - added
@@ -295,7 +295,6 @@ Exports custom emoji to a .tar.gz archive at a given path. The archive will be n
 | :--- | :--- |
 | `PATH` | Path to an existing folder where the archive will be placed. Can be relative but has to exist. |
 | `--overwrite` | Overwrites an already existing archive. |
-| `--shortcode` | Uses the emoji shortcode as image file name instead of the original file name. |
 | `--category CATEGORY` | Only exports a specific category. Errors when no matching category was found. |
 
 ### `tootctl emoji purge` {#emoji-purge}
