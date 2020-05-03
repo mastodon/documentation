@@ -1,91 +1,91 @@
 ---
 title: 什么是长毛象？
-description: 欢迎来到长毛象用户使用手册！
+description: 欢迎来到长毛象文档！
 menu:
   docs:
     weight: -99
 ---
 
-{{< bilibili id="21139681" caption="长毛象概念介绍视频" >}}
+{{< bilibili id="21139681" caption="一个使用动画介绍长毛象概念的视频" >}}
 
 ## 什么是微博客？ {#microblogging}
 
-类似于发布博客，**微博客**是发布小段落的文字到你的个人信息流的一种方式。你可以发布文本，也可以附加图片、音频、视频等媒体，或是发起投票。长毛象可以让你发现并关注新的朋友们。
+类似于发布博客是将更新发布到网站上，**发布微博客**是将小的更新发布到你的个人信息流。你可以发布文本，也可以附加图片、音频、视频等媒体，或是发起投票。长毛象可以让你发现并关注新的朋友们。
 
 ## 什么是联邦？ {#federation}
 
 **联邦**是去中心化的一种形式。在联邦中，不是所有人共同使用一个中心服务，而是使用多个不限人数的服务器。
 
-| 中心化等级 | 例子 |
+| 中心化等级 | 示例 |
 | :--- | :--- |
 | 中心化 | Twitter, Facebook, Instagram |
 | 联邦式 | 电子邮件, XMPP, 电话网络, 邮政服务 |
 | 分布式 | BitTorrent, IPFS, Scuttlebutt |
 
-和传统网站一样，长毛象网站可以独立运作。人们可以在上面注册、发布消息、上传图片、互相聊天。但与传统网站*不同*的是，长毛象网站之间可以互动，让跨站用户互相交流，就好像只要你知道他们的电子邮件地址，你就可以从你的Gmail帐户发送电子邮件给使用Outlook、Fastmail、Protonmail或任何其他电子邮件供应商的用户。在长毛象里，**你可以对任何人在任何网站上的地址进行“@”或私信**。
+长毛象站点可以独立运作。和传统网站一样，人们可以在上面注册、发布消息、上传图片、互相聊天。但与传统网站*不同*的是，长毛象网站之间可以互动，让跨站用户互相交流，就好像只要你知道他们的电子邮件地址，你就可以从你的Gmail账户发送电子邮件给使用Outlook、Fastmail、Protonmail或任何其他电子邮件供应商的用户。在长毛象里，**你可以对任何人在任何网站上的地址进行“@”或私信**。
 
 {{< figure src="/assets/image%20%289%29.png" caption="上图从左到右依次为：集中式、联邦式、分布式" >}}
 
 ## ActivityPub是什么？ {#fediverse}
 
-长毛象使用一种标准化的、开放的协议来实现站点之间的互动，这种协议叫做ActivityPub。任何通过ActivityPub实现互联的软件都可以与长毛象无缝通信，就像长毛象网站之间的通信一样。
+长毛象使用一种标准化的、开放的协议来实现站点之间的互动，这种协议叫做**ActivityPub**。任何通过ActivityPub实现互联的软件都可以与长毛象无缝通信，就像长毛象站点之间的通信一样。
 
-**联邦宇宙**是所有可以通过ActivityPub和互联网互相交流的网站的统称。这包括所有长毛象服务器，但也可以通过其他平台实现联邦宇宙：
+**联邦宇宙**（fediverse）是所有可以通过ActivityPub和互联网互相交流的网站的统称。这包括所有长毛象服务器，但也包括其他的一些实现：
 
-* Pleroma：一个模块化的微博引擎
-* Pixelfed：分享和阅读媒体嘟文
-* Misskey：包括微博和可定制的仪表盘
-* PeerTube：可以让你上传视频到频道
-* Plume：它可以用来发布长篇嘟文
-* 除此之外，许多个人网站也支持ActivityPub！
+* Pleroma：一个模块化的微博客引擎
+* Pixelfed：联邦式的图片分享平台，它可以让你分享和阅读媒体嘟文
+* Misskey：包括一个可自定义界面的微博客
+* PeerTube：它可以让你上传视频到频道
+* Plume：它可以用来发布长篇文章
+* 还有更多，包括许多个人网站！
 
 **联邦宇宙**没有自己的所谓品牌，所以你可能更常听到“来关注我的长毛象吧”而不是“来关注我的联邦宇宙吧”。虽说从技术上讲，后者的说法更准确。
 
-## 实际意义 {#implications}
+## 实际影响因素 {#implications}
 
-### 自由地选择服务提供者和用户政策{#choice}
+### 选择合适的服务提供者与用户政策 {#choice}
 
-因为长毛象只是可以用于驱动任何网站的一款软件，长毛象的用户们可以自由地从现有的长毛象网站中选择一个入驻，或者如果用户愿意的话，也可以创建自己的长毛象网站。长毛象官方在 joinmastodon.org 上有一个列表，其中推荐了一系列长毛象站点，该列表可按类别与语言进行分类。一些网站可能有特定的管理政策，比如要求使用特定的标签覆盖可能敏感的内容，另一些网站的管理政策可能相对更宽松，但列表中列出所有的网站都需要同意采用《[长毛象服务器公约](https://joinmastodon.org/covenant)》，这意味着他们承诺积极处理并反对仇恨言论、采取每日备份、至少有一个应急管理员、并在关站前提供至少3个月预先通知。
+因为长毛象只是可以用于驱动任何网站的软件，长毛象的潜在用户拥有选择服务提供者的权利，用户可以从现有长毛象站点中选择，或者如果用户愿意的话，也可以创建自己的长毛象站点。长毛象项目在 [joinmastodon.org](https://joinmastodon.org) 上维护了一个推荐服务提供者列表，该列表可按类别和/或语言进行排序。一些站点可能有额外的管理政策，例如要求对潜在敏感内容打上特定标签，另一些站点可能有更加宽松的管理政策，但是所有在列表中列出的站点均需遵守[《长毛象服务器公约》](https://joinmastodon.org/covenant)，这意味着他们承诺积极处理并反对仇恨言论、每日进行备份、至少有一个应急管理员、关站前至少提前3个月发布关站通告。
 
-> 维护所有成员都感到安全的社区并不容易。长毛象提供了许多基本的框架和工具，并将权力从一个商业实体转移到社区本身。
+> 维护一个让所有成员都感到安全的社区并不容易。长毛象提供了很多基础性的框架和工具来完成这件事，并将改变的权力从一个商业实体转移到社区自己手中。
 >
-> -- Eugen Rochko, Jul 6 2018, ["Cage the Mastodon"](https://blog.joinmastodon.org/2018/07/cage-the-mastodon/)
+> -- Eugen Rochko, Jul 6 2018, [《将长毛象关到笼子里去》](https://blog.joinmastodon.org/2018/07/cage-the-mastodon/)
 
-> 一个集中式的社交媒体平台有一个层次结构，其中它们的规则和实施、以及平台的发展和方向，都是由CEO决定的……
+> 一个中心化的社交媒体平台有一个等级结构，在这个结构中平台的规则及其实施，以及平台的发展方向都是由CEO决定的\[……\] 一个去中心化的网络有意放弃了对平台所有权的控制，从本质上来讲是没有平台所有者的。
 >
-> -- Eugen Rochko, Dec 30 2018, ["Why does decentralization matter?"](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
+> -- Eugen Rochko, Dec 30 2018, [《为什么去中心化很重要？》](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
 
-### 资金和盈利{#monetization}
+### 资金和盈利 {#monetization}
 
-长毛象网站是由不同的人或组织完全独立运作的，没有在软件中实现任何盈利策略。
+长毛象站点是由不同的人或组织完全独立运营的。长毛象没有在软件中实现任何盈利策略。
 
-一些服务器的运营者选择自费运营、一些运营者可以利用现有的基础设施运营、一些运营者通过Patreon等平台向用户众筹资金、另一些运营者只是自费为自己和朋友搭建私人服务器。所以，如果你想支持服务器的运营者，记得看看它是否提供了捐赠的渠道。
+有的服务器运营者选择提供付费账户；有的服务器运营者是公司，这样便可以利用他们现有的基础设施；有的服务器运营者通过Patreon及其类似服务来众筹资金；有的服务器运营者只是自掏腰包，为自己和朋友搭建私人服务器。所以，如果你想支持你账户所在服务器的运营者，请检查一下它是否提供了捐赠渠道。
 
-长毛象的开发同样是通过Patreon和OpenCollective众筹的。**长毛象的开发不涉及风险投资**。
+长毛象的开发同样是通过[Patreon](https://patreon.com/mastodon)和[OpenCollective](https://opencollective.com/mastodon)众筹的。**不涉及风险投资。**
 
-> 在我看来，“即时、公开、全球信息和对话” 实际上应该是全球性的。在独立组织和能够自我管理的行动者之间进行分配。这是一家公共事业公司，没有利用这些对话牟利的动机。
+> 在我看来，“即时、公开、全球性的信息传递与交流” 实际上应该是*全球性的*。分布于能够自我管理的独立组织与行为者之中。一个公共设施，没有利用交流牟利的动机。
 >
-> -- Eugen Rochko, Mar 3 2018, ["Twitter is not a public utility"](https://blog.joinmastodon.org/2018/03/twitter-is-not-a-public-utility/)
+> -- Eugen Rochko, Mar 3 2018, [《推特不是公共设施》](https://blog.joinmastodon.org/2018/03/twitter-is-not-a-public-utility/)
 
-### 跨平台互联{#interoperability}
+### 跨平台互联 {#interoperability}
 
-让我们想象一下，如果Twitter和Instagram使用相同协议的联合服务，那么你将可以从你的Twitter账户关注一个Instagram用户，并评论他们的照片。有了长毛象，*你可以与其他任何与之兼容的网站交流，即使那些网站不是在长毛象上运行*。这些网站的交互所需要的是支持ActivityPub协议的软件。要了解更多有关与长毛象互联所需的技术规范，请参阅[ActivityPub](https://docs.joinmastodon.org/spec/activitypub.md)、[WebFinger](https://docs.joinmastodon.org/spec/webfinger.md)和[Security](https://docs.joinmastodon.org/spec/security.md)。要了解更多关于ActivityPub的用处，请参阅[《为什么ActivityPub是未来》](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/)。
+实际上：你能否想象一下从你的推特账户关注一个Instagram用户并在不离开你的账户的情况下评论他们的照片。如果推特和Instagram是使用同样协议的联邦服务，那么这将是可能的。通过一个长毛象账户，**你可以与其他相兼容的网站通迅，** _**即使它并没有运行长毛象**_。这些网站只需要它们的软件支持ActivityPub协议的相同子集，该协议子集允许创建消息和通过消息进行交互。想了解更多与长毛象交互所需的技术规范，请参阅[ActivityPub](spec/activitypub)、[WebFinger](spec/webfinger)和[Security](spec/security)。想了解更多关于ActivityPub的用处，请参阅[《为什么ActivityPub是未来》](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/)。
 
-> 所有这些平台都是不同的，它们关注不同的需求。然而，它们从根本上都是一样的：一些人订阅另一些人的帖子。因此可以说，它们都是兼容的。
+> 所有这些平台都是不同的，它们关注不同的需求。然而，它们的基石都是相同的：一些人订阅接收其他人的帖子。因此，它们都是相互兼容的。
 >
-> -- Eugen Rochko, Jun 27 2018, ["Why ActivityPub is the future"](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/)
+> -- Eugen Rochko, Jun 27 2018, [《为什么ActivityPub是未来》](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/)
 
-### 免费/自由软件{#libre}
+### 自由软件 {#libre}
 
-与专有服务不同的是，**任何人都可以完全自由地运行、检查、审核、复制、修改、分发和重用Mastodon源代码，前提是他们为任何派生版本赋予相同的许可协议自由度。**就像长毛象用户可以选择他们的服务提供者一样，你作为一个个体可以自由地向长毛象贡献功能，或者发布包含不同功能的修改版本。这些修改后的版本，也被称为软件分支，也需要像最初的长毛象项目一样维护同样的许可协议自由度。例如，glitch-soc是一个添加了各种实验特性的软件发行版。当然，这些分支也存在许多独立的fork，它们的主题可能略有不同，或者包含对代码库的小修改。因为长毛象是自由软件，尊重你的自由，像这样的个性化不仅是允许的，而且是鼓励的。
+与专有服务不同，**任何人都拥有运行，检查，审核，复制，修改，分发和重用长毛象源代码的完全自由，只要他们保证任何衍生作品都具有同等的自由。** 就像长毛象用户可以选择他们的服务提供者一样，你作为一个个体可以自由地向长毛象贡献功能，或者发布包含不同功能的修改版本。这些修改后的版本，也被称为软件分支，被要求维持与长毛象原始项目同等的自由。例如，[glitch-soc](https://glitch-soc.github.io/docs/)是一个添加了许多实验特性的软件发行版。除此而外，还有许多的独立分支存在，这些分支可能仅仅是主题稍微不同，或者包含对代码库的小修改。因为长毛象是尊重你的自由的自由软件，像这样的个性化不仅是允许的，而且是鼓励的。
 
-> 最终的目标是让人们能够创建自己的空间、自己的社区，以自己的想法修改软件，而不牺牲来自不同社区的人们相互交流的能力。
+> 最终的力量在于让人们能够创建自己的空间、自己的社区，以自己的想法修改软件，但又不牺牲与来自不同社区的人们相互交流的能力。
 >
-> -- Eugen Rochko, Feb 20 2017, ["The power to build communities: A response to Mark Zuckerberg"](https://blog.joinmastodon.org/2017/02/the-power-to-build-communities/)
+> -- Eugen Rochko, Feb 20 2017, [《建立社区的力量：对马克·扎克伯格的回应》](https://blog.joinmastodon.org/2017/02/the-power-to-build-communities/)
 
-> 去中心化是数字世界的生物多样性，是健康生态系统的标志。像fediversity这样的分散式网络允许不同的用户界面、不同的软件、不同形式的政府共存与合作。
+> 去中心化是数字世界的生物多样性，是健康生态系统的标志。像联邦宇宙这样的去中心化网络允许不同的用户界面、不同的软件、不同形式的治理方式共存与合作。
 >
-> -- Eugen Rochko, Dec 30 2018, ["Why does decentralization matter?"](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
+> -- Eugen Rochko, Dec 30 2018, [《为什么去中心化很重要？》](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
 
 ## 开始你的旅程吧！ {#next-steps}
 
@@ -95,13 +95,14 @@ menu:
 
 学习如何安装长毛象：
 
-{{< caption-link url="https://docs.joinmastodon.org/admin/prerequisites/" caption="准备你的服务器" >}}
+{{< page-ref page="admin/prerequisites.md" >}}
 
 学习如何为长毛象编写应用程序：
 
-{{< caption-link url="https://docs.joinmastodon.org/client/intro/" caption="开始使用长毛象API" >}}
+{{< page-ref page="client/intro.md" >}}
 
-了解长毛象后端和如何作出贡献：
+了解长毛象后端以及如何向长毛象项目做贡献：
 
-{{< caption-link url="https://docs.joinmastodon.org/dev/overview/" caption="技术概览" >}}
+{{< page-ref page="dev/overview.md" >}}
 
+{{< translation-status-zh-cn raw_title="What is Mastodon?" raw_link="/" last_tranlation_time="2020-05-02" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}

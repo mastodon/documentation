@@ -47,7 +47,7 @@ As long as you encounter a person within your app’s user interface, e.g. the w
 
 However if you come across someone’s public profile hosted on a different server, there’s an obstacle: That server sees you as just another anonymous visitor. Not to worry! You can simply copy the URL of that profile, or of one of their posts, and then paste that URL into the search function.
 
-If you are visiting a public page on another Mastodon site, see [Using Mastodon outside of your site](external.md#remote-interactions-on-another-mastodon-site).
+If you are visiting a public page on another Mastodon site, see [Using Mastodon outside of your site](../external/#interact).
 
 ## Search {#search}
 
@@ -61,7 +61,7 @@ Mastodon's basic search allows logged-in users to find toots containing a specif
 
 {{< figure src="/assets/image%20%2827%29.png" caption="An example of hashtags returned when searching for &quot;cats&quot;." >}}
 
-Admins may optionally install full-text search. Mastodon’s full-text search allows logged-in users to find results from their own toots, their favourites, and their mentions. It deliberately does not allow searching for arbitrary strings in the entire database, in order to reduce the risk of abuse by people searching for controversial terms to find people to dogpile.
+Admins may optionally install full-text search. Mastodon’s full-text search allows logged-in users to find results from their own toots, their favourites, their bookmarks and their mentions. It deliberately does not allow searching for arbitrary strings in the entire database, in order to reduce the risk of abuse by people searching for controversial terms to find people to dogpile.
 
 The following operators are supported:
 

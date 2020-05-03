@@ -73,7 +73,7 @@ enableGitInfo = true
     identifier = "dev"
     url = "/dev/"
   [[languages.zh-cn.menu.docs]]
-    name = "Spec compliance"
+    name = "符合的规范"
     weight = 50
     identifier = "spec"
     url = "/spec/"
@@ -83,12 +83,12 @@ enableGitInfo = true
     identifier = "api"
     url = "/api/"
   [[languages.zh-cn.menu.docs]]
-    name = "API Methods"
+    name = "API 方法"
     weight = 70
     identifier = "methods"
     url = "/methods/"
   [[languages.zh-cn.menu.docs]]
-    name = "API Entities"
+    name = "API 实体"
     weight = 80
     identifier = "entities"
     url = "/entities/"

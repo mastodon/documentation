@@ -31,7 +31,7 @@ From the account settings, you can change your email address, set a new password
 
 ## Identity proofs {#proofs}
 
-[Link verification](profile.md#link-verification) of profile metadata fields is one way to prove your identity by using rel=me links, but Mastodon also supports a more generalized proof provider subsystem. Currently, the only supported identity provider for this subsystem is Keybase.
+[Link verification](../profile#verification) of profile metadata fields is one way to prove your identity by using rel=me links, but Mastodon also supports a more generalized proof provider subsystem. Currently, the only supported identity provider for this subsystem is Keybase.
 
 ### Keybase identity verification {#keybase}
 
