@@ -252,7 +252,7 @@ Redis被广泛使用于应用，但是某些用途比其他用途更重要。主
 
 ## 只读副本（Read-replicas） {#read-replicas}
 
-为了减轻你的Postgresql服务器负担，你可以使用热流复制（hot streaming replication）（只读副本（read replica））。有关示例，请参见[该指南](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby)。你可以给以下长毛象用途使用副本（replica）：
+为了减轻你的Postgresql服务器负担，你可以使用热流复制（hot streaming replication）（只读副本（read replica））。有关示例，请参见[该指南](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby)。你可以给以下Mastodon用途使用副本（replica）：
 
 * streaming API 服务器无需写入，因此你可以将其直接使用副本（replica）。但由于 streaming API 服务器不经常查询数据库，这样的优化影响很小。
 * 使用 Makara 驱动 web 与 sidekiq 进程，这样可以实现从主（master）数据库写，从副本（replica）读。让我们开始吧。

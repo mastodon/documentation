@@ -31,13 +31,13 @@ menu:
 
 ## 身份验证 {#proofs}
 
-个人资料附加信息的[链接验证](../profile#verification)是通过使用rel=me链接验证你的身份的一种方法，但长毛象也支持一个更通用的身份验证子系统。目前，这个子系统唯一支持的身份验证提供商是Keybase。
+个人资料附加信息的[链接验证](../profile#verification)是通过使用rel=me链接验证你的身份的一种方法，但Mastodon也支持一个更通用的身份验证子系统。目前，这个子系统唯一支持的身份验证提供商是Keybase。
 
 ### Keybase身份验证 {#keybase}
 
 {{< figure src="/assets/image%20%2860%29.png" caption="个人资料上的身份验证" >}}
 
-首先，注册Keybase并生成或上传一个GPG公钥到你的Keybase帐户。接下来，进入“证明更多身份（prove more identities）”。找到你的实例，如果没有，请联系Keybase寻求帮助。选择你的长毛象域名，输入你的用户名。你可以通过使用你的长毛象账号进行授权，并发布验证消息，来验证你的身份。一旦你这样做了，身份验证就会建立，你的个人资料将会显示Keybase的身份验证。
+首先，注册Keybase并生成或上传一个GPG公钥到你的Keybase帐户。接下来，进入“证明更多身份（prove more identities）”。找到你的实例，如果没有，请联系Keybase寻求帮助。选择你的Mastodon域名，输入你的用户名。你可以通过使用你的Mastodon账号进行授权，并发布验证消息，来验证你的身份。一旦你这样做了，身份验证就会建立，你的个人资料将会显示Keybase的身份验证。
 
 {{< hint style="danger" >}}
 **Keybase的身份验证是不可逆的。** Keybase使用不可变的签名链进行身份验证，所以一旦你在Keybase上验证了你的身份，你就不能删除它。你只能用你的相关私钥签署一个吊销信息来吊销你的验证。

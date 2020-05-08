@@ -53,7 +53,7 @@ menu:
 
 {{< caption-link url="https://marketplace.digitalocean.com/apps/mastodon" caption="DigitalOcean Mastodon一键安装镜像" >}}
 
-然而，这只是假定单机的情况下安装。Mastodon可以很好地横向伸缩。如果你的需求超出了单机的容量，长毛象可以被分成多个应用服务器、后台workers、多个Redis后端、PostgreSQL replicas。如果你有上述需求，就不能使用一键安装镜像。
+然而，这只是假定单机的情况下安装。Mastodon可以很好地横向伸缩。如果你的需求超出了单机的容量，Mastodon可以被分成多个应用服务器、后台workers、多个Redis后端、PostgreSQL replicas。如果你有上述需求，就不能使用一键安装镜像。
 
 如果你有兴趣自己安装一切，请点击这里：
 

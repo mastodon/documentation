@@ -1,6 +1,6 @@
 ---
 title: 从源中安装
-description: 创建你自己的长毛象站点的教学指献。
+description: 创建你自己的Mastodon站点的教学指献。
 menu:
   docs:
     weight: 20
@@ -10,7 +10,7 @@ menu:
 ## 前提条件 {#pre-requisites}
 
 * 一台你有root访问权限的运行 **Ubuntu 18.04** 的机器
-* 一个用于长毛象站点的**域名**（或一个子域名），例如：`example.com`
+* 一个用于Mastodon站点的**域名**（或一个子域名），例如：`example.com`
 * 一个电子邮件发送服务提供商，或其他**SMTP服务器**
 
 你需要使用root用户运行命令。如果你现在不是root用户，请切换至root用户：

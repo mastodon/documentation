@@ -373,7 +373,7 @@ RAILS_ENV=production bin/tootctl help
 
 ### `tootctl media usage` {#media-usage}
 
-计算被长毛象消耗的硬盘空间。
+计算被Mastodon消耗的硬盘空间。
 
 **版本历史：**
 * 3.0.1 - 被加入

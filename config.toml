@@ -53,22 +53,22 @@ enableGitInfo = true
 
 [languages.zh-cn.menu]
   [[languages.zh-cn.menu.docs]]
-    name = "使用长毛象"
+    name = "使用Mastodon"
     weight = 10
     identifier = "user"
     url = "/user/"
   [[languages.zh-cn.menu.docs]]
-    name = "运营长毛象"
+    name = "运营Mastodon"
     weight = 20
     identifier = "admin"
     url = "/admin/"
   [[languages.zh-cn.menu.docs]]
-    name = "开发长毛象应用"
+    name = "开发Mastodon应用"
     weight = 30
     identifier = "client"
     url = "/client/"
   [[languages.zh-cn.menu.docs]]
-    name = "向长毛象项目做贡献"
+    name = "向Mastodon项目做贡献"
     weight = 40
     identifier = "dev"
     url = "/dev/"

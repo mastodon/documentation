@@ -11,10 +11,10 @@ other = "{{ .Format \"January 2, 2006\" }}"
 other = "加入社交媒体革命"
 
 [joinText]
-other = "长毛象是一个有超过300万用户的自由、去中心化的平台"
+other = "Mastodon是一个有超过300万用户的自由、去中心化的平台"
 
 [joinAction]
-other = "现在就加入长毛象！"
+other = "现在就加入Mastodon！"
 
 [merch]
 other = "纪念品商店"
@@ -23,7 +23,7 @@ other = "纪念品商店"
 other = "T恤衫和贴纸"
 
 [joinMastodon]
-other = "加入长毛象"
+other = "加入Mastodon"
 
 [blog]
 other = "博客"

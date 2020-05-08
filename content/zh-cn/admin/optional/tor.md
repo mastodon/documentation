@@ -99,7 +99,7 @@ server {
 
 ## 通过http提供Tor服务 {#http}
 
-尽管通过https提供你的Tor版Mastodon可能很诱人，但对大多数人来说这不是一个好主意。请参阅Tor Project上的[这篇](https://blog.torproject.org/facebook-hidden-services-and-https-certs)博文，了解为什么https证书无法增加价值。由于你无法获得onion域名的SSL证书，当你尝试使用你的长毛象时还会被证书错误所困扰。最近，一位Tor开发者在[这里](https://matt.traudt.xyz/p/o44SnkW2.html)阐述了为什么通过https提供Tor服务对大多数用例都没有好处的原因。
+尽管通过https提供你的Tor版Mastodon可能很诱人，但对大多数人来说这不是一个好主意。请参阅Tor Project上的[这篇](https://blog.torproject.org/facebook-hidden-services-and-https-certs)博文，了解为什么https证书无法增加价值。由于你无法获得onion域名的SSL证书，当你尝试使用你的Mastodon时还会被证书错误所困扰。最近，一位Tor开发者在[这里](https://matt.traudt.xyz/p/o44SnkW2.html)阐述了为什么通过https提供Tor服务对大多数用例都没有好处的原因。
 
 解决方法是通过http提供你的Mastodon服务，但仅供Tor使用。这可以通过在Nginx配置文件中添加额外的设置来完成。
 
