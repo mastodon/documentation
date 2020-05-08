@@ -54,7 +54,7 @@ menu:
 
 ### 隐藏 {#mute}
 
-{{< figure src="/assets/image%20%2852%29.png" caption="图为被隐藏的账户" >}}
+{{< figure src="/assets/image%20%2852%29.png" caption="图为被隐藏的帐户" >}}
 
 隐藏某一账号时，你可以选择是否将其通知一并隐藏。隐藏用户，而不隐藏通知时，会将该账号从用户界面中隐藏：
 
@@ -69,7 +69,7 @@ menu:
 
 ### 屏蔽 {#block}
 
-{{< figure src="/assets/image%20%2836%29.png" caption="图为被屏蔽的账户" >}}
+{{< figure src="/assets/image%20%2836%29.png" caption="图为被屏蔽的帐户" >}}
 
 屏蔽会将账号从用户界面中隐藏。
 
@@ -92,7 +92,7 @@ menu:
 
 ![](/assets/image%20%2861%29.png)
 
-如果你隐藏了整个服务器：
+如果你隐藏了整个域名：
 
 * 你将无法在公共时间轴上看到来自该域名的嘟文。
 * 你将不会在主页看到其他人转发来自该域名的嘟文。

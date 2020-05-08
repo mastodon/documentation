@@ -57,7 +57,7 @@ menu:
 
 {{< figure src="/assets/image%20%2839%29.png" caption="直接通过URL加载嘟文" >}}
 
-{{< figure src="/assets/image%20%2823%29.png" caption="搜索“cats”时返回包含“cats”的账户" >}}
+{{< figure src="/assets/image%20%2823%29.png" caption="搜索“cats”时返回包含“cats”的帐户" >}}
 
 {{< figure src="/assets/image%20%2827%29.png" caption="搜索“cats”时返回话题标签" >}}
 
