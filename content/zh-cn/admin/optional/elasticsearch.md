@@ -78,6 +78,8 @@ RAILS_ENV=production bundle exec rake chewy:sync
 **兼容性提示：** Ruby 2.6.0 由于已知Bug，无法进行上述操作。其它Ruby版本，例如：2.6.1，并不存在这个问题。
 {{< /hint >}}
 
+## 其它语言的搜索优化
+
 ### 中文搜索优化 {#chinese-search-optimize}
 
 ElasticSearch默认使用标准分析器，这对于中文来说可能并不太适合。为了提高搜索体验，你可以安装特定语言的专用分析器。在创建ElasticSearch索引之前执行：

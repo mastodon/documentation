@@ -77,6 +77,8 @@ RAILS_ENV=production bundle exec rake chewy:sync
 **Compatibility note:** There is a known bug in Ruby 2.6.0 that prevents the above task from working. Other versions of Ruby, such as 2.6.1, are fine.
 {{< /hint >}}
 
+## Search optimization for other languages
+
 ### Chinese search optimization {#chinese-search-optimization}
 
 The default analyzer of the ElasticSearch is the standard analyzer, which may not be the best especially for Chinese. To improve search experience, you can install language specific analyzer. Before create the index in ElasticSearch:
