@@ -54,7 +54,7 @@ However, dedicated spammers will get through that. The other measure you can emp
 
 ### Blocking by e-mail server {#blocking-by-e-mail-server}
 
-Spammers will often use different e-mail domains so it looks like they are using a lot of different e-mail servers that would all be difficult to blacklist separately. However, sometimes all of those domains resolve to a single e-mail server IP. If you see a lot of spammers signing up at the same time, you can check for this, either using an online DNS lookup tool, or the Linux `dig` utility, e.g. `dig 1.2.3.4` will return all DNS records for that IP. If you notice the IP is the same for all domains, you can add it to the e-mail domain blacklist.
+Spammers will often use different e-mail domains so it looks like they are using a lot of different e-mail servers that would all be difficult to blacklist separately. However, sometimes all of those domains resolve to a single e-mail server IP. If you see a lot of spammers signing up at the same time, you can check for this, either using an online DNS lookup tool, or the Linux `dig` utility, e.g. `dig example.com` will return all DNS A records for that Domain. If you notice the IP is the same for all domains, you can add it to the e-mail domain blacklist.
 
 ### Blocking by IP {#blocking-by-ip}
 

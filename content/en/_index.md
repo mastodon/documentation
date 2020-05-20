@@ -35,7 +35,7 @@ Mastodon uses a standardized, open protocol to implement federation. It is calle
 The **fediverse** \(“federated universe”\) is the name for all websites that can communicate with each other over ActivityPub and the World Wide Web. That includes all Mastodon servers, but also other implementations:
 
 * Pleroma, a modular microblogging engine,
-* Pixelfed, which lets you share and consume media posts,
+* Pixelfed, federated image sharing platform, which lets you share and consume media posts,
 * Misskey, which includes microblogging alongside a customizable dashboard,
 * PeerTube, which lets you upload videos to channels,
 * Plume, which lets you publish longer-form articles,
@@ -71,7 +71,7 @@ Mastodon development is likewise crowdfunded via [Patreon](https://patreon.com/m
 
 ### Interoperability between different software {#interoperability}
 
-In practical terms: Imagine if you could follow an Instagram user from your Twitter account and comment on their photos without leaving your account. If Twitter and Instagram were federated services that used the same protocol, that would be possible. With a Mastodon account, **you can communicate with any other compatible website,** _**even if it is not running on Mastodon**_. All that is necessary is that the software support the same subset of the ActivityPub protocol that allows for creating and interacting with status updates. To find out more about the technical specifications required to interoperate with Mastodon, see [ActivityPub](spec/activitypub.md), [WebFinger](spec/webfinger.md), and [Security](spec/security.md). To read more about what ActivityPub allows us to do, see [Why ActivityPub is the future](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/).
+In practical terms: Imagine if you could follow an Instagram user from your Twitter account and comment on their photos without leaving your account. If Twitter and Instagram were federated services that used the same protocol, that would be possible. With a Mastodon account, **you can communicate with any other compatible website,** _**even if it is not running on Mastodon**_. All that is necessary is that the software support the same subset of the ActivityPub protocol that allows for creating and interacting with status updates. To find out more about the technical specifications required to interoperate with Mastodon, see [ActivityPub](spec/activitypub), [WebFinger](spec/webfinger), and [Security](spec/security). To read more about what ActivityPub allows us to do, see [Why ActivityPub is the future](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/).
 
 > All of these platforms are different and they focus on different needs. And yet, the foundation is all the same: people subscribing to receive posts from other people. And so, they are all compatible.
 >
