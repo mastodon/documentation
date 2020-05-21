@@ -77,7 +77,7 @@ If you want to see posts that are boosted multiple times be reinserted into your
 
 ### Posting defaults {#posting}
 
-Posts default to public privacy. You can choose to default new posts as unlisted or followers-only instead. For an explanation of post privacy levels, see [Posting to your Mastodon profile &gt; Publishing levels](posting.md#publishing-levels).
+Posts default to public privacy. You can choose to default new posts as unlisted or followers-only instead. For an explanation of post privacy levels, see [Posting to your Mastodon profile &gt; Publishing levels](../posting#privacy).
 
 By default, the language of your posts is automatically detected, but this detection is imprecise and may not be accurate. If you primarily or exclusively post in a certain language, it is a good idea to set that language here.
 

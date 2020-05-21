@@ -73,14 +73,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 Once this is done, we can install the correct Ruby version:
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.5
-rbenv global 2.6.5
-```
-
-Default gem version shipped with ruby\_2.6.0 is incompatible with latest bundler, so we need to update gem:
-
-```bash
-gem update --system
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.6
+rbenv global 2.6.6
 ```
 
 We’ll also need to install bundler:
@@ -144,11 +138,15 @@ git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 Now to install Ruby and JavaScript dependencies:
 
 ```bash
-bundle install \
-  -j$(getconf _NPROCESSORS_ONLN) \
-  --deployment --without development test
+bundle config deployment 'true'
+bundle config without 'development test'
+bundle install -j$(getconf _NPROCESSORS_ONLN)
 yarn install --pure-lockfile
 ```
+
+{{< hint style="info" >}}
+The two `bundle config` commands are only needed the first time you're installing dependencies. If you're going to be updating or re-installing dependencies later, just `bundle install` will be enough.
+{{< /hint >}}
 
 #### Generating a configuration {#generating-a-configuration}
 
