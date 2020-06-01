@@ -1,3 +1,12 @@
+---
+title: Installing with Docker
+description: Instructional guide on using Docker and docker-compose to run Mastodon
+menu:
+  docs:
+    weight: 20
+    parent: admin
+---
+
 ## Docker
 
 [![](https://images.microbadger.com/badges/version/tootsuite/mastodon.svg)](https://microbadger.com/images/tootsuite/mastodon "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/tootsuite/mastodon.svg)](https://microbadger.com/images/tootsuite/mastodon "Get your own image badge on microbadger.com")
