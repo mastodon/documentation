@@ -6,6 +6,9 @@ menu:
     weight: 10
     parent: methods-instance
 ---
+**Approved hashtags**
+- show trending hashtags on the side of the webui
+- you can auto-approve them, in /admin/settings/edit > check "Allow hashtags to trend without prior review"
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/trends" title="Trending tags" >}}
 {{< api-method-description >}}
