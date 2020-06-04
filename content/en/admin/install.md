@@ -71,10 +71,11 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 ```
 
 Once this is done, we can install the correct Ruby version:
+(check the latest version of Ruby on (https://www.ruby-lang.org/en/downloads/) and read documentation on rbenv
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.6
-rbenv global 2.6.6
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.6 (enter the latest version value here).
+rbenv global 2.6.6 (version used in the above command)
 ```
 
 We’ll also need to install bundler:
@@ -99,7 +100,7 @@ For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) t
 
 #### Creating a user {#creating-a-user}
 
-You will need to create a PostgreSQL user that Mastodon could use. It is easiest to go with “ident” authentication in a simple setup, i.e. the PostgreSQL user does not have a separate password and can be used by the Linux user with the same username.
+You will need to create a PostgreSQL user that Mastodon could use. It is easiest to go with “ident” authentication (https://www.postgresql.org/docs/11/auth-username-maps.html) in a simple setup, i.e. the PostgreSQL user does not have a separate password and can be used by the Linux user with the same username.
 
 Open the prompt:
 
@@ -115,6 +116,10 @@ CREATE USER mastodon CREATEDB;
 ```
 
 Done!
+
+### making change in the .ruby-version file:
+
+(note: In root login: edit the file in /home/mastodon/live/.ruby-version, enter the version installed, save and close it).
 
 ### Setting up Mastodon {#setting-up-mastodon}
 
@@ -136,6 +141,7 @@ git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 #### Installing the last dependencies {#installing-the-last-dependencies}
 
 Now to install Ruby and JavaScript dependencies:
+
 
 ```bash
 bundle config deployment 'true'
