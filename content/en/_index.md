@@ -6,7 +6,7 @@ menu:
     weight: -99
 ---
 
-{{< youtube id="IPSbNdBmWKE" caption="An introductory video explaining basic Mastodon concepts with visual animations" >}}
+{{< peertube id="7a087e5f-68e0-4359-8035-bfd9752e9b2e" caption="An introductory video explaining basic Mastodon concepts with visual animations" instance="peertube.social" >}}
 
 ## What is a microblog? {#microblogging}
 

@@ -1482,18 +1482,18 @@ ID of the status in the database
 
 ```javascript
 {
-  "url": "https://www.youtube.com/watch?v=OMv_EPMED8Y",
-  "title": "♪ Brand New Friend (Christmas Song!)",
+  "url": "https://peertube.social/videos/watch/7a087e5f-68e0-4359-8035-bfd9752e9b2e",
+  "title": "What is Mastodon ?",
   "description": "",
   "type": "video",
-  "author_name": "YOGSCAST Lewis & Simon",
-  "author_url": "https://www.youtube.com/user/BlueXephos",
-  "provider_name": "YouTube",
-  "provider_url": "https://www.youtube.com/",
-  "html": "<iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/OMv_EPMED8Y?feature=oembed\" frameborder=\"0\" allowfullscreen=\"\"></iframe>",
+  "author_name": "Opensource",
+  "author_url": "https://peertube.social/video-channels/opensource@peertube.togart.de",
+  "provider_name": "Peertube",
+  "provider_url": "https://peertube.social",
+  "html": "<iframe width="560" height="315" sandbox=\"allow-same-origin allow-scripts allow-popups\" src=\"https://peertube.social/videos/embed/7a087e5f-68e0-4359-8035-bfd9752e9b2e\" frameborder=\"0\" allowfullscreen></iframe>",
   "width": 480,
   "height": 270,
-  "image": "https://files.mastodon.social/preview_cards/images/014/179/145/original/9cf4b7cf5567b569.jpeg",
+  "image": "https://peertube.social/static/previews/7a087e5f-68e0-4359-8035-bfd9752e9b2e.jpg",
   "embed_url": ""
 }
 ```
