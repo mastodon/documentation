@@ -18,7 +18,7 @@ menu:
   "author_url": "https://peertube.social/video-channels/opensource@peertube.togart.de",
   "provider_name": "Peertube",
   "provider_url": "https://peertube.social",
-  "html": "<iframe width="560" height="315" sandbox=\"allow-same-origin allow-scripts allow-popups\" src=\"https://peertube.social/videos/embed/7a087e5f-68e0-4359-8035-bfd9752e9b2e\" frameborder=\"0\" allowfullscreen></iframe>",
+  "html": "<iframe width='480' height='270' sandbox='allow-same-origin allow-scripts allow-popups' src='https://peertube.social/videos/embed/7a087e5f-68e0-4359-8035-bfd9752e9b2e' frameborder='0' allowfullscreen></iframe>",
   "width": 480,
   "height": 270,
   "image": "https://peertube.social/static/previews/7a087e5f-68e0-4359-8035-bfd9752e9b2e.jpg",
