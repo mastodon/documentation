@@ -26,3 +26,6 @@ Check that you have run `RAILS_ENV=production bin/rails db:migrate` after the up
 
 Check that you are specifying the correct environment with `RAILS_ENV=production` before the command. By default, the environment is assumed to be development, so the code tries to load development-related gems. However, in production environments, we avoid installing those gems, and that’s where the error comes from.
 
+## **I encountered a compilation error while executing `RAILS_ENV=production bundle exec rails assets:precompile`, but no more information is given. How to fix it?**
+
+Usually it's because your server ran out of memory while compiling assets. Use something like a swapfile to increase the memory capacity.
