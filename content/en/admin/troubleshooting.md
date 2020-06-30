@@ -28,4 +28,4 @@ Check that you are specifying the correct environment with `RAILS_ENV=production
 
 ## **I encountered a compilation error while executing `RAILS_ENV=production bundle exec rails assets:precompile`, but no more information is given. How to fix it?**
 
-Usually it's because your server ran out of memory while compiling assets. Use something like a swapfile to increase the memory capacity.
+Usually it's because your server ran out of memory while compiling assets. Use a swapfile or increase the swap space to increase the memory capacity.
