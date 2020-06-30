@@ -33,15 +33,24 @@ For convenience, it can read them from a flat file called `.env.production` in t
 
 #### `WHITELIST_MODE` {#whitelist_mode}
 
-  When set to `true`, Mastodon will restrict federation to whitelisted servers only, as well as disable public pages and some client APIs.
-  Whitelist mode implies authorized fetch mode.
+  Equivalent to `LIMITED_FEDERATION_MODE`, which it was renamed into after 3.1.4.
   
-  When switching an existing instance to whitelist mode, the following command should be used to remove any already existent data on non-whitelisted domains:
+  When switching an existing instance to limited federation mode, the following command should be used to remove any already existent data on non-allowed domains:
   ```
   tootctl domain purge --whitelist-mode
   ```
   
   Note that, while introduced in Mastodon 3.0, `WHITELIST_MODE` is broken on Mastodon 3.0 and 3.0.1.
+
+#### `LIMITED_FEDERATION_MODE` {#limited_federation_mode}
+
+  When set to `true`, Mastodon will restrict federation to specific servers only, as well as disable public pages and some client APIs.
+  Limited federation mode mode implies authorized fetch mode.
+  
+  When switching an existing instance to limited federation mode, the following command should be used to remove any already existent data on non-allowed domains:
+  ```
+  tootctl domain purge --limited-federation-mode
+  ```
 
 ### Secrets {#secrets}
 
