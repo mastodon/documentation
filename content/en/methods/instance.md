@@ -19,6 +19,7 @@ Information about the server.
 
 - 1.1.0 - added
 - 3.0.0 - requires user token if instance is in whitelist mode
+- 3.1.4 - added `invites_enabled` to response
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

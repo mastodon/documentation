@@ -121,6 +121,12 @@ menu:
 **Type:** Boolean\
 **Version history:** Added in 2.9.2
 
+### `invites_enabled` {#invites_enabled}
+
+**Description:** Whether invites are enabled.\
+**Type:** Boolean\
+**Version history:** Added in 3.1.4
+
 ### `urls` {#urls}
 
 **Description:** URLs of interest for clients apps.\

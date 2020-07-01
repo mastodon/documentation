@@ -270,6 +270,19 @@ Crawl the known fediverse by using Mastodon REST API endpoints that expose all k
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/emoji_cli.rb" caption="lib/mastodon/emoji\_cli.rb" >}}
 
+### `tootctl emoji export` {#emoji-export}
+
+Exports custom emoji to `export.tar.gz` at PATH.
+
+**Version history:**
+* 3.1.4 - added
+
+| Option | Description |
+| :--- | :--- |
+| `PATH` | Path to create a .tar.gz archive containing pictures. |
+| `--overwrite` | Overwrite the existing archive. |
+| `--category CATEGORY` | Export only the specified CATEGORY. If not provided, will export all emoji. |
+
 ### `tootctl emoji import` {#emoji-import}
 
 Imports custom emoji from a .tar.gz archive at a given path. The archive should contain PNG or GIF files no larger than 50KB, and the shortcode will be set equal to the filename minus the extension, with optional prefixes and/or suffixes.
@@ -460,3 +473,21 @@ This is a computationally heavy procedure that creates extra database indices be
 | :--- | :--- |
 | `--days` | How old statuses have to be before they are removed. Defaults to 90. |
 | `--skip-media-remove` | Skips removing the media, in case S3 errors out. Defaults to false. |
+
+## Upgrade CLI {#upgrade}
+
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/statuses_cli.rb" caption="lib/mastodon/upgrade\_cli.rb" >}}
+
+### `tootctl upgrade storage-schema` {#upgrade-storage-schema}
+
+Upgrade the storage schema to store all non-local media resources in a top-level cache directory. WARNING: This is optional, and only for deployments made before v3.1.4. This command can incur massive object storage costs due to moving potentially terabytes of data.
+
+**Version history:**
+* 3.1.4 - added
+
+| Option | Description |
+| :--- | :--- |
+| `--verbose` | Print additional information while task is processing. |
+| `--dry_run` | Print expected results only, without performing any actions. |
+
+
