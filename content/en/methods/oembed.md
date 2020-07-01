@@ -3,7 +3,7 @@ title: oembed
 description: For generating OEmbed previews.
 menu:
   docs:
-    weight: 100
+    weight: 110
     parent: methods
 ---
 

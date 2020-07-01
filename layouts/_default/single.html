@@ -4,7 +4,9 @@
   {{ with .Description }}
     <p>{{.}}</p>
   {{ end }}
-
+  <aside>
+    {{.TableOfContents}}
+  </aside>
   <div class="e-content">
     {{ .Content }}
 

@@ -15,11 +15,11 @@ Notifications concerning the user. This API returns Link headers containing link
 
 **Returns:** Array of Notification\
 **OAuth:** User token + `read:notifications`\
-**Version history:**
-
-- 0.0.0 - added
-- 2.6.0 - add min_id
-- 2.9.0 - add account_id
+**Version history:**\
+0.0.0 - added\
+2.6.0 - add `min_id`\
+2.9.0 - add `account_id`\
+3.1.0 - add `follow_request` type
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -43,7 +43,7 @@ Return results immediately newer than this ID
 Maximum number of results to return \(default 20\)
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="exclude_types" type="array" required=false >}}
-Array of types to exclude \(`follow`, `favourite`, `reblog`, `mention`, `poll`\)
+Array of types to exclude \(`follow`, `favourite`, `reblog`, `mention`, `poll`, `follow_request`\)
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="account_id" type="string" required=false >}}
 Return only notifications received from this account
@@ -148,9 +148,8 @@ View information about a notification with a given ID.
 
 **Returns:** Notification\
 **OAuth:** User token + `read:notifications`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -236,9 +235,8 @@ Clear all notifications from the server.
 
 **Returns:** empty object\
 **OAuth:** User token + `write:notifications`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -284,9 +282,8 @@ Clear a single notification from the server.
 
 **Returns:** empty object\
 **OAuth:** User token + `write:notifications`\
-**Version history:**
-
-- 1.3.0 - added
+**Version history:**\
+1.3.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -337,9 +334,9 @@ Delete a single notification from the server.
 
 **Returns:** empty object\
 **OAuth:** User token + `write:notifications`\
-**Version history**:
-- 0.0.0 - available
-- 3.0.0 - removed
+**Version history**:\
+0.0.0 - available\
+3.0.0 - removed
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
