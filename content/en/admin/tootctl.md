@@ -87,6 +87,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 
 **Version history:**
 * 2.6.0 - added
+* 3.1.2 - added `--reset-password`
 
 | Option | Description |
 | :--- | :--- |
@@ -97,7 +98,8 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 | `--disable` | Lock USERNAME out of their account. |
 | `--enable` | Unlock USERNAME's account if it is currently disabled. |
 | `--approve` | Approve the account, if you are/were in approval mode. |
-| `--disable_2fa` | Remove additional factors and allow login with password. |
+| `--disable-2fa` | Remove additional factors and allow login with password. |
+| `--reset-password` | Resets the password of the given account.|
 
 ### `tootctl accounts delete` {#accounts-delete}
 
