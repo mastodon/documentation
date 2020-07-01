@@ -99,7 +99,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 | `--enable` | Unlock USERNAME's account if it is currently disabled. |
 | `--approve` | Approve the account, if you are/were in approval mode. |
 | `--disable-2fa` | Remove additional factors and allow login with password. |
-| `--reset-password` | Resets the password of the given account.|
+| `--reset-password` | Resets the password of the given account. |
 
 ### `tootctl accounts delete` {#accounts-delete}
 
@@ -349,11 +349,13 @@ Scans for files that do not belong to existing media attachments, and remove the
 
 **Version history:**
 * 3.1.0 - added
+* 3.1.3 - added `--prefix`
 
 | Option | Description |
 | :--- | :--- |
 | `--start_after` | The Paperclip attachment key where the loop will start. Use this option if the command was interrupted before. |
 | `--dry_run` | Print expected results only, without performing any actions. |
+| `--prefix` | Traverse only a specific prefix of files in the system. |
 
 ### `tootctl media refresh` {#media-refresh}
 
@@ -452,8 +454,9 @@ This is a computationally heavy procedure that creates extra database indices be
 
 **Version history:**
 * 2.8.0 - added
+* 3.1.3 - added `--skip-media-remove`
 
 | Option | Description |
 | :--- | :--- |
 | `--days` | How old statuses have to be before they are removed. Defaults to 90. |
-
+| `--skip-media-remove` | Skips removing the media, in case S3 errors out. Defaults to false. |
