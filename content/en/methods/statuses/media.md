@@ -20,6 +20,7 @@ Creates an attachment to be used with a new status.
 
 - 0.0.0 - added
 - 2.3.0 - add `focus` parameter
+- 3.1.3 - deprecated in favor of `POST /api/v2/media`, which is equal to v1 in all aspects, except it returns HTTP 202, and the returned JSON object has a url of null, because while the thumbnail is prepared synchronously, the full version of the media attachment will be processed in the background
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -134,6 +135,137 @@ File or file type is unsupported or invalid
 {{< endapi-method-response >}}
 {{< endapi-method-spec >}}
 {{< endapi-method >}}
+
+
+{{< api-method method="get" host="https://mastodon.example" path="/api/v1/media/:id" title="Update attachment" >}}
+{{< api-method-description >}}
+
+Get an Attachment, before it is attached to a status and posted, but after it is accepted for processing.
+
+**Returns:** Attachment\
+**OAuth:** User token + `write:media`\
+**Version history:**
+
+- 3.1.3 - added
+
+{{< endapi-method-description >}}
+{{< api-method-spec >}}
+{{< api-method-request >}}
+{{< api-method-path-parameters >}}
+{{< api-method-parameter name=":id" type="string" required=true >}}
+The id of the Attachment entity to be updated
+{{< endapi-method-parameter >}}
+{{< endapi-method-path-parameters >}}
+{{< api-method-headers >}}
+{{< api-method-parameter name="Authorization" type="string" required=true >}}
+Bearer &lt;user token&gt;
+{{< endapi-method-parameter >}}
+{{< endapi-method-headers >}}
+{{< api-method-form-data-parameters >}}
+{{< api-method-parameter name="file" type="object" required=false >}}
+The file to be attached, using multipart form data.
+{{< endapi-method-parameter >}}
+{{< api-method-parameter name="description" type="string" required=false >}}
+A plain-text description of the media, for accessibility purposes.
+{{< endapi-method-parameter >}}
+{{< api-method-parameter name="focus" type="string" required=false >}}
+Two floating points \(x,y\), comma-delimited ranging from -1.0 to 1.0
+{{< endapi-method-parameter >}}
+{{< endapi-method-form-data-parameters >}}
+{{< endapi-method-request >}}
+{{< api-method-response >}}
+{{< api-method-response-example httpCode=200 >}}
+{{< api-method-response-example-description >}}
+Attachment has been processed
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "id": "22348641",
+  "type": "image",
+  "url": "https://files.mastodon.social/media_attachments/files/022/348/641/original/e96382f26c72a29c.jpeg",
+  "preview_url": "https://files.mastodon.social/media_attachments/files/022/348/641/small/e96382f26c72a29c.jpeg",
+  "remote_url": null,
+  "text_url": "https://mastodon.social/media/4Zj6ewxzzzDi0g8JnZQ",
+  "meta": {
+    "focus": {
+      "x": -0.42,
+      "y": 0.69
+    },
+    "original": {
+      "width": 640,
+      "height": 480,
+      "size": "640x480",
+      "aspect": 1.3333333333333333
+    },
+    "small": {
+      "width": 461,
+      "height": 346,
+      "size": "461x346",
+      "aspect": 1.3323699421965318
+    }
+  },
+  "description": "test uploaded via api, but updated",
+  "blurhash": "UFBWY:8_0Jxv4mx]t8t64.%M-:IUWGWAt6M}"
+}
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=206 >}}
+{{< api-method-response-example-description >}}
+
+Attachment is not yet ready
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=401 >}}
+{{< api-method-response-example-description >}}
+
+Invalid or missing Authorization header
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "error": "The access token is invalid"
+}
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=404 >}}
+{{< api-method-response-example-description >}}
+
+Attachment does not exist, is deleted, or was not created by you
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "error": "Record not found"
+}
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=422 >}}
+{{< api-method-response-example-description >}}
+
+Error processing the media attachment
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "error": "Validation failed: File content type is invalid, File is invalid"
+}
+```
+{{< endapi-method-response-example >}}
+{{< endapi-method-response >}}
+{{< endapi-method-spec >}}
+{{< endapi-method >}}
+
+
 {{< api-method method="put" host="https://mastodon.example" path="/api/v1/media/:id" title="Update attachment" >}}
 {{< api-method-description >}}
 

@@ -87,6 +87,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 
 **Version history:**
 * 2.6.0 - added
+* 3.1.2 - added `--reset-password`
 
 | Option | Description |
 | :--- | :--- |
@@ -97,7 +98,8 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 | `--disable` | Lock USERNAME out of their account. |
 | `--enable` | Unlock USERNAME's account if it is currently disabled. |
 | `--approve` | Approve the account, if you are/were in approval mode. |
-| `--disable_2fa` | Remove additional factors and allow login with password. |
+| `--disable-2fa` | Remove additional factors and allow login with password. |
+| `--reset-password` | Resets the password of the given account. |
 
 ### `tootctl accounts delete` {#accounts-delete}
 
@@ -268,6 +270,19 @@ Crawl the known fediverse by using Mastodon REST API endpoints that expose all k
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/emoji_cli.rb" caption="lib/mastodon/emoji\_cli.rb" >}}
 
+### `tootctl emoji export` {#emoji-export}
+
+Exports custom emoji to `export.tar.gz` at PATH.
+
+**Version history:**
+* 3.1.4 - added
+
+| Option | Description |
+| :--- | :--- |
+| `PATH` | Path to create a .tar.gz archive containing pictures. |
+| `--overwrite` | Overwrite the existing archive. |
+| `--category CATEGORY` | Export only the specified CATEGORY. If not provided, will export all emoji. |
+
 ### `tootctl emoji import` {#emoji-import}
 
 Imports custom emoji from a .tar.gz archive at a given path. The archive should contain PNG or GIF files no larger than 50KB, and the shortcode will be set equal to the filename minus the extension, with optional prefixes and/or suffixes.
@@ -347,11 +362,13 @@ Scans for files that do not belong to existing media attachments, and remove the
 
 **Version history:**
 * 3.1.0 - added
+* 3.1.3 - added `--prefix`
 
 | Option | Description |
 | :--- | :--- |
 | `--start_after` | The Paperclip attachment key where the loop will start. Use this option if the command was interrupted before. |
 | `--dry_run` | Print expected results only, without performing any actions. |
+| `--prefix` | Traverse only a specific prefix of files in the system. |
 
 ### `tootctl media refresh` {#media-refresh}
 
@@ -450,8 +467,27 @@ This is a computationally heavy procedure that creates extra database indices be
 
 **Version history:**
 * 2.8.0 - added
+* 3.1.3 - added `--skip-media-remove`
 
 | Option | Description |
 | :--- | :--- |
 | `--days` | How old statuses have to be before they are removed. Defaults to 90. |
+| `--skip-media-remove` | Skips removing the media, in case S3 errors out. Defaults to false. |
+
+## Upgrade CLI {#upgrade}
+
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/statuses_cli.rb" caption="lib/mastodon/upgrade\_cli.rb" >}}
+
+### `tootctl upgrade storage-schema` {#upgrade-storage-schema}
+
+Upgrade the storage schema to store all non-local media resources in a top-level cache directory. WARNING: This is optional, and only for deployments made before v3.1.4. This command can incur massive object storage costs due to moving potentially terabytes of data.
+
+**Version history:**
+* 3.1.4 - added
+
+| Option | Description |
+| :--- | :--- |
+| `--verbose` | Print additional information while task is processing. |
+| `--dry_run` | Print expected results only, without performing any actions. |
+
 

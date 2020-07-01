@@ -19,6 +19,7 @@ menu:
 - 2.3.0 - added `only_media`
 - 2.6.0 - add `min_id`
 - 3.0.0 - auth is required if public preview is disabled
+- 3.1.4 - added `remote`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -26,6 +27,9 @@ menu:
 {{< api-method-query-parameters >}}
 {{< api-method-parameter name="local" type="boolean" required=false >}}
 Show only local statuses? Defaults to false.
+{{< endapi-method-parameter >}}
+{{< api-method-parameter name="remote" type="boolean" required=false >}}
+Show only remote statuses? Defaults to false.
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="only_media" type="boolean" required=false >}}
 Show only statuses with media attached? Defaults to false.
