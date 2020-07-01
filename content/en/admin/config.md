@@ -147,6 +147,8 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `S3_HOSTNAME`
 * `S3_ENDPOINT`
 * `S3_SIGNATURE_VERSION`
+* `S3_OVERRIDE_PATH_STYLE`
+* `S3_OPEN_TIMEOUT`
 
 ### Swift {#swift}
 
@@ -177,6 +179,8 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `LDAP_PASSWORD`
 * `LDAP_UID`
 * `LDAP_SEARCH_FILTER`
+* `LDAP_MAIL`
+* `LDAP_UID_CONVERSTION_ENABLED`
 
 ### PAM {#pam}
 

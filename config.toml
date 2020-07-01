@@ -8,6 +8,12 @@ metaDataFormat = "yaml"
 paginate = 100
 enableGitInfo = true
 
+[markup]
+  [markup.tableOfContents]
+    endLevel = 2
+    ordered = false
+    startLevel = 1
+
 [languages.en.menu]
   [[languages.en.menu.docs]]
     name = "Using Mastodon"

@@ -3,7 +3,7 @@ title: proofs
 description: For use by identity providers.
 menu:
   docs:
-    weight: 90
+    weight: 100
     parent: methods
 ---
 
