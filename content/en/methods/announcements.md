@@ -40,7 +40,50 @@ Currently active announcements
 
 
 ```javascript
-
+[
+  {
+    "id": "8",
+    "content": "<p>Looks like there was an issue processing audio attachments without embedded art since yesterday due to an experimental new feature. That issue has now been fixed, so you may see older posts with audio from other servers pop up in your feeds now as they are being finally properly processed. Sorry!</p>",
+    "starts_at": null,
+    "ends_at": null,
+    "all_day": false,
+    "published_at": "2020-07-03T01:27:38.726Z",
+    "updated_at": "2020-07-03T01:27:38.752Z",
+    "read": true,
+    "mentions": [],
+    "statuses": [],
+    "tags": [],
+    "emojis": [],
+    "reactions": [
+      {
+        "name": "bongoCat",
+        "count": 9,
+        "me": false,
+        "url": "https://files.mastodon.social/custom_emojis/images/000/067/715/original/fdba57dff7576d53.png",
+        "static_url": "https://files.mastodon.social/custom_emojis/images/000/067/715/static/fdba57dff7576d53.png"
+      },
+      {
+        "name": "thonking",
+        "count": 1,
+        "me": false,
+        "url": "https://files.mastodon.social/custom_emojis/images/000/098/690/original/a8d36edc4a7032e8.png",
+        "static_url": "https://files.mastodon.social/custom_emojis/images/000/098/690/static/a8d36edc4a7032e8.png"
+      },
+      {
+        "name": "AAAAAA",
+        "count": 1,
+        "me": false,
+        "url": "https://files.mastodon.social/custom_emojis/images/000/071/387/original/AAAAAA.png",
+        "static_url": "https://files.mastodon.social/custom_emojis/images/000/071/387/static/AAAAAA.png"
+      },
+      {
+        "name": "🤔",
+        "count": 1,
+        "me": true
+      }
+    ]
+  }
+]
 ```
 {{< endapi-method-response-example >}}
 {{< endapi-method-response >}}
@@ -79,7 +122,7 @@ Local ID of an announcement in the database.
 
 
 ```javascript
-
+{}
 ```
 {{< endapi-method-response-example >}}
 {{< endapi-method-response >}}
@@ -121,7 +164,16 @@ Unicode emoji, or shortcode of custom emoji
 
 
 ```javascript
+{}
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=422 >}}
+{{< api-method-response-example-description >}}
+{{< endapi-method-response-example-description >}}
 
+
+```javascript
+{"error":"Validation failed: Name is not a recognized emoji"}
 ```
 {{< endapi-method-response-example >}}
 {{< endapi-method-response >}}
@@ -162,7 +214,16 @@ Unicode emoji, or shortcode of custom emoji
 
 
 ```javascript
+{}
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=422 >}}
+{{< api-method-response-example-description >}}
+{{< endapi-method-response-example-description >}}
 
+
+```javascript
+{"error":"Validation failed: Name is not a recognized emoji"}
 ```
 {{< endapi-method-response-example >}}
 {{< endapi-method-response >}}
