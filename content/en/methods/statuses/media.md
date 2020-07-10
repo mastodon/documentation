@@ -16,11 +16,11 @@ Creates an attachment to be used with a new status.
 
 **Returns:** Attachment\
 **OAuth:** User token + `write:media`\
-**Version history:**
-
-- 0.0.0 - added
-- 2.3.0 - add `focus` parameter
-- 3.1.3 - deprecated in favor of `POST /api/v2/media`, which is equal to v1 in all aspects, except it returns HTTP 202, and the returned JSON object has a url of null, because while the thumbnail is prepared synchronously, the full version of the media attachment will be processed in the background
+**Version history:**\
+0.0.0 - added\
+2.3.0 - add `focus` parameter\
+3.1.3 - deprecated in favor of `POST /api/v2/media`, which is equal to v1 in all aspects, except it returns HTTP 202, and the returned JSON object has a url of null, because while the thumbnail is prepared synchronously, the full version of the media attachment will be processed in the background\
+3.2.0 - add `thumbnail` parameter
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -33,6 +33,9 @@ Bearer &lt;user token&gt;
 {{< api-method-form-data-parameters >}}
 {{< api-method-parameter name="file" type="object" required=true >}}
 The file to be attached, using multipart form data.
+{{< endapi-method-parameter >}}
+{{< api-method-parameter name="thumbnail" type="object" required=false >}}
+The custom thumbnail of the media to be attached, using multipart form data.
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="description" type="string" required=false >}}
 A plain-text description of the media, for accessibility purposes.
@@ -144,9 +147,8 @@ Get an Attachment, before it is attached to a status and posted, but after it is
 
 **Returns:** Attachment\
 **OAuth:** User token + `write:media`\
-**Version history:**
-
-- 3.1.3 - added
+**Version history:**\
+3.1.3 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -273,9 +275,10 @@ Update an Attachment, before it is attached to a status and posted.
 
 **Returns:** Attachment\
 **OAuth:** User token + `write:media`\
-**Version history:**
+**Version history:**\
+0.0.0 - added\
+3.2.0 - added `thumbnail`
 
-- 0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -293,6 +296,9 @@ Bearer &lt;user token&gt;
 {{< api-method-form-data-parameters >}}
 {{< api-method-parameter name="file" type="object" required=false >}}
 The file to be attached, using multipart form data.
+{{< endapi-method-parameter >}}
+{{< api-method-parameter name="thumbnail" type="object" required=false >}}
+The custom thumbnail of the media to be attached, using multipart form data.
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="description" type="string" required=false >}}
 A plain-text description of the media, for accessibility purposes.
