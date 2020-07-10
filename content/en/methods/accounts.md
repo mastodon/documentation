@@ -17,10 +17,9 @@ Creates a user and account records. Returns an account access token for the app 
 
 **Returns:** Token\
 **OAuth:** App token + `write:accounts`\
-**Version:**
-
-- 2.7.0 - added
-- 3.0.0 - added `reason` parameter
+**Version history:**\
+2.7.0 - added\
+3.0.0 - added `reason` parameter
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -80,9 +79,8 @@ Test to make sure that the user token works.
 
 **Returns:** the user's own Account with Source\
 **OAuth**: User token + `read:accounts`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -238,12 +236,11 @@ Update the user's display and preferences.
 
 **Returns:** the user's own Account with Source\
 **OAuth:** User token + `write:accounts`\
-**Version history:**
-
-- 1.1.1 - added
-- 2.3.0 - added `locked` parameter
-- 2.4.0 - added `source[privacy,sensitive]` parameters
-- 2.7.0 - added `discoverable` parameter
+**Version history:**\
+1.1.1 - added\
+2.3.0 - added `locked` parameter\
+2.4.0 - added `source[privacy,sensitive]` parameters\
+2.7.0 - added `discoverable` parameter
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -403,10 +400,9 @@ View information about a profile.
 
 **Returns:** Account\
 **OAuth:** Public\
-**Version history:**
-
-- 0.0.0 - added
-- 2.4.0 - returns 410 if account is suspended
+**Version history:**\
+0.0.0 - added\
+2.4.0 - returns 410 if account is suspended
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -577,12 +573,11 @@ Statuses posted to the given account.
 
 **Returns:** Array of Status\
 **OAuth:** Public \(for public statuses only\), or user token + `read:statuses` \(for private statuses the user is authorized to see\)\
-**Version history:**
-
-- 0.0.0 - added
-- 2.6.0 - add min_id
-- 2.7.0 - add exclude_reblogs and allow unauthed use
-- 2.8.0 - add tagged parameter
+**Version history:**\
+0.0.0 - added\
+2.6.0 - add `min_id`\
+2.7.0 - add `exclude_reblogs` and allow unauthed use\
+2.8.0 - add `tagged` parameter
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -667,9 +662,8 @@ Accounts which follow the given account, if network is not hidden by the account
 
 **Returns:** Array of Account\
 **OAuth:** App token + `read:accounts`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -809,9 +803,8 @@ Accounts which the given account is following, if network is not hidden by the a
 
 **Returns:** Array of Account\
 **OAuth:** App token + `read:accounts`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -963,9 +956,8 @@ User lists that you have added this account to.
 
 **Returns:** Array of List\
 **OAuth:** User token + `read:lists`\
-**Version history:**
-
-- 2.1.0 - added
+**Version history:**\
+2.1.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1053,9 +1045,8 @@ Account with given id is suspended
 
 **Returns:** Array of IdentityProof\
 **OAuth:** User token\
-**Version history:**
-
-- 2.8.0 - added
+**Version history:**\
+2.8.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1133,9 +1124,8 @@ Follow the given account.
 
 **Returns:** Relationship\
 **OAuth:** User token + `write:follows` or `follow`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1203,9 +1193,8 @@ Unfollow the given account.
 
 **Returns:** Relationship\
 **OAuth:** User token + `write:follows` or `follow`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1268,9 +1257,8 @@ Block the given account. Clients should filter statuses from this account if rec
 
 **Returns:** Relationship\
 **OAuth:** User token + `write:blocks` or `follow`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1333,9 +1321,8 @@ Unblock the given account.
 
 **Returns:** Relationship\
 **OAuth:** User token + `write:blocks` or `follow`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1398,9 +1385,8 @@ Mute the given account. Clients should filter statuses and notifications from th
 
 **Returns:** Relationship\
 **OAuth:** User token + `write:mutes` or `follow`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1468,9 +1454,8 @@ Unmute the given account.
 
 **Returns:** Relationship\
 **OAuth:** User token + `write:mutes` or `follow`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1533,9 +1518,8 @@ Add the given account to the user's featured profiles. \(Featured profiles are c
 
 **Returns:** Relationship\
 **OAuth:** User token + `write:accounts`\
-**Version history:**
-
-- 2.5.0 - added
+**Version history:**\
+2.5.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1635,9 +1619,8 @@ Remove the given account from the user's featured profiles.
 
 **Returns:** Relationship\
 **OAuth:** User + `write:accounts`\
-**Version history:**
-
-- 2.5.0 - added
+**Version history:**\
+2.5.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1700,6 +1683,83 @@ Successfully unendorsed, or account was already not endorsed
 {{< endapi-method-response >}}
 {{< endapi-method-spec >}}
 {{< endapi-method >}}
+{{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/note" title="User note" >}}
+{{< api-method-description >}}
+
+Sets a private note on a user.
+
+**Returns:** Relationship\
+**OAuth:** User + `write:accounts`\
+**Version history:**\
+3.2.0 - added
+
+{{< endapi-method-description >}}
+{{< api-method-spec >}}
+{{< api-method-request >}}
+{{< api-method-path-parameters >}}
+{{< api-method-parameter name=":id" type="string" required=true >}}
+The id of the account in the database
+{{< endapi-method-parameter >}}
+{{< endapi-method-path-parameters >}}
+{{< api-method-headers >}}
+{{< api-method-parameter name="Authorization" type="string" required=true >}}
+Bearer &lt;user token&gt;
+{{< endapi-method-parameter >}}
+{{< endapi-method-headers >}}
+{{< api-method-form-data-parameters >}}
+{{< api-method-parameter name="comment" type="string" required=false >}}
+The comment to be set on that user. Provide an empty string or leave out this parameter to clear the currently set note.
+{{< endapi-method-parameter >}}
+{{< endapi-method-form-data-parameters >}}
+{{< endapi-method-request >}}
+{{< api-method-response >}}
+{{< api-method-response-example httpCode=200 >}}
+{{< api-method-response-example-description >}}
+
+Successfully updated user note
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "id": "1",
+  "following": true,
+  "showing_reblogs": true,
+  "followed_by": true,
+  "blocking": false,
+  "blocked_by": false,
+  "muting": false,
+  "muting_notifications": false,
+  "requested": false,
+  "domain_blocking": false,
+  "endorsed": false,
+  "note": "this is a comment"
+}
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=401 >}}
+{{< api-method-response-example-description >}}
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "error": "The access token is invalid"
+}
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=422 >}}
+{{< api-method-response-example-description >}}
+{{< endapi-method-response-example-description >}}
+
+
+```
+
+```
+{{< endapi-method-response-example >}}
+{{< endapi-method-response >}}
+{{< endapi-method-spec >}}
+{{< endapi-method >}}
 
 
 ## General account actions
@@ -1711,9 +1771,8 @@ Find out whether a given account is followed, blocked, muted, etc.
 
 **Returns:** Array of Relationship\
 **OAuth:** User token + `read:follows`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1804,9 +1863,8 @@ Search for matching accounts by username or display name.
 
 **Returns:** Array of Account\
 **OAuth:** User token + `read:accounts`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

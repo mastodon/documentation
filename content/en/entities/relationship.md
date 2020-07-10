@@ -20,43 +20,49 @@ menu:
   "muting_notifications": false,
   "requested": false,
   "domain_blocking": false,
-  "endorsed": false
+  "endorsed": false,
+  "note": ""
 }
 ```
 
-## Required attributes {#relationship}
+## Required attributes
 
-### `id` {#id}
+### `id`
 
 **Description:** The account id.\
 **Type:** String \(cast from an integer, but not guaranteed to be a number\)\
-**Version history:** Added in 0.6.0
+**Version history:**\
+0.6.0 - added
 
-### `following` {#following}
+### `following`
 
 **Description:** Are you following this user?\
 **Type:** Boolean\
-**Version history:** Added in 0.6.0
+**Version history:**\
+0.6.0 - added
 
-### `requested` {#requested}
+### `requested`
 
 **Description:** Do you have a pending follow request for this user?\
 **Type:** Boolean\
-**Version history:** Added in 0.9.9
+**Version history:**\
+0.9.9 - added
 
-### `endorsed` {#endorsed}
+### `endorsed`
 
 **Description:** Are you featuring this user on your profile?\
 **Type:** Boolean\
-**Version history:** Added in 2.5.0
+**Version history:**\
+2.5.0 - added
 
 ### `followed_by` {#followed_by}
 
 **Description:** Are you followed by this user?\
 **Type:** Boolean\
-**Version history:** Added in 0.6.0
+**Version history:**\
+0.6.0 - added
 
-### `muting` {#muting}
+### `muting`
 
 **Description:** Are you muting this user?\
 **Type:** Boolean\
@@ -66,31 +72,43 @@ menu:
 
 **Description:** Are you muting notifications from this user?\
 **Type:** Boolean\
-**Version history:** Added in 2.1.0
+**Version history:**\
+2.1.0 - added
 
 ### `showing_reblogs` {#showing_reblogs}
 
 **Description:** Are you receiving this user's boosts in your home timeline?\
 **Type:** Boolean\
-**Version history:** Added in 2.1.0
+**Version history:**\
+2.1.0 - added
 
-### `blocking` {#blocking}
+### `blocking`
 
 **Description:** Are you blocking this user?\
 **Type:** Boolean\
-**Version history:** Added in 0.6.0
+**Version history:**\
+0.6.0 - added
 
 ### `domain_blocking` {#domain_blocking}
 
 **Description:** Are you blocking this user's domain?\
 **Type:** Boolean\
-**Version history:** Added in 1.4.0
+**Version history:**\
+1.4.0 - added
 
 ### `blocked_by` {#blocked_by}
 
 **Description:** Is this user blocking you?\
 **Type:** Boolean\
-**Version history:** Added in 2.8.0
+**Version history:**\
+2.8.0 - added
+
+### `note`
+
+**Description:** Is this user blocking you?\
+**Type:** String\
+**Version history:**\
+3.2.0 - added
 
 ## See also
 
