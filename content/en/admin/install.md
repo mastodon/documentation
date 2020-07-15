@@ -214,7 +214,7 @@ Finally, start and enable the new systemd services:
 ```bash
 systemctl daemon-reload
 systemctl start mastodon-web mastodon-sidekiq mastodon-streaming
-systemctl enable mastodon-*
+systemctl enable mastodon-web mastodon-sidekiq mastodon-streaming
 ```
 
 They will now automatically start at boot time.
