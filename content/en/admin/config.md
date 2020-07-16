@@ -31,17 +31,21 @@ For convenience, it can read them from a flat file called `.env.production` in t
   
   Note that this mode cannot guarantee that bad actors do not access your public and unlisted toots, it merely makes it a bit more difficult.
 
+#### `LIMITED_FEDERATION_MODE` {#limited_federation_mode}
+
+When set to `true`, Mastodon will restrict federation to specific servers only, as well as disable public pages and some client APIs. Limited federation mode mode implies authorized fetch mode.
+
+When switching an existing instance to limited federation mode, the following command should be used to remove any already existent data on non-allowed domains:
+
+```
+tootctl domain purge --limited-federation-mode
+```
+
 #### `WHITELIST_MODE` {#whitelist_mode}
 
-  When set to `true`, Mastodon will restrict federation to whitelisted servers only, as well as disable public pages and some client APIs.
-  Whitelist mode implies authorized fetch mode.
-  
-  When switching an existing instance to whitelist mode, the following command should be used to remove any already existent data on non-whitelisted domains:
-  ```
-  tootctl domain purge --whitelist-mode
-  ```
-  
-  Note that, while introduced in Mastodon 3.0, `WHITELIST_MODE` is broken on Mastodon 3.0 and 3.0.1.
+Equivalent to `LIMITED_FEDERATION_MODE`, which it was renamed into after 3.1.4.
+
+Note that, while introduced in Mastodon 3.0, `WHITELIST_MODE` is broken on Mastodon 3.0 and 3.0.1.
 
 ### Secrets {#secrets}
 
@@ -106,7 +110,8 @@ For convenience, it can read them from a flat file called `.env.production` in t
 ## Limits {#limits}
 
 * `SINGLE_USER_MODE`
-* `EMAIL_DOMAIN_WHITELIST`
+* `EMAIL_DOMAIN_ALLOWLIST`
+* `EMAIL_DOMAIN_DENYLIST`
 * `DEFAULT_LOCALE`
 * `MAX_SESSION_ACTIVATIONS`
 * `USER_ACTIVE_DAYS`
@@ -125,6 +130,7 @@ For convenience, it can read them from a flat file called `.env.production` in t
 * `SMTP_OPENSSL_VERIFY_MODE`
 * `SMTP_ENABLE_STARTTLS_AUTO`
 * `SMTP_TLS`
+* `SMTP_SSL`
 
 ## File storage {#cdn}
 
@@ -238,7 +244,7 @@ For convenience, it can read them from a flat file called `.env.production` in t
 
 ## Hidden services {#hidden-services}
 
-* `http_proxy`
+* `HTTP_PROXY`
 * `ALLOW_ACCESS_TO_HIDDEN_SERVICE`
 
 ## Other {#other}
