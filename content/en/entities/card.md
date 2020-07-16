@@ -22,7 +22,8 @@ menu:
   "width": 480,
   "height": 270,
   "image": "https://files.mastodon.social/preview_cards/images/014/179/145/original/9cf4b7cf5567b569.jpeg",
-  "embed_url": ""
+  "embed_url": "",
+  "blurhash": "UvK0HNkV,:s9xBR%njog0fo2W=WBS5ozofV@"
 }
 ```
 {{< endtab >}}
@@ -42,7 +43,8 @@ menu:
   "width": 1024,
   "height": 427,
   "image": "https://files.mastodon.social/preview_cards/images/014/287/139/original/651b1c6976817824.jpeg",
-  "embed_url": "https://live.staticflickr.com/65535/49088768431_6a4322b3bb_b.jpg"
+  "embed_url": "https://live.staticflickr.com/65535/49088768431_6a4322b3bb_b.jpg",
+  "blurhash": "UnE{@jt6M_oIAhjYs+ayT2WBf9ayRkkDXAj["
 }
 ```
 {{< endtab >}}
@@ -62,33 +64,37 @@ menu:
   "width": 0,
   "height": 0,
   "image": null,
-  "embed_url": ""
+  "embed_url": "",
+  "blurhash": null
 }
 ```
 {{< endtab >}}
 {{< endtabs >}}
 
-## Required attributes
+## Base attributes
 
-### `url` {#url}
+### `url`
 
 **Description:** Location of linked resource.\
 **Type:** String \(URL\)\
-**Version history:** Added in 1.0.0
+**Version history:**\
+1.0.0 - added
 
-### `title` {#title}
+### `title`
 
 **Description:** Title of linked resource.\
 **Type:** String\
-**Version history:** Added in 1.0.0
+**Version history:**\
+1.0.0 - added
 
-### `description` {#description}
+### `description`
 
 **Description:** Description of preview.\
 **Type:** String\
-**Version history:** Added in 1.0.0
+**Version history:**\
+1.0.0 - added
 
-### `type` {#type}
+### `type`
 
 **Description:** The type of the preview card.\
 **Type:** String \(Enumerable, oneOf\)\
@@ -96,7 +102,8 @@ menu:
 `photo` = Photo OEmbed\
 `video` = Video OEmbed\
 `rich` = iframe OEmbed. Not currently accepted, so won't show up in practice.\
-**Version history:** Added in 1.3.0
+**Version history:**\
+1.3.0 - added
 
 ## Optional attributes
 
@@ -104,55 +111,71 @@ menu:
 
 **Description:** The author of the original resource.\
 **Type:** String\
-**Version history:** Added in 1.3.0
+**Version history:**\
+1.3.0 - added
 
 ### `author_url` {#author_url}
 
 **Description:** A link to the author of the original resource.\
 **Type:** String \(URL\)\
-**Version history:** Added in 1.3.0
+**Version history:**\
+1.3.0 - added
 
 ### `provider_name` {#provider_name}
 
 **Description:** The provider of the original resource.\
 **Type:** String\
-**Version history:** Added in 1.3.0
+**Version history:**\
+1.3.0 - added
 
 ### `provider_url` {#provider_url}
 
 **Description:** A link to the provider of the original resource.\
 **Type:** String \(URL\)\
-**Version history:** Added in 1.3.0
+**Version history:**\
+1.3.0 - added
 
-### `html` {#html}
+### `html`
 
 **Description:** HTML to be used for generating the preview card.\
 **Type:** String \(HTML\)\
-**Version history:** Added in 1.3.0
+**Version history:**\
+1.3.0 - added
 
-### `width` {#width}
+### `width`
 
 **Description:** Width of preview, in pixels.\
 **Type:** Number\
-**Version history:** Added in 1.3.0
+**Version history:**\
+1.3.0 - added
 
-### `height` {#height}
+### `height`
 
 **Description:** Height of preview, in pixels.\
 **Type:** Number\
-**Version history:** Added in 1.3.0
+**Version history:**\
+1.3.0 - added
 
-### `image` {#image}
+### `image`
 
 **Description:** Preview thumbnail.\
 **Type:** String \(URL\)\
-**Version history:** Added in 1.0.0
+**Version history:**\
+1.0.0 - added
 
 ### `embed_url` {#embed_url}
 
 **Description:** Used for photo embeds, instead of custom `html`.\
 **Type:** String \(URL\)\
-**Version history:** Added in 2.1.0
+**Version history:**\
+2.1.0 - added
+
+### `blurhash`
+**Description:** A hash computed by [the BlurHash algorithm](https://github.com/woltapp/blurhash), for generating colorful preview thumbnails when media has not been downloaded yet.\
+**Type:** String\
+**Version history:**\
+3.2.0 - added
+
 
 ## See also
 
