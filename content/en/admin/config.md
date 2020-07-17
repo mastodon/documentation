@@ -244,7 +244,7 @@ Note that, while introduced in Mastodon 3.0, `WHITELIST_MODE` is broken on Masto
 
 ## Hidden services {#hidden-services}
 
-* `HTTP_PROXY`
+* `http_proxy`
 * `ALLOW_ACCESS_TO_HIDDEN_SERVICE`
 
 ## Other {#other}
