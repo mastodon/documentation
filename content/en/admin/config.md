@@ -33,29 +33,39 @@ If you have multiple domains pointed at your Mastodon server, this setting will 
 
 #### `AUTHORIZED_FETCH` {#authorized_fetch}
 
-When set to `true`, Mastodon will stop inline-signing activities, and will require remote servers to authenticate when fetching public and unlisted toots.
+Also called "secure mode". When set to `true`, the following changes occur:
 
-This prevents blocked domains from fetching your public toots, at the cost of possibly increased computations, and broken compatibility with software that does not sign fetch requests (such as Mastodon prior to version 3.0).
+- Mastodon will stop generating linked-data signatures for public posts, which prevents them from being re-distributed efficiently but without precise control. Since a linked-data object with a signature is entirely self-contained, it can be passed around without making extra requests to the server where it originates.
+- Mastodon will require HTTP signature authentication on ActivityPub representations of public posts and profiles, which are normally available without any authentication. Profiles will only return barebones technical information when no authentication is supplied.
+- Mastodon will require any REST/streaming API access to have a user context (i.e. having gone through an OAuth authorization screen with an active user), when normally some API endpoints are available without any authentication.
 
-Note that this mode cannot guarantee that bad actors do not access your public and unlisted toots, it merely makes it a bit more difficult.
+As a result, through the authentication mechanism and avoiding re-distribution mechanisms that do not have your server in the loop, it becomes possible to enforce who can and cannot retrieve even public content from your server, e.g. servers whose domains you have blocked.
 
-#### `LIMITED_FEDERATION_MODE` {#limited_federation_mode}
-
-{{< hint style="info" >}}
-This setting was known as `WHITELIST_MODE` prior to 3.1.5.
+{{< hint style="warning" >}}
+Unfortunately, secure mode is not without its drawbacks, which is why it is not enabled by default. Not all software in the fediverse can support it fully, in particular some functionality will be broken with Mastodon servers older than 3.0; you lose some useful functionality even with up-to-date servers since linked-data signatures are used to make public conversation threads more complete; and because an authentication mechanism on public content means no caching is possible, it comes with an increased computational cost.
 {{</ hint >}}
 
 {{< hint style="warning" >}}
-`WHITELIST_MODE` is broken on Mastodon 3.0.0 and 3.0.1.
+Secure mode does not hide HTML representations of public posts and profiles. HTML is a more lossy format compared to first-class ActivityPub representations or the REST API but it is still a potential vector for scraping content.
 {{</ hint >}}
 
-When set to `true`, Mastodon will restrict federation to specific servers only, as well as disable public pages and some client APIs. Limited federation mode mode implies authorized fetch mode.
+#### `LIMITED_FEDERATION_MODE` {#limited_federation_mode}
+
+When set to `true`, Mastodon will restrict federation to servers you have manually approved only, as well as disable all public pages and some REST APIs. Limited federation mode is based on secure mode (`AUTHORIZED_FETCH_MODE`).
 
 When switching an existing instance to limited federation mode, the following command should be used to remove any already existent data on non-allowed domains:
 
 ```
 tootctl domain purge --limited-federation-mode
 ```
+
+{{< hint style="warning" >}}
+This mode is intended for private use only, such as in academic instituations or internal company networks, as it effectively creates a data silo, which is contrary to Mastodon's mission of decentralization.
+{{</ hint >}}
+
+{{< hint style="info" >}}
+This setting was known as `WHITELIST_MODE` prior to 3.1.5.
+{{</ hint >}}
 
 ### Secrets {#secrets}
 
@@ -159,24 +169,75 @@ Specific to the streaming API, this variable determines how many different proce
 
 ### PostgreSQL {#postgresql}
 
-* `DB_HOST`
-* `DB_USER`
-* `DB_NAME`
-* `DB_PASS`
-* `DB_PORT`
-* `DB_POOL`
-* `DATABASE_URL`
+#### `DB_HOST`
+
+Defaults to `localhost`.
+
+#### `DB_USER`
+
+Defaults to `mastodon`.
+
+#### `DB_NAME`
+
+Defaults to `mastodon_production`.
+
+#### `DB_PASS`
+
+No default.
+
+#### `DB_PORT`
+
+Defaults to `5432`.
+
+#### `DB_POOL`
+
+How many database connections to pool in the process. This value should cover every thread in the process, for this reason, it defaults to the value of `MAX_THREADS`.
+
+#### `DATABASE_URL`
+
+If provided, takes precedence over `DB_HOST`, `DB_USER`, `DB_NAME`, `DB_PASS` and `DB_PORT`.
+
+Example value: `postgresql://user:password@localhost:5432`
 
 ### Redis {#redis}
 
-* `REDIS_HOST`
-* `REDIS_PORT`
-* `REDIS_URL`
-* `REDIS_NAMESPACE`
-* `CACHE_REDIS_HOST`
-* `CACHE_REDIS_PORT`
-* `CACHE_REDIS_URL`
-* `CACHE_REDIS_NAMESPACE`
+{{< hint style="info" >}}
+It is possible to use a separate Redis server for volatile cache. You may wish to do so if your Redis server starts getting overwhelmed.
+{{</ hint >}}
+
+#### `REDIS_HOST`
+
+Defaults to `localhost`.
+
+#### `REDIS_PORT`
+
+Defaults to `6379`.
+
+#### `REDIS_URL`
+
+If provided, takes precedence over `REDIS_HOST` and `REDIS_PORT`.
+
+Example value: `redis://user:password@localhost:6379`
+
+#### `REDIS_NAMESPACE`
+
+If provided, namespaces all Redis keys. This allows sharing the same Redis database between different projects or Mastodon servers.
+
+#### `CACHE_REDIS_HOST`
+
+Defaults to value of `REDIS_HOST`.
+
+#### `CACHE_REDIS_PORT`
+
+Defaults to value of `REDIS_PORT`.
+
+#### `CACHE_REDIS_URL`
+
+If provided, takes precedence over `CACHE_REDIS_HOST` and `CACHE_REDIS_PORT`. Defaults to value of `REDIS_URL`.
+
+#### `CACHE_REDIS_NAMESPACE`
+
+Defaults to value of `REDIS_NAMESPACE`.
 
 ### ElasticSearch {#elasticsearch}
 
@@ -196,7 +257,7 @@ Port of the ElasticSearch server. Defaults to `9200`
 
 #### `ES_PREFIX`
 
-Useful if the ElasticSearch server is shared between multiple projects or different Mastodon servers. Defaults to `REDIS_NAMESPACE`.
+Useful if the ElasticSearch server is shared between multiple projects or different Mastodon servers. Defaults to value of `REDIS_NAMESPACE`.
 
 ### StatsD {#statsd}
 
@@ -462,6 +523,8 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 * `SAML_ATTRIBUTES_STATEMENTS_VERIFIED_EMAIL`
 
 ## Hidden services {#hidden-services}
+
+{{< page-ref page="admin/optional/tor.md" >}}
 
 * `http_proxy`
 * `ALLOW_ACCESS_TO_HIDDEN_SERVICE`

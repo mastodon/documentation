@@ -55,7 +55,7 @@ We will need to tell Nginx about your Mastodon configuration twice. To keep thin
 
 Create a new file at `/etc/nginx/snippets/mastodon.conf`. Put all of your Mastodon configuration parameters in this file with the exception of the `listen`, `server_name`, `include` and all of the SSL options. Your new file may look something like this.
 
-```text
+```nginx
 add_header Referrer-Policy "same-origin";
 
 keepalive_timeout    70;
@@ -63,7 +63,9 @@ sendfile             on;
 client_max_body_size 80m;
 
 root /home/mastodon/live/public;
-…
+
+# …
+
 error_page 500 501 502 503 504 /500.html;
 
 access_log /var/log/nginx/mastodon_access.log;
@@ -74,7 +76,7 @@ In place of your old Mastodon configuration add an include directive to this new
 
 Your Nginx configuration file will be left looking something like this.
 
-```text
+```nginx
 server {
   listen 80;
   server_name mastodon.myhosting.com;
@@ -101,9 +103,9 @@ server {
 
 While it may be tempting to serve your Tor version of Mastodon over https it is not a good idea for most people. See [this](https://blog.torproject.org/facebook-hidden-services-and-https-certs) blog post from the Tor Project about why https certificates do not add value. Since you cannot get an SSL cert for an onion domain, you will also be plagued with certificate errors when trying to use your Mastodon instance. A Tor developer has more recently spelled out the reasons why serving a Tor service over https is not beneficial for most use cases [here](https://matt.traudt.xyz/p/o44SnkW2.html).
 
-The solution is to serve your Mastodon instance over http, but only for Tor. This can be added by pre-pending an additional configuration to your Nginx configuration.
+The solution is to serve your Mastodon instance over http, but only for Tor. This can be added by prepending an additional configuration to your Nginx configuration.
 
-```text
+```nginx
 server {
   listen 80;
   server_name mastodon.qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7.onion;
