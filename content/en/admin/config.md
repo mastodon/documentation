@@ -82,7 +82,7 @@ Generate with `rake mastodon:webpush:generate_vapid_key`. Changing it will break
 Environment. Can be `production`, `development`, or `test`. If you are running Mastodon on your personal computer for development purposes, use `development`. That is also the default. If you are running Mastodon online, use `production`. Mastodon will load different configuration defaults based on the environment.
 
 {{< hint style="warning" >}}
-This variable cannot be defined in dotenv (`.env`) files as it's used before they are loaded. In fact, this variable may decide which dotenv file is loaded if different variants exist (e.g. `.env.production` or `.env.test`)
+This variable cannot be defined in dotenv (`.env`) files as it's used before they are loaded.
 {{</ hint >}}
 
 #### `RAILS_SERVE_STATIC_FILES`
@@ -102,7 +102,7 @@ If your Mastodon web process is on the same machine as your reverse proxy (e.g. 
 Instead of binding to an IP address like `127.0.0.1`, you may bind to a Unix socket. This variable is process-specific, e.g. you need different values for every process, and it works for both web (Puma) processes and streaming API (Node.js) processes.
 
 {{< hint style="warning" >}}
-This variable cannot be defined in dotenv (`.env`) files as it's used before they are loaded and cannot be shared between different processes.
+This variable cannot be defined in dotenv (`.env`) files as it's used before they are loaded.
 {{</ hint >}}
 
 #### `PORT`
@@ -110,7 +110,7 @@ This variable cannot be defined in dotenv (`.env`) files as it's used before the
 If you are not using Unix sockets, this defines which port the process will listen on. This variable is process-specific, e.g. you need different values for every process, and it works for both web (Puma) processes and streaming API (Node.js) processes. By default, web listens on `3000` and streaming API on `4000`.
 
 {{< hint style="warning" >}}
-This variable cannot be defined in dotenv (`.env`) files as it's used before they are loaded and cannot be shared between different processes.
+This variable cannot be defined in dotenv (`.env`) files as it's used before they are loaded.
 {{</ hint >}}
 
 #### `NODE_ENV`
@@ -118,7 +118,7 @@ This variable cannot be defined in dotenv (`.env`) files as it's used before the
 Equivalent to `RAILS_ENV`, but for the streaming API (Node.js).
 
 {{< hint style="warning" >}}
-This variable cannot be defined in dotenv (`.env`) files as it's used before they are loaded. In fact, this variable may decide which dotenv file is loaded if different variants exist (e.g. `.env.production` or `.env.test`)
+This variable cannot be defined in dotenv (`.env`) files as it's used before they are loaded.
 {{</ hint >}}
 
 #### `BIND`
@@ -180,10 +180,23 @@ Specific to the streaming API, this variable determines how many different proce
 
 ### ElasticSearch {#elasticsearch}
 
-* `ES_ENABLED`
-* `ES_HOST`
-* `ES_PORT`
-* `ES_PREFIX`
+{{< page-ref page="admin/optional/elasticsearch.md" >}}
+
+#### `ES_ENABLED`
+
+If set to `true`, Mastodon will use ElasticSearch for its search functions.
+
+#### `ES_HOST`
+
+Host of the ElasticSearch server. Defaults to `localhost`
+
+#### `ES_PORT`
+
+Port of the ElasticSearch server. Defaults to `9200`
+
+#### `ES_PREFIX`
+
+Useful if the ElasticSearch server is shared between multiple projects or different Mastodon servers. Defaults to `REDIS_NAMESPACE`.
 
 ### StatsD {#statsd}
 
@@ -198,7 +211,11 @@ If set to `true`, the frontpage of your Mastodon server will always redirect to 
 
 #### `EMAIL_DOMAIN_ALLOWLIST`
 
+If set, registrations will not be possible with any e-mails **except** those from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
+
 #### `EMAIL_DOMAIN_DENYLIST`
+
+If set, registrations will not be possible with any e-mails from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
 
 {{< hint style="warning" >}}
 This option is deprecated. You can dynamically block e-mail domains from the admin interface or from the `tootctl` command-line interface.
@@ -320,6 +337,10 @@ You can serve static assets (logos, emojis, CSS, JS, etc) from a separate host, 
 
 Example value: `https://assets.example.com`
 
+{{< hint style="info" >}}
+You must serve the files with CORS headers, otherwise some functions of Mastodon's web UI will not work. For example, if Mastodon's web UI is served from `example.com`, then you may need a CORS header like `Access-Control-Allow-Origin: example.com`
+{{</ hint >}}
+
 #### `S3_ALIAS_HOST`
 
 Similar to `CDN_HOST`, you may serve *user-uploaded* files from a separate host. In fact, if you are using external storage like Amazon S3, Minio or Google Cloud, you will by default be serving files from those services' URLs.
@@ -330,6 +351,10 @@ It is *extremely recommended* to use your own host instead, for a few reasons:
 2. You may want to switch to a different provider later without breaking old links
 
 Example value: `files.example.com`
+
+{{< hint style="info" >}}
+You must serve the files with CORS headers, otherwise some functions of Mastodon's web UI will not work. For example, if Mastodon's web UI is served from `example.com`, then you may need a CORS header like `Access-Control-Allow-Origin: example.com`
+{{</ hint >}}
 
 ### Local file storage {#paperclip}
 
