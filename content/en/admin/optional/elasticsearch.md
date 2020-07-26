@@ -52,40 +52,30 @@ ES_HOST=localhost
 ES_PORT=9200
 ```
 
-If you have multiple Mastodon servers on the same machine, and you are planning to use the same ElasticSearch installation for all of them, make sure that all of them have unique `REDIS_NAMESPACE` in their configurations, to differentiate the indices. If you need to override the prefix of the ElasticSearch index, you can set `ES_PREFIX` directly.
+If you have multiple Mastodon servers on the same machine, and you are planning to use the same ElasticSearch installation for all of them, make sure that all of them have unique `REDIS_NAMESPACE` in their configurations, to differentiate the indices. If you need to override the prefix of the ElasticSearch indices, you can set `ES_PREFIX` directly.
 
-After saving the new configuration, create the index in ElasticSearch with:
-
-```bash
-RAILS_ENV=production bundle exec rake chewy:upgrade
-```
-
-Then restart Mastodon processes for the new configuration to take effect:
+After saving the new configuration, restart Mastodon processes for it to take effect:
 
 ```bash
 systemctl restart mastodon-sidekiq
 systemctl reload mastodon-web
 ```
 
-Now new statuses will be written to the ElasticSearch index. The last step is importing all of the old data as well. This might take a long while:
+Now it's time to create the ElasticSearch indices and fill them with data:
 
 ```bash
-RAILS_ENV=production bundle exec rake chewy:sync
+RAILS_ENV=production bin/tootctl search deploy
 ```
 
-{{< hint style="warning" >}}
-**Compatibility note:** There is a known bug in Ruby 2.6.0 that prevents the above task from working. Other versions of Ruby, such as 2.6.1, are fine.
-{{< /hint >}}
-
 ## Search optimization for other languages
-
 ### Chinese search optimization {#chinese-search-optimization}
 
-The default analyzer of the ElasticSearch is the standard analyzer, which may not be the best especially for Chinese. To improve search experience, you can install language specific analyzer. Before create the index in ElasticSearch:
+The default analyzer of the ElasticSearch is the standard analyzer, which may not be the best especially for Chinese. To improve search experience, you can install a language specific analyzer. Before creating the indices in ElasticSearch, install the following ElasticSearch extensions:
 
-Installing [elasticsearch-analysis-ik](https://github.com/medcl/elasticsearch-analysis-ik), [elasticsearch-analysis-stconvert](https://github.com/medcl/elasticsearch-analysis-stconvert) to ElasticSearch.
+- [elasticsearch-analysis-ik](https://github.com/medcl/elasticsearch-analysis-ik)
+- [elasticsearch-analysis-stconvert](https://github.com/medcl/elasticsearch-analysis-stconvert)
 
-And do modify as follows:
+And then modify Mastodon's index definition as follows:
 
 ```diff
 diff --git a/app/chewy/accounts_index.rb b/app/chewy/accounts_index.rb
@@ -99,7 +89,7 @@ diff --git a/app/chewy/accounts_index.rb b/app/chewy/accounts_index.rb
 +        tokenizer: 'ik_max_word',
          filter: %w(lowercase asciifolding cjk_width),
        },
- 
+
 diff --git a/app/chewy/statuses_index.rb b/app/chewy/statuses_index.rb
 --- a/app/chewy/statuses_index.rb
 +++ b/app/chewy/statuses_index.rb
@@ -134,7 +124,7 @@ diff --git a/app/chewy/tags_index.rb b/app/chewy/tags_index.rb
 --- a/app/chewy/tags_index.rb
 +++ b/app/chewy/tags_index.rb
 @@ -2,10 +2,19 @@
- 
+
  class TagsIndex < Chewy::Index
    settings index: { refresh_interval: '15m' }, analysis: {
 +    char_filter: {
@@ -152,7 +142,7 @@ diff --git a/app/chewy/tags_index.rb b/app/chewy/tags_index.rb
          filter: %w(lowercase asciifolding cjk_width),
 +        char_filter: %w(tsconvert),
        },
- 
+
        edge_ngram: {
 ```
 

@@ -7,13 +7,9 @@ menu:
     parent: admin
 ---
 
-{{< hint style="warning" >}}
-This page is under construction.
-{{< /hint >}}
-
 Mastodon uses environment variables as its configuration.
 
-For convenience, it can read them from a flat file called `.env.production` in the Mastodon directory, but they can always be overridden by a specific process. For example, systemd service files can read environment variables from an `EnvironmentFile` or from inline definitions with `Environment`, so you can have different configuration parameters for specific services. They can also be specified when calling Mastodon from the command line.
+For convenience, it can read them from a flat file called `.env.production` in the Mastodon directory (called a "dotenv" file), but they can always be overridden by a specific process. For example, systemd service files can read environment variables from an `EnvironmentFile` or from inline definitions with `Environment`, so you can have different configuration parameters for specific services. They can also be specified when calling Mastodon from the command line.
 
 ## Basic {#basic}
 
@@ -159,7 +155,7 @@ By default, Mastodon uses the prepared statements feature of PostgreSQL, which o
 
 The streaming API can be deployed to a different domain/subdomain. This may improve the performance of the streaming API as in the default configuration long-lived streaming API requests are proxied through nginx, while serving the streaming API from a different domain/subdomain would allow one to skip nginx entirely.
 
-Example: `wss://streaming.example.com`
+Example value: `wss://streaming.example.com`
 
 #### `STREAMING_CLUSTER_NUM`
 
@@ -261,8 +257,15 @@ Useful if the ElasticSearch server is shared between multiple projects or differ
 
 ### StatsD {#statsd}
 
-* `STATSD_ADDR`
-* `STATSD_NAMESPACE`
+#### `STATSD_ADDR`
+
+If set, Mastodon will log some events and metrics into a StatsD instance identified by its hostname and port.
+
+Example value: `localhost:8125`
+
+#### `STATSD_NAMESPACE`
+
+If set, all StatsD keys will be prefixed with this. Defaults to `Mastodon.production` when `RAILS_ENV` is `production`, `Mastodon.development` when it's `development`, etc.
 
 ## Limits {#limits}
 
