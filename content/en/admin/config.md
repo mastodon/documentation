@@ -402,7 +402,7 @@ You can serve static assets (logos, emojis, CSS, JS, etc) from a separate host, 
 Example value: `https://assets.example.com`
 
 {{< hint style="info" >}}
-You must serve the files with CORS headers, otherwise some functions of Mastodon's web UI will not work. For example, if Mastodon's web UI is served from `example.com`, then you may need a CORS header like `Access-Control-Allow-Origin: example.com`
+You must serve the files with CORS headers, otherwise some functions of Mastodon's web UI will not work. For example, `Access-Control-Allow-Origin: *`
 {{</ hint >}}
 
 #### `S3_ALIAS_HOST`
@@ -416,8 +416,10 @@ It is *extremely recommended* to use your own host instead, for a few reasons:
 
 Example value: `files.example.com`
 
+{{< page-ref page="admin/optional/object-storage-proxy.md" >}}
+
 {{< hint style="info" >}}
-You must serve the files with CORS headers, otherwise some functions of Mastodon's web UI will not work. For example, if Mastodon's web UI is served from `example.com`, then you may need a CORS header like `Access-Control-Allow-Origin: example.com`
+You must serve the files with CORS headers, otherwise some functions of Mastodon's web UI will not work. For example, `Access-Control-Allow-Origin: *`
 {{</ hint >}}
 
 ### Local file storage {#paperclip}
