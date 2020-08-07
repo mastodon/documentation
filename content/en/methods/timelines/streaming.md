@@ -72,6 +72,13 @@ Possible `stream` values:
 * `list`
 * `direct`
 
+WebSocket events have this structure:
+
+```text
+event: name
+payload: payload
+```
+
 ## Event types <a id="event-types"></a>
 
 | Event | Description | What’s in the payload |
@@ -81,7 +88,7 @@ Possible `stream` values:
 | `delete` | A status has been deleted | ID of the deleted status |
 | `filters_changed` | Keyword filters have been changed |  |
 
-The payload is JSON-encoded.
+The payload is a JSON-encoded string, not a JSON object itself.
 
 {{< hint style="info" >}}
 
