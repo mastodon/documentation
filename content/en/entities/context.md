@@ -47,18 +47,18 @@ menu:
 ### `ancestors` {#ancestors}
 
 **Description:** Parents in the thread.\
-**Type:** Array of [Status](status.md)\
+**Type:** Array of [Status]({{< relref "status.md" >}})\
 **Version history:** Added in 0.6.0
 
 ### `descendants` {#descendants}
 
 **Description:** Children in the thread.\
-**Type:** Array of [Status](status.md)\
+**Type:** Array of [Status]({{< relref "status.md" >}})\
 **Version history:** Added in 0.6.0
 
 ## See also
 
-* [GET /api/v1/statuses/:id/context](../methods/statuses/#parent-and-child-statuses)
+* [GET /api/v1/statuses/:id/context]({{< relref "../methods/statuses/#parent-and-child-statuses" >}})
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/context_serializer.rb" caption="app/serializers/rest/context\_serializer.rb" >}}
 

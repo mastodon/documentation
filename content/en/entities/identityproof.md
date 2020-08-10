@@ -50,9 +50,9 @@ menu:
 
 ## See also
 
-* [GET /api/v1/accounts/:id/identity\_proofs](../methods/accounts/#identity-proofs)
+* [GET /api/v1/accounts/:id/identity\_proofs]({{< relref "../methods/accounts/#identity-proofs" >}})
 * /api/proofs
-* [About identity proofs](../user/contacts.md#identity-proofs)
+* [About identity proofs]({{< relref "../user/contacts.md#identity-proofs" >}})
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/identity_proof_serializer.rb" caption="app/serializers/rest/identity\_proof\_serializer.rb" >}}
 

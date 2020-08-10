@@ -166,7 +166,7 @@ Domains federated with this instance. Number.
 ### `contact_account` {#contact_account}
 
 **Description:** A user that can be contacted, as an alternative to `email`.\
-**Type:** [Account](account.md) or null\
+**Type:** [Account]({{< relref "account.md" >}}) or null\
 **Version history:** Added in 2.3.0
 
 ## See also

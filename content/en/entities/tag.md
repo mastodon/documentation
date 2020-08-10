@@ -76,8 +76,8 @@ menu:
 
 ## See also
 
-* [Status\#tags](status.md#tags)
-* [GET /api/v1/featured\_tags/suggestions](../methods/accounts/featured_tags.md#suggested-tags-to-feature)
+* [Status\#tags]({{< relref "status.md#tags" >}})
+* [GET /api/v1/featured\_tags/suggestions]({{< relref "../methods/accounts/featured_tags.md#suggested-tags-to-feature" >}})
 
 {{< page-ref page="status.md" >}}
 

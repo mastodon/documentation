@@ -88,9 +88,9 @@ menu:
 
 ## See also
 
-* [Account\#source](account.md#source)
-* [POST /api/v1/accounts/verify\_credentials](../methods/accounts/#verify-account-credentials)
-* [PATCH /api/v1/accounts/update\_credentials](../methods/accounts/#update-account-credentials)
+* [Account\#source]({{< relref "account.md#source" >}})
+* [POST /api/v1/accounts/verify\_credentials]({{< relref "../methods/accounts.md#verify-account-credentials" >}})
+* [PATCH /api/v1/accounts/update\_credentials]({{< relref "../methods/accounts.md#update-account-credentials" >}})
 
 {{< page-ref page="account.md" >}}
 

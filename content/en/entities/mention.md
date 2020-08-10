@@ -57,8 +57,8 @@ menu:
 
 ## See also
 
-* [GET /api/v1/statuses/:id](../methods/statuses/#view-specific-status)
-* [Status\#mentions](status.md#mentions)
+* [GET /api/v1/statuses/:id]({{< relref "../methods/statuses/#view-specific-status" >}})
+* [Status\#mentions]({{< relref "status.md#mentions" >}})
 
 {{< page-ref page="status.md" >}}
 

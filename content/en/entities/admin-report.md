@@ -47,19 +47,19 @@ menu:
 ### `account` {#account}
 
 **Description:** The account which filed the report.\
-**Type:** [Account](account.md)\
+**Type:** [Account]({{< relref "account.md" >}})\
 **Version history:** Added in 2.9.1
 
 ### `target_account` {#target_account}
 
 **Description:** The account being reported.\
-**Type:** [Account](account.md)\
+**Type:** [Account]({{< relref "account.md" >}})\
 **Version history:** Added in 2.9.1
 
 ### `assigned_account` {#assigned_account}
 
 **Description:** The account of the moderator assigned to this report.\
-**Type:** [Account](account.md)\
+**Type:** [Account]({{< relref "account.md" >}})\
 **Version history:** Added in 2.9.1
 
 ### `action_taken_by_account` {#action_taken_by_account}
@@ -71,7 +71,7 @@ menu:
 ### `statuses` {#statuses}
 
 **Description:** Statuses attached to the report, for context.\
-**Type:** Array of [Status](status.md)\
+**Type:** Array of [Status]({{< relref "status.md" >}})\
 **Version history:** Added in 2.9.1
 
 ## See also

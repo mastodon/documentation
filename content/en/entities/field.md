@@ -59,8 +59,8 @@ menu:
 
 ## See also
 
-* [Account\#fields](account.md#fields)
-* [Source\#fields](source.md#fields)
+* [Account\#fields]({{< relref "account.md#fields" >}})
+* [Source\#fields]({{< relref "source.md#fields" >}})
 
 {{< page-ref page="account.md" >}}
 

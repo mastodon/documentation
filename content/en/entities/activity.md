@@ -45,7 +45,7 @@ menu:
 
 ## See also
 
-* [GET /api/v1/instance/activity](../methods/instance/#weekly-activity)
+* [GET /api/v1/instance/activity]({{< relref "../methods/instance/#weekly-activity" >}})
 
 {{< page-ref page="methods/instance.md" >}}
 

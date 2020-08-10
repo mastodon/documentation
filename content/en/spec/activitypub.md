@@ -67,10 +67,10 @@ Some other Object types are converted as best as possible. The transformer uses 
 | icon | Used as profile avatar. |
 | image | Used as profile header. |
 | manuallyApprovesFollowers | Will be shown as a locked account. |
-| discoverable | Will be shown in the profile directory. See [Discoverability flag](activitypub.md#discoverable). |
-| publicKey | Required for signatures. See [Public key](activitypub.md#public-key). |
-| featured | Pinned posts. See [Featured collection](activitypub.md#featured). |
-| attachment | Used for profile fields. See [Profile metadata](activitypub.md#profile-metadata) and [Identity proofs](activitypub.md#identityproof). |
+| discoverable | Will be shown in the profile directory. See [Discoverability flag]({{< relref "activitypub.md#discoverable" >}}). |
+| publicKey | Required for signatures. See [Public key]({{< relref "activitypub.md#public-key" >}}). |
+| featured | Pinned posts. See [Featured collection]({{< relref "activitypub.md#featured" >}}). |
+| attachment | Used for profile fields. See [Profile metadata]({{< relref "activitypub.md#profile-metadata" >}}) and [Identity proofs]({{< relref "activitypub.md#identityproof" >}}). |
 | alsoKnownAs | Required for Move activity. |
 
 ## HTML sanitization {#sanitization}
@@ -117,7 +117,7 @@ Contains ActivityStreams extended properties that have been proposed but not off
 
 ### W3ID Security Vocabulary \(`sec:`\) {#sec}
 
-Contains properties used for HTTPS Signatures and Linked Data Signatures. Also used for identity proofs. See [Security](security.md) for more information.
+Contains properties used for HTTPS Signatures and Linked Data Signatures. Also used for identity proofs. See [Security]({{< relref "security.md" >}}) for more information.
 
 * sec:publicKey
 * sec:publicKeyPem
@@ -145,7 +145,7 @@ Contains properties used for profile metadata.
 
 ### Public key {#publicKey}
 
-Public keys are used for HTTPS Signatures and Linked Data Signatures. This is implemented using an extra property `publicKey` on actor objects. See [Security](security.md) for more information. Example:
+Public keys are used for HTTPS Signatures and Linked Data Signatures. This is implemented using an extra property `publicKey` on actor objects. See [Security]({{< relref "security.md" >}}) for more information. Example:
 
 ```javascript
 {
@@ -220,7 +220,7 @@ Mastodon supports arbitrary emojis, that is, small images uploaded by admins and
 
 ### Focal points {#focalPoint}
 
-Mastodon supports setting a focal point on uploaded images, so that wherever that image is displayed, the focal point stays in view. This is implemented using an extra property `focalPoint` on `Image` objects. The property is simply an array of two floating points between -1.0 and 1.0, with 0,0 being the center of the image, the first value being x \(-1.0 is the left edge, +1.0 is the right edge\) and the second value being y \(-1.0 is the bottom edge, +1.0 is the top edge\). See [Focal points](../methods/statuses/media.md#focal-points) for more information. Example:
+Mastodon supports setting a focal point on uploaded images, so that wherever that image is displayed, the focal point stays in view. This is implemented using an extra property `focalPoint` on `Image` objects. The property is simply an array of two floating points between -1.0 and 1.0, with 0,0 being the center of the image, the first value being x \(-1.0 is the left edge, +1.0 is the right edge\) and the second value being y \(-1.0 is the bottom edge, +1.0 is the top edge\). See [Focal points]({{< relref "../methods/statuses/media.md#focal-points" >}}) for more information. Example:
 
 ```javascript
 {

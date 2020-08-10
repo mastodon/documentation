@@ -91,7 +91,7 @@ menu:
 ### `account` {#account}
 
 **Description:** The account that performed the action that generated the notification.\
-**Type:** [Account](account.md)\
+**Type:** [Account]({{< relref "account.md" >}})\
 **Version history:**\
 0.9.9 - added
 
@@ -100,7 +100,7 @@ menu:
 ### `status` {#status}
 
 **Description:** Status that was the object of the notification, e.g. in mentions, reblogs, favourites, or polls.\
-**Type:** [Status](status.md)\
+**Type:** [Status]({{< relref "status.md" >}})\
 **Version history:**\
 0.9.9 - added
 

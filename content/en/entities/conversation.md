@@ -41,7 +41,7 @@ menu:
 ### `accounts` {#accounts}
 
 **Description:** Participants in the conversation.\
-**Type:** Array of [Account](account.md)\
+**Type:** Array of [Account]({{< relref "account.md" >}})\
 **Version history:** Added in 2.6.0
 
 ### `unread` {#unread}
@@ -55,7 +55,7 @@ menu:
 ### `last_status` {#last_status}
 
 **Description:** The last status in the conversation, to be used for optional display.\
-**Type:** [Status](status.md)\
+**Type:** [Status]({{< relref "status.md" >}})\
 **Version history:** Added in 2.6.0
 
 ## See also

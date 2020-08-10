@@ -88,19 +88,19 @@ menu:
 ### `accounts` {#accounts}
 
 **Description:** Accounts which match the given query\
-**Type:** Array of [Account](account.md)\
+**Type:** Array of [Account]({{< relref "account.md" >}})\
 **Version history:** Added in x.x.x
 
 ### `statuses` {#statuses}
 
 **Description:** Statuses which match the given query\
-**Type:** Array of [Status](status.md)\
+**Type:** Array of [Status]({{< relref "status.md" >}})\
 **Version history:** Added in x.x.x
 
 ### `hashtags` {#hashtags}
 
 **Description:** Hashtags which match the given query\
-**Type:** Array of [Tag](tag.md) \(v2\). Array of String \(v1\).\
+**Type:** Array of [Tag]({{< relref "tag.md" >}}) \(v2\). Array of String \(v1\).\
 **Version history:** v1 added in 1.1.0 and deprecated in 3.0.0. v2 added in 2.4.1 and replaced v1 in 3.0.0.
 
 ## See also
