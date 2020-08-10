@@ -22,7 +22,7 @@ menu:
 
 ### `posting:default:visibility` {#visibility}
 
-**Description:** Default visibility for new posts. Equivalent to [Source\#privacy](source.md#privacy).\
+**Description:** Default visibility for new posts. Equivalent to [Source\#privacy]({{< relref "source.md#privacy" >}}).\
 **Type:** String \(Enumerable, oneOf\)\
 `public` = Public post\
 `unlisted` = Unlisted post\
@@ -32,13 +32,13 @@ menu:
 
 ### `posting:default:sensitive` {#sensitive}
 
-**Description:** Default sensitivity flag for new posts. Equivalent to [Source\#sensitive](source.md#sensitive).\
+**Description:** Default sensitivity flag for new posts. Equivalent to [Source\#sensitive]({{< relref "source.md#sensitive" >}}).\
 **Type:** Boolean\
 **Version history:** Added in 2.8.0
 
 ### `posting:default:language` {#language}
 
-**Description:** Default language for new posts. Equivalent to [Source\#language](source.md#language)\
+**Description:** Default language for new posts. Equivalent to [Source\#language]({{< relref "source.md#language" >}})\
 **Type:** String \(ISO 639-1 language two-letter code\), or null\
 **Version history:** Added in 2.8.0
 
@@ -59,9 +59,9 @@ menu:
 
 ## See also
 
-* [GET /api/v1/accounts/verify\_credentials](../methods/accounts/#verify-account-credentials)
-* [PATCH /api/v1/accounts/update\_credentials](../methods/accounts/#update-account-credentials)
-* [GET /api/v1/preferences](../methods/accounts/preferences.md#view-user-preferences)
+* [GET /api/v1/accounts/verify\_credentials]({{< relref "../methods/accounts.md#verify-account-credentials" >}})
+* [PATCH /api/v1/accounts/update\_credentials]({{< relref "../methods/accounts.md#update-account-credentials" >}})
+* [GET /api/v1/preferences]({{< relref "../methods/accounts/preferences.md#view-user-preferences" >}})
 
 {{< page-ref page="methods/accounts/preferences.md" >}}
 

@@ -153,7 +153,7 @@ menu:
 ### `application` {#application}
 
 **Description:** The application used to post this status.\
-**Type:** [Application]({{< relref "application.md" >}}%)\
+**Type:** [Application]({{< relref "application.md" >}})\
 **Version history:** Added in 0.9.9
 
 ## Rendering attributes

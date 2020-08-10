@@ -54,7 +54,7 @@ menu:
 
 ## See also
 
-* [Status\#emojis](status.md#emojis)
+* [Status\#emojis]({{< relref "status.md#emojis" >}})
 
 {{< page-ref page="status.md" >}}
 

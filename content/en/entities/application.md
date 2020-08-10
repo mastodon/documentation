@@ -34,7 +34,7 @@ menu:
 
 ### `vapid_key` {#vapid_key}
 
-**Description:** Used for Push Streaming API. Returned with [POST /api/v1/apps](../methods/apps/#create-an-application). Equivalent to [PushSubscription\#server\_key](push-subscription.md#server_key)\
+**Description:** Used for Push Streaming API. Returned with [POST /api/v1/apps]({{< relref "../methods/apps/#create-an-application" >}}). Equivalent to [PushSubscription\#server\_key]({{< relref "pushsubscription.md#server_key" >}})\
 **Type:** String\
 **Version history:** Added in 2.8.0
 
@@ -54,8 +54,8 @@ menu:
 
 ## See also
 
-* [Status\#application](status.md#application)
-* [Create an application \(POST /api/v1/apps\)](../methods/apps/#create-an-application)
+* [Status\#application]({{< relref "status.md#application" >}})
+* [Create an application \(POST /api/v1/apps\)]({{< relref "../methods/apps/#create-an-application" >}})
 
 {{< page-ref page="status.md" >}}
 

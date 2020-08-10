@@ -26,11 +26,11 @@ With that said, because IDs are string representations of numbers, they can stil
 
 ## Formatting {#formatting}
 
-Plain text is not available for content from remote servers, and plain text syntax rules may vary wildly between Mastodon and other fediverse applications. For certain attributes, such as the content of statuses, **Mastodon provides sanitized HTML**. You may expect these tags to appear in the content: `<p>`, `<br>`, `<span>`, `<a>`. See [HTML Sanitization](../spec/activitypub.md#html-sanitization) for more details.
+Plain text is not available for content from remote servers, and plain text syntax rules may vary wildly between Mastodon and other fediverse applications. For certain attributes, such as the content of statuses, **Mastodon provides sanitized HTML**. You may expect these tags to appear in the content: `<p>`, `<br>`, `<span>`, `<a>`. See [HTML Sanitization]({{< relref "../spec/activitypub.md#html-sanitization" >}}) for more details.
 
 ### Mentions, hashtags, and custom emoji {#tags}
 
-Mentions and hashtags are `<a>` tags. Custom emoji remain in their plain text shortcode form. To give those entities their semantic meaning and add special handling, such as opening a mentioned profile within your app instead of as a web page, metadata is included with the [Status]({{< relref "../entities/status.md" >}}), which can be matched to a particular tag. See [Status &gt; Rendering attributes](../entities/status.md#rendering-attributes) for more information.
+Mentions and hashtags are `<a>` tags. Custom emoji remain in their plain text shortcode form. To give those entities their semantic meaning and add special handling, such as opening a mentioned profile within your app instead of as a web page, metadata is included with the [Status]({{< relref "../entities/status.md" >}}), which can be matched to a particular tag. See [Status &gt; Rendering attributes]({{< relref "../entities/status.md#rendering-attributes" >}}) for more information.
 
 ### Link shortening {#links}
 

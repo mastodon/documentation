@@ -38,7 +38,7 @@ menu:
 
 ## See also
 
-* [Tag\#history](tag.md#history)
+* [Tag\#history]({{< relref "tag.md#history" >}})
 
 {{< page-ref page="tag.md" >}}
 

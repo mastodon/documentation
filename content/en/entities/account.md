@@ -159,7 +159,7 @@ Equal to `header` if its value is a static image; different if `header` is an an
 ### `emojis` {#emojis}
 
 **Description:** Custom emoji entities to be used when rendering the profile. If none, an empty array will be returned.\
-**Type:** Array of [Emoji](emoji.md)\
+**Type:** Array of [Emoji]({{< relref "emoji.md" >}})\
 **Version history:**\
 2.4.0 - added
 
@@ -214,7 +214,7 @@ Equal to `header` if its value is a static image; different if `header` is an an
 ### `moved` {#moved}
 
 **Description:** Indicates that the profile is currently inactive and that its user has moved to a new account.\
-**Type:** [Account](account.md)\
+**Type:** [Account]({{< relref "account.md" >}})\
 **Version history:**\
 2.1.0 - added
 
@@ -234,8 +234,8 @@ Equal to `header` if its value is a static image; different if `header` is an an
 
 ### `source` {#source}
 
-**Description:** An extra entity to be used with API methods to [verify credentials](../methods/accounts/#verify-account-credentials) and [update credentials](../methods/accounts/#update-account-credentials).\
-**Type:** [Source](source.md)\
+**Description:** An extra entity to be used with API methods to [verify credentials]({{< relref "../methods/accounts/#verify-account-credentials" >}}) and [update credentials]({{< relref "../methods/accounts/#update-account-credentials" >}}).\
+**Type:** [Source]({{< relref "source.md" >}})\
 **Version history:**\
 2.4.0 - added
 
