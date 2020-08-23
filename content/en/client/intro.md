@@ -69,7 +69,7 @@ Similar to sending form data, but with an additional header to specify that the 
 ```bash
 curl -X POST \
      -H 'Content-Type: application/json' \
-     -d '{"parameter": "value}' \
+     -d '{"parameter": "value"}' \
      https://mastodon.example/endpoint
 ```
 
