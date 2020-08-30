@@ -184,8 +184,8 @@ Should the server irreversibly drop matching entities from home and notification
 {{< api-method-parameter name="whole_word" type="boolean" required=false >}}
 Consider word boundaries?
 {{< endapi-method-parameter >}}
-{{< api-method-parameter name="expires_in" type="string" required=false >}}
-ISO 8601 Datetime for when the filter expires. Otherwise, null for a filter that doesn't expire.
+{{< api-method-parameter name="expires_in" type="integer" required=false >}}
+Number of seconds from now the filter should expire. Otherwise, null for a filter that doesn't expire.
 {{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
@@ -289,8 +289,8 @@ Should the server irreversibly drop matching entities from home and notification
 {{< api-method-parameter name="whole_word" type="boolean" required=false >}}
 Consider word boundaries?
 {{< endapi-method-parameter >}}
-{{< api-method-parameter name="expires_in" type="string" required=false >}}
-ISO 8601 Datetime for when the filter expires. Otherwise, null for a filter that doesn't expire.
+{{< api-method-parameter name="expires_in" type="integer" required=false >}}
+Number of seconds from now the filter should expire. Otherwise, null for a filter that doesn't expire.
 {{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
