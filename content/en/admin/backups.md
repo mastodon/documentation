@@ -52,3 +52,7 @@ If you are using local file storage, then it’s up to you to make copies of the
 
 Backing up Redis is easy. Redis regularly writes to `/var/lib/redis/dump.rdb` which is the only file you need to make a copy of.
 
+
+## Let's Encrypt files {#letsencrypt}
+
+Backing up Let's Encrypt key file, certificate files, and account credentials is just as easy; make a secure copy of the `/etc/letsencrypt`. Do this as soon as the certificate gets renewed by certbot.
