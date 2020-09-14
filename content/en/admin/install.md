@@ -183,6 +183,10 @@ Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with yo
 
 Reload nginx for the changes to take effect:
 
+```bash
+service nginx restart
+```
+
 ### Acquiring a SSL certificate {#acquiring-a-ssl-certificate}
 
 We’ll use Let’s Encrypt to get a free SSL certificate:
@@ -222,4 +226,3 @@ They will now automatically start at boot time.
 {{< hint style="success" >}}
 **Hurray! This is it. You can visit your domain in the browser now!**
 {{< /hint >}}
-
