@@ -85,4 +85,31 @@ Once the script has finished running, you should consider re-creating your datab
 
 While not required, you may want to re-create your database with `C` for `ctype` and `collation`, in order to avoid similar issues in the future.
 
-TODO: pg_dump, edit config/database.yml, run db:setup
+To do so, ensure Mastodon isn't running, and start by exporting your database:
+
+```sh
+pg_dump mastodon_production > mastodon_production.sql
+```
+
+Then, ensure `config/database.yml` contains
+```yaml
+default: &default
+  adapter: postgresql
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
+  timeout: 5000
+  encoding: unicode
+  sslmode: <%= ENV['DB_SSLMODE'] || "prefer" %>
+  template: template0
+  ctype: C
+  collation: C
+```
+
+and run
+```sh
+bundle exec rails db:drop RAILS_ENV=production DISABLE_DATABASE_ENVIRONMENT_CHECK=1 && bundle exec rails db:create RAILS_ENV=production
+```
+
+Finally, re-import your database:
+```sh
+psql -d mastodon_production -f mastodon_production.sql
+```
