@@ -27,7 +27,7 @@ your indexes may be inconsistent, if you ever ran with a version of glibc prior 
 You can check whether your indexes are valid using [PostgreSQL's `amcheck` module](https://www.postgresql.org/docs/10/amcheck.html): as the database server's super user, connect to your Mastodon database and issue the following:
 
 ```SQL
-CREATE EXTENSION IF NOT EXIST amcheck;
+CREATE EXTENSION IF NOT EXISTS amcheck;
 SELECT bt_index_check(c.oid)
 FROM pg_index i
 JOIN pg_class c ON i.indexrelid = c.oid
@@ -51,7 +51,7 @@ If this raises an error, your database is corrupted and needs fixing. If it does
 Unlike the previous checks, those more involved checks will lock tables when running, thus interfering with the availability of your instance.
 
 ```SQL
-CREATE EXTENSION IF NOT EXIST amcheck;
+CREATE EXTENSION IF NOT EXISTS amcheck;
 SELECT bt_index_parent_check(c.oid)
 FROM pg_index i
 JOIN pg_class c ON i.indexrelid = c.oid
