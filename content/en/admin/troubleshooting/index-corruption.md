@@ -83,4 +83,6 @@ Once the script has finished running, you should consider re-creating your datab
 
 ## Re-creating the database with safe collation settings {#recreating}
 
-TODO
+While not required, you may want to re-create your database with `C` for `ctype` and `collation`, in order to avoid similar issues in the future.
+
+TODO: pg_dump, edit config/database.yml, run db:setup
