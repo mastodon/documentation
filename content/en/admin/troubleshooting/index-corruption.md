@@ -22,9 +22,9 @@ More information: https://wiki.postgresql.org/wiki/Locale_data_changes https://p
 ## Am I affected by this issue? {#am-i-affected}
 
 If your database is not using `C` or `POSIX` for its collation setting (which you can check with `SELECT datcollate FROM pg_database WHERE datname = current_database();`),
-your indexes may be inconsistent, if you ever ran with a version of glibc prior to 2.28 and did not immediately reindex your databases after updating.
+your indexes may be inconsistent, if you ever ran with a version of glibc prior to 2.28 and did not immediately reindex your databases after updating to glibc 2.28 or newer.
 
-You can check whether your indexes are valid using [PostgreSQL's `amcheck` module](https://www.postgresql.org/docs/10/amcheck.html): as the database server's super user, connect to your Mastodon database and issue the following:
+You can check whether your indexes are consistent using [PostgreSQL's `amcheck` module](https://www.postgresql.org/docs/10/amcheck.html): as the database server's super user, connect to your Mastodon database and issue the following (this may take a while):
 
 ```SQL
 CREATE EXTENSION IF NOT EXISTS amcheck;
@@ -70,6 +70,8 @@ WHERE c.relname IN ('index_account_domain_blocks_on_account_id_and_domain',
   'index_users_on_email', 'index_webauthn_credentials_on_external_id'
 );
 ```
+
+If this succeeds, without returning an error, your database should be consistent, and you can safely disregard the warning Mastodon emits when running `db:migrate`.
 
 ## Fixing the issue {#fixing}
 
