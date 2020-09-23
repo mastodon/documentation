@@ -24,7 +24,52 @@ More information: https://wiki.postgresql.org/wiki/Locale_data_changes https://p
 If your database is not using `C` or `POSIX` for its collation setting (which you can check with `SELECT datcollate FROM pg_database WHERE datname = current_database();`),
 your indexes may be inconsistent, if you ever ran with a version of glibc prior to 2.28 and did not immediately reindex your databases after updating.
 
-If you did not ever use a version of glibc older than 2.28, you are not affected, but using a collation setting different from `C` or `POSIX` exposes you to a similar issue in the future.
+You can check whether your indexes are valid using [PostgreSQL's `amcheck` module](https://www.postgresql.org/docs/10/amcheck.html): as the database server's super user, connect to your Mastodon database and issue the following:
+
+```SQL
+CREATE EXTENSION IF NOT EXIST amcheck;
+SELECT bt_index_check(c.oid)
+FROM pg_index i
+JOIN pg_class c ON i.indexrelid = c.oid
+WHERE c.relname IN ('index_account_domain_blocks_on_account_id_and_domain',
+  'index_account_proofs_on_account_and_provider_and_username',
+  'index_accounts_on_username_and_domain_lower', 'index_accounts_on_uri',
+  'index_accounts_on_url', 'index_conversations_on_uri',
+  'index_custom_emoji_categories_on_name',
+  'index_custom_emojis_on_shortcode_and_domain',
+  'index_devices_on_access_token_id', 'index_domain_allows_on_domain',
+  'index_domain_blocks_on_domain', 'index_email_domain_blocks_on_domain',
+  'index_invites_on_code', 'index_markers_on_user_id_and_timeline',
+  'index_media_attachments_on_shortcode', 'index_preview_cards_on_url',
+  'index_statuses_on_uri', 'index_tags_on_name_lower',
+  'index_tombstones_on_uri', 'index_unavailable_domains_on_domain',
+  'index_users_on_email', 'index_webauthn_credentials_on_external_id'
+);
+```
+
+If this raises an error, your database is corrupted and needs fixing. If it does not, you may need to perform more involved checks to be sure.
+Unlike the previous checks, those more involved checks will lock tables when running, thus interfering with the availability of your instance.
+
+```SQL
+CREATE EXTENSION IF NOT EXIST amcheck;
+SELECT bt_index_parent_check(c.oid)
+FROM pg_index i
+JOIN pg_class c ON i.indexrelid = c.oid
+WHERE c.relname IN ('index_account_domain_blocks_on_account_id_and_domain',
+  'index_account_proofs_on_account_and_provider_and_username',
+  'index_accounts_on_username_and_domain_lower', 'index_accounts_on_uri',
+  'index_accounts_on_url', 'index_conversations_on_uri',
+  'index_custom_emoji_categories_on_name',
+  'index_custom_emojis_on_shortcode_and_domain',
+  'index_devices_on_access_token_id', 'index_domain_allows_on_domain',
+  'index_domain_blocks_on_domain', 'index_email_domain_blocks_on_domain',
+  'index_invites_on_code', 'index_markers_on_user_id_and_timeline',
+  'index_media_attachments_on_shortcode', 'index_preview_cards_on_url',
+  'index_statuses_on_uri', 'index_tags_on_name_lower',
+  'index_tombstones_on_uri', 'index_unavailable_domains_on_domain',
+  'index_users_on_email', 'index_webauthn_credentials_on_external_id'
+);
+```
 
 ## Fixing the issue {#fixing}
 
