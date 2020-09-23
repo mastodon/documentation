@@ -78,6 +78,7 @@ Mastodon使用环境变量作为其的配置。
 * `DB_NAME`
 * `DB_PASS`
 * `DB_PORT`
+* `DB_SSLMODE`
 * `DATABASE_URL`
 
 ### Redis {#redis}
