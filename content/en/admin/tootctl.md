@@ -510,7 +510,7 @@ This is a computationally heavy procedure that creates extra database indices be
 
 ## Upgrade CLI {#upgrade}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/statuses_cli.rb" caption="lib/mastodon/upgrade\_cli.rb" >}}
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/upgrade_cli.rb" caption="lib/mastodon/upgrade\_cli.rb" >}}
 
 ### `tootctl upgrade storage-schema` {#upgrade-storage-schema}
 
