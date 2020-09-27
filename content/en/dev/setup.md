@@ -19,6 +19,16 @@ In the development environment, Mastodon will use PostgreSQL as the currently si
 
 > Please keep in mind, by default Mastodon will run on port 3000. If you configure a different port for it, the generated admin account will use that number.
 
+If `rails db:setup` gives you the Postgres error:
+
+    ActiveRecord::NoDatabaseError: FATAL:  role "your_user_name" does not exist
+
+(where `your_user_name` is your username), then run:
+
+    sudo -u postgres createuser your_user_name --createdb
+
+This will create the necessary Postgres user with the permission to create a database.
+
 ### Running {#running}
 
 There are multiple processes that need to be run for the full set of Mastodon’s functionality, although they can be selectively omitted. To run all of them with just one command, you can install Foreman with `gem install foreman --no-document` and then use:
