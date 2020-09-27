@@ -99,6 +99,48 @@ enableGitInfo = true
     identifier = "entities"
     url = "/entities/"
 
+[languages.ja.menu]
+  [[languages.ja.menu.docs]]
+    name = "Mastodonを使う"
+    weight = 10
+    identifier = "user"
+    url = "/user/"
+  [[languages.ja.menu.docs]]
+    name = "Mastodonを動かす"
+    weight = 20
+    identifier = "admin"
+    url = "/admin/"
+  [[languages.ja.menu.docs]]
+    name = "Mastodonアプリを開発する"
+    weight = 30
+    identifier = "client"
+    url = "/client/"
+  [[languages.ja.menu.docs]]
+    name = "Mastodonの開発に貢献する"
+    weight = 40
+    identifier = "dev"
+    url = "/dev/"
+  [[languages.ja.menu.docs]]
+    name = "準拠している仕様"
+    weight = 50
+    identifier = "spec"
+    url = "/spec/"
+  [[languages.ja.menu.docs]]
+    name = "REST API"
+    weight = 60
+    identifier = "api"
+    url = "/api/"
+  [[languages.ja.menu.docs]]
+    name = "API Methods"
+    weight = 70
+    identifier = "methods"
+    url = "/methods/"
+  [[languages.ja.menu.docs]]
+    name = "API Entities"
+    weight = 80
+    identifier = "entities"
+    url = "/entities/"
+
 
 [languages]
   [languages.en]
@@ -110,3 +152,8 @@ enableGitInfo = true
     contentDir = "content/zh-cn"
     languageName = "简体中文"
     weight = 1
+
+  [languages.ja]
+    contentDir = "content/ja"
+    languageName = "日本語"
+    weight = 2
