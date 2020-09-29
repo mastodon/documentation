@@ -22,7 +22,7 @@ More information: https://wiki.postgresql.org/wiki/Locale_data_changes https://p
 ## Am I affected by this issue? {#am-i-affected}
 
 If your database is not using `C` or `POSIX` for its collation setting (which you can check with `SELECT datcollate FROM pg_database WHERE datname = current_database();`),
-your indexes may be inconsistent, if you ever ran with a version of glibc prior to 2.28 and did not immediately reindex your databases after updating to glibc 2.28 or newer.
+your indexes might be inconsistent, if you ever ran with a version of glibc prior to 2.28 and did not immediately reindex your databases after updating to glibc 2.28 or newer.
 
 You can check whether your indexes are consistent using [PostgreSQL's `amcheck` module](https://www.postgresql.org/docs/10/amcheck.html): as the database server's super user, connect to your Mastodon database and issue the following (this may take a while):
 
@@ -81,37 +81,6 @@ Before attempting to fix your database, stop Mastodon and make a backup of your 
 This tool will walk through the database to find duplicate and fix them. In some cases, those operations are destructive.
 In the most destructive cases, you will be asked to chose which record to keep. In all cases, walking through the whole database in search of duplicates is an extremely long operation.
 
-Once the script has finished running, you should consider re-creating your database with safe collation settings.
+## Avoiding the issue
 
-## Re-creating the database with safe collation settings {#recreating}
-
-While not required, you may want to re-create your database with `C` for `ctype` and `collation`, in order to avoid similar issues in the future.
-
-To do so, ensure Mastodon isn't running, and start by exporting your database:
-
-```sh
-pg_dump mastodon_production > mastodon_production.sql
-```
-
-Then, ensure `config/database.yml` contains
-```yaml
-default: &default
-  adapter: postgresql
-  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
-  timeout: 5000
-  encoding: unicode
-  sslmode: <%= ENV['DB_SSLMODE'] || "prefer" %>
-  template: template0
-  ctype: C
-  collation: C
-```
-
-and run
-```sh
-bundle exec rails db:drop RAILS_ENV=production DISABLE_DATABASE_ENVIRONMENT_CHECK=1 && bundle exec rails db:create RAILS_ENV=production
-```
-
-Finally, re-import your database:
-```sh
-psql -d mastodon_production -f mastodon_production.sql
-```
+To avoid the issue, reindex your database immediately after any libc update.
