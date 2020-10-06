@@ -23,7 +23,7 @@ This is the unique identifier of your server in the network. It cannot be safely
 
 It is possible to run the Mastodon interface on one domain, while having the users' handles on a different domain, e.g. addressing users as `@alice@example.com` but accessing Mastodon on `mastodon.example.com`. This may be useful if your domain name is already used for a different website but you still want to use it as a Mastodon identifier because it looks better/shorter.
 
-As for `LOCAL_DOMAIN`, it cannot be safely changed once set.
+As with `LOCAL_DOMAIN`, `WEB_DOMAIN` cannot be safely changed once set.
 
 This requires additional configuration on the server hosting `example.com` to redirect or proxy requests to `https://example.com/.well-known/webfinger` to `https://mastodon.example.com/.well-known/webfinger`. For instance, with nginx, the configuration could look like the following:
 
@@ -553,4 +553,3 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 #### `SKIP_POST_DEPLOYMENT_MIGRATIONS`
 
 This variable only has any effect when running `rake db:migrate` and it is extremely specific to the Mastodon upgrade process. There are two types of database migrations, those that run before new code is deployed and running, and those that run after. By default, both types of migrations are executed. If you shut down all Mastodon processes before running migrations, then there is no difference. The variable makes sense for zero-downtime upgrades. You will see in the upgrade instructions of a specific Mastodon version if you need to use it or not.
-
