@@ -81,6 +81,14 @@ In Mastodon, direct messages are simply toots that have the "direct" visibility 
 
 Lists are subsets of your home timeline. You can create a list, give it a name, and add users that you follow to that list.
 
+If you cannot find a link to **create** a list, try adding "/web/lists" to your home server URL. Add a name in the empty box and use the plus symbol to create the list.
+
+To **add someone** to a list, a typical clicking sequence may go through:
+* look at what is usually the middle column with toots from people whom you are following
+* click on @person@host for the person you want to add to a list (this can be someone who was boosted and whom you don't follow)
+* that person's profile should appear in (usually) the right-hand column with "follow" or "unfollow" and a vertical triple-dot
+* click on the triple-dot: if you are following that person, then select the option "add or remove from lists"
+
 ![](/assets/image%20%2828%29.png)
 
 Opening a list will load that list's timeline. List timelines contain only posts by members of that list, as well as replies to you or to other members of the list.
