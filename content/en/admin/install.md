@@ -1,6 +1,6 @@
 ---
-title: Installing from source
-description: Instructional guide on creating your own Mastodon-powered website.
+title: Install from source
+description: Host your own Mastodon instance
 menu:
   docs:
     weight: 20
@@ -42,7 +42,7 @@ apt install -y \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
   zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
   nginx redis-server redis-tools postgresql postgresql-contrib \
-  certbot python-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
+  certbot python3-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
 ```
 
 ### Installing Ruby {#installing-ruby}
@@ -72,6 +72,7 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 Once this is done, we can install the correct Ruby version:
 
+
 ```bash
 RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.6
 rbenv global 2.6.6
@@ -93,13 +94,21 @@ exit
 
 ### Setting up PostgreSQL {#setting-up-postgresql}
 
+Install PostGreSQL
+
+```bash
+apt install postgresql
+```
+
 #### Performance configuration \(optional\) {#performance-configuration-optional}
 
-For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/9.6/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
+For optimal performance, you may use PostGreSQL with custom configuration values from [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration. Paste parameters and edit values in `/etc/postgresql/12/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
 
 #### Creating a user {#creating-a-user}
 
-You will need to create a PostgreSQL user that Mastodon could use. It is easiest to go with “ident” authentication in a simple setup, i.e. the PostgreSQL user does not have a separate password and can be used by the Linux user with the same username.
+You will need to create a PostgreSQL user that Mastodon could use. It is easiest to go with “ident” authentication in a simple setup,
+where the PostGreSQL user credentials are shared with a Linux system user.
+The PostGreSQL user uses the same credentials to log in to Mastodon.
 
 Open the prompt:
 
@@ -114,11 +123,9 @@ CREATE USER mastodon CREATEDB;
 \q
 ```
 
-Done!
-
 ### Setting up Mastodon {#setting-up-mastodon}
 
-It is time to download the Mastodon code. Switch to the mastodon user:
+It is time to download the Mastodon code. Switch to the Mastodon user as root:
 
 ```bash
 su - mastodon
@@ -132,6 +139,8 @@ Use git to download the latest stable release of Mastodon:
 git clone https://github.com/tootsuite/mastodon.git live && cd live
 git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 ```
+
+
 
 #### Installing the last dependencies {#installing-the-last-dependencies}
 
