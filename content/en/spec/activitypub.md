@@ -356,3 +356,8 @@ Mastodon allows users to opt-in or opt-out of discoverability features like the 
 }
 ```
 
+### Secure mode {#secure-mode}
+
+When a Mastodon server runs in secure mode, all cross-server HTTP requests to it must be signed (in other words, even `GET` requests to public resources). That way, the Mastodon server can choose to reject requests from servers it has blocked and avoid "leaking" public information. Mastodon itself uses a dedicated system actor to sign such HTTP requests.
+
+Secure mode is the foundation upon which "limited federation mode" is built. A Mastodon server in limited federation mode will only federate with servers its admin has explicitly allowed, and reject all other requests.
