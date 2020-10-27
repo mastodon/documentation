@@ -54,8 +54,8 @@ First, run `crontab -e` to edit the cronfile for the `mastodon` user. (If you ge
 
 Next, add something like the following to the bottom of the file:
 
-    @weekly RAILS_ENV=production /home/mastodon/live/bin/tootctl media remove
-    @weekly RAILS_ENV=production /home/mastodon/live/bin/tootctl preview_cards remove
+    @weekly PATH=/home/mastodon/.rbenv/shims:/home/mastodon/.rbenv/bin:/usr/local/bin:/usr/bin:/bin RAILS_ENV=production /home/mastodon/live/bin/tootctl media remove
+    @weekly PATH=/home/mastodon/.rbenv/shims:/home/mastodon/.rbenv/bin:/usr/local/bin:/usr/bin:/bin RAILS_ENV=production /home/mastodon/live/bin/tootctl preview_cards remove
 
 This will run these two commands on a weekly basis.
 
