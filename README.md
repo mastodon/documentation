@@ -107,7 +107,7 @@ To review your changes, ensure that you have the [Hugo server running](#run-hugo
 
 Hugo determines draft state in its meta header.
 
-```yaml
+```
 ---
 title: "Test"
 date: YYYY-MM-DD 
