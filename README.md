@@ -68,8 +68,8 @@ hugo server --disableFastRender
 
 All content is written in GitHub flavored Markdown. 
 See https://github.github.com/gfm/ for more information.
-Every page begins with a YAML header that is generated through Hugo.
-*Using Hugo to generate a new page is strongly recommend to ensure that the YAML header includes required information.*
+Every page begins with a TOML header that is generated through Hugo.
+*Using Hugo to generate a new page is strongly recommend to ensure that the TOML header includes required information.*
 
 ### Directory structure
 
