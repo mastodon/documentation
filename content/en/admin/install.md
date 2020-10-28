@@ -9,7 +9,7 @@ menu:
 
 ## Pre-requisites {#pre-requisites}
 
-* A machine running **Ubuntu 18.04** that you have root access to
+* A machine running **Ubuntu 18.04 or later** that you have root access to
 * A **domain name** \(or a subdomain\) for the Mastodon server, e.g. `example.com`
 * An e-mail delivery service or other **SMTP server**
 
