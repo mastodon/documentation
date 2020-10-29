@@ -1,6 +1,6 @@
 ---
 title: Install from source
-description: Host your own Mastodon instance
+description: Instructions for creating your own Mastodon-powered website.
 menu:
   docs:
     weight: 20
