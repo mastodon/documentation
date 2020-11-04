@@ -42,8 +42,25 @@ apt install -y \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
   zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
   nginx redis-server redis-tools postgresql postgresql-contrib \
-  certbot python-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
+  yarn libidn11-dev libicu-dev libjemalloc-dev certbot python-certbot-nginx
 ```
+
+{{< hint style="info" >}}
+In Ubuntu 20.04 this command may fail with regards to missing certbot-related packages. This is due to certbot installed via snapd there. 
+
+Remove the last two packages from `apt install` command provided above and try again. Install snapd with:
+
+```bash
+apt install snapd
+```
+
+Next install certbot via snapd:
+
+```bash
+snap install --classic certbot
+ln -s /snap/bin/certbot /usr/local/bin
+```
+{{< /hint >}}
 
 ### Installing Ruby {#installing-ruby}
 
