@@ -40,20 +40,9 @@ echo "test" > tmp.txt
 s3cmd --acl-public put tmp.txt s3://$S3_BUCKET/tmp.txt
 ```
 
-### Uploading the media files {#upload-to-s3}
-
-Stop all of the Mastodon process, switch to the `mastodon` user, and run the following (replacing `$S3_BUCKET` with your bucket name):
-
-```bash
-cd ~/live
-s3cmd --acl-public sync --add-header="Cache-Control:public, max-age=315576000, immutable" public/system/ s3://$S3_BUCKET
-```
-
-This may take a while.
-
 ### Update the configuration {#update-config}
 
-To edit the configuration, open `.env.production` with your favorite text editor, and paste the following inside:
+To edit the configuration, change to the `mastodon` user, change to the directory, open `.env.production` with your favorite text editor, and paste the following inside:
 
 ```env
 S3_ENABLED=true
@@ -74,6 +63,16 @@ As root, restart the services with:
 ```bash
 systemctl restart mastodon-*.service
 ```
+
+### Uploading the media files {#upload-to-s3}
+
+Run the following (replacing `$S3_BUCKET` with your bucket name):
+
+```bash
+s3cmd --acl-public sync --add-header="Cache-Control:public, max-age=315576000, immutable" public/system/ s3://$S3_BUCKET
+```
+
+This may take a while.
 
 {{< hint style="success" >}}
 **Hurray! This is it. You now have all of your files stored in S3 now!**
