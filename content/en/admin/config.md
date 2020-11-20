@@ -17,15 +17,15 @@ For convenience, it can read them from a flat file called `.env.production` in t
 
 #### `LOCAL_DOMAIN`
 
-This is the unique identifier of your server in the network. It cannot be safely changed later. It has to be the domain name you are running the server under (without the protocol part, e.g. just `example.com`).
+This is the unique identifier of your server in the network. It cannot be safely changed later, as changing it will cause remote servers to confuse your existing accounts with entirely new ones. It has to be the domain name you are running the server under (without the protocol part, e.g. just `example.com`).
 
 #### `WEB_DOMAIN`
 
-It is possible to run the Mastodon interface on one domain, while having the users' handles on a different domain, e.g. addressing users as `@alice@example.com` but accessing Mastodon on `mastodon.example.com`. This may be useful if your domain name is already used for a different website but you still want to use it as a Mastodon identifier because it looks better/shorter.
+`WEB_DOMAIN` is an optional environment variable allowing to install Mastodon on one domain, while having the users' handles on a different domain, e.g. addressing users as `@alice@example.com` but accessing Mastodon on `mastodon.example.com`. This may be useful if your domain name is already used for a different website but you still want to use it as a Mastodon identifier because it looks better or shorter.
 
-As with `LOCAL_DOMAIN`, `WEB_DOMAIN` cannot be safely changed once set.
+As with `LOCAL_DOMAIN`, `WEB_DOMAIN` cannot be safely changed once set, as this will confuse remote servers that knew of your previous settings and may break communication with them or make it unreliable. As the issues lie with remote servers' understanding of your accounts, re-installing Mastodon from scratch will not fix the issue. Therefore, please be extremelly cautious when setting up `LOCAL_DOMAIN` and `WEB_DOMAIN`.
 
-This requires additional configuration on the server hosting `example.com` to redirect or proxy requests to `https://example.com/.well-known/webfinger` to `https://mastodon.example.com/.well-known/webfinger`. For instance, with nginx, the configuration could look like the following:
+To install Mastodon on `mastodon.example.com` in such a way it can serve `@alice@example.com`, set `LOCAL_DOMAIN` to `example.com` and `WEB_DOMAIN` to `mastodon.example.com`. This also requires additional configuration on the server hosting `example.com` to redirect or proxy requests to `https://example.com/.well-known/webfinger` to `https://mastodon.example.com/.well-known/webfinger`. For instance, with nginx, the configuration could look like the following:
 
 ```
 location /.well-known/webfinger {
