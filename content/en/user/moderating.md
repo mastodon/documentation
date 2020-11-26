@@ -31,7 +31,7 @@ Optionally only apply the filter for a limited amount of time. Expired filters a
 
 Choose where the filter will be applied:
 
-* Home timeline = matching statuses will be removed from your home feed
+* Home timeline and lists = matching statuses will be removed from your home feed and lists
 * Notifications = matching notifications will not be shown
 * Public timelines = matching statuses will not appear in local/federated timelines
 * Conversations = matching statuses will be hidden in threads and detailed views
