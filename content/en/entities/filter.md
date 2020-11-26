@@ -42,7 +42,7 @@ menu:
 
 **Description:** The contexts in which the filter should be applied.\
 **Type:** Array of String \(Enumerable anyOf\)\
-`home` = home timeline\
+`home` = home timeline and lists\
 `notifications` = notifications timeline\
 `public` = public timelines\
 `thread` = expanded thread of a detailed status\
