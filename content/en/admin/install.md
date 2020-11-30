@@ -73,8 +73,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 Once this is done, we can install the correct Ruby version:
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.7.2
-rbenv global 2.7.2
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.6
+rbenv global 2.6.6
 ```
 
 We’ll also need to install bundler:
