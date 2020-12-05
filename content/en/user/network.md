@@ -37,6 +37,7 @@ When other people interact with you or your posts, you will receive a notificati
 * **Favourites:** received when someone has favourited one of your posts.
 * **Boosts:** received when someone has boosted one of your posts.
 * **Polls:** Received when a poll that you have voted in or created has ended.
+* **Statuses:** Received when a user you have enabled notifications for posts a status.
 * **Follows:** Received when someone has followed your profile.
 
 ## Following profiles {#follow}
@@ -48,6 +49,12 @@ As long as you encounter a person within your app’s user interface, e.g. the w
 However if you come across someone’s public profile hosted on a different server, there’s an obstacle: That server sees you as just another anonymous visitor. Not to worry! You can simply copy the URL of that profile, or of one of their posts, and then paste that URL into the search function.
 
 If you are visiting a public page on another Mastodon site, see [Using Mastodon outside of your site](../external/#interact).
+
+## Enabling notifications {#bell}
+
+![](/assets/bell.jpg)
+
+If you are following someone, you also have the option to receive a notification every time they post. To opt into this functionality, click the bell icon.
 
 ## Search {#search}
 
