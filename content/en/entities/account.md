@@ -239,6 +239,13 @@ Equal to `header` if its value is a static image; different if `header` is an an
 **Version history:**\
 2.4.0 - added
 
+### `suspended` {#suspended}
+
+**Description:** An extra entity returned when an account is suspended.\
+**Type:** Boolean\
+**Version history:**\
+3.3.0 - added
+
 ## See also
 
 {{< page-ref page="methods/accounts.md" >}}

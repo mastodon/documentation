@@ -402,7 +402,8 @@ View information about a profile.
 **OAuth:** Public\
 **Version history:**\
 0.0.0 - added\
-2.4.0 - returns 410 if account is suspended
+2.4.0 - returns 410 if account is suspended\
+3.3.0 - returns an Account with `suspended: true` instead of 410
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -524,6 +525,36 @@ Account record will be returned. Note that `acct` of local users does not includ
 }
 ```
 {{< endtab >}}
+
+{{< tab title="Suspended user" >}}
+```javascript
+{
+  "id": "14",
+  "username": "stigatle",
+  "acct": "stigatle@quitter.no",
+  "display_name": "",
+  "locked": false,
+  "bot": false,
+  "discoverable": false,
+  "group": false,
+  "created_at": "2016-03-18T10:04:51.700Z",
+  "note": "",
+  "url": "https://quitter.no/stigatle",
+  "avatar": "https://mastodon.social/avatars/original/missing.png",
+  "avatar_static": "https://mastodon.social/avatars/original/missing.png",
+  "header": "https://mastodon.social/headers/original/missing.png",
+  "header_static": "https://mastodon.social/headers/original/missing.png",
+  "followers_count": 0,
+  "following_count": 0,
+  "statuses_count": 0,
+  "last_status_at": null,
+  "suspended": true,
+  "emojis": [],
+  "fields": []
+}
+```
+{{< endtab >}}
+
 {{< endtabs >}}
 {{< endapi-method-response-example >}}
 {{< api-method-response-example httpCode=401 >}}
