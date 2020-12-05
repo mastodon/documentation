@@ -1,6 +1,6 @@
 ---
-title: Posting toots
-description: Sharing your thoughts has never been more convenient.
+title: Tworzenie wpisów
+description: Dzielenie się swoimi przemyśleniami nigdy nie było bardziej wygodne.
 menu:
   docs:
     weight: 30

@@ -1,77 +1,77 @@
 ---
-title: Setting up your profile
-description: Get started with your new account.
+title: Dostosowanie profilu
+description: Rozpocznij korzystanie z nowego konta.
 menu:
   docs:
     weight: 20
     parent: user
 ---
 
-## Your appearance {#appearance}
+## Wygląd Twojego profilu {#appearance}
 
-{{< figure src="/assets/image%20%2829%29.png" caption="Profile cards showing display name, avatar, and header" >}}
+{{< figure src="/assets/image%20%2829%29.png" caption="Karta profilu składająca się z nazwy wyświetlanej, awataru i nagłówka" >}}
 
-You can change how your profile appears to others by navigating to Settings &gt; Profile &gt; Appearance.
+Możesz zmienić to, jak Twój profil wygląda u innych kierując się do: Preferencje &gt; Profil &gt; Wygląd.
 
-### Display name {#name}
+### Nazwa wyświetlana {#name}
 
-Your display name is shown to other users before your address. You can set a display name up to 30 characters by default.
+Twoja nazwa wyświetlana jest widoczna dla innych przy Twoim adrsie. Domyślnie możesz ustawić nazwę zawierającą do 30 znaków.
 
-### Bio {#bio}
+### Biogram {#bio}
 
-Your bio is a short description of yourself that is displayed as a note on your profile. You can set a bio of up to 500 characters by default.
+Twój biogram to krótki opis Twojej osoby wyświetlana jako notatka na Twoim profilu. Domyślnie możesz ustawić biogram składający się maksymalnie z 500 znaków.
 
-### Avatar {#avatar}
+### Awatar {#avatar}
 
-Your avatar is an icon that is displayed next to your posts and is part of your visual identity. You can upload an avatar as a PNG, GIF, or JPG image up to 2MB in size. This image will be downscaled to 400x400.
+Twój awatar to ikona wyświetlana po lewej od Twoich wpisów i część Twojej wizualnej tożsamości. Możesz wysłać obraz PNG, GIF lub JPG w wielkości do 2MB jako awatar. Zostanie on zmniejszony do 400x400.
 
-### Header {#header}
+### Nagłówek {#header}
 
-Your header is a banner image shown at the top of your profile, as well as in profile cards used in follow lists and account directories. You can upload a header as a PNG, GIF, or JPG image up to 2MB in size. This image will be downscaled to 1500x500.
+Twój nagłówek to baner wyświetlany na górze Twojego profilu, jak i na kartach profilu wyświetlanych w listach obserwacji czy katalogu profili. Możesz wysłać obraz PNG, GIF lub JPG w wielkości do 2MB jako nagłówek. Zostanie on zmniejszony do 1500x500.
 
-## Profile flags {#flags}
+## Flagi profilu {#flags}
 
-You can set certain flags on your profile to let others know how you use Mastodon.
+Możesz oflagować swoje konto, aby poinformować innych w jaki spsosób korzystasz z Mastodona.
 
 ![](/assets/image%20%281%29.png)
 
-### Locked account {#locked}
+### Konto zablokowane {#locked}
 
-By locking your account, two things will happen:
+Jeśli zablokujesz swoje konto, staną się dwie rzeczy:
 
-* New followers will not be automatically accepted, but will instead require you to manually approve them.
-* A lock icon will be shown to others, to let them know that their follow will not be immediately accepted.
+* Nowi obserwujący nie będą automatycznie przyjmowani, będziesz musiał(a) ręcznie zatwierdzać ich.
+* Ikona kłódki będzie widoczna dla innych, aby wiedzieli że obserwacja nie zostanie automatycznie przyjęta.
 
-### Bot account {#bot}
+### Konto bota {#bot}
 
-Enabling the bot flag will add a bot icon to your profile. This icon will let others know that your profile may perform automated actions, or might not be monitored by a human. Other software may choose to treat bot profiles differently, but Mastodon currently treats the bot flag as a visual indication only.
+Włączenie tej flagi doda ikonkę bota do Twojego profilu. Dzięki temu inni dowiedzą się, że Twój profil może dokonywać zautomatyzowanych działań i może nie być nadzorowany przez człowieka. Inne oprogramowanie może traktować profile botów w inny sposób, ale obecnie Mastodon jedynie wyróżnia boty wizualnie.
 
-### Profile directory {#discoverable}
+### Katalog profilów {#discoverable}
 
-Opting in to be listed on the profile directory will make your profile discoverable through a feature that allows browsing through profiles.
+Udział w katalogu profilów sprawi, że Twój profil będzie mógł zostać odnaleziony przez tę funkcję, pozwalającą na przeglądanie profilów.
 
-## Profile metadata {#fields}
+## Metadane profilu {#fields}
 
-Profile metadata is a way to add extra information to your profile that is easy to skim. You have 4 rows where you can define the label and the value. For example:
+Metadane profilu to możliwość dodania do profilu dodatkowych, przejrzystych informacji. Masz cztery wiersze, w których możesz wpisać podpis i zawartość pola. Na przykład:
 
-| Label | Content |
+| Podpis | Zawartość |
 | :--- | :--- |
-| Age | 25 |
-| Country | Germany |
-| Pronouns | he/him |
-| Website | https://example.com |
+| Wiek | 25 |
+| Kraj | Germany |
+| Zaimki | he/him |
+| Strona internetowa | https://example.com |
 
-It’s completely up to you what you put there. The content can contain mentions, hashtags, custom emojis and links.
+To co tam wpiszesz zależy wyłącznie od Ciebie. Zawartość może zawierać wspomnienia, hashtagi, niestandardowe emoji i odnośniki.
 
-### Link verification {#verification}
+### Weryfikacja odnośników {#verification}
 
-Document-based verification and blue ticks are not possible without a central authority. However, Mastodon can cross-reference the links you put on your profile to prove that you are the real owner of those links. In case one of those links is your personal homepage that is known and trusted, it can serve as the next-best-thing to identity verification.
+Weryfikacja z użyciem dokumentów potwierdzających tożsamość i niebieskie znaczki nie są możliwe bez centralnego zarządzania. Mastodon może krzyżowo dowiązywać odnośniki z profilem aby udowodnić, że jesteś ich rzeczywistym właścicielem. Jeżeli jeden z tych to link do Twojej osobistej strony internetowej, która budzi zaufanie, może to służyć jako prawie najlepsza metoda weryfikacji tożsamości.
 
-If you put a link in your profile metadata, Mastodon checks if the linked page links back to your Mastodon profile. If so, you get a verification checkmark next to that link, since you are confirmed as the owner.
+Jeżeli umieścisz odnośnik w metadanych swojego profilu, Mastodon sprawdzi czy zawierra on odnośnik do Twojego profilu na Mastodonie. Jeżeli tak, otrzymasz znak weryfikacji przy tym odnośniku, ponieważ jesteś jego potwierdzonym właścicielem.
 
-Behind the scenes, Mastodon checks for the `rel="me"` attribute on the link back. Likewise, Mastodon puts `rel="me"` on the links within profile metadata.
+Mastodon sprawdza czy odnośnik zawiera atrybut `rel="me"`. Tak samo, Mastodon dodaje `rel="me"` do odnośników w metadanych profilu.
 
 {{< hint style="info" >}}
-Because Mastodon can be self-hosted, there is no better way to verify your identity than to host Mastodon on your own domain, which people already trust.
+Ponieważ możesz hostować Mastodona na własnym serwerze, nie istnieje lepszy sposób na potwierdzenie swojej tożsamości niż hostowanie Mastodona na własnej domenie, której inni już ufają.
 {{< /hint >}}
 
