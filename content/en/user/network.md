@@ -40,6 +40,8 @@ When other people interact with you or your posts, you will receive a notificati
 * **Statuses:** Received when a user you have enabled notifications for posts a status.
 * **Follows:** Received when someone has followed your profile.
 
+When unread notifications are present, a checkmark will appear in the column header. Clicking this checkmark will mark notifications as read.
+
 ## Following profiles {#follow}
 
 ![](/assets/profile.jpg)
