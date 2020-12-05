@@ -13,13 +13,13 @@ menu:
 
 Mastodon defaults to a dark theme, but a light or high-contrast theme can be selected.
 
-{{< figure src="/assets/image%20%2834%29.png" caption="Mastodon light theme" >}}
+{{< figure src="/assets/light-theme.jpg" caption="Mastodon light theme" >}}
 
 ### Choose your layout {#layout}
 
 Mastodon defaults to a simple, one-column layout with a compose box on the left and a column switcher on the right. You can choose to enable the advanced web interface, which allows you view and pin multiple columns at the same time.
 
-{{< figure src="/assets/image%20%2832%29.png" caption="The advanced web interface" >}}
+{{< figure src="/assets/advanced-web-ui.jpg" caption="The advanced web interface" >}}
 
 In either interface, updates will load automatically as new posts are available. You can enable Slow Mode to instead show a banner at the top of the column indicating the number of new items available, which will be loaded only when you click the banner.
 
@@ -41,7 +41,7 @@ By default, any media marked as sensitive is hidden behind a click-through overl
 
 Hidden and unloaded media uses a colorful gradient provided by the BlurHash algorithm, which uses the colors of the image but blurs the details. These gradients can be disabled.
 
-{{< figure src="/assets/image%20%286%29.png" caption="An example blurhash thumbnail" >}}
+{{< figure src="/assets/blurhash.jpg" caption="An example blurhash thumbnail" >}}
 
 Posts with content warnings are collapsed by default, but you can choose to always expand the warnings so that the full post is displayed.
 
@@ -71,7 +71,7 @@ If you opt out of search engine indexing, a `noindex` flag will be added to your
 
 You can choose to hide your network, which will make your following and follower lists private to you only.
 
-{{< figure src="/assets/image%20%284%29.png" caption="A profile that has opted to hide its network" >}}
+{{< figure src="/assets/hidden-network.jpg" caption="A profile that has opted to hide its network" >}}
 
 If you want to see posts that are boosted multiple times be reinserted into your feed at the top, you can disable boost grouping in timelines.
 

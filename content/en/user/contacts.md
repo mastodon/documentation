@@ -9,13 +9,13 @@ menu:
 
 ## Generating invites {#invites}
 
-{{< figure src="/assets/image%20%2862%29.png" caption="Invite people from your account&apos;s settings" >}}
+{{< figure src="/assets/invites.jpg" caption="Invite people from your account&apos;s settings" >}}
 
 Invite links can be generated and shared with other people, and some servers require invites in order to register for an account. When generating an invite link, you can set the max uses to limit how many times a certain link is used, or how long it has been active. Invite links can be deactivated at any time.
 
 ## Follows and followers {#relationships}
 
-{{< figure src="/assets/image%20%2849%29.png" caption="Mutuals who have not moved their account, sorted by last activity" >}}
+{{< figure src="/assets/relationships.jpg" caption="Mutuals who have not moved their account, sorted by last activity" >}}
 
 Within settings, you can find a relationship manager that lets you filter and sort through the profiles that you are connected to, based on different criteria:
 
@@ -35,7 +35,7 @@ From the account settings, you can change your email address, set a new password
 
 ### Keybase identity verification {#keybase}
 
-{{< figure src="/assets/image%20%2860%29.png" caption="An identity proof on a profile" >}}
+{{< figure src="/assets/keybase.jpg" caption="An identity proof on a profile" >}}
 
 First, sign up for Keybase and generate or upload a GPG public key to your Keybase account. Next, go to "prove more identities". Find your instance if it is available, and if not, contact Keybase for help. Select your Mastodon domain and enter your username. You will be able to prove your identity by authorizing with your Mastodon account and posting a proof message. Once you do this, the identity proof will be established, and your profile will show Keybase as a proven identity.
 
