@@ -23,6 +23,7 @@ Jeżeli uwzględnisz w swoim wpisie odnośniki, muszą one zaczynać się od `ht
 
 {{< figure src="/assets/image%20%2820%29.png" caption="Sugerowane wspomnienia dla lokalnych i zdalnych użytkowników." >}}
 
+Możesz wspominać użytkowników
 You can mention users by typing out their full address, e.g. `@alice@example.com`. Note that any usage of`@word` will be interpreted as mentioning the local user with the username `word`, if that user exists. Only the username part will count against your character limit -- the domain is not counted.
 
 ### Hashtagi {#hashtags}
