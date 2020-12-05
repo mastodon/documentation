@@ -1,58 +1,58 @@
 ---
-title: Signing up for an account
-description: Find your perfect community.
+title: Rejestracja konta
+description: Znajdź idealną społeczność dla siebie.
 menu:
   docs:
     weight: 10
     parent: user
 ---
 
-## Choosing a website {#picker}
+## Wybór serwera {#picker}
 
-You have to choose a website to sign up on, like you would choose an e-mail provider, or a World of Warcraft realm for your new character. The website will be your service provider, hosting your account, your profile, and your home feed.
+Musisz wybrać stronę na której zarejestrujesz się, tak jakbyś wybierał(-a) dostawcę poczty e-mail lub realm w World of Warcraft dla swojej nowej postaci. Ta strona będzie Twoim dostawcą usługi, hostem dla Twojego konta, Twoim profilem i Twoją stroną główną.
 
 {{< hint style="info" >}}
-You can [browse a list of servers by categories and languages on joinmastodon.org](https://joinmastodon.org/#getting-started).
+Możesz [przeglądać listę wybranych serwerów według kategorii i języków na joinmastodon.org](https://joinmastodon.org/#getting-started).
 {{< /hint >}}
 
-### Understanding a website's policies {#tos}
+### Rozumienie zasad strony {#tos}
 
-Before you sign up for a service, it is important to understand its policies and terms of use. A Mastodon website will usually have its policies listed on the `/about/more` page, which can be found by clicking "learn more" on the landing page while not logged in to that website.
+Zanim zarejestrujesz się, ważnym jest zapoznanie się z zasadami i regulaminem. Serwer Mastodona ma zwykle zapisane je na stronie `/about/more`, którą możesz znaleźć klikając na „dowiedz się więcej” na stronie którą widzisz, gdy nie jesteś zalogowany(-a).
 
-### Signup modes {#signup}
+### Tryby rejestracji {#signup}
 
-Mastodon allows website administrators to set one of three different signup modes: open signups, invites, and approval mode.
+Mastodon pozwala administratorom serwerów wybrać trzy tryby rejestracji: rejestracja otwarta, wymagająca zaproszenia lub wymagająca zatwierdzenia.
 
-#### Open signup {#open}
+#### Otwarta rejestracja {#open}
 
-Some websites may allow you to register immediately -- simply fill out the registration with your username, email address, and password, and you can start using your account.
+Na niektórych serwerach możesz zarejestrować się natychmiastowo – po prostu wypełnij formularz rejestracyjny swoją nazwą użytkownika, adresem e-mail i hasłem i już możesz rozpocząć korzystanie ze swojego konta.
 
-#### Server invites {#invite}
+#### Zaproszenia na serwer {#invite}
 
-Some websites disable the registration form, and instead require invite links to be generated and shared in order to allow people to register.
+Niektóre strony wyłączają formularz rejesracji i zamiast tego wymagają wygenerowania odnośników z zaproszeniem i wysyłania ich osobom, które mogą się zarejestrować.
 
-#### Approval-based registration {#approval}
+#### Rejestracja wymagająca zatwierdzeń {#approval}
 
-Some websites allow you to fill out a registration form, but with an additional form entry for mentioning why you want to join that website. Once you submit the form, your account must be approved by a moderator before you can start using it.
+Niektóre strony pozwalają na wypełnienie formularza rejestracyjnego, ale z dodatkowym polem na którym należy wpisać dlaczego chcesz się zarejestrować na tym serwerze. Po wypełnieniu tego formularza, moderator musi zatwierdzić Twoje konto zanim zaczniesz go używać.
 
-## Your username and your domain {#address}
+## Twoja nazwa użytkownika i domena {#address}
 
-Mastodon usernames actually consist of two parts:
+Nazwy użytkownika na Mastodonie składają się właściwie z dwóch części:
 
-* The local username, e.g. `alice`
-* And the domain of the website, e.g. `example.com`
+* Lokalna nazwa użytkownika, np. `alicja`
+* Domena strony, np. `example.com`
 
-Just like an e-mail address. For convenience sake, Mastodon allows you to skip the second part when addressing people on the same server as you, but you have to keep in mind when sharing your username with other people, you need to include the domain or they won’t be able to find you as easily.
+Tak jak przy adresie e-mail. Dla wygody, Mastodon pozwala na pominięcie drugiej części, jeżeli oznaczasz osoby z serwera z którego korzystasz, ale musisz pamiętać że jeżeli dzielisz się swoją nazwą z innymi, musisz uwzględnić domenę, aby mogli Cię łatwo znaleźć.
 
 |  |  |
 | :--- | :--- |
-| I’m @alice on Mastodon! | Wrong |
-| I’m @alice@example.com on Mastodon! | Correct |
-| I'm https://example.com/@alice on Mastodon! | Correct |
+| Nazywam się @alicja na Mastodonie! | Źle |
+| Nazywam się @alicja@example.com na Mastodonie! | Prawidłowo |
+| Nazywam się https://example.com/@alicja na Mastodonie! | Prawidłowo |
 
-The search form in Mastodon will find people either with the above address form, or the link to the person’s profile, so you can share that instead if you prefer.
+Formularz wyszukiwania na Mastodonie pozwala na znalezienie osób zgodnie z oboma powyższymi formatami, więc możesz wybrać ten który wolisz.
 
-The same username _can_ be registered on different servers -- there is no way to claim all of them ahead of time. Just like with e-mail, you should not expect `alice@outlook.com` to be the same person as `alice@gmail.com` or `alice@yahoo.com`.
+Ta sama nazwa użytkowenikw _może_ być zarejestrowana na różnych serwerach – nie istnieje sposób na zajęcie ich wszystkich z góry. Tak jak w przypadku adresu e-mail, nie możesz oczekiwać że `alicja@outlook.com` będzie tą samą osobą co `alicja@gmail.com`, czy `alicja@yahoo.com`.
 
 
 
