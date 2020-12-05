@@ -65,6 +65,8 @@ When muting, you have the option to mute notifications from them or not. Muting 
 
 If you choose to also mute notifications from them, you will additionally not see notifications from that user.
 
+Mutes can also have an optional duration, after which they will expire.
+
 The user has no way of knowing they have been muted.
 
 ### Blocking {#block}
