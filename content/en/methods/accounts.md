@@ -1156,7 +1156,8 @@ Follow the given account.
 **Returns:** Relationship\
 **OAuth:** User token + `write:follows` or `follow`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.3.0 - added `notify`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1175,6 +1176,9 @@ Bearer &lt;user token&gt;
 {{< api-method-parameter name="reblogs" type="boolean" required=false >}}
 Receive this account's reblogs in home timeline? Defaults to true.
 {{< endapi-method-parameter >}}
+{{< api-method-parameter name="notify" type="boolean" required=false >}}
+Receive notifications when this account posts a status? Defaults to false.
+{{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
 {{< api-method-response >}}
@@ -1190,6 +1194,7 @@ Successfully followed, or account was already followed
   "id": "3",
   "following": true,
   "showing_reblogs": false,
+  "notifying": false,
   "followed_by": false,
   "blocking": false,
   "blocked_by": false,
@@ -1254,6 +1259,7 @@ Successfully unfollowed, or account was already not followed
   "id": "3",
   "following": false,
   "showing_reblogs": false,
+  "notifying": false,
   "followed_by": false,
   "blocking": false,
   "blocked_by": false,
@@ -1318,6 +1324,7 @@ Successfully blocked, or account was already blocked
   "id": "3",
   "following": false,
   "showing_reblogs": false,
+  "notifying": false,
   "followed_by": false,
   "blocking": true,
   "blocked_by": false,
@@ -1382,6 +1389,7 @@ Successfully unblocked, or account was already not blocked
   "id": "3",
   "following": false,
   "showing_reblogs": false,
+  "notifying": false,
   "followed_by": false,
   "blocking": false,
   "blocked_by": false,
@@ -1454,6 +1462,7 @@ Successfully muted, or account was already muted. Note that you can call this AP
   "id": "3",
   "following": false,
   "showing_reblogs": false,
+  "notifying": false,
   "followed_by": false,
   "blocking": false,
   "blocked_by": false,
@@ -1518,6 +1527,7 @@ Successfully unmuted, or account was already unmuted
   "id": "3",
   "following": false,
   "showing_reblogs": false,
+  "notifying": false,
   "followed_by": false,
   "blocking": false,
   "blocked_by": false,
@@ -1582,6 +1592,7 @@ Successfully endorsed.
   "id": "1",
   "following": true,
   "showing_reblogs": true,
+  "notifying": false,
   "followed_by": true,
   "blocking": false,
   "blocked_by": false,
@@ -1683,6 +1694,7 @@ Successfully unendorsed, or account was already not endorsed
   "id": "1",
   "following": true,
   "showing_reblogs": true,
+  "notifying": false,
   "followed_by": true,
   "blocking": false,
   "blocked_by": false,
@@ -1759,6 +1771,7 @@ Successfully updated user note
   "id": "1",
   "following": true,
   "showing_reblogs": true,
+  "notifying": false,
   "followed_by": true,
   "blocking": false,
   "blocked_by": false,
@@ -1836,6 +1849,7 @@ Sample call with id\[\]=1&id\[\]=2
     "id": "1",
     "following": true,
     "showing_reblogs": true,
+    "notifying": false,
     "followed_by": true,
     "blocking": false,
     "blocked_by": false,
@@ -1849,6 +1863,7 @@ Sample call with id\[\]=1&id\[\]=2
     "id": "2",
     "following": false,
     "showing_reblogs": false,
+    "notifying": false,
     "followed_by": false,
     "blocking": false,
     "blocked_by": false,
