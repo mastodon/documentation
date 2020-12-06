@@ -186,6 +186,29 @@ What is known in Mastodon as “pinned toots”, or statuses that are always fea
 }
 ```
 
+### Featured tags {#featuredTags}
+
+Mastodon allows users to feature specific hashtags on their profile for easy browsing, as a discoverability mechanism. This is implemented using an extra property `featuredTags` on the actor object that points to a `Collection` of `Hashtag` objects specifically.
+
+```javascript
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    {
+      "toot": "http://joinmastodon.org/ns#",
+      "featuredTags": {
+        "@id": "toot:featuredTags",
+        "@type": "@id"
+      }
+    }
+  ],
+
+  "id": "https://example.com/@alice",
+  "type": "Person",
+  "featuredTags": "https://example.com/@alice/collections/tags"
+}
+```
+
 ### Custom emojis {#emoji}
 
 Mastodon supports arbitrary emojis, that is, small images uploaded by admins and invokable via shortcodes. For this, an `Emoji` type is used. These emojis are listed in the `tag` property just like `Mention` and `Hashtag` objects, since they are entities that affect how the text is rendered. Example:
