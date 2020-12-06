@@ -92,7 +92,7 @@ Lists are subsets of your home timeline. You can create a list, give it a name, 
 
 ![](/assets/lists.jpg)
 
-Opening a list will load that list's timeline. List timelines contain only posts by members of that list, as well as replies to you or to other members of the list.
+Opening a list will load that list's timeline. List timelines contain only posts by members of that list, as well as replies to you or to other members of the list. This can be changed to show replies to all people you follow, or to no one.
 
 {{< figure src="/assets/list.jpg" caption="A list timeline" >}}
 
