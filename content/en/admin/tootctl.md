@@ -384,6 +384,14 @@ Remove all home and list feeds from Redis.
 **Version history:**\
 2.6.0 - added
 
+## Maintenance CLI {#maintenance}
+
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/maintenance_cli.rb" caption="lib/mastodon/maintenance\_cli.rb" >}}
+
+### `tootctl maintenance fix-duplicates` {#maintenance-fix-duplicates}
+
+Fix corrupted database indexes that may have been caused due to changing collation rules. Deletes or merges duplicate accounts, statuses, emojis, etc. Mastodon has to be stopped to run this task, which will take a long time and may be destructive. This is useful if your database indexes are corrupted because of issues such as <https://wiki.postgresql.org/wiki/Locale_data_changes>.
+
 ## Media CLI {#media}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/media_cli.rb" caption="lib/mastodon/media\_cli.rb" >}}
