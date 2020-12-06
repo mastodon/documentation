@@ -16,9 +16,8 @@ Fetch all lists that the user owns.
 
 **Returns:** Array of List\
 **OAuth:** User token + `read:lists`\
-**Version history:**
-
-- 2.1.0 - added
+**Version history:**\
+2.1.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -69,9 +68,8 @@ Fetch the list with the given ID. Used for verifying the title of a list.
 
 **Returns:** List\
 **OAuth:** User token + `read:lists`\
-**Version history:**
-
-- 2.1.0 - added
+**Version history:**\
+2.1.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -138,9 +136,9 @@ Create a new list.
 
 **Returns:** List\
 **OAuth:** User token + `write:lists`\
-**Version history:**
-
-- 2.1.0 - added
+**Version history:**\
+2.1.0 - added\
+3.3.0 - added `replies_policy`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -153,6 +151,9 @@ Bearer &lt;user token&gt;
 {{< api-method-form-data-parameters >}}
 {{< api-method-parameter name="title" type="string" required=true >}}
 The title of the list to be created.
+{{< endapi-method-parameter >}}
+{{< api-method-parameter name="replies_policy" type="string" required=false >}}
+Enumerable oneOf `all_replies` `list_replies` `no_replies`. Defaults to `list_replies`.
 {{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
@@ -167,7 +168,8 @@ A list was created successfully with title=test
 ```javascript
 {
   "id": "13585",
-  "title": "test"
+  "title": "test",
+  "replies_policy": "list_replies"
 }
 ```
 {{< endapi-method-response-example >}}
@@ -194,9 +196,9 @@ Change the title of a list.
 
 **Returns:** List\
 **OAuth:** User token + `write:lists`\
-**Version history:**
-
-- 2.1.0 - added
+**Version history:**\
+2.1.0 - added\
+3.3.0 - added `replies_policy`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -212,8 +214,11 @@ Bearer &lt;user token&gt;
 {{< endapi-method-parameter >}}
 {{< endapi-method-headers >}}
 {{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="title" type="string" required=true >}}
+{{< api-method-parameter name="title" type="string" required=false >}}
 The title of the list to be updated.
+{{< endapi-method-parameter >}}
+{{< api-method-parameter name="replies_policy" type="string" required=false >}}
+Enumerable oneOf `all_replies` `list_replies` `no_replies`.
 {{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
@@ -228,7 +233,8 @@ The title of list 13585 was successfully updated to title=testing
 ```javascript
 {
   "id": "13585",
-  "title": "testing"
+  "title": "testing",
+  "replies_policy": "list_replies"
 }
 ```
 {{< endapi-method-response-example >}}
@@ -266,9 +272,8 @@ If the title is blank
 
 **Returns:** empty object\
 **OAuth:** User token + `write:lists`\
-**Version history:**
-
-- 2.1.0 - added
+**Version history:**\
+2.1.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -334,9 +339,8 @@ ID does not exist or is not owned by you
 
 **Returns:** Array of Account\
 **OAuth:** User token + `read:lists`\
-**Version history:**
-
-- 2.1.0 - added
+**Version history:**\
+2.1.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -430,9 +434,8 @@ Add accounts to the given list. Note that the user must be following these accou
 
 **Returns:** empty object\
 **OAuth:** User token + `write:lists`\
-**Version history:**
-
-- 2.1.0 - added
+**Version history:**\
+2.1.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -510,9 +513,8 @@ Remove accounts from the given list.
 
 **Returns:** empty object\
 **OAuth:** User token + `write:lists`\
-**Version history:**
-
-- 2.1.0 - added
+**Version history:**\
+2.1.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

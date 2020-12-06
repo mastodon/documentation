@@ -21,13 +21,25 @@ menu:
 
 **Description:** The internal database ID of the list.\
 **Type:** String \(cast from an integer, but not guaranteed to be a number\)\
-**Version history:** Added in 2.1.0
+**Version history:**\
+2.1.0 - added
 
 ### `title` {#title}
 
 **Description:** The user-defined title of the list.\
 **Type:** String\
-**Version history:** Added in 2.1.0
+**Version history:**\
+2.1.0 - added
+
+### `replies_policy` {#replies_policy}
+
+**Description:** The user-defined title of the list.\
+**Type:** String (Enumerable oneOf)\
+`all_replies` = Show replies to any followed user\
+`list_replies` = Show replies to members of the list\
+`no_replies` = Show replies to no one\
+**Version history:**\
+3.3.0 - added
 
 ## See also
 
