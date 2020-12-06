@@ -23,12 +23,11 @@ Jeżeli uwzględnisz w swoim wpisie odnośniki, muszą one zaczynać się od `ht
 
 {{< figure src="/assets/image%20%2820%29.png" caption="Sugerowane wspomnienia dla lokalnych i zdalnych użytkowników." >}}
 
-Możesz wspominać użytkowników
-You can mention users by typing out their full address, e.g. `@alice@example.com`. Note that any usage of`@word` will be interpreted as mentioning the local user with the username `word`, if that user exists. Only the username part will count against your character limit -- the domain is not counted.
+Możesz wspominać użytkowników wprowadzając ich pełny adres, np. `@alicja@example.com`. Zauważ, że każde użycie `@słowo` zostanie zainterpretowane jako wspomnienie lokalnego użytkownika o nazwie `słowo`, jeżeli taki użytkownik istnieje. Tylko część zawierająca nazwę użytkownika będzie liczona do limitu długości wpisu – długość domeny nie jest liczona.
 
 ### Hashtagi {#hashtags}
 
-{{< figure src="/assets/image%20%2825%29.png" caption="Hashtags are autosuggested by usage frequency." >}}
+{{< figure src="/assets/image%20%2825%29.png" caption="Hashtagi są sugerowane według częstości używania ich." >}}
 
 You can use a `#hashtag` to make your post discoverable to anyone searching for that hashtag. Hashtags can contain alphanumeric characters and underscores, but cannot contain numbers only.
 
