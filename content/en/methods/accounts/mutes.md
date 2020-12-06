@@ -68,6 +68,7 @@ Link: <https://mastodon.social/api/v1/mutes?limit=2&max_id=317646>; rel="next", 
     "following_count": 73,
     "statuses_count": 640,
     "last_status_at": "2019-11-19T15:14:47.088Z",
+    "mute_expires_at": null,
     "emojis": [],
     "fields": []
   },
@@ -89,6 +90,7 @@ Link: <https://mastodon.social/api/v1/mutes?limit=2&max_id=317646>; rel="next", 
     "following_count": 0,
     "statuses_count": 137,
     "last_status_at": "2019-11-21T18:44:25.570Z",
+    "mute_expires_at": null,
     "emojis": [],
     "fields": [
       {

@@ -246,6 +246,13 @@ Equal to `header` if its value is a static image; different if `header` is an an
 **Version history:**\
 3.3.0 - added
 
+### `mute_expires_at` {#mute_expires_at}
+
+**Description:** When a timed mute will expire, if applicable.\
+**Type:** String \(ISO 8601 Datetime\)\
+**Version history:**\
+3.3.0 - added
+
 ## See also
 
 {{< page-ref page="methods/accounts.md" >}}

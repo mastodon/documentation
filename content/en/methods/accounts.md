@@ -1436,6 +1436,9 @@ Bearer &lt;user token&gt;
 {{< api-method-parameter name="notifications" type="boolean" required=false >}}
 Mute notifications in addition to statuses? Defaults to true.
 {{< endapi-method-parameter >}}
+{{< api-method-parameter name="duration" type="number" required=false >}}
+How long the mute should last, in seconds. Defaults to 0 (indefinite).
+{{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
 {{< api-method-response >}}
