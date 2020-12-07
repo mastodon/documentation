@@ -1151,7 +1151,7 @@ Account with given id is suspended
 {{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/follow" title="Follow" >}}
 {{< api-method-description >}}
 
-Follow the given account.
+Follow the given account. Can also be used to update whether to show reblogs or enable notifications.
 
 **Returns:** Relationship\
 **OAuth:** User token + `write:follows` or `follow`\
