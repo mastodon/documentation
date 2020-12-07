@@ -1,5 +1,5 @@
 ---
-title: Running your own server
+title: Prowadzenie własnego serwera
 description:
 menu:
   docs:
@@ -7,7 +7,7 @@ menu:
     parent: user
 ---
 
-## Why would you want to run your own Mastodon server?
+## Dlaczego miał(a)byś chcieć prowadzić własny serwer Mastodona?
 
 - Absolute control over your own voice on the web, not subject to anyone else's rules or whims. Your server is your property, with your rules. It will exist as long as you want it to exist.
 - You are *not* isolated on your own server. You can follow anyone on any other server, and they can follow you and you can exchange messages just like if you were on the same server.
@@ -17,9 +17,9 @@ menu:
 Please mind that providing a public internet service involves moderation work and community management, and that such work becomes more complicated the larger your server grows.
 {{< /hint >}}
 
-## So you want to run your own Mastodon server
+## Więc, chcesz prowadzić własny serwer Mastodona
 
-Here is what you need:
+Oto czego potrzebujesz:
 
 - A **domain name**. This is how you and others will access your server and how you and your users will be identified on the network.
 

@@ -1,58 +1,58 @@
 ---
-title: Dealing with unwanted content
-description: Control what you see, for a more comfortable social media experience.
+title: Radzenie sobie zniechcianą treścią
+description: Kontroluj co zobaczysz, dla bardziej przyjaznego doświadczenia.
 menu:
   docs:
     weight: 50
     parent: user
 ---
 
-## Filtering posts {#filters}
+## Filtrowanie wpisów {#filters}
 
-It is possible to filter statuses for specific keywords and phrases so that they can be hidden automatically.
+Możliwe jest filtrowanie wpisów według określonych słów kluczowych lub fraz, aby były automatycznie ukrywane.
 
-{{< figure src="/assets/image%20%2848%29.png" caption="A sample of active filters for various keywords in different contexts." >}}
+{{< figure src="/assets/image%20%2848%29.png" caption="Przykład aktywnych filtrów dla różnych słów kluczowych w różnych kontekstach." >}}
 
-To create or manage your filters, go to Settings &gt; Filters. The "Add new filter" button will let you create a new filter, and existing filters can be edited or deleted. Your existing filters will be summarized in a table.
+Aby utworzyć i zarządzać filtrami, odwiedź Preferencje &gt; Filtry. Przycisk „Dodaj nowy filtr” pozwoli na utworzenie nowego filtru, a istniejące filtry mogą zostać edytowane lub usunięte. Istniejące filtry są podsumowane w tabeli.
 
-{{< figure src="/assets/image%20%2814%29.png" caption="Filters can have an expiry date, specific contexts, server-side drop, and use word boundaries." >}}
+{{< figure src="/assets/image%20%2814%29.png" caption="Filtry mogą mieć datę wyczerpania, określone konteksty, usuwanie po stronie serwera lub używać granic słów." >}}
 
-Filters have the following settings:
+Filtry mają następujące opcje:
 
-### Keyword or phrase {#filter-phrase}
+### Słowa kluczowe lub frazy {#filter-phrase}
 
-This is the string that will be matched. The keyword will be searched for in any status's content, including CW, media descriptions, and poll options.
+To ciąg znaków który jest sprawdzany. Słowo kluczowe będzie wyszukiwane w zawartości wpisu, uwzględniając CW, opisy mediów i opcje ankiet.
 
-### Expire after {#filter-expire}
+### Wygasanie po czasie {#filter-expire}
 
-Optionally only apply the filter for a limited amount of time. Expired filters are not automatically deleted, but can be reactivated by setting a new expiry date \(or changing it back to "never" expire\).
+Opcjonalnie możesz zastosować filtr tylko na określony okres czasu. Wygaśnięte filtry nie są automatycznie usuwane, ale mogą być włączone ponownie, ustawiając nową datę wygaśnięcia \(lub wyłączając wygasanie\).
 
-### Filter contexts {#filter-context}
+### Kontekst filtrów {#filter-context}
 
+Wybierz gdzie zostanie zastosowany filtr:
 Choose where the filter will be applied:
-
 * Home timeline and lists = matching statuses will be removed from your home feed and lists
 * Notifications = matching notifications will not be shown
 * Public timelines = matching statuses will not appear in local/federated timelines
 * Conversations = matching statuses will be hidden in threads and detailed views
 
-### Drop instead of hide {#filter-drop}
+### Usuwanie zamiast ukrywania {#filter-drop}
 
 Filtering is usually done client-side, so that disabling a filter will cause filtered statuses to be visible again. However, if you enable "drop instead of hide", any matching statuses will be disappear completely and will never be delivered to your home or notifications.
 
-### Whole word {#filter-whole}
+### Całe słowa {#filter-whole}
 
 Filters normally apply to any status that contains the included characters, regardless of whether they are in the middle of a word. Enabling "whole word" will only apply the filter if the keyword is surrounded by spaces or other non-alphanumeric characters.
 
-## User-level actions {#blocking-and-muting}
+## Działania po stronie użytkownika {#blocking-and-muting}
 
 {{< figure src="/assets/image%20%2824%29.png" caption="The user dropdown menu offers various actions." >}}
 
-### Hiding boosts {#hide-boosts}
+### Ukrywanie udostępnień {#hide-boosts}
 
 If you hide boosts from someone, you won’t see their boosts in your home feed. This option only appears on users who you are currently following.
 
-### Muting {#mute}
+### Wyciszanie {#mute}
 
 {{< figure src="/assets/image%20%2852%29.png" caption="Sample of muted accounts." >}}
 
@@ -67,7 +67,7 @@ If you choose to also mute notifications from them, you will additionally not se
 
 The user has no way of knowing they have been muted.
 
-### Blocking {#block}
+### Blokowanie {#block}
 
 {{< figure src="/assets/image%20%2836%29.png" caption="Sample of blocked accounts." >}}
 
@@ -88,7 +88,7 @@ Additionally, on the blocked user’s side:
 
 If you and the blocked user are on the same server, the blocked user will not be able to view your posts on your profile while logged in.
 
-### Hiding an entire server {#hide-domain}
+### Ukrywanie całego serwera {#hide-domain}
 
 ![](/assets/image%20%2861%29.png)
 
@@ -99,7 +99,7 @@ If you hide an entire server:
 * You won’t see notifications from that server
 * You will lose any followers that you might have had on that server
 
-## Reporting problematic content to moderators {#report}
+## Zgłaszanie nieodpowiedniej treści moderatorom {#report}
 
 {{< figure src="/assets/image%20%283%29.png" caption="The report modal allows selecting example statuses, adding a note, and forwarding reports." >}}
 

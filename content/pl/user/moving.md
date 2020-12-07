@@ -1,45 +1,45 @@
 ---
-title: Moving or leaving accounts
-description: Take your information and do what you want with it.
+title: Przenoszenie lub opuszczanie kont
+description: Odbierz informacje i rób z nimi co chcesz.
 menu:
   docs:
     weight: 100
     parent: user
 ---
 
-## Exporting your information {#export}
+## Eksportuj informacje {#export}
 
-{{< figure src="/assets/image%20%2835%29.png" caption="The data export page in settings" >}}
+{{< figure src="/assets/image%20%2835%29.png" caption="Strona eksportu danych w ustawieniach" >}}
 
-At any time you want, you can go to Settings &gt; Export and download a CSV file for your current followed accounts, your currently created lists, your currently blocked accounts, your currently muted accounts, and your currently blocked domains. Your following, blocking, muting, and domain-blocking lists can be imported at Settings &gt; Import, where they can either be merged or overwritten.
+W każdym momencie możesz odwiedzić Preferencje &gt; Eksportowanie danych i pobrać plik CSV zawierający obecnie obserwowane konta, Twoje obecne listy, blokowanych lub wyciszonych użytkowników, zablokowane domeny. Twoja lista obserwowanych, blokowanych, wyciszonych lub zablokowanych domen może zostać zaimportowana w Preferencje &gt; Importowanie danych, gdzie mogą one zostać połączone lub nadpisane.
 
-Requesting an archive of your toots and media can be done once every 7 days, and can be downloaded in ActivityPub JSON format. Mastodon currently does not support importing toots or media due to technical limitations, but your archive can be viewed by any software that understands how to parse ActivityPub documents.
+Zażądanie archiwum wpisów lub mediów jest możliwe co 7 dni i mogą one zostać pobrane w formacie ActivityPub JSON. Mastodon obecnie nie obsługuje importowania wpisów lub mediów ze względu na ograniczenia techniczne, ale Twoje archiwum może zostać wyświetlone przez dowolne oprogramowanie, które potrafi parsować dokumenty ActivityPub.
 
-## Redirecting or moving your profile {#migration}
+## Przekierowanie lub przenoszenie profilu {#migration}
 
-From the bottom of Settings &gt; Account, you can find options related to account redirection or migration.
+W dolnej części Preferencje &gt; Profil możesz znaleźć opcje powiązane z przekierowaniem lub migracją konta.
 
-### Profile redirect {#redirect}
+### Przekierowanie profilu {#redirect}
 
-{{< figure src="/assets/image%20%2853%29.png" caption="Profile redirect form" >}}
+{{< figure src="/assets/image%20%2853%29.png" caption="Formularz przekierowania profilu" >}}
 
-Redirecting your account disables posting from that account and displays a "profile moved" notice indicating your new account. Anyone viewing your profile can see this notice and will know to follow you at your new account. Following redirected accounts is not possible. The redirect can be canceled at any time.
+Przekierowanie konta wyłączy możliwość tworzenia z niego wpisów i wyświetli komunikat „przeniesiono profil”, wskazując na Twoje nowe konto. Każdy wyświetlający Twój nowy profil zobaczy tę informację i będzie wiedział, aby zaobserwować Twoje nowe konto. Obserwowanie przekierowanych kont nie jest możliwe. Przekierowanie może być anulowane w dowolnym momencie.
 
-### Profile move {#move}
+### Przenoszenie profilu {#move}
 
-{{< figure src="/assets/image%20%2847%29.png" caption="Profile move form" >}}
+{{< figure src="/assets/image%20%2847%29.png" caption="Formularz przenoszenia profilu" >}}
 
-Moving your account is the same as redirecting your account, but it will also irreversibly force everyone to unfollow your current account and follow your new account, if their software supports the Move activity. Your toots will not be moved, due to technical limitations. There is also a very heavy cooldown period in which you cannot migrate again, so be very careful before using this option!
+Przenoszenie konta działa tak jak przekierowanie konta, ale również nieodwracalnie wymusi na obserwujących Twoje konto cofnięcie tej obserwacji i zaobserwowanie nowego konta, jeżeli oprogramowanie ich serwerów obsługuje aktywność Move. Twoje wpisy nie zostaną przeniesione z uwagi na ograniczenia techniczne. Istnieje też okres, w trakcie którego nie możesz ponownie migrować konta, więc uważaj zanim użyjesz tej opcji!
 
-### Account aliases {#aliases}
+### Aliasy konta {#aliases}
 
-{{< figure src="/assets/image%20%2840%29.png" caption="Alias management screen" >}}
+{{< figure src="/assets/image%20%2840%29.png" caption="Ekran zarządzania aliasami" >}}
 
-Profile moves can only be initiated when your two accounts have been aliased. Account aliases are currently not used for anything other than profile moves, where you will need to set your old account as an alias of your new account before initiating the move. Setting aliases is harmless and reversible on its own.
+Przeniesienie konta jest tylko możliwe, jeżeli powstał alias między dwoma kontami. Aliasy kont nie są obecnie używane w innych sytuacjach niż przeniesienie konta, gdzie musisz ustawić stare konto jako alias dla nowego konta przed rozpoczęciem przenoszenia. Samo ustawianie aliasu nie przynosi szkód i może być odwrócone.
 
-## Deleting your account {#delete}
+## Usuwanie konta {#delete}
 
-{{< figure src="/assets/image%20%2816%29.png" caption="Account deletion form" >}}
+{{< figure src="/assets/image%20%2816%29.png" caption="Formularz usunięcia konta" >}}
 
-From the bottom of Settings &gt; Account, you can find the form to delete your account. Deleting your account is irreversible, and will cause both your profile and username to become forever unusable.
+Na dole Preferencje &gt; Profil możesz znaleźć formularz usunięcia konta. Usunięcie konta jest nieodwracalne i sprawi, że zarówno Twój profil, jak i nazwa użytkownika nie będą mogły zostać później użyte.
 
