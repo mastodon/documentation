@@ -1,45 +1,45 @@
 ---
-title: More settings
-description: Invite new users, sort through your contacts, and secure your account.
+title: Więcej ustawień
+description: Zaproś nowych użytkowników, przeglądaj kontakty i zabezpiecz swoje konto.
 menu:
   docs:
     weight: 80
     parent: user
 ---
 
-## Generating invites {#invites}
+## Tworzenie zaproszeń {#invites}
 
-{{< figure src="/assets/image%20%2862%29.png" caption="Invite people from your account&apos;s settings" >}}
+{{< figure src="/assets/image%20%2862%29.png" caption="Zaproś ludzi z ustawień swojego konta" >}}
 
-Invite links can be generated and shared with other people, and some servers require invites in order to register for an account. When generating an invite link, you can set the max uses to limit how many times a certain link is used, or how long it has been active. Invite links can be deactivated at any time.
+Zaproszenia mogą być generowane aby udostępniać je innym osobom, a niektóre serwery mogą wymagać zaproszenia, aby zarejestrować konto. Przy generowaniu odnośnika zapraszającego, możesz określić maksymalną liczbę użyć odnośnika lub jak długo będzie on aktywny. Odnośniki z zaproszeniami mogą być dezaktywowane w każdym momencie.
 
-## Follows and followers {#relationships}
+## Obserwacje i obserwujący {#relationships}
 
-{{< figure src="/assets/image%20%2849%29.png" caption="Mutuals who have not moved their account, sorted by last activity" >}}
+{{< figure src="/assets/image%20%2849%29.png" caption="Wzajemni obserwujący którzy nie przenieśli konta, sortowani według daty ostatniej aktywności" >}}
 
-Within settings, you can find a relationship manager that lets you filter and sort through the profiles that you are connected to, based on different criteria:
+W ustawieniach, możesz znaleźć stronę zarządzania relacjami, pozwalającą na filtrowanie i sortowanie profili z którymi jesteś połączony(-a), według różnych kryteriów:
 
-* **Relationship:** whether a profile is following you, followed by you, or mutually following each other.
-* **Account status:** whether a profile is currently marked as redirected or not.
-* **Account activity:** whether a profile has posted in the past month or not.
+* **Relacje:** czy konto obserwuje Cię, jest obserwowane przez Ciebie, lub wzajemnie się obserwujecie.
+* **Stan konta:** czy konto jest obecnie oznaczone jako przekierowujące na inne.
+* **Aktywność konta:** czy konto publikowało jakieś wpisy w ciągu ostatniego miesiąca.
 
-You can select certain users to unfollow, or to remove from your followers, by checking the boxes and clicking the corresponding button in the table header.
+Możesz wybrać które osoby chcesz przestać obserwować, lub usunąć z obserwowanych, zaznaczając ich i klikając na odpowiedni przycisk w nagłówku tabeli.
 
-## Account settings {#account}
+## Ustawienia konta {#account}
 
-From the account settings, you can change your email address, set a new password, revoke active sessions or authorized apps, and enable two-factor authentication.
+Z ustawień konta możesz zmienić swój adres e-mail, ustawić nowe hasło, wygasić aktywne sesje lub uwierzytelnione aplikacje czy włączcyć uwierzytelnianie dwuetapowe.
 
-## Identity proofs {#proofs}
+## Dowody tożsamości {#proofs}
 
-[Link verification](../profile#verification) of profile metadata fields is one way to prove your identity by using rel=me links, but Mastodon also supports a more generalized proof provider subsystem. Currently, the only supported identity provider for this subsystem is Keybase.
+[Weryfikacja odnośników](../profile#verification) w polach metadanych profilu jest jednym ze sposobem na udowodnienie swojej tożsamości z użyciem odnośników rel=me, ale Mastodon obsługuje bardziej uogólniony podsystem dostawców dowodów tożsamości. Obecnie jedynym dostawcą obsługującym ten mechanizm jest Keybase.
 
-### Keybase identity verification {#keybase}
+### Weryfikacja tożsamości przez Keybase {#keybase}
 
-{{< figure src="/assets/image%20%2860%29.png" caption="An identity proof on a profile" >}}
+{{< figure src="/assets/image%20%2860%29.png" caption="Dowód tożsamości na profilu" >}}
 
-First, sign up for Keybase and generate or upload a GPG public key to your Keybase account. Next, go to "prove more identities". Find your instance if it is available, and if not, contact Keybase for help. Select your Mastodon domain and enter your username. You will be able to prove your identity by authorizing with your Mastodon account and posting a proof message. Once you do this, the identity proof will be established, and your profile will show Keybase as a proven identity.
+Na początek, zarejestruj się na Keybase i wygeneruj lub wyślij publiczny klucz GPG na swoim koncie Keybase. Następnie, przejdź do „prove more identities”. Odnajdź swój serwer jeśli jest dostępny, a jeśli nie, skontaktuj się z Keybase aby uzyskać pomoc. Wybierz swoją domenę Mastodona i wprowadź nazwę użytkownika. Możesz udowodnić swoją tożsamość autoryzując swoje konto na Mastodonie i publikując wiadomość z dowodem. Gdy to zrobisz, zostanie utworzony dowód tożsamości, a Twój profil będzie pokazywał Keybase jako udowodnioną tożsamość.
 
 {{< hint style="danger" >}}
-**Keybase verification is irreversible.** Keybase uses an immutable signature chain for its identity proofs, so once you prove your identity on Keybase, you cannot remove it. You can only revoke your proof by signing a revocation message with your associated private key.
+**Weryfikacja Keybase jest nieodwracalna.** Keybase używa niemodyfikowalnego łańcucha podpisów dla dowodów tożsamości, więc po zweryfikowaniu tożsamości na Keybase, nie możesz jej usunąć. Możesz tylko wygasić dowód podpisując wiadomość wygaszającą używajac przypisanego klucza prywatnego.
 {{< /hint >}}
 
