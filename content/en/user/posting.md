@@ -130,5 +130,5 @@ Send your post only to mentioned users.
 
 One feature that Mastodon provides that you may not have seen on other social networks is the option to attach a content warning to your posts. When a content warning is included, the status content will be collapsed by default, and only the CW will be shown, similarly to an email subject line or a "read more" break. This can be used to add a summary or subject for your post, to collapse long posts, or to otherwise provide context or setup for the body of the post.
 
-When media is attached, a checkbox appears to allow you to "mark media as sensitive". This hides the full media behind a blurred thumbnail by default. Adding a CW to a post automatically marks the post as sensitive as well.
+When media is attached, a checkbox appears to allow you to "mark media as sensitive". This hides the full media behind a blurred thumbnail by default. Adding a CW to a post automatically marks the media as sensitive as well.
 
