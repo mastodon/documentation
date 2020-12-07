@@ -189,6 +189,3 @@ If you provide a token you do not own, or no token at all, the API call will ret
 {{< endapi-method-spec >}}
 {{< endapi-method >}}
 
-
-##
-

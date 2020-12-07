@@ -980,6 +980,60 @@ Account is suspended
 {{< endapi-method-response >}}
 {{< endapi-method-spec >}}
 {{< endapi-method >}}
+
+{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/:id/featured_tags" title="Featured tags" >}}
+{{< api-method-description >}}
+
+Tags featured by this account.
+
+**Returns:** Array of FeaturedTag\
+**OAuth:** User token + `read:accounts`\
+**Version history:**\
+3.3.0 - added
+
+{{< endapi-method-description >}}
+{{< api-method-spec >}}
+{{< api-method-request >}}
+{{< api-method-headers >}}
+{{< api-method-parameter name="Authorization" type="string" required=true >}}
+Bearer &lt;user token&gt;
+{{< endapi-method-parameter >}}
+{{< endapi-method-headers >}}
+{{< endapi-method-request >}}
+{{< api-method-response >}}
+{{< api-method-response-example httpCode=200 >}}
+{{< api-method-response-example-description >}}
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+[
+  {
+    "id": "627",
+    "name": "nowplaying",
+    "statuses_count": 36,
+    "last_status_at": "2019-11-15T07:14:43.524Z"
+  }
+]
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=401 >}}
+{{< api-method-response-example-description >}}
+
+Invalid or missing Authorization header
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "error": "The access token is invalid"
+}
+```
+{{< endapi-method-response-example >}}
+{{< endapi-method-response >}}
+{{< endapi-method-spec >}}
+{{< endapi-method >}}
+
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/:id/lists" title="Lists containing this account" >}}
 {{< api-method-description >}}
 

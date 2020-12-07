@@ -15,11 +15,10 @@ Post a new status.
 
 **Returns:** Status. When `scheduled_at` is present, ScheduledStatus is returned instead.\
 **OAuth:** User + `write:statuses`\
-**Version history:**
-
-- 0.0.0 - added
-- 2.7.0 - `scheduled_at` added
-- 2.8.0 - `poll` added
+**Version history:**\
+0.0.0 - added\
+2.7.0 - `scheduled_at` added\
+2.8.0 - `poll` added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -130,10 +129,9 @@ View information about a status.
 
 **Returns:** Status\
 **OAuth:** Public for public statuses, user token + `read:statuses` for private statuses\
-**Version history:**
-
-- 0.0.0 - added
-- 2.7.0 - public statuses no longer require token
+**Version history:**\
+0.0.0 - added\
+2.7.0 - public statuses no longer require token
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -254,10 +252,9 @@ Delete one of your own statuses.
 
 **Returns:** Status with source `text` and `media_attachments` or `poll`\
 **OAuth:** User token + `write:statuses`\
-**Version history:**
-
-- 0.0.0 - added
-- 2.9.0 - return source properties, for use with delete and redraft
+**Version history:**\
+0.0.0 - added\
+2.9.0 - return source properties, for use with delete and redraft
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -456,9 +453,8 @@ View statuses above and below this status in the thread.
 
 **Returns:** Context\
 **OAuth:** Public for public statuses. User token + `read:statuses` for private statuses.\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -540,8 +536,8 @@ View who boosted a given status.
 
 **Returns:** Array of Account\
 **OAuth:** Public
-Version history:
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -593,9 +589,8 @@ View who favourited a given status.
 
 **Returns:** Array of Account\
 **OAuth:** Public\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -647,9 +642,8 @@ Add a status to your favourites list.
 
 **Returns:** Status\
 **OAuth:** User token + `write:favourites`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -721,9 +715,8 @@ Remove a status from your favourites list.
 
 **Returns:** Status\
 **OAuth:** User token + `write:favourites`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -797,10 +790,9 @@ Reshare a status.
 
 **Returns:** Status\
 **OAuth:** User token + `write:statuses`\
-**Version history:**
-
-- 0.0.0 - added
-- 2.8.0 - add visibility parameter
+**Version history:**\
+0.0.0 - added\
+2.8.0 - add `visibility` parameter
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -890,9 +882,8 @@ Undo a reshare of a status.
 
 **Returns:** Status\
 **OAuth:** User token + `write:statuses`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -966,9 +957,8 @@ Privately bookmark a status.
 
 **Returns:** Status\
 **OAuth:** User token + `write:bookmarks`\
-**Version history:**
-
-- 3.1.0 - added
+**Version history:**\
+3.1.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1040,9 +1030,8 @@ Remove a status from your private bookmarks.
 
 **Returns:** Status\
 **OAuth:** User token + `write:bookmarks`\
-**Version history:**
-
-- 3.1.0 - added
+**Version history:**\
+3.1.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1114,9 +1103,8 @@ Do not receive notifications for the thread that this status is part of. Must be
 
 **Returns:** Status\
 **OAuth:** User token + `write:mutes`\
-**Version history:**
-
-- 1.4.2 - added
+**Version history:**\
+1.4.2 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1188,9 +1176,8 @@ Start receiving notifications again for the thread that this status is part of.
 
 **Returns:** Status\
 **OAuth:** User token + `write:mutes`\
-**Version history:**
-
-- 1.4.2 - added
+**Version history:**\
+1.4.2 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1262,9 +1249,8 @@ Feature one of your own public statuses at the top of your profile.
 
 **Returns:** Status\
 **OAuth:** User token + `write:accounts`\
-**Version history:**
-
-- 1.6.0 - added
+**Version history:**\
+1.6.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1372,9 +1358,8 @@ Unfeature a status from the top of your profile.
 
 **Returns:** Status\
 **OAuth:** User token + `write:accounts`\
-**Version history:**
-
-- 1.6.0 - added
+**Version history:**\
+1.6.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1459,11 +1444,10 @@ Status does not exist, is deleted, or is private
 
 **Returns:** Card\
 **OAuth:** Public\
-**Version history:**
-
-- 0.0.0 - added
-- 2.6.0 - deprecated in favor of card property inlined on Status entity
-- 3.0.0 - removed
+**Version history:**\
+0.0.0 - added\
+2.6.0 - deprecated in favor of card property inlined on Status entity\
+3.0.0 - removed
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
