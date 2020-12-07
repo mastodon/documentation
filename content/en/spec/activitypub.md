@@ -422,10 +422,13 @@ Example:
 
 ```http
 POST https://mastodon.social/users/foo/inbox
-Collection-Synchronization: collectionId="https://social.sitedethib.com/users/Thib/followers",
-                            url="https://social.sitedethib.com/users/Thib/followers_synchronization",
-                            digest="b08ab6951c7d6cc2b91e17ebd9557da7fae02489728e9332fcb3a97748244d50"
+Collection-Synchronization:
+  collectionId="https://social.sitedethib.com/users/Thib/followers",
+  url="https://social.sitedethib.com/users/Thib/followers_synchronization",
+  digest="b08ab6951c7d6cc2b91e17ebd9557da7fae02489728e9332fcb3a97748244d50"
 ```
+
+When a remote user attempts to GET the partial collection `url`, this request must be signed with HTTP signatures. Example:
 
 ```http
 GET https://social.sitedethib.com/users/Thib/followers_synchronization
