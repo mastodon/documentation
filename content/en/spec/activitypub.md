@@ -102,7 +102,9 @@ Contains definitions for Mastodon features.
 * toot:blurhash
 * toot:focalPoint
 * toot:featured
+* toot:featuredTags
 * toot:discoverable
+* toot:suspended
 * toot:votersCount
 
 ### ActivityStreams extensions \(`as:`\) {#as}
@@ -376,6 +378,25 @@ Mastodon allows users to opt-in or opt-out of discoverability features like the 
   "id": "https://mastodon.social/users/Gargron",
   "type": "Person",
   "discoverable": true
+}
+```
+
+### Suspended flag {#suspended}
+
+Mastodon reports whether a user was locally suspended, for better handling of these accounts. Suspended accounts in Mastodon return empty data. If a remote account is marked as suspended, it cannot be unsuspended locally. Suspended accounts can be targeted by activities such as Update, Undo, Reject, and Delete. This functionality is implemented using an extra property `suspended` on objects. Example:
+
+```javascript
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    {
+      "toot": "http://joinmastodon.org/ns#",
+      "suspended": "toot:suspended"
+    }
+  ],
+  "id": "https://example.com/@eve",
+  "type": "Person",
+  "suspended": true
 }
 ```
 
