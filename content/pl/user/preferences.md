@@ -11,79 +11,80 @@ menu:
 
 ### Wybierz motyw {#theme}
 
-Mastodon defaults to a dark theme, but a light or high-contrast theme can be selected.
+Mastodon domyślnie korzysta z ciemnego motywu, ale może zostać wybrany też jasny lub wysokokontrastowy motyw.
 
-{{< figure src="/assets/image%20%2834%29.png" caption="Mastodon light theme" >}}
+{{< figure src="/assets/image%20%2834%29.png" caption="Jasny motyw Mastodona" >}}
 
 ### Wybierz układ {#layout}
 
-Mastodon defaults to a simple, one-column layout with a compose box on the left and a column switcher on the right. You can choose to enable the advanced web interface, which allows you view and pin multiple columns at the same time.
+Mastodon domyślnie wybiera prosty, jednokolumnowy układ z polem tworzenia wpisów po lewej i wyborem kolumny po prawej. Możesz wybrać zaawansowany interfejs, pozwalający na wyświetlanie i przypięcie wielu kolumn jednocześnie.
 
-{{< figure src="/assets/image%20%2832%29.png" caption="The advanced web interface" >}}
+{{< figure src="/assets/image%20%2832%29.png" caption="Zaawansowany interfejs" >}}
 
-In either interface, updates will load automatically as new posts are available. You can enable Slow Mode to instead show a banner at the top of the column indicating the number of new items available, which will be loaded only when you click the banner.
+W obu interfejsach aktualizacje ładują się, gdy tylko dostępne są nowe wpisy. Możesz włączyć Tryb spowolniony, który zamiast tego pokazuje na górze kolumny komunikat wskazujący liczbę nowych dostępnych wpisów, które zostaną załadowane po kliknięciu tego komunikatu.
 
-For accessibility reasons, the auto-play of animated GIFs is disabled by default. You can enable animated GIFs if you want to see animations. You can also reduce motion of animations throughout the UI.
+Z uwagi na dostępność, autoodtwarzanie animowanych GIF-ów jest domyślnie wyłączone. Możesz włączyć animowane GIF-y, jeżeli chcesz widzieć animacje. Możesz też ograniczyć ilość animacji w UI.
 
-Trending hashtags can be shown or hidden below the getting started column in the advanced UI, or below the column switcher in the simple UI \(only when there is enough space to display them\).
+Trendujące hashtagi mogą być wyświetlane lub ukryte pod kolumną „Rozpocznij” w zaawansowanym UI lub pod wyborem kolumn w uproszczonym UI \(tylko jeśli jest wystarczająco miejsca, aby je wyświetlić\).
 
-### Ekrany potwierdzenia {#confirm}
+### Dialogi potwierdzenia {#confirm}
 
-You can choose to require confirmation before performing certain actions. Currently, confirmations can be set before performing the following actions:
+Możesz wybrać, aby wymagać potwierdzenia przed wykonaniem pewnych akcji. Obecnie, potwierdzenia mogą zostać ustawione dla następujących działań:
 
-* Unfollow
-* Boost
-* Delete
+* Cofnięcie obserwacji
+* Udostępnienie
+* Usunięcie
 
-### Zawartość wrażliwa {#sensitive}
+### Wrażliwa zawartość {#sensitive}
 
-By default, any media marked as sensitive is hidden behind a click-through overlay. You can also choose to always show/hide media behind this overlay, regardless of whether it is marked as sensitive.
+Domyślnie, media oznaczone jako wrażliwe są ukrywane i wymagają kliknięcia ich. Możesz wybrać, aby automatycznie ukrywać wszystkie media za taką nakładką, lub automatycznie pokazywać je, niezależnie czy są ustawione jako wrażliwe.
 
-Hidden and unloaded media uses a colorful gradient provided by the BlurHash algorithm, which uses the colors of the image but blurs the details. These gradients can be disabled.
+Ukryte i niezaładowane media używają kolorowych gradientów korzystających z algorytmu BlurHash, korzystającego z kolorów obrazu, lecz rozmywających detale. Te gradienty mogą być wyłączone.
 
-{{< figure src="/assets/image%20%286%29.png" caption="An example blurhash thumbnail" >}}
+{{< figure src="/assets/image%20%286%29.png" caption="Przykład miniaturki z blurhashem" >}}
 
-Posts with content warnings are collapsed by default, but you can choose to always expand the warnings so that the full post is displayed.
+Wpisy z ostrzeżeniami o zawartości są domyślnie zwijane, ale możesz wybrać aby zawsze wyświetlany był pełny wpis.
 
 ## Kontrolowanie powiadomień {#notifications}
 
 ### Wysyłanie e-maili {#email}
 
+Możesz wybrać, aby dostawać powiadomienia e-mail według typów powiadomień, które otrzymujesz na Mastodonie. Możesz włączyć maile dla poszczególnych rodzajów powiadomień:
 You can choose to receive email notifications according to the type of notification you receive within Mastodon. The following notification types are available to enable:
 
-* Follows
-* Follow requests
-* Boosts
-* Favourites
-* Mentions
+* Obserwacje
+* Prośby o możliwość obserwacji
+* Udostępnienia
+* Ulubione
+* Wspomnienia
 
-You can also enable digest emails, which will provide you with an overview of notifications received during periods of long inactivity.
+Możesz też włączyć maile z przeglądami, które zawierają przegląd powiadomień otrzymanych podczas dłuższej nieaktywności.
 
 ### Ukrywanie części powiadomień {#hide-notifications}
 
-You can choose to not receive notifications from people you don't follow, or from people who don't follow you. This will cause replies, favourites, boosts, and other interactions to not be shown to you.
+Możesz wybrać, aby nie otrzymywać powiadomień od osób, których nie obserwujesz, lub osób, które Cię nie obserwują. Sprawi to, że te odpowiedzi, polubienia, udostępnienia i inne interakcje nie będą Ci pokazywane.
 
-You can also choose to not receive notifications when you receive a direct message from people you don't follow.
+Możesz też wybrać, aby nie otrzymywać powiadomień, gdy otrzymasz wiadomość bezpośrednią od osoby, której nie obserwujesz.
 
-## Różne opcje {#misc}
+## Pozostałe {#misc}
 
-If you opt out of search engine indexing, a `noindex` flag will be added to your public profile and status pages.
+Jeżeli zdecydujesz się wypisać się z indeksowania w wyszukiwarkach, flaga `noindex` zostanie dodana do strony Twojego profilu i Twoich wpisów.
 
-You can choose to hide your network, which will make your following and follower lists private to you only.
+Możesz ukryć swoją sieć, dzięki czemu lista obserwujących Cię i obserwowanych przez Ciebie będzie widoczna tylko dla Ciebie.
 
-{{< figure src="/assets/image%20%284%29.png" caption="A profile that has opted to hide its network" >}}
+{{< figure src="/assets/image%20%284%29.png" caption="Profil, którego właściciel zdecydował się ukryć swoją sieć" >}}
 
-If you want to see posts that are boosted multiple times be reinserted into your feed at the top, you can disable boost grouping in timelines.
+Jeżeli chcesz widzieć wpisy, które zostały udostępnione wielokrotnie na osi czasu, możesz wyłączyć grupowanie podbić w osiach czasu.
 
-### Domyślne opcje wpisów {#posting}
+### Domyślne ustawienia wpisów {#posting}
 
-Posts default to public privacy. You can choose to default new posts as unlisted or followers-only instead. For an explanation of post privacy levels, see [Posting to your Mastodon profile &gt; Publishing levels](../posting#privacy).
+Wpisy domyślnie są ustawiane jako publiczne. Możesz wybrać, aby nowe wpisy były domyślnie niewidoczne lub tylko dla obserwujących. Dla lepszego wyjaśnienia poziomów prywatności przeczytaj [Tworzenie wpisów &gt; Poziomy publikacji](../posting#privacy).
 
-By default, the language of your posts is automatically detected, but this detection is imprecise and may not be accurate. If you primarily or exclusively post in a certain language, it is a good idea to set that language here.
+Domyślnie, język Twoich wpisów jest wykrywany automatycznie, ale to wykrywanie nie jest zbyt precyzyjne. Jeżeli piszesz głównie bądź tylko w jednym języku, możesz go tu ustawić.
 
-If you often post sensitive media, you can choose to always mark your media as sensitive.
+Jeżeli często publikujesz zawartość wrażliwą, możesz wybrać, aby zawsze oznaczać Twoje media jako wrażliwe.
 
 ### Filtrowanie języków na publicznych osiach czasu {#languages}
 
-You can choose to only show posts in certain detected languages while browsing the public timelines. However, note that language detection can be very imprecise, so you may still see some posts in a disabled language, or miss some posts from enabled languages.
+Możesz wybrać, aby wyświetlały się jedynie wpisy w określonych językach, kiedy przeglądasz publiczne osie czasu. Pamiętaj jednak, że wykrywanie języków może być bardzo niedokładne i możesz wciąż widzieć wpisy w wyłączonym języku lub ominąć wpisy we włączonych językach.
 

@@ -11,7 +11,7 @@ menu:
 
 ## Tekst {#text}
 
-Główna treść każdego wpisu może zostać utworzona z użyciem pola tekstowego. Domyślnym ograniczeniem ilości znaków jest 500 znaków.
+Główna treść każdego wpisu może zostać utworzona z użyciem pola tekstowego. Domyślnym ograniczeniem ilości znaków jest 500 znaków.
 
 ### Odnośniki {#links}
 
