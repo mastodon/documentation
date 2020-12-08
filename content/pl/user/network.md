@@ -46,15 +46,15 @@ When other people interact with you or your posts, you will receive a notificati
 
 As long as you encounter a person within your app’s user interface, e.g. the web interface on your home server, or your mobile app, you can just click “follow” and you won’t notice a difference if that person is on your server or not.
 
-However if you come across someone’s public profile hosted on a different server, there’s an obstacle: That server sees you as just another anonymous visitor. Not to worry! You can simply copy the URL of that profile, or of one of their posts, and then paste that URL into the search function.
+Jeśli jednak przeglądasz czyiś publiczny profil z poziomu innego serwera, jest jedna przeszkoda — serwer widzi Cię jako anonimowego odwiedzającego. Nie przejmuj się! Możesz po prostu skopiować odnośnik do tego profilu lub jednego z jego wpisów i wkleić ten adres w pole wyszukiwania.
 
-If you are visiting a public page on another Mastodon site, see [Using Mastodon outside of your site](../external/#interact).
+Jeżeli przeglądasz publiczny profil z innego serwera Mastodona, przeczytaj [Korzystanie z Mastodona zewnętrznie](../external/#interact).
 
 ## Wyszukiwanie {#search}
 
 {{< figure src="/assets/image%20%2819%29.png" caption="Możliwość wyszukiwania jest dostępna na pasku bocznym." >}}
 
-Mastodon's basic search allows logged-in users to find toots containing a specific hashtag, or to load a user or status directly if they know the URL or address. Searching for a term will show profiles whose username or display name contains that term, as well as hashtags that match or contain that term.
+Podstawowe wyszukiwanie na Mastodonie pozwala zalogowanym użytkownikom na znalezienie wpisów zawierających określony hashtag, lub załadowanie użytkownika bądź wpisu znając adres jego profilu lub adres URL. Wyszukiwanie słowa wyświetli profile, których nazwy użytkowników lub nazwy wyszukiwania zawierają je, oraz hashtagi spełniające to kryterium.
 
 {{< figure src="/assets/image%20%2839%29.png" caption="Przykład wpisu ładowanego bezpośrednio z adresu URL." >}}
 
@@ -62,19 +62,19 @@ Mastodon's basic search allows logged-in users to find toots containing a specif
 
 {{< figure src="/assets/image%20%2827%29.png" caption="Przykład hashtagu uzyskanego z wyszukiwania „cats”." >}}
 
-Admins may optionally install full-text search. Mastodon’s full-text search allows logged-in users to find results from their own toots, their favourites, their bookmarks and their mentions. It deliberately does not allow searching for arbitrary strings in the entire database, in order to reduce the risk of abuse by people searching for controversial terms to find people to dogpile.
+Administratorzy mogą dodatkowo zainstalować wyszukiwanie pełnego tekstu. Wyszukiwanie pełnego tekstu na Mastodonie pozwala zalogowanym użytkownikom na wyszukiwanie wyników z własnych wpisów, własnych polubień, zakładek i wspomnień. Celowo nie pozwala na wyszukiwanie dowolnych wierszy znaków w całej bazie danych, aby ograniczyć możliwość nadużywania ten funkcji przez osoby szukające kontrowersyjnych treści do dogpilingu.
 
-The following operators are supported:
+Obsługiwane są następujące operatory:
 
-* **"exact phrases"** will try to find the term inside the quote marks. This allows looking only for direct matches, such as `"look at my cluckers"` to find posts explicitly telling you to look at someone's cluckers.
-* **-exclude** will exclude the term prepended by a minus sign. This allows filtering out certain terms, such as `animals -cats` to find posts about animals without posts about cats.
-* **+include** will include the term after the plus sign. This allows searching for multiple terms that must be included, such as `cat +dog` to find posts about both cats and dogs.
+* **"pełne wyrażenie"** will try to find the term inside the quote marks. This allows looking only for direct matches, such as `"look at my cluckers"` to find posts explicitly telling you to look at someone's cluckers.
+* **-wyklucz** will exclude the term prepended by a minus sign. This allows filtering out certain terms, such as `animals -cats` to find posts about animals without posts about cats.
+* **+uwzględnij** will include the term after the plus sign. This allows searching for multiple terms that must be included, such as `cat +dog` to find posts about both cats and dogs.
 
 ## Rozmowy bezpośrednie {#direct}
 
 {{< figure src="/assets/image%20%2812%29.png" caption="Lista konwersacji zawierających wiadomości bezpośrednie." >}}
 
-In Mastodon, direct messages are simply toots that have the "direct" visibility selected. Visibility can be selected per-post, which allows changing the privacy level later in a thread. The direct messages column currently shows a list of all conversations containing a direct post. Clicking on a conversation will load the associated thread.
+Na Mastodonie, wiadomości bezpośrednie to po prostu wpisy o bezpośredniej widoczności. Widoczność może być wybrana dla poszczególnych wpisów, co pozwala na zmianę poziomu prywatności w późniejszym momencie w wątku. Kolumna wiadomości bezpośrednich wyświetla obecnie listę wszystkich konserwacji zawierających wiadomość bezpośrednią. Kliknięcie konwersacji załaduje powiązany wątek. 
 
 {{< figure src="/assets/image%20%2857%29.png" caption="Wiadomość bezpośrednia w wątku." >}}
 
