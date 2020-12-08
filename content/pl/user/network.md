@@ -9,7 +9,8 @@ menu:
 
 ## Przeglądanie zawartości z publicznych osi czasu {#timelines}
 
-{{< figure src="/assets/image%20%2830%29.png" caption="Posts within a public timeline" >}}
+{{< figure src="/assets/image%20%2830%29.png" caption="Wpisy na publicznej osi czasu" >}}
+
 
 To allow you to discover potentially interesting content, Mastodon provides a way to browse all public posts. Well, there is no global shared state between all servers, so there is no way to browse _all_ public posts. When you browse the **federated timeline**, you see all public posts that the server you are on knows about. There are various ways your server may discover posts, but the bulk of them will be from people that other users on your server follow.
 
@@ -17,7 +18,7 @@ There is a way to filter the federated timeline to view only public posts create
 
 ## Interakcje z wpisami użytkowników {#actions}
 
-{{< figure src="/assets/image%20%2821%29.png" caption="An expanded view can be loaded by clicking a status in the timeline." >}}
+{{< figure src="/assets/image%20%2821%29.png" caption="Rozszerzony widok może zostać załadowany po kliknięciu na wpis w osi czasu." >}}
 
 You can perform quick actions on a post directly from the timeline, or you can click on the post to load an expanded view that shows extra information, such as a full timestamp, interaction counts, and threaded replies, if any. The following actions can be performed on a post:
 
@@ -29,7 +30,7 @@ You can perform quick actions on a post directly from the timeline, or you can c
 
 ## Powiadomienia {#notifications}
 
-{{< figure src="/assets/image%20%2850%29.png" caption="Notifications column" >}}
+{{< figure src="/assets/image%20%2850%29.png" caption="Kolumna powiadomień" >}}
 
 When other people interact with you or your posts, you will receive a notification depending on the type of the event. Your notifications column allows you to view all notifications in the same stream, or to filter for specific types of notifications:
 
@@ -51,15 +52,15 @@ If you are visiting a public page on another Mastodon site, see [Using Mastodon 
 
 ## Wyszukiwanie {#search}
 
-{{< figure src="/assets/image%20%2819%29.png" caption="The search function can be accessed from the sidebar." >}}
+{{< figure src="/assets/image%20%2819%29.png" caption="Możliwość wyszukiwania jest dostępna na pasku bocznym." >}}
 
 Mastodon's basic search allows logged-in users to find toots containing a specific hashtag, or to load a user or status directly if they know the URL or address. Searching for a term will show profiles whose username or display name contains that term, as well as hashtags that match or contain that term.
 
-{{< figure src="/assets/image%20%2839%29.png" caption="An example of a toot being loaded directly by its URL." >}}
+{{< figure src="/assets/image%20%2839%29.png" caption="Przykład wpisu ładowanego bezpośrednio z adresu URL." >}}
 
-{{< figure src="/assets/image%20%2823%29.png" caption="An example of accounts returned when searching for &quot;cats&quot;." >}}
+{{< figure src="/assets/image%20%2823%29.png" caption="Przykład konta uzyskanego z wyszukiwania wyrazu „cats”." >}}
 
-{{< figure src="/assets/image%20%2827%29.png" caption="An example of hashtags returned when searching for &quot;cats&quot;." >}}
+{{< figure src="/assets/image%20%2827%29.png" caption="Przykład hashtagu uzyskanego z wyszukiwania „cats”." >}}
 
 Admins may optionally install full-text search. Mastodon’s full-text search allows logged-in users to find results from their own toots, their favourites, their bookmarks and their mentions. It deliberately does not allow searching for arbitrary strings in the entire database, in order to reduce the risk of abuse by people searching for controversial terms to find people to dogpile.
 
@@ -71,19 +72,19 @@ The following operators are supported:
 
 ## Rozmowy bezpośrednie {#direct}
 
-{{< figure src="/assets/image%20%2812%29.png" caption="A list of conversations containing direct messages." >}}
+{{< figure src="/assets/image%20%2812%29.png" caption="Lista konwersacji zawierających wiadomości bezpośrednie." >}}
 
 In Mastodon, direct messages are simply toots that have the "direct" visibility selected. Visibility can be selected per-post, which allows changing the privacy level later in a thread. The direct messages column currently shows a list of all conversations containing a direct post. Clicking on a conversation will load the associated thread.
 
-{{< figure src="/assets/image%20%2857%29.png" caption="A direct message in a thread." >}}
+{{< figure src="/assets/image%20%2857%29.png" caption="Wiadomość bezpośrednia w wątku." >}}
 
 ## Osie czasu list {#lists}
 
-Lists are subsets of your home timeline. You can create a list, give it a name, and add users that you follow to that list.
+Listy są podzbiorami Twojej osi czasu. Możesz utworzyć listę, nadać jej nazwę i dodać do niej użytkowników, których obserwujesz.
 
 ![](/assets/image%20%2828%29.png)
 
-Opening a list will load that list's timeline. List timelines contain only posts by members of that list, as well as replies to you or to other members of the list.
+Otwarcie listy załaduje jej oś czasu. Osie czasu listy zawierają wyłącznie wpisy członków tej listy, oraz odpowiedzi do Ciebie lub innych członków tej listy.
 
-{{< figure src="/assets/image%20%285%29.png" caption="A list timeline" >}}
+{{< figure src="/assets/image%20%285%29.png" caption="Oś czasu listy" >}}
 

@@ -9,32 +9,32 @@ menu:
 
 ## Dlaczego miał(a)byś chcieć prowadzić własny serwer Mastodona?
 
-- Absolute control over your own voice on the web, not subject to anyone else's rules or whims. Your server is your property, with your rules. It will exist as long as you want it to exist.
-- You are *not* isolated on your own server. You can follow anyone on any other server, and they can follow you and you can exchange messages just like if you were on the same server.
-- You can either limit sign-ups to be the only one on the server and run it like personal (micro)blog, maintain an invite-only community for family or friends or run a server anyone can sign up on, it's up to you!
+- Pełna kontrola nad swoim głosem w Sieci, niebędąca zależna od zasad czy kaprysów innej osoby. Twój serwer jest Twoją własnością, z Twoimi zasadami. Będzie istnieć tak długo, jak będziesz tego chciał(-a).
+- *Nie* jesteś odizolowany(-a) na własnym serwerze. Możesz obserwować użytkowników innych serwerów tak i wymieniać się z nimi wiadomościami tak, jakbyście byli na tym samym serwerze.
+- Możesz ograniczyć rejestracje i być jedynym użytkownikiem serwera, i tam prowadzisz swój osobisty (mikro)blog, prowadzić społeczność tylko dla zaproszonych, dla rodziny i znajomych, lub utworzyć serwer, na którym każdy może się zarejestrować, to zależy od Ciebie!
 
 {{< hint style="warning" >}}
-Please mind that providing a public internet service involves moderation work and community management, and that such work becomes more complicated the larger your server grows.
+Pamiętaj, że prowadzenie publicznej usługi w Internecie jest związane z koniecznością działania jako moderator i zarządzania społecznością, a ta praca staje się bardziej skomplikowana, gdy serwer powiększa się.
 {{< /hint >}}
 
 ## Więc chcesz prowadzić własny serwer Mastodona
 
-Oto czego potrzebujesz:
+Będziesz potrzebować:
 
-- A **domain name**. This is how you and others will access your server and how you and your users will be identified on the network.
+- **Domeny**. W ten sposób inni będą korzystać z Twojego serwera, jest to część tożsamości Twoich użytkowników w pozostałej części sieci.
 
-  **How to get**: Namecheap, Gandi, any of the infinite number of domain name registrars. Comes with a yearly cost that varies depending on domain name choice.
-- A **VPS**. Something that will run the Mastodon code that will always be connected to the internet.
+  **Jak uzyskać**: Namecheap, Gandi, dowolny z licznych rejestratorów domen. Wiąże się to z coroczną opłatą zależną od wybranej domeny.
+- Serwera **VPS**. To coś, na czym będzie uruchamiany serwer Mastodona, który będzie stale połączony z Internetem.
 
-  **How to get**: DigitalOcean, Hetzner, Exoscale, Scaleway, any of the infinite number of hosting providers. Comes with a monthly or yearly cost that varies depending on hardware specifications.
-- An **e-mail provider**. Mastodon needs to send confirmation links and various notifications through e-mail, and hosting your own SMTP server, while possible, is much more difficult to do reliably than to simply use a third-party provider.
+  **Jak uzyskać**: DigitalOcean, Hetzner, Exoscale, Scaleway, dowolny z licznych dostawców hostingu. Wiąże się to z miesięcznym lub rocznym kosztem zależnym od specyfikacji sprzętu.
+- **Dostawca e-mail**. Mastodon musi wysyłać wiadomości z odnośnikami potwierdzającymi i różne powiadomienia przez e-mail, a choć hostowanie własnego serwera SMTP jest możliwe, może to być bardziej skomplikowane niż z korzystanie usługi podmiotu trzeciego.
 
-  **How to get**: Mailgun, SparkPost, Postmark, Sendgrid, any of the infinite number of e-mail hosting providers that expose a SMTP API. Comes with a monthly cost based on volume of e-mails sent.
-- Optional: **Object storage provider**. Mastodon can save files that you and your users upload on the hard disk drive of the VPS it runs on, however, the hard disk drive is usually not infinite and difficult to upgrade later. An object storage provider gives you practically infinite metered file storage.
+  **Jak uzyskać**: Mailgun, SparkPost, Postmark, Sendgrid, dowolny z liczny dostawców hostingu e-mail oferujących API SMTP. Wiąże się to z miesięcznym kosztem zależnym od liczby wysłanych e-maili.
+- Nieobowiązkowo: **Dostawca rozwiązania Object Storage**. Mastodon może zapisywać pliki wysyłane przez użytkowników na dysku VPS-a, na którym jest uruchomiony, lecz zwykle powierzchnia tego dysku nie jest nieograniczona i jej powiększenie może być później trudne. Dostawca Object Storage oferuje praktycznie nieograniczoną przestrzeń na pliki.
 
-  **How to get**: Amazon S3, Exoscale, Wasabi, Google Cloud, anything that exposes either an S3-compatible or OpenStack Swift-compatible API. Comes with a monthly cost based on the amount of files stored as well as how often they are accessed.
+  **Jak uzyskać**: Amazon S3, Exoscale, Wasabi, Google Cloud, cokolwiek, co oferuje API kompatybilne z S3 lub z OpenStack Swift. Wiąże się to z miesięcznym kosztem zależnym od ilości przechowywanych plików i częstości uzyskiwania ich.
 
-There exist a number of **dedicated Mastodon hosting providers** that take care of many if not all of the above requirements, that you can choose if you're interested in someone else taking care of all the technical stuff. Usually you still need to buy your own domain name though. Some of such providers are:
+Istnieje kilka **dedykowanych dostawców hostingu Mastodona** które zapewniają wszystkich z tych wymogów, z których możesz skorzystać, jeśli wolisz aby ktoś inny zajął się wszystkimi kwestiami technicznymi. Zwykle musisz jednak samodzielnie zakupić domenę. Kilka z tych dostawców:
 
 {{< caption-link url="https://masto.host" caption="Masto.host" >}}
 
@@ -44,14 +44,14 @@ There exist a number of **dedicated Mastodon hosting providers** that take care 
 
 {{< caption-link url="https://nablahost.com/services/activitypub-hosting/" caption="Nablahost" >}}
 
-Managed hosting solutions are great for those who do not have experience or desire to install and maintain software. However, being in charge of all components on your own hardware gives greater control over scaling, performance and customization.
+Zarządzanie rozwiązania hostingu są świetnym rozwiązaniem, jeżeli nie masz doświadczenia lub chęci samodzielnie instalować i zajmować się oprogramowaniem. Jednak bycie odpowiedzialnym za wszystkie elementy na własnym sprzęcie daje większą kontrolę nad skalowalnością, wydajnością i dostosowywaniem.
 
-We provide a **DigitalOcean 1-Click Install Image** that you can put on a DigitalOcean droplet of your choosing which essentially gives you everything you would otherwise have after following our installation instructions through an interactive setup wizard.
+Oferujemy **obraz instalacji jednym kliknięciem dla DigitalOcean**, który możesz umieścić na wybranym droplecie DigitalOcean, w zasadzie dając Ci wszystko, co zrobił(a)byś w innym wypadku zgodnie z naszą instrukcją instalacji, lecz z poziomu interaktywnego instalatora.
 
-{{< caption-link url="https://marketplace.digitalocean.com/apps/mastodon" caption="Mastodon 1-Click Install Image on DigitalOcean" >}}
+{{< caption-link url="https://marketplace.digitalocean.com/apps/mastodon" caption="Mastodon 1-Click Install Image na DigitalOceanie" >}}
 
-That however does assume a single-machine setup. Mastodon scales quite well horizontally. If your needs outgrow the capacity of a single machine, Mastodon can be divided into multiple app servers, background workers, multiple Redis backends, PostgreSQL replicas -- but 1-click install won't cut it.
+Zakłada to jednak konfigurację na jednym urządzeniu. Mastodon dość dobrze skaluje się horyzontalnie. Jeżeli potrzeby przekroczą możliwość jednego urządzenia, Mastodon może zostać podzielony pomiędzy wiele serwerów aplikacji, workerów działających w tle, backendów Redisa, replik PostgreSQL — ale instalacja jednym kliknięciem nie zapewni tego.
 
-If you're interested in installing everything on your own, proceed here:
+Jeżeli chcesz zainstalować wszystko samodzielnie, przejdź tutaj:
 
 {{< page-ref page="admin/prerequisites.md" >}}
