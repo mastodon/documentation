@@ -11,11 +11,11 @@ menu:
 
 {{< figure src="/assets/image%20%2829%29.png" caption="Karta profilu składająca się z nazwy wyświetlanej, awataru i nagłówka" >}}
 
-Możesz zmienić to, jak Twój profil wygląda u innych kierując się do: Preferencje &gt; Profil &gt; Wygląd.
+Możesz zmienić to, jak Twój profil wygląda u innych, kierując się do: Preferencje &gt; Profil &gt; Wygląd.
 
 ### Nazwa wyświetlana {#name}
 
-Twoja nazwa wyświetlana jest widoczna dla innych przy Twoim adrsie. Domyślnie możesz ustawić nazwę zawierającą do 30 znaków.
+Twoja nazwa wyświetlana jest widoczna dla innych przy Twoim adresie. Domyślnie możesz ustawić nazwę zawierającą do 30 znaków.
 
 ### Biogram {#bio}
 
@@ -31,7 +31,7 @@ Twój nagłówek to baner wyświetlany na górze Twojego profilu, jak i na karta
 
 ## Flagi profilu {#flags}
 
-Możesz oflagować swoje konto, aby poinformować innych w jaki spsosób korzystasz z Mastodona.
+Możesz oflagować swoje konto, aby poinformować innych, w jaki sposób korzystasz z Mastodona.
 
 ![](/assets/image%20%281%29.png)
 
@@ -40,7 +40,7 @@ Możesz oflagować swoje konto, aby poinformować innych w jaki spsosób korzyst
 Jeśli zablokujesz swoje konto, staną się dwie rzeczy:
 
 * Nowi obserwujący nie będą automatycznie przyjmowani, będziesz musiał(a) ręcznie zatwierdzać ich.
-* Ikona kłódki będzie widoczna dla innych, aby wiedzieli że obserwacja nie zostanie automatycznie przyjęta.
+* Ikona kłódki będzie widoczna dla innych, aby wiedzieli, że obserwacja nie zostanie automatycznie przyjęta.
 
 ### Konto bota {#bot}
 
@@ -61,15 +61,15 @@ Metadane profilu to możliwość dodania do profilu dodatkowych, przejrzystych i
 | Zaimki | he/him |
 | Strona internetowa | https://example.com |
 
-To co tam wpiszesz zależy wyłącznie od Ciebie. Zawartość może zawierać wspomnienia, hashtagi, niestandardowe emoji i odnośniki.
+To, co tam wpiszesz, zależy wyłącznie od Ciebie. Zawartość może zawierać wspomnienia, hashtagi, niestandardowe emoji i odnośniki.
 
 ### Weryfikacja odnośników {#verification}
 
-Weryfikacja z użyciem dokumentów potwierdzających tożsamość i niebieskie znaczki nie są możliwe bez centralnego zarządzania. Mastodon może krzyżowo dowiązywać odnośniki z profilem aby udowodnić, że jesteś ich rzeczywistym właścicielem. Jeżeli jeden z tych to link do Twojej osobistej strony internetowej, która budzi zaufanie, może to służyć jako prawie najlepsza metoda weryfikacji tożsamości.
+Weryfikacja z użyciem dokumentów potwierdzających tożsamość i niebieskie znaczki nie są możliwe bez centralnego zarządzania. Mastodon może krzyżowo dowiązywać odnośniki z profilem, aby udowodnić, że jesteś ich rzeczywistym właścicielem. Jeżeli jeden z tych to link do Twojej osobistej strony internetowej, która budzi zaufanie, może to służyć jako prawie najlepsza metoda weryfikacji tożsamości.
 
-Jeżeli umieścisz odnośnik w metadanych swojego profilu, Mastodon sprawdzi czy zawierra on odnośnik do Twojego profilu na Mastodonie. Jeżeli tak, otrzymasz znak weryfikacji przy tym odnośniku, ponieważ jesteś jego potwierdzonym właścicielem.
+Jeżeli umieścisz odnośnik w metadanych swojego profilu, Mastodon sprawdzi, czy zawierra on odnośnik do Twojego profilu na Mastodonie. Jeżeli tak, otrzymasz znak weryfikacji przy tym odnośniku, ponieważ jesteś jego potwierdzonym właścicielem.
 
-Mastodon sprawdza czy odnośnik zawiera atrybut `rel="me"`. Tak samo, Mastodon dodaje `rel="me"` do odnośników w metadanych profilu.
+Mastodon sprawdza, czy odnośnik zawiera atrybut `rel="me"`. Tak samo, Mastodon dodaje `rel="me"` do odnośników w metadanych profilu.
 
 {{< hint style="info" >}}
 Ponieważ możesz hostować Mastodona na własnym serwerze, nie istnieje lepszy sposób na potwierdzenie swojej tożsamości niż hostowanie Mastodona na własnej domenie, której inni już ufają.

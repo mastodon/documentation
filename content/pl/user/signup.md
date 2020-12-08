@@ -9,7 +9,7 @@ menu:
 
 ## Wybór serwera {#picker}
 
-Musisz wybrać stronę na której zarejestrujesz się, tak jakbyś wybierał(-a) dostawcę poczty e-mail lub realm w World of Warcraft dla swojej nowej postaci. Ta strona będzie Twoim dostawcą usługi, hostem dla Twojego konta, Twoim profilem i Twoją stroną główną.
+Musisz wybrać stronę, na której zarejestrujesz się, tak jakbyś wybierał(-a) dostawcę poczty e-mail lub realm w World of Warcraft dla swojej nowej postaci. Ta strona będzie Twoim dostawcą usługi, hostem dla Twojego konta, Twoim profilem i Twoją stroną główną.
 
 {{< hint style="info" >}}
 Możesz [przeglądać listę wybranych serwerów według kategorii i języków na joinmastodon.org](https://joinmastodon.org/#getting-started).
@@ -17,7 +17,7 @@ Możesz [przeglądać listę wybranych serwerów według kategorii i języków n
 
 ### Rozumienie zasad strony {#tos}
 
-Zanim zarejestrujesz się, ważnym jest zapoznanie się z zasadami i regulaminem. Serwer Mastodona ma zwykle zapisane je na stronie `/about/more`, którą możesz znaleźć klikając na „dowiedz się więcej” na stronie którą widzisz, gdy nie jesteś zalogowany(-a).
+Zanim zarejestrujesz się, ważnym jest zapoznanie się z zasadami i regulaminem. Serwer Mastodona ma zwykle zapisane je na stronie `/about/more`, którą możesz znaleźć, klikając na „dowiedz się więcej” na stronie, którą widzisz, gdy nie jesteś zalogowany(-a).
 
 ### Tryby rejestracji {#signup}
 
@@ -29,11 +29,11 @@ Na niektórych serwerach możesz zarejestrować się natychmiastowo – po prost
 
 #### Zaproszenia na serwer {#invite}
 
-Niektóre strony wyłączają formularz rejesracji i zamiast tego wymagają wygenerowania odnośników z zaproszeniem i wysyłania ich osobom, które mogą się zarejestrować.
+Niektóre strony wyłączają formularz rejestracji i zamiast tego wymagają wygenerowania odnośników z zaproszeniem i wysyłania ich osobom, które mogą się zarejestrować.
 
 #### Rejestracja wymagająca zatwierdzeń {#approval}
 
-Niektóre strony pozwalają na wypełnienie formularza rejestracyjnego, ale z dodatkowym polem na którym należy wpisać dlaczego chcesz się zarejestrować na tym serwerze. Po wypełnieniu tego formularza, moderator musi zatwierdzić Twoje konto zanim zaczniesz go używać.
+Niektóre strony pozwalają na wypełnienie formularza rejestracyjnego, ale z dodatkowym polem, w którym należy wpisać, dlaczego chcesz się zarejestrować na tym serwerze. Po wypełnieniu tego formularza moderator musi zatwierdzić Twoje konto, zanim zaczniesz go używać.
 
 ## Twoja nazwa użytkownika i domena {#address}
 
@@ -42,7 +42,7 @@ Nazwy użytkownika na Mastodonie składają się właściwie z dwóch części:
 * Lokalna nazwa użytkownika, np. `alicja`
 * Domena strony, np. `example.com`
 
-Tak jak przy adresie e-mail. Dla wygody, Mastodon pozwala na pominięcie drugiej części, jeżeli oznaczasz osoby z serwera z którego korzystasz, ale musisz pamiętać że jeżeli dzielisz się swoją nazwą z innymi, musisz uwzględnić domenę, aby mogli Cię łatwo znaleźć.
+Tak jak przy adresie e-mail. Dla wygody Mastodon pozwala na pominięcie drugiej części, jeżeli oznaczasz osoby z serwera, z którego korzystasz, ale musisz pamiętać, że jeżeli dzielisz się swoją nazwą z innymi, musisz uwzględnić domenę, aby mogli Cię łatwo znaleźć.
 
 |  |  |
 | :--- | :--- |
@@ -50,9 +50,9 @@ Tak jak przy adresie e-mail. Dla wygody, Mastodon pozwala na pominięcie drugiej
 | Nazywam się @alicja@example.com na Mastodonie! | Prawidłowo |
 | Nazywam się https://example.com/@alicja na Mastodonie! | Prawidłowo |
 
-Formularz wyszukiwania na Mastodonie pozwala na znalezienie osób zgodnie z oboma powyższymi formatami, więc możesz wybrać ten który wolisz.
+Formularz wyszukiwania na Mastodonie pozwala na znalezienie osób zgodnie z oboma powyższymi formatami, więc możesz wybrać ten, który wolisz.
 
-Ta sama nazwa użytkowenikw _może_ być zarejestrowana na różnych serwerach – nie istnieje sposób na zajęcie ich wszystkich z góry. Tak jak w przypadku adresu e-mail, nie możesz oczekiwać że `alicja@outlook.com` będzie tą samą osobą co `alicja@gmail.com`, czy `alicja@yahoo.com`.
+Ta sama nazwa użytkownika _może_ być zarejestrowana na różnych serwerach – nie istnieje sposób na zajęcie ich wszystkich z góry. Tak jak w przypadku adresu e-mail, nie możesz oczekiwać, że `alicja@outlook.com` będzie tą samą osobą co `alicja@gmail.com`, czy `alicja@yahoo.com`.
 
 
 

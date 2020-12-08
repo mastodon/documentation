@@ -17,7 +17,7 @@ menu:
 Please mind that providing a public internet service involves moderation work and community management, and that such work becomes more complicated the larger your server grows.
 {{< /hint >}}
 
-## Więc, chcesz prowadzić własny serwer Mastodona
+## Więc chcesz prowadzić własny serwer Mastodona
 
 Oto czego potrzebujesz:
 

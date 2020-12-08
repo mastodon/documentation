@@ -17,7 +17,7 @@ Zażądanie archiwum wpisów lub mediów jest możliwe co 7 dni i mogą one zost
 
 ## Przekierowanie lub przenoszenie profilu {#migration}
 
-W dolnej części Preferencje &gt; Profil możesz znaleźć opcje powiązane z przekierowaniem lub migracją konta.
+W dolnej części Preferencje &gt; Profil możesz znaleźć opcje powiązane z przekierowaniem lub migracją konta.
 
 ### Przekierowanie profilu {#redirect}
 
@@ -29,7 +29,7 @@ Przekierowanie konta wyłączy możliwość tworzenia z niego wpisów i wyświet
 
 {{< figure src="/assets/image%20%2847%29.png" caption="Formularz przenoszenia profilu" >}}
 
-Przenoszenie konta działa tak jak przekierowanie konta, ale również nieodwracalnie wymusi na obserwujących Twoje konto cofnięcie tej obserwacji i zaobserwowanie nowego konta, jeżeli oprogramowanie ich serwerów obsługuje aktywność Move. Twoje wpisy nie zostaną przeniesione z uwagi na ograniczenia techniczne. Istnieje też okres, w trakcie którego nie możesz ponownie migrować konta, więc uważaj zanim użyjesz tej opcji!
+Przenoszenie konta działa tak jak przekierowanie konta, ale również nieodwracalnie wymusi na obserwujących Twoje konto cofnięcie tej obserwacji i zaobserwowanie nowego konta, jeżeli oprogramowanie ich serwerów obsługuje aktywność Move. Twoje wpisy nie zostaną przeniesione z uwagi na ograniczenia techniczne. Istnieje też okres, w którego trakcie nie możesz ponownie migrować konta, więc uważaj, zanim użyjesz tej opcji!
 
 ### Aliasy konta {#aliases}
 
@@ -41,5 +41,5 @@ Przeniesienie konta jest tylko możliwe, jeżeli powstał alias między dwoma ko
 
 {{< figure src="/assets/image%20%2816%29.png" caption="Formularz usunięcia konta" >}}
 
-Na dole Preferencje &gt; Profil możesz znaleźć formularz usunięcia konta. Usunięcie konta jest nieodwracalne i sprawi, że zarówno Twój profil, jak i nazwa użytkownika nie będą mogły zostać później użyte.
+Na dole Preferencje &gt; Profil możesz znaleźć formularz usunięcia konta. Usunięcie konta jest nieodwracalne i sprawi, że zarówno Twój profil, jak i nazwa użytkownika nie będą mogły zostać później użyte.
 

@@ -17,5 +17,5 @@ Kiedy odwiedzasz zdalny serwer oparty o Mastodona, kliknięcie dowolnego z przyc
 
 ## Logowanie się w aplikacji Mastodona {#apps}
 
-Możesz użyć swojego konta na Mastodonie aby zalogować się w dowolnej aplikacji obsługującej API Mastodona. Listę takich aplikacji znajdziesz na [https://joinmastodon.org/apps](https://joinmastodon.org/apps).
+Możesz użyć swojego konta na Mastodonie, aby zalogować się w dowolnej aplikacji obsługującej API Mastodona. Listę takich aplikacji znajdziesz na [https://joinmastodon.org/apps](https://joinmastodon.org/apps).
 
