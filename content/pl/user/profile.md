@@ -57,8 +57,8 @@ Metadane profilu to możliwość dodania do profilu dodatkowych, przejrzystych i
 | Podpis | Zawartość |
 | :--- | :--- |
 | Wiek | 25 |
-| Kraj | Germany |
-| Zaimki | he/him |
+| Kraj | Niemcy |
+| Zaimki | on/jego |
 | Strona internetowa | https://example.com |
 
 To, co tam wpiszesz, zależy wyłącznie od Ciebie. Zawartość może zawierać wspomnienia, hashtagi, niestandardowe emoji i odnośniki.
