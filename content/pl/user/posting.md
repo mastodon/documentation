@@ -1,5 +1,5 @@
 ---
-title: Tworzenie wpisów
+title: Utwórz wpisy
 description: Dzielenie się swoimi przemyśleniami nigdy nie było bardziej wygodne.
 menu:
   docs:

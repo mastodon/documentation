@@ -1,5 +1,5 @@
 ---
-title: Dostosowanie profilu
+title: Dostosuj swój profil
 description: Rozpocznij korzystanie z nowego konta.
 menu:
   docs:

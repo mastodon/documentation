@@ -1,6 +1,6 @@
 ---
-title: Przenoszenie lub opuszczanie kont
-description: Odbierz informacje i rób z nimi co chcesz.
+title: Przenieś lub opuść kont
+description: Odbierz informacje i rób z nimi, co chcesz.
 menu:
   docs:
     weight: 100

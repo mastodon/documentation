@@ -1,5 +1,5 @@
 ---
-title: Promowanie siebie i innych
+title: Promuj siebie i innych
 description: Uwidocznij swoje hashtagi, profile i wpisy.
 menu:
   docs:

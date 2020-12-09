@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z funkcjonalności sieci
+title: Korzystaj z funkcjonalności sieci
 description: Obserwuj i rozmawiaj z osobami z dowolnego serwera.
 menu:
   docs:
@@ -12,39 +12,39 @@ menu:
 {{< figure src="/assets/image%20%2830%29.png" caption="Wpisy na publicznej osi czasu" >}}
 
 
-To allow you to discover potentially interesting content, Mastodon provides a way to browse all public posts. Well, there is no global shared state between all servers, so there is no way to browse _all_ public posts. When you browse the **federated timeline**, you see all public posts that the server you are on knows about. There are various ways your server may discover posts, but the bulk of them will be from people that other users on your server follow.
+Aby pozwolić na poznanie potencjalnie interesującej treści, Mastodon pozwala na przeglądanie wszystkich publicznych wpisów. Ponieważ nie ma tu danych współdzielonych między wszystkimi serwerami, nie możesz przeglądać _wszystkich_ publicznych wpisów. Kiedy przeglądasz **oś czasu federacji**, zobaczysz wszystkie wpisy, o których wie serwer. Istnieje wiele sposobów, aby Twój serwer dowiadywał się o wpisach, ale ogromna część z nich to po prostu wpisy osób śledzonych przez użytkowników Twojego serwera.
 
-There is a way to filter the federated timeline to view only public posts created on your server: The **local timeline**. Mind that “local” here refers to the server, not to a geographical location.
+Istnieje sposób na filtrowane osi czasu federacji, aby wyświetlać tylko wpisy z Twojego serwera -- lokalna oś czasu. Pamiętaj, że „lokalna” odnosi się tu do serwera, nie położenia geograficznego.
 
 ## Interakcje z wpisami użytkowników {#actions}
 
-{{< figure src="/assets/image%20%2821%29.png" caption="Rozszerzony widok może zostać załadowany po kliknięciu na wpis w osi czasu." >}}
+{{< figure src="/assets/image%20%2821%29.png" caption="Rozszerzony widok może zostać załadowany po kliknięciu wpisu w osi czasu." >}}
 
-You can perform quick actions on a post directly from the timeline, or you can click on the post to load an expanded view that shows extra information, such as a full timestamp, interaction counts, and threaded replies, if any. The following actions can be performed on a post:
+Możesz dokonywać szybkich działań na wpisach bezpośrednio z osi czasu lub kliknąć wpis, aby zobaczyć rozszerzony widok zawierający szczegółowe informacje o nim, takie jak pełen czas dodania, liczba interakcji czy odpowiedzi w wątku, jeśli takie istnieją. Na wpisie można dokonać następujących działań:
 
-* **Reply** to a post by clicking the arrow icon. Your toot will show up in the thread below the post you are replying to.
-* **Boost** a post by clicking the cycled-arrow icon. The post will be reshared on your profile.
-* **Favourite** a post by clicking the star icon. The post will be added to your favourites list, and a favourite notification will be delivered to its author.
-* **Bookmark** a post by clicking the ribbon icon. The post will be privately added to your bookmarks list without generating a notification.
-* Access a **menu** of additional options by clicking the ellipsis icon.
+* **Odpowiedz** na wpis klikając ikonę strzałki. Twój wpis pojawi się w wątku pod wpisem, na który odpowiadasz.
+* **Podbij** wpis klikając ikonę strzałki cyklicznej. Wpis zostanie udostępniony na Twoim profilu.
+* **Dodaj do ulubionych** wpis klikając na ikonę gwiazdki. Wpis zostanie dodany do Twojej listy ulubionych, a autor wpisu otrzyma powiadomienie o polubieniu wpisu.
+* **Dodaj do zakładek** klikając na ikonę zakładki. Wpis zostanie dodany do Twojej prywatnej listy zakładek bez powiadamiania o tym kogokolwiek.
+* Uzyskaj dostęp do **menu** z dodatkowymi opcjami, klikając ikonę wielokropka.
 
 ## Powiadomienia {#notifications}
 
 {{< figure src="/assets/image%20%2850%29.png" caption="Kolumna powiadomień" >}}
 
-When other people interact with you or your posts, you will receive a notification depending on the type of the event. Your notifications column allows you to view all notifications in the same stream, or to filter for specific types of notifications:
+Jeżeli inne osoby wejdą w interakcje z jednym z Twoich wpisów, otrzymasz powiadomienie zależące od rodzaju działania. Twoja kolumna powiadomień pozwala wyświetlić wszystkie powiadomienia, lub przefiltrować określone rodzaje powiadomień:
 
-* **Mentions:** received when someone has mentioned you in a post.
-* **Favourites:** received when someone has favourited one of your posts.
-* **Boosts:** received when someone has boosted one of your posts.
-* **Polls:** Received when a poll that you have voted in or created has ended.
-* **Follows:** Received when someone has followed your profile.
+* **Wspomnienia:** otrzymywane, kiedy ktoś wspomniał o Tobie we wpisie.
+* **Ulubione:** otrzymywane, kiedy ktoś dodał Twój wpis do ulubionych.
+* **Podbicia:** otrzymywane, kiedy ktoś udostępnił jeden z Twoich wpisów.
+* **Ankiety:** otrzymywane, kiedy zakończyła się ankieta, którą utworzyłeś(-aś) lub w której brałeś(-aś) udział.
+* **Obserwacje:** otrzymywane, kiedy ktoś zaobserwował Twój profil.
 
 ## Obserwowanie profilów {#follow}
 
 ![](/assets/image%20%2811%29.png)
 
-As long as you encounter a person within your app’s user interface, e.g. the web interface on your home server, or your mobile app, you can just click “follow” and you won’t notice a difference if that person is on your server or not.
+Tak długo, jak trafiasz na czyiś profil z poziomu interfejsu swojej aplikacji, np. interfejsu serwera, z którego korzystasz lub aplikacji mobilnej, możesz po prostu nacisnąć „Śledź” i nie zauważysz różnicy wynikającej z tego, czy ta osoba jest na Twoim serwerze.
 
 Jeśli jednak przeglądasz czyiś publiczny profil z poziomu innego serwera, jest jedna przeszkoda — serwer widzi Cię jako anonimowego odwiedzającego. Nie przejmuj się! Możesz po prostu skopiować odnośnik do tego profilu lub jednego z jego wpisów i wkleić ten adres w pole wyszukiwania.
 
@@ -66,9 +66,9 @@ Administratorzy mogą dodatkowo zainstalować wyszukiwanie pełnego tekstu. Wysz
 
 Obsługiwane są następujące operatory:
 
-* **"pełne wyrażenie"** will try to find the term inside the quote marks. This allows looking only for direct matches, such as `"look at my cluckers"` to find posts explicitly telling you to look at someone's cluckers.
-* **-wyklucz** will exclude the term prepended by a minus sign. This allows filtering out certain terms, such as `animals -cats` to find posts about animals without posts about cats.
-* **+uwzględnij** will include the term after the plus sign. This allows searching for multiple terms that must be included, such as `cat +dog` to find posts about both cats and dogs.
+* **"pełne wyrażenie"** spróbuje znaleźć tekst będący zawartością cudzysłowu. W ten sposób odnajdziesz tylko pełne dopasowania, więc np. po wpisaniu `"Warszawa Praga"` znajdziesz tylko wpisy dotyczące tej warszawskiej dzielnicy.
+* **-wyklucz** wykluczy słowo poprzedzone minusem. Pozwala to na przefiltrowanie części słów, więc na przykład `zwierzęta -koty` pozwoli Ci znaleźć wpisy o zwierzętach z wykluczeniem kotów.
+* **+uwzględnij** włączy słowo po znaku plusa. To pozwala na wyszukiwanie wielu słów, które muszą być uwzględnione, więc np. `kot +pies` odnajdzie wpisy dotyczące jednocześnie kotów i psów.
 
 ## Rozmowy bezpośrednie {#direct}
 

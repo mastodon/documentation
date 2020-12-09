@@ -1,5 +1,5 @@
 ---
-title: Rejestracja konta
+title: Zarejestruj konto
 description: Znajdź idealną społeczność dla siebie.
 menu:
   docs:

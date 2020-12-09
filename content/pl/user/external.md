@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z Mastodona zewnętrznie
+title: Korzystaj z Mastodona zewnętrznie
 description: Możesz korzystać i wchodzić w interakcje na Mastodonie z poziomu zewnętrznych aplikacji i stron.
 menu:
   docs:

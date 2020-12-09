@@ -59,7 +59,7 @@ enableGitInfo = true
 
 [languages.pl.menu]
   [[languages.pl.menu.docs]]
-    name = "Korzystanie z Mastodona"
+    name = "Korzystaj z Mastodona"
     weight = 10
     identifier = "user"
     url = "/user/"
@@ -69,17 +69,17 @@ enableGitInfo = true
     identifier = "admin"
     url = "/admin/"
   [[languages.pl.menu.docs]]
-    name = "Tworzenie aplikacji dla Mastodona"
+    name = "Twórz aplikacji dla Mastodona"
     weight = 30
     identifier = "client"
     url = "/client/"
   [[languages.pl.menu.docs]]
-    name = "Współtworzenie Mastodona"
+    name = "Współtwórz Mastodona"
     weight = 40
     identifier = "dev"
     url = "/dev/"
   [[languages.pl.menu.docs]]
-    name = "Zgodność ze specyfikacją"
+    name = "Zgodność ze specyfikacją"
     weight = 50
     identifier = "spec"
     url = "/spec/"

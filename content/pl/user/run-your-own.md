@@ -1,5 +1,5 @@
 ---
-title: Prowadzenie własnego serwera
+title: Prowadź swój własny serwer
 description:
 menu:
   docs:
