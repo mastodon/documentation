@@ -1,5 +1,5 @@
 ---
-title: Przenieś lub opuść kont
+title: Przenieś lub opuść konto
 description: Odbierz informacje i rób z nimi, co chcesz.
 menu:
   docs:
