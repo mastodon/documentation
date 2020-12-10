@@ -35,9 +35,9 @@ menu:
 
 **Description:** The user-defined title of the list.\
 **Type:** String (Enumerable oneOf)\
-`all_replies` = Show replies to any followed user\
-`list_replies` = Show replies to members of the list\
-`no_replies` = Show replies to no one\
+`followed` = Show replies to any followed user\
+`list` = Show replies to members of the list\
+`none` = Show replies to no one\
 **Version history:**\
 3.3.0 - added
 
