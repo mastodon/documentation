@@ -84,7 +84,7 @@ enableGitInfo = true
     identifier = "spec"
     url = "/spec/"
   [[languages.pl.menu.docs]]
-    name = "API REST"
+    name = "REST API"
     weight = 60
     identifier = "api"
     url = "/api/"
