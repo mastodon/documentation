@@ -44,7 +44,7 @@ Istnieje kilka **dedykowanych dostawców hostingu Mastodona** które zapewniają
 
 {{< caption-link url="https://nablahost.com/services/activitypub-hosting/" caption="Nablahost" >}}
 
-Zarządzanie rozwiązania hostingu są świetnym rozwiązaniem, jeżeli nie masz doświadczenia lub chęci samodzielnie instalować i zajmować się oprogramowaniem. Jednak bycie odpowiedzialnym za wszystkie elementy na własnym sprzęcie daje większą kontrolę nad skalowalnością, wydajnością i dostosowywaniem.
+Zarządzane hostingi są świetnym rozwiązaniem, jeżeli nie masz doświadczenia lub chęci samodzielnie instalować i zajmować się oprogramowaniem. Jednak bycie odpowiedzialnym za wszystkie elementy na własnym sprzęcie daje większą kontrolę nad skalowalnością, wydajnością i dostosowywaniem.
 
 Oferujemy **obraz instalacji jednym kliknięciem dla DigitalOcean**, który możesz umieścić na wybranym droplecie DigitalOcean, w zasadzie dając Ci wszystko, co zrobił(a)byś w innym wypadku zgodnie z naszą instrukcją instalacji, lecz z poziomu interaktywnego instalatora.
 
