@@ -27,7 +27,7 @@ Będziesz potrzebować:
 - Serwera **VPS**. To coś, na czym będzie uruchamiany serwer Mastodona, który będzie stale połączony z Internetem.
 
   **Jak uzyskać**: DigitalOcean, Hetzner, Exoscale, Scaleway, dowolny z licznych dostawców hostingu. Wiąże się to z miesięcznym lub rocznym kosztem zależnym od specyfikacji sprzętu.
-- **Dostawca e-mail**. Mastodon musi wysyłać wiadomości z odnośnikami potwierdzającymi i różne powiadomienia przez e-mail, a choć hostowanie własnego serwera SMTP jest możliwe, może to być bardziej skomplikowane niż z korzystanie usługi podmiotu trzeciego.
+- **Dostawcy e-mail**. Mastodon musi wysyłać wiadomości z odnośnikami potwierdzającymi i różne powiadomienia przez e-mail, a choć hostowanie własnego serwera SMTP jest możliwe, może to być bardziej skomplikowane niż z korzystanie usługi podmiotu trzeciego.
 
   **Jak uzyskać**: Mailgun, SparkPost, Postmark, Sendgrid, dowolny z liczny dostawców hostingu e-mail oferujących API SMTP. Wiąże się to z miesięcznym kosztem zależnym od liczby wysłanych e-maili.
 - Nieobowiązkowo: **Dostawca rozwiązania Object Storage**. Mastodon może zapisywać pliki wysyłane przez użytkowników na dysku VPS-a, na którym jest uruchomiony, lecz zwykle powierzchnia tego dysku nie jest nieograniczona i jej powiększenie może być później trudne. Dostawca Object Storage oferuje praktycznie nieograniczoną przestrzeń na pliki.
