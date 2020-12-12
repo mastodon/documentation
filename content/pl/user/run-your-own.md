@@ -48,7 +48,7 @@ Zarządzane hostingi są świetnym rozwiązaniem, jeżeli nie masz doświadczeni
 
 Oferujemy **obraz instalacji jednym kliknięciem dla DigitalOcean**, który możesz umieścić na wybranym droplecie DigitalOcean, w zasadzie dając Ci wszystko, co zrobił(a)byś w innym wypadku zgodnie z naszą instrukcją instalacji, lecz z poziomu interaktywnego instalatora.
 
-{{< caption-link url="https://marketplace.digitalocean.com/apps/mastodon" caption="Mastodon 1-Click Install Image na DigitalOceanie" >}}
+{{< caption-link url="https://marketplace.digitalocean.com/apps/mastodon" caption="Mastodon 1-Click Install Image na DigitalOcean" >}}
 
 Zakłada to jednak konfigurację na jednym urządzeniu. Mastodon dość dobrze skaluje się horyzontalnie. Jeżeli potrzeby przekroczą możliwość jednego urządzenia, Mastodon może zostać podzielony pomiędzy wiele serwerów aplikacji, workerów działających w tle, backendów Redisa, replik PostgreSQL — ale instalacja jednym kliknięciem nie zapewni tego.
 
