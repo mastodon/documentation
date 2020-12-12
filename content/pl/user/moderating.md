@@ -15,7 +15,7 @@ Możliwe jest filtrowanie wpisów według określonych słów kluczowych lub fra
 
 Aby utworzyć i zarządzać filtrami, odwiedź Preferencje &gt; Filtry. Przycisk „Dodaj nowy filtr” pozwoli na utworzenie nowego filtru, a istniejące filtry mogą zostać edytowane lub usunięte. Istniejące filtry są podsumowane w tabeli.
 
-{{< figure src="/assets/image%20%2814%29.png" caption="Filtry mogą mieć datę wyczerpania, określone konteksty, usuwanie po stronie serwera lub używać granic słów." >}}
+{{< figure src="/assets/image%20%2814%29.png" caption="Filtry mogą mieć datę wygaśnięcia, określone konteksty, usuwanie po stronie serwera lub używanie granic słów." >}}
 
 Filtry mają następujące opcje:
 
@@ -25,15 +25,15 @@ To ciąg znaków, który jest sprawdzany. Słowo kluczowe będzie wyszukiwane w 
 
 ### Wygasanie po czasie {#filter-expire}
 
-Opcjonalnie możesz zastosować filtr tylko na określony okres. Wygaśnięte filtry nie są automatycznie usuwane, ale mogą być włączone ponownie, ustawiając nową datę wygaśnięcia \(lub wyłączając wygasanie\).
+Opcjonalnie możesz zastosować filtr tylko na określony okres. Wygasłe filtry nie są automatycznie usuwane, ale mogą być włączone ponownie, ustawiając nową datę wygaśnięcia \(lub wyłączając wygasanie\).
 
 ### Kontekst filtrów {#filter-context}
 
 Wybierz, gdzie zostanie zastosowany filtr:
-* Strona główna i listy – spełniające kryterium wpisy zostaną usunięte ze strony głównej i list
-* Powiadomienia – spełniające kryterium powiadomienia nie będą wyświetlane
-* Publiczne osie czasu – spełniające kryterium wpisy nie będą pojawiać się na lokalnych/sfederowanych osiach czasu
-* Konwersacje – spełniające kryterium wpisy będą ukrywane w wątkach i szczegółowym widoku
+* Strona główna i listy – spełniające kryteria wpisy zostaną usunięte ze strony głównej i list
+* Powiadomienia – spełniające kryteria powiadomienia nie będą wyświetlane
+* Publiczne osie czasu – spełniające kryteria wpisy nie będą pojawiać się na lokalnych/sfederowanych osiach czasu
+* Konwersacje – spełniające kryteria wpisy będą ukrywane w wątkach i szczegółowym widoku
 
 ### Usuwanie zamiast ukrywania {#filter-drop}
 
@@ -45,17 +45,17 @@ Filtry zwykle są stosowane we wpisach zawierających wskazane znaki, niezależn
 
 ## Działania po stronie użytkownika {#blocking-and-muting}
 
-{{< figure src="/assets/image%20%2824%29.png" caption="Menu wyboru użytkownika oferuje różnorodne działania." >}}
+{{< figure src="/assets/image%20%2824%29.png" caption="Rozwijane menu użytkownika oferuje różnorodne działania." >}}
 
 ### Ukrywanie udostępnień {#hide-boosts}
 
-Jeżeli ukryjesz czyjeś udostępnienia, nie zobaczysz ich udostępnień na stronie głównej. Dotyczy to tylko kont użytkowników, których obecnie obserwujesz.
+Jeżeli ukryjesz czyjeś udostępnienia, nie zobaczysz ich udostępnień na stronie głównej. Dotyczy to tylko kont użytkowników, które obecnie obserwujesz.
 
 ### Wyciszanie {#mute}
 
 {{< figure src="/assets/image%20%2852%29.png" caption="Przykład wyciszonych kont." >}}
 
-Po wyciszeniu możesz zadecydować czy wyciszysz powiadomienia od tej osoby. Wyciszenie bez wyciszania powiadomień sprawi, że:
+Przy wyciszeniu możesz zadecydować czy wyciszysz powiadomienia od tej osoby. Wyciszenie bez wyciszania powiadomień sprawi, że:
 
 * Nie zobaczysz tego użytkownika na stronie głównej
 * Nie zobaczysz innych osób, gdy udostępniają tego użytkownika
@@ -100,7 +100,7 @@ Jeżeli ukryjesz cały serwer:
 
 ## Zgłaszanie nieodpowiedniej treści moderatorom {#report}
 
-{{< figure src="/assets/image%20%283%29.png" caption="Modal zgłaszania pozwalający na wybór przykładowych wpisów, dodanie notatki czy przekierowanie zgłoszeń." >}}
+{{< figure src="/assets/image%20%283%29.png" caption="Okno zgłaszania pozwalające na wybór przykładowych wpisów, dodanie notatki czy przekierowanie zgłoszeń." >}}
 
 Jeżeli zobaczysz wpis lub użytkownika naruszającego zasady Twojego serwera, możesz zgłosić użytkownika moderatorom swojego serwera. Wybranie opcji „Zgłoś” otworzy okno zgłaszania. Tam możesz \(jest to wskazane\) dodać notatkę, w której napiszesz, dlaczego zgłaszasz to konto. Możesz załączyć nieodpowiednie wpisy dla dodatkowego kontekstu zgłoszenia, a jeżeli naruszają one zasady zdalnego serwera, możesz przekierować zgłoszenie również do jego moderatorów.
 

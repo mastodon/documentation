@@ -54,7 +54,7 @@ Jeżeli przeglądasz publiczny profil z innego serwera Mastodona, przeczytaj [Ko
 
 {{< figure src="/assets/image%20%2819%29.png" caption="Możliwość wyszukiwania jest dostępna na pasku bocznym." >}}
 
-Podstawowe wyszukiwanie na Mastodonie pozwala zalogowanym użytkownikom na znalezienie wpisów zawierających określony hashtag, lub załadowanie użytkownika bądź wpisu znając adres jego profilu lub adres URL. Wyszukiwanie słowa wyświetli profile, których nazwy użytkowników lub nazwy wyszukiwania zawierają je, oraz hashtagi spełniające to kryterium.
+Podstawowe wyszukiwanie na Mastodonie pozwala zalogowanym użytkownikom na znalezienie wpisów zawierających określony hashtag, lub załadowanie użytkownika bądź wpisu znając adres jego profilu lub adres URL. Wyszukiwanie słowa wyświetli profile, których nazwy użytkowników lub nazwy wyświetlane zawierają je, oraz hashtagi spełniające to kryterium.
 
 {{< figure src="/assets/image%20%2839%29.png" caption="Przykład wpisu ładowanego bezpośrednio z adresu URL." >}}
 
@@ -70,7 +70,7 @@ Obsługiwane są następujące operatory:
 * **-wyklucz** wykluczy słowo poprzedzone minusem. Pozwala to na przefiltrowanie części słów, więc na przykład `zwierzęta -koty` pozwoli Ci znaleźć wpisy o zwierzętach z wykluczeniem kotów.
 * **+uwzględnij** włączy słowo po znaku plusa. To pozwala na wyszukiwanie wielu słów, które muszą być uwzględnione, więc np. `kot +pies` odnajdzie wpisy dotyczące jednocześnie kotów i psów.
 
-## Rozmowy bezpośrednie {#direct}
+## Wiadomości bezpośrednie {#direct}
 
 {{< figure src="/assets/image%20%2812%29.png" caption="Lista konwersacji zawierających wiadomości bezpośrednie." >}}
 
