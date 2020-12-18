@@ -77,9 +77,15 @@ If this succeeds, without returning an error, your database should be consistent
 
 Unless you take action, if you are affected, your database could get more and more inconsistent as the time pass. Therefore, it is important to fix it as soon as possible.
 
-Before attempting to fix your database, stop Mastodon and make a backup of your database. Then, you may try running `tootctl maintenance fix-duplicates`.
-This tool will walk through the database to find duplicate and fix them. In some cases, those operations are destructive.
-In the most destructive cases, you will be asked to chose which record to keep. In all cases, walking through the whole database in search of duplicates is an extremely long operation.
+Mastodon 3.2.2 and later come with a semi-interactive script to fix those corruptions as best as possible. If you're on an earlier version, update to 3.2.2 first. It is possible that running the database migrations to 3.2.2 will fail because of those very corruptions, but the database should then be brought to a state that the maintenance tool bundled with Mastodon 3.2.2 can then recover from.
+
+Before attempting to fix your database, stop Mastodon and make a backup of your database. Then, with Mastodon still stopped, run the maintenance script:
+
+```
+RAILS_ENV=production tootctl maintenance fix-duplicates
+```
+
+The tool will walk through the database to find duplicate and fix them. In some cases, those operations are destructive. In the most destructive cases, you will be asked to chose which record to keep. In all cases, walking through the whole database in search of duplicates is an extremely long operation. Mastodon **has** to be stopped during the whole process to prevent additional duplicates from occuring.
 
 ## Avoiding the issue
 
