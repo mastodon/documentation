@@ -37,7 +37,7 @@ Bearer &lt;user token&gt;
 Text content of the status. If `media_ids` is provided, this becomes optional. Attaching a `poll` is optional while `status` is provided.
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="media_ids\[\]" type="array" required=true >}}
-Array of Attachment ids to be attached as media. If provided, `status` becomes optional, and `poll` cannot be used.
+Array of Attachment ids to be attached as media. If provided, `status` becomes optional, and `poll` cannot be used. You can get ids from [media API](https://docs.joinmastodon.org/methods/statuses/media/).
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="poll\[options\]\[\]" type="array" required=true >}}
 Array of possible answers. If provided, `media_ids` cannot be used, and `poll[expires_in]` must be provided.
