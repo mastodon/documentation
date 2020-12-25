@@ -31,6 +31,12 @@ menu:
 **Type:** String\
 **Version history:** Added in 3.0.0
 
+### `url` {#url}
+
+**Description:** A link to all statuses by a user that contain this hashtag.\
+**Type:** String (URL)\
+**Version history:** Added in 3.3.0
+
 ### `statuses_count` {#statuses_count}
 
 **Description:** The number of authored statuses containing this hashtag.\
