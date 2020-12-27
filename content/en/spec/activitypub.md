@@ -102,7 +102,9 @@ Contains definitions for Mastodon features.
 * toot:blurhash
 * toot:focalPoint
 * toot:featured
+* toot:featuredTags
 * toot:discoverable
+* toot:suspended
 * toot:votersCount
 
 ### ActivityStreams extensions \(`as:`\) {#as}
@@ -183,6 +185,29 @@ What is known in Mastodon as “pinned toots”, or statuses that are always fea
   "id": "https://example.com/@alice",
   "type": "Person",
   "featured": "https://example.com/@alice/collections/featured"
+}
+```
+
+### Featured tags {#featuredTags}
+
+Mastodon allows users to feature specific hashtags on their profile for easy browsing, as a discoverability mechanism. This is implemented using an extra property `featuredTags` on the actor object that points to a `Collection` of `Hashtag` objects specifically.
+
+```javascript
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    {
+      "toot": "http://joinmastodon.org/ns#",
+      "featuredTags": {
+        "@id": "toot:featuredTags",
+        "@type": "@id"
+      }
+    }
+  ],
+
+  "id": "https://example.com/@alice",
+  "type": "Person",
+  "featuredTags": "https://example.com/@alice/collections/tags"
 }
 ```
 
@@ -356,8 +381,66 @@ Mastodon allows users to opt-in or opt-out of discoverability features like the 
 }
 ```
 
+### Suspended flag {#suspended}
+
+Mastodon reports whether a user was locally suspended, for better handling of these accounts. Suspended accounts in Mastodon return empty data. If a remote account is marked as suspended, it cannot be unsuspended locally. Suspended accounts can be targeted by activities such as Update, Undo, Reject, and Delete. This functionality is implemented using an extra property `suspended` on objects. Example:
+
+```javascript
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    {
+      "toot": "http://joinmastodon.org/ns#",
+      "suspended": "toot:suspended"
+    }
+  ],
+  "id": "https://example.com/@eve",
+  "type": "Person",
+  "suspended": true
+}
+```
+
+## Other functionality
+
 ### Secure mode {#secure-mode}
 
-When a Mastodon server runs in secure mode, all cross-server HTTP requests to it must be signed (in other words, even `GET` requests to public resources). That way, the Mastodon server can choose to reject requests from servers it has blocked and avoid "leaking" public information. Mastodon itself uses a dedicated system actor to sign such HTTP requests.
+When a Mastodon server runs in secure mode, all cross-server HTTP requests to it must be signed (in other words, even `GET` requests to public resources). That way, the Mastodon server can choose to reject requests from servers it has blocked and avoid "leaking" public information. Mastodon itself uses a dedicated system actor to sign such HTTP requests. See [Security](../security) for more details on HTTP signatures.
 
 Secure mode is the foundation upon which "limited federation mode" is built. A Mastodon server in limited federation mode will only federate with servers its admin has explicitly allowed, and reject all other requests.
+
+### Follower synchronization mechanism
+
+Mastodon has a concept of "followers-only" posts, but expanding the followers collection is currently handled at the destination rather than at the origin (i.e., not with explicit addressing). Therefore, a mechanism to detect synchronization issues and correct them is needed. This mechanism must work on partial followers collections, rather than the full collection (which may not be public information).
+
+When delivering a message to a remote user, an optional `Collection-Synchronization` HTTP header is attached, following the same syntax as the `Signature` header, with the following attributes:
+
+- `collectionId` = MUST be the sender's `followers` collection
+- `url` = a URL to a partial collection containing the identifiers of the sender's followers residing on the receiver's instance. MUST reside on the same domain as the actor itself, and SHOULD be only accessible with a signed query from the receiver's instance
+- `digest` = hexadecimal representation of the XORed SHA256 digests of each of the identifiers in the partial collection
+
+Example:
+
+```http
+POST https://mastodon.social/users/foo/inbox
+Collection-Synchronization:
+  collectionId="https://social.sitedethib.com/users/Thib/followers",
+  url="https://social.sitedethib.com/users/Thib/followers_synchronization",
+  digest="b08ab6951c7d6cc2b91e17ebd9557da7fae02489728e9332fcb3a97748244d50"
+```
+
+When a remote user attempts to GET the partial collection `url`, this request must be signed with HTTP signatures. Example:
+
+```http
+GET https://social.sitedethib.com/users/Thib/followers_synchronization
+Signature: ... # a signature from an account on mastodon.social
+
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "https://social.sitedethib.com/users/Thib/followers?domain=mastodon.social",
+  "type": "OrderedCollection",
+  "orderedItems": [
+    "https://mastodon.social/users/Gargron"
+  ]
+}
+```
+

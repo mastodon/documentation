@@ -15,11 +15,10 @@ Information about the server.
 
 **Returns:** Instance\
 **OAuth:** Public\
-**Version history:**
-
-- 1.1.0 - added
-- 3.0.0 - requires user token if instance is in whitelist mode
-- 3.1.4 - added `invites_enabled` to response
+**Version history:**\
+1.1.0 - added\
+3.0.0 - requires user token if instance is in whitelist mode\
+3.1.4 - added `invites_enabled` to response
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -97,10 +96,9 @@ Domains that this instance is aware of.
 
 **Returns:** Array of String\
 **OAuth:** Public\
-**Version history:**
-
-- 2.1.2 - added
-- 3.0.0 - requires user token if instance is in whitelist mode
+**Version history:**\
+2.1.2 - added\
+3.0.0 - requires user token if instance is in whitelist mode
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -125,10 +123,9 @@ Instance activity over the last 3 months, binned weekly.
 
 **Returns:** Array of Activity\
 **OAuth:** Public\
-**Version history:**
-
-- 2.1.2 - added
-- 3.0.0 - requires user token if instance is in whitelist mode
+**Version history:**\
+2.1.2 - added\
+3.0.0 - requires user token if instance is in whitelist mode
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

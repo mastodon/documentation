@@ -11,11 +11,11 @@ menu:
 
 It is possible to filter statuses for specific keywords and phrases so that they can be hidden automatically.
 
-{{< figure src="/assets/image%20%2848%29.png" caption="A sample of active filters for various keywords in different contexts." >}}
+{{< figure src="/assets/filter-list.jpg" caption="A sample of active filters for various keywords in different contexts." >}}
 
 To create or manage your filters, go to Settings &gt; Filters. The "Add new filter" button will let you create a new filter, and existing filters can be edited or deleted. Your existing filters will be summarized in a table.
 
-{{< figure src="/assets/image%20%2814%29.png" caption="Filters can have an expiry date, specific contexts, server-side drop, and use word boundaries." >}}
+{{< figure src="/assets/filter-edit.jpg" caption="Filters can have an expiry date, specific contexts, server-side drop, and use word boundaries." >}}
 
 Filters have the following settings:
 
@@ -46,7 +46,7 @@ Filters normally apply to any status that contains the included characters, rega
 
 ## User-level actions {#blocking-and-muting}
 
-{{< figure src="/assets/image%20%2824%29.png" caption="The user dropdown menu offers various actions." >}}
+{{< figure src="/assets/profile-dropdown.jpg" caption="The profile dropdown menu offers various actions." >}}
 
 ### Hiding boosts {#hide-boosts}
 
@@ -54,7 +54,7 @@ If you hide boosts from someone, you won’t see their boosts in your home feed.
 
 ### Muting {#mute}
 
-{{< figure src="/assets/image%20%2852%29.png" caption="Sample of muted accounts." >}}
+{{< figure src="/assets/muted.jpg" caption="Sample of muted accounts." >}}
 
 When muting, you have the option to mute notifications from them or not. Muting without muting notifications hides the user from your view:
 
@@ -65,11 +65,13 @@ When muting, you have the option to mute notifications from them or not. Muting 
 
 If you choose to also mute notifications from them, you will additionally not see notifications from that user.
 
+Mutes can also have an optional duration, after which they will expire.
+
 The user has no way of knowing they have been muted.
 
 ### Blocking {#block}
 
-{{< figure src="/assets/image%20%2836%29.png" caption="Sample of blocked accounts." >}}
+{{< figure src="/assets/blocked.jpg" caption="Sample of blocked accounts." >}}
 
 Blocking hides a user from your view:
 
@@ -88,11 +90,11 @@ Additionally, on the blocked user’s side:
 
 If you and the blocked user are on the same server, the blocked user will not be able to view your posts on your profile while logged in.
 
-### Hiding an entire server {#hide-domain}
+### Hiding an entire server {#block-domain}
 
-![](/assets/image%20%2861%29.png)
+![](/assets/block-domain.jpg)
 
-If you hide an entire server:
+If you block an entire server:
 
 * You will not see posts from that server on the public timelines
 * You won’t see other people’s boosts of that server in your home feed
@@ -101,7 +103,7 @@ If you hide an entire server:
 
 ## Reporting problematic content to moderators {#report}
 
-{{< figure src="/assets/image%20%283%29.png" caption="The report modal allows selecting example statuses, adding a note, and forwarding reports." >}}
+{{< figure src="/assets/report-modal.jpg" caption="The report modal allows selecting example statuses, adding a note, and forwarding reports." >}}
 
 If you see a status or user that is violating the rules of your website, you can report that user to your site's moderators. Clicking the "report" option on the user dropdown or status dropdown will open the report modal. Here, you can \(and should\) add a note about why you are reporting this account. You can attach certain problematic statuses for additional context on why you are reporting the account, and if their conduct is violating the rules of the remote website, you can also choose to forward the report to their site's moderators.
 

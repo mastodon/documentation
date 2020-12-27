@@ -16,9 +16,8 @@ Accounts the user has had past positive interactions with, but is not yet follow
 
 **Returns:** Array of Account\
 **OAuth:** User token + `read`\
-**Version history:**
-
-- 2.4.3 - added
+**Version history:**\
+2.4.3 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -165,9 +164,8 @@ Remove an account from follow suggestions.
 
 **Returns:** n/a\
 **OAuth:** User token + `read`\
-**Version history:**
-
-- 2.4.3 - added
+**Version history:**\
+2.4.3 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

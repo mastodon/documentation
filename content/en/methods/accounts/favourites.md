@@ -14,10 +14,9 @@ Statuses the user has favourited.
 
 **Returns:** Array of Status\
 **OAuth:** User token + `read:favourites`\
-**Version:**
-
-- 0.0.0 - added
-- 2.6.0 - min_id added
+**Version:**\
+0.0.0 - added\
+2.6.0 - `min_id` added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

@@ -12,9 +12,8 @@ menu:
 
 **Returns:** Array of ScheduledStatus\
 **OAuth:** User token + `read:statuses`\
-**Version history:**
-
-- 2.7.0 - added
+**Version history:**\
+2.7.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -86,9 +85,8 @@ Return results immediately newer than ID
 
 **Returns:** ScheduledStatus\
 **OAuth:** User token + `read:statuses`\
-**Version history:**
-
-- 2.7.0 - added
+**Version history:**\
+2.7.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -160,9 +158,8 @@ Bearer &lt;user token&gt;
 
 **Returns:** ScheduledStatus\
 **OAuth:** User token + `write:statuses`\
-**Version history:**
-
-- 2.7.0 - added
+**Version history:**\
+2.7.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -250,9 +247,8 @@ ISO 8601 Datetime at which the status will be published. Must be at least 5 minu
 
 **Returns:** empty object\
 **OAuth:** User token + `write:statuses`\
-**Version history:**
-
-- 2.7.0 - added
+**Version history:**\
+2.7.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

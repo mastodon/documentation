@@ -13,6 +13,7 @@ menu:
   "id": "1",
   "following": true,
   "showing_reblogs": true,
+  "notifying": false,
   "followed_by": true,
   "blocking": false,
   "blocked_by": false,
@@ -81,6 +82,13 @@ menu:
 **Type:** Boolean\
 **Version history:**\
 2.1.0 - added
+
+### `notifying` {#notifying}
+
+**Description:** Have you enabled notifications for this user?\
+**Type:** Boolean\
+**Version history:**\
+3.3.0 - added
 
 ### `blocking`
 

@@ -23,9 +23,9 @@ The three parts of the `Signature:` header can be broken down like so:
 
 ```http
 Signature:
-keyId="https://my-example.com/actor#main-key",
-headers="(request-target) host date",
-signature="Y2FiYW...IxNGRiZDk4ZA=="
+  keyId="https://my-example.com/actor#main-key",
+  headers="(request-target) host date",
+  signature="Y2FiYW...IxNGRiZDk4ZA=="
 ```
 
 The `keyId` should correspond to the actor and the key being used to generate the `signature`, whose value is equal to all parameters in `headers` concatenated together and signed by the key, then Base64-encoded. See [ActivityPub &gt; Public key]({{< relref "activitypub.md#public-key" >}}) for more information on actor keys. An example key looks like this:

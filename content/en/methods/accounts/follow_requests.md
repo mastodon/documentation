@@ -12,9 +12,8 @@ menu:
 
 **Returns:** Array of Account\
 **OAuth:** User token + `read:follows` or `follow`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -72,10 +71,9 @@ Invalid or missing Authorization header
 
 **Returns:** Relationship\
 **OAuth:** User token + `write:follows` or `follow`\
-**Version history:**
-
-- 0.0.0 - added
-- 3.0.0 - now returns Relationship instead of nothing
+**Version history:**\
+0.0.0 - added\
+3.0.0 - now returns Relationship instead of nothing
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -149,10 +147,9 @@ No pending follow request from that user ID
 
 **Returns:** Relationship\
 **OAuth:** User token + `write:follows` or `follow`\
-**Version history:**
-
-- 0.0.0 - added
-- 3.0.0 - now returns Relationship instead of nothing
+**Version history:**\
+0.0.0 - added\
+3.0.0 - now returns Relationship instead of nothing
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

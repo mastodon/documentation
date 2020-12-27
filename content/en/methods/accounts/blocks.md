@@ -12,9 +12,8 @@ menu:
 
 **Returns:** Array of Account\
 **OAuth:** User token + `read:blocks`\
-**Version history:**
-
-- 0.0.0 - added
+**Version history:**\
+0.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
