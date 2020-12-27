@@ -21,6 +21,10 @@ Mastodon’s full-text search allows logged-in users to find results from:
 
 It deliberately does not allow searching for arbitrary strings in the entire database.
 
+{{< hint style="warning" >}}
+Please note that ElasticSearch has significant memory requirements, which can easily outpace those of Mastodon itself.
+{{< /hint >}}
+
 ## Installing Elasticsearch {#install}
 
 {{< hint style="info" >}}
