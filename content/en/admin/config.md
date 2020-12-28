@@ -21,7 +21,7 @@ This is the unique identifier of your server in the network. It cannot be safely
 
 #### `WEB_DOMAIN`
 
-It is possible to run the Mastodon interface on one domain, while having the users' handles on a different domain, e.g. addressing users as `@alice@example.com` but accessing Mastodon on `mastodon.example.com`. This may be useful if your domain name is already used for a different website but you still want to use it as a Mastodon identifier because it looks better/shorter. This requires additional nginx configuration like proxying `LOCAL_DOMAIN./well-known` to your Mastodon instace or set a WebFinger. [more about WebFinger](/spec/webfinger/#intro)
+It is possible to run the Mastodon interface on one domain, while having the users' handles on a different domain, e.g. addressing users as `@alice@example.com` but accessing Mastodon on `mastodon.example.com`. This may be useful if your domain name is already used for a different website but you still want to use it as a Mastodon identifier because it looks better/shorter. This requires additional nginx configuration like proxying `LOCAL_DOMAIN/.well-known` to your Mastodon instace or set a WebFinger. [more about WebFinger](/spec/webfinger/#intro)
 
 #### `ALTERNATE_DOMAINS`
 
