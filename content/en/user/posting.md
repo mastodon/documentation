@@ -7,7 +7,7 @@ menu:
     parent: user
 ---
 
-{{< figure src="/assets/image%20%2859%29.png" caption="Compose form with CW enabled" >}}
+{{< figure src="/assets/compose-with-cw.jpg" caption="Compose form with CW enabled" >}}
 
 ## Text {#text}
 
@@ -15,25 +15,25 @@ The main body of each status update can be composed using the text field. The de
 
 ### Links {#links}
 
-{{< figure src="/assets/image%20%287%29.png" caption="Links must start with http\(s\):// and are counted as 23 characters regardless of length." >}}
+{{< figure src="/assets/compose-links.jpg" caption="Links must start with http\(s\):// and are counted as 23 characters regardless of length." >}}
 
 If you include links in your post, they must begin with `http://` or `https://`. All links are counted as 23 characters, no matter how long they actually are, so there is no need to use a link shortener to save characters. In fact, using a link shortener is actively discouraged.
 
 ### Mentions {#mentions}
 
-{{< figure src="/assets/image%20%2820%29.png" caption="Suggested mentions for both local and remote users." >}}
+{{< figure src="/assets/compose-mentions.jpg" caption="Suggested mentions for both local and remote users." >}}
 
 You can mention users by typing out their full address, e.g. `@alice@example.com`. Note that any usage of`@word` will be interpreted as mentioning the local user with the username `word`, if that user exists. Only the username part will count against your character limit -- the domain is not counted.
 
 ### Hashtags {#hashtags}
 
-{{< figure src="/assets/image%20%2825%29.png" caption="Hashtags are autosuggested by usage frequency." >}}
+{{< figure src="/assets/compose-hashtags.jpg" caption="Hashtags are autosuggested by usage frequency." >}}
 
 You can use a `#hashtag` to make your post discoverable to anyone searching for that hashtag. Hashtags can contain alphanumeric characters and underscores, but cannot contain numbers only.
 
 ### Custom emoji {#emoji}
 
-{{< figure src="/assets/image%20%2838%29.png" caption="An array of custom emoji are available in the selector." >}}
+{{< figure src="/assets/compose-custom-emoji.jpg" caption="An array of custom emoji are available in the selector." >}}
 
 Each server offers a set of custom emoji you can use, like on Discord. You can use an emoji using its shortcode like `:thounking:`, or by clicking the emoji face in the compose box and browsing through the "Custom" category. You can also browse through and search for standard unicode emoji.
 
@@ -43,7 +43,7 @@ You can attach either files or a poll to your status.
 
 ### Files {#media}
 
-{{< figure src="/assets/image%20%2844%29.png" caption="Thumbnail for attached media, with options to delete, edit, or mark as sensitive" >}}
+{{< figure src="/assets/compose-media-attachment.jpg" caption="Thumbnail for attached media, with options to delete, edit, or mark as sensitive" >}}
 
 Click the paper clip to attach a file to your post. You can attach the following:
 
@@ -54,13 +54,13 @@ Click the paper clip to attach a file to your post. You can attach the following
 
 #### Editing media {#edit}
 
-{{< figure src="/assets/image%20%2826%29.png" caption="Edit media to add a media description or choose a focal point for the preview thumbnail." >}}
+{{< figure src="/assets/edit-media.jpg" caption="Edit media to add a media description or choose a focal point for the preview thumbnail." >}}
 
 By clicking the "Edit" link on the attachment thumbnail, you can load a modal which will allow adding a media description or changing the focal point. Although optional, it is a good idea to add media descriptions that briefly describe what is in contained in the media. These descriptions will be shown when the media fails to load for any reason, or when accessed by screen readers and other assistive technology. Setting the focal point is also optional, but can make preview thumbnails looks better when they are not shown in a 16:9 aspect ratio.
 
 ### Polls {#polls}
 
-{{< figure src="/assets/image%20%2841%29.png" caption="A poll with 2 one-of choices, expiring in 1 day" >}}
+{{< figure src="/assets/compose-polls.jpg" caption="A poll with 2 one-of choices, expiring in 1 day" >}}
 
 Click the bar graph icon to attach a poll to your post.
 
@@ -126,9 +126,9 @@ Send your post only to mentioned users.
 
 ## Content warnings and sensitive content {#cw}
 
-{{< figure src="/assets/image.png" caption="A status with a CW that is marked as sensitive content." >}}
+{{< figure src="/assets/status-cw.jpg" caption="A status with a CW that is marked as sensitive content." >}}
 
 One feature that Mastodon provides that you may not have seen on other social networks is the option to attach a content warning to your posts. When a content warning is included, the status content will be collapsed by default, and only the CW will be shown, similarly to an email subject line or a "read more" break. This can be used to add a summary or subject for your post, to collapse long posts, or to otherwise provide context or setup for the body of the post.
 
-When media is attached, a checkbox appears to allow you to "mark media as sensitive". This hides the full media behind a blurred thumbnail by default. Adding a CW to a post automatically marks the post as sensitive as well.
+When media is attached, a checkbox appears to allow you to "mark media as sensitive". This hides the full media behind a blurred thumbnail by default. Adding a CW to a post automatically marks the media as sensitive as well.
 

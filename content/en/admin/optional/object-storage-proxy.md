@@ -29,7 +29,7 @@ server {
     try_files $uri @s3;
   }
 
-  set $s3_backend 'https://YOUR_S3_HOSTNAME';
+  set $s3_backend 'https://YOUR_BUCKET_NAME.YOUR_S3_HOSTNAME';
 
   location @s3 {
     limit_except GET {
@@ -51,7 +51,7 @@ server {
     proxy_hide_header x-amz-bucket-region;
     proxy_hide_header x-amzn-requestid;
     proxy_ignore_headers Set-Cookie;
-    proxy_pass $s3_backend/YOUR_BUCKET_NAME$uri;
+    proxy_pass $s3_backend$uri;
     proxy_intercept_errors off;
 
     proxy_cache CACHE;

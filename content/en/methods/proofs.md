@@ -12,9 +12,8 @@ menu:
 
 **Returns:** custom response defined by provider\
 **OAuth:** Public\
-**Version history:**
-
-- 2.8.0 - added
+**Version history:**\
+2.8.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

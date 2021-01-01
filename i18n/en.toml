@@ -60,3 +60,6 @@ other = "Response"
 
 [otherTranslations]
 other = "Also available in:"
+
+[sponsoredBy]
+other = "Sponsored by"

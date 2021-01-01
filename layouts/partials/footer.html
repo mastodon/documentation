@@ -1,13 +1,34 @@
 <footer class="footer container">
-  <a href="https://designbyhumans.com/shop/mastodon" class="panel" style="background-image: url(/shirt.png)">
-    <div class="overlay">
-      <h5>{{ i18n "merch" }}</h5>
-      <p>{{ i18n "shirtsAndStickers" }}</p>
+  <div class="sponsorship">
+    <div class="container">
+      <h2>
+        {{ i18n "sponsoredBy" }}
+      </h2>
+
+      <div class="logo-grid">
+        <div>
+          <a href="https://www.dotcom-monitor.com/es/">
+            <img src="/assets/sponsors/dotcom-monitor-logo.png" alt="Dotcom-Monitor" />
+          </a>
+
+          <a href="https://www.loadview-testing.com/api-testing/">
+            <img src="/assets/sponsors/LoadView-logo.png" alt="LoadView" />
+          </a>
+
+          <a href="https://webhostingbuddy.com/wordpress-hosting/">
+            <img src="/assets/sponsors/web-hosting-buddy-logo.png" alt="Web Hosting Buddy" />
+          </a>
+
+          <a href="https://www.drivencoffee.com/">
+            <img src="/assets/sponsors/driven-coffee-logo.png" alt="Driven Coffee" />
+          </a>
+        </div>
+      </div>
     </div>
-  </a>
+  </div>
 
   <p class="legal legal--right">
-    <a href='https://joinmastodon.org'>{{ i18n "joinMastodon" }}</a> · <a href='https://blog.joinmastodon.org'>{{ i18n "blog" }}</a> · <a href='https://mastodon.social/@Mastodon' target='_blank'><i class='fab fa-mastodon'></i></a> · <a href='https://twitter.com/MastodonProject' rel='nofollow' target='_blank'><i class='fab fa-twitter'></i></a>
+    <a href='https://joinmastodon.org'>{{ i18n "joinMastodon" }}</a> · <a href='https://blog.joinmastodon.org'>{{ i18n "blog" }}</a> · <a href='https://mastodon.social/@Mastodon' target='_blank'><i class='fab fa-mastodon'></i></a> · <a href='https://twitter.com/joinmastodon' rel='nofollow' target='_blank'><i class='fab fa-twitter'></i></a>
   </p>
 
   <p class="legal">{{ with .File }}<a href='https://github.com/tootsuite/documentation/tree/master/content/{{ .Lang }}/{{ .File.Path }}'>{{ i18n "viewSource" }}</a> · {{ end }}<a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY-SA 4.0</a> · <a href='https://joinmastodon.org/imprint'>{{ i18n "imprint" }}</a></p>

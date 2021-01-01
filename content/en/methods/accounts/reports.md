@@ -17,8 +17,8 @@ Responses are not currently documented.
 **Returns:** Report\
 **OAuth:** User token + `write:reports`\
 **Version history:**\
-1.1 - added
-- 2.3.0 - add `forward` parameter
+1.1 - added\
+2.3.0 - add `forward` parameter
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

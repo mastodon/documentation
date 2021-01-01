@@ -14,9 +14,8 @@ View domains the user has blocked.
 
 **Returns:** Array of strings\
 **OAuth:** User token + `read:blocks` or `follow`\
-**Version:**
-
-- 1.4.0 - added
+**Version:**\
+1.4.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -79,9 +78,8 @@ Block a domain to:
 
 **Returns:** n/a\
 **OAuth:** User token + ****`write:blocks` or `follow`\
-**Version:**
-
-- 1.4.0 - added
+**Version:**\
+1.4.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -156,10 +154,9 @@ If `domain` is not provided or contains spaces, the request will fail.
 Remove a domain block, if it exists in the user's array of blocked domains.
 
 **Returns:** n/a\
-**OAuth:** User token + ****`write:blocks` or `follow`\
-**Version history:**
-
-- 1.4.0 - added
+**OAuth:** User token + `write:blocks` or `follow`\
+**Version history:**\
+1.4.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

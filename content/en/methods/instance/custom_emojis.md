@@ -16,10 +16,9 @@ Returns custom emojis that are available on the server.
 
 **Returns:** Array of Emoji\
 **OAuth:** Public\
-**Version history:**
-
-- 2.0.0 - added
-- 3.0.0 - optional `category` added to response
+**Version history:**\
+2.0.0 - added\
+3.0.0 - optional `category` added to response
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

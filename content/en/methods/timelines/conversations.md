@@ -14,9 +14,8 @@ menu:
 
 **Returns:** Array of Conversation\
 **OAuth:** User token + `read:statuses`\
-**Version history:**
-
-- 2.6.0 - added
+**Version history:**\
+2.6.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -113,9 +112,8 @@ Invalid or missing Authorization header
 
 **Returns:** empty object\
 **OAuth:** User token + `write:conversations`\
-**Version history:**
-
-- 2.6.0 - added
+**Version history:**\
+2.6.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -176,9 +174,8 @@ The conversation does not exist, or is not owned by you.
 
 **Returns:** Conversation\
 **OAuth:** User token + `write:conversations`\
-**Version history:**
-
-- 2.6.0 - added
+**Version history:**\
+2.6.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

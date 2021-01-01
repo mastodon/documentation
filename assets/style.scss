@@ -491,39 +491,6 @@ main {
   margin-bottom: 35px;
 }
 
-.panel {
-  display: block;
-  border-radius: 4px;
-  text-decoration: none;
-  background-size: 60%;
-  background-color: #000;
-  background-size: 60%;
-  background-repeat: no-repeat;
-  background-position: top right;
-  text-align: left;
-
-  @media screen and (max-width: $mobile-width) {
-    background-size: contain;
-  }
-
-  .overlay {
-    padding: 20px;
-  }
-
-  h5 {
-    padding-top: 111px;
-    font-size: 26px;
-    font-weight: 600;
-    line-height: 1.58;
-    color: #fff;
-  }
-
-  p {
-    color: #fff;
-    font-size: 16px;
-  }
-}
-
 .cta-banner {
   background: $vibrant;
   border-radius: 4px;
@@ -775,5 +742,70 @@ main {
     &-error {
       background: $error;
     }
+  }
+}
+
+.sponsorship {
+  background: darken($darkest, 4%);
+  border-radius: 4px;
+  padding: 40px 0;
+
+  h2 {
+    line-height: 21px;
+    font-weight: 500;
+    font-size: 16px;
+    color: lighten($darkest, 40%);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .logo-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      padding: 0 10px;
+
+      img {
+        display: block;
+        margin: 0;
+        height: 28px;
+        width: auto;
+        opacity: 0.8;
+        transition: all $transition-in;
+        filter: grayscale(100%);
+      }
+
+      &:hover {
+        img {
+          opacity: 0.9;
+          transition: all $transition-out;
+          filter: grayscale(0%);
+        }
+      }
+    }
+  }
+
+  h2 {
+    color: $lightest;
+  }
+
+  .logo-grid > div {
+    flex-wrap: wrap;
+  }
+
+  .logo-grid a {
+    padding: 20px;
   }
 }

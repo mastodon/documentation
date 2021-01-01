@@ -12,9 +12,8 @@ menu:
 
 **Returns:** OEmbed metadata\
 **OAuth:** Public\
-**Version history:**
-
-- 1.0.0 - added
+**Version history:**\
+1.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

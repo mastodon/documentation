@@ -15,10 +15,9 @@ Create a new application to obtain OAuth2 credentials.
 
 **Returns:** Application, with `client_id` and `client_secret`\
 **OAuth:** Public\
-**Version history:**
-
-- 0.0.0 - added
-- 2.7.2 - now returns vapid_key
+**Version history:**\
+0.0.0 - added\
+2.7.2 - now returns `vapid_key`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -81,10 +80,9 @@ Confirm that the app's OAuth2 credentials work.
 
 **Returns:** Application\
 **OAuth level:** App token\
-**Version history:**
-
-- 2.0.0 - added
-- 2.7.2 - now returns vapid_key
+**Version history:**\
+2.0.0 - added\
+2.7.2 - now returns `vapid_key`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

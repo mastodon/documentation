@@ -12,9 +12,8 @@ menu:
 
 **Returns:** Array of FeaturedTag\
 **OAuth:** User token + `read:accounts`\
-**Version history:**
-
-- 3.0.0 - added
+**Version history:**\
+3.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -63,9 +62,8 @@ Invalid or missing Authorization header
 
 **Returns:** FeaturedTag\
 **OAuth:** User token + `write:accounts`\
-**Version history:**
-
-- 3.0.0 - added
+**Version history:**\
+3.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -119,9 +117,8 @@ If `name` is not a valid hashtag, e.g. contains illegal characters or only numbe
 
 **Returns:** empty object\
 **OAuth:** User token + `write:accounts`\
-**Version history:**
-
-- 3.0.0 - added
+**Version history:**\
+3.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -172,9 +169,8 @@ Shows your 10 most-used tags, with usage history for the past week.
 
 **Returns:** Array of Tag with History\
 **OAuth:** User token + `read:accounts`\
-**Version history:**
-
-- 3.0.0 - added
+**Version history:**\
+3.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

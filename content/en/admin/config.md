@@ -189,6 +189,10 @@ Defaults to `5432`.
 
 How many database connections to pool in the process. This value should cover every thread in the process, for this reason, it defaults to the value of `MAX_THREADS`.
 
+#### `DB_SSLMODE`
+
+Postgres's [SSL mode](https://www.postgresql.org/docs/10/libpq-ssl.html). Defaults to `prefer`.
+
 #### `DATABASE_URL`
 
 If provided, takes precedence over `DB_HOST`, `DB_USER`, `DB_NAME`, `DB_PASS` and `DB_PORT`.
@@ -377,6 +381,10 @@ Regeneration of home feeds is computationally expensive, if your Sidekiq is cons
 This setting has no relation to which users are considered active for the purposes of statistics, such as the Monthly Active Users number.
 {{</ hint >}}
 
+#### `ALLOWED_PRIVATE_ADDRESSES`
+
+Comma-separated specific addresses/subnets allowed in outgoing HTTP queries.
+
 ## E-mail {#email}
 
 * `SMTP_SERVER`
@@ -440,6 +448,7 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 * `S3_SIGNATURE_VERSION`
 * `S3_OVERRIDE_PATH_STYLE`
 * `S3_OPEN_TIMEOUT`
+* `S3_READ_TIMEOUT`
 
 ### Swift {#swift}
 

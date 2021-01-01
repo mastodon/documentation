@@ -12,11 +12,10 @@ menu:
 
 **Returns:** Results\
 **OAuth:** User token + `read:search`\
-**Version history:**
-
-- 2.4.1 - added, limit hardcoded to 5
-- 2.8.0 - add type, limit, offset, min_id, max_id, account_id
-- 3.0.0 - add `exclude_unreviewed` param
+**Version history:**\
+2.4.1 - added, limit hardcoded to 5\
+2.8.0 - add type, limit, offset, min_id, max_id, account_id\
+3.0.0 - add `exclude_unreviewed` param
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -153,10 +152,10 @@ Invalid or missing Authorization header
 **Returns:** Results, but hashtags is an array of strings instead of an array of Tag.\
 **OAuth:** User token + `read:search`\
 **Version history:**\
-1.1 - added, limit hardcoded to 5
-- 1.5.0 - now requires authentication
-- 2.8.0 - added limit, pagination, and account options
-- 3.0.0 - removed; use v2 instead
+1.1 - added, limit hardcoded to 5\
+1.5.0 - now requires authentication\
+2.8.0 - added limit, pagination, and account options\
+3.0.0 - removed; use v2 instead
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

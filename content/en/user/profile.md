@@ -9,7 +9,7 @@ menu:
 
 ## Your appearance {#appearance}
 
-{{< figure src="/assets/image%20%2829%29.png" caption="Profile cards showing display name, avatar, and header" >}}
+{{< figure src="/assets/profile-cards.jpg" caption="Profile cards showing display name, avatar, and header" >}}
 
 You can change how your profile appears to others by navigating to Settings &gt; Profile &gt; Appearance.
 
@@ -33,7 +33,7 @@ Your header is a banner image shown at the top of your profile, as well as in pr
 
 You can set certain flags on your profile to let others know how you use Mastodon.
 
-![](/assets/image%20%281%29.png)
+![](/assets/bot-flag.jpg)
 
 ### Locked account {#locked}
 

@@ -12,9 +12,8 @@ menu:
 
 **Returns:** Marker\
 **OAuth:** User token + `read:statuses`\
-**Version history:**
-
-- 3.0.0 - added
+**Version history:**\
+3.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -74,9 +73,8 @@ Invalid or missing Authorization header
 
 **Returns:** Marker\
 **OAuth:** User token + `write:statuses`\
-**Version history:**
-
-- 3.0.0 - added
+**Version history:**\
+3.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

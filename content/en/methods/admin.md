@@ -23,9 +23,8 @@ View accounts matching certain criteria for filtering, up to 100 at a time. Pagi
 
 **Returns:** Admin::Account\
 **OAuth:** User token + `admin:read:accounts`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -97,9 +96,8 @@ View admin-level information about the given account.
 
 **Returns:** Admin::Account\
 **OAuth:** User token + `admin:read:accounts`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -135,9 +133,8 @@ Perform an action against an account and log this action in the moderation histo
 
 **Returns:** empty object\
 **OAuth:** User token + `admin:write:accounts`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -190,9 +187,8 @@ Approve the given local account if it is currently pending approval.
 
 **Returns:** Admin::Account\
 **OAuth:** User token + `admin:write:accounts`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -228,9 +224,8 @@ Reject the given local account if it is currently pending approval.
 
 **Returns:** Admin::Account\
 **OAuth:** User token + `admin:write:accounts`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -266,9 +261,8 @@ Re-enable a local account whose login is currently disabled.
 
 **Returns:** Admin::Account\
 **OAuth:** User token + `admin:write:accounts`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -304,9 +298,8 @@ Unsilence a currently silenced account.
 
 **Returns:** Admin::Account\
 **OAuth:** User token + `admin:write:accounts`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -342,9 +335,8 @@ Unsuspend a currently suspended account.
 
 **Returns:** Admin::Account\
 **OAuth:** User token + `admin:write:accounts`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -384,9 +376,8 @@ View all reports. Pagination may be done with HTTP Link header in the response.
 
 **Returns:** Array of Admin::Report\
 **OAuth:** User token + `admin:read:reports`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -425,9 +416,8 @@ View information about the report with the given ID.
 
 **Returns:** Admin::Report\
 **OAuth:** User token + `admin:read:reports`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -463,9 +453,8 @@ Claim the handling of this report to yourself.
 
 **Returns:** Admin::Report\
 **OAuth:** User token + `admin:write:reports`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -501,9 +490,8 @@ Unassign a report so that someone else can claim it.
 
 **Returns:** Admin::Report\
 **OAuth:** User token + `admin:write:reports`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -539,9 +527,8 @@ Mark a report as resolved with no further action taken.
 
 **Returns:** Admin::Report\
 **OAuth:** User token + `admin:write:reports`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -577,9 +564,8 @@ Reopen a currently closed report.
 
 **Returns:** Admin::Report\
 **OAuth:** User token + `admin:write:reports`\
-**Version history:**
-
-- 2.9.1 - added
+**Version history:**\
+2.9.1 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
