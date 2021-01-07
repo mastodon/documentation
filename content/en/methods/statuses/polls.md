@@ -14,9 +14,8 @@ menu:
 
 **Returns:** Poll\
 **OAuth:** Public if parent status is public. User token + `read:statuses` if parent status is private.\
-**Version history:**
-
-- 2.8.0 - added
+**Version history:**\
+2.8.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -80,9 +79,8 @@ Poll does not exist, or poll's parent status is private
 
 **Returns:** Poll\
 **OAuth:** User token + `write:statuses`\
-**Version history:**
-
-- 2.8.0 - added
+**Version history:**\
+2.8.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

@@ -12,9 +12,8 @@ menu:
 
 **Returns:** Filter\
 **OAuth:** User token + `read:filters`\
-**Version history:**
-
-- 2.4.3 - added
+**Version history:**\
+2.4.3 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -84,9 +83,8 @@ Invalid or missing Authorization header
 
 **Returns:** Filter\
 **OAuth:** User token + `read:filters`\
-**Version history:**
-
-- 2.4.3 - added
+**Version history:**\
+2.4.3 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -159,9 +157,8 @@ Filter ID does not exist, or is not owned by you
 
 **Returns:** Filter\
 **OAuth:** User token + `write:filters`\
-**Version history:**
-
-- 2.4.3 - added
+**Version history:**\
+2.4.3 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -259,9 +256,8 @@ If phrase or context are not provided properly
 
 **Returns:** Filter\
 **OAuth:** User token + `write:filters`\
-**Version history:**
-
-- 2.4.3 - added
+**Version history:**\
+2.4.3 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -377,9 +373,8 @@ If phrase or context are not provided properly
 
 **Returns:** Filter\
 **OAuth:** User token + `write:filters`\
-**Version history:**
-
-- 2.4.3 - added
+**Version history:**\
+2.4.3 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

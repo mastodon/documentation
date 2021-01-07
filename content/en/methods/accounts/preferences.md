@@ -14,9 +14,8 @@ Preferences defined by the user in their account settings.
 
 **Returns:** Preferences by key and value\
 **OAuth:** User token + `read:accounts`\
-**Version history:**
-
-- 2.8.0 - added
+**Version history:**\
+2.8.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

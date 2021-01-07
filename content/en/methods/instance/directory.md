@@ -14,9 +14,8 @@ List accounts visible in the directory.
 
 **Returns:** Array of Account\
 **OAuth:** Public\
-**Version history:**
-
-- 3.0.0 - added
+**Version history:**\
+3.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

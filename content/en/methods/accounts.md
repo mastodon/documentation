@@ -402,7 +402,8 @@ View information about a profile.
 **OAuth:** Public\
 **Version history:**\
 0.0.0 - added\
-2.4.0 - returns 410 if account is suspended
+2.4.0 - returns 410 if account is suspended\
+3.3.0 - returns an Account with `suspended: true` instead of 410
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -524,6 +525,36 @@ Account record will be returned. Note that `acct` of local users does not includ
 }
 ```
 {{< endtab >}}
+
+{{< tab title="Suspended user" >}}
+```javascript
+{
+  "id": "14",
+  "username": "stigatle",
+  "acct": "stigatle@quitter.no",
+  "display_name": "",
+  "locked": false,
+  "bot": false,
+  "discoverable": false,
+  "group": false,
+  "created_at": "2016-03-18T10:04:51.700Z",
+  "note": "",
+  "url": "https://quitter.no/stigatle",
+  "avatar": "https://mastodon.social/avatars/original/missing.png",
+  "avatar_static": "https://mastodon.social/avatars/original/missing.png",
+  "header": "https://mastodon.social/headers/original/missing.png",
+  "header_static": "https://mastodon.social/headers/original/missing.png",
+  "followers_count": 0,
+  "following_count": 0,
+  "statuses_count": 0,
+  "last_status_at": null,
+  "suspended": true,
+  "emojis": [],
+  "fields": []
+}
+```
+{{< endtab >}}
+
 {{< endtabs >}}
 {{< endapi-method-response-example >}}
 {{< api-method-response-example httpCode=401 >}}
@@ -949,6 +980,60 @@ Account is suspended
 {{< endapi-method-response >}}
 {{< endapi-method-spec >}}
 {{< endapi-method >}}
+
+{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/:id/featured_tags" title="Featured tags" >}}
+{{< api-method-description >}}
+
+Tags featured by this account.
+
+**Returns:** Array of FeaturedTag\
+**OAuth:** User token + `read:accounts`\
+**Version history:**\
+3.3.0 - added
+
+{{< endapi-method-description >}}
+{{< api-method-spec >}}
+{{< api-method-request >}}
+{{< api-method-headers >}}
+{{< api-method-parameter name="Authorization" type="string" required=true >}}
+Bearer &lt;user token&gt;
+{{< endapi-method-parameter >}}
+{{< endapi-method-headers >}}
+{{< endapi-method-request >}}
+{{< api-method-response >}}
+{{< api-method-response-example httpCode=200 >}}
+{{< api-method-response-example-description >}}
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+[
+  {
+    "id": "627",
+    "name": "nowplaying",
+    "statuses_count": 36,
+    "last_status_at": "2019-11-15T07:14:43.524Z"
+  }
+]
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=401 >}}
+{{< api-method-response-example-description >}}
+
+Invalid or missing Authorization header
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "error": "The access token is invalid"
+}
+```
+{{< endapi-method-response-example >}}
+{{< endapi-method-response >}}
+{{< endapi-method-spec >}}
+{{< endapi-method >}}
+
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/:id/lists" title="Lists containing this account" >}}
 {{< api-method-description >}}
 
@@ -1120,12 +1205,13 @@ Account with given id is suspended
 {{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/follow" title="Follow" >}}
 {{< api-method-description >}}
 
-Follow the given account.
+Follow the given account. Can also be used to update whether to show reblogs or enable notifications.
 
 **Returns:** Relationship\
 **OAuth:** User token + `write:follows` or `follow`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.3.0 - added `notify`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1144,6 +1230,9 @@ Bearer &lt;user token&gt;
 {{< api-method-parameter name="reblogs" type="boolean" required=false >}}
 Receive this account's reblogs in home timeline? Defaults to true.
 {{< endapi-method-parameter >}}
+{{< api-method-parameter name="notify" type="boolean" required=false >}}
+Receive notifications when this account posts a status? Defaults to false.
+{{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
 {{< api-method-response >}}
@@ -1159,6 +1248,7 @@ Successfully followed, or account was already followed
   "id": "3",
   "following": true,
   "showing_reblogs": false,
+  "notifying": false,
   "followed_by": false,
   "blocking": false,
   "blocked_by": false,
@@ -1223,6 +1313,7 @@ Successfully unfollowed, or account was already not followed
   "id": "3",
   "following": false,
   "showing_reblogs": false,
+  "notifying": false,
   "followed_by": false,
   "blocking": false,
   "blocked_by": false,
@@ -1287,6 +1378,7 @@ Successfully blocked, or account was already blocked
   "id": "3",
   "following": false,
   "showing_reblogs": false,
+  "notifying": false,
   "followed_by": false,
   "blocking": true,
   "blocked_by": false,
@@ -1351,6 +1443,7 @@ Successfully unblocked, or account was already not blocked
   "id": "3",
   "following": false,
   "showing_reblogs": false,
+  "notifying": false,
   "followed_by": false,
   "blocking": false,
   "blocked_by": false,
@@ -1405,6 +1498,9 @@ Bearer &lt;user token&gt;
 {{< api-method-parameter name="notifications" type="boolean" required=false >}}
 Mute notifications in addition to statuses? Defaults to true.
 {{< endapi-method-parameter >}}
+{{< api-method-parameter name="duration" type="number" required=false >}}
+How long the mute should last, in seconds. Defaults to 0 (indefinite).
+{{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
 {{< api-method-response >}}
@@ -1420,6 +1516,7 @@ Successfully muted, or account was already muted. Note that you can call this AP
   "id": "3",
   "following": false,
   "showing_reblogs": false,
+  "notifying": false,
   "followed_by": false,
   "blocking": false,
   "blocked_by": false,
@@ -1484,6 +1581,7 @@ Successfully unmuted, or account was already unmuted
   "id": "3",
   "following": false,
   "showing_reblogs": false,
+  "notifying": false,
   "followed_by": false,
   "blocking": false,
   "blocked_by": false,
@@ -1548,6 +1646,7 @@ Successfully endorsed.
   "id": "1",
   "following": true,
   "showing_reblogs": true,
+  "notifying": false,
   "followed_by": true,
   "blocking": false,
   "blocked_by": false,
@@ -1649,6 +1748,7 @@ Successfully unendorsed, or account was already not endorsed
   "id": "1",
   "following": true,
   "showing_reblogs": true,
+  "notifying": false,
   "followed_by": true,
   "blocking": false,
   "blocked_by": false,
@@ -1725,6 +1825,7 @@ Successfully updated user note
   "id": "1",
   "following": true,
   "showing_reblogs": true,
+  "notifying": false,
   "followed_by": true,
   "blocking": false,
   "blocked_by": false,
@@ -1802,6 +1903,7 @@ Sample call with id\[\]=1&id\[\]=2
     "id": "1",
     "following": true,
     "showing_reblogs": true,
+    "notifying": false,
     "followed_by": true,
     "blocking": false,
     "blocked_by": false,
@@ -1815,6 +1917,7 @@ Sample call with id\[\]=1&id\[\]=2
     "id": "2",
     "following": false,
     "showing_reblogs": false,
+    "notifying": false,
     "followed_by": false,
     "blocking": false,
     "blocked_by": false,

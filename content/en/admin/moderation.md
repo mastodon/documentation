@@ -27,6 +27,8 @@ This limitation is reversible, the account can be unsilenced at any time.
 
 A Mastodon suspension is synonymous with deletion. The account no longer appears in search, the profile page is gone, all of the posts, uploads, followers, and all other data is removed. This limitation is **irreversible**. While the account can be unsuspended, allowing the user to take control of it again, the old data is gone for good.
 
+As of v3.3.0, suspensions are now reversible for 30 days.
+
 ## Server-wide moderation {#server-wide-moderation}
 
 Because individually moderating a large volume of users from a misbehaving server can be exhausting, it is possible to pre-emptively moderate against all users from that particular server using a so-called **domain block**, which comes with several different levels of severity.

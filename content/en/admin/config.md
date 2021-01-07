@@ -381,6 +381,10 @@ Regeneration of home feeds is computationally expensive, if your Sidekiq is cons
 This setting has no relation to which users are considered active for the purposes of statistics, such as the Monthly Active Users number.
 {{</ hint >}}
 
+#### `ALLOWED_PRIVATE_ADDRESSES`
+
+Comma-separated specific addresses/subnets allowed in outgoing HTTP queries.
+
 ## E-mail {#email}
 
 * `SMTP_SERVER`
@@ -444,6 +448,7 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 * `S3_SIGNATURE_VERSION`
 * `S3_OVERRIDE_PATH_STYLE`
 * `S3_OPEN_TIMEOUT`
+* `S3_READ_TIMEOUT`
 
 ### Swift {#swift}
 

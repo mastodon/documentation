@@ -13,13 +13,13 @@ menu:
 
 **Returns:** Array of Status\
 **OAuth:** Public. Requires app token + `read:statuses` if the instance has disabled public preview.\
-**Version history:**
-
-- 0.0.0 - added
-- 2.3.0 - added `only_media`
-- 2.6.0 - add `min_id`
-- 3.0.0 - auth is required if public preview is disabled
-- 3.1.4 - added `remote`
+**Version history:**\
+0.0.0 - added\
+2.3.0 - added `only_media`\
+2.6.0 - add `min_id`\
+3.0.0 - auth is required if public preview is disabled\
+3.1.4 - added `remote`\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -85,12 +85,12 @@ View public statuses containing the given hashtag.
 
 **Returns:** Array of Status\
 **OAuth:** Public. Requires app token + `read:statuses` if the instance has disabled public preview.\
-**Version history:**
-
-- 0.0.0 - added
-- 2.3.0 - added `only_media`
-- 2.6.0 - add `min_id`
-- 3.0.0 - auth is required if public preview is disabled
+**Version history:**\
+0.0.0 - added\
+2.3.0 - added `only_media`\
+2.6.0 - add `min_id`\
+3.0.0 - auth is required if public preview is disabled\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -196,10 +196,10 @@ View statuses from followed users.
 
 **Returns:** Array of Status\
 **OAuth:** User + `read:statuses`\
-**Version history:**
-
-- 0.0.0 - added
-- 2.6.0 - add `min_id`
+**Version history:**\
+0.0.0 - added\
+2.6.0 - add `min_id`\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -278,10 +278,10 @@ View statuses in the given list timeline.
 
 **Returns:** Array of Status\
 **OAuth:** User token + `read:lists`\
-**Version history:**
-
-- 2.1.0 - added
-- 2.6.0 - add `min_id`
+**Version history:**\
+2.1.0 - added\
+2.6.0 - add `min_id`\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -352,9 +352,9 @@ View statuses with a "direct" privacy, from your account or in your notification
 **Returns:** Array of Status\
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
-x.x.x - added
-- 2.6.0 - add `min_id`. deprecated in favor of conversations
-- 3.0.0 - removed
+x.x.x - added\
+2.6.0 - add `min_id`. deprecated in favor of conversations\
+3.0.0 - removed
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

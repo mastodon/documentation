@@ -14,9 +14,8 @@ Tags that are being used more frequently within the past week.
 
 **Returns:** Array of Tag with History\
 **OAuth:** Public\
-**Version history:**
-
-- 3.0.0 - added
+**Version history:**\
+3.0.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

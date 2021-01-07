@@ -144,12 +144,25 @@ Refetch remote user data and files for one or multiple accounts.
 
 | Option | Description |
 | :--- | :--- |
-| `USERNAME` | Username for the remote accout. |
+| `USERNAME` | username@domain for the remote account. |
 | `--all` | Can be provided instead of USERNAME to refresh all remote accounts. |
 | `--domain DOMAIN` | Can be provided instead of USERNAME. Operate only on remote accounts from this DOMAIN. |
 | `--concurrency N` | The number of workers to use for this task. Defaults to N=5. |
 | `--verbose` | Print additional information while task is processing. |
 | `--dry-run` | Print expected results only, without performing any actions. |
+
+### `tootctl accounts merge` {#accounts-merge}
+
+Merge two remote accounts into one. This is primarily meant to fix duplicates caused by other servers changing their domain. By default, this only works if the public key is the same, but this can be overridden.
+
+**Version history:**\
+3.3.0 - added
+
+| Option | Description |
+| :--- | :--- |
+| `FROM` | username@domain for the remote account to be removed. |
+| `TO` | username@domain for the remote account to be kept. |
+| `--force` | Override the public key check. |
 
 ### `tootctl accounts follow` {#accounts-follow}
 
@@ -371,6 +384,14 @@ Remove all home and list feeds from Redis.
 **Version history:**\
 2.6.0 - added
 
+## Maintenance CLI {#maintenance}
+
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/maintenance_cli.rb" caption="lib/mastodon/maintenance\_cli.rb" >}}
+
+### `tootctl maintenance fix-duplicates` {#maintenance-fix-duplicates}
+
+Fix corrupted database indexes that may have been caused due to changing collation rules. Deletes or merges duplicate accounts, statuses, emojis, etc. Mastodon has to be stopped to run this task, which will take a long time and may be destructive. This is useful if your database indexes are corrupted because of issues such as <https://wiki.postgresql.org/wiki/Locale_data_changes>.
+
 ## Media CLI {#media}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/media_cli.rb" caption="lib/mastodon/media\_cli.rb" >}}
@@ -396,13 +417,15 @@ Scans for files that do not belong to existing media attachments, and remove the
 
 **Version history:**\
 3.1.0 - added\
-3.1.3 - added `--prefix`
+3.1.3 - added `--prefix`\
+3.3.0 - added `--fix-permissions`
 
 | Option | Description |
 | :--- | :--- |
 | `--start-after` | The Paperclip attachment key where the loop will start. Use this option if the command was interrupted before. |
 | `--dry-run` | Print expected results only, without performing any actions. |
 | `--prefix` | Traverse only a specific prefix of files in the system. |
+| `--fix-permissions` | Sets S3 ACL to be default according to environment variables. |
 
 ### `tootctl media refresh` {#media-refresh}
 

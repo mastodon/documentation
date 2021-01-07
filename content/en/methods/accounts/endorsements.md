@@ -14,9 +14,8 @@ Accounts that the user is currently featuring on their profile.
 
 **Returns:** Array of Account\
 **OAuth:** User token + `read:accounts`\
-**Version history:**
-
-- 2.5.0 - added
+**Version history:**\
+2.5.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

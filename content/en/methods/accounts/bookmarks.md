@@ -14,9 +14,8 @@ Statuses the user has bookmarked.
 
 **Returns:** Array of Status\
 **OAuth:** User token + `read:bookmarks`\
-**Version history:**
-
-- 3.1.0 - added
+**Version history:**\
+3.1.0 - added
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
