@@ -13,13 +13,13 @@ menu:
 
 Mastodon domyślnie korzysta z ciemnego motywu, ale może zostać wybrany też jasny lub wysokokontrastowy motyw.
 
-{{< figure src="/assets/image%20%2834%29.png" caption="Jasny motyw Mastodona" >}}
+{{< figure src="/assets/light-theme.jpg" caption="Jasny motyw Mastodona" >}}
 
 ### Wybierz układ {#layout}
 
 Mastodon domyślnie wybiera prosty, jednokolumnowy układ z polem tworzenia wpisów po lewej i wyborem kolumny po prawej. Możesz wybrać zaawansowany interfejs, pozwalający na wyświetlanie i przypięcie wielu kolumn jednocześnie.
 
-{{< figure src="/assets/image%20%2832%29.png" caption="Zaawansowany interfejs" >}}
+{{< figure src="/assets/advanced-web-ui.jpg" caption="Zaawansowany interfejs" >}}
 
 W obu interfejsach aktualizacje ładują się, gdy tylko dostępne są nowe wpisy. Możesz włączyć Tryb spowolniony, który zamiast tego pokazuje na górze kolumny komunikat wskazujący liczbę nowych dostępnych wpisów, które zostaną załadowane po kliknięciu tego komunikatu.
 
@@ -41,7 +41,7 @@ Domyślnie, media oznaczone jako wrażliwe są ukrywane i wymagają kliknięcia 
 
 Ukryte i niezaładowane media używają kolorowych gradientów korzystających z algorytmu BlurHash, korzystającego z kolorów obrazu, lecz rozmywających detale. Te gradienty mogą być wyłączone.
 
-{{< figure src="/assets/image%20%286%29.png" caption="Przykład miniaturki z blurhashem" >}}
+{{< figure src="/assets/blurhash.jpg" caption="Przykład miniaturki z blurhashem" >}}
 
 Wpisy z ostrzeżeniami o zawartości są domyślnie zwijane, ale możesz wybrać aby zawsze wyświetlany był pełny wpis.
 
@@ -71,7 +71,7 @@ Jeżeli zdecydujesz się wypisać się z indeksowania w wyszukiwarkach, flaga `n
 
 Możesz ukryć swoją sieć, dzięki czemu lista obserwujących Cię i obserwowanych przez Ciebie będzie widoczna tylko dla Ciebie.
 
-{{< figure src="/assets/image%20%284%29.png" caption="Profil, którego właściciel zdecydował się ukryć swoją sieć" >}}
+{{< figure src="/assets/hidden-network.jpg" caption="Profil, którego właściciel zdecydował się ukryć swoją sieć" >}}
 
 Jeżeli chcesz widzieć wpisy, które zostały udostępnione wielokrotnie na osi czasu, możesz wyłączyć grupowanie podbić w osiach czasu.
 

@@ -9,7 +9,7 @@ menu:
 
 ## Wygląd Twojego profilu {#appearance}
 
-{{< figure src="/assets/image%20%2829%29.png" caption="Karta profilu składająca się z nazwy wyświetlanej, awataru i nagłówka" >}}
+{{< figure src="/assets/profile-cards.jpg" caption="Karta profilu składająca się z nazwy wyświetlanej, awataru i nagłówka" >}}
 
 Możesz zmienić to, jak Twój profil wygląda u innych, kierując się do: Preferencje &gt; Profil &gt; Wygląd.
 
@@ -33,7 +33,7 @@ Twój nagłówek to baner wyświetlany na górze Twojego profilu, jak i na karta
 
 Możesz oflagować swoje konto, aby poinformować innych, w jaki sposób korzystasz z Mastodona.
 
-![](/assets/image%20%281%29.png)
+![](/assets/bot-flag.jpg)
 
 ### Konto zablokowane {#locked}
 

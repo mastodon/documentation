@@ -9,11 +9,11 @@ menu:
 
 ## Zdalne interakcje z innym serwerem Mastodona {#interact}
 
-{{< figure src="/assets/image%20%2863%29.png" caption="Przykład odnośnika bezpośredniego do wpisu na serwerze Mastodona" >}}
+{{< figure src="/assets/status-permalink.jpg" caption="Przykład odnośnika bezpośredniego do wpisu na serwerze Mastodona" >}}
 
 Kiedy odwiedzasz zdalny serwer oparty na Mastodonie, kliknięcie dowolnego z przycisków interakcji przeniesie Cię do okna dialogowego, które przekieruje Cię na Twój lokalny serwer.
 
-{{< figure src="/assets/image%20%288%29.png" caption="Ekran zdalnej interakcji przy odpowiadaniu na wpis" >}}
+{{< figure src="/assets/external-reply.jpg" caption="Ekran zdalnej interakcji przy odpowiadaniu na wpis" >}}
 
 ## Logowanie się do aplikacji klienckiej {#apps}
 
