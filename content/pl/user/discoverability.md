@@ -25,15 +25,15 @@ Możesz wyróżnić profile osób, które obserwujesz. Wybierz menu opcji na pro
 
 {{< figure src="/assets/image%20%2837%29.png" caption="Wpis przypięty przez mastodon.social/@gargron" >}}
 
-Możesz wybrać maksymalnie 5 spośród swoich publicznych wpisów do wyróżnienia na górze profilu. Przejdź w okno opcji wpisu i wybierz „Przypnij do profilu”. Gdy przypniesz wpis, pojawi się na górze Twojej zakładce „wpisy”, przed pozostałymi wpisami, występującymi w kolejności chronologicznej.
+Możesz wybrać maksymalnie 5 spośród swoich publicznych wpisów do wyróżnienia na górze profilu. Przejdź w okno opcji wpisu i wybierz „Przypnij do profilu”. Gdy przypniesz wpis, pojawi się na górze Twojej zakładki „wpisy”, przed pozostałymi wpisami, występującymi w kolejności chronologicznej.
 
 ## Katalog profilów {#directory}
 
 {{< figure src="/assets/image%20%2831%29.png" caption="Katalog profilów na mastodon.social" >}}
 
-Katalog profilów pokazuje wszystkie konta, które zgodziły się być pokazywane w katalogu i może służyć szybkiemu wyszukiwaniu profilów, którymi możesz się zainteresować.
+Katalog profilów pokazuje wszystkie konta, które zgodziły się być pokazywane w katalogu i może służyć szybkiemu wyszukiwaniu profilów, którymi możesz być zainteresowany(-a).
 
 Katalog profilów może być posortowany według ostatniej aktywności \(ostatnio opublikowane wpisy\) lub od najnowszych użytkowników \(ostatnio założone konto\). Katalog może wyświetlać tylko lokalne konta lub wszystkie znane przez serwer.
 
-Profile są przedstawiane jako karty zawierające nazwę wyświetlaną użytkownika, adres, biografię i kilka podstawowych statystyk jak liczba opublikowanych wpisów, liczba obserwujących i kiedy opublikowali ostatni wpis.
+Profile są przedstawiane jako karty zawierające nazwę wyświetlaną użytkownika, adres, biogram i kilka podstawowych statystyk jak liczba opublikowanych wpisów, liczba obserwujących i kiedy opublikowali ostatni wpis.
 

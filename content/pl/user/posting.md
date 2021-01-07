@@ -56,13 +56,13 @@ Naciśnij ikonę spinacza, aby dodać plik do wpisu. Możesz załączyć:
 
 {{< figure src="/assets/image%20%2826%29.png" caption="Edytuj media, aby dodać opis zawartości lub wybrać punkt skupienia dla miniaturki podglądu." >}}
 
-Po kliknięciu „Edytuj” na miniaturze załącznika, możesz załadować modal, który pozwoli na dodanie opisu mediów lub wybranie punktu skupienia. Choć jest to nieobowiązkowe, dobrze jest dodawać opis, który krótko opisze, co przedstawiane jest na mediach. Te opisy będą widoczne, gdy nie uda się załadować mediów z jakiegoś powodu, lub ktoś korzysta z czytnika zawartości ekranu, lub innej technologii wspomagającej. Ustawienie punktu skupienia jest również nieobowiązkowe, ale sprawi, że miniaturka wygląda lepiej, jeżeli zdjęcie nie ma wymiarów 16:9.
+Po kliknięciu „Edytuj” na miniaturze załącznika, możesz załadować okno, które pozwoli na dodanie opisu mediów lub wybranie punktu skupienia. Choć jest to nieobowiązkowe, dobrze jest dodawać opis, który krótko opisze, co przedstawiane jest na mediach. Te opisy będą widoczne, gdy nie uda się załadować mediów z jakiegoś powodu, lub gdy ktoś korzysta z czytnika zawartości ekranu, lub innej technologii wspomagającej. Ustawienie punktu skupienia jest również nieobowiązkowe, ale sprawi, że miniaturka wygląda lepiej, jeżeli zdjęcie nie jest wyświetlane w proporcji 16:9.
 
 ### Ankiety {#polls}
 
 {{< figure src="/assets/image%20%2841%29.png" caption="Ankieta z dwoma opcjami, wygasająca po jednym dniu" >}}
 
-Naciśnij na ikonę wykresu, aby załączyć wykres do wpisu.
+Naciśnij na ikonę wykresu, aby załączyć ankietę do wpisu.
 
 * Możesz dodać maksymalnie 4 opcje. Każda może zawierać 25 znaków.
 * Ankiety są domyślnie jednokrotnego wyboru. Naciśnij na przycisk wyboru, aby przełączyć ją na ankietę wielokrotnego wyboru.
@@ -70,7 +70,7 @@ Naciśnij na ikonę wykresu, aby załączyć wykres do wpisu.
 
 ## Poziomy publikacji {#privacy}
 
-| Poziom | Publiczna oś czasu | Odnośnik bezpośredni | Widok profilu | Domowe osi czasu |
+| Poziom | Publiczne osie czasu | Odnośnik bezpośredni | Widok profilu | Domowe osi czasu |
 | :--- | :--- | :--- | :--- | :--- |
 | Publiczny | Tak | Tak | Tak | Tak |
 | Niewidoczny | Nie | Tak | Tak | Tak |
@@ -84,7 +84,7 @@ Wpisy mogą być opublikowane z czterema poziomami prywatności:
 Domyślna opcja.
 
 * Każdy może zobaczyć Twój wpis z poziomu linku bezpośredniego bez logowania się.
-* Twój wpis pojawi się w aplikacji na publicznej osi czasu.
+* Twój wpis pojawi się w aplikacji na publicznych osiach czasu.
 * Twoi obserwujący zobaczą ten wpis w swoich osiach czasu, a wszyscy oznaczeni zostaną o nim powiadomieni.
 * Twój wpis może zostać udostępniony przez innych użytkowników.
 
@@ -99,7 +99,7 @@ Tak jak przy publicznym, ale z następującą różnicą:
 Bardziej ograniczona opcja doręczania.
 
 * Zobaczenie Twojego wpisu przez odnośnik bezpośredni wymaga zalogowania na tym samym serwerze, na którym ta osoba obserwuje Cię lub została wspomniana.
-* Twój wpis nie wyświetla się w aplikacji, za wyjątkiem obserwowanych i wspomnianych osób.
+* Twój wpis nie wyświetla się w aplikacji nikomu, za wyjątkiem obserwujących i wspomnianych osób.
 * Twoi obserwujący zobaczą Twój wpis w osiach czasu, a wspomnieni zobaczą ten wpis w powiadomieniach.
 * Tylko Ty możesz udostępnić ten wpis.
 
@@ -116,7 +116,7 @@ Pamiętaj, że prywatność wpisów na Mastodonie dotyczy poszczególnych wpisó
 Wyślij wpis wyłącznie wspomnianym użytkownikom.
 
 * Zobaczenie Twojego wpisu przez odnośnik bezpośredni jest możliwe na serwerze, na którym znajduje się osoba, na której ktoś został wspomniany.
-* Twój wpis nie pokaże się w aplikacji, jeżeli nie zostałeś(-aś) wspomniany(-a).
+* Twój wpis nie pokaże się w aplikacji nikomu, poza osobami wspomnianymi.
 * Wspomniani otrzymają powiadomienie o wpisie. Nie pojawi się na domowej osi czasu.
 * Twój wpis nie może zostać udostępniony.
 

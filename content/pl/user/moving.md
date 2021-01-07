@@ -1,6 +1,6 @@
 ---
 title: Przenieś lub opuść konto
-description: Odbierz informacje i rób z nimi, co chcesz.
+description: Zabierz swoje informacje i rób z nimi, co chcesz.
 menu:
   docs:
     weight: 100

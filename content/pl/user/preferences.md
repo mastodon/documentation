@@ -50,7 +50,6 @@ Wpisy z ostrzeżeniami o zawartości są domyślnie zwijane, ale możesz wybrać
 ### Wysyłanie e-maili {#email}
 
 Możesz wybrać, aby dostawać powiadomienia e-mail według typów powiadomień, które otrzymujesz na Mastodonie. Możesz włączyć maile dla poszczególnych rodzajów powiadomień:
-You can choose to receive email notifications according to the type of notification you receive within Mastodon. The following notification types are available to enable:
 
 * Obserwacje
 * Prośby o możliwość obserwacji
@@ -60,7 +59,7 @@ You can choose to receive email notifications according to the type of notificat
 
 Możesz też włączyć maile z przeglądami, które zawierają przegląd powiadomień otrzymanych podczas dłuższej nieaktywności.
 
-### Ukrywanie części powiadomień {#hide-notifications}
+### Ukrywanie niektórych powiadomień {#hide-notifications}
 
 Możesz wybrać, aby nie otrzymywać powiadomień od osób, których nie obserwujesz, lub osób, które Cię nie obserwują. Sprawi to, że te odpowiedzi, polubienia, udostępnienia i inne interakcje nie będą Ci pokazywane.
 

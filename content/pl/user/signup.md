@@ -17,7 +17,7 @@ Możesz [przeglądać listę wybranych serwerów według kategorii i języków n
 
 ### Rozumienie zasad strony {#tos}
 
-Zanim zarejestrujesz się, ważnym jest zapoznanie się z zasadami i regulaminem. Serwer Mastodona ma zwykle zapisane je na stronie `/about/more`, którą możesz znaleźć, klikając na „dowiedz się więcej” na stronie, którą widzisz, gdy nie jesteś zalogowany(-a).
+Zanim zarejestrujesz się, ważnym jest zapoznanie się z zasadami i regulaminem. Serwer Mastodona ma zwykle wypisane je na stronie `/about/more`, którą możesz znaleźć, klikając na „dowiedz się więcej” na stronie, którą widzisz, gdy nie jesteś zalogowany(-a).
 
 ### Tryby rejestracji {#signup}
 
@@ -53,6 +53,5 @@ Tak jak przy adresie e-mail. Dla wygody Mastodon pozwala na pominięcie drugiej 
 Formularz wyszukiwania na Mastodonie pozwala na znalezienie osób zgodnie z oboma powyższymi formatami, więc możesz wybrać ten, który wolisz.
 
 Ta sama nazwa użytkownika _może_ być zarejestrowana na różnych serwerach – nie istnieje sposób na zajęcie ich wszystkich z góry. Tak jak w przypadku adresu e-mail, nie możesz oczekiwać, że `alicja@outlook.com` będzie tą samą osobą co `alicja@gmail.com`, czy `alicja@yahoo.com`.
-
 
 

@@ -52,22 +52,22 @@ Udział w katalogu profilów sprawi, że Twój profil będzie mógł zostać odn
 
 ## Metadane profilu {#fields}
 
-Metadane profilu to możliwość dodania do profilu dodatkowych, przejrzystych informacji. Masz cztery wiersze, w których możesz wpisać podpis i zawartość pola. Na przykład:
+Metadane profilu to możliwość dodania do profilu dodatkowych, przejrzystych informacji. Masz cztery wiersze, w których możesz wpisać nazwę i zawartość pola. Na przykład:
 
-| Podpis | Zawartość |
+| Nazwa | Zawartość |
 | :--- | :--- |
 | Wiek | 25 |
-| Kraj | Germany |
-| Zaimki | he/him |
+| Kraj | Niemcy |
+| Zaimki | on/jego |
 | Strona internetowa | https://example.com |
 
 To, co tam wpiszesz, zależy wyłącznie od Ciebie. Zawartość może zawierać wspomnienia, hashtagi, niestandardowe emoji i odnośniki.
 
 ### Weryfikacja odnośników {#verification}
 
-Weryfikacja z użyciem dokumentów potwierdzających tożsamość i niebieskie znaczki nie są możliwe bez centralnego zarządzania. Mastodon może krzyżowo dowiązywać odnośniki z profilem, aby udowodnić, że jesteś ich rzeczywistym właścicielem. Jeżeli jeden z tych to link do Twojej osobistej strony internetowej, która budzi zaufanie, może to służyć jako prawie najlepsza metoda weryfikacji tożsamości.
+Weryfikacja z użyciem dokumentów potwierdzających tożsamość i niebieskie znaczki nie są możliwe bez centralnego zarządzania. Mastodon może krzyżowo powiązywać odnośniki z profilem, aby udowodnić, że jesteś ich rzeczywistym właścicielem. Jeżeli jeden z nich to link do Twojej osobistej strony internetowej, która budzi zaufanie, może to służyć jako prawie najlepsza metoda weryfikacji tożsamości.
 
-Jeżeli umieścisz odnośnik w metadanych swojego profilu, Mastodon sprawdzi, czy zawierra on odnośnik do Twojego profilu na Mastodonie. Jeżeli tak, otrzymasz znak weryfikacji przy tym odnośniku, ponieważ jesteś jego potwierdzonym właścicielem.
+Jeżeli umieścisz odnośnik w metadanych swojego profilu, Mastodon sprawdzi, czy powiązana strona zawiera odnośnik do Twojego profilu na Mastodonie. Jeżeli tak, otrzymasz znak weryfikacji przy tym odnośniku, ponieważ jesteś jego potwierdzonym właścicielem.
 
 Mastodon sprawdza, czy odnośnik zawiera atrybut `rel="me"`. Tak samo, Mastodon dodaje `rel="me"` do odnośników w metadanych profilu.
 
