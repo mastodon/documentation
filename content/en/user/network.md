@@ -84,7 +84,7 @@ The following operators are supported:
 
 In Mastodon, direct messages are simply toots that have the "direct" visibility selected. Visibility can be selected per-post, which allows changing the privacy level later in a thread. The direct messages column currently shows a list of all conversations containing a direct post. Clicking on a conversation will load the associated thread.
 
-{{< figure src="/assets/dm-thread.png" caption="A direct message in a thread." >}}
+{{< figure src="/assets/dm-thread.jpg" caption="A direct message in a thread." >}}
 
 ## List timelines {#lists}
 
