@@ -42,8 +42,6 @@ There exist a number of **dedicated Mastodon hosting providers** that take care 
 
 {{< caption-link url="https://app.spacebear.ee/mastodon" caption="Spacebear" >}}
 
-{{< caption-link url="https://nablahost.com/services/activitypub-hosting/" caption="Nablahost" >}}
-
 Managed hosting solutions are great for those who do not have experience or desire to install and maintain software. However, being in charge of all components on your own hardware gives greater control over scaling, performance and customization.
 
 We provide a **DigitalOcean 1-Click Install Image** that you can put on a DigitalOcean droplet of your choosing which essentially gives you everything you would otherwise have after following our installation instructions through an interactive setup wizard.
