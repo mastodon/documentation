@@ -92,7 +92,7 @@ If you and the blocked user are on the same server, the blocked user will not be
 
 ### Hiding an entire server {#block-domain}
 
-![](/assets/block-domain.jpg)
+![](/assets/block-domain.png | height=200)
 
 If you block an entire server:
 
@@ -106,4 +106,3 @@ If you block an entire server:
 {{< figure src="/assets/report-modal.jpg" caption="The report modal allows selecting example statuses, adding a note, and forwarding reports." >}}
 
 If you see a status or user that is violating the rules of your website, you can report that user to your site's moderators. Clicking the "report" option on the user dropdown or status dropdown will open the report modal. Here, you can \(and should\) add a note about why you are reporting this account. You can attach certain problematic statuses for additional context on why you are reporting the account, and if their conduct is violating the rules of the remote website, you can also choose to forward the report to their site's moderators.
-
