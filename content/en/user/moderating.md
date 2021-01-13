@@ -92,7 +92,7 @@ If you and the blocked user are on the same server, the blocked user will not be
 
 ### Hiding an entire server {#block-domain}
 
-![](/assets/block-domain.png | height=200)
+![](/assets/block-domain.png)
 
 If you block an entire server:
 
