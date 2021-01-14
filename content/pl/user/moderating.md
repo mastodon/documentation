@@ -15,11 +15,7 @@ Możliwe jest filtrowanie wpisów według określonych słów kluczowych lub fra
 
 Aby utworzyć i zarządzać filtrami, odwiedź Preferencje &gt; Filtry. Przycisk „Dodaj nowy filtr” pozwoli na utworzenie nowego filtru, a istniejące filtry mogą zostać edytowane lub usunięte. Istniejące filtry są podsumowane w tabeli.
 
-<<<<<<< HEAD
-{{< figure src="/assets/image%20%2814%29.png" caption="Filtry mogą mieć datę wygaśnięcia, określone konteksty, usuwanie po stronie serwera lub używanie granic słów." >}}
-=======
 {{< figure src="/assets/filter-edit.jpg" caption="Filtry mogą mieć datę wyczerpania, określone konteksty, usuwanie po stronie serwera lub używać granic słów." >}}
->>>>>>> 6781b65... Polish translation: Reflect changes from #834
 
 Filtry mają następujące opcje:
 
@@ -49,11 +45,7 @@ Filtry zwykle są stosowane we wpisach zawierających wskazane znaki, niezależn
 
 ## Działania po stronie użytkownika {#blocking-and-muting}
 
-<<<<<<< HEAD
-{{< figure src="/assets/image%20%2824%29.png" caption="Rozwijane menu użytkownika oferuje różnorodne działania." >}}
-=======
 {{< figure src="/assets/profile-dropdown.jpg" caption="Menu wyboru profilu oferuje różnorodne działania." >}}
->>>>>>> 6781b65... Polish translation: Reflect changes from #834
 
 ### Ukrywanie udostępnień {#hide-boosts}
 
@@ -99,7 +91,7 @@ Jeżeli jesteś na tym samym serwerze, na którym jest zablokowana osoba, ta oso
 
 ### Ukrywanie całego serwera {#block-domain}
 
-![](/assets/block-domain.jpg)
+![](/assets/block-domain.png)
 
 Jeżeli zablokujesz cały serwer:
 
