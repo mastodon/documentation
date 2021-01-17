@@ -24,7 +24,19 @@ More information: https://wiki.postgresql.org/wiki/Locale_data_changes https://p
 If your database is not using `C` or `POSIX` for its collation setting (which you can check with `SELECT datcollate FROM pg_database WHERE datname = current_database();`),
 your indexes might be inconsistent, if you ever ran with a version of glibc prior to 2.28 and did not immediately reindex your databases after updating to glibc 2.28 or newer.
 
-You can check whether your indexes are consistent using [PostgreSQL's `amcheck` module](https://www.postgresql.org/docs/10/amcheck.html): as the database server's super user, connect to your Mastodon database and issue the following (this may take a while):
+You can check whether your indexes are consistent using [PostgreSQL's `amcheck` module](https://www.postgresql.org/docs/10/amcheck.html). First, run `psql` as the database server's super user:
+
+```shell
+sudo -u postgres psql
+```
+
+Then connect to your Mastodon database:
+
+```shell
+\c mastodon_production
+```
+
+Then issue the following (this may take a while):
 
 ```SQL
 CREATE EXTENSION IF NOT EXISTS amcheck;
