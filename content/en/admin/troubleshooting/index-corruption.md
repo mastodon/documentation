@@ -101,4 +101,18 @@ The tool will walk through the database to find duplicate and fix them. In some 
 
 ## Avoiding the issue
 
-To avoid the issue, reindex your database immediately after any libc update.
+To avoid the issue, you'll need to reindex your database immediately after any `glibc` update.
+
+You can [check your current glibc version](https://benohead.com/blog/2015/01/28/linux-check-glibc-version/) by running:
+
+```shell
+ldd --version
+```
+
+Note that the problem was introduced in glibc 2.28. So if you have an earlier version, then you don't _currently_ have any corruption, but you _could_ have corruption later when glibc updates.
+
+When glibc updates to 2.28+, you'll want to shut down your Mastodon instance and run (as the database server's super user):
+
+```sql
+REINDEX DATABASE mastodon_production
+```
