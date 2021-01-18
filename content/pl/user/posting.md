@@ -126,7 +126,7 @@ Wyślij wpis wyłącznie wspomnianym użytkownikom.
 
 ## Ostrzeżenia o zawartości (CW) i zawartość wrażliwa {#cw}
 
-{{< figure src="/assets/image.png" caption="Wpis z CW oznaczony jako zawierający zawartość wrażliwą." >}}
+{{< figure src="/assets/status-cw.jpg" caption="Wpis z CW oznaczony jako zawierający zawartość wrażliwą." >}}
 
 Jedną z funkcji obecnych na Mastodonie, których możesz nie zobaczyć na innych platformach społecznościowych, jest możliwość załączenia ostrzeżenia o zawartości do Twoich wpisów. Kiedy obecne jest ostrzeżenie o zawartości, zawartość wpisu jest domyślnie zwinięta, a widoczny jest tylko tekst ostrzeżenia, tak jak linia tematu wiadomości e-mail, i przycisk „zobacz więcej”. Może to zostać wykorzystane do podania podsumowania lub tytułu wpisu, lub podania skrótu poprzedniego wpisu z wątku.
 

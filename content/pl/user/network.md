@@ -86,7 +86,7 @@ Obsługiwane są następujące operatory:
 
 Na Mastodonie, wiadomości bezpośrednie to po prostu wpisy o bezpośredniej widoczności. Widoczność może być wybrana dla poszczególnych wpisów, co pozwala na zmianę poziomu prywatności w późniejszym momencie w wątku. Kolumna wiadomości bezpośrednich wyświetla obecnie listę wszystkich konserwacji zawierających wiadomość bezpośrednią. Kliknięcie konwersacji załaduje powiązany wątek. 
 
-{{< figure src="/assets/dm-thread.png" caption="Wiadomość bezpośrednia w wątku." >}}
+{{< figure src="/assets/dm-thread.jpg" caption="Wiadomość bezpośrednia w wątku." >}}
 
 ## Osie czasu list {#lists}
 
