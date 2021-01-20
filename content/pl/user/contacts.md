@@ -9,7 +9,7 @@ menu:
 
 ## Tworzenie zaproszeń {#invites}
 
-{{< figure src="/assets/invites.jpg" caption="Zaproś ludzi z ustawień swojego konta" >}}
+{{< figure src="/assets/pl/invites.png" caption="Zaproś ludzi z ustawień swojego konta" >}}
 
 Zaproszenia mogą być generowane, aby udostępniać je innym osobom, a niektóre serwery mogą wymagać zaproszenia do założenia konta. Przy generowaniu odnośnika zapraszającego, możesz określić maksymalną liczbę użyć odnośnika lub jak długo będzie on aktywny. Odnośniki z zaproszeniami mogą być dezaktywowane w każdym momencie.
 

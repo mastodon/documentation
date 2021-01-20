@@ -7,7 +7,7 @@ menu:
     parent: user
 ---
 
-{{< figure src="/assets/compose-with-cw.jpg" caption="Tworzenie wpisów z włączonym CW" >}}
+{{< figure src="/assets/pl/compose-with-cw.png" caption="Tworzenie wpisów z włączonym CW" >}}
 
 ## Tekst {#text}
 
