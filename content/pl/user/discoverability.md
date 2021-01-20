@@ -29,7 +29,7 @@ Możesz wybrać maksymalnie 5 spośród swoich publicznych wpisów do wyróżnie
 
 ## Katalog profilów {#directory}
 
-{{< figure src="/assets/pl/directory.jpg" caption="Katalog profilów na mastodon.social" >}}
+{{< figure src="/assets/pl/directory.jpg" caption="Katalog profilów na mastodon.cloud" >}}
 
 Katalog profilów pokazuje wszystkie konta, które zgodziły się być pokazywane w katalogu i może służyć szybkiemu wyszukiwaniu profilów, którymi możesz być zainteresowany(-a).
 
