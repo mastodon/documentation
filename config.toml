@@ -57,6 +57,48 @@ enableGitInfo = true
     url = "/entities/"
 
 
+[languages.pl.menu]
+  [[languages.pl.menu.docs]]
+    name = "Korzystaj z Mastodona"
+    weight = 10
+    identifier = "user"
+    url = "/user/"
+  [[languages.pl.menu.docs]]
+    name = "Uruchamianie Mastodona"
+    weight = 20
+    identifier = "admin"
+    url = "/admin/"
+  [[languages.pl.menu.docs]]
+    name = "Twórz aplikacji dla Mastodona"
+    weight = 30
+    identifier = "client"
+    url = "/client/"
+  [[languages.pl.menu.docs]]
+    name = "Współtwórz Mastodona"
+    weight = 40
+    identifier = "dev"
+    url = "/dev/"
+  [[languages.pl.menu.docs]]
+    name = "Zgodność ze specyfikacją"
+    weight = 50
+    identifier = "spec"
+    url = "/spec/"
+  [[languages.pl.menu.docs]]
+    name = "REST API"
+    weight = 60
+    identifier = "api"
+    url = "/api/"
+  [[languages.pl.menu.docs]]
+    name = "Metody API"
+    weight = 70
+    identifier = "methods"
+    url = "/methods/"
+  [[languages.pl.menu.docs]]
+    name = "Jednostki API"
+    weight = 80
+    identifier = "entities"
+    url = "/entities/"
+
 [languages.zh-cn.menu]
   [[languages.zh-cn.menu.docs]]
     name = "使用Mastodon"
@@ -147,6 +189,11 @@ enableGitInfo = true
     contentDir = "content/en"
     languageName = "English"
     weight = -99
+
+  [languages.pl]
+    contentDir = "content/pl"
+    languageName = "Polski"
+    weight = 0
 
   [languages.zh-cn]
     contentDir = "content/zh-cn"
