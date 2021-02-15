@@ -489,10 +489,13 @@ Create or update an ElasticSearch index and populate it. If ElasticSearch is emp
 **Version history:**
 2.8.0 - added\
 3.0.0 - add `--processes` for parallelization
+3.3.0 - options changed
 
-| Option | Description |
-| :--- | :--- |
-| `--processes N` | Parallelize execution of the command. Defaults to N=2. Can also specify `auto` to derive a number based on available CPUs. |
+| Option            | Description                                                                                 |
+| :---              | :---                                                                                        |
+| `--concurrency N` | Parallelize execution of the command on multiple threads. Defaults to N=2.                  |
+| `--only INDEX`    | Specify an index name [`accounts`, `tags`, `statuses`] to create or update only that index. |
+
 
 ## Settings CLI {#settings}
 
