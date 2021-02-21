@@ -27,7 +27,7 @@ apt install -y \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
   zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
   nginx redis-server redis-tools postgresql postgresql-contrib \
-  certbot python-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
+  certbot python3-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
 ```
 
 #### Node.js {#node-js}
