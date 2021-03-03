@@ -6,17 +6,24 @@ menu:
     parent: admin
 ---
 
-If you are setting up a fresh machine, it is recommended that you secure it first. Assuming that you are running **Ubuntu 18.04**:
+If you are setting up a fresh machine, it is recommended that you secure it first.
+This guide assumes you are running **Ubuntu 18.04**.
 
 ## Do not allow password-based SSH login \(keys only\)
 
 First make sure you are actually logging in to the server using keys and not via a password, otherwise this will lock you out. Many hosting providers support uploading a public key and automatically set up key-based root login on new machines for you.
 
-Edit `/etc/ssh/sshd_config` and find `PasswordAuthentication`. Make sure it’s uncommented and set to `no`. If you made any changes, restart sshd:
+Edit `/etc/ssh/sshd_config` and find `PasswordAuthentication`.
+Make sure it is uncommented and set to `no`.
+If you made any changes, restart sshd:
+
+```sh
+systemctl reload sshd
+```
 
 ## Update system packages
 
-```bash
+```sh
 apt update && apt upgrade -y
 ```
 
@@ -24,7 +31,7 @@ apt update && apt upgrade -y
 
 Edit `/etc/fail2ban/jail.local` and put this inside:
 
-```text
+```conf
 [DEFAULT]
 destemail = your@email.here
 sendername = Fail2Ban
@@ -40,21 +47,22 @@ port = 22
 
 Finally restart fail2ban:
 
-```bash
+```sh
 systemctl restart fail2ban
 ```
 
 ## Install a firewall and only whitelist SSH, HTTP and HTTPS ports
 
-First, install iptables-persistent. During installation it will ask you if you want to keep current rules–decline.
+First, install iptables-persistent.
+During installation it will ask whether you want to keep your current rules – decline.
 
-```bash
+```sh
 apt install -y iptables-persistent
 ```
 
 Edit `/etc/iptables/rules.v4` and put this inside:
 
-```text
+```sh
 *filter
 
 #  Allow all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0
@@ -88,9 +96,10 @@ Edit `/etc/iptables/rules.v4` and put this inside:
 COMMIT
 ```
 
-With iptables-persistent, that configuration will be loaded at boot time. But since we are not rebooting right now, we need to load it manually for the first time:
+With iptables-persistent, that configuration will be loaded at boot time.
+But since we are not rebooting right now, we need to load it manually for the first time:
 
-```bash
+```sh
 iptables-restore < /etc/iptables/rules.v4
 ```
 
