@@ -85,9 +85,7 @@ Generate with `rake mastodon:webpush:generate_vapid_key`. Changing it will break
 
 #### `RAILS_ENV`
 
-Which Rails environment is loaded from `config/environments`. Can be `production`, `development`, or `test`.
-If you are running Mastodon on your personal computer for development purposes, use `development`, which will disable caching. This is also the default.
-If you are running Mastodon online, use `production`.
+Environment. Can be `production`, `development`, or `test`. If you are running Mastodon on your personal computer for development purposes, use `development`. That is also the default. If you are running Mastodon online, use `production`. Mastodon will load different configuration defaults based on the environment.
 
 {{< hint style="warning" >}}
 This variable cannot be defined in dotenv (`.env`) files as it's used before they are loaded.
