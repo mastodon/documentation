@@ -13,16 +13,31 @@ menu:
 * A **domain name** \(or a subdomain\) for the Mastodon server, e.g. `example.com`
 * An e-mail delivery service or other **SMTP server**
 
-The following commands should be run as root. If you aren’t already root, switch via `su`.
+You will be running the commands as root. If you aren’t already root, switch to root:
 
 ### System repositories {#system-repositories}
 
+Make sure curl is installed first:
+
+#### Node.js {#node-js}
+
+```bash
+curl -sL https://deb.nodesource.com/setup_12.x | bash -
+```
+
+#### Yarn {#yarn}
+
+```bash
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+```
+
 ### System packages {#system-packages}
 
-```sh
+```bash
 apt update
 apt install -y \
-  curl imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core \
+  imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core \
   g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
   zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
@@ -30,36 +45,23 @@ apt install -y \
   certbot python-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
 ```
 
-#### Node.js {#node-js}
-
-```sh
-curl -sL https://deb.nodesource.com/setup_12.x | bash -
-```
-
-#### Yarn {#yarn}
-
-```sh
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-```
-
 ### Installing Ruby {#installing-ruby}
 
 We will be using rbenv to manage Ruby versions, because it’s easier to get the right versions and to update once a newer release comes out. rbenv must be installed for a single Linux user, therefore, first we must create the user Mastodon will be running as:
 
-```sh
+```bash
 adduser --disabled-login mastodon
 ```
 
 We can then switch to the user:
 
-```sh
+```bash
 su - mastodon
 ```
 
 And proceed to install rbenv and rbenv-build:
 
-```sh
+```bash
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 cd ~/.rbenv && src/configure && make -C src
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
@@ -70,20 +72,20 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 Once this is done, we can install the correct Ruby version:
 
-```sh
+```bash
 RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.7.2
 rbenv global 2.7.2
 ```
 
 We’ll also need to install bundler:
 
-```sh
+```bash
 gem install bundler --no-document
 ```
 
 Return to the root user:
 
-```sh
+```bash
 exit
 ```
 
@@ -101,7 +103,7 @@ You will need to create a PostgreSQL user that Mastodon could use. It is easiest
 
 Open the prompt:
 
-```sh
+```bash
 sudo -u postgres psql
 ```
 
@@ -118,7 +120,7 @@ Done!
 
 It is time to download the Mastodon code. Switch to the mastodon user:
 
-```sh
+```bash
 su - mastodon
 ```
 
@@ -126,7 +128,7 @@ su - mastodon
 
 Use git to download the latest stable release of Mastodon:
 
-```sh
+```bash
 git clone https://github.com/tootsuite/mastodon.git live && cd live
 git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 ```
@@ -135,7 +137,7 @@ git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 
 Now to install Ruby and JavaScript dependencies:
 
-```sh
+```bash
 bundle config deployment 'true'
 bundle config without 'development test'
 bundle install -j$(getconf _NPROCESSORS_ONLN)
@@ -150,7 +152,7 @@ The two `bundle config` commands are only needed the first time you're installin
 
 Run the interactive setup wizard:
 
-```sh
+```bash
 RAILS_ENV=production bundle exec rake mastodon:setup
 ```
 
@@ -164,7 +166,7 @@ The configuration file is saved as `.env.production`. You can review and edit it
 
 You’re done with the mastodon user for now, so switch back to root:
 
-```sh
+```bash
 exit
 ```
 
@@ -172,7 +174,7 @@ exit
 
 Copy the configuration template for nginx from the Mastodon directory:
 
-```sh
+```bash
 cp /home/mastodon/live/dist/nginx.conf /etc/nginx/sites-available/mastodon
 ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 ```
@@ -185,7 +187,7 @@ Reload nginx for the changes to take effect:
 
 We’ll use Let’s Encrypt to get a free SSL certificate:
 
-```sh
+```bash
 certbot --nginx -d example.com
 ```
 
