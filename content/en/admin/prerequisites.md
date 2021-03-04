@@ -51,7 +51,7 @@ Finally restart fail2ban:
 systemctl restart fail2ban
 ```
 
-## Install a firewall and only whitelist SSH, HTTP and HTTPS ports
+## Install a firewall and only whitelist SSH, HTTP and HTTPS ports {#firewall}
 
 First, install iptables-persistent.
 During installation it will ask whether you want to keep your current rules – decline.
