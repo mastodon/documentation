@@ -15,32 +15,30 @@ menu:
 
 The following commands should be run as root. If you aren’t already root, switch via `su`.
 
-### System repositories {#system-repositories}
-
 ### System packages {#system-packages}
 
 ```sh
-apt update
 apt install -y \
   curl imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core \
-  g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf \
+  g++ libprotobuf-dev protobuf-compiler pkg-config gcc autoconf \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
   zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
   nginx redis-server redis-tools postgresql postgresql-contrib \
-  certbot python-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
+  certbot python-certbot-nginx libidn11-dev libicu-dev libjemalloc-dev
 ```
 
-#### Node.js {#node-js}
+On higher Ubuntu versions, `python-certbot-nginx` needs to be replaced by `python3-certbot-nginx`.
+
+#### Node.js and Yarn {#node-js}
 
 ```sh
 curl -sL https://deb.nodesource.com/setup_12.x | bash -
-```
 
-#### Yarn {#yarn}
-
-```sh
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+apt update
+apt install -y yarn nodejs
 ```
 
 ### Installing Ruby {#installing-ruby}
