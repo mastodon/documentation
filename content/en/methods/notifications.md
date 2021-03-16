@@ -42,7 +42,7 @@ Return results immediately newer than this ID
 {{< api-method-parameter name="limit" type="string" required=false >}}
 Maximum number of results to return \(default 20\)
 {{< endapi-method-parameter >}}
-{{< api-method-parameter name="exclude_types" type="array" required=false >}}
+{{< api-method-parameter name="exclude_types[]" type="array" required=false >}}
 Array of types to exclude \(`follow`, `favourite`, `reblog`, `mention`, `poll`, `follow_request`\)
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="account_id" type="string" required=false >}}
