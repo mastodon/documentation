@@ -11,23 +11,33 @@ menu:
 
 Moderation in Mastodon is always applied locally, i.e. as seen from the particular server. An admin or moderator on one server cannot affect a user on another server, they can only affect the local copy on their own server.
 
-### Disable login {#disable-login}
+### Sensitive {#sensitive-user}
 
-A Mastodon account can be disabled. This prevents the user from doing anything with the account, but all of the content is still there untouched. This limitation is reversible, the account can be re-enabled at any time. This limitation is only available for local users on your server.
+When an account is marked as sensitive, all media that user posts will be automatically [marked as sensitive](https://docs.joinmastodon.org/user/posting/#cw).
 
-### Silence {#silence-user}
+### Freeze {#freeze-user}
 
-A Mastodon silence is synonymous with sandbox. A silenced account does not appear to users who are not already following it. All of the content is still there, and it can still be found via search, mentioned, and followed, but the content is invisible.
+A Mastodon account can be frozen. This prevents the user from doing anything with the account, but all of the content is still there untouched. This limitation is reversible; the account can be un-frozen at any time. This limitation is only available for local users on your server.
 
-At this moment, silence does not affect federation. A locally silenced account is _not_ silenced automatically on other servers.
+When a user's account is frozen, they are redirected to their **Account Settings** page, where the following message is displayed:
 
-This limitation is reversible, the account can be unsilenced at any time.
+> You can no longer login to your account or use it in any other way, but your profile and other data remains intact.
+
+When the user's account is un-frozen, normal functionality resumes.
+
+### Limit {#limit-user}
+
+A limited account is hidden to all other users on that instance, except for its followers. All of the content is still there, and it can still be found via search, mentions, and following, but the content is invisible publicly.
+
+At this moment, limit does not affect federation. A locally limited account is _not_ limited automatically on other servers. Account limitations are reversible.
 
 ### Suspend {#suspend-user}
 
-A Mastodon suspension is synonymous with deletion. The account no longer appears in search, the profile page is gone, all of the posts, uploads, followers, and all other data is removed. This limitation is **irreversible**. While the account can be unsuspended, allowing the user to take control of it again, the old data is gone for good.
+A Mastodon suspension means the account is effectively deleted. The account no longer appears in search, the profile page is gone, all of the posts, uploads, followers, and all other data is removed publicly. However, all the data is available in the admin back-end for a period of 30 days from suspension. This is to give the user an opportunity to work with instance admins to resolve any potential issues and have the account re-instated.
 
-As of v3.3.0, suspensions are now reversible for 30 days.
+If the account is reinstated within the 30 day period, all data is once again accessible publicly without any adverse affects. If the 30 day period lapses, **all** that user's data is purged from the instance. Admins also have the option to immediately delete the user's account data at any point during the 30 days.
+
+Once the data has been deleted, whether than be after the 30 day period, or if an admin has force deleted it, the account can still be un-suspended. However, the account will have no data (toots, profile information, avatar or header image) associated with it.
 
 ## Server-wide moderation {#server-wide-moderation}
 
@@ -74,4 +84,3 @@ sudo iptables -I INPUT 1 -m set --match-set spambots src -j DROP
 ```
 
 Be careful not to lock yourself out of your machine.
-
