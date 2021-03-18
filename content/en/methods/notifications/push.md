@@ -15,6 +15,7 @@ Mastodon natively supports the [Web Push API](https://developer.mozilla.org/en-U
 
 * [toot-relay](https://github.com/DagAgren/toot-relay)
 * [PushToFCM](https://github.com/tateisu/PushToFCM)
+* [metatext-apns](https://github.com/metabolist/metatext-apns)
 
 {{< api-method method="post" host="https://mastodon.example" path="/api/v1/push/subscription" title="Subscribe to push notifications" >}}
 {{< api-method-description >}}
