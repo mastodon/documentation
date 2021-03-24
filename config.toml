@@ -69,7 +69,7 @@ enableGitInfo = true
     identifier = "admin"
     url = "/admin/"
   [[languages.pl.menu.docs]]
-    name = "Twórz aplikacji dla Mastodona"
+    name = "Twórz aplikacje dla Mastodona"
     weight = 30
     identifier = "client"
     url = "/client/"
