@@ -45,8 +45,6 @@ menu:
 
 {{< caption-link url="https://app.spacebear.ee/mastodon" caption="Spacebear" >}}
 
-{{< caption-link url="https://nablahost.com/services/activitypub-hosting/" caption="Nablahost" >}}
-
 全托管解决方案非常适合那些没有经验或不想安装和维护软件的人。然而，自己负责硬件的所有组件，可以让你在伸缩性、性能和自定义方面有更大的控制权。
 
 我们提供了一个**DigitalOcean 一键安装镜像**，你可以把它放在DigitalOcean vps上，通过交互式的安装向导，遵照我们的安装说明，基本上可以为你提供所需的所有东西。

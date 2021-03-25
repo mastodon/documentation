@@ -42,8 +42,6 @@ menu:
 
 {{< caption-link url="https://app.spacebear.ee/mastodon" caption="Spacebear" >}}
 
-{{< caption-link url="https://nablahost.com/services/activitypub-hosting/" caption="Nablahost" >}}
-
 管理されたホスティングによるサーバー構築は、ソフトウェアのインストールとメンテナンスの経験がないとか、またはそういったことを望まない人にとって最適です。しかしながら、自分で用意したハードウェア上で構成要素すべてを組むことで、スケーリング、パフォーマンス、およびカスタマイズをよりきちんと制御できます。
 
 また、**DigitalOcean用のワンクリックインストールイメージ**を提供しています。これはあなたの選択肢に、DigitalOceanのドロップレットを加えます。インストール手順どおりに対話型のセットアップウィザードを進めるだけで、基本的なすべての機能を利用できるようになります。
