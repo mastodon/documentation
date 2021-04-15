@@ -10,7 +10,7 @@
   <div class="e-content">
     {{ .Content }}
 
-    <p style="color: #687590;">
+    <p style="color: #393f4b;">
       {{ i18n "lastUpdated" }} {{ i18n "lastUpdatedDateFormat"  .Lastmod }}{{ with .File }} · <a href='https://github.com/tootsuite/documentation/tree/master/content/{{ .Lang }}/{{ .Path }}' style="color: #687590;">{{ i18n "improvePage" }}{{ end }}</a>
 
       {{ if .IsTranslated }}
