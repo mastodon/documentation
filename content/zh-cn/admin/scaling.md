@@ -63,6 +63,7 @@ Sidekiq根据任务的重要性使用不同队列，这里的重要性是指如�
 | `push` | 推送消息至其它服务器 |
 | `mailers` | 分发电子邮件 |
 | `pull` | 从其它服务器拉取信息 |
+| `scheduler` | 完成计划任务，例如更新当下流行标签及清理日志 |
 
 默认队列及其优先级存储于`config/sidekiq.yml`，但可通过调用Sidekiq命令行覆盖，例如：
 
@@ -75,6 +76,9 @@ bundle exec sidekiq -q default
 Sidekiq处理队列的方式是，它首先检查第一个队列中的任务，如果没有，则检查下一个队列。这意味着，如果第一个队列已满，其他队列将延后。
 
 作为一种解决方案，可以启动为不同队列启动不同的Sidekiq进程以确保真正的并列执行，例如：使用不同Sidekiq参数创建多个systemd服务。
+
+**请确保仅有一个`scheduler`队列！！**
+
 
 ## 使用pgBouncer事务池 {#pgbouncer}
 

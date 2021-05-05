@@ -63,6 +63,7 @@ Sidekiq uses different queues for tasks of varying importance, where importance 
 | `push` | Delivery of payloads to other servers |
 | `mailers` | Delivery of e-mails |
 | `pull` | Fetching information from other servers |
+| `scheduler` | Doing cron jobs like refreshing trending hashtags and cleaning up logs |
 
 The default queues and their priorities are stored in `config/sidekiq.yml`, but can be overridden by the command-line invocation of Sidekiq, e.g.:
 
@@ -75,6 +76,9 @@ To run just the `default` queue.
 The way Sidekiq works with queues, it first checks for tasks from the first queue, and if there are none, checks the next queue. This means, if the first queue is overfilled, the other queues will lag behind.
 
 As a solution, it is possible to start different Sidekiq processes for the queues to ensure truly parallel execution, by e.g. creating multiple systemd services for Sidekiq with different arguments.
+
+**Make sure you only have one `scheduler` queue running!!**
+
 
 ## Transaction pooling with pgBouncer {#pgbouncer}
 
