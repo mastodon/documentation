@@ -77,6 +77,9 @@ Sidekiq处理队列的方式是，它首先检查第一个队列中的任务，�
 
 作为一种解决方案，可以启动为不同队列启动不同的Sidekiq进程以确保真正的并列执行，例如：使用不同Sidekiq参数创建多个systemd服务。
 
+**请确保仅有一个`scheduler`队列！！**
+
+
 ## 使用pgBouncer事务池 {#pgbouncer}
 
 ### 你为什么要用PgBouncer {#pgbouncer-why}
