@@ -62,7 +62,7 @@ createdb -T template0 mastodon_production
 Then import it:
 
 ```bash
-pg_restore -U mastodon -n public --no-owner --role=mastodon \
+pg_restore -Fc -U mastodon -n public --no-owner --role=mastodon \
   -d mastodon_production backup.dump
 ```
 
