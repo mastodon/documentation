@@ -7,10 +7,6 @@ menu:
     parent: dev
 ---
 
-{{< hint style="danger" >}}
-This page is under construction.
-{{< /hint >}}
-
 ### Pre-requisites {#prerequisites}
 
 You can follow the [pre-requisites instructions from the production guide](https://docs.joinmastodon.org/admin/install/), but do not create a `mastodon` user. You also don't have to install `nginx`, `certbot` and `python-certbot-nginx` as the development environment brings its own webserver. Setting up and running a development environment has been proven successful over WSL2 as well if you are on Windows.
