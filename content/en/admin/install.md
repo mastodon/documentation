@@ -9,7 +9,7 @@ menu:
 
 ## Pre-requisites {#pre-requisites}
 
-* A machine running **Ubuntu 18.04** that you have root access to
+* A machine running **Ubuntu 20.04** that you have root access to
 * A **domain name** \(or a subdomain\) for the Mastodon server, e.g. `example.com`
 * An e-mail delivery service or other **SMTP server**
 
@@ -42,7 +42,7 @@ apt install -y \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
   zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
   nginx redis-server redis-tools postgresql postgresql-contrib \
-  certbot python-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
+  certbot python3-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
 ```
 
 ### Installing Ruby {#installing-ruby}
