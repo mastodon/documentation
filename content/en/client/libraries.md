@@ -102,6 +102,12 @@ menu:
 
 * [scaladon](https://github.com/schwitzerm/scaladon)
 
+## Scheme {#scheme}
+
+### Guile {#guile}
+
+* [elefan](https://codeberg.org/WammKD/Guile-Mastodon)
+
 ## Swift {#swift}
 
 * [MastodonKit](https://github.com/ornithocoder/MastodonKit)
