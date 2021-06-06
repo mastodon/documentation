@@ -1,4 +1,4 @@
-baseURL = "http://docs.joinmastodon.org/"
+baseURL = "https://docs.joinmastodon.org/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Mastodon documentation"
@@ -55,7 +55,6 @@ enableGitInfo = true
     weight = 80
     identifier = "entities"
     url = "/entities/"
-
 
 [languages.pl.menu]
   [[languages.pl.menu.docs]]
@@ -182,7 +181,6 @@ enableGitInfo = true
     weight = 80
     identifier = "entities"
     url = "/entities/"
-
 
 [languages]
   [languages.en]
