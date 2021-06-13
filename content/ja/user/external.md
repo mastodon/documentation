@@ -1,5 +1,5 @@
 ---
-title: 外部からのMasotodonの使用
+title: 外部からのMastodonの使用
 description: 外部のアプリやウェブサイトからMastodonを閲覧して操作できます。
 menu:
   docs:
