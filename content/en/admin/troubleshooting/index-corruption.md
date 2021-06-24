@@ -24,7 +24,19 @@ More information: https://wiki.postgresql.org/wiki/Locale_data_changes https://p
 If your database is not using `C` or `POSIX` for its collation setting (which you can check with `SELECT datcollate FROM pg_database WHERE datname = current_database();`),
 your indexes might be inconsistent, if you ever ran with a version of glibc prior to 2.28 and did not immediately reindex your databases after updating to glibc 2.28 or newer.
 
-You can check whether your indexes are consistent using [PostgreSQL's `amcheck` module](https://www.postgresql.org/docs/10/amcheck.html): as the database server's super user, connect to your Mastodon database and issue the following (this may take a while):
+You can check whether your indexes are consistent using [PostgreSQL's `amcheck` module](https://www.postgresql.org/docs/10/amcheck.html). First, run `psql` as the database server's super user:
+
+```shell
+sudo -u postgres psql
+```
+
+Then connect to your Mastodon database:
+
+```shell
+\c mastodon_production
+```
+
+Then issue the following (this may take a while):
 
 ```SQL
 CREATE EXTENSION IF NOT EXISTS amcheck;
@@ -89,4 +101,18 @@ The tool will walk through the database to find duplicate and fix them. In some 
 
 ## Avoiding the issue
 
-To avoid the issue, reindex your database immediately after any libc update.
+To avoid the issue, you'll need to reindex your database immediately after any `glibc` update.
+
+You can [check your current glibc version](https://benohead.com/blog/2015/01/28/linux-check-glibc-version/) by running:
+
+```shell
+ldd --version
+```
+
+Note that the problem was introduced in glibc 2.28. So if you have an earlier version, then you don't _currently_ have any corruption, but you _could_ have corruption later when glibc updates.
+
+When glibc updates to 2.28+, you'll want to shut down your Mastodon instance and run (as the database server's super user):
+
+```sql
+REINDEX DATABASE mastodon_production
+```
