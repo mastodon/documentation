@@ -13,7 +13,7 @@ menu:
 
 At any time you want, you can go to Settings &gt; Export and download a CSV file for your current followed accounts, your currently created lists, your currently blocked accounts, your currently muted accounts, and your currently blocked domains. Your following, blocking, muting, and domain-blocking lists can be imported at Settings &gt; Import, where they can either be merged or overwritten.
 
-Requesting an archive of your toots and media can be done once every 7 days, and can be downloaded in ActivityPub JSON format. Mastodon currently does not support importing toots or media due to technical limitations, but your archive can be viewed by any software that understands how to parse ActivityPub documents.
+Requesting an archive of your toots and media can be done once every 7 days, and can be downloaded in ActivityPub JSON format. Mastodon currently does not support importing toots or media due to technical limitations, but your archive can be viewed by any software that understands how to parse ActivityPub documents. Solutions to the limitations have been discussed on the issue tracker such as [tootsuite/mastodon#981](https://github.com/tootsuite/mastodon/issues/981).
 
 ## Redirecting or moving your profile {#migration}
 
