@@ -73,8 +73,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 上述操作完成，我们便可以安装正确的 Ruby 版本：
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.6
-rbenv global 2.6.6
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.7.4
+rbenv global 2.7.4
 ```
 
 我们同样需要安装 bundler：
