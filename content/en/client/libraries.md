@@ -110,5 +110,6 @@ menu:
 
 ## Swift {#swift}
 
+* [Trunk](https://github.com/FledgeXu/Trunk)
 * [MastodonKit](https://github.com/ornithocoder/MastodonKit)
 
