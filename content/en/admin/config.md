@@ -57,7 +57,7 @@ Secure mode does not hide HTML representations of public posts and profiles. HTM
 
 #### `LIMITED_FEDERATION_MODE` {#limited_federation_mode}
 
-When set to `true`, Mastodon will restrict federation to servers you have manually approved only, as well as disable all public pages and some REST APIs. Limited federation mode is based on secure mode (`AUTHORIZED_FETCH_MODE`).
+When set to `true`, Mastodon will restrict federation to servers you have manually approved only, as well as disable all public pages and some REST APIs. Limited federation mode is based on secure mode (`AUTHORIZED_FETCH`).
 
 When switching an existing instance to limited federation mode, the following command should be used to remove any already existent data on non-allowed domains:
 
