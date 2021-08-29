@@ -90,3 +90,8 @@ The tool will walk through the database to find duplicate and fix them. In some 
 ## Avoiding the issue
 
 To avoid the issue, reindex your database immediately after any libc update.
+The
+[SQL command `REINDEX`](https://www.postgresql.org/docs/current/sql-reindex.html) 
+or the
+[`reindexdb` command-line tool](https://www.postgresql.org/docs/current/app-reindexdb.html)
+may be useful for this.
