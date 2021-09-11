@@ -30,9 +30,6 @@ Bearer &lt;app token&gt;
 {{< endapi-method-parameter >}}
 {{< endapi-method-headers >}}
 {{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="reason" type="string" required=false >}}
-Text that will be reviewed by moderators if registrations require manual approval.
-{{< endapi-method-parameter >}}
 {{< api-method-parameter name="username" type="string" required=true >}}
 The desired username for the account
 {{< endapi-method-parameter >}}
@@ -47,6 +44,9 @@ Whether the user agrees to the local rules, terms, and policies. These should be
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="locale" type="string" required=true >}}
 The language of the confirmation email that will be sent
+{{< endapi-method-parameter >}}
+{{< api-method-parameter name="reason" type="string" required=false >}}
+Text that will be reviewed by moderators if registrations require manual approval.
 {{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
@@ -711,10 +711,13 @@ Bearer &lt;app token&gt;
 {{< endapi-method-headers >}}
 {{< api-method-query-parameters >}}
 {{< api-method-parameter name="max_id" type="string" required=false >}}
+**Internal parameter.** Use HTTP `Link` header for pagination.
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="since_id" type="string" required=false >}}
+**Internal parameter.** Use HTTP `Link` header for pagination.
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="limit" type="number" required=false >}}
+Maximum number of results to return. Defaults to 40.
 {{< endapi-method-parameter >}}
 {{< endapi-method-query-parameters >}}
 {{< endapi-method-request >}}
@@ -783,7 +786,8 @@ Invalid or missing Authorization header, or instance is in whitelist mode and yo
 
 
 {{< tabs >}}
-{{< tab title="header" >}}
+{{< tab titl
+e="header" >}}
 ```javascript
 {
   "error": "The access token is invalid"
@@ -857,7 +861,7 @@ Bearer &lt;app token&gt;
 {{< api-method-parameter name="since_id" type="string" required=false >}}
 **Internal parameter.** Use HTTP `Link` header for pagination.
 {{< endapi-method-parameter >}}
-{{< api-method-parameter name="limit" type="string" required=false >}}
+{{< api-method-parameter name="limit" type="number" required=false >}}
 Maximum number of results to return. Defaults to 40.
 {{< endapi-method-parameter >}}
 {{< endapi-method-query-parameters >}}
@@ -1981,7 +1985,7 @@ Bearer &lt;user token&gt;
 {{< api-method-parameter name="q" type="string" required=true >}}
 What to search for
 {{< endapi-method-parameter >}}
-{{< api-method-parameter name="limit" type="string" required=false >}}
+{{< api-method-parameter name="limit" type="number" required=false >}}
 Maximum number of results. Defaults to 40.
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="resolve" type="string" required=false >}}
