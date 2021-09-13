@@ -16,9 +16,6 @@ Displays an authorization form to the user. If approved, it will create and retu
 {{< api-method-spec >}}
 {{< api-method-request >}}
 {{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="force_login" type="string" required=false >}}
-Added in 2.6.0. Forces the user to re-login, which is necessary for authorizing with multiple accounts from the same instance.
-{{< endapi-method-parameter >}}
 {{< api-method-parameter name="response_type" type="string" required=true >}}
 Should be set equal to `code`.
 {{< endapi-method-parameter >}}
@@ -30,6 +27,9 @@ Set a URI to redirect the user to. If this parameter is set to `urn:ietf:wg:oaut
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="scope" type="string" required=false >}}
 List of requested OAuth scopes, separated by spaces \(or by pluses, if using query parameters\). Must be a subset of scopes declared during app registration. If not provided, defaults to `read`.
+{{< endapi-method-parameter >}}
+{{< api-method-parameter name="force_login" type="bool" required=false >}}
+Added in 2.6.0. Forces the user to re-login, which is necessary for authorizing with multiple accounts from the same instance.
 {{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
@@ -71,6 +71,9 @@ Returns an access token, to be used during API calls that are not public.
 {{< api-method-spec >}}
 {{< api-method-request >}}
 {{< api-method-form-data-parameters >}}
+{{< api-method-parameter name="grant_type" type="string" required=true >}}
+Set equal to `authorization_code` if `code` is provided in order to gain user-level access. Otherwise, set equal to `client_credentials` to obtain app-level access only.
+{{< endapi-method-parameter >}}
 {{< api-method-parameter name="client_id" type="string" required=true >}}
 Client ID, obtained during app registration
 {{< endapi-method-parameter >}}
@@ -85,9 +88,6 @@ List of requested OAuth scopes, separated by spaces. Must be a subset of scopes 
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="code" type="string" required=false >}}
 A user authorization code, obtained via /oauth/authorize
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="grant_type" type="string" required=true >}}
-Set equal to `authorization_code` if `code` is provided in order to gain user-level access. Otherwise, set equal to `client_credentials` to obtain app-level access only.
 {{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
