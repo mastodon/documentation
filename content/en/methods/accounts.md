@@ -786,8 +786,7 @@ Invalid or missing Authorization header, or instance is in whitelist mode and yo
 
 
 {{< tabs >}}
-{{< tab titl
-e="header" >}}
+{{< tab title="header" >}}
 ```javascript
 {
   "error": "The access token is invalid"
