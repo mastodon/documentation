@@ -185,12 +185,6 @@ menu:
 **Type:** String \(URL\), or null if the attachment is local\
 **Version history:** Added in 0.6.0.
 
-### `text_url` {#text_url}
-
-**Description:** A shorter URL for the attachment.\
-**Type:** String \(URL\)\
-**Version history:** Added in 0.6.0.
-
 ### `meta` {#meta}
 
 **Description:** Metadata returned by Paperclip.\
@@ -212,6 +206,14 @@ More importantly, there may be another top-level `focus` Hash object as of 2.3.0
 **Description:** A hash computed by [the BlurHash algorithm](https://github.com/woltapp/blurhash), for generating colorful preview thumbnails when media has not been downloaded yet.\
 **Type:** String\
 **Version history:** Added in 2.8.1
+
+## Deprecated attributes
+
+### `text_url` {#text_url}
+
+**Description:** A shorter URL for the attachment.\
+**Type:** String \(URL\)\
+**Version history:** Added in 0.6.0 and deprecated in 3.5.0.
 
 ## See also
 
