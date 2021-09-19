@@ -113,7 +113,7 @@ menu:
 
 ### `note`
 
-**Description:** Is this user blocking you?\
+**Description:** This user's profile bio\
 **Type:** String\
 **Version history:**\
 3.2.0 - added
@@ -123,6 +123,3 @@ menu:
 * [GET /api/v1/accounts/relationships]({{< relref "../methods/accounts.md#check-relationships-to-other-accounts" >}})
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/relationship_serializer.rb" caption="app/serializers/rest/relationship\_serializer.rb" >}}
-
-
-
