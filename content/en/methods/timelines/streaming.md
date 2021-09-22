@@ -80,6 +80,10 @@ Possible `stream` values:
 | `notification` | A new notification has appeared | [Notification]({{< relref "../../entities/notification.md" >}}) |
 | `delete` | A status has been deleted | ID of the deleted status |
 | `filters_changed` | Keyword filters have been changed |  |
+| `conversation` | A conversation has been updated | |
+| `announcement` | A new server-wide announcement has been published | |
+| `announcement.reaction` | A published announcement has received a new reaction | |
+| `announcement.delete` | A published announcement has been removed | |
 
 The payload is JSON-encoded.
 
