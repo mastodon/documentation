@@ -11,11 +11,11 @@ Mastodon can be served through Tor as an onion service. This will give you a \*.
 
 ## Installing Tor {#install}
 
-First Tor’s Debian archive needs to be added to apt.
+First Tor’s Debian archive needs to be added to apt. Open `/etc/apt/sources.list` and add the following lines to it. Replace "example" in the command below with your installation name (it should be in the other lines).
 
 ```text
-deb https://deb.torproject.org/torproject.org stretch main
-deb-src https://deb.torproject.org/torproject.org stretch main
+deb https://deb.torproject.org/torproject.org example main
+deb-src https://deb.torproject.org/torproject.org example main
 ```
 
 Next add the gpg key.
@@ -151,4 +151,3 @@ service nginx restart
 There are a few things you will need to be aware of. Certain redirects will push your users to https. They will have to manually replace the URL with http to continue.
 
 Various resources, such as images, will still be offered through your regular non-Tor domain. How much of a problem this is will depend greatly on your user’s level of caution.
-
