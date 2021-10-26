@@ -73,12 +73,13 @@ Create a new user account with given USERNAME and provided --email.
 
 | Option | Description |
 | :--- | :--- |
-| `USERNAME`      | Local username for the new account. Required. |
-| `--email EMAIL` | Email address to be attached to the user. Required. |
-| `--confirmed`   | Skip sending the confirmation email and activate the account immediately. |
-| `--role ROLE`   | Define the new account as a `user`, `moderator`, or `admin`. Defaults to `user`. |
-| `--reattach`    | Reuse an old USERNAME after its account has been deleted. |
-| `--force`       | Forcefully delete any existing account with this USERNAME and reattach the new account in place of the \(just-deleted\) account. |
+| `USERNAME`             | Local username for the new account. Required. |
+| `--email EMAIL`        | Email address to be attached to the user. Required. |
+| `--confirmed`          | Skip sending the confirmation email and activate the account immediately. |
+| `--role ROLE`          | Define the new account as a `user`, `moderator`, or `admin`. Defaults to `user`. |
+| `--reattach`           | Reuse an old USERNAME after its account has been deleted. |
+| `--force`              | Forcefully delete any existing account with this USERNAME and reattach the new account in place of the \(just-deleted\) account. |
+| `--skip-sign-in-token` | Forcefully ensure that the user is never asked for an e-mailed security code. |
 
 ### `tootctl accounts modify` {#accounts-modify}
 
@@ -99,6 +100,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 | `--approve` | Approve the account, if you are/were in approval mode. |
 | `--disable-2fa` | Remove additional factors and allow login with password. |
 | `--reset-password` | Resets the password of the given account. |
+| `--skip-sign-in-token` | Forcefully ensure that the user is never asked for an e-mailed security code. |
 
 ### `tootctl accounts delete` {#accounts-delete}
 
