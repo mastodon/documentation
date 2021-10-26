@@ -80,6 +80,7 @@ RAILS_ENV=production bin/tootctl help
 | `--role ROLE`   | 设定新用户的身份为 `user`, `moderator` 或 `admin`。默认为 `user`。 |
 | `--reattach`    | 重用已被删除帐户的旧用户名。 |
 | `--force`       | 强制删除使用此用户名（USERNAME）的现有帐户，然后重新的新帐户代替（刚刚删除的）该帐户。 |
+| `--skip-sign-in-token` | 强制跳过该用户登录时的邮件验证码（目前这是不可逆操作）。 |
 
 ### `tootctl accounts modify` {#accounts-modify}
 
@@ -98,6 +99,8 @@ RAILS_ENV=production bin/tootctl help
 | `--enable` | 允许 USERNAME 帐户登录，如果该帐户目前被禁止登录。 |
 | `--approve` | 审核通过该帐户，如果你的实例为审核制。 |
 | `--disable_2fa` | 移除额外认证因素，允许只用密码登录。 |
+| `--reset-password` | 重置此用户的密码，将用一个随机生成的字符串作为临时密码。 |
+| `--skip-sign-in-token` | 强制跳过该用户登录时的邮件验证码（目前这是不可逆操作）。 |
 
 ### `tootctl accounts delete` {#accounts-delete}
 
