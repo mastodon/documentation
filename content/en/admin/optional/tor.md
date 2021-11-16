@@ -53,10 +53,11 @@ You can now find your Tor hostname in `/var/lib/tor/hidden_service/hostname`.
 
 We will need to tell Nginx about your Mastodon configuration twice. To keep things ["DRY"](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) we need to move the Mastodon configuration into its own file that can we can refer to later.
 
-Create a new file at `/etc/nginx/snippets/mastodon.conf`. Copy every Mastodon configuration parameter, apart from the `listen`, `server_name`, `include` directives, as well as all of the SSL options. Your new file should look somewhat like this:
+Create a new file at `/etc/nginx/snippets/mastodon.conf`. Copy every Mastodon configuration parameter, apart from the `listen`, `server_name`, `include` directives, as well as all the SSL options. Include an `Onion-Location` header to let supporting browsers know that this service is also accessible from Tor. Your new file should look somewhat like this:
 
 ```nginx
 add_header Referrer-Policy "same-origin";
+add_header Onion-Location mastodon.qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7.onion$request_uri;
 
 keepalive_timeout    70;
 sendfile             on;
@@ -136,7 +137,7 @@ server {
 }
 ```
 
-Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/hidden_service/hostname`.
+Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/hidden_service/hostname`. This should also be reflected in the `Onion-Location` header in the snippets file.
 
 Note that the onion hostname has been prefixed with “mastodon.”. Your Tor address acts as a wildcard domain. All subdomains will be routed through, and you can configure Nginx to respond to any subdomain you wish. If you do not wish to host any other services on your tor address you can omit the subdomain, or choose a different subdomain.
 
