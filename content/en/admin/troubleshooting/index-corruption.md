@@ -85,7 +85,7 @@ Before attempting to fix your database, stop Mastodon and make a backup of your 
 RAILS_ENV=production tootctl maintenance fix-duplicates
 ```
 
-The tool will walk through the database to find duplicate and fix them. In some cases, those operations are destructive. In the most destructive cases, you will be asked to chose which record to keep. In all cases, walking through the whole database in search of duplicates is an extremely long operation. Mastodon **has** to be stopped during the whole process to prevent additional duplicates from occuring.
+The tool will walk through the database to find duplicates and fix them. In some cases, those operations are destructive. In the most destructive cases, you will be asked to choose which record to keep. In all cases, walking through the whole database in search of duplicates is an extremely long operation. Mastodon **has** to be stopped during the whole process to prevent additional duplicates from occurring.
 
 ## Avoiding the issue
 
