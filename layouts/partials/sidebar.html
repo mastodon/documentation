@@ -23,6 +23,11 @@
                   {{ range .Children }}
                     <li>
                       <a href="{{ .URL }}" class="{{ if $currentPage.IsMenuCurrent "docs" . }}active{{ end }}">{{ .Name }}</a>
+                      div.relative {
+                         position: relative;
+                         left: 60px;
+                         border: 3px solid #73AD21;
+                      }
                     </li>
                   {{ end }}
                 </ul>
