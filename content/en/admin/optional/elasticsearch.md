@@ -35,6 +35,10 @@ apt install elasticsearch
 **Security warning:** By default, ElasticSearch is supposed to bind to localhost only, i.e. be inaccessible from the outside network. You can check which address ElasticSearch binds to by looking at `network.host` within `/etc/elasticsearch/elasticsearch.yml`. Consider that anyone who can access ElasticSearch can access and modify any data within it, as there is no authentication layer. So it’s really important that the access is secured. Having a firewall that only exposes the 22, 80 and 443 ports is advisable, as outlined in the [main installation instructions](../../prerequisites/#install-a-firewall-and-only-whitelist-ssh-http-and-https-ports). If you have a multi-host setup, you must know how to secure internal traffic.
 {{< /hint >}}
 
+{{< hint style="danger" >}}
+**Security warning:** Due to the recently disclosed [exploit](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) found in `log4j` lib used by ElasticSearch, some versions of ES may be affected by this issue(Check if your ES instance used `log4j` version between `2.0` and `2.14.1`). If affcted, please refer to [this issue](https://github.com/elastic/elasticsearch/issues/81618#issuecomment-991000240) for a temporary mitigation.
+{{< /hint >}}
+
 To start ElasticSearch:
 
 ```bash
