@@ -34,6 +34,9 @@ apt install elasticsearch
 {{< hint style="warning" >}}
 **安全警告：** 默认情况下，ElasticSearch仅绑定于localhost，即无法从外部网络访问。你可以通过查看 `/etc/elasticsearch/elasticsearch.yml` 中的 `network.host` 来检查 ElasticSearch 绑定了哪些地址。考虑到由于缺乏认证层，任何能访问 ElasticSearch 的人都可以读取或修改里面的数据。因此，确保访问安全非常重要。如[主要安装说明](../../prerequisites/#install-a-firewall-and-only-whitelist-ssh-http-and-https-ports)中所述，防火墙建议仅暴露了22、80、443端口。如果你是一个多主机配置，你必须知道如何保证内部流量安全。
 {{< /hint >}}
+{{< hint style="danger" >}}
+**安全警告:** 由于近期ElasticSearch所使用的`log4j`库被披露出[安全漏洞](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228)，使用了旧版本`log4j`(`2.0`到`2.14.1`)的ES可能会受到影响。如果使用了这些版本的`log4j`，请参阅 [此 issue](https://github.com/elastic/elasticsearch/issues/81618#issuecomment-991000240) 来暂时缓解此问题。
+{{< /hint >}}
 
 启动 ElasticSearch：
 
