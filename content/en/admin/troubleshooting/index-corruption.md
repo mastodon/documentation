@@ -85,9 +85,7 @@ Before attempting to fix your database, **stop Mastodon and make a backup of you
 RAILS_ENV=production tootctl maintenance fix-duplicates
 ```
 
-The script will walk through the database to automatically find duplicates and fix them.
-
-The tool will walk through the database to automatically find duplicates and fix them. In some cases, those operations are destructive. In the most destructive cases, you will be asked to choose which record to keep and which records to discard. In all cases, walking through the whole database in search of duplicates is an extremely long operation.
+The script will walk through the database to automatically find duplicates and fix them. In some cases, those operations are destructive. In the most destructive cases, you will be asked to choose which record to keep and which records to discard. In all cases, walking through the whole database in search of duplicates is an extremely long operation.
 
 {{< hint style="warning" >}}
 In some cases, duplicate records may have unreconcilable conflicts (such as two different local users sharing the same username). In these cases, the deduplication operation may be **partially destructive** and you will be asked which records to keep unchanged and which records will be changed.
