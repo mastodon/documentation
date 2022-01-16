@@ -83,13 +83,22 @@ Unless you take action, if you are affected, your database could get more and mo
 
 Mastodon 3.2.2 and later come with a semi-interactive script to fix those corruptions as best as possible. If you're on an earlier version, update to 3.2.2 first. It is possible that running the database migrations to 3.2.2 will fail because of those very corruptions, but the database should then be brought to a state that the maintenance tool bundled with Mastodon 3.2.2 can then recover from.
 
-Before attempting to fix your database, stop Mastodon and make a backup of your database. Then, with Mastodon still stopped, run the maintenance script:
+Before attempting to fix your database, **stop Mastodon and make a backup of your database**. Then, with **Mastodon still stopped**, run the maintenance script:
 
 ```
 RAILS_ENV=production tootctl maintenance fix-duplicates
 ```
 
-The tool will walk through the database to find duplicates and fix them. In some cases, those operations are destructive. In the most destructive cases, you will be asked to choose which record to keep. In all cases, walking through the whole database in search of duplicates is an extremely long operation. Mastodon **has** to be stopped during the whole process to prevent additional duplicates from occurring.
+The script will walk through the database to automatically find duplicates and fix them. In some cases, those operations are destructive. In the most destructive cases, you will be asked to choose which record to keep and which records to discard. In all cases, walking through the whole database in search of duplicates is an extremely long operation.
+
+{{< hint style="warning" >}}
+In some cases, duplicate records may have unreconcilable conflicts (such as two different local users sharing the same username). In these cases, the deduplication operation may be **partially destructive** and you will be asked which records to keep unchanged and which records will be changed.
+This script is therefore semi-interactive. In all cases, walking through the whole database in search of duplicates is an extremely long operation.
+{{< /hint >}}
+
+{{< hint style="danger" >}}
+**Because the maintenance script will temporarily remove indexes, Mastodon has to be completely stopped during the whole process to prevent additional duplicates from occurring.**
+{{< /hint >}}
 
 ## Avoiding the issue
 
