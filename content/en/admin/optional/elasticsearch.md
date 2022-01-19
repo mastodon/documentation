@@ -42,8 +42,7 @@ apt install elasticsearch
 To start ElasticSearch:
 
 ```bash
-systemctl enable elasticsearch
-systemctl start elasticsearch
+systemctl enable --now elasticsearch
 ```
 
 ## Configuring Mastodon {#config}
