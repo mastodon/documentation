@@ -40,9 +40,10 @@ apt install -y \
   imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core \
   g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
-  zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev \
+  zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
   nginx redis-server redis-tools postgresql postgresql-contrib \
   certbot python-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
+
 ```
 
 ### 安装 Ruby {#installing-ruby}
@@ -73,8 +74,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 上述操作完成，我们便可以安装正确的 Ruby 版本：
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.6
-rbenv global 2.6.6
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.7.2
+rbenv global 2.7.2
 ```
 
 我们同样需要安装 bundler：
@@ -179,7 +180,7 @@ cp /home/mastodon/live/dist/nginx.conf /etc/nginx/sites-available/mastodon
 ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 ```
 
-编辑 `/etc/nginx/sites-available/mastodon`，替换 `example.com` 为你自己的域名，你可以根据自己的需求做出其它的一些调整。
+编辑 `/etc/nginx/sites-available/mastodon`，替换所有的 `example.com` 为你自己的域名，你可以根据自己的需求做出其它的一些调整。
 
 重载 nginx 以使变更生效：
 
@@ -189,9 +190,10 @@ ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 
 ```bash
 certbot --nginx -d example.com
+
 ```
 
-这个命令将获取一个证书，自动更新 `/etc/nginx/sites-available/mastodon` 以使用新证书并重载nginx以使变更生效。
+请将替换 `example.com` 为你自己的域名，这个命令将获取一个证书，自动更新 `/etc/nginx/sites-available/mastodon` 以使用新证书并重载nginx以使变更生效。
 
 现在你应该能够通过浏览器访问你的域名，然后看到一只大象锤击电脑屏幕的错误页面。这是因为我们还没有启动Mastodon进程。
 
@@ -203,18 +205,17 @@ certbot --nginx -d example.com
 cp /home/mastodon/live/dist/mastodon-*.service /etc/systemd/system/
 ```
 
-然后修改以下文件，以保证用户名与路径是正确的：
+请检查用户名和路径是否正确:
 
-* `/etc/systemd/system/mastodon-web.service`
-* `/etc/systemd/system/mastodon-sidekiq.service`
-* `/etc/systemd/system/mastodon-streaming.service`
+```
+$EDITOR /etc/systemd/system/mastodon-*.service
+```
 
 最后，启动新systemd服务并将该服务设为开机自动激活：
 
 ```bash
 systemctl daemon-reload
-systemctl start mastodon-web mastodon-sidekiq mastodon-streaming
-systemctl enable mastodon-*
+systemctl enable --now mastodon-web mastodon-sidekiq mastodon-streaming
 ```
 
 他们将在开机启动时自动开始运行。
