@@ -41,7 +41,7 @@ Domyślnie, media oznaczone jako wrażliwe są ukrywane i wymagają kliknięcia 
 
 Ukryte i niezaładowane media używają kolorowych gradientów korzystających z algorytmu BlurHash, korzystającego z kolorów obrazu, lecz rozmywających detale. Te gradienty mogą być wyłączone.
 
-{{< figure src="/assets/blurhash.jpg" caption="Przykład miniaturki z blurhashem" >}}
+{{< figure src="/assets/pl/blurhash.jpg" caption="Przykład miniaturki z blurhashem" >}}
 
 Wpisy z ostrzeżeniami o zawartości są domyślnie zwijane, ale możesz wybrać aby zawsze wyświetlany był pełny wpis.
 
@@ -71,7 +71,7 @@ Jeżeli zdecydujesz się wypisać się z indeksowania w wyszukiwarkach, flaga `n
 
 Możesz ukryć swoją sieć, dzięki czemu lista obserwujących Cię i obserwowanych przez Ciebie będzie widoczna tylko dla Ciebie.
 
-{{< figure src="/assets/hidden-network.jpg" caption="Profil, którego właściciel zdecydował się ukryć swoją sieć" >}}
+{{< figure src="/assets/pl/hidden-network.jpg" caption="Profil, którego właściciel zdecydował się ukryć swoją sieć" >}}
 
 Jeżeli chcesz widzieć wpisy, które zostały udostępnione wielokrotnie na osi czasu, możesz wyłączyć grupowanie podbić w osiach czasu.
 

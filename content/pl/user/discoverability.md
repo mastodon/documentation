@@ -11,7 +11,7 @@ menu:
 
 ### Wyróżnione hashtagi {#featured-tags}
 
-{{< figure src="/assets/featured-tags.jpg" caption="Wyróżniony hashtag wraz z datą ostatniego użycia i całkowitym użyciem." >}}
+{{< figure src="/assets/pl/featured-tags.png" caption="Wyróżniony hashtag wraz z datą ostatniego użycia i całkowitym użyciem." >}}
 
 Możesz wyróżnić hashtagi, których używasz najczęściej. Przejdź do Preferencje &gt; Profil &gt; Wyróżnione hashtagi, aby wybrać, które hashtagi obecnie wyróżniasz. Po wybraniu odnośnik do tego hashtagu wraz z datą ostatniego użycia przez Ciebie oraz łączną liczbą jego wystąpień pojawi się na Twoim profilu.
 
@@ -23,13 +23,13 @@ Możesz wyróżnić profile osób, które obserwujesz. Wybierz menu opcji na pro
 
 ## Przypięte wpisy {#pinned}
 
-{{< figure src="/assets/pinned.jpg" caption="Wpis przypięty przez mastodon.social/@gargron" >}}
+{{< figure src="/assets/pl/pinned.png" caption="Wpis przypięty przez mastodon.social/@gargron" >}}
 
 Możesz wybrać maksymalnie 5 spośród swoich publicznych wpisów do wyróżnienia na górze profilu. Przejdź w okno opcji wpisu i wybierz „Przypnij do profilu”. Gdy przypniesz wpis, pojawi się na górze Twojej zakładki „wpisy”, przed pozostałymi wpisami, występującymi w kolejności chronologicznej.
 
 ## Katalog profilów {#directory}
 
-{{< figure src="/assets/directory.jpg" caption="Katalog profilów na mastodon.social" >}}
+{{< figure src="/assets/pl/directory.jpg" caption="Katalog profilów na mastodon.cloud" >}}
 
 Katalog profilów pokazuje wszystkie konta, które zgodziły się być pokazywane w katalogu i może służyć szybkiemu wyszukiwaniu profilów, którymi możesz być zainteresowany(-a).
 

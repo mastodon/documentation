@@ -35,7 +35,7 @@ Mastodon używa standaryzowanego, otwartego protokołu, aby implementować feder
 **Fediwersum** \(„sfederowane uniwersum”, z ang. „fediverse”\) to nazwa dla wszystkich stron mogących komunikować się wzajemnie w Internecie z użyciem ActivityPub. Zaliczają się do tego wszystkie serwery Mastodona, ale też inne implementacje:
 
 * Pleroma, modularny silnik mikroblogowy,
-* Pixelfed, sfederowana platforma do udostępniania zdjęć, pozwalająca na tworzenie i dzielenie się i przeglądanie wpisów multimedialnych,
+* Pixelfed, sfederowana platforma do udostępniania zdjęć, pozwalająca na tworzenie, dzielenie się i przeglądanie wpisów multimedialnych,
 * Misskey, zawierające mikroblog wraz z dostosowywalnym panelem,
 * PeerTube, pozwalające publikować filmy na kanałach,
 * Plume, pozwalające na publikowanie dłuższych artykułów,

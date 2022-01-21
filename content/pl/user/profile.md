@@ -33,7 +33,7 @@ Twój nagłówek to baner wyświetlany na górze Twojego profilu, jak i na karta
 
 Możesz oflagować swoje konto, aby poinformować innych, w jaki sposób korzystasz z Mastodona.
 
-![](/assets/bot-flag.jpg)
+![](/assets/pl/bot-flag.jpg)
 
 ### Konto zablokowane {#locked}
 
