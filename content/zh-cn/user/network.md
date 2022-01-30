@@ -49,6 +49,12 @@ menu:
 
 如果你正在访问另一个Mastodon站点的公开页面，请参阅[站外使用Mastodon](../external#interact)。
 
+## 启用特别关心
+
+![](/assets/bell.jpg)
+
+如果想要在你关注的用户发表嘟文时收到推送通知，请点击“铃铛”按钮。
+
 ## 搜索 {#search}
 
 {{< figure src="/assets/image%20%2819%29.png" caption="搜索功能可以从侧栏中访问" >}}
