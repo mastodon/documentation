@@ -39,6 +39,8 @@ If the account is reinstated within the 30 day period, all data is once again ac
 
 Once the data has been deleted, whether than be after the 30 day period, or if an admin has force deleted it, the account can still be un-suspended. However, the account will have no data (toots, profile information, avatar or header image) associated with it.
 
+Note that by default, users suspended by an instance will still be able to view toots from that instance. To change this default behavior, instance admins can set the `AUTHORIZED_FETCH` environment variable - see the documentation for [Configuring your environment](https://docs.joinmastodon.org/admin/config/).
+
 ## Server-wide moderation {#server-wide-moderation}
 
 Because individually moderating a large volume of users from a misbehaving server can be exhausting, it is possible to pre-emptively moderate against all users from that particular server using a so-called **domain block**, which comes with several different levels of severity.
@@ -54,6 +56,8 @@ Applies a silence to all past and future accounts from the server.
 ### Suspend {#suspend-server}
 
 Applies a suspension to all past and future accounts from the server. No content from the server will be stored locally except for usernames.
+
+Note that by default, users of a suspended instance will still be able to view toots from the suspending instance. To change this default behavior, instance admins can set the `AUTHORIZED_FETCH` environment variable - see the documentation for [Configuring your environment](https://docs.joinmastodon.org/admin/config/).
 
 ## Spam-fighting measures {#spam-fighting-measures}
 
