@@ -82,6 +82,8 @@ You should also copy over the `.env.production` file, which contains secrets.
 
 Optionally, you may copy over the nginx, systemd, and pgbouncer config files, or rewrite them from scratch.
 
+(Now go back to the "[Basic steps](#basic-steps)" and complete those.)
+
 ### During migration {#during-migration}
 
 You can edit the `~/live/public/500.html` page on the old machine if you want to show a nice error message to let existing users know that a migration is in progress.
