@@ -11,10 +11,10 @@ other = "{{ .Format \"January 2, 2006\" }}"
 other = "ソーシャルメディア革命に参加する"
 
 [joinText]
-other = "Mastodonは自由度を持った分散プラットフォームであり，400万人以上の人々が利用しています"
+other = "Mastodonは自由に使える分散プラットフォームであり、440万人以上の人々が利用しています"
 
 [joinAction]
-other = "いまがマストドンに参加する，そのときです！"
+other = "マストドンに参加する、いまがそのときです！"
 
 [merch]
 other = "グッズ"
@@ -32,7 +32,7 @@ other = "ブログ"
 other = "ソースコードを見る"
 
 [imprint]
-other = "インプリメント"
+other = "発行元"
 
 [formDataParameters]
 other = "データパラメーターより"
@@ -60,3 +60,7 @@ other = "レスポンス"
 
 [otherTranslations]
 other = "他の言語も利用可能："
+
+
+[sponsoredBy]
+other = "協賛"
