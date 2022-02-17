@@ -9,6 +9,10 @@ menu:
 
 Mastodon supports full-text search when ElasticSearch is available. Mastodon’s full-text search allows logged in users to find results from their own toots, their favourites, and their mentions. It deliberately does not allow searching for arbitrary strings in the entire database.
 
+{{< hint style="warning" >}}
+Please note that ElasticSearch has significant memory requirements, which can easily outpace those of Mastodon itself.
+{{< /hint >}}
+
 ## Installing ElasticSearch {#install}
 
 ElasticSearch requires a Java runtime. If you don’t have Java already installed, do it now. Assuming you are logged in as `root`:
