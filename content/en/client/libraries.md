@@ -95,8 +95,8 @@ menu:
 
 ## Rust {#rust}
 
-* [mammut](https://github.com/Aaronepower/mammut)
-* [elefren](https://github.com/pwoolcoc/elefren)
+* [mammut](https://github.com/Aaronepower/mammut) (unmaintained)
+* [elefren](https://github.com/DeeUnderscore/elefren) (unmaintained)
 
 ## Scala {#scala}
 
