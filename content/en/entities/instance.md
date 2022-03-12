@@ -105,7 +105,7 @@ menu:
 
 ### `languages` {#languages}
 
-**Description:** Primary langauges of the website and its staff.\
+**Description:** Primary languages of the website and its staff.\
 **Type:** Array of String \(ISO 639 Part 1-5 language codes\)\
 **Version history:** Added in 2.3.0
 
