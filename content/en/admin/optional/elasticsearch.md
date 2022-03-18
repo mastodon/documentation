@@ -21,7 +21,7 @@ Add the official ElasticSearch repository to apt:
 
 ```bash
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add -
-echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | tee -a /etc/apt/sources.list.d/elastic-6.x.list
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | tee -a /etc/apt/sources.list.d/elastic-7.x.list
 apt update
 ```
 
@@ -36,7 +36,7 @@ apt install elasticsearch
 {{< /hint >}}
 
 {{< hint style="danger" >}}
-**Security warning:** Due to the recently disclosed [exploit](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) found in `log4j` lib used by ElasticSearch, some versions of ES may be affected by this issue(Check if your ES instance used `log4j` version between `2.0` and `2.14.1`). If affcted, please refer to [this issue](https://github.com/elastic/elasticsearch/issues/81618#issuecomment-991000240) for a temporary mitigation.
+**Security warning:** Due to the recently disclosed [exploit](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) found in `log4j` lib used by ElasticSearch, some versions of ES may be affected by this issue(Check if your ES instance used `log4j` version between `2.0` and `2.14.1`). If affected, please refer to [this issue](https://github.com/elastic/elasticsearch/issues/81618#issuecomment-991000240) for a temporary mitigation.
 {{< /hint >}}
 
 To start ElasticSearch:
