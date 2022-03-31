@@ -9,7 +9,7 @@ menu:
 
 ## Pre-requisites {#pre-requisites}
 
-* A machine running **Ubuntu 18.04** that you have root access to
+* A machine running **Ubuntu 20.04** or **Debian 11** that you have root access to
 * A **domain name** \(or a subdomain\) for the Mastodon server, e.g. `example.com`
 * An e-mail delivery service or other **SMTP server**
 
@@ -17,19 +17,23 @@ You will be running the commands as root. If you aren’t already root, switch t
 
 ### System repositories {#system-repositories}
 
-Make sure curl is installed first:
+Make sure curl, wget, gnupg, apt-transport-https, lsb-release and ca-certificates is installed first:
+
+```bash
+apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
+```
 
 #### Node.js {#node-js}
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_12.x | bash -
+curl -sL https://deb.nodesource.com/setup_16.x | bash -
 ```
 
-#### Yarn {#yarn}
+#### PostgreSQL {#postgresql}
 
 ```bash
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+wget -O /usr/share/keyrings/postgresql.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/postgresql.list
 ```
 
 ### System packages {#system-packages}
@@ -42,7 +46,14 @@ apt install -y \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
   zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
   nginx redis-server redis-tools postgresql postgresql-contrib \
-  certbot python3-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
+  certbot python3-certbot-nginx libidn11-dev libicu-dev libjemalloc-dev
+```
+
+#### Yarn {#yarn}
+
+```bash
+corepack enable
+yarn set version stable
 ```
 
 ### Installing Ruby {#installing-ruby}
@@ -73,8 +84,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 Once this is done, we can install the correct Ruby version:
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.7.2
-rbenv global 2.7.2
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.0.3
+rbenv global 3.0.3
 ```
 
 We’ll also need to install bundler:
@@ -95,7 +106,7 @@ exit
 
 #### Performance configuration \(optional\) {#performance-configuration-optional}
 
-For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/9.6/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
+For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/14/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
 
 #### Creating a user {#creating-a-user}
 
