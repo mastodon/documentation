@@ -14,20 +14,20 @@ Mastodon supports full-text search when ElasticSearch is available. Mastodon’s
 ElasticSearch requires a Java runtime. If you don’t have Java already installed, do it now. Assuming you are logged in as `root`:
 
 ```bash
-apt install openjdk-8-jre-headless
+apt install openjdk-17-jre-headless
 ```
 
 Add the official ElasticSearch repository to apt:
 
 ```bash
-wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add -
-echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | tee -a /etc/apt/sources.list.d/elastic-6.x.list
-apt update
+wget -O /usr/share/keyrings/elasticsearch.asc https://artifacts.elastic.co/GPG-KEY-elasticsearch
+echo "deb [signed-by=/usr/share/keyrings/elasticsearch.asc] https://artifacts.elastic.co/packages/7.x/apt stable main" > /etc/apt/sources.list.d/elastic-7.x.list
 ```
 
 Now you can install ElasticSearch:
 
 ```bash
+apt update
 apt install elasticsearch
 ```
 
@@ -42,6 +42,7 @@ apt install elasticsearch
 To start ElasticSearch:
 
 ```bash
+systemctl daemon-reload
 systemctl enable --now elasticsearch
 ```
 
@@ -67,6 +68,8 @@ systemctl reload mastodon-web
 Now it's time to create the ElasticSearch indices and fill them with data:
 
 ```bash
+su - mastodon
+cd live
 RAILS_ENV=production bin/tootctl search deploy
 ```
 
