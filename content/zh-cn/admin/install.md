@@ -183,7 +183,7 @@ exit
 
 ### 配置 nginx {#setting-up-nginx}
 
-从M astodon 目录复制配置文件模版到 nginx：
+从 Mastodon 目录复制配置文件模版到 nginx：
 
 ```bash
 cp /home/mastodon/live/dist/nginx.conf /etc/nginx/sites-available/mastodon
