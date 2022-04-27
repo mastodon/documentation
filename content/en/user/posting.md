@@ -121,7 +121,7 @@ Send your post only to mentioned users.
 * Your post cannot be boosted.
 
 {{< hint style="warning" >}}
-**Do not share dangerous and sensitive information over direct messages**. Mastodon is not an encrypted messaging app like Signal or Wire, the database administrators of the sender’s and recipient’s servers have access to the text. Use them with the same caution as you would use forum PMs, Discord PMs and Twitter DMs.
+**Do not share dangerous and sensitive information over private mentions**. Mastodon is not an encrypted messaging app like Signal, Matrix or Wire. By accessing the Mastodon database directly the administrators of your server, and any recipient’s servers, can read your messages.
 {{< /hint >}}
 
 ## Content warnings and sensitive content {#cw}
