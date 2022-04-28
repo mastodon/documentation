@@ -96,7 +96,7 @@ This page is currently under construction.
 
 {{< page-ref page="methods/statuses/scheduled_statuses.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/scheduled_status_serializer.rb" caption="app/serializers/rest/scheduled\_status\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/scheduled_status_serializer.rb" caption="app/serializers/rest/scheduled\_status\_serializer.rb" >}}
 
 
 

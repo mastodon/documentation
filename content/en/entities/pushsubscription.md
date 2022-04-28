@@ -73,7 +73,7 @@ Receive a push notification when a poll you voted in or created has ended? Boole
 
 {{< page-ref page="methods/notifications/push.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/web_push_subscription_serializer.rb" caption="app/serializers/rest/web\_push\_subscription\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/web_push_subscription_serializer.rb" caption="app/serializers/rest/web\_push\_subscription\_serializer.rb" >}}
 
 
 

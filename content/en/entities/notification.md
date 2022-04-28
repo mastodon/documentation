@@ -115,7 +115,7 @@ menu:
 
 {{< page-ref page="methods/notifications.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/notification_serializer.rb" caption="app/serializers/rest/notification\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/notification_serializer.rb" caption="app/serializers/rest/notification\_serializer.rb" >}}
 
 
 

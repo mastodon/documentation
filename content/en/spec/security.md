@@ -9,7 +9,7 @@ menu:
 
 ## HTTP Signatures {#http}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/lib/request.rb" caption="app/lib/request.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/request.rb" caption="app/lib/request.rb" >}}
 
 [HTTP Signatures](https://w3c-dvcg.github.io/http-signatures/) is a specification for signing HTTP messages by using a \`Signature:\` header with your HTTP request. Mastodon requires the use of HTTP Signatures in order to validate that any activity received was authored by the actor generating it. When secure mode is enabled, all GET requests require HTTP signatures as well.
 
@@ -75,7 +75,7 @@ This request is functionally equivalent to saying that `https://my-example.com/a
 
 ### Verifying HTTP signatures {#http-verify}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/controllers/concerns/signature_verification.rb" caption="app/controllers/concerns/signature\_verification.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/controllers/concerns/signature_verification.rb" caption="app/controllers/concerns/signature\_verification.rb" >}}
 
 Consider the following request:
 
@@ -97,7 +97,7 @@ Mastodon verifies the signature using the following algorithm:
 
 ## Linked Data Signatures {#ld}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/lib/activitypub/linked_data_signature.rb" caption="app/lib/activitypub/linked\_data\_signature.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/activitypub/linked_data_signature.rb" caption="app/lib/activitypub/linked\_data\_signature.rb" >}}
 
 [Linked Data Signatures 1.0](https://w3c-dvcg.github.io/ld-signatures/) is a specification for attaching cryptographic signatures to JSON-LD documents. LD Signatures are not used widely within Mastodon, but they are used in the following situations:
 

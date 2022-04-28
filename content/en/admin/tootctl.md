@@ -22,7 +22,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## Base CLI
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/cli.rb" caption="lib/cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/cli.rb" caption="lib/cli.rb" >}}
 
 ### `tootctl self-destruct` {#self-destruct}
 
@@ -50,7 +50,7 @@ Show the version of the currently running Mastodon instance.
 
 ## Accounts CLI {#accounts}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/accounts_cli.rb" caption="lib/mastodon/accounts\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/accounts_cli.rb" caption="lib/mastodon/accounts\_cli.rb" >}}
 
 ### `tootctl accounts rotate` {#accounts-rotate}
 
@@ -221,7 +221,7 @@ Approve new registrations when instance is in approval mode.
 
 ## Cache CLI {#cache}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/cache_cli.rb" caption="lib/mastodon/cache\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/cache_cli.rb" caption="lib/mastodon/cache\_cli.rb" >}}
 
 ### `tootctl cache clear` {#cache-clear}
 
@@ -245,7 +245,7 @@ Update hard-cached counters of TYPE by counting referenced records from scratch.
 
 ## Domains CLI {#domains}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/domains_cli.rb" caption="lib/mastodon/domains\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/domains_cli.rb" caption="lib/mastodon/domains\_cli.rb" >}}
 
 ### `tootctl domains purge` {#domains-purge}
 
@@ -283,7 +283,7 @@ Crawl the known fediverse by using Mastodon REST API endpoints that expose all k
 
 ## Email domain blocks CLI {#email-domain-blocks}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/email_domain_blocks_cli.rb" caption="lib/mastodon/email\_domain\_blocks\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/email_domain_blocks_cli.rb" caption="lib/mastodon/email\_domain\_blocks\_cli.rb" >}}
 
 ### `tootctl email-domain-blocks list` {#email-domain-blocks-list}
 
@@ -317,7 +317,7 @@ Remove entries from the e-mail domain blocklist.
 
 ## Emoji CLI {#emoji}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/emoji_cli.rb" caption="lib/mastodon/emoji\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/emoji_cli.rb" caption="lib/mastodon/emoji\_cli.rb" >}}
 
 ### `tootctl emoji export` {#emoji-export}
 
@@ -362,7 +362,7 @@ Remove all custom emoji.
 
 ## Feeds CLI {#feeds}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/feeds_cli.rb" caption="lib/mastodon/feeds\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/feeds_cli.rb" caption="lib/mastodon/feeds\_cli.rb" >}}
 
 ### `tootctl feeds build` {#feeds-build}
 
@@ -388,7 +388,7 @@ Remove all home and list feeds from Redis.
 
 ## Maintenance CLI {#maintenance}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/maintenance_cli.rb" caption="lib/mastodon/maintenance\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/maintenance_cli.rb" caption="lib/mastodon/maintenance\_cli.rb" >}}
 
 ### `tootctl maintenance fix-duplicates` {#maintenance-fix-duplicates}
 
@@ -396,7 +396,7 @@ Fix corrupted database indexes that may have been caused due to changing collati
 
 ## Media CLI {#media}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/media_cli.rb" caption="lib/mastodon/media\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/media_cli.rb" caption="lib/mastodon/media\_cli.rb" >}}
 
 ### `tootctl media remove` {#media-remove}
 
@@ -463,7 +463,7 @@ Prompts for a media URL, then looks up where the media is displayed.
 
 ## Preview Cards CLI {#preview_cards}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/preview_cards_cli.rb" caption="lib/mastodon/preview\_cards\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/preview_cards_cli.rb" caption="lib/mastodon/preview\_cards\_cli.rb" >}}
 
 ### `tootctl preview_cards remove` {#preview_cards-remove}
 
@@ -482,7 +482,7 @@ Remove local thumbnails for preview cards.
 
 ## Search CLI {#search}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/search_cli.rb" caption="lib/mastodon/search\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/search_cli.rb" caption="lib/mastodon/search\_cli.rb" >}}
 
 ### `tootctl search deploy` {#search-deploy}
 
@@ -501,7 +501,7 @@ Create or update an ElasticSearch index and populate it. If ElasticSearch is emp
 
 ## Settings CLI {#settings}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/settings_cli.rb" caption="lib/mastodon/settings\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/settings_cli.rb" caption="lib/mastodon/settings\_cli.rb" >}}
 
 ### `tootctl settings registrations open` {#settings-registrations-open}
 
@@ -519,7 +519,7 @@ Closes registrations.
 
 ## Statuses CLI {#statuses}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/statuses_cli.rb" caption="lib/mastodon/statuses\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/statuses_cli.rb" caption="lib/mastodon/statuses\_cli.rb" >}}
 
 ### `tootctl statuses remove` {#statuses-remove}
 
@@ -538,7 +538,7 @@ This is a computationally heavy procedure that creates extra database indices be
 
 ## Upgrade CLI {#upgrade}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/upgrade_cli.rb" caption="lib/mastodon/upgrade\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/upgrade_cli.rb" caption="lib/mastodon/upgrade\_cli.rb" >}}
 
 ### `tootctl upgrade storage-schema` {#upgrade-storage-schema}
 

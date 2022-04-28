@@ -65,7 +65,7 @@ menu:
 
 {{< page-ref page="methods/accounts/preferences.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/preferences_serializer.rb" caption="app/serializers/rest/preferences\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/preferences_serializer.rb" caption="app/serializers/rest/preferences\_serializer.rb" >}}
 
 
 

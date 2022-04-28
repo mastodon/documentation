@@ -60,7 +60,7 @@ menu:
 
 * [GET /api/v1/statuses/:id/context]({{< relref "../methods/statuses/#parent-and-child-statuses" >}})
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/context_serializer.rb" caption="app/serializers/rest/context\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/context_serializer.rb" caption="app/serializers/rest/context\_serializer.rb" >}}
 
 
 

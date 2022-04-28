@@ -170,7 +170,7 @@ Equal to `header` if its value is a static image; different if `header` is an an
 **Version history:**\
 3.1.0 - added
 
-## Statistical attributes 
+## Statistical attributes
 
 ### `created_at` {#created_at}
 
@@ -257,7 +257,7 @@ Equal to `header` if its value is a static image; different if `header` is an an
 
 {{< page-ref page="methods/accounts.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/account_serializer.rb" caption="app/serializers/rest/account\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/account_serializer.rb" caption="app/serializers/rest/account\_serializer.rb" >}}
 
 
 

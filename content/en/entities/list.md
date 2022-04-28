@@ -45,7 +45,7 @@ menu:
 
 {{< page-ref page="methods/timelines/lists.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/list_serializer.rb" caption="app/serializers/rest/list\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/list_serializer.rb" caption="app/serializers/rest/list\_serializer.rb" >}}
 
 
 

@@ -61,7 +61,7 @@ menu:
 
 {{< page-ref page="methods/apps.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/application_serializer.rb" caption="app/serializers/rest/application\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/application_serializer.rb" caption="app/serializers/rest/application\_serializer.rb" >}}
 
 
 

@@ -80,11 +80,11 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 
 {{< page-ref page="methods/accounts/filters.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/lib/feed_manager.rb" caption="app/lib/feed\_manager.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/feed_manager.rb" caption="app/lib/feed\_manager.rb" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/javascript/mastodon/selectors/index.js" caption="app/javascript/mastodon/selectors/index.js" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/javascript/mastodon/selectors/index.js" caption="app/javascript/mastodon/selectors/index.js" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/filter_serializer.rb" caption="app/serializers/rest/filter\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/filter_serializer.rb" caption="app/serializers/rest/filter\_serializer.rb" >}}
 
 
 

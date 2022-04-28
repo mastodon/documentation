@@ -122,4 +122,4 @@ menu:
 
 * [GET /api/v1/accounts/relationships]({{< relref "../methods/accounts.md#check-relationships-to-other-accounts" >}})
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/relationship_serializer.rb" caption="app/serializers/rest/relationship\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/relationship_serializer.rb" caption="app/serializers/rest/relationship\_serializer.rb" >}}

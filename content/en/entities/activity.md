@@ -49,7 +49,7 @@ menu:
 
 {{< page-ref page="methods/instance.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/controllers/api/v1/instances/activity_controller.rb" caption="app/controllers/api/v1/instances/activity\_controller.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/controllers/api/v1/instances/activity_controller.rb" caption="app/controllers/api/v1/instances/activity\_controller.rb" >}}
 
 
 

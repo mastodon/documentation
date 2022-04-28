@@ -60,7 +60,7 @@ menu:
 
 {{< page-ref page="methods/instance/custom_emojis.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/custom_emoji_serializer.rb" caption="app/serializers/rest/custom\_emoji\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/custom_emoji_serializer.rb" caption="app/serializers/rest/custom\_emoji\_serializer.rb" >}}
 
 
 

@@ -13,7 +13,7 @@ Sample payloads will be added at a future date.
 
 ## Status federation {#status}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/lib/activitypub/activity.rb" caption="app/lib/activitypub/activity.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/activitypub/activity.rb" caption="app/lib/activitypub/activity.rb" >}}
 
 ### Supported activities for statuses
 
@@ -75,7 +75,7 @@ Some other Object types are converted as best as possible. The transformer uses 
 
 ## HTML sanitization {#sanitization}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/lib/sanitize_config.rb" caption="app/lib/sanitize\_config.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/sanitize_config.rb" caption="app/lib/sanitize\_config.rb" >}}
 
  Mastodon sanitizes incoming HTML in order to not break assumptions for API client developers. Supported elements include `<p>`, `<span>`, `<br>`, and `<a>`. Unsupported elements will be converted to `<p>`.The sanitizer will keep classes if they begin with microformats prefixes or are semantic classes:
 
@@ -91,7 +91,7 @@ Some other Object types are converted as best as possible. The transformer uses 
 
 ## JSON-LD Namespacing {#namespaces}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/lib/activitypub/adapter.rb" caption="app/lib/activitypub/adapter.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/activitypub/adapter.rb" caption="app/lib/activitypub/adapter.rb" >}}
 
 ### Mastodon extensions \(`toot:`\) {#toot}
 

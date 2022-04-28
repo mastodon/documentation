@@ -224,7 +224,7 @@ More importantly, there may be another top-level `focus` Hash object as of 2.3.0
 
 {{< page-ref page="methods/statuses/media.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/media_attachment_serializer.rb" caption="app/serializers/rest/media\_attachment\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/media_attachment_serializer.rb" caption="app/serializers/rest/media\_attachment\_serializer.rb" >}}
 
 
 

@@ -140,7 +140,7 @@ su - mastodon
 Use git to download the latest stable release of Mastodon:
 
 ```bash
-git clone https://github.com/tootsuite/mastodon.git live && cd live
+git clone https://github.com/mastodon/mastodon.git live && cd live
 git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 ```
 
@@ -214,7 +214,7 @@ Copy the systemd service templates from the Mastodon directory:
 cp /home/mastodon/live/dist/mastodon-*.service /etc/systemd/system/
 ```
 
-If you deviated from the defaults at any point, check that the username and paths are correct: 
+If you deviated from the defaults at any point, check that the username and paths are correct:
 
 ```sh
 $EDITOR /etc/systemd/system/mastodon-*.service

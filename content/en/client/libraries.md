@@ -91,7 +91,7 @@ menu:
 
 ## Ruby {#ruby}
 
-* [mastodon-api](https://github.com/tootsuite/mastodon-api)
+* [mastodon-api](https://github.com/mastodon/mastodon-api)
 
 ## Rust {#rust}
 

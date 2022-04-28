@@ -54,7 +54,7 @@ menu:
 * /api/proofs
 * [About identity proofs]({{< relref "../user/contacts.md#identity-proofs" >}})
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/identity_proof_serializer.rb" caption="app/serializers/rest/identity\_proof\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/identity_proof_serializer.rb" caption="app/serializers/rest/identity\_proof\_serializer.rb" >}}
 
 
 

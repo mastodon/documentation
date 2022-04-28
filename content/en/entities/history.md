@@ -42,7 +42,7 @@ menu:
 
 {{< page-ref page="tag.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/17159625b3e2c6d94509c0c2879ca80efbac6846/app/models/tag.rb\#L101-L115" caption="app/models/tag.rb L101-115 -- history days\[\]" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/17159625b3e2c6d94509c0c2879ca80efbac6846/app/models/tag.rb\#L101-L115" caption="app/models/tag.rb L101-115 -- history days\[\]" >}}
 
 
 

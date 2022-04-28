@@ -107,7 +107,7 @@ menu:
 
 {{< page-ref page="methods/search.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/search_serializer.rb" caption="app/serializers/rest/search\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/search_serializer.rb" caption="app/serializers/rest/search\_serializer.rb" >}}
 
 
 

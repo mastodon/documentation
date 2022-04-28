@@ -113,7 +113,7 @@ The number of received votes for this option. Number, or null if results are not
 
 {{< page-ref page="methods/statuses/polls.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/poll_serializer.rb" caption="app/serializers/rest/poll\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/poll_serializer.rb" caption="app/serializers/rest/poll\_serializer.rb" >}}
 
 
 

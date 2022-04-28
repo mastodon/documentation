@@ -62,7 +62,7 @@ menu:
 
 {{< page-ref page="methods/timelines/conversations.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/conversation_serializer.rb" caption="app/serializers/rest/conversation\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/conversation_serializer.rb" caption="app/serializers/rest/conversation\_serializer.rb" >}}
 
 
 

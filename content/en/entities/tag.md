@@ -83,7 +83,7 @@ menu:
 
 {{< page-ref page="methods/search.md" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/tag_serializer.rb" caption="app/serializers/rest/tag\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/tag_serializer.rb" caption="app/serializers/rest/tag\_serializer.rb" >}}
 
 
 

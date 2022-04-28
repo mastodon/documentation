@@ -79,7 +79,7 @@ Error: This method requires an authenticated user. Appears when using an OAuth t
 
 ## See also
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/controllers/api/base_controller.rb" caption="app/controllers/api/base\_controller.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/controllers/api/base_controller.rb" caption="app/controllers/api/base\_controller.rb" >}}
 
 
 
