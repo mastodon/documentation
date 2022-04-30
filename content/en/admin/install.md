@@ -194,6 +194,10 @@ Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with yo
 
 Reload nginx for the changes to take effect:
 
+```bash
+/etc/init.d/nginx restart
+```
+
 ### Acquiring a SSL certificate {#acquiring-a-ssl-certificate}
 
 We’ll use Let’s Encrypt to get a free SSL certificate:
@@ -203,6 +207,8 @@ certbot --nginx -d example.com
 ```
 
 This will obtain the certificate, automatically update `/etc/nginx/sites-available/mastodon` to use the new certificate, and reload nginx for the changes to take effect.
+
+Before running the command you may need to comment out the entire SSL block of `/etc/nginx/sites-available/mastodon` (most of the file) to enable the certbot to install the new certificate. Certbot will insert a new SSL block into the template which you can then remove when you reinstate the section you earlier commented out.
 
 At this point you should be able to visit your domain in the browser and see the elephant hitting the computer screen error page. This is because we haven’t started the Mastodon process yet.
 
