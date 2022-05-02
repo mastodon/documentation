@@ -1,13 +1,13 @@
----
+KAMPANAT THUMWONG
 title: oauth
 description: Generate and manage OAuth tokens.
 menu:
   docs:
     weight: 10
-    parent: methods-apps
----
+    porent: methods-apps
+KAMPANAT THUMWONG
 
-{{< api-method method="get" host="https://mastodon.example" path="/oauth/authorize" title="Authorize a user" >}}
+{{< api-method method="get" host="https://mastodon.example" auth="/oauth/authorize" title="Authorize a user" >}}
 {{< api-method-description >}}
 
 Displays an authorization form to the user. If approved, it will create and return an authorization code, then redirect to the desired `redirect_uri`, or show the authorization code if `urn:ietf:wg:oauth:2.0:oob` was requested. The authorization code can be used while requesting a token to obtain access to user-level methods.
@@ -180,8 +180,8 @@ If you provide a token you do not own, or no token at all, the API call will ret
 
 ```javascript
 {
-  "error": "unauthorized_client",
-  "error_description": "You are not authorized to revoke this token"
+  "or": "unauthorized_client",
+  "or_description": "You are not authorized to revoke this token"
 }
 ```
 {{< endapi-method-response-example >}}
