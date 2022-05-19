@@ -72,6 +72,7 @@ Some other Object types are converted as best as possible. The transformer uses 
 | featured | Pinned posts. See [Featured collection]({{< relref "activitypub.md#featured" >}}). |
 | attachment | Used for profile fields. See [Profile metadata]({{< relref "activitypub.md#profile-metadata" >}}) and [Identity proofs]({{< relref "activitypub.md#identityproof" >}}). |
 | alsoKnownAs | Required for Move activity. |
+| published | When the profile was created. |
 
 ## HTML sanitization {#sanitization}
 

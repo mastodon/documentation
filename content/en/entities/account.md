@@ -178,6 +178,7 @@ Equal to `header` if its value is a static image; different if `header` is an an
 **Type:** String \(ISO 8601 Datetime\)\
 **Version history:**\
 0.1.0 - added
+3.4.0 - now resolves to midnight instead of an exact time
 
 ### `last_status_at` {#last_status_at}
 
