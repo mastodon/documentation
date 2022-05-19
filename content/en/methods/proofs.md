@@ -7,6 +7,11 @@ menu:
     parent: methods
 ---
 
+{{< hint style="danger" >}}
+**Deprecated**\
+Identity proofs have been deprecated in 3.5.0 and newer. Previously, the only proof provider was Keybase, but development on Keybase has stalled entirely since it was acquired by Zoom.
+{{< /hint >}}
+
 {{< api-method method="get" host="https://mastodon.example" path="/api/proofs" title="View identity proof" >}}
 {{< api-method-description >}}
 

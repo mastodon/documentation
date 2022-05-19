@@ -1128,80 +1128,6 @@ Account with given id is suspended
 {{< endapi-method-response >}}
 {{< endapi-method-spec >}}
 {{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/:id/identity_proofs" title="Identity proofs" >}}
-{{< api-method-description >}}
-
-**Returns:** Array of IdentityProof\
-**OAuth:** User token\
-**Version history:**\
-2.8.0 - added
-
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
-
-
-```javascript
-[
-  {
-    "provider": "Keybase",
-    "provider_username": "gargron",
-    "updated_at": "2019-07-21T20:14:39.596Z",
-    "proof_url": "https://keybase.io/gargron/sigchain#5cfc20c7018f2beefb42a68836da59a792e55daa4d118498c9b1898de7e845690f",
-    "profile_url": "https://keybase.io/gargron"
-  }
-]
-```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
-
-Account with given id is deleted or does not exist
-{{< endapi-method-response-example-description >}}
-
-
-```javascript
-{
-  "error": "Record not found"
-}
-```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=410 >}}
-{{< api-method-response-example-description >}}
-
-Account with given id is suspended
-{{< endapi-method-response-example-description >}}
-
-
-```
-
-```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
-
-
-```javascript
-{
-  "error": "This method requires an authenticated user"
-}
-```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-
 
 ## Perform actions on an account
 
@@ -2054,3 +1980,79 @@ resolve=true, but the domain part of the user@domain address is not a currently 
 {{< endapi-method >}}
 
 
+## Deprecated
+
+{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/:id/identity_proofs" title="Identity proofs" >}}
+{{< api-method-description >}}
+
+**Returns:** Array of IdentityProof\
+**OAuth:** User token\
+**Version history:**\
+2.8.0 - added\
+3.5.0 - deprecated. now returns an empty array.
+
+{{< endapi-method-description >}}
+{{< api-method-spec >}}
+{{< api-method-request >}}
+{{< api-method-path-parameters >}}
+{{< api-method-parameter name=":id" type="string" required=true >}}
+The id of the account in the database
+{{< endapi-method-parameter >}}
+{{< endapi-method-path-parameters >}}
+{{< endapi-method-request >}}
+{{< api-method-response >}}
+{{< api-method-response-example httpCode=200 >}}
+{{< api-method-response-example-description >}}
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+[
+  {
+    "provider": "Keybase",
+    "provider_username": "gargron",
+    "updated_at": "2019-07-21T20:14:39.596Z",
+    "proof_url": "https://keybase.io/gargron/sigchain#5cfc20c7018f2beefb42a68836da59a792e55daa4d118498c9b1898de7e845690f",
+    "profile_url": "https://keybase.io/gargron"
+  }
+]
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=404 >}}
+{{< api-method-response-example-description >}}
+
+Account with given id is deleted or does not exist
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "error": "Record not found"
+}
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=410 >}}
+{{< api-method-response-example-description >}}
+
+Account with given id is suspended
+{{< endapi-method-response-example-description >}}
+
+
+```
+
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=422 >}}
+{{< api-method-response-example-description >}}
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "error": "This method requires an authenticated user"
+}
+```
+{{< endapi-method-response-example >}}
+{{< endapi-method-response >}}
+{{< endapi-method-spec >}}
+{{< endapi-method >}}

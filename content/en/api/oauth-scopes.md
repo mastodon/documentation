@@ -44,7 +44,8 @@ Grants access to write data. Requesting `write` will also grant child scopes sho
 ### `follow` {#follow}
 
 {{< hint style="danger" >}}
-**Deprecated** This scope has been deprecated in 3.5.0 and newer. You should instead request the child scopes individually, or request read/write permission as needed.
+**Deprecated**\
+This scope has been deprecated in 3.5.0 and newer. You should instead request the child scopes individually, or request read/write permission as needed.
 {{< /hint >}}
 
 Grants access to manage relationships. Requesting `follow` will also grant the following child scopes, shown in bold in the table:
