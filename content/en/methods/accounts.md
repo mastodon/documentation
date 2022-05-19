@@ -1211,10 +1211,11 @@ Account with given id is suspended
 Follow the given account. Can also be used to update whether to show reblogs or enable notifications.
 
 **Returns:** Relationship\
-**OAuth:** User token + `write:follows` or `follow`\
+**OAuth:** User token + `write:follows`\
 **Version history:**\
 0.0.0 - added\
-3.3.0 - added `notify`
+3.3.0 - added `notify`\
+3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1285,9 +1286,10 @@ Trying to follow someone that you block or that blocks you
 Unfollow the given account.
 
 **Returns:** Relationship\
-**OAuth:** User token + `write:follows` or `follow`\
+**OAuth:** User token + `write:follows`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1350,9 +1352,10 @@ Invalid or missing Authorization header
 Block the given account. Clients should filter statuses from this account if received \(e.g. due to a boost in the Home timeline\)
 
 **Returns:** Relationship\
-**OAuth:** User token + `write:blocks` or `follow`\
+**OAuth:** User token + `write:blocks`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1415,9 +1418,10 @@ Invalid or missing Authorization header
 Unblock the given account.
 
 **Returns:** Relationship\
-**OAuth:** User token + `write:blocks` or `follow`\
+**OAuth:** User token + `write:blocks`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1480,9 +1484,10 @@ Invalid or missing Authorization header
 Mute the given account. Clients should filter statuses and notifications from this account, if received \(e.g. due to a boost in the Home timeline\).
 
 **Returns:** Relationship\
-**OAuth:** User token + `write:mutes` or `follow`\
+**OAuth:** User token + `write:mutes`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -1553,9 +1558,10 @@ Invalid or missing Authorization header
 Unmute the given account.
 
 **Returns:** Relationship\
-**OAuth:** User token + `write:mutes` or `follow`\
+**OAuth:** User token + `write:mutes`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
