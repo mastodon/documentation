@@ -1206,6 +1206,7 @@ Trying to follow someone that you block or that blocks you
 {{< endapi-method-response >}}
 {{< endapi-method-spec >}}
 {{< endapi-method >}}
+
 {{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/unfollow" title="Unfollow" >}}
 {{< api-method-description >}}
 
@@ -1272,6 +1273,73 @@ Invalid or missing Authorization header
 {{< endapi-method-response >}}
 {{< endapi-method-spec >}}
 {{< endapi-method >}}
+
+{{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/remove_from_followers" title="Remove from followers" >}}
+{{< api-method-description >}}
+
+Remove the given account from your followers.
+
+**Returns:** Relationship\
+**OAuth:** User token + `write:follows`\
+**Version history:**\
+3.5.0 - added
+
+{{< endapi-method-description >}}
+{{< api-method-spec >}}
+{{< api-method-request >}}
+{{< api-method-path-parameters >}}
+{{< api-method-parameter name=":id" type="string" required=true >}}
+The id of the account in the database
+{{< endapi-method-parameter >}}
+{{< endapi-method-path-parameters >}}
+{{< api-method-headers >}}
+{{< api-method-parameter name="Authorization" type="string" required=true >}}
+Bearer &lt;user token&gt;
+{{< endapi-method-parameter >}}
+{{< endapi-method-headers >}}
+{{< endapi-method-request >}}
+{{< api-method-response >}}
+{{< api-method-response-example httpCode=200 >}}
+{{< api-method-response-example-description >}}
+
+Successfully removed from followers, or account was already not following you
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "id": "3",
+  "following": false,
+  "showing_reblogs": false,
+  "notifying": false,
+  "followed_by": false,
+  "blocking": false,
+  "blocked_by": false,
+  "muting": false,
+  "muting_notifications": false,
+  "requested": false,
+  "domain_blocking": false,
+  "endorsed": false
+}
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=401 >}}
+{{< api-method-response-example-description >}}
+
+Invalid or missing Authorization header
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "error": "The access token is invalid"
+}
+```
+{{< endapi-method-response-example >}}
+{{< endapi-method-response >}}
+{{< endapi-method-spec >}}
+{{< endapi-method >}}
+
 {{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/block" title="Block" >}}
 {{< api-method-description >}}
 
@@ -1894,6 +1962,97 @@ Token does not have an authorized user
 {{< endapi-method-response >}}
 {{< endapi-method-spec >}}
 {{< endapi-method >}}
+
+{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/relationships" title="Find familiar followers" >}}
+{{< api-method-description >}}
+
+Obtain a list of all accounts that follow a given account, filtered for accounts you follow.
+
+**Returns:** Array of Hash, where each Hash contains `id` (String, cast from integer) and `accounts` (Array of Account)\
+**OAuth:** User token + `read:follows`\
+**Version history:**\
+3.5.0 - added
+
+{{< endapi-method-description >}}
+{{< api-method-spec >}}
+{{< api-method-request >}}
+{{< api-method-headers >}}
+{{< api-method-parameter name="Authorization" type="string" required=true >}}
+Bearer &lt;user token&gt;
+{{< endapi-method-parameter >}}
+{{< endapi-method-headers >}}
+{{< api-method-query-parameters >}}
+{{< api-method-parameter name="id\[\]" type="array" required=true >}}
+Array of account IDs to check
+{{< endapi-method-parameter >}}
+{{< endapi-method-query-parameters >}}
+{{< endapi-method-request >}}
+{{< api-method-response >}}
+{{< api-method-response-example httpCode=200 >}}
+{{< api-method-response-example-description >}}
+
+Sample call with id\[\]=1&id\[\]=2
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+[
+  {
+    "id":"1",
+    "accounts":[
+      {
+        "id":"1087990",
+        "username":"moss",
+        "acct":"moss@goblin.camp",
+        ...
+      },
+      {
+        "id":"1092723",
+        "username":"vivianrose",
+        "acct":"vivianrose",
+        ...
+      },
+      ...
+    ]
+  },
+  {
+    "id":"2",
+    "accounts":[]
+  }
+]
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=401 >}}
+{{< api-method-response-example-description >}}
+
+Invalid or missing Authorization header
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "error": "The access token is invalid"
+}
+```
+{{< endapi-method-response-example >}}
+{{< api-method-response-example httpCode=422 >}}
+{{< api-method-response-example-description >}}
+
+Token does not have an authorized user
+{{< endapi-method-response-example-description >}}
+
+
+```javascript
+{
+  "error": "This method requires an authenticated user"
+}
+```
+{{< endapi-method-response-example >}}
+{{< endapi-method-response >}}
+{{< endapi-method-spec >}}
+{{< endapi-method >}}
+
+
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/search" title="Search for matching accounts" >}}
 {{< api-method-description >}}
 
