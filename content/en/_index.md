@@ -8,7 +8,7 @@ menu:
 
 {{< youtube id="IPSbNdBmWKE" caption="An introductory video explaining basic Mastodon concepts with visual animations" >}}
 
-## What is a microblog? {#microblogging}
+## What is microblogging? {#microblogging}
 
 Similar to how blogging is the act of publishing updates to a website, **microblogging** is the act of publishing small updates to a stream of updates on your profile. You can publish text posts and optionally attach media such as pictures, audio, video, or polls. Mastodon lets you follow friends and discover new ones.
 
