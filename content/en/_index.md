@@ -30,9 +30,9 @@ A Mastodon website can operate alone. Just like a traditional website, people si
 
 ## What is ActivityPub? {#fediverse}
 
-Mastodon uses a standardized, open protocol to implement federation. It is called **ActivityPub**. Any software that likewise implements federation via ActivityPub can seamlessly communicate with Mastodon, just like Mastodon websites communicate with one another.
+Mastodon uses a standardized, [open protocol](https://simple.wikipedia.org/wiki/Open_protocol) to implement federation, called [ActivityPub](https://activitypub.rocks/). Just like Mastodon websites communicate with other Mastodon websites, any software that implements federation via ActivityPub can also communicate with a Mastodon website.
 
-The **fediverse** \(“federated universe”\) is the name for all websites that can communicate with each other over ActivityPub and the World Wide Web. That includes all Mastodon servers, but also other implementations:
+The **fediverse** \(“federated universe”\) is the name for all websites that can communicate with each other over ActivityPub and the World Wide Web. All Mastodon servers are part of the fediverse, along with the following:
 
 * Pleroma, a modular microblogging engine,
 * Pixelfed, federated image sharing platform, which lets you share and consume media posts,
@@ -41,7 +41,7 @@ The **fediverse** \(“federated universe”\) is the name for all websites that
 * Plume, which lets you publish longer-form articles,
 * and many more, including individual and personal websites!
 
-The fediverse does not have its own brand, so you might more often hear “follow me on Mastodon” than “follow me on the fediverse”, but technically the latter is more correct.
+The fediverse does not have its own brand, so you might more often hear “follow me on Mastodon” more than “follow me on the fediverse”, but the latter is technically more accurate.
 
 ## Practical implications {#implications}
 
