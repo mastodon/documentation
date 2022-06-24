@@ -1,6 +1,6 @@
 ---
-title: Hidden services
-description: Serving Mastodon through TOR hidden services.
+title: Onion services
+description: Serving Mastodon through Tor onion services.
 menu:
   docs:
     weight: 20
@@ -11,33 +11,16 @@ Mastodon can be served through Tor as an onion service. This will give you a \*.
 
 ## Installing Tor {#install}
 
-First Tor’s Debian archive needs to be added to apt.
-
-```text
-deb https://deb.torproject.org/torproject.org stretch main
-deb-src https://deb.torproject.org/torproject.org stretch main
-```
-
-Next add the gpg key.
-
-```bash
-curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
-gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | apt-key add -
-```
-
-Finally install the required packages.
-
-```bash
-apt install tor deb.torproject.org-keyring
-```
+See instructions provided by Tor Project [here](https://support.torproject.org/apt/tor-deb-repo/).
 
 ## Configure Tor {#configure}
 
 Edit the file at `/etc/tor/torrc` and add the following configuration.
 
 ```text
-HiddenServiceDir /var/lib/tor/hidden_service/
-HiddenServiceVersion 3
+HiddenServiceDir /var/lib/tor/onion_service/
+HiddenServiceSingleHopMode 1
+HiddenServiceNonAnonymousMode 1
 HiddenServicePort 80 127.0.0.1:80
 ```
 
@@ -47,7 +30,7 @@ Restart tor.
 sudo service tor restart
 ```
 
-Your tor hostname can now be found at `/var/lib/tor/hidden_service/hostname`.
+Your tor hostname can now be found at `/var/lib/tor/onion_service/hostname`.
 
 ## Move your Mastodon configuration {#nginx}
 
@@ -134,7 +117,7 @@ server {
 }
 ```
 
-Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/hidden_service/hostname`.
+Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/onion_service/hostname`.
 
 Note that the onion hostname has been prefixed with “mastodon.”. Your Tor address acts a wildcard domain. All subdomains will be routed through, and you can configure Nginx to respond to any subdomain you wish. If you do not wish to host any other services on your tor address you can omit the subdomain, or choose a different subdomain.
 
