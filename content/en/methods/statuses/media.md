@@ -41,7 +41,7 @@ The custom thumbnail of the media to be attached, using multipart form data.
 A plain-text description of the media, for accessibility purposes.
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="focus" type="string" required=false >}}
-Two floating points \(x,y\), comma-delimited, ranging from -1.0 to 1.0
+Two floating points \(x,y\), comma-delimited, ranging from -1.0 to 1.0 (see "Focal points" below)
 {{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
