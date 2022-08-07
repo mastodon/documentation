@@ -63,7 +63,7 @@ Text to be shown as a warning or subject before the actual content. Statuses are
 Visibility of the posted status. Enumerable oneOf public, unlisted, private, direct.
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="scheduled_at" type="string" required=false >}}
-ISO 8601 Datetime at which to schedule a status. Providing this paramter will cause ScheduledStatus to be returned instead of Status. Must be at least 5 minutes in the future.
+ISO 8601 Datetime at which to schedule a status. Providing this parameter will cause ScheduledStatus to be returned instead of Status. Must be at least 5 minutes in the future.
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="language" type="string" required=false >}}
 ISO 639 language code for this status.
