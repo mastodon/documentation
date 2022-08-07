@@ -490,7 +490,7 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 * `LDAP_UID`
 * `LDAP_SEARCH_FILTER`
 * `LDAP_MAIL`
-* `LDAP_UID_CONVERSTION_ENABLED`
+* `LDAP_UID_CONVERSION_ENABLED`
 
 ### PAM {#pam}
 
