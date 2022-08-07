@@ -41,7 +41,7 @@ Once the data has been deleted, whether than be after the 30 day period, or if a
 
 ## Server-wide moderation {#server-wide-moderation}
 
-Because individually moderating a large volume of users from a misbehaving server can be exhausting, it is possible to pre-emptively moderate against all users from that particular server using a so-called **domain block**, which comes with several different levels of severity.
+Because individually moderating a large volume of users from a misbehaving server can be exhausting, it is possible to preemptively moderate against all users from that particular server using a so-called **domain block**, which comes with several different levels of severity.
 
 ### Reject media {#reject-media}
 
