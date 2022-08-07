@@ -100,7 +100,7 @@ sudo apt install pgbouncer
 
 #### Setting a password {#pgbouncer-password}
 
-First off, if your `mastodon` user in Postgres is set up wthout a password, you will need to set a password.
+First off, if your `mastodon` user in Postgres is set up without a password, you will need to set a password.
 
 Here’s how you might reset the password:
 
