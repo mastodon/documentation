@@ -48,6 +48,9 @@ Auth secret. Base64 encoded string of 16 bytes of random data.
 {{< api-method-parameter name="data\[alerts\]\[follow\]" type="boolean" required=false >}}
 Receive follow notifications?
 {{< endapi-method-parameter >}}
+{{< api-method-parameter name="data\[alerts\]\[follow_request\]" type="boolean" required=false >}}
+Receive follow request notifications?
+{{< endapi-method-parameter >}}
 {{< api-method-parameter name="data\[alerts\]\[favourite\]" type="boolean" required=false >}}
 Receive favourite notifications?
 {{< endapi-method-parameter >}}
@@ -76,6 +79,7 @@ A new PushSubscription has been generated, which will send the requested alerts 
   "endpoint": "https://yourdomain.example/listener",
   "alerts": {
     "follow": true,
+    "follow_request": true,
     "favourite": true,
     "reblog": true,
     "mention": true,
@@ -119,6 +123,7 @@ Bearer &lt;user token&gt;
   "endpoint": "https://yourdomain.example/listener",
   "alerts": {
     "follow": true,
+    "follow_request": true,
     "favourite": true,
     "reblog": true,
     "mention": true,
@@ -166,6 +171,9 @@ Bearer &lt;user token&gt;
 {{< api-method-parameter name="data\[alerts\]\[follow\]" type="boolean" required=false >}}
 Receive follow notifications?
 {{< endapi-method-parameter >}}
+{{< api-method-parameter name="data\[alerts\]\[follow_request\]" type="boolean" required=false >}}
+Receive follow request notifications?
+{{< endapi-method-parameter >}}
 {{< api-method-parameter name="data\[alerts\]\[favourite\]" type="boolean" required=false >}}
 Receive favourite notifications?
 {{< endapi-method-parameter >}}
@@ -194,6 +202,7 @@ Updating a PushSubscription to only receive mention alerts
   "endpoint": "https://yourdomain.example/listener",
   "alerts": {
     "follow": false,
+    "follow_request": false,
     "favourite": false,
     "reblog": false,
     "mention": true,
