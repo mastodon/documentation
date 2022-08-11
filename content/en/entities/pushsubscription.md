@@ -14,6 +14,7 @@ menu:
   "endpoint": "https://yourdomain.example/listener",
   "alerts": {
     "follow": false,
+    "follow_request": false,
     "favourite": false,
     "reblog": false,
     "mention": true,
@@ -52,6 +53,10 @@ menu:
 #### `alerts[follow]`
 
 Receive a push notification when someone has followed you? Boolean.
+
+#### `alerts[follow_request]`
+
+Receive a push notification when someone requests to follow you? Boolean.
 
 #### `alerts[favourite]`
 
