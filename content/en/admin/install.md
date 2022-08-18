@@ -13,7 +13,7 @@ menu:
 * A **domain name** \(or a subdomain\) for the Mastodon server, e.g. `example.com`
 * An e-mail delivery service or other **SMTP server**
 
-You will be running the commands as root. If you aren’t already root, switch to root:
+You will be running the commands as root. If you aren’t already root, switch to root: `sudo su -`
 
 ### System repositories {#system-repositories}
 
