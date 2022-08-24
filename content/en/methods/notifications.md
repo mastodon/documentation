@@ -25,7 +25,7 @@ Types to filter include \(`follow`, `favourite`, `reblog`, `mention`, `poll`, `f
 2.6.0 - add `min_id`\
 2.9.0 - add `account_id`\
 3.1.0 - add `follow_request` type\
-3.3.0 - add `status` type\
+3.3.0 - add `status` type; both `min_id` and `max_id` can be used at the same time now\
 3.5.0 - add `types`; add `admin.signup` type
 
 #### Request

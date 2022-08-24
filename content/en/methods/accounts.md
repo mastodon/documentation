@@ -608,7 +608,8 @@ Statuses posted to the given account.
 0.0.0 - added\
 2.6.0 - add `min_id`\
 2.7.0 - add `exclude_reblogs` and allow unauthed use\
-2.8.0 - add `tagged` parameter
+2.8.0 - add `tagged` parameter\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

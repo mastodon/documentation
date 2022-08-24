@@ -14,8 +14,9 @@ menu:
 **OAuth:** User token + `read:search`\
 **Version history:**\
 2.4.1 - added, limit hardcoded to 5\
-2.8.0 - add type, limit, offset, min_id, max_id, account_id\
-3.0.0 - add `exclude_unreviewed` param
+2.8.0 - add `type`, `limit`, `offset`, `min_id`, `max_id`, `account_id`\
+3.0.0 - add `exclude_unreviewed` param\
+3.3.0 - `min_id` and `max_id` can be used together
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -154,7 +155,7 @@ Invalid or missing Authorization header
 **Version history:**\
 1.1 - added, limit hardcoded to 5\
 1.5.0 - now requires authentication\
-2.8.0 - added limit, pagination, and account options\
+2.8.0 - added `limit`, pagination, and account options\
 3.0.0 - removed; use v2 instead
 
 {{< endapi-method-description >}}

@@ -16,7 +16,8 @@ Statuses the user has favourited.
 **OAuth:** User token + `read:favourites`\
 **Version:**\
 0.0.0 - added\
-2.6.0 - `min_id` added
+2.6.0 - `min_id` added\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

@@ -13,7 +13,8 @@ menu:
 **Returns:** Array of ScheduledStatus\
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
-2.7.0 - added
+2.7.0 - added\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

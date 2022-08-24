@@ -15,7 +15,8 @@ Statuses the user has bookmarked.
 **Returns:** Array of Status\
 **OAuth:** User token + `read:bookmarks`\
 **Version history:**\
-3.1.0 - added
+3.1.0 - added\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
