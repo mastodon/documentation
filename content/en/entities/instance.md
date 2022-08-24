@@ -268,7 +268,7 @@ Domains federated with this instance. Number.
 **Description:** Configured values and limits for this website.\
 **Type:** Hash\
 **Version history:**
-3.5.0 - added
+3.4.2 - added
 
 #### `configuration.statuses` {#statuses}
 
