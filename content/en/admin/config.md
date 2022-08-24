@@ -265,6 +265,14 @@ Host of the ElasticSearch server. Defaults to `localhost`
 
 Port of the ElasticSearch server. Defaults to `9200`
 
+#### `ES_USER`
+
+Used for optionally authenticating with ElasticSearch
+
+#### `ES_PASS`
+
+Used for optionally authenticating with ElasticSearch
+
 #### `ES_PREFIX`
 
 Useful if the ElasticSearch server is shared between multiple projects or different Mastodon servers. Defaults to value of `REDIS_NAMESPACE`.
@@ -459,6 +467,7 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 * `S3_OVERRIDE_PATH_STYLE`
 * `S3_OPEN_TIMEOUT`
 * `S3_READ_TIMEOUT`
+* `S3_FORCE_SINGLE_REQUEST`
 
 ### Swift {#swift}
 
@@ -476,7 +485,7 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 ## External authentication {#external-authentication}
 
-* `OAUTH_REDIRECT_AT_SIGN_IN`
+* `OMNIAUTH_ONLY`
 
 ### LDAP {#ldap}
 
@@ -522,6 +531,7 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 * `CAS_LOCATION_KEY`
 * `CAS_IMAGE_KEY`
 * `CAS_PHONE_KEY`
+* `CAS_SECURITY_ASSUME_EMAIL_IS_VERIFIED`
 
 ### SAML {#saml}
 
