@@ -201,7 +201,7 @@ discoverable
 : Will be shown in the profile directory. See [Discoverability flag]({{< relref "activitypub.md#discoverable" >}}).
 
 publicKey
-: Required for signatures. See [Public key]({{< relref "activitypub.md#public-key" >}}).
+: Required for signatures. See [Public key]({{< relref "activitypub.md#publicKey" >}}).
 
 featured
 : Pinned posts. See [Featured collection]({{< relref "activitypub.md#featured" >}}).
