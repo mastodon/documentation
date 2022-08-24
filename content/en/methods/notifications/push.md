@@ -25,7 +25,8 @@ Add a Web Push API subscription to receive notifications. Each access token can 
 **Returns:** PushSubscription\
 **OAuth:** User token + `push`\
 **Version history:**\
-2.4.0 - added
+2.4.0 - added\
+3.4.0 - add `policy`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -59,6 +60,9 @@ Receive mention notifications?
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="data\[alerts\]\[poll\]" type="boolean" required=false >}}
 Receive poll notifications?
+{{< endapi-method-parameter >}}
+{{< api-method-parameter name="policy" type="string" required=false >}}
+Specify whether to receive push notifications from `all`, `followed`, `follower`, or `none` users.
 {{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
@@ -153,6 +157,7 @@ Updates the current push subscription. Only the data part can be updated. To cha
 **OAuth:** User token + `push`\
 **Version history:**\
 2.4.0 - added
+3.4.0 - add `policy`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
@@ -177,6 +182,9 @@ Receive mention notifications?
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="data\[alerts\]\[poll\]" type="boolean" required=false >}}
 Receive poll notifications?
+{{< endapi-method-parameter >}}
+{{< api-method-parameter name="policy" type="string" required=false >}}
+Specify whether to receive push notifications from `all`, `followed`, `follower`, or `none` users.
 {{< endapi-method-parameter >}}
 {{< endapi-method-form-data-parameters >}}
 {{< endapi-method-request >}}
