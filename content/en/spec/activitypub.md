@@ -84,7 +84,7 @@ attributedTo
 
 to/cc
 : Used to determine audience and visibility of a status.
-  - Public statuses have `as:Public` magic collection in `to`
+  - Public statuses have the `as:Public` magic collection in `to`
   - Unlisted statuses have the `as:Public` magic collection in `cc`
   - Followers-only statuses have an actor's follower collection in `to` or `cc`, but do not include the `as:Public` magic collection
   - Private statuses have actors in `to` or `cc`, at least one of which is not `Mention`ed in `tag`
