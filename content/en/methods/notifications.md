@@ -35,7 +35,7 @@ Types to filter include \(`follow`, `favourite`, `reblog`, `mention`, `poll`, `f
 Authorization 
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
-### Query parameters
+##### Query parameters
 
 max_id 
 : String. Return results older than this ID
