@@ -26,4 +26,4 @@ To translate a bearcap to an HTTP request, simply make a request to the `u` para
 
 ## How are bearcaps used in Mastodon? {#usage}
 
-As of v3.3.0, Mastodon supports dereferencing bearcaps in a received Activity. Bearcap are not used for sending any Activity yet.
+As of v3.3.0, Mastodon supports dereferencing bearcaps in a received Activity. Bearcaps are not used for sending any Activity yet.
