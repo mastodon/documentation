@@ -15,7 +15,8 @@ Accounts the user has muted.
 **Returns:** Array of Account\
 **OAuth:** User token + `read:mutes` or `follow`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.3.0 - added `mute_expires_at`
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}

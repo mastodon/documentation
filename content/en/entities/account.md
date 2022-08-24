@@ -250,7 +250,7 @@ Equal to `header` if its value is a static image; different if `header` is an an
 ### `mute_expires_at` {#mute_expires_at}
 
 **Description:** When a timed mute will expire, if applicable.\
-**Type:** String \(ISO 8601 Datetime\)\
+**Type:** String \(ISO 8601 Datetime\) or null\
 **Version history:**\
 3.3.0 - added
 
