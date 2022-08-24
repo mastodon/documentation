@@ -128,14 +128,19 @@ Request a backup for a user account with given USERNAME. The backup will be crea
 
 Remove remote accounts that no longer exist. Queries every single remote account in the database to determine if it still exists on the origin server, and if it doesn't, then remove it from the database. Accounts that have had confirmed activity within the last week are excluded from the checks, in case the server is just down.
 
+`DOMAIN[...]`
+: Optionally pass specific domains to cull
+
+`--concurrency N`
+: The number of workers to use for this task. Defaults to N=5.
+
+`--dry-run`
+: Print expected results only, without performing any actions.
+
 **Version history:**\
 2.6.0 - added\
-2.8.0 - add `--dry-run`
-
-| Option | Description |
-| :--- | :--- |
-| `--concurrency N` | The number of workers to use for this task. Defaults to N=5. |
-| `--dry-run` | Print expected results only, without performing any actions. |
+2.8.0 - add `--dry-run`\
+3.5.0 - add ability to pass specific domains
 
 ### `tootctl accounts refresh` {#accounts-refresh}
 
@@ -251,20 +256,31 @@ Update hard-cached counters of TYPE by counting referenced records from scratch.
 
 Remove all accounts from a given DOMAIN without leaving behind any records. Unlike a suspension, if the DOMAIN still exists in the wild, it means the accounts could return if they are resolved again.
 
+`DOMAIN[...]`
+: Domains to purge, separated by space.
+
+`--by-uri`
+: Match domains in the actor URI rather than in the Webfinger address.
+
+`--limited-federation-mode`
+: Can be provided instead of DOMAIN. Instead of purging from a single domain, all accounts from domains that are not allow-listed will be removed from the database. Use this after enabling limited federation mode and defining your allow-list.
+
+`--concurrency N`
+: The number of workers to use for this task. Defaults to 5.
+
+`--verbose`
+: Print additional information while task is processing.
+
+`--dry-run`
+: Print expected results only, without performing any actions.
+
 **Version history:**\
 2.6.0 - added\
 2.8.0 - add `--whitelist-mode`\
 2.9.0 - remove custom emoji as well\
 3.0.0 - accept multiple domains\
-3.2.0 - rename `--whitelist-mode` to `--limited-federation-mode`
-
-| Option | Description |
-| :--- | :--- |
-| `DOMAIN[...]` | Domains to purge, separated by space. |
-| `--limited-federation-mode` | Can be provided instead of DOMAIN. Instead of purging from a single domain, all accounts from domains that are not allow-listed will be removed from the database. Use this after enabling limited federation mode and defining your allow-list. |
-| `--concurrency N` | The number of workers to use for this task. Defaults to 5. |
-| `--verbose` | Print additional information while task is processing. |
-| `--dry-run` | Print expected results only, without performing any actions. |
+3.2.0 - rename `--whitelist-mode` to `--limited-federation-mode`\
+3.5.0 - add `--by-uri`
 
 ### `tootctl domains crawl` {#domains-crawl}
 
@@ -394,6 +410,9 @@ Remove all home and list feeds from Redis.
 
 Fix corrupted database indexes that may have been caused due to changing collation rules. Deletes or merges duplicate accounts, statuses, emojis, etc. Mastodon has to be stopped to run this task, which will take a long time and may be destructive. This is useful if your database indexes are corrupted because of issues such as <https://wiki.postgresql.org/wiki/Locale_data_changes>.
 
+**Version history:**\
+3.3.0 - added
+
 ## Media CLI {#media}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/media_cli.rb" caption="lib/mastodon/media\_cli.rb" >}}
@@ -488,15 +507,20 @@ Remove local thumbnails for preview cards.
 
 Create or update an ElasticSearch index and populate it. If ElasticSearch is empty, this command will create the necessary indices and then import data from the database into those indices. This command will also upgrade indices if the underlying schema has been changed since the last run.
 
+`--batch-size`
+: Defaults to 1000. A lower batch size can make ElasticSearch process records more quickly.
+
+`--only INDEX`
+: Specify an index name [`accounts`, `tags`, `statuses`] to create or update only that index.
+
+`--concurrency N`
+: Parallelize execution of the command on multiple threads. Defaults to N=2.
+
 **Version history:**
 2.8.0 - added\
 3.0.0 - add `--processes` for parallelization
-3.3.0 - options changed
-
-| Option            | Description                                                                                 |
-| :---              | :---                                                                                        |
-| `--concurrency N` | Parallelize execution of the command on multiple threads. Defaults to N=2.                  |
-| `--only INDEX`    | Specify an index name [`accounts`, `tags`, `statuses`] to create or update only that index. |
+3.3.0 - options changed\
+3.5.0 - add `--batch-size`
 
 
 ## Settings CLI {#settings}
@@ -517,6 +541,16 @@ Closes registrations.
 **Version history:**\
 2.6.0 - added
 
+### `tootctl settings registrations approved` {#settings-registrations-approved}
+
+Set registration to require approval.
+
+**Version history:**\
+3.5.2 - added
+
+require_reason
+: If true, users must enter a reason when registering.
+
 ## Statuses CLI {#statuses}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/statuses_cli.rb" caption="lib/mastodon/statuses\_cli.rb" >}}
@@ -529,7 +563,8 @@ This is a computationally heavy procedure that creates extra database indices be
 
 **Version history:**\
 2.8.0 - added\
-3.1.3 - added `--skip-media-remove`
+3.1.3 - added `--skip-media-remove`\
+3.5.0 - now removes orphaned records and performs additional cleanup tasks
 
 | Option | Description |
 | :--- | :--- |
