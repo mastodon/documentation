@@ -30,7 +30,9 @@ menu:
 
 **Description:** The website associated with your application.\
 **Type:** String \(URL\)\
-**Version history:** Added in 0.9.9
+**Version history:**\
+- 0.9.9: Added
+- 3.5.1: This property is now nullable.
 
 ### `vapid_key` {#vapid_key}
 
