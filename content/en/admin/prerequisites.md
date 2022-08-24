@@ -6,13 +6,17 @@ menu:
     parent: admin
 ---
 
-If you are setting up a fresh machine, it is recommended that you secure it first. Assuming that you are running **Ubuntu 18.04**:
+If you are setting up a fresh machine, it is recommended that you secure it first. Assuming that you are running **Ubuntu 20.04**:
 
 ## Do not allow password-based SSH login \(keys only\)
 
 First make sure you are actually logging in to the server using keys and not via a password, otherwise this will lock you out. Many hosting providers support uploading a public key and automatically set up key-based root login on new machines for you.
 
 Edit `/etc/ssh/sshd_config` and find `PasswordAuthentication`. Make sure it’s uncommented and set to `no`. If you made any changes, restart sshd:
+
+```bash
+systemctl restart ssh.service
+```
 
 ## Update system packages
 
@@ -21,6 +25,12 @@ apt update && apt upgrade -y
 ```
 
 ## Install fail2ban so it blocks repeated login attempts
+
+First, install fail2ban:
+
+```bash
+apt install fail2ban
+```
 
 Edit `/etc/fail2ban/jail.local` and put this inside:
 
