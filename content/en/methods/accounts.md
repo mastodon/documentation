@@ -1482,6 +1482,7 @@ Mute the given account. Clients should filter statuses and notifications from th
 **OAuth:** User token + `write:mutes`\
 **Version history:**\
 0.0.0 - added\
+3.3.0 - added `duration`\
 3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
 {{< endapi-method-description >}}
