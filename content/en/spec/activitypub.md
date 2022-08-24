@@ -17,13 +17,26 @@ Sample payloads will be added at a future date.
 
 ### Supported activities for statuses
 
-* Create = transformed into a status and saved into database
-* Delete = removes a status from the database
-* Like = transformed into a favourite on a status
-* Announce = transformed into a boost on a status
-* Flag = transformed into a report to the moderation team.
-* Update = only supported on polls. Used to refresh vote count.
-* Undo = undo a previous Like or Announce.
+Create
+: Transformed into a status and saved into database
+
+Delete
+: Removes a status from the database
+
+Like
+: Transformed into a favourite on a status
+
+Announce
+: Transformed into a boost on a status
+
+Flag
+: Transformed into a report to the moderation team.
+
+Update
+: Refresh vote count on polls. As of Mastodon 3.5.0: edit statuses.
+
+Undo
+: Undo a previous Like or Announce.
 
 ### Payloads
 
@@ -32,7 +45,7 @@ The first-class Object types supported by Mastodon are `Note` and `Question`.
 * Notes are transformed into regular statuses.
 * Questions are transformed into a poll status.
 
-Some other Object types are converted as best as possible. The transformer uses `content` if available, or `name` if not, in order to generate status text. The `url` will be appended. The `summary` property will be used as the CW text. The `icon` will be used as a thumbnail.
+Some other Object types are converted as best as possible:
 
 * Article
 * Page
@@ -41,38 +54,167 @@ Some other Object types are converted as best as possible. The transformer uses 
 * Video
 * Event
 
+The transformer uses `content` if available, or `name` if not, in order to generate status text. The `url` will be appended. The `summary` property will be used as the CW text. The `icon` will be used as a thumbnail.
+
+### Properties used
+
+content
+: Used as status text
+
+name
+: Used as status text, if `content` is not provided on a transformed Object type
+
+summary
+: Used as CW text
+
+sensitive
+: Used to determine whether status media or text should be hidden by default
+
+inReplyTo
+: Used for threading a status as a reply to another status
+
+published
+: Used as status date
+
+url
+: Used for status permalinks, and also appended to status text for transformed Objects
+
+attributedTo
+: Used to determine the profile which authored the status
+
+to/cc
+: Used to determine audience and visibility of a status.
+  - Public statuses have `as:Public` magic collection in `to`
+  - Unlisted statuses have the `as:Public` magic collection in `cc`
+  - Followers-only statuses have an actor's follower collection in `to` or `cc`, but do not include the `as:Public` magic collection
+  - Private statuses have actors in `to` or `cc`, at least one of which is not `Mention`ed in `tag`
+  - Direct statuses have actors in `to` or `cc`, all of which are `Mention`ed in `tag`
+
+tag
+: Used to mark up mentions and hashtags.
+
+tag[].type
+: Either `Mention` or `Hashtag` is currently supported
+
+tag[].name
+: The plain-text Webfinger address of a profile Mention (`@user` or `@user@domain`), or the plain-text Hashtag (`#tag`)
+
+tag[].href
+: The URL of the actor or tag
+
+attachment
+: Used to include attached images, videos, or audio.
+
+attachment[].url
+: Used to fetch the media attachment
+
+attachment[].summary
+: Used as media description
+
+attachment[].blurhash
+: Used to generate a blurred preview image corresponding to the colors used within the image. See [Blurhash](#blurhash) for more details.
+
+replies
+: A Collection of statuses that are in reply to the current status. Up to 5 replies from the same server will be fetched upon discovery of a remote status, in order to resolve threads more fully. On Mastodon's side, the first page contains self-replies, and additional pages contain replies from other people.
+
+#### Poll-specific properties
+
+endTime
+: The timestamp for when voting will close on the poll
+
+closed
+: The timestamp for when voting closed on the poll. The timestamp will likely match the `endTime` timestamp. If this property is present, the poll is assumed to be closed.
+
+votersCount
+: How many people have voted in the poll. Distinct from how many votes have been cast (in the case of multiple-choice polls)
+
+oneOf
+: Single-choice poll options
+
+anyOf
+: Multiple-choice poll options
+
+oneOf/anyOf[].name
+: The poll option's text
+
+oneOf/anyOf[].replies.totalItems
+: The poll option's vote count
+
 ## Profile federation {#profile}
 
 ### Supported activities for profiles
 
-* Follow = Indicate interest in receiving status updates from a profile.
-* Accept/Reject = used to approve or deny Follow activities. Unlocked accounts will automatically reply with an Accept, while locked accounts can manually choose whether to approve or deny a follow request.
-* Add/Remove = manage pinned posts and featured collections.
-* Block = Signal to a remote server that they should hide your profile from that user. Not guaranteed.
-* Flag = report user
-* Update = refresh account details
-* Move = migrate followers from one account to another. Requires alsoKnownAs to be set in both directions.
-* Delete = remove an account from the database, as well as all of their statuses.
-* Undo = undo a previous Follow, Accept Follow, or Block.
+Follow
+: Indicate interest in receiving status updates from a profile.
+
+Accept/Reject
+: Used to approve or deny Follow activities. Unlocked accounts will automatically reply with an Accept, while locked accounts can manually choose whether to approve or deny a follow request.
+
+Add/Remove
+: Manage pinned posts and featured collections.
+
+Block
+: Signal to a remote server that they should hide your profile from that user. Not guaranteed.
+
+Flag
+: Report user
+
+Update
+: Refresh account details
+
+Move
+: Migrate followers from one account to another. Requires alsoKnownAs to be set in both directions.
+
+Delete
+: Remove an account from the database, as well as all of their statuses.
+
+Undo
+: Undo a previous Follow, Accept Follow, or Block.
 
 ### Properties used
 
-| Property | Interpretation |
-| :--- | :--- |
-| preferredUsername | Used for Webfinger lookup. Must be unique on the domain, and must correspond to a Webfinger `acct:` URI. |
-| name | Used as profile display name. |
-| summary | Used as profile bio. |
-| type | Assumed to be Person. If type is Application or Service, it will be interpreted as a bot flag. |
-| url | Used as profile link. |
-| icon | Used as profile avatar. |
-| image | Used as profile header. |
-| manuallyApprovesFollowers | Will be shown as a locked account. |
-| discoverable | Will be shown in the profile directory. See [Discoverability flag]({{< relref "activitypub.md#discoverable" >}}). |
-| publicKey | Required for signatures. See [Public key]({{< relref "activitypub.md#public-key" >}}). |
-| featured | Pinned posts. See [Featured collection]({{< relref "activitypub.md#featured" >}}). |
-| attachment | Used for profile fields. See [Profile metadata]({{< relref "activitypub.md#profile-metadata" >}}) and [Identity proofs]({{< relref "activitypub.md#identityproof" >}}). |
-| alsoKnownAs | Required for Move activity. |
-| published | When the profile was created. |
+preferredUsername
+: Used for Webfinger lookup. Must be unique on the domain, and must correspond to a Webfinger `acct:` URI. 
+
+name
+: Used as profile display name.
+
+summary
+: Used as profile bio.
+
+type
+: Assumed to be Person. If type is Application or Service, it will be interpreted as a bot flag.
+
+url
+: Used as profile link.
+
+icon
+: Used as profile avatar.
+
+image
+: Used as profile header.
+
+manuallyApprovesFollowers
+: Will be shown as a locked account.
+
+discoverable
+: Will be shown in the profile directory. See [Discoverability flag]({{< relref "activitypub.md#discoverable" >}}).
+
+publicKey
+: Required for signatures. See [Public key]({{< relref "activitypub.md#public-key" >}}).
+
+featured
+: Pinned posts. See [Featured collection]({{< relref "activitypub.md#featured" >}}).
+
+attachment
+: Used for profile fields. See [Profile metadata]({{< relref "activitypub.md#profile-metadata" >}}) and [Identity proofs]({{< relref "activitypub.md#identityproof" >}}).
+
+alsoKnownAs
+: Required for Move activity.
+
+published
+: When the profile was created.
+
 
 ## HTML sanitization {#sanitization}
 
@@ -422,7 +564,7 @@ When delivering a message to a remote user, an optional `Collection-Synchronizat
 Example:
 
 ```http
-POST https://mastodon.social/users/foo/inbox
+POST https://mastodon.social/users/foo/inbox HTTP/1.1
 Collection-Synchronization:
   collectionId="https://social.sitedethib.com/users/Thib/followers",
   url="https://social.sitedethib.com/users/Thib/followers_synchronization",
@@ -432,7 +574,7 @@ Collection-Synchronization:
 When a remote user attempts to GET the partial collection `url`, this request must be signed with HTTP signatures. Example:
 
 ```http
-GET https://social.sitedethib.com/users/Thib/followers_synchronization
+GET https://social.sitedethib.com/users/Thib/followers_synchronization HTTP/1.1
 Signature: ... # a signature from an account on mastodon.social
 
 {
