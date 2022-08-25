@@ -118,6 +118,12 @@ Token does not have an authorized user
 }
 ```
 
+Alternatively, the `category` was set to `violation` but invalid or missing `rule_ids` were provided
+
+```javascript
+{"error":"Validation failed: Rule ids does not reference valid rules"}
+```
+
 ---
 
 ## See also
