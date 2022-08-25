@@ -70,49 +70,49 @@ menu:
 **Version history:**\
 1.1.0 - added
 
-### `comment` (#comment)
+### `comment` {#comment}
 
 **Description:** The reason for the report.\
 **Type:** String\
 **Version history:**\
 1.1.0 - added
 
-### `status_ids` (#status_ids)
+### `status_ids` {#status_ids}
 
 **Description:** The domain name of the instance.\
 **Type:** Array of Number, or null\
 **Version history:**\
 1.1.0 - added
 
-### `forwarded` (#forwarded)
+### `forwarded` {#forwarded}
 
 **Description:** Whether the report was forwarded to a remote domain.\
 **Type:** Boolean\
 **Version history:**\
 2.3.0 - added
 
-### `created_at` (#created_at)
+### `created_at` {#created_at}
 
 **Description:** When the report was created.\
 **Type:** String (ISO 8601 Datetime)\
 **Version history:**\
 1.1.0 - added
 
-### `target_account` (#target_account)
+### `target_account` {#target_account}
 
 **Description:** The account that was reported.\
 **Type:** [Account]({{< relref "entities/account" >}})\
 **Version history:**\
 1.1.0 - added
 
-### `category` (#category)
+### `category` {#category}
 
 **Description:** The generic reason for the report.\
 **Type:** String (Enumerable oneOf `spam`, `violation`, `other`)\
 **Version history:**\
 3.5.0 - added
 
-### `rule_ids` (#rule_ids)
+### `rule_ids` {#rule_ids}
 
 **Description:** The domain name of the instance.\
 **Type:** Array of Number, or null\
