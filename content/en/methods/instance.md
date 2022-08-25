@@ -360,3 +360,11 @@ Rules that the users of this service should follow.
   }
 ]
 ```
+
+---
+
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/instances_controller.rb" caption="app/controllers/api/v1/instances_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/instances" caption="app/controllers/api/v1/instances/" >}}

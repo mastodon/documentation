@@ -364,3 +364,9 @@ Invalid or missing Authorization header.
   "error": "The access token is invalid"
 }
 ```
+
+---
+
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/notifications_controller.rb" caption="app/controllers/api/v1/notifications_controller.rb" >}}
