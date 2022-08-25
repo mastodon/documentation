@@ -2135,6 +2135,67 @@ resolve=true, but the domain part of the user@domain address is not a currently 
 
 ---
 
+## Lookup account ID from Webfinger address {#lookup}
+
+```http
+GET https://mastodon.example/api/v1/accounts/lookup HTTP/1.1
+```
+
+Quickly lookup a username to see if it is available, or quickly resolve a Webfinger address to an account ID.
+
+**Returns:** [Account]({{< relref "entities/account">}})\
+**OAuth:** Public\
+**Version history:**\
+3.4.0 - added
+
+#### Request
+##### Query parameters
+
+acct
+: {{<required>}} String. The username or Webfinger address to lookup.
+
+skip_webfinger
+: Boolean. Whether to use the locally cached result instead of performing full Webfinger resolution. Defaults to true.
+
+#### Response
+##### 200: Success
+
+Sample call with `?acct=trwnh`
+
+```javascript
+{
+  "id": "14715",
+  "username": "trwnh",
+  "acct": "trwnh",
+  "display_name": "infinite love ⴳ",
+  "locked": false,
+  ...
+}
+```
+
+Sample call with `?acct=trwnh@pixelfed.social`
+
+```javascript
+{
+  "id": "418714",
+  "username": "trwnh",
+  "acct": "trwnh@pixelfed.social",
+  "display_name": "Abdullah Tarawneh",
+  "locked": false,
+  ...
+}
+```
+
+##### 404: Not found
+
+Username or address does not map to an account
+
+```javascript
+{"error":"Record not found"}
+```
+
+---
+
 ## (DEPRECATED) Identity proofs {#identity_proofs}
 
 ```http
