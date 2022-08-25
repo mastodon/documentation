@@ -19,7 +19,8 @@ Creates a user and account records. Returns an account access token for the app 
 **OAuth:** App token + `write:accounts`\
 **Version history:**\
 2.7.0 - added\
-3.0.0 - added `reason` parameter
+3.0.0 - added `reason` parameter\
+3.4.0 - added `details` to failure response
 
 {{< endapi-method-description >}}
 {{< api-method-spec >}}
