@@ -2253,3 +2253,11 @@ Token does not have an authorized user
   "error": "This method requires an authenticated user"
 }
 ```
+
+---
+
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts_controller.rb" caption="app/controllers/api/v1/accounts_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts" caption="app/controllers/api/v1/accounts/" >}}
