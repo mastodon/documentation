@@ -18,7 +18,7 @@ Notifications concerning the user. This API returns Link headers containing link
 \
 Types to filter include \(`follow`, `favourite`, `reblog`, `mention`, `poll`, `follow_request`, `status`, `admin.signup`\)
 
-**Returns:** Array of Notification\
+**Returns:** Array of [Notification]({{< relref "entities/notification" >}})\
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
 0.0.0 - added\
@@ -160,7 +160,7 @@ GET https://mastodon.example/api/v1/notification/:id HTTP/1.1
 
 View information about a notification with a given ID.
 
-**Returns:** Notification\
+**Returns:** [Notification]({{< relref "entities/notification" >}})\
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
 0.0.0 - added

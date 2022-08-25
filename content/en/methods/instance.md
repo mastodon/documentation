@@ -16,7 +16,7 @@ GET https://mastodon.example/api/v1/instance HTTP/1.1
 
 Information about the server.
 
-**Returns:** Instance\
+**Returns:** [Instance]({{< relref "entities/instance" >}})\
 **OAuth:** Public\
 **Version history:**\
 1.1.0 - added\
@@ -175,12 +175,29 @@ Domains that this instance is aware of.
 2.1.2 - added\
 3.0.0 - requires user token if instance is in whitelist mode
 
+#### Request
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
 #### Response
 
 ##### 200: Success
 
 ```javascript
 ["tilde.zone","mspsocial.net",...,"conf.tube"]
+```
+
+##### 401: Unauthorized
+
+If the instance is in whitelist mode and the Authorization header is missing or invalid
+
+```javascript
+{
+  "error": "This API requires an authenticated user"
+}
 ```
 
 ---
@@ -193,11 +210,18 @@ GET https://mastodon.example/api/v1/instance/activity HTTP/1.1
 
 Instance activity over the last 3 months, binned weekly.
 
-**Returns:** Array of Activity\
+**Returns:** Array of [Activity]({{< relref "entities/activity" >}})\
 **OAuth:** Public\
 **Version history:**\
 2.1.2 - added\
 3.0.0 - requires user token if instance is in whitelist mode
+
+#### Request
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: Success
@@ -279,6 +303,16 @@ Instance activity over the last 3 months, binned weekly.
 ]
 ```
 
+##### 401: Unauthorized
+
+If the instance is in whitelist mode and the Authorization header is missing or invalid
+
+```javascript
+{
+  "error": "This API requires an authenticated user"
+}
+```
+
 ---
 
 ## List of rules {#rules}
@@ -290,7 +324,7 @@ GET https://mastodon.example/api/v1/instance/rules HTTP/1.1
 
 Rules that the users of this service should follow.
 
-**Returns:** Array of Rule\
+**Returns:** Array of [Rule]({{< relref "entities/rule" >}})\
 **OAuth:** Public\
 **Version history:**\
 3.4.0 - added
