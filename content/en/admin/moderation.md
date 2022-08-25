@@ -11,6 +11,8 @@ menu:
 
 Moderation in Mastodon is always applied locally, i.e. as seen from the particular server. An admin or moderator on one server cannot affect a user on another server, they can only affect the local copy on their own server.
 
+As of v3.5.0, all default user moderation decisions will notify the affected user by email. The user can access an appeal page, where they can submit one appeal within 20 days of the decision. Moderators can approve or reject the appeal.
+
 ### Sensitive {#sensitive-user}
 
 When an account is marked as sensitive, all media that user posts will be automatically [marked as sensitive](https://docs.joinmastodon.org/user/posting/#cw).
