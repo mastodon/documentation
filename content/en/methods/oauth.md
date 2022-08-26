@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 10
     parent: methods-apps
+aliases: [/methods/apps/oauth/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/oauth/authorize" title="Authorize a user" >}}

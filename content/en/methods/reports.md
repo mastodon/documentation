@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 70
     parent: methods-accounts
+aliases: [/methods/accounts/reports/]
 ---
 
 ## File a report {#post}

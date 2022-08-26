@@ -7,6 +7,7 @@ menu:
   docs:
     weight: 40
     parent: methods-timelines
+aliases: [/methods/timelines/streaming/]
 ---
 
 Your application can use a [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) endpoint to receive updates in real-time. Server-sent events is an incredibly simple transport method that relies entirely on chunked-encoding transfer, i.e. the HTTP connection is kept open and receives new data periodically.

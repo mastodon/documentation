@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 30
     parent: methods-accounts
+aliases: [/methods/accounts/mutes/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/mutes" title="Muted accounts" >}}

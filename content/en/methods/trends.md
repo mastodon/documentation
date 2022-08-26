@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 10
     parent: methods-instance
+aliases: [/methods/instance/trends/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/trends" title="Trending tags" >}}

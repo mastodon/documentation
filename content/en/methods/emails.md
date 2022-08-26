@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 20
     parent: methods-apps
+aliases: [/methods/apps/emails/]
 ---
 
 ## Resend confirmation email {#confirmations}

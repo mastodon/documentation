@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 30
     parent: methods-statuses
+aliases: [/methods/statuses/scheduled_statuses/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/scheduled_statuses" title="View scheduled statuses" >}}

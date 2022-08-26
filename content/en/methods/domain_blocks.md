@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 50
     parent: methods-accounts
+aliases: [/methods/accounts/domain_blocks/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/domain_blocks" title="Fetch domain blocks" >}}

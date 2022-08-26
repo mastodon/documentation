@@ -7,6 +7,7 @@ menu:
   docs:
     weight: 30
     parent: methods-instance
+aliases: [/methods/instance/custom_emojis/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/custom_emojis" title="Custom emoji" >}}

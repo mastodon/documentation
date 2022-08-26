@@ -71,17 +71,17 @@ menu:
 ### `history` {#history}
 
 **Description:** Usage statistics for given days.\
-**Type:** Array of [History]({{< relref "history.md" >}})\
+**Type:** Array of [History]({{< relref "entities/history" >}})\
 **Version history:** Added in 2.4.1
 
 ## See also
 
-* [Status\#tags]({{< relref "status.md#tags" >}})
-* [GET /api/v1/featured\_tags/suggestions]({{< relref "../methods/accounts/featured_tags.md#suggested-tags-to-feature" >}})
+* [Status\#tags]({{< relref "status#tags" >}})
+* [GET /api/v1/featured\_tags/suggestions]({{< relref "methods/featured_tags#suggestions" >}})
 
-{{< page-ref page="status.md" >}}
+{{< page-ref page="status" >}}
 
-{{< page-ref page="methods/search.md" >}}
+{{< page-ref page="methods/search" >}}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/tag_serializer.rb" caption="app/serializers/rest/tag\_serializer.rb" >}}
 

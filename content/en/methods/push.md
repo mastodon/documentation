@@ -7,6 +7,7 @@ menu:
   docs:
     weight: 10
     parent: methods-notifications
+aliases: [/methods/notifications/push/]
 ---
 
 ## Web Push API

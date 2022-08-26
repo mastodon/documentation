@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 30
     parent: methods-timelines
+aliases: [/methods/timelines/markers/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/markers" title="Get saved timeline position" >}}

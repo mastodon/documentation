@@ -7,6 +7,7 @@ menu:
   docs:
     weight: 120
     parent: methods-accounts
+aliases: [/methods/accounts/suggestions/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/suggestions" title="Follow suggestions" >}}

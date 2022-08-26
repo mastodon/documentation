@@ -388,7 +388,7 @@ Mastodon supports arbitrary emojis, that is, small images uploaded by admins and
 
 ### Focal points {#focalPoint}
 
-Mastodon supports setting a focal point on uploaded images, so that wherever that image is displayed, the focal point stays in view. This is implemented using an extra property `focalPoint` on `Image` objects. The property is simply an array of two floating points between -1.0 and 1.0, with 0,0 being the center of the image, the first value being x \(-1.0 is the left edge, +1.0 is the right edge\) and the second value being y \(-1.0 is the bottom edge, +1.0 is the top edge\). See [Focal points]({{< relref "../methods/statuses/media.md#focal-points" >}}) for more information. Example:
+Mastodon supports setting a focal point on uploaded images, so that wherever that image is displayed, the focal point stays in view. This is implemented using an extra property `focalPoint` on `Image` objects. The property is simply an array of two floating points between -1.0 and 1.0, with 0,0 being the center of the image, the first value being x \(-1.0 is the left edge, +1.0 is the right edge\) and the second value being y \(-1.0 is the bottom edge, +1.0 is the top edge\). See [Focal points]({{< relref "methods/media#focal-points" >}}) for more information. Example:
 
 ```javascript
 {

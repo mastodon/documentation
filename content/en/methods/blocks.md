@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 40
     parent: methods-accounts
+aliases: [/methods/accounts/blocks/]
 ---
 
 {{< api-method method="get" host="" path="/api/v1/blocks" title="Blocked users" >}}

@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 20
     parent: methods-instance
+aliases: [/methods/instance/directory/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/directory" title="View profile directory" >}}

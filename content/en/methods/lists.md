@@ -7,6 +7,7 @@ menu:
   docs:
     weight: 20
     parent: methods-timelines
+aliases: [/methods/timelines/lists/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/lists" title="Show user's lists" >}}

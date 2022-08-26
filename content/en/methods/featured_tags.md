@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 100
     parent: methods-accounts
+aliases: [/methods/accounts/featured_tags/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/featured_tags" title="View your featured tags" >}}

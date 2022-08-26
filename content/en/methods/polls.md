@@ -7,6 +7,7 @@ menu:
   docs:
     weight: 20
     parent: methods-statuses
+aliases: [/methods/statuses/polls/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/polls/:id" title="View a poll" >}}

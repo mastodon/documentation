@@ -7,6 +7,7 @@ menu:
   docs:
     weight: 10
     parent: methods-statuses
+aliases: [/methods/statuses/media/]
 ---
 
 {{< api-method method="post" host="https://mastodon.example" path="/api/v1/media" title="Upload media as attachment" >}}

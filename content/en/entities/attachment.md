@@ -193,7 +193,7 @@ menu:
 
 May contain subtrees `small` and `original`, as well as various other top-level properties.
 
-More importantly, there may be another top-level `focus` Hash object as of 2.3.0, with coordinates can be used for smart thumbnail cropping -- see [Focal points]({{< relref "../methods/statuses/media.md#focal-points" >}}) for more.
+More importantly, there may be another top-level `focus` Hash object as of 2.3.0, with coordinates can be used for smart thumbnail cropping -- see [Focal points]({{< relref "methods/media#focal-points" >}}) for more.
 
 ### `description` {#description}
 

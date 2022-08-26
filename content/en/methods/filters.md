@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 60
     parent: methods-accounts
+aliases: [/methods/accounts/filters/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/filters" title="View all filters" >}}

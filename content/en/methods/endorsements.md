@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 90
     parent: methods-accounts
+aliases: [/methods/accounts/endorsements/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/endorsements" title="View currently featured profiles" >}}

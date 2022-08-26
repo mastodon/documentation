@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 110
     parent: methods-accounts
+aliases: [/methods/accounts/preferences/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/preferences" title="View user preferences" >}}

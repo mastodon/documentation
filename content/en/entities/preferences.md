@@ -59,11 +59,11 @@ menu:
 
 ## See also
 
-* [GET /api/v1/accounts/verify\_credentials]({{< relref "../methods/accounts.md#verify-account-credentials" >}})
-* [PATCH /api/v1/accounts/update\_credentials]({{< relref "../methods/accounts.md#update-account-credentials" >}})
-* [GET /api/v1/preferences]({{< relref "../methods/accounts/preferences.md#view-user-preferences" >}})
+* [GET /api/v1/accounts/verify\_credentials]({{< relref "methods/accounts#verify-account-credentials" >}})
+* [PATCH /api/v1/accounts/update\_credentials]({{< relref "methods/accounts#update-account-credentials" >}})
+* [GET /api/v1/preferences]({{< relref "methods/preferences#view-user-preferences" >}})
 
-{{< page-ref page="methods/accounts/preferences.md" >}}
+{{< page-ref page="methods/preferences" >}}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/preferences_serializer.rb" caption="app/serializers/rest/preferences\_serializer.rb" >}}
 

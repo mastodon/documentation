@@ -45,11 +45,11 @@ menu:
 
 ## See also
 
-* [Example authorization code flow]({{< relref "../client/token.md#example-authorization-code-flow" >}})
-* [OAuth Scopes]({{< relref "../api/oauth-scopes.md" >}})
-* [POST /oauth/token]({{< relref "../methods/apps/oauth.md#obtain-a-token" >}})
+* [Example authorization code flow]({{< relref "client/token#example-authorization-code-flow" >}})
+* [OAuth Scopes]({{< relref "api/oauth-scopes" >}})
+* [POST /oauth/token]({{< relref "methods/oauth#token" >}})
 
-{{< page-ref page="methods/apps/oauth.md" >}}
+{{< page-ref page="methods/oauth" >}}
 
 
 

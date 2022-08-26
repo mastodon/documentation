@@ -19,7 +19,7 @@ Examples will be written using the fictional Mastodon website, mastodon.example,
 
 Let's take a look at one of the most basic use cases for public data from Mastodon -- the public timelines.
 
-We can try to request [GET /api/v1/timelines/public]({{< relref "../../methods/timelines.md" >}}) like so:
+We can try to request [GET /api/v1/timelines/public]({{< relref "methods/timelines" >}}) like so:
 
 ```bash
 curl https://mastodon.example/api/v1/timelines/public
@@ -52,13 +52,13 @@ Our response should be more manageable this time. We can parse or beautify this 
 ]
 ```
 
-We can do similarly for hashtags by calling [GET /api/v1/timelines/tag/:hashtag]({{< relref "../../methods/timelines.md#hashtag-timeline" >}}) -- here, the colon means that this part of the endpoint is a path parameter. In the case of :hashtag, this means we use the hashtag's name \(and once again, a limit of 2\):
+We can do similarly for hashtags by calling [GET /api/v1/timelines/tag/:hashtag]({{< relref "methods/timelines#tag" >}}) -- here, the colon means that this part of the endpoint is a path parameter. In the case of :hashtag, this means we use the hashtag's name \(and once again, a limit of 2\):
 
 ```bash
 curl https://mastodon.example/api/v1/timelines/tag/cats?limit=2
 ```
 
-We should once again see 2 statuses have been returned in a JSON array of [Status]({{< relref "../entities/status.md" >}}) entities. We can parse the JSON by array, then by object. If we were using Python, our code might look something like this:
+We should once again see 2 statuses have been returned in a JSON array of [Status]({{< relref "entities/status" >}}) entities. We can parse the JSON by array, then by object. If we were using Python, our code might look something like this:
 
 ```python
 import requests
@@ -82,13 +82,13 @@ Parsing JSON and using it in your program is outside of the scope of this tutori
 
 Now that we are familiar with how to make requests and how to handle responses, you can experiment with more public data. The following methods may be of interest:
 
-* Once you know an account's id, you can use [GET /api/v1/accounts/:id]({{< relref "../../methods/accounts.md" >}}) to view the [Account]({{< relref "../entities/account.md" >}}) entity.
-  * To view public statuses posted by that account, you can use [GET /api/v1/accounts/:id/statuses]({{< relref "../../methods/statuses.md" >}}) and parse the resulting array of [Status]({{< relref "../entities/status.md" >}}) entities.
-* Once you know a status's id, you can use [GET /api/v1/statuses/:id]({{< relref "../../methods/statuses.md#view-specific-status" >}}) to view the Status entity.
-  * You can also use [GET /api/v1/statuses/:id/reblogged\_by]({{< relref "../../methods/statuses.md#boosted-by" >}}) to view who boosted that status,
-  * or [GET /api/v1/statuses/:id/favourited\_by]({{< relref "../../methods/statuses.md#favourited-by" >}}) to view who favourited that status.
-  * Requesting [GET /api/v1/statuses/:id/context]({{< relref "../../methods/statuses.md#parent-and-child-statuses" >}}) will show you the ancestors and descendants of that status in the tree that is the conversational thread.
-  * If the status has a poll attached, you can use [GET /api/v1/polls/:id]({{< relref "../../methods/statuses/polls.md" >}}) to view the poll separately.
+* Once you know an account's id, you can use [GET /api/v1/accounts/:id]({{< relref "methods/accounts" >}}) to view the [Account]({{< relref "entities/account" >}}) entity.
+  * To view public statuses posted by that account, you can use [GET /api/v1/accounts/:id/statuses]({{< relref "methods/statuses" >}}) and parse the resulting array of [Status]({{< relref "entities/status" >}}) entities.
+* Once you know a status's id, you can use [GET /api/v1/statuses/:id]({{< relref "methods/statuses#get-one" >}}) to view the Status entity.
+  * You can also use [GET /api/v1/statuses/:id/reblogged\_by]({{< relref "methods/statuses#boosted_by" >}}) to view who boosted that status,
+  * or [GET /api/v1/statuses/:id/favourited\_by]({{< relref "methods/statuses#favourited_by" >}}) to view who favourited that status.
+  * Requesting [GET /api/v1/statuses/:id/context]({{< relref "methods/statuses#context" >}}) will show you the ancestors and descendants of that status in the tree that is the conversational thread.
+  * If the status has a poll attached, you can use [GET /api/v1/polls/:id]({{< relref "methods/polls" >}}) to view the poll separately.
 
 IDs of accounts and statuses are local to the Mastodon website's database and will differ for each Mastodon website.
 
@@ -96,12 +96,12 @@ IDs of accounts and statuses are local to the Mastodon website's database and wi
 
 One last thing you can do with anonymous requests is to view information about the Mastodon website.
 
-* View general information with [GET /api/v1/instance]({{< relref "../../methods/instance.md#fetch-instance" >}}),
-  * view its peers with [GET /api/v1/instance/peers]({{< relref "../../methods/instance.md#list-of-connected-domains" >}}) or
-  * its weekly activity with [GET /api/v1/instance/activity]({{< relref "../../methods/instance.md#weekly-activity" >}}), or to
-  * list all custom emoji available with [GET /api/v1/custom\_emojis]({{< relref "../../methods/instance/custom_emojis.md#custom-emoji" >}}).
-* See [GET /api/v1/directory]({{< relref "../../methods/instance/directory.md#view-profile-directory" >}}) for a directory of all available profiles.
-* See [GET /api/v1/trends]({{< relref "../../methods/instance/trends.md#trending-tags" >}}) for currently trending hashtags.
+* View general information with [GET /api/v1/instance]({{< relref "../../methods/instance#fetch-instance" >}}),
+  * view its peers with [GET /api/v1/instance/peers]({{< relref "../../methods/instance#peers" >}}) or
+  * its weekly activity with [GET /api/v1/instance/activity]({{< relref "methods/instance#activity" >}}), or to
+  * list all custom emoji available with [GET /api/v1/custom\_emojis]({{< relref "methods/custom_emojis" >}}).
+* See [GET /api/v1/directory]({{< relref "methods/directory" >}}) for a directory of all available profiles.
+* See [GET /api/v1/trends]({{< relref "methods/trends" >}}) for currently trending hashtags.
 
 {{< hint style="info" >}}
 For a practical example of what you can do with just instance data, see [emojos.in](https://emojos.in/), which lets you preview all custom emoji at a given instance.

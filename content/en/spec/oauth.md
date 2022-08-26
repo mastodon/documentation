@@ -17,23 +17,23 @@ Mastodon supports the following OAuth 2 flows:
 * **Password grant flow**: For bots and other single-user applications
 * **Client credentials flow**: For applications that do not act on behalf of users
 
-To obtain an OAuth token for a Mastodon website, make sure that you allow your users to specify the domain they want to connect to before login. Use that domain to [acquire a client id/secret]({{< relref "../methods/apps/#create-an-application" >}}) and then [proceed with normal OAuth 2]({{< relref "../methods/apps/oauth.md" >}}).
+To obtain an OAuth token for a Mastodon website, make sure that you allow your users to specify the domain they want to connect to before login. Use that domain to [acquire a client id/secret]({{< relref "methods/apps#create" >}}) and then [proceed with normal OAuth 2]({{< relref "methods/oauth" >}}).
 
 ## OAuth 2 endpoints implemented {#implementation}
 
-The following descriptions are taken from the [Doorkeeper documentation](https://github.com/doorkeeper-gem/doorkeeper/wiki/API-endpoint-descriptions-and-examples). Mastodon uses Doorkeeper to implement OAuth 2. For more information on how to use these endpoints, see the [API documentation for OAuth.]({{< relref "../methods/apps/oauth.md" >}})
+The following descriptions are taken from the [Doorkeeper documentation](https://github.com/doorkeeper-gem/doorkeeper/wiki/API-endpoint-descriptions-and-examples). Mastodon uses Doorkeeper to implement OAuth 2. For more information on how to use these endpoints, see the [API documentation for OAuth.]({{< relref "methods/oauth" >}})
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/config/initializers/doorkeeper.rb" caption="Doorkeeper config initializer" >}}
 
-### [GET /oauth/authorize]({{< relref "../methods/apps/oauth.md#authorize-a-user" >}})
+### [GET /oauth/authorize]({{< relref "methods/oauth#authorize" >}})
 
 Displays an authorization form to the user. If approved, it will create and return an authorization code, then redirect to the desired `redirect_uri`, or show the authorization code if `urn:ietf:wg:oauth:2.0:oob` was requested.
 
-### [POST /oauth/token]({{< relref "../methods/apps/oauth.md#obtain-a-token" >}}) {#post-oauth-token}
+### [POST /oauth/token]({{< relref "methods/oauth#token" >}}) {#post-oauth-token}
 
 Obtain an access token. This corresponds to the token endpoint, section 3.2 of the OAuth 2 RFC.
 
-### [POST /oauth/revoke]({{< relref "../methods/apps/oauth.md#revoke-token" >}}) {#post-oauth-revoke}
+### [POST /oauth/revoke]({{< relref "../methods/oauth#revoke" >}}) {#post-oauth-revoke}
 
 Post here with client credentials to revoke an access token. This corresponds to the token endpoint, using the OAuth 2.0 Token Revocation RFC \(RFC 7009\).
 

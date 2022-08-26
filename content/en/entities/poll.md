@@ -106,8 +106,8 @@ The number of received votes for this option. Number, or null if results are not
 
 ## See also
 
-* [Status\#poll]({{< relref "status.md#poll" >}})
-* [/api/v1/polls]({{< relref "../methods/statuses/polls.md" >}})
+* [Status\#poll]({{< relref "entities/status#poll" >}})
+* [/api/v1/polls]({{< relref "methods/polls" >}})
 
 {{< page-ref page="status.md" >}}
 

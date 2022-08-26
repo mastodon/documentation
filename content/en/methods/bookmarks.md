@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 10
     parent: methods-accounts
+aliases: [/methods/accounts/bookmarks/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/bookmarks" title="Bookmarked statuses" >}}

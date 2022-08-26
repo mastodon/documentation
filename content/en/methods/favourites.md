@@ -5,6 +5,7 @@ menu:
   docs:
     weight: 20
     parent: methods-accounts
+aliases: [/methods/accounts/favourites/]
 ---
 
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/favourites" title="Favourited statuses" >}}

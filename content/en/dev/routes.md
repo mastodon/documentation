@@ -75,7 +75,7 @@ Maps to NodeInfo 2.0 endpoint at `/nodeinfo/2.0`, used for advertising software 
 
 ### /.well-know/webfinger {#webfinger}
 
-Used for discovering ActivityPub actor id. See [Spec compliance &gt; WebFinger]({{< relref "../spec/webfinger.md" >}}) for more information.
+Used for discovering ActivityPub actor id. See [Spec compliance &gt; WebFinger]({{< relref "spec/webfinger" >}}) for more information.
 
 ### /.well-known/change-password {#change-password}
 
@@ -113,7 +113,7 @@ The sections below this point are under construction.
 * /api/oembed
 * /api/proofs
 * /api/v1
-  * [statuses]({{< relref "../methods/statuses/" >}}) \[create, show, destroy\]
+  * [statuses]({{< relref "methods/statuses" >}}) \[create, show, destroy\]
     * reblogged\_by \[index\]
     * favourited\_by \[index\]
     * reblog \[create\]
@@ -127,47 +127,47 @@ The sections below this point are under construction.
     * pin \[create\]
     * unpin \[POST pins\#destroy\]
     * context \[GET\]
-  * [timelines]({{< relref "../methods/timelines/" >}})
+  * [timelines]({{< relref "methods/timelines" >}})
     * home \[show\]
     * public \[show\]
     * tag \[show\]
     * list \[show\]
-  * [streaming]({{< relref "../methods/timelines/streaming.md" >}}) \[index\]
-  * [custom\_emojis]({{< relref "../methods/instance/custom_emojis.md" >}}) \[index\]
-  * [suggestions]({{< relref "../methods/accounts/suggestions.md" >}}) \[index, destroy\]
-  * [scheduled\_statuses]({{< relref "../methods/statuses/scheduled_statuses.md" >}}) \[index, show, update, destroy\]
-  * [preferences]({{< relref "../methods/accounts/preferences.md" >}}) \[index\]
-  * [conversations]({{< relref "../methods/timelines/conversations.md" >}}) \[index, destroy\]
+  * [streaming]({{< relref "methods/streaming" >}}) \[index\]
+  * [custom\_emojis]({{< relref "methods/custom_emojis" >}}) \[index\]
+  * [suggestions]({{< relref "methods/suggestions" >}}) \[index, destroy\]
+  * [scheduled\_statuses]({{< relref "methods/scheduled_statuses" >}}) \[index, show, update, destroy\]
+  * [preferences]({{< relref "methods/preferences" >}}) \[index\]
+  * [conversations]({{< relref "methods/conversations" >}}) \[index, destroy\]
     * read \[POST\]
-  * [media]({{< relref "../methods/statuses/media.md" >}}) \[create, update\]
-  * [blocks]({{< relref "../methods/accounts/blocks.md" >}}) \[index\]
-  * [mutes]({{< relref "../methods/accounts/mutes.md" >}}) \[index\]
-  * [favourites]({{< relref "../methods/accounts/favourites.md" >}}) \[index\]
-  * [bookmarks]({{< relref "../methods/accounts/bookmarks.md" >}}) \[index\]
-  * [reports]({{< relref "../methods/accounts/reports.md" >}}) \[create\]
-  * [trends]({{< relref "../methods/instance/trends.md" >}}) \[index\]
-  * [filters]({{< relref "../methods/accounts/filters.md" >}}) \[index, create, show, update, destroy\]
-  * [endorsements]({{< relref "../methods/accounts/endorsements.md" >}}) \[index\]
-  * [markers]({{< relref "../methods/timelines/markers.md" >}}) \[index, create\]
-  * [apps]({{< relref "../methods/apps/" >}}) \[create\]
+  * [media]({{< relref "methods/media" >}}) \[create, update\]
+  * [blocks]({{< relref "methods/blocks" >}}) \[index\]
+  * [mutes]({{< relref "methods/mutes" >}}) \[index\]
+  * [favourites]({{< relref "methods/favourites" >}}) \[index\]
+  * [bookmarks]({{< relref "methods/bookmarks" >}}) \[index\]
+  * [reports]({{< relref "methods/reports" >}}) \[create\]
+  * [trends]({{< relref "methods/trends" >}}) \[index\]
+  * [filters]({{< relref "methods/filters" >}}) \[index, create, show, update, destroy\]
+  * [endorsements]({{< relref "methods/endorsements" >}}) \[index\]
+  * [markers]({{< relref "methods/markers" >}}) \[index, create\]
+  * [apps]({{< relref "methods/apps" >}}) \[create\]
     * verify\_credentials \[credentials\#show\]
-  * [instance]({{< relref "../methods/instance/" >}}) \[show\]
+  * [instance]({{< relref "methods/instance" >}}) \[show\]
     * peers \[index\]
     * activity \[show\]
-  * [domain\_blocks]({{< relref "../methods/accounts/domain_blocks.md" >}}) \[show, create, destroy\]
-  * [directory]({{< relref "../methods/instance/directory.md" >}}) \[show\]
-  * [follow\_requests]({{< relref "../methods/accounts/follow_requests.md" >}}) \[index\]
+  * [domain\_blocks]({{< relref "methods/domain_blocks" >}}) \[show, create, destroy\]
+  * [directory]({{< relref "methods/directory" >}}) \[show\]
+  * [follow\_requests]({{< relref "methods/follow_requests" >}}) \[index\]
     * authorize \[POST\]
     * reject \[POST\]
-  * [notifications]({{< relref "../methods/notifications/" >}}) \[index, show\]
+  * [notifications]({{< relref "methods/notifications" >}}) \[index, show\]
     * clear \[POST\]
     * dismiss \[POST\]
-  * [accounts]({{< relref "../methods/accounts/" >}})
+  * [accounts]({{< relref "methods/accounts" >}})
     * verify\_credentials \[GET credentials\#show\]
     * update\_credentials \[PATCH credentials\#update\]
     * search \[show \(search\#index\)\]
     * relationships \[index\]
-  * [accounts]({{< relref "../methods/accounts/" >}}) \[create, show\]
+  * [accounts]({{< relref "methods/accounts" >}}) \[create, show\]
     * statuses \[index accounts/statuses\]
     * followers \[index accounts/follower\_accounts\]
     * following \[index accounts/following\_accounts\]
@@ -181,15 +181,15 @@ The sections below this point are under construction.
     * unmute \[POST\]
     * pin \[POST\]
     * unpin \[POST\]
-  * [lists]({{< relref "../methods/timelines/lists.md" >}}) \[index, create, show, update, destroy\]
+  * [lists]({{< relref "methods/lists" >}}) \[index, create, show, update, destroy\]
     * accounts \[POST accounts/pins\#destroy\]
-  * [featured\_tags]({{< relref "../methods/accounts/featured_tags.md" >}}) \[index, create, destroy\]
+  * [featured\_tags]({{< relref "methods/featured_tags" >}}) \[index, create, destroy\]
     * suggestions \[GET suggestions\#index\]
-  * [polls]({{< relref "../methods/statuses/polls.md" >}}) \[create, show\]
+  * [polls]({{< relref "methods/polls" >}}) \[create, show\]
     * votes \[create polls/votes\]
-  * [push]({{< relref "../methods/notifications/push.md" >}})
+  * [push]({{< relref "methods/push" >}})
     * subscription \[create, show, update, destroy\]
-  * [admin]({{< relref "../methods/admin.md" >}})
+  * [admin]({{< relref "methods/admin" >}})
     * accounts \[index, show\]
       * enable \[POST\]
       * unsilence \[POST\]
@@ -203,5 +203,5 @@ The sections below this point are under construction.
       * reopen \[POST\]
       * resolve \[POST\]
 * /api/v2
-  * [search]({{< relref "../methods/search.md" >}}) \[GET search\#index\]
+  * [search]({{< relref "methods/search" >}}) \[GET search\#index\]
 

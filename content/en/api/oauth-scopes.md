@@ -56,7 +56,7 @@ Grants access to manage relationships. Requesting `follow` will also grant the f
 
 ### `push` {#push}
 
-Grants access to [Web Push API subscriptions.]({{< relref "../methods/notifications/push.md" >}}) Added in Mastodon 2.4.0.
+Grants access to [Web Push API subscriptions.]({{< relref "methods/push" >}}) Added in Mastodon 2.4.0.
 
 ### Admin scopes {#admin}
 
