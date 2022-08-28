@@ -10,27 +10,24 @@ menu:
 aliases: [/methods/instance/custom_emojis/]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/custom_emojis" title="Custom emoji" >}}
-{{< api-method-description >}}
+## View all custom emoji {#index}
+
+```http
+GET https://mastodon.example/api/v1/custom_emojis HTTP/1.1
+```
 
 Returns custom emojis that are available on the server.
 
-**Returns:** Array of Emoji\
+**Returns:** Array of [Emoji]({{< relref "entities/emoji" >}})\
 **OAuth:** Public\
 **Version history:**\
 2.0.0 - added\
 3.0.0 - optional `category` added to response
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Response
+##### 200: Success
 
 Sample response from mastodon.social
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 [
@@ -73,9 +70,9 @@ Sample response from mastodon.social
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/custom_emojis_controller.rb" caption="app/controllers/api/v1/custom_emojis_controller.rb" >}}
