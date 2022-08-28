@@ -7,7 +7,7 @@ menu:
     parent: methods
 ---
 
-## View all announcements {#get}
+## View all announcements {#index}
 
 ```http
 GET https://mastodon.example/api/v1/announcements HTTP/1.1

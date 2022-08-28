@@ -8,7 +8,7 @@ menu:
     identifier: methods-accounts
 ---
 
-## Register an account {#register}
+## Register an account {#create}
 
 ```http
 POST https://mastodon.example/api/v1/accounts HTTP/1.1
@@ -286,7 +286,7 @@ Token does not have an authorized user
 
 ---
 
-## Update account credentials
+## Update account credentials {#update_credentials}
 
 ```http
 PATCH https://mastodon.example/api/v1/accounts/update_credentials HTTP/1.1
@@ -451,7 +451,7 @@ Token does not have an authorized user
 
 ---
 
-## Get account {#get}
+## Get account {#show}
 
 ```http
 GET https://mastodon.example/api/v1/accounts/:id HTTP/1.1

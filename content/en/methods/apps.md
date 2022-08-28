@@ -16,7 +16,7 @@ POST https://mastodon.example/api/v1/apps HTTP/1.1
 
 Create a new application to obtain OAuth2 credentials.
 
-**Returns:** Application, with `client_id` and `client_secret`\
+**Returns:** [Application]({{< relref "entities/application" >}}), with `client_id` and `client_secret`\
 **OAuth:** Public\
 **Version history:**\
 0.0.0 - added\
@@ -74,7 +74,7 @@ GET https://mastodon.example/api/v1/apps/verify_credentials HTTP/1.1
 
 Confirm that the app's OAuth2 credentials work.
 
-**Returns:** Application\
+**Returns:** [Application]({{< relref "entities/application" >}})\
 **OAuth level:** App token\
 **Version history:**\
 2.0.0 - added\
