@@ -8,7 +8,7 @@ menu:
 aliases: [/methods/apps/emails/]
 ---
 
-## Resend confirmation email {#confirmations}
+## Resend confirmation email {#confirmation}
 
 ```http
 POST https://mastodon.example/api/v1/emails/confirmation HTTP/1.1
@@ -27,7 +27,7 @@ Authorization
 
 ##### Form data parameters
 
-`email`
+email
 : If provided, updates the unconfirmed user's email before resending the confirmation email.
 
 #### Response
@@ -45,3 +45,9 @@ The client associated with the token does not own the unconfirmed user.
 	"error": "This method is only available to the application the user originally signed-up with"
 }
 ```
+
+---
+
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/emails/confirmations_controller.rb" caption="app/controllers/api/v1/emails/confirmations_controller.rb" >}}
