@@ -10,44 +10,37 @@ aliases: [/methods/instance/directory/]
 
 ## View profile directory {#get}
 
-
----
-
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/directory" title="View profile directory" >}}
-{{< api-method-description >}}
+```http
+GET https://mastodon.example/api/v1/directory HTTP/1.1
+```
 
 List accounts visible in the directory.
 
-**Returns:** Array of Account\
+**Returns:** Array of [Account]({{< relref "entities/account" >}})\
 **OAuth:** Public\
 **Version history:**\
 3.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="offset" type="string" required=false >}}
-How many accounts to skip before returning results. Default 0.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="limit" type="string" required=false >}}
-How many accounts to load. Default 40.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="order" type="string" required=false >}}
-`active` to sort by most recently posted statuses \(default\) or `new` to sort by most recently created profiles.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="local" type="boolean" required=false >}}
-Only return local accounts.
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Query parameters
+
+offset
+: Number. How many accounts to skip before returning results. Default 0.
+
+limit
+: Number. How many accounts to load. Default 40.
+
+order
+: String. Use `active` to sort by most recently posted statuses (default) or `new` to sort by most recently created profiles.
+
+local
+: Boolean. If true, returns only local accounts.
+
+#### Response
+##### 200: Success
 
 Sample results with limit=2
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 [
@@ -67,9 +60,9 @@ Sample results with limit=2
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/directories_controller.rb" caption="app/controllers/api/v1/directories_controller.rb" >}}
