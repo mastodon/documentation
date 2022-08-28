@@ -47,6 +47,10 @@ Invalid or missing Authorization header.
 
 ##### 404: Not found
 
+```javascript
+{"error":"Record not found"}
+```
+
 ##### 410: Gone
 
 ##### 422: Unprocessable entity

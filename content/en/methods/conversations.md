@@ -10,45 +10,48 @@ menu:
 aliases: [/methods/timelines/conversations/]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/conversations" title="Show conversation" >}}
-{{< api-method-description >}}
+## View all conversations
 
-**Returns:** Array of Conversation\
+```http
+GET https://mastodon.example/api/v1/conversations HTTP/1.1
+```
+
+**Returns:** Array of [Conversation]({{< relref "entities/conversation" >}})\
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
 2.6.0 - added\
 3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="limit" type="string" required=false >}}
-Maximum number of results. Defaults to 20. Max 40.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="max_id" type="string" required=false >}}
-Return results older than this ID. Use HTTP Link header to paginate.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="since_id" type="string" required=false >}}
-Return results newer than this ID. Use HTTP Link header to paginate.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="min_id" type="string" required=false >}}
-Return results immediately newer than this ID. Use HTTP Link header to paginate.
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: String. Maximum number of results to return. Defaults to 20. Max 40.
+
+#### Response
+
+##### 200: Success
 
 Truncated sample results of an API call with limit=2
-{{< endapi-method-response-example-description >}}
 
+```http
+Link: <https://mastodon.social/api/v1/conversations?limit=2&max_id=108835003356700379>; rel="next", <https://mastodon.social/api/v1/conversations?limit=2&min_id=108888782724768580>; rel="prev"
+```
 
 ```javascript
 [
@@ -92,113 +95,98 @@ Truncated sample results of an API call with limit=2
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="delete" host="https://mastodon.example" path="/api/v1/conversations/:id" title="Remove conversation" >}}
-{{< api-method-description >}}
+
+---
+
+## Remove a conversation {#delete}
+
+```http
+DELETE https://mastodon.example/api/v1/conversations/:id HTTP/1.1
+```
+
+Removes a conversation from your list of conversations.
 
 **Returns:** empty object\
 **OAuth:** User token + `write:conversations`\
 **Version history:**\
 2.6.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the conversation in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
 
-An empty object will be returned.
-{{< endapi-method-response-example-description >}}
+##### Path parameters
 
+:id
+: ID of the conversation in the database
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: Success
 
 ```javascript
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authentication header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
+
+##### 404: Not found
 
 The conversation does not exist, or is not owned by you.
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
-{
-  "error": "Record not found"
-}
+{"error":"Record not found"}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/conversations/:id/read" title="Mark as read" >}}
-{{< api-method-description >}}
 
-**Returns:** Conversation\
+---
+
+## Mark a conversation as read {#read}
+
+```http
+POST https://mastodon.example/api/v1/conversations/:id/read HTTP/1.1
+```
+
+**Returns:** [Conversation]({{< relref "entities/conversation" >}})\
 **OAuth:** User token + `write:conversations`\
 **Version history:**\
 2.6.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=false >}}
-ID of the conversation in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: ID of the conversation in the database
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: Success
 
 The value of `unread` has been changed to false.
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {
@@ -216,35 +204,27 @@ The value of `unread` has been changed to false.
   }
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
+
+##### 404: Not found
 
 The conversation does not exist, or is not owned by you.
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
-{
-  "error": "Record not found"
-}
+{"error":"Record not found"}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/conversations_controller.rb" caption="app/controllers/api/v1/conversations_controller.rb" >}}
