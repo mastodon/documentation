@@ -256,7 +256,7 @@ Equal to `header` if its value is a static image; different if `header` is an an
 
 ## See also
 
-{{< page-ref page="methods/accounts.md" >}}
+{{< page-ref page="methods/accounts" >}}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/account_serializer.rb" caption="app/serializers/rest/account\_serializer.rb" >}}
 

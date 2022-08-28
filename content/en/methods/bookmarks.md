@@ -86,3 +86,7 @@ Invalid or missing Authorization header.
 ## See also
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/bookmarks_controller.rb" caption="app/controllers/api/v1/bookmarks_controller.rb" >}}
+
+{{< page-relref ref="methods/statuses#bookmark" caption="POST /api/v1/statuses/:id/bookmark" >}}
+
+{{< page-relref ref="methods/statuses#unbookmark" caption="POST /api/v1/statuses/:id/unbookmark" >}}

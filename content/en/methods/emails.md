@@ -51,3 +51,7 @@ The client associated with the token does not own the unconfirmed user.
 ## See also
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/emails/confirmations_controller.rb" caption="app/controllers/api/v1/emails/confirmations_controller.rb" >}}
+
+{{< page-relref ref="methods/apps#create" caption="POST /api/v1/apps" >}}
+
+{{< page-relref ref="methods/accounts#create" caption="POST /api/v1/accounts" >}}

@@ -111,3 +111,7 @@ Invalid or missing Authorization header.
 ## See also
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/blocks_controller.rb" caption="app/controllers/api/v1/blocks_controller.rb" >}}
+
+{{< page-relref ref="methods/accounts#block" caption="POST /api/v1/accounts/:id/block" >}}
+
+{{< page-relref ref="methods/accounts#unblock" caption="POST /api/v1/accounts/:id/unblock" >}}

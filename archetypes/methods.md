@@ -62,3 +62,5 @@ Invalid or missing Authorization header.
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/SOMETHING_controller.rb" caption="app/controllers/api/v1/SOMETHING_controller.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/SOMETHING" caption="app/controllers/api/v1/SOMETHING/" >}}
+
+{{< page-relref ref="methods/SOMETHING#anchor" caption="POST /api/v1/something/" >}}

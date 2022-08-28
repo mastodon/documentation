@@ -8,47 +8,50 @@ menu:
 aliases: [/methods/accounts/endorsements/]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/endorsements" title="View currently featured profiles" >}}
-{{< api-method-description >}}
+## View currently featured profiles {#get}
+
+```http
+GET https://mastodon.example/api/v1/endorsements HTTP/1.1
+```
 
 Accounts that the user is currently featuring on their profile.
 
-**Returns:** Array of Account\
+**Returns:** Array of [Account]({{< relref "entities/account" >}})\
 **OAuth:** User token + `read:accounts`\
 **Version history:**\
 2.5.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="limit" type="string" required=false >}}
-Maximum number of results to return. Defaults to 40.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="max_id" type="string" required=false >}}
-Internal parameter. Use HTTP `Link` header from response for pagination
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="since_id" type="string" required=false >}}
-Internal parameter. Use HTTP `Link` header from response for pagination.
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
 
-Sample call with limit=2. Because endorsement ids are private, you must parse the HTTP Link header to find next and previous pages.
-{{< endapi-method-response-example-description >}}
+##### Headers
 
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: String. Maximum number of results to return. Defaults to 40.
+
+#### Response
+##### 200: Success
+
+Sample call with limit=2. Because endorsement IDs are private, you must parse the HTTP Link header to find next and previous pages.
+
+```http
+Link: <https://mastodon.social/api/v1/endorsements?limit=2&max_id=832844>; rel="next", <https://mastodon.social/api/v1/endorsements?limit=2&since_id=952529>; rel="prev"
+```
 
 ```javascript
-Link: <https://mastodon.social/api/v1/endorsements?limit=2&max_id=832844>; rel="next", <https://mastodon.social/api/v1/endorsements?limit=2&since_id=952529>; rel="prev"
-
 [
   {
     "id": "952529",
@@ -101,22 +104,23 @@ Link: <https://mastodon.social/api/v1/endorsements?limit=2&max_id=832844>; rel="
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-If Authorization header is not provided correctly
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/endorsements_controller.rb" caption="app/controllers/api/v1/endorsements_controller.rb" >}}
+
+{{< page-relref ref="methods/accounts#pin" caption="POST /api/v1/accounts/:id/pin" >}}
+
+{{< page-relref ref="methods/accounts#unpin" caption="POST /api/v1/accounts/:id/unpin" >}}
