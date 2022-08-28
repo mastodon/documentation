@@ -73,7 +73,6 @@ menu:
 ## PHP {#php}
 
 * [Mastodon API for Laravel](https://github.com/kawax/laravel-mastodon-api)
-* [Mastodon-api-php](https://github.com/yks118/Mastodon-api-php)
 * [Composer based php API wrapper](https://github.com/r-daneelolivaw/mastodon-api-php)
 * [MastodonOAuthPHP](https://github.com/TheCodingCompany/MastodonOAuthPHP)
 * [Phediverse Mastodon REST Client](https://github.com/phediverse/mastodon-rest)
