@@ -451,7 +451,7 @@ Token does not have an authorized user
 
 ---
 
-## Get account {#show}
+## Get account {#get}
 
 ```http
 GET https://mastodon.example/api/v1/accounts/:id HTTP/1.1
@@ -1052,7 +1052,7 @@ Authorization
 
 ---
 
-## Lists containing this account {#lists}
+## Get lists containing this account {#lists}
 
 ```http
 GET https://mastodon.example/api/v1/accounts/:id/lists HTTP/1.1

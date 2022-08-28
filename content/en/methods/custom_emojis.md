@@ -10,7 +10,7 @@ menu:
 aliases: [/methods/instance/custom_emojis/]
 ---
 
-## View all custom emoji {#index}
+## View all custom emoji {#get}
 
 ```http
 GET https://mastodon.example/api/v1/custom_emojis HTTP/1.1

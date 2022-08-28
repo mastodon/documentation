@@ -8,6 +8,11 @@ menu:
 aliases: [/methods/instance/directory/]
 ---
 
+## View profile directory {#get}
+
+
+---
+
 {{< api-method method="get" host="https://mastodon.example" path="/api/v1/directory" title="View profile directory" >}}
 {{< api-method-description >}}
 

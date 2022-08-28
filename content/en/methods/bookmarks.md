@@ -8,7 +8,7 @@ menu:
 aliases: [/methods/accounts/bookmarks/]
 ---
 
-## View bookmarked statuses {#index}
+## View bookmarked statuses {#get}
 
 ```http
 GET https://mastodon.example/api/v1/bookmarks HTTP/1.1

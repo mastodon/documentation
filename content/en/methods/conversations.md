@@ -10,7 +10,7 @@ menu:
 aliases: [/methods/timelines/conversations/]
 ---
 
-## View all conversations
+## View all conversations {#get}
 
 ```http
 GET https://mastodon.example/api/v1/conversations HTTP/1.1

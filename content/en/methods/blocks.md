@@ -8,7 +8,7 @@ menu:
 aliases: [/methods/accounts/blocks/]
 ---
 
-## View blocked users {#index}
+## View blocked users {#get}
 
 ```http
 GET https://mastodon.example/api/v1/blocks HTTP/1.1
