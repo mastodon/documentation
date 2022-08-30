@@ -75,6 +75,14 @@ SOMETHING is not owned by you or does not exist
 
 ##### 422: Unprocessable entity
 
+##### 503: Service unavailable
+
+```javascript
+{
+  "error": "There was a temporary problem serving your request, please try again"
+}
+```
+
 ---
 
 ## See also
