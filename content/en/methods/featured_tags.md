@@ -8,28 +8,25 @@ menu:
 aliases: [/methods/accounts/featured_tags/]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/featured_tags" title="View your featured tags" >}}
-{{< api-method-description >}}
+## View your featured tags {#get}
 
-**Returns:** Array of FeaturedTag\
+```http
+GET https://mastodon.example/api/v1/featured_tags HTTP/1.1
+```
+
+**Returns:** Array of [FeaturedTag]({{< relref "entities/featuredtag" >}})\
 **OAuth:** User token + `read:accounts`\
 **Version history:**\
 3.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
+##### Headers
 
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: Success
 
 ```javascript
 [
@@ -41,52 +38,45 @@ Bearer &lt;user token&gt;
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/featured_tags" title="Feature a tag" >}}
-{{< api-method-description >}}
 
-**Returns:** FeaturedTag\
+---
+
+## Feature a tag {#feature}
+
+```http
+POST https://mastodon.example/api/v1/featured_tags HTTP/1.1
+```
+
+**Returns:** [FeaturedTag]({{< relref "entities/featuredtag" >}})\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
 3.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="name" type="string" required=true >}}
-The hashtag to be featured.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+name
+: {{<required>}} String. The hashtag to be featured, without the hash sign.
+
+#### Response
+##### 200: Success
 
 A FeaturedTag will be created with the specified `name`.
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {
@@ -96,99 +86,112 @@ A FeaturedTag will be created with the specified `name`.
   "last_status_at": "2019-11-15T06:20:32.769Z"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```javascript
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 422: Unprocessable entity
 
 If `name` is not a valid hashtag, e.g. contains illegal characters or only numbers
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {
   "error": "Validation failed: Tag is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="delete" host="https://mastodon.example" path="/api/v1/featured_tags/:id" title="Unfeature a tag" >}}
-{{< api-method-description >}}
+
+---
+
+## Unfeature a tag {unfeature}
+
+```http
+DELETE https://mastodon.example/api/v1/featured_tags/:id HTTP/1.1
+```
 
 **Returns:** empty object\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
 3.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the FeaturedTag to be unfeatured.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+
+
+---
+
+
+{{< api-method method="delete" host="https://mastodon.example" path="/api/v1/featured_tags/:id" title="Unfeature a tag" >}}
+{{< api-method-description >}}
+
+#### Request
+
+##### Path parameters
+
+:id
+The ID of the FeaturedTag to be unfeatured.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: Success
 
 An empty object will be returned if the featured tag was successfully deleted.
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-If the ID does not exist or is not owned by you
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
-  "error": "Record not found"
+  "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/featured_tags/suggestions" title="Suggested tags to feature" >}}
-{{< api-method-description >}}
+
+##### 404: Not found
+
+If the ID does not exist or is not owned by you
+
+```javascript
+{"error":"Record not found"}
+```
+
+---
+
+## View suggested tags to feature {#suggestions}
+
+```http
+GET https://mastodon.example/api/v1/featured_tags/suggestions HTTP/1.1
+```
 
 Shows your 10 most-used tags, with usage history for the past week.
 
-**Returns:** Array of Tag with History\
+**Returns:** Array of [Tag]({{< relref "entities/tag" >}}) with [History]({{< relref "entities/history" >}})\
 **OAuth:** User token + `read:accounts`\
 **Version history:**\
 3.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: Success
 
 Truncated results to first and last tag.
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 [
@@ -277,20 +280,21 @@ Truncated results to first and last tag.
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/featured_tags_controller.rb" caption="app/controllers/api/v1/featured_tags_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/featured_tags" caption="app/controllers/api/v1/featured_tags/" >}}
