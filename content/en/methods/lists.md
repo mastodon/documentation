@@ -115,7 +115,9 @@ Invalid or missing Authorization header.
 List does not exist or is not owned by you
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ---
@@ -314,7 +316,9 @@ List does not exist or is not owned by you
 
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ---
@@ -410,7 +414,9 @@ List does not exist or is not owned by you.
 
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ---
@@ -467,7 +473,9 @@ Invalid or missing Authorization header.
 You are not following a given account ID, or you do not own the list ID, or list/account ID does not exist
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ##### 422: Unprocessable entity
@@ -536,7 +544,9 @@ Invalid or missing Authorization header.
 SOMETHING is not owned by you or does not exist
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ---

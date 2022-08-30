@@ -142,7 +142,9 @@ Invalid or missing Authorization header.
 Announcement with given ID does not exist
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ---
@@ -197,13 +199,17 @@ Invalid or missing Authorization header.
 Announcement with given ID does not exist
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ##### 422: Unprocessable entity
 
 ```javascript
-{"error":"Validation failed: Name is not a recognized emoji"}
+{
+  "error": "Validation failed: Name is not a recognized emoji"
+}
 ```
 
 ---
@@ -258,13 +264,17 @@ Invalid or missing Authorization header.
 Announcement with given ID does not exist
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ##### 422: Unprocessable entity
 
 ```javascript
-{"error":"Validation failed: Name is not a recognized emoji"}
+{
+  "error": "Validation failed: Name is not a recognized emoji"
+}
 ```
 
 ---

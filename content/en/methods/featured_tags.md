@@ -164,7 +164,9 @@ Invalid or missing Authorization header.
 If the ID does not exist or is not owned by you
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ---

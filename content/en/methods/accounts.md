@@ -60,7 +60,9 @@ reason
 ##### 401: Unauthorized
 
 ```javascript
-{"error":"The access token is invalid"}
+{
+  "error": "The access token is invalid"
+}
 ```
 
 ##### 422: Unprocessable entity
@@ -130,7 +132,9 @@ ERR_INCLUSION
 ##### 429: Rate limited
 
 ```javascript
-{"error":"Too many requests"}
+{
+  "error": "Too many requests"
+}
 ```
 
 ---
@@ -1719,13 +1723,17 @@ You are not following this account
 Alternatively, the account may already be endorsed
 
 ```javascript
-{"error":"Duplicate record"}
+{
+  "error": "Duplicate record"
+}
 ```
 
 Alternatively, the token is not authorized with a user
 
 ```javascript
-{"error":"This method requires an authenticated user"}
+{
+  "error": "This method requires an authenticated user"
+}
 ```
 
 ##### 500: Client error
@@ -2191,7 +2199,9 @@ Sample call with `?acct=trwnh@pixelfed.social`
 Username or address does not map to an account
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ---

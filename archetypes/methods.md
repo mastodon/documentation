@@ -65,7 +65,9 @@ Invalid or missing Authorization header.
 SOMETHING is not owned by you or does not exist
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ##### 410: Gone

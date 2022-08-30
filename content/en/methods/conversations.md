@@ -155,7 +155,9 @@ Invalid or missing Authorization header.
 The conversation does not exist, or is not owned by you.
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ---
@@ -220,7 +222,9 @@ Invalid or missing Authorization header.
 The conversation does not exist, or is not owned by you.
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ---

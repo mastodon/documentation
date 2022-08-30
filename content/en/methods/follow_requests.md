@@ -124,7 +124,9 @@ Invalid or missing Authorization header.
 No pending follow request from that account ID
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ---
@@ -189,7 +191,9 @@ Invalid or missing Authorization header.
 No pending follow request from that account ID
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ---

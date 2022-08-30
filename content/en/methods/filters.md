@@ -129,7 +129,9 @@ Invalid or missing Authorization header.
 Filter ID does not exist, or is not owned by you
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ---
@@ -299,7 +301,9 @@ Invalid or missing Authorization header.
 Filter does not exist or is not owned by you
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ##### 422: Unprocessable entity
@@ -369,7 +373,9 @@ Invalid or missing Authorization header.
 Filter does not exist or is not owned by you
 
 ```javascript
-{"error":"Record not found"}
+{
+  "error": "Record not found"
+}
 ```
 
 ---
