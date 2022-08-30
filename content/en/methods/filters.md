@@ -158,7 +158,7 @@ phrase
 : {{<required>}} String. The text to be filtered.
 
 context
-: {{<required>}} Array. Array of enumerable strings 'home', 'notifications', 'public', 'thread', 'account'. At least one context must be specified.
+: {{<required>}} Array. Array of enumerable strings `home`, `notifications`, `public`, `thread`, `account`. At least one context must be specified.
 
 irreversible
 : Boolean. Should the server irreversibly drop matching entities from home and notifications? Defaults to false.
@@ -252,7 +252,7 @@ phrase
 : {{<required>}} String. The text to be filtered.
 
 context
-: {{<required>}} Array. Array of enumerable strings 'home', 'notifications', 'public', 'thread', 'account'. At least one context must be specified.
+: {{<required>}} Array. Array of enumerable strings `home`, `notifications`, `public`, `thread`, `account`. At least one context must be specified.
 
 irreversible
 : Boolean. Should the server irreversibly drop matching entities from home and notifications? Defaults to false.

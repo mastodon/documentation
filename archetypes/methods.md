@@ -30,6 +30,18 @@ Authorization
 
 ##### Query parameters
 
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: String. Maximum number of results to return. Defaults to 40.
+
 ##### Form data parameters
 
 #### Response
@@ -49,6 +61,8 @@ Invalid or missing Authorization header.
 ```
 
 ##### 404: Not found
+
+SOMETHING is not owned by you or does not exist
 
 ```javascript
 {"error":"Record not found"}

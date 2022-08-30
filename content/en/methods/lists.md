@@ -10,32 +10,30 @@ menu:
 aliases: [/methods/timelines/lists/]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/lists" title="Show user's lists" >}}
-{{< api-method-description >}}
+## View your lists {#get}
+
+```http
+GET https://mastodon.example/api/v1/lists HTTP/1.1
+```
 
 Fetch all lists that the user owns.
 
-**Returns:** Array of List\
+**Returns:** Array of [List]({{< relref "entities/list" >}})\
 **OAuth:** User token + `read:lists`\
 **Version history:**\
 2.1.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
 
-Use id as a parameter for related API calls.
-{{< endapi-method-response-example-description >}}
+##### Headers
 
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: Success
+
+Use `id` as a parameter for related API calls.
 
 ```javascript
 [
@@ -45,60 +43,54 @@ Use id as a parameter for related API calls.
     "replies_policy": "followed"
   },
   {
-  "id": "13585",
-  "title": "test",
-  "replies_policy": "list"
+    "id": "13585",
+    "title": "test",
+    "replies_policy": "list"
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/lists/:id" title="Show a single list" >}}
-{{< api-method-description >}}
+
+---
+
+## Show a single list {#get-one}
+
+```http
+GET https://mastodon.example/api/v1/lists/:id HTTP/1.1
+```
 
 Fetch the list with the given ID. Used for verifying the title of a list, and which replies to show within that list.
 
-**Returns:** List\
+**Returns:** [List]({{< relref "entities/list" >}})\
 **OAuth:** User token + `read:lists`\
 **Version history:**\
 2.1.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the list in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the List in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: Success
 
 The list 12249 exists and is owned by you
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {
@@ -107,71 +99,59 @@ The list 12249 exists and is owned by you
   "replies_policy": "followed"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-If the ID does not exist or is not owned by you
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+List does not exist or is not owned by you
 
 ```javascript
-{
-  "error": "Record not found"
-}
+{"error":"Record not found"}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/lists" title="Create a list" >}}
-{{< api-method-description >}}
+
+---
+
+## Create a list {#create}
+
+```http
+POST https://mastodon.example/api/v1/lists HTTP/1.1
+```
 
 Create a new list.
 
-**Returns:** List\
+**Returns:** [List]({{< relref "entities/list" >}})\
 **OAuth:** User token + `write:lists`\
 **Version history:**\
 2.1.0 - added\
 3.3.0 - added `replies_policy`
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="title" type="string" required=true >}}
-The title of the list to be created.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="replies_policy" type="string" required=false >}}
-Enumerable oneOf `followed` `list` `none`. Defaults to `list`.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Headers
 
-A list was created successfully with title=test
-{{< endapi-method-response-example-description >}}
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
+##### Form data parameters
+
+title
+: {{<required>}} String. The title of the list to be created.
+
+replies_policy
+: String. One of `followed`, `list`, or `none`. Defaults to `list`.
+
+#### Response
+##### 200: Success
+
+A sample list was created with a `title` of "test".
 
 ```javascript
 {
@@ -180,263 +160,266 @@ A list was created successfully with title=test
   "replies_policy": "list"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="put" host="https://mastodon.example" path="/api/v1/lists/:id" title="Update a list" >}}
-{{< api-method-description >}}
 
-Change the title of a list, or which replies to show.
+##### 422: Unprocessable entity
 
-**Returns:** List\
-**OAuth:** User token + `write:lists`\
-**Version history:**\
-2.1.0 - added\
-3.3.0 - added `replies_policy`
-
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the list in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="title" type="string" required=false >}}
-The title of the list to be updated.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="replies_policy" type="string" required=false >}}
-Enumerable oneOf `followed` `list` `none`.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-
-The title of list 13585 was successfully updated to title=testing
-{{< endapi-method-response-example-description >}}
-
-
-```javascript
-{
-  "id": "13585",
-  "title": "testing",
-  "replies_policy": "list"
-}
-```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
-
-
-```javascript
-{
-  "error": "The access token is invalid"
-}
-```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
-
-If the title is blank
-{{< endapi-method-response-example-description >}}
-
+If the title is missing:
 
 ```javascript
 {
   "error": "Validation failed: Title can't be blank"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="delete" host="https://mastodon.example" path="/api/v1/lists/:id" title="Delete a list" >}}
-{{< api-method-description >}}
+
+<!-- TODO: Currently this returns HTML response with HTTP 500
+If the replies_policy is not understood:
+
+```javascript
+```
+-->
+
+---
+
+## Update a list {#update}
+
+```http
+PUT https://mastodon.example/api/v1/lists/:id HTTP/1.1
+```
+
+Change the title of a list, or which replies to show.
+
+**Returns:** [List]({{< relref "entities/list" >}})\
+**OAuth:** User token + `write:lists`\
+**Version history:**\
+2.1.0 - added\
+3.3.0 - added `replies_policy`
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the List in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+title
+: {{<required>}} String. The title of the list to be created.
+
+replies_policy
+: String. One of `followed`, `list`, or `none`. Defaults to `list`.
+
+#### Response
+##### 200: Success
+
+The `title` of list 13585 was successfully updated to "testing"
+
+```javascript
+{
+  "id": "13585",
+  "title": "test",
+  "replies_policy": "list"
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```javascript
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 422: Unprocessable entity
+
+If the title is missing:
+
+```javascript
+{
+  "error": "Validation failed: Title can't be blank"
+}
+```
+
+<!-- TODO: Currently this returns HTML response with HTTP 500
+If the replies_policy is not understood:
+
+```javascript
+```
+-->
+
+---
+
+## Delete a list {#delete}
+
+```http
+DELETE https://mastodon.example/api/v1/lists/:id HTTP/1.1
+```
 
 **Returns:** empty object\
 **OAuth:** User token + `write:lists`\
 **Version history:**\
 2.1.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the list in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
 
-An empty object will be returned if the list was successfully deleted
-{{< endapi-method-response-example-description >}}
+##### Path parameters
 
+:id
+: {{<required>}} String. The ID of the List in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: Success
+
+List was successfully deleted
 
 ```javascript
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-ID does not exist or is not owned by you
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
+
+List does not exist or is not owned by you
 
 
 ```javascript
-{
-  "error": "The access token is invalid"
-}
+{"error":"Record not found"}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
-## Accounts in a list
+## View accounts in a list {#accounts}
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/lists/:id/accounts" title="View accounts in list" >}}
-{{< api-method-description >}}
+```http
+GET https://mastodon.example/api/v1/lists/:id/accounts HTTP/1.1
+```
 
-**Returns:** Array of Account\
+**Returns:** Array of [Account]({{< relref "entities/account" >}})\
 **OAuth:** User token + `read:lists`\
 **Version history:**\
 2.1.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the list in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="max_id" type="string" required=false >}}
-Internal parameter. Use HTTP Link header for pagination.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="since_id" type="string" required=false >}}
-Internal parameter. Use HTTP Link header for pagination.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="limit" type="number" required=false >}}
-Maximum number of results. Defaults to 40. Max 40. Set to 0 in order to get all accounts without pagination. Pagination is done with the HTTP Link header.
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the List in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: String. Maximum number of results. Defaults to 40. Max 40. Set to 0 in order to get all accounts without pagination. Pagination is done with the HTTP Link header.
+
+#### Response
+##### 200: Success
 
 ```javascript
 [
   {
     "id": "952529",
+    "username": "alayna",
+    "acct": "alayna@desvox.es",
     ...
   },
   {
     "id": "917388",
+    "username": "cole",
+    "acct": "cole@be.cutewith.me",
     ...
   },
   {
     "id": "869022",
+    "username": "alayna",
+    "acct": "alayna@be.cutewith.me",
     ...
   },
   {
     "id": "832844",
+    "username": "a9",
+    "acct": "a9@broadcast.wolfgirl.engineering",
     ...
   },
   {
     "id": "482403",
+    "username": "amic",
+    "acct": "amic@nulled.red",
     ...
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-The list ID does not exist or is not owned by you
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
+
+List does not exist or is not owned by you.
 
 
 ```javascript
-{
-  "error": "Record not found"
-}
+{"error":"Record not found"}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/lists/:id/accounts" title="Add accounts to list" >}}
-{{< api-method-description >}}
+
+---
+
+## Add accounts to a list {#accounts-add}
+
+```http
+POST https://mastodon.example/api/v1/lists/:id/accounts HTTP/1.1
+```
 
 Add accounts to the given list. Note that the user must be following these accounts.
 
@@ -445,77 +428,65 @@ Add accounts to the given list. Note that the user must be following these accou
 **Version history:**\
 2.1.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the list in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="account_ids" type="array" required=true >}}
-Array of account IDs to add to the list.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+### Request
 
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the SOMETHING in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+account_ids
+: {{<required>}} Array of String. The accounts that should be added to the list.
+
+#### Response
+##### 200: Success
 
 ```javascript
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
+
+##### 404: Not found
 
 You are not following a given account ID, or you do not own the list ID, or list/account ID does not exist
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
-{
-  "error": "Record not found"
-}
+{"error":"Record not found"}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
 
-Account is already in list
-{{< endapi-method-response-example-description >}}
+##### 422: Unprocessable entity
 
+An Account with one of the provided IDs is already in the list
 
 ```javascript
 {
   "error": "Validation failed: Account has already been taken"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="delete" host="https://mastodon.example" path="/api/v1/lists/:id/accounts" title="Remove accounts from list" >}}
-{{< api-method-description >}}
+
+---
+
+## Remove accounts from list {#accounts-remove}
+
+```http
+DELETE https://mastodon.example/api/v1/lists/:id/accounts HTTP/1.1
+```
 
 Remove accounts from the given list.
 
@@ -524,65 +495,56 @@ Remove accounts from the given list.
 **Version history:**\
 2.1.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the list in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="account_ids" type="array" required=true >}}
-Array of account IDs to remove from the list.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the SOMETHING in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+account_ids
+: {{<required>}} Array of String. The accounts that should be removed from the list.
+
+#### Response
+##### 200: Success
 
 Account was successfully removed from the list, or it was already not in the list.
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-List ID is not owned by you or does not exist
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+SOMETHING is not owned by you or does not exist
 
 ```javascript
-{
-  "error": "Record not found"
-}
+{"error":"Record not found"}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/lists_controller.rb" caption="app/controllers/api/v1/lists_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/lists" caption="app/controllers/api/v1/lists/" >}}
+
+{{< page-relref ref="methods/accounts#lists" caption="GET /api/v1/accounts/:id/lists" >}}
