@@ -26,7 +26,7 @@ Client ID, obtained during app registration.
 Set a URI to redirect the user to. If this parameter is set to `urn:ietf:wg:oauth:2.0:oob` then the authorization code will be shown instead. Must match one of the redirect URIs declared during app registration.
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="scope" type="string" required=false >}}
-List of requested OAuth scopes, separated by spaces \(or by pluses, if using query parameters\). Must be a subset of scopes declared during app registration. If not provided, defaults to `read`.
+List of requested OAuth scopes, separated by spaces \(or by pluses, if using query parameters\). Must be a subset of scopes declared during app registration. If this parameter not provided, all scopes for app will be return. Further, if there are no such scopes, defaults to `read`.
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="force_login" type="bool" required=false >}}
 Added in 2.6.0. Forces the user to re-login, which is necessary for authorizing with multiple accounts from the same instance.
