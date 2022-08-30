@@ -61,6 +61,8 @@ Invalid or missing Authorization header.
 }
 ```
 
+##### 403: Forbidden
+
 ##### 404: Not found
 
 SOMETHING is not owned by you or does not exist

@@ -122,7 +122,7 @@ GET /api/v1/streaming/public HTTP/1.1
 Returns all public statuses
 
 **Returns:** String\
-**OAuth:** Public, or client token + `read:statuses`\
+**OAuth:** Public, or app token + `read:statuses`\
 **Version history:**\
 1.0.0 - added
 
@@ -159,7 +159,7 @@ GET /api/v1/streaming/public/local HTTP/1.1
 Returns all local public statuses
 
 **Returns:** String\
-**OAuth:** Public, or client token + `read:statuses`\
+**OAuth:** Public, or app token + `read:statuses`\
 **Version history:**\
 1.0.0 - added
 
@@ -196,7 +196,7 @@ GET /api/v1/streaming/hashtag HTTP/1.1
 Returns all public statuses for a particular hashtag
 
 **Returns:** String\
-**OAuth:** Public, or client token + `read:statuses`\
+**OAuth:** Public, or app token + `read:statuses`\
 **Version history:**\
 1.0.0 - added
 
@@ -239,7 +239,7 @@ GET /api/v1/streaming/hashtag/local HTTP/1.1
 Returns all local public statuses for a particular hashtag
 
 **Returns:** String\
-**OAuth:** Public, or client token + `read:statuses`\
+**OAuth:** Public, or app token + `read:statuses`\
 **Version history:**\
 1.0.0 - added
 
