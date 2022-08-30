@@ -17,7 +17,8 @@ GET https://mastodon.example/api/v1/blocks HTTP/1.1
 **Returns:** Array of [Account]({{< relref "entities/account" >}})\
 **OAuth:** User token + `read:blocks`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 #### Request
 

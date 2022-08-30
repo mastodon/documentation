@@ -19,7 +19,8 @@ View domains the user has blocked.
 **Returns:** Array of strings\
 **OAuth:** User token + `read:blocks` or `follow`\
 **Version:**\
-1.4.0 - added
+1.4.0 - added\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 #### Request
 ##### Headers
