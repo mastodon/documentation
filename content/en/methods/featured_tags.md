@@ -133,7 +133,7 @@ DELETE https://mastodon.example/api/v1/featured_tags/:id HTTP/1.1
 ##### Path parameters
 
 :id
-The ID of the FeaturedTag to be unfeatured.
+: {{<required>}} String. The ID of the FeaturedTag to be unfeatured.
 
 ##### Headers
 

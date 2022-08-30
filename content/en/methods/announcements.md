@@ -114,7 +114,7 @@ Allows a user to mark the announcement as read.
 ##### Path parameters
 
 :id
-: Local ID of an announcement in the database.
+: {{<required>}} String. The ID of the Announcement in the database.
 
 ##### Headers
 
@@ -165,10 +165,10 @@ React to an announcement with an emoji.
 ##### Path parameters
 
 :id
-: Local ID of an announcement in the database.
+: {{<required>}} String. The ID of the Announcement in the database.
 
 :name
-: Unicode emoji, or shortcode of custom emoji
+: {{<required>}} String. Unicode emoji, or the shortcode of a custom emoji.
 
 ##### Headers
 
@@ -226,10 +226,10 @@ Undo a react emoji to an announcement.
 ##### Path parameters
 
 :id
-: Local ID of an announcement in the database.
+: {{<required>}} String. The ID of the Account in the database.
 
 :name
-: Unicode emoji, or shortcode of custom emoji
+: {{<required>}} String. Unicode emoji, or the shortcode of a custom emoji.
 
 ##### Headers
 

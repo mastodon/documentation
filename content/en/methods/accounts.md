@@ -470,7 +470,7 @@ View information about a profile.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -661,7 +661,7 @@ Statuses posted to the given account.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -758,7 +758,7 @@ Accounts which follow the given account, if network is not hidden by the account
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -888,7 +888,7 @@ Accounts which the given account is following, if network is not hidden by the a
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -1029,7 +1029,7 @@ Tags featured by this account.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -1069,7 +1069,7 @@ User lists that you have added this account to.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -1159,7 +1159,7 @@ Follow the given account. Can also be used to update whether to show reblogs or 
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -1236,7 +1236,7 @@ Unfollow the given account.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -1304,7 +1304,7 @@ Remove the given account from your followers.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -1373,7 +1373,7 @@ Block the given account. Clients should filter statuses from this account if rec
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -1442,7 +1442,7 @@ Unblock the given account.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -1512,7 +1512,7 @@ Mute the given account. Clients should filter statuses and notifications from th
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -1589,7 +1589,7 @@ Unmute the given account.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -1657,7 +1657,7 @@ Add the given account to the user's featured profiles. (Featured profiles are cu
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -1751,7 +1751,7 @@ Remove the given account from the user's featured profiles.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -1819,7 +1819,7 @@ Sets a private note on a user.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
 
@@ -2213,7 +2213,7 @@ GET https://mastodon.example/api/v1/accounts/:id/identity_proofs HTTP/1.1
 ##### Path parameters
 
 :id
-: {{<required>}} String. The id of the account in the database
+: {{<required>}} String. The ID of the Account in the database.
 
 #### Response
 ##### 200: Success

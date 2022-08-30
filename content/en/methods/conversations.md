@@ -126,7 +126,7 @@ Removes a conversation from your list of conversations.
 ##### Path parameters
 
 :id
-: ID of the conversation in the database
+: {{<required>}} String. The ID of the Conversation in the database.
 
 ##### Headers
 
@@ -176,7 +176,7 @@ POST https://mastodon.example/api/v1/conversations/:id/read HTTP/1.1
 ##### Path parameters
 
 :id
-: ID of the conversation in the database
+: {{<required>}} String. The ID of the Conversation in the database.
 
 ##### Headers
 

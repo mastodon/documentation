@@ -8,30 +8,27 @@ menu:
 aliases: [/methods/accounts/filters/]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/filters" title="View all filters" >}}
-{{< api-method-description >}}
+## View your filters {#get}
 
-**Returns:** Filter\
+```http
+GET https://mastodon.example/api/v1/filters HTTP/1.1
+```
+
+**Returns:** List of [Filter]({{< relref "entities/filter" >}})\
 **OAuth:** User token + `read:filters`\
 **Version history:**\
 2.4.3 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: Success
 
 Excerpts of various filters in different contexts.
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 [
@@ -62,51 +59,44 @@ Excerpts of various filters in different contexts.
   ...
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/filters/:id" title="View a single filter" >}}
-{{< api-method-description >}}
 
-**Returns:** Filter\
+---
+
+## View a single filter {#get-one}
+
+```http
+GET https://mastodon.example/api/v1/filters/:id HTTP/1.1
+```
+
+**Returns:** [Filter]({{< relref "entities/filter" >}})\
 **OAuth:** User token + `read:filters`\
 **Version history:**\
 2.4.3 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
 
-Filter returned successfully
-{{< endapi-method-response-example-description >}}
+##### Path parameters
 
+:id
+: {{<required>}} String. The ID of the Filter in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: Success
 
 ```javascript
 {
@@ -123,77 +113,66 @@ Filter returned successfully
   "irreversible": true
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
+
+##### 404: Not found
 
 Filter ID does not exist, or is not owned by you
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
-{
-  "error": "Record not found"
-}
+{"error":"Record not found"}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/filters" title="Create a filter" >}}
-{{< api-method-description >}}
 
-**Returns:** Filter\
+---
+
+## Create a filter {#create}
+
+```http
+POST https://mastodon.example/api/v1/filters HTTP/1.1
+```
+
+**Returns:** [Filter]({{< relref "entities/filter" >}})\
 **OAuth:** User token + `write:filters`\
 **Version history:**\
-2.4.3 - added
+2.4.3 - added\
+3.1.0 - added `account` context to filter in profile views
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="phrase" type="string" required=true >}}
-Text to be filtered
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="context" type="array" required=true >}}
-Array of enumerable strings `home`, `notifications`, `public`, `thread`. At least one context must be specified.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="irreversible" type="boolean" required=false >}}
-Should the server irreversibly drop matching entities from home and notifications?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="whole_word" type="boolean" required=false >}}
-Consider word boundaries?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="expires_in" type="integer" required=false >}}
-Number of seconds from now the filter should expire. Otherwise, null for a filter that doesn't expire.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+phrase
+: {{<required>}} String. The text to be filtered.
+
+context
+: {{<required>}} Array. Array of enumerable strings 'home', 'notifications', 'public', 'thread', 'account'. At least one context must be specified.
+
+irreversible
+: Boolean. Should the server irreversibly drop matching entities from home and notifications? Defaults to false.
+
+whole_word
+: Boolean. Should the filter consider word boundaries? Defaults to false.
+
+expires_in
+: Integer. Number of seconds from now that the filter should expire. Otherwise, `null` for a filter that doesn't expire.
+
+#### Response
+##### 200: Success
 
 The newly-created filter will be returned.
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {
@@ -210,94 +189,84 @@ The newly-created filter will be returned.
   "irreversible": true
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
 
-If phrase or context are not provided properly
-{{< endapi-method-response-example-description >}}
+##### 422: Unprocessable entity
 
+If phrase is not provided properly:
 
-{{< tabs >}}
-{{< tab title="phrase" >}}
 ```javascript
 {
   "error": "Validation failed: Phrase can't be blank"
 }
 ```
-{{< endtab >}}
 
-{{< tab title="context" >}}
+If context is not provided properly:
+
 ```javascript
 {
   "error": "Validation failed: Context can't be blank, Context None or invalid context supplied"
 }
 ```
-{{< endtab >}}
-{{< endtabs >}}
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="put" host="https://mastodon.example" path="/api/v1/filters/:id" title="Update a filter" >}}
-{{< api-method-description >}}
 
-**Returns:** Filter\
+---
+
+## Update a filter {#update}
+
+```http
+PUT https://mastodon.example/api/v1/filters/:id HTTP/1.1
+```
+
+Replaces a filter's parameters in-place.
+
+**Returns:** [Filter]({{< relref "entities/filter" >}})\
 **OAuth:** User token + `write:filters`\
 **Version history:**\
-2.4.3 - added
+2.4.3 - added\
+3.1.0 - added `account` context to filter in profile views
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name="id" type="string" required=true >}}
-ID of the filter in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="phrase" type="string" required=true >}}
-Text to be filtered
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="context" type="array" required=true >}}
-Array of enumerable strings `home`, `notifications`, `public`, `thread`. At least one context must be specified.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="irreversible" type="boolean" required=false >}}
-Should the server irreversibly drop matching entities from home and notifications?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="whole_word" type="boolean" required=false >}}
-Consider word boundaries?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="expires_in" type="integer" required=false >}}
-Number of seconds from now the filter should expire. Otherwise, null for a filter that doesn't expire.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
 
-Filter updated successfully
-{{< endapi-method-response-example-description >}}
+##### Path parameters
 
+:id
+: {{<required>}} String. The ID of the Filter in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+phrase
+: {{<required>}} String. The text to be filtered.
+
+context
+: {{<required>}} Array. Array of enumerable strings 'home', 'notifications', 'public', 'thread', 'account'. At least one context must be specified.
+
+irreversible
+: Boolean. Should the server irreversibly drop matching entities from home and notifications? Defaults to false.
+
+whole_word
+: Boolean. Should the filter consider word boundaries? Defaults to false.
+
+expires_in
+: Integer. Number of seconds from now that the filter should expire. Otherwise, `null` for a filter that doesn't expire.
+
+#### Response
+##### 200: Success
+
+Filter updated
 
 ```javascript
 {
@@ -314,123 +283,99 @@ Filter updated successfully
   "irreversible": true
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-The filter does not exist or is not owned by you
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Filter does not exist or is not owned by you
 
 ```javascript
-{
-  "error": "Record not found"
-}
+{"error":"Record not found"}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
 
-If phrase or context are not provided properly
-{{< endapi-method-response-example-description >}}
+##### 422: Unprocessable entity
 
+If phrase is not provided properly:
 
-{{< tabs >}}
-{{< tab title="phrase" >}}
 ```javascript
 {
   "error": "Validation failed: Phrase can't be blank"
 }
 ```
-{{< endtab >}}
 
-{{< tab title="context" >}}
+If context is not provided properly:
+
 ```javascript
 {
   "error": "Validation failed: Context can't be blank, Context None or invalid context supplied"
 }
 ```
-{{< endtab >}}
-{{< endtabs >}}
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="delete" host="https://mastodon.example" path="/api/v1/filters/:id" title="Remove a filter" >}}
-{{< api-method-description >}}
 
-**Returns:** Filter\
+---
+
+## Remove a filter {#delete}
+
+```http
+DELETE https://mastodon.example/api/v1/filters/:id HTTP/1.1
+```
+
+**Returns:** empty object\
 **OAuth:** User token + `write:filters`\
 **Version history:**\
 2.4.3 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name="id" type="string" required=true >}}
-ID of the filter in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the SOMETHING in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: Success
 
 The filter has been deleted successfully, so an empty object will be returned.
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-The filter does not exist or is not owned by you
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Filter does not exist or is not owned by you
 
 ```javascript
-{
-  "error": "Record not found"
-}
+{"error":"Record not found"}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/filters_controller.rb" caption="app/controllers/api/v1/filters_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/filters" caption="app/controllers/api/v1/filters/" >}}

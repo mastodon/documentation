@@ -20,6 +20,9 @@ GET https://mastodon.example/api/v1/example HTTP/1.1
 
 ##### Path parameters
 
+:id
+: {{<required>}} String. The ID of the SOMETHING in the database.
+
 ##### Headers
 
 Authorization 

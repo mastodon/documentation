@@ -168,8 +168,9 @@ View information about a notification with a given ID.
 #### Request
 
 ##### Path parameters
+
 :id
-: {{<required>}} ID of the notification in the database.
+: {{<required>}} String. The ID of the Notification in the database.
 
 ##### Headers
 
@@ -290,8 +291,9 @@ Dismiss a single notification from the server.
 #### Request
 
 ##### Path parameters
+
 :id
-: {{<required>}} ID of the notification in the database.
+: {{<required>}} String. The ID of the Notification in the database.
 
 ##### Headers
 
