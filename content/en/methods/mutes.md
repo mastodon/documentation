@@ -10,6 +10,10 @@ aliases: [/methods/accounts/mutes/]
 
 ## View muted accounts {#get}
 
+```http
+GET https://mastodon.example/api/v1/mutes HTTP/1.1
+```
+
 Accounts the user has muted.
 
 **Returns:** Array of Account\
@@ -17,10 +21,6 @@ Accounts the user has muted.
 **Version history:**\
 0.0.0 - added\
 3.3.0 - added `mute_expires_at`. both `min_id` and `max_id` can be used at the same time now
-
-```http
-GET https://mastodon.example/api/v1/mutes HTTP/1.1
-```
 
 #### Request
 ##### Headers
