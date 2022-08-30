@@ -129,3 +129,7 @@ If object is stale while being updated, an error will occur.
 ## See also
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/markers_controller.rb" caption="app/controllers/api/v1/markers_controller.rb" >}}
+
+{{< page-relref ref="methods/timelines#home" caption="GET /api/v1/timelines/home" >}}
+
+{{< page-relref ref="methods/notifications#get" caption="GET /api/v1/notifications" >}}

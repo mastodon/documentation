@@ -332,7 +332,8 @@ GET https://mastodon.example/api/v1/lists/:id/accounts HTTP/1.1
 **Returns:** Array of [Account]({{< relref "entities/account" >}})\
 **OAuth:** User token + `read:lists`\
 **Version history:**\
-2.1.0 - added
+2.1.0 - added\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 #### Request
 

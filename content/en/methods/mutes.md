@@ -8,8 +8,7 @@ menu:
 aliases: [/methods/accounts/mutes/]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/mutes" title="Muted accounts" >}}
-{{< api-method-description >}}
+## View muted accounts {#get}
 
 Accounts the user has muted.
 
@@ -17,39 +16,42 @@ Accounts the user has muted.
 **OAuth:** User token + `read:mutes` or `follow`\
 **Version history:**\
 0.0.0 - added\
-3.3.0 - added `mute_expires_at`
+3.3.0 - added `mute_expires_at`. both `min_id` and `max_id` can be used at the same time now
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="limit" type="string" required=false >}}
-Maximum number of results to return per page. Defaults to 40.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="max_id" type="string" required=false >}}
-**Internal parameter.** Use the HTTP Link header for pagination instead.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="since_id" type="string" required=false >}}
-**Internal parameter.** Use the HTTP Link header for pagination instead.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+```http
+GET https://mastodon.example/api/v1/mutes HTTP/1.1
+```
 
-Sample response with limit=2. The id of mutes is private, so parse the HTTP `Link` header to find links to next and previous pages.
-{{< endapi-method-response-example-description >}}
+#### Request
+##### Headers
 
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: String. Maximum number of results to return. Defaults to 40.
+
+#### Response
+##### 200: Success
+
+Sample response with limit=2. The ID of mutes is private, so parse the HTTP `Link` header to find links to next and previous pages.
+
+```http
+Link: <https://mastodon.social/api/v1/mutes?limit=2&max_id=317646>; rel="next", <https://mastodon.social/api/v1/mutes?limit=2&since_id=317647>; rel="prev"
+```
 
 ```javascript
-Link: <https://mastodon.social/api/v1/mutes?limit=2&max_id=317646>; rel="next", <https://mastodon.social/api/v1/mutes?limit=2&since_id=317647>; rel="prev"
-
 [
   {
     "id": "963076",
@@ -118,22 +120,23 @@ Link: <https://mastodon.social/api/v1/mutes?limit=2&max_id=317646>; rel="next", 
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-If the Authorization header is not provided or contains an invalid token, the request will fail.
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/mutes_controller.rb" caption="app/controllers/api/v1/mutes_controller.rb" >}}
+
+{{< page-relref ref="methods/accounts#mute" caption="POST /api/v1/accounts/:id/mute" >}}
+
+{{< page-relref ref="methods/accounts#unmute" caption="POST /api/v1/accounts/:id/unmute" >}}

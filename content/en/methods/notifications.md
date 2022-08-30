@@ -8,7 +8,7 @@ menu:
     identifier: methods-notifications
 ---
 
-## Get all notifications {#get-all}
+## Get all notifications {#get}
 
 ```http
 GET https://mastodon.example/api/v1/notifications HTTP/1.1
@@ -234,7 +234,7 @@ Invalid or missing Authorization header.
 
 ---
 
-## Dismiss all notifications {#dismiss-all}
+## Dismiss all notifications {#clear}
 
 ```http
 POST https://mastodon.example/api/v1/notifications/clear HTTP/1.1
@@ -275,7 +275,7 @@ Invalid or missing Authorization header.
 
 ---
 
-## Dismiss a single notification {#dismiss-one}
+## Dismiss a single notification {#dismiss}
 
 ```http
 POST https://mastodon.example/api/v1/notifications/:id/dismiss HTTP/1.1
@@ -322,7 +322,7 @@ Invalid or missing Authorization header.
 
 ---
 
-### (DEPRECATED) Dismiss a single notification {#dismiss-one-deprecated}
+### (DEPRECATED) Dismiss a single notification {#dismiss-deprecated}
 
 ```http
 POST https://mastodon.example/api/v1/notifications/dismiss HTTP/1.1

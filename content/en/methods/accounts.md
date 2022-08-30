@@ -756,7 +756,8 @@ Accounts which follow the given account, if network is not hidden by the account
 **Returns:** Array of [Account]({{< relref "entities/account">}})\
 **OAuth:** App token + `read:accounts`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 #### Request
 ##### Path parameters
@@ -886,7 +887,8 @@ Accounts which the given account is following, if network is not hidden by the a
 **Returns:** Array of [Account]({{< relref "entities/account">}})\
 **OAuth:** App token + `read:accounts`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 #### Request
 ##### Path parameters

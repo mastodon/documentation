@@ -17,7 +17,8 @@ GET https://mastodon.example/api/v1/follow_requests HTTP/1.1
 **Returns:** Array of [Account]({{< relref "entities/account" >}})\
 **OAuth:** User token + `read:follows` or `follow`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 #### Request
 
@@ -27,6 +28,15 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
 : Number. Maximum number of results to return. Defaults to 40. Paginate using the HTTP Link header.
