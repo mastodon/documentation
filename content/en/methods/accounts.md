@@ -1927,13 +1927,13 @@ Authorization
 
 ##### Query parameters
 
-id\[\]
+id[]
 : Array. Check relationships for the provided account IDs.
 
 #### Response
 ##### 200: Success
 
-Sample call with id\[\]=1&id\[\]=2
+Sample call with `id[]=1&id[]=2`
 
 ```javascript
 [
@@ -2011,13 +2011,13 @@ Authorization
 
 ##### Query parameters
 
-id\[\]
-: Array. Find familiar followers for the provided account IDs.
+id[]
+: Array of String. Find familiar followers for the provided account IDs.
 
 #### Response
 ##### 200: Success
 
-Sample call with id\[\]=1&id\[\]=2
+Sample call with `id[]=1&id[]=2`
 
 ```javascript
 [

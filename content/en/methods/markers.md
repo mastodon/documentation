@@ -34,7 +34,7 @@ timeline
 #### Response
 ##### 200: Success
 
-timeline\[\] = \["home", "notifications"\]
+timeline[] = ["home", "notifications"]
 
 ```javascript
 {
@@ -83,16 +83,16 @@ Authorization
 
 ##### Form data parameters
 
-home\[last_read_id\]
+home[last_read_id]
 : String. ID of the last status read in the home timeline.
 
-notifications\[last_read_id\]
+notifications[last_read_id]
 : String. ID of the last notification read.
 
 #### Response
 ##### 200: Success
 
-Calling this API with home\[last_read_id\] causes a marker to be created for the home timeline.
+Calling this API with home[last_read_id] causes a marker to be created for the home timeline.
 
 ```javascript
 {

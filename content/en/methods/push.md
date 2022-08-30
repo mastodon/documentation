@@ -10,7 +10,7 @@ menu:
 aliases: [/methods/notifications/push/]
 ---
 
-## Web Push API
+## About the Web Push API {#about}
 
 Mastodon natively supports the [Web Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API). You can utilize the same mechanisms for your native app. It requires running a proxy server that connects to Android’s and Apple’s proprietary notification gateways. However, the proxy server does not have access to the contents of the notifications. For a reference, see [Mozilla’s web push server](https://github.com/mozilla-services/autopush), or more practically, see:
 
@@ -18,62 +18,62 @@ Mastodon natively supports the [Web Push API](https://developer.mozilla.org/en-U
 * [PushToFCM](https://github.com/tateisu/PushToFCM)
 * [metatext-apns](https://github.com/metabolist/metatext-apns)
 
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/push/subscription" title="Subscribe to push notifications" >}}
-{{< api-method-description >}}
+---
+
+## Subscribe to push notifications {#create}
+
+```http
+POST https://mastodon.example/api/v1/push/subscription HTTP/1.1
+```
 
 Add a Web Push API subscription to receive notifications. Each access token can have one push subscription. If you create a new subscription, the old subscription is deleted.
 
-**Returns:** PushSubscription\
+**Returns:** [PushSubscription]({{< relref "entities/pushsubscription" >}})\
 **OAuth:** User token + `push`\
 **Version history:**\
 2.4.0 - added\
 3.4.0 - add `policy`
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="subscription\[endpoint\]" type="string" required=true >}}
-Endpoint URL that is called when a notification event occurs.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="subscription\[keys\]\[p256dh\]" type="string" required=true >}}
-User agent public key. Base64 encoded string of public key of ECDH key using `prime256v1` curve.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="subscription\[keys\]\[auth\]" type="string" required=true >}}
-Auth secret. Base64 encoded string of 16 bytes of random data.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="data\[alerts\]\[follow\]" type="boolean" required=false >}}
-Receive follow notifications?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="data\[alerts\]\[favourite\]" type="boolean" required=false >}}
-Receive favourite notifications?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="data\[alerts\]\[reblog\]" type="boolean" required=false >}}
-Receive reblog notifications?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="data\[alerts\]\[mention\]" type="boolean" required=false >}}
-Receive mention notifications?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="data\[alerts\]\[poll\]" type="boolean" required=false >}}
-Receive poll notifications?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="policy" type="string" required=false >}}
-Specify whether to receive push notifications from `all`, `followed`, `follower`, or `none` users.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+subscription[endpoint]
+: {{<required>}} String. The endpoint URL that is called when a notification event occurs.
+
+subscription[keys][p256dh]
+: {{<required>}} String. User agent public key. Base64 encoded string of a public key from a ECDH keypair using the `prime256v1` curve.
+
+subscription[keys][auth]
+: {{<required>}} String. Auth secret. Base64 encoded string of 16 bytes of random data.
+
+data[alerts][follow]
+: Boolean. Receive follow notifications? Defaults to false.
+
+data[alerts][favourite]
+: Boolean. Receive favourite notifications? Defaults to false.
+
+data[alerts][reblog]
+: Boolean. Receive reblog notifications? Defaults to false.
+
+data[alerts][mention]
+: Boolean. Receive mention notifications? Defaults to false.
+
+data[alerts][poll]
+: Boolean. Receive poll notifications? Defaults to false.
+
+policy
+: String. Specify whether to receive push notifications from `all`, `followed`, `follower`, or `none` users.
+
+#### Response
+##### 200: Success
 
 A new PushSubscription has been generated, which will send the requested alerts to your endpoint.
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {
@@ -89,34 +89,30 @@ A new PushSubscription has been generated, which will send the requested alerts 
   "server_key": "BCk-QqERU0q-CfYZjcuB6lnyyOYfJ2AifKqfeGIm7Z-HiTU5T9eTG5GxVA0_OH5mMlI4UkkDTpaZwozy0TzdZ2M="
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/push/subscription" title="Get current subscription" >}}
-{{< api-method-description >}}
+
+---
+
+## Get current subscription {#get}
+
+```http
+GET https://mastodon.example/api/v1/push/subscription HTTP/1.1
+```
 
 View the PushSubscription currently associated with this access token.
 
-**Returns:** PushSubscription\
+**Returns:** [PushSubscription]({{< relref "entities/pushsubscription" >}})\
 **OAuth:** User token + `push`\
 **Version history:**\
 2.4.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
+##### Headers
 
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: Success
 
 ```javascript
 {
@@ -132,70 +128,64 @@ Bearer &lt;user token&gt;
   "server_key": "BCk-QqERU0q-CfYZjcuB6lnyyOYfJ2AifKqfeGIm7Z-HiTU5T9eTG5GxVA0_OH5mMlI4UkkDTpaZwozy0TzdZ2M="
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
+
+##### 404: Not found
 
 A PushSubscription does not exist for this token.
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="put" host="https://mastodon.example" path="/api/v1/push/subscription" title="Change types of notifications" >}}
-{{< api-method-description >}}
+
+---
+
+## Change types of notifications {#update}
+
+```http
+PUT https://mastodon.example/api/v1/push/subscription HTTP/1.1
+```
 
 Updates the current push subscription. Only the data part can be updated. To change fundamentals, a new subscription must be created instead.
 
-**Returns:** PushSubscription\
+**Returns:** [PushSubscription]({{< relref "entities/pushsubscription" >}})\
 **OAuth:** User token + `push`\
 **Version history:**\
 2.4.0 - added
 3.4.0 - add `policy`
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="data\[alerts\]\[follow\]" type="boolean" required=false >}}
-Receive follow notifications?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="data\[alerts\]\[favourite\]" type="boolean" required=false >}}
-Receive favourite notifications?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="data\[alerts\]\[reblog\]" type="boolean" required=false >}}
-Receive reblog notifications?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="data\[alerts\]\[mention\]" type="boolean" required=false >}}
-Receive mention notifications?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="data\[alerts\]\[poll\]" type="boolean" required=false >}}
-Receive poll notifications?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="policy" type="string" required=false >}}
-Specify whether to receive push notifications from `all`, `followed`, `follower`, or `none` users.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+data[alerts][follow]
+: Boolean. Receive follow notifications? Defaults to false.
+
+data[alerts][favourite]
+: Boolean. Receive favourite notifications? Defaults to false.
+
+data[alerts][reblog]
+: Boolean. Receive reblog notifications? Defaults to false.
+
+data[alerts][mention]
+: Boolean. Receive mention notifications? Defaults to false.
+
+data[alerts][poll]
+: Boolean. Receive poll notifications? Defaults to false.
+
+policy
+: String. Specify whether to receive push notifications from `all`, `followed`, `follower`, or `none` users.
+
+#### Response
+##### 200: Success
 
 Updating a PushSubscription to only receive mention alerts
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {
@@ -211,25 +201,24 @@ Updating a PushSubscription to only receive mention alerts
   "server_key": "BCk-QqERU0q-CfYZjcuB6lnyyOYfJ2AifKqfeGIm7Z-HiTU5T9eTG5GxVA0_OH5mMlI4UkkDTpaZwozy0TzdZ2M="
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
+
+##### 404: Not found
 
 No existing PushSubscription for this token
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="delete" host="https://mastodon.example" path="/api/v1/push/subscription" title="Remove current subscription" >}}
-{{< api-method-description >}}
+
+---
+
+## Remove current subscription {#delete}
+
+```http
+DELETE https://mastodon.example/api/v1/push/subscription HTTP/1.1
+```
 
 Removes the current Web Push API subscription.
 
@@ -238,29 +227,27 @@ Removes the current Web Push API subscription.
 **Version history:**\
 2.4.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: Success
 
 PushSubscription successfully deleted or did not exist previously
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/push/subscriptions_controller.rb" caption="app/controllers/api/v1/push/subscriptions_controller.rb" >}}
