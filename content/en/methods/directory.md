@@ -38,7 +38,7 @@ local
 : Boolean. If true, returns only local accounts.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Sample results with limit=2
 

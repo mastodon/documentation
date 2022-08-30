@@ -25,7 +25,7 @@ Returns custom emojis that are available on the server.
 3.0.0 - optional `category` added to response
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Sample response from mastodon.social
 

@@ -29,7 +29,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 {

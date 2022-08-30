@@ -39,10 +39,10 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: String. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Sample call with limit=2. Because block IDs are private, you must parse the HTTP `Link` header to find next and previous pages.
 

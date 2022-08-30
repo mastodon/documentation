@@ -27,7 +27,7 @@ Information about the server.
 
 #### Response
 
-##### 200: Success
+##### 200: OK
 
 ```javascript
 {
@@ -184,7 +184,7 @@ Authorization
 
 #### Response
 
-##### 200: Success
+##### 200: OK
 
 ```javascript
 ["tilde.zone","mspsocial.net",...,"conf.tube"]
@@ -224,7 +224,7 @@ Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 [
@@ -330,7 +330,7 @@ Rules that the users of this service should follow.
 3.4.0 - added
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 [

@@ -33,7 +33,7 @@ with_dismissed
 : Boolean. If true, response will include announcements dismissed by the user. Defaults to false.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Currently active announcements
 
@@ -122,7 +122,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 ```javascript
 {}
 ```
@@ -178,7 +178,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 {}
@@ -243,7 +243,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 {}

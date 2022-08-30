@@ -32,10 +32,10 @@ Authorization
 ##### Query parameters
 
 limit
-: Number. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 [
@@ -99,7 +99,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 A successful call will return an empty object. Note the call will be successful even if the account id provided is invalid or is not a suggested account.
 

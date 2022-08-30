@@ -52,7 +52,7 @@ reason
 
 #### Response
 
-##### 200: Success
+##### 200: OK
 
 ```javascript
 ```
@@ -161,7 +161,7 @@ Authorization
 
 #### Response
 
-##### 200: Success
+##### 200: OK
 
 Note the extra `source` property, which is not visible on accounts other than your own. Also note that plain-text is used within `source` and HTML is used for their corresponding properties such as `note` and `fields`.
 
@@ -350,7 +350,7 @@ fields_attributes
 
 #### Response
 
-##### 200: Success
+##### 200: OK
 
 You should use accounts/verify_credentials to first obtain plaintext representations from within the `source` parameter, then allow the user to edit these plaintext representations before submitting them through this API. The server will generate the corresponding HTML.
 
@@ -482,7 +482,7 @@ Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 The Account record will be returned. Note that `acct` of local users does not include the domain name.
 
@@ -684,7 +684,7 @@ min_id
 : String. Return results immediately newer than this ID
 
 limit
-: String. Maximum number of results to return. Default: 20.
+: Integer. Maximum number of results to return. Default: 20.
 
 exclude_reblogs
 : Boolean. Whether to filter out boosts from the response.
@@ -693,7 +693,7 @@ tagged
 : String. Filter for statuses using a specific hashtag.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 [
@@ -782,10 +782,10 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: String. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Sample output with limit=2. Because the ID of follow relationships is not generally used or provided with any API calls, an HTTP `Link` header is used instead to indicate next and previous pages. You will have to parse this header yourself to extract the paging URLs.
 
@@ -913,10 +913,10 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: String. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Sample output with limit=2. Because the ID of follow relationships is not generally used or provided with any API calls, an HTTP `Link` header is used instead to indicate next and previous pages. You will have to parse this header yourself to extract the paging URLs.
 
@@ -1043,7 +1043,7 @@ Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 [
@@ -1083,7 +1083,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 If the account is part of any lists, those entities will be returned. If the account is not part of any of your lists, then an empty array will be returned.
 
@@ -1181,7 +1181,7 @@ notify
 : Boolean. Receive notifications when this account posts a status? Defaults to false.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Successfully followed, or account was already followed
 
@@ -1250,7 +1250,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Successfully unfollowed, or account was already not followed
 
@@ -1318,7 +1318,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Successfully removed from followers, or account was already not following you
 
@@ -1387,7 +1387,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Successfully blocked, or account was already blocked
 
@@ -1456,7 +1456,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Successfully unblocked, or account was already not blocked
 
@@ -1534,7 +1534,7 @@ duration
 : Number. How long the mute should last, in seconds. Defaults to 0 (indefinite).
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Successfully muted, or account was already muted. Note that you can call this API method again with notifications=false to update the relationship so that only statuses are muted.
 
@@ -1603,7 +1603,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Successfully unmuted, or account was already unmuted
 
@@ -1671,7 +1671,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Successfully endorsed, or was already endorsing.
 
@@ -1769,7 +1769,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Successfully unendorsed, or account was already not endorsed
 
@@ -1842,7 +1842,7 @@ comment
 : String. The comment to be set on that user. Provide an empty string or leave out this parameter to clear the currently set note.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Successfully updated profile note
 
@@ -1931,7 +1931,7 @@ id[]
 : Array. Check relationships for the provided account IDs.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Sample call with `id[]=1&id[]=2`
 
@@ -2015,7 +2015,7 @@ id[]
 : Array of String. Find familiar followers for the provided account IDs.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Sample call with `id[]=1&id[]=2`
 
@@ -2102,7 +2102,7 @@ following
 : Boolean. Limit the search to users you are following. Defaults to false.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Accounts matching "trwnh" in username or display name
 
@@ -2168,7 +2168,7 @@ skip_webfinger
 : Boolean. Whether to use the locally cached result instead of performing full Webfinger resolution. Defaults to true.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Sample call with `?acct=trwnh`
 
@@ -2228,7 +2228,7 @@ GET https://mastodon.example/api/v1/accounts/:id/identity_proofs HTTP/1.1
 : {{<required>}} String. The ID of the Account in the database.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 [

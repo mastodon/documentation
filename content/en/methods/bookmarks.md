@@ -40,10 +40,10 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: String. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 [

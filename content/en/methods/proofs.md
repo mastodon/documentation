@@ -33,7 +33,7 @@ username
 : String. The username on the selected identity provider.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Looking up the `username` "gargron" via the "keybase" `provider`
 

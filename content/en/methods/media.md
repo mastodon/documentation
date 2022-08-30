@@ -138,7 +138,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 The Attachment was processed
 
@@ -253,7 +253,7 @@ focus
 
 #### Response
 
-##### 200: Success
+##### 200: OK
 
 Attachment with an updated `description`
 
@@ -355,7 +355,7 @@ focus
 : String. Two floating points \(x,y\), comma-delimited, ranging from -1.0 to 1.0. See [Focal points](#focal-points) below for more information.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Attachment created successfully. Note that the Attachment will be created even if the file is not understood correctly due to failed processing.
 

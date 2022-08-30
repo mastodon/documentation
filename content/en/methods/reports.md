@@ -48,7 +48,7 @@ rule_ids
 : Array of Number. For `violation` category reports, specify the ID of the exact rules broken. Rules and their IDs are available via [GET /api/v1/instance/rules]({{< relref "methods/instance#rules" >}}) and [GET /api/v1/instance]({{< relref "methods/instance#get" >}}).
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Sample call with one status ID provided and a category of `spam` with a comment
 

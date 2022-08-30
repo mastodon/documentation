@@ -31,7 +31,7 @@ email
 : If provided, updates the unconfirmed user's email before resending the confirmation email.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 {}

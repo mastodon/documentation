@@ -26,7 +26,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 [
@@ -74,7 +74,7 @@ name
 : {{<required>}} String. The hashtag to be featured, without the hash sign.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 A FeaturedTag will be created with the specified `name`.
 
@@ -141,7 +141,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 An empty object will be returned if the featured tag was successfully deleted.
 
@@ -191,7 +191,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Truncated results to first and last tag.
 

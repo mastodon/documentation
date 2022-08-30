@@ -15,6 +15,7 @@ GET https://mastodon.example/api/v1/example HTTP/1.1
 **Returns:** [SOMETHING]({{< relref "entities/SOMETHING" >}})\
 **OAuth:** User token + `oauth:scope`\
 **Version history:**\
+x.x.x - added
 
 #### Request
 
@@ -40,12 +41,12 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Number. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40.
 
 ##### Form data parameters
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 ```

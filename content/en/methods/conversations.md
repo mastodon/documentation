@@ -41,11 +41,11 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: String. Maximum number of results to return. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return. Defaults to 20. Max 40.
 
 #### Response
 
-##### 200: Success
+##### 200: OK
 
 Truncated sample results of an API call with limit=2
 
@@ -134,7 +134,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 {}
@@ -186,7 +186,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 The value of `unread` has been changed to false.
 

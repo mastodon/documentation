@@ -31,7 +31,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Use `id` as a parameter for related API calls.
 
@@ -88,7 +88,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 The list 12249 exists and is owned by you
 
@@ -151,7 +151,7 @@ replies_policy
 : String. One of `followed`, `list`, or `none`. Defaults to `list`.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 A sample list was created with a `title` of "test".
 
@@ -227,7 +227,7 @@ replies_policy
 : String. One of `followed`, `list`, or `none`. Defaults to `list`.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 The `title` of list 13585 was successfully updated to "testing"
 
@@ -292,7 +292,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 List was successfully deleted
 
@@ -359,10 +359,10 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: String. Maximum number of results. Defaults to 40. Max 40. Set to 0 in order to get all accounts without pagination. Pagination is done with the HTTP Link header.
+: Integer. Maximum number of results. Defaults to 40. Max 40. Set to 0 in order to get all accounts without pagination. Pagination is done with the HTTP Link header.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 [
@@ -453,7 +453,7 @@ account_ids
 : {{<required>}} Array of String. The accounts that should be added to the list.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 {}
@@ -522,7 +522,7 @@ account_ids
 : {{<required>}} Array of String. The accounts that should be removed from the list.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Account was successfully removed from the list, or it was already not in the list.
 

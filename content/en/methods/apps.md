@@ -38,7 +38,7 @@ website
 : String. A URL to the homepage of your app
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Store the `client_id` and `client_secret` in your cache, as these will be used to obtain OAuth tokens.
 
@@ -88,7 +88,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 If the Authorization header was provided with a valid token, you should see your app returned as an Application entity.
 

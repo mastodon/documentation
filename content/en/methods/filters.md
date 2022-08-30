@@ -26,7 +26,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Excerpts of various filters in different contexts.
 
@@ -96,7 +96,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 {
@@ -172,7 +172,7 @@ expires_in
 : Integer. Number of seconds from now that the filter should expire. Otherwise, `null` for a filter that doesn't expire.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 The newly-created filter will be returned.
 
@@ -266,7 +266,7 @@ expires_in
 : Integer. Number of seconds from now that the filter should expire. Otherwise, `null` for a filter that doesn't expire.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Filter updated
 
@@ -350,7 +350,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 The filter has been deleted successfully, so an empty object will be returned.
 

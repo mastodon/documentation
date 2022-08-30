@@ -39,10 +39,10 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Number. Maximum number of results to return. Defaults to 40. Paginate using the HTTP Link header.
+: Integer. Maximum number of results to return. Defaults to 40. Paginate using the HTTP Link header.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Accounts that are requesting a follow
 
@@ -99,7 +99,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Your Relationship with this account should be updated so that you are `followed_by` this account.
 
@@ -166,7 +166,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Your Relationship with this account should be unchanged.
 

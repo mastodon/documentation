@@ -47,13 +47,13 @@ min_id
 : String. Return results immediately newer than this ID
 
 limit
-: String. Maximum number of results to return. Default: 20.
+: Integer. Maximum number of results to return. Default: 20.
 
 types
-: Array. Types to include in the result.
+: Array of String. Types to include in the result.
 
 exclude_types
-: Array. Types to exclude from the results.
+: Array of String. Types to exclude from the results.
 
 account_id
 : String. Return only notifications received from the specified account.
@@ -67,7 +67,7 @@ GET https://mastodon.social/api/v1/notifications?limit=2 HTTP/1.1
 Authorization: Bearer xxx
 ```
 
-##### 200: Success
+##### 200: OK
 
 The response body contains one page of notifications. You can use the HTTP Link header for further pagination.
 
@@ -179,7 +179,7 @@ Authorization
 
 #### Response
 
-##### 200: Success
+##### 200: OK
 
 A single Notification
 
@@ -255,7 +255,7 @@ Authorization
 
 #### Response
 
-##### 200: Success
+##### 200: OK
 
 Notifications successfully cleared.
 
@@ -302,7 +302,7 @@ Authorization
 
 #### Response
 
-##### 200: Success
+##### 200: OK
 
 Notification with given ID successfully dismissed
 
@@ -349,7 +349,7 @@ Authorization
 
 #### Response
 
-##### 200: Success
+##### 200: OK
 
 Notification with given ID successfully dismissed
 

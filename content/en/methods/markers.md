@@ -32,7 +32,7 @@ timeline
 : {{<required>}} Array of String. Specify the timeline(s) for which markers should be fetched. Possible values: `home`, `notifications`. If not provided, an empty object will be returned.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 timeline[] = ["home", "notifications"]
 
@@ -90,7 +90,7 @@ notifications[last_read_id]
 : String. ID of the last notification read.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Calling this API with home[last_read_id] causes a marker to be created for the home timeline.
 

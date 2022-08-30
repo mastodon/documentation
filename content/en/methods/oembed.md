@@ -31,7 +31,7 @@ maxheight
 : Number. Height of the iframe. Defaults to null
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Represents OEmbed "rich" preview, with associated iframe and metadata.
 

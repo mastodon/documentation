@@ -71,7 +71,7 @@ policy
 : String. Specify whether to receive push notifications from `all`, `followed`, `follower`, or `none` users.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 A new PushSubscription has been generated, which will send the requested alerts to your endpoint.
 
@@ -112,7 +112,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 ```javascript
 {
@@ -183,7 +183,7 @@ policy
 : String. Specify whether to receive push notifications from `all`, `followed`, `follower`, or `none` users.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 Updating a PushSubscription to only receive mention alerts
 
@@ -238,7 +238,7 @@ Authorization
 
 #### Response
 
-##### 200: Success
+##### 200: OK
 
 PushSubscription successfully deleted or did not exist previously
 

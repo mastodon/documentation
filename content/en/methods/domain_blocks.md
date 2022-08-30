@@ -40,10 +40,10 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: String. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40.
 
 #### Response
-##### 200: Success
+##### 200: OK
 Sample call with limit=2. Because domain ids are not public, you must parse the HTTP Link header to access next and previous pages.
 
 ```http
@@ -96,7 +96,7 @@ domain
 : {{<required>}} String. Domain to block.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 If the call was successful, an empty object will be returned. Note that the call will be successful even if the domain is already blocked, or if the domain does not exist, or if the domain is not a domain.
 
@@ -158,7 +158,7 @@ domain
 : {{<required>}} String. Domain to unblock.
 
 #### Response
-##### 200: Success
+##### 200: OK
 
 If the call was successful, an empty object will be returned. Note that the call will be successful even if the domain was not previously blocked.
 
