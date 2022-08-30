@@ -12,7 +12,7 @@ menu:
 GET https://mastodon.example/api/v1/example HTTP/1.1
 ```
 
-**Returns:** \
+**Returns:** [SOMETHING]({{< relref "entities/SOMETHING" >}})\
 **OAuth:** User token + `oauth:scope`\
 **Version history:**\
 
