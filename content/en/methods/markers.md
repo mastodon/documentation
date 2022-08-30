@@ -14,7 +14,7 @@ aliases: [/methods/timelines/markers/]
 GET https://mastodon.example/api/v1/markers HTTP/1.1
 ```
 
-**Returns:** Marker\
+**Returns:** [Marker]({{< relref "entities/marker" >}})\
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
 3.0.0 - added
@@ -69,7 +69,7 @@ Invalid or missing Authorization header.
 POST https://mastodon.example/api/v1/markers HTTP/1.1
 ```
 
-**Returns:** Marker\
+**Returns:** [Marker]({{< relref "entities/marker" >}})\
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
 3.0.0 - added
