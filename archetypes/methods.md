@@ -40,7 +40,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: String. Maximum number of results to return. Defaults to 40.
+: Number. Maximum number of results to return. Defaults to 40.
 
 ##### Form data parameters
 

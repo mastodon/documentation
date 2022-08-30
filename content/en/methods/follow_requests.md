@@ -77,7 +77,7 @@ Invalid or missing Authorization header.
 ## Accept follow request {#accept}
 
 ```http
-POST https://mastodon.example/api/v1/follow_requests/:id/authorize HTTP/1.1
+POST https://mastodon.example/api/v1/follow_requests/:account_id/authorize HTTP/1.1
 ```
 
 **Returns:** [Relationship]({{< relref "entities/relationship" >}})\
@@ -90,7 +90,7 @@ POST https://mastodon.example/api/v1/follow_requests/:id/authorize HTTP/1.1
 
 ##### Path parameters
 
-:id
+:account_id
 : {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers
@@ -144,7 +144,7 @@ No pending follow request from that account ID
 ## Reject follow request {#reject}
 
 ```http
-POST https://mastodon.example/api/v1/follow_requests/:id/reject HTTP/1.1
+POST https://mastodon.example/api/v1/follow_requests/:account_id/reject HTTP/1.1
 ```
 
 **Returns:** [Relationship]({{< relref "entities/relationship" >}})\
@@ -157,7 +157,7 @@ POST https://mastodon.example/api/v1/follow_requests/:id/reject HTTP/1.1
 
 ##### Path parameters
 
-:id
+:account_id
 : {{<required>}} String. The ID of the Account in the database.
 
 ##### Headers

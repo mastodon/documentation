@@ -232,7 +232,7 @@ Undo a react emoji to an announcement.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the Account in the database.
+: {{<required>}} String. The ID of the Announcement in the database.
 
 :name
 : {{<required>}} String. Unicode emoji, or the shortcode of a custom emoji.
