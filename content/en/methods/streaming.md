@@ -13,10 +13,10 @@ aliases: [/methods/timelines/streaming/]
 ## Event types and payloads {#events}
 
 `update`
-: A new Status has appeared. Payload contains a [Status]({{< relref "entities/status" >}}).
+: A new Status has appeared. Payload contains a [Status]({{< relref "entities/status" >}}) cast to a string.
 
 `notification`
-: A new notification has appeared. Payload contains a [Notification]({{< relref "entities/notification" >}}).
+: A new notification has appeared. Payload contains a [Notification]({{< relref "entities/notification" >}}) cast to a string.
 
 `delete`
 : A status has been deleted. Payload contains the String ID of the deleted status.
@@ -226,7 +226,6 @@ An example delete:
 event: delete
 data: 108914430312582020
 ```
-
 
 ---
 
