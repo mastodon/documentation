@@ -31,17 +31,19 @@ Authorization
 
 ##### Query parameters
 
+**Internal parameter.** Use HTTP `Link` header for pagination.
+
 max_id 
-: **Internal parameter.** Use HTTP `Link` header for pagination.
+: String. Return results older than ID.
 
 since_id
-: **Internal parameter.** Use HTTP `Link` header for pagination.
+: String. Return results newer than ID.
 
 min_id
-: **Internal parameter.** Use HTTP `Link` header for pagination.
+: String. Return results immediately newer than ID.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 20. Max 40.
 
 ##### Form data parameters
 
