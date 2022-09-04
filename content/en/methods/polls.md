@@ -214,5 +214,3 @@ Alternatively, you have already voted
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/polls_controller.rb" caption="app/controllers/api/v1/polls_controller.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/polls" caption="app/controllers/api/v1/polls/" >}}
-
-{{< page-relref ref="methods/statuses#create" caption="POST /api/v1/statuses (`poll` parameter)" >}}
