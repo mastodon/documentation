@@ -10,28 +10,31 @@ menu:
 aliases: [/methods/statuses/polls/]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/polls/:id" title="View a poll" >}}
-{{< api-method-description >}}
+## View a poll {#get}
 
-**Returns:** Poll\
+```http
+GET https://mastodon.example/api/v1/polls/:id HTTP/1.1
+```
+
+**Returns:** [Poll]({{< relref "entities/poll" >}})\
 **OAuth:** Public if parent status is public. User token + `read:statuses` if parent status is private.\
 **Version history:**\
 2.8.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the poll in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Poll in the database.
+
+##### Headers
+
+Authorization 
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 ```javascript
 {
@@ -58,57 +61,51 @@ ID of the poll in the database
   "emojis": []
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
+
+##### 404: Not found
 
 Poll does not exist, or poll's parent status is private
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/polls/:id/votes" title="Vote on a poll" >}}
-{{< api-method-description >}}
 
-**Returns:** Poll\
+---
+
+## Vote on a poll {#vote}
+
+```http
+POST https://mastodon.example/api/v1/polls/:id/votes HTTP/1.1
+```
+
+**Returns:** [Poll]({{< relref "entities/poll" >}})\
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
 2.8.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the poll in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="choices\[\]" type="array" required=true >}}
-Array of own votes containing index for each option \(starting from 0\)
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Poll in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+choices[]
+: {{<required>}} Array of Integer. Provide your own votes as an index for each option (starting from 0).
+
+#### Response
+##### 200: OK
 
 Poll was voted on
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {
@@ -171,60 +168,51 @@ Poll was voted on
   "emojis": []
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
+
+##### 404: Not found
 
 Poll does not exist, or poll's parent status is private
-{{< endapi-method-response-example-description >}}
-
 
 ```javascript
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
 
-Already voted or poll is expired
-{{< endapi-method-response-example-description >}}
+##### 422: Unprocessable entity
 
+The poll has expired
 
-{{< tabs >}}
-{{< tab title="already voted" >}}
-```javascript
-{
-  "error": "Validation failed: You have already voted on this poll"
-}
-```
-{{< endtab >}}
-
-{{< tab title="expired" >}}
 ```javascript
 {
   "error": "Validation failed: The poll has already ended"
 }
 ```
-{{< endtab >}}
-{{< endtabs >}}
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+Alternatively, you have already voted
 
+```javascript
+{
+  "error": "Validation failed: You have already voted on this poll"
+}
+```
+
+---
+
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/polls_controller.rb" caption="app/controllers/api/v1/polls_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/polls" caption="app/controllers/api/v1/polls/" >}}
+
+{{< page-relref ref="methods/statuses#create" caption="POST /api/v1/statuses (`poll` parameter)" >}}
