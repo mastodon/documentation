@@ -8,43 +8,41 @@ menu:
 aliases: [/methods/statuses/scheduled_statuses/]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/scheduled_statuses" title="View scheduled statuses" >}}
-{{< api-method-description >}}
+## View scheduled statuses {#get}
 
-**Returns:** Array of ScheduledStatus\
+```http
+GET https://mastodon.example/api/v1/scheduled_statuses HTTP/1.1
+```
+
+**Returns:** Array of [ScheduledStatus]({{< relref "entities/scheduledstatus" >}})\
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
 2.7.0 - added\
 3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="limit" type="number" required=false >}}
-Max number of results to return. Defaults to 20.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="max_id" type="string" required=false >}}
-Return results older than ID
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="since_id" type="string" required=false >}}
-Return results newer than ID
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="min_id" type="string" required=false >}}
-Return results immediately newer than ID
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id 
+: String. Return results older than ID.
+
+since_id
+: String. Return results newer than ID.
+
+min_id
+: String. Return results immediately newer than ID.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 20. Max 40.
+
+#### Response
+##### 200: OK
 
 ```javascript
 [
@@ -67,48 +65,44 @@ Return results immediately newer than ID
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/scheduled_statuses/:id" title="View a single scheduled status" >}}
-{{< api-method-description >}}
 
-**Returns:** ScheduledStatus\
+---
+
+## View a single scheduled status {#get-one}
+
+```http
+GET https://mastodon.example/api/v1/scheduled_statuses/:id HTTP/1.1
+```
+
+**Returns:** [ScheduledStatus]({{< relref "entities/scheduledstatus" >}})\
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
 2.7.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the scheduled status in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the ScheduledStatus in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 ```javascript
 {
@@ -129,64 +123,59 @@ Bearer &lt;user token&gt;
   "media_attachments": []
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 404: Not found
+
+ScheduledStatus is not owned by you or does not exist
 
 ```javascript
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="put" host="https://mastodon.example" path="/api/v1/scheduled_statuses/:id" title="Schedule a status" >}}
-{{< api-method-description >}}
 
-**Returns:** ScheduledStatus\
+---
+
+## Update a scheduled status's publishing date {#update}
+
+```http
+PUT https://mastodon.example/api/v1/scheduled_statuses/:id HTTP/1.1
+```
+
+**Returns:** [ScheduledStatus]({{< relref "entities/scheduledstatus" >}})\
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
 2.7.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the Status to be scheduled
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="scheduled_at" type="string" required=false >}}
-ISO 8601 Datetime at which the status will be published. Must be at least 5 minutes into the future.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the SOMETHING in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+scheduled_at
+: String. ISO 8601 Datetime at which the status will be published. Must be at least 5 minutes into the future.
+
+#### Response
+##### 200: OK
 
 ```javascript
 {
@@ -207,103 +196,91 @@ ISO 8601 Datetime at which the status will be published. Must be at least 5 minu
   "media_attachments": []
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 404: Not found
+
+ScheduledStatus is not owned by you or does not exist
 
 ```javascript
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 422: Unprocessable entity
 
 ```javascript
 {
   "error": "Validation failed: Scheduled at The scheduled date must be in the future"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="delete" host="https://mastodon.example" path="/api/v1/scheduled_statuses/:id" title="Cancel a scheduled status" >}}
-{{< api-method-description >}}
+
+---
+
+## Cancel a scheduled status {#cancel}
+
+```http
+DELETE https://mastodon.example/api/v1/scheduled_statuses/:id HTTP/1.1
+```
 
 **Returns:** empty object\
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
 2.7.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the scheduled status in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the SOMETHING in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 ```javascript
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
 ```javascript
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-No ScheduledStatus at that id, or you do not own it
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+ScheduledStatus is not owned by you or does not exist
 
 ```javascript
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/scheduled_statuses_controller.rb" caption="app/controllers/api/v1/scheduled_statuses_controller.rb" >}}
+
+{{< page-relref ref="methods/statuses#create" caption="POST /api/v1/statuses (`scheduled_at` parameter)" >}}
