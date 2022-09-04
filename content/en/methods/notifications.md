@@ -49,10 +49,10 @@ min_id
 limit
 : Integer. Maximum number of results to return. Default: 20.
 
-types
+types[]
 : Array of String. Types to include in the result.
 
-exclude_types
+exclude_types[]
 : Array of String. Types to exclude from the results.
 
 account_id

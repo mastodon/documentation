@@ -345,7 +345,7 @@ source[sensitive]
 source[language]
 : String. Default language to use for authored statuses (ISO 6391)
 
-fields_attributes
+fields_attributes[]
 : Array. Profile metadata `name` and `value`. By default, max 4 fields and 255 characters per property/value.
 
 #### Response
