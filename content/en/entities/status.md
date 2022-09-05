@@ -246,6 +246,12 @@ menu:
 **Type:** String\
 **Version history:** Added in 2.9.0
 
+### `edited_at` {#edited_at}
+
+**Description:** Timestamp of when the status was last edited.\
+**Type:** String (ISO 8601 Datetime)\
+**Version history:** Added in 3.5.0
+
 ## Authorized user attributes
 
 ### `favourited` {#favourited}

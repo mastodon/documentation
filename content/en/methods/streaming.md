@@ -24,6 +24,9 @@ aliases: [/methods/timelines/streaming/]
 `filters_changed`
 : Keyword filters have been changed. Either does not contain a payload (for WebSocket connections), or contains an undefined payload (for HTTP connections).
 
+`status.update`
+: A Status has been edited. Payload contains a [Status]({{< relref "entities/status" >}}) cast to a string.
+
 ---
 
 ## About HTTP server-sent events {#http}

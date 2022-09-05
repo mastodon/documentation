@@ -1326,6 +1326,343 @@ Status does not exist or is private.
 
 ---
 
+## Edit a status {#edit}
+
+```http
+PUT https://mastodon.example/api/v1/statuses/:id HTTP/1.1
+```
+
+Edit a given status to change its text, sensitivity, media attachments, or poll. Note that editing a poll's options will reset the votes.
+
+**Returns:** [Status]({{< relref "entities/status" >}})\
+**OAuth:** User token + `write:statuses`\
+**Version history:**\
+3.5.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the SOMETHING in the database.
+
+##### Headers
+
+Authorization 
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+status
+: String. The plain text content of the status.
+
+spoiler_text
+: String. The plain text subject or content warning of the status.
+
+sensitive
+: Boolean. Whether the status should be marked as sensitive.
+
+media_ids[]
+: Array of String. Include Attachment IDs to be attached as media. If provided, `status` becomes optional, and `poll` cannot be used.
+
+poll[options][]
+: Array of String. Possible answers to the poll. If provided, `media_ids` cannot be used, and `poll[expires_in]` must be provided.
+
+poll[expires_in]
+: Integer. Duration that the poll should be open, in seconds. If provided, `media_ids` cannot be used, and `poll[options]` must be provided.
+
+poll[multiple]
+: Boolean. Allow multiple choices? Defaults to false.
+
+poll[hide_totals]
+: Boolean. Hide vote counts until the poll ends? Defaults to false.
+
+#### Response
+##### 200: OK
+
+Status has been successfully edited.
+
+```javascript
+{
+  "id": "108942703571991143",
+  "created_at": "2022-09-04T23:22:13.704Z",
+  "in_reply_to_id": null,
+  "in_reply_to_account_id": null,
+  "sensitive": false,
+  "spoiler_text": "",
+  "visibility": "public",
+  "language": "en",
+  "uri": "https://mastodon.social/users/trwnh/statuses/108942703571991143",
+  "url": "https://mastodon.social/@trwnh/108942703571991143",
+  "replies_count": 3,
+  "reblogs_count": 1,
+  "favourites_count": 6,
+  "edited_at": "2022-09-05T00:33:20.309Z",
+  "favourited": false,
+  "reblogged": false,
+  "muted": false,
+  "bookmarked": false,
+  "pinned": false,
+  "content": "<p>this is a status that has been edited multiple times to change the text, add a poll, and change poll options.</p>",
+  "filtered": [],
+  "reblog": null,
+  "application": {
+    "name": "SubwayTooter",
+    "website": null
+  },
+  "account": {
+    "id": "14715",
+    "username": "trwnh",
+    "acct": "trwnh",
+    "display_name": "infinite love ⴳ",
+    ...
+  },
+  "media_attachments": [],
+  "mentions": [],
+  "tags": [],
+  "emojis": [],
+  "card": null,
+  "poll": null
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```javascript
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Status does not exist, is private, or is not owned by you.
+
+```javascript
+{
+  "error": "Record not found"
+}
+```
+
+##### 422: Unprocessable entity
+
+```javascript
+{
+  "error": "Validation failed: Text can't be blank"
+}
+```
+
+---
+
+## View edit history of a status {#history}
+
+```http
+GET https://mastodon.example/api/v1/statuses/:id/history HTTP/1.1
+```
+
+Get all known versions of a status, including the initial and current states.
+
+**Returns:** Array of [StatusEdit]({{< relref "entities/statusedit" >}})\
+**OAuth:** Public for public statuses, user token + `read:statuses` for private statuses\
+**Version history:**\
+3.5.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The local ID of the Status in the database.
+
+##### Headers
+
+Authorization 
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```javascript
+[
+  {
+    "content": "<p>this is a status that will be edited</p>",
+    "spoiler_text": "",
+    "sensitive": false,
+    "created_at": "2022-09-04T23:22:13.704Z",
+    "account": {
+      "id": "14715",
+      "username": "trwnh",
+      "acct": "trwnh",
+      "display_name": "infinite love ⴳ",
+      ...
+    },
+    "media_attachments": [],
+    "emojis": []
+  },
+  {
+    "content": "<p>this is a status that has been edited</p>",
+    "spoiler_text": "",
+    "sensitive": false,
+    "created_at": "2022-09-04T23:22:42.555Z",
+    "account": {
+      "id": "14715",
+      "username": "trwnh",
+      "acct": "trwnh",
+      "display_name": "infinite love ⴳ",
+      ...
+    },
+    "media_attachments": [],
+    "emojis": []
+  },
+  {
+    "content": "<p>this is a status that has been edited twice</p>",
+    "spoiler_text": "",
+    "sensitive": false,
+    "created_at": "2022-09-04T23:22:55.956Z",
+    "account": {
+      "id": "14715",
+      "username": "trwnh",
+      "acct": "trwnh",
+      "display_name": "infinite love ⴳ",
+      ...
+    },
+    "media_attachments": [],
+    "emojis": []
+  },
+  {
+    "content": "<p>this is a status that has been edited three times. this time a poll has been added.</p>",
+    "spoiler_text": "",
+    "sensitive": false,
+    "created_at": "2022-09-05T00:01:48.160Z",
+    "poll": {
+      "options": [
+        {
+          "title": "cool"
+        },
+        {
+          "title": "uncool"
+        },
+        {
+          "title": "spiderman"
+        }
+      ]
+    },
+    "account": {
+      "id": "14715",
+      "username": "trwnh",
+      "acct": "trwnh",
+      "display_name": "infinite love ⴳ",
+      ...
+    },
+    "media_attachments": [],
+    "emojis": []
+  },
+  {
+    "content": "<p>this is a status that has been edited three times. this time a poll has been added.</p>",
+    "spoiler_text": "",
+    "sensitive": false,
+    "created_at": "2022-09-05T00:03:32.480Z",
+    "poll": {
+      "options": [
+        {
+          "title": "cool"
+        },
+        {
+          "title": "uncool"
+        },
+        {
+          "title": "spiderman (this option has been changed)"
+        }
+      ]
+    },
+    "account": {
+      "id": "14715",
+      "username": "trwnh",
+      "acct": "trwnh",
+      "display_name": "infinite love ⴳ",
+      ...
+    },
+    "media_attachments": [],
+    "emojis": []
+  }
+]
+```
+
+##### 404: Not found
+
+Status does not exist or is private.
+
+<!-- TODO: https://github.com/mastodon/mastodon/issues/19115
+
+```javascript
+{
+  "error": "Record not found"
+}
+```
+-->
+
+---
+
+## View status source {#source}
+
+```http
+GET https://mastodon.example/api/v1/statuses/:id/source HTTP/1.1
+```
+
+Obtain the source properties for a status so that it can be edited.
+
+**Returns:** [StatusSource]({{< relref "entities/statussource" >}})\
+**OAuth:** App token + `read:statuses`\
+**Version history:**\
+3.5.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The local ID of the Status in the database.
+
+##### Headers
+
+Authorization 
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```javascript
+{
+  "id": "108942703571991143",
+  "text": "this is a status that will be edited",
+  "spoiler_text": ""
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```javascript
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Status does not exist or is private.
+
+```javascript
+{
+  "error": "Record not found"
+}
+```
+
+---
+
 ## (DEPRECATED) Fetch preview card {#card}
 
 ```http
