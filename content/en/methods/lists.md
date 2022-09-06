@@ -449,7 +449,7 @@ Authorization
 
 ##### Form data parameters
 
-account_ids
+account_ids[]
 : {{<required>}} Array of String. The accounts that should be added to the list.
 
 #### Response
@@ -518,7 +518,7 @@ Authorization
 
 ##### Form data parameters
 
-account_ids
+account_ids[]
 : {{<required>}} Array of String. The accounts that should be removed from the list.
 
 #### Response

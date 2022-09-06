@@ -28,7 +28,7 @@ Authorization
 
 ##### Query parameters
 
-timeline
+timeline[]
 : {{<required>}} Array of String. Specify the timeline(s) for which markers should be fetched. Possible values: `home`, `notifications`. If not provided, an empty object will be returned.
 
 #### Response
