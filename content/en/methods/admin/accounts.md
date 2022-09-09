@@ -12,7 +12,7 @@ TODO: wrong token currently returns HTML and 403 instead of JSON and 401
 https://github.com/mastodon/mastodon/issues/19142
 -->
 
-## View accounts {#get}
+## View accounts (v1) {#v1}
 
 ```http
 GET https://mastodon.example/api/v1/admin/accounts HTTP/1.1
@@ -138,6 +138,132 @@ limit
       "used_at": "2022-09-08T16:10:38.621Z"
     },
     "role": "admin",
+    "confirmed": true,
+    "suspended": false,
+    "silenced": false,
+    "disabled": false,
+    "approved": true,
+    "locale": null,
+    "invite_request": null,
+    "ips": [
+      {
+        "ip": "192.168.42.1",
+        "used_at": "2022-09-08T16:10:38.621Z"
+      }
+    ],
+    "account": {
+      "id": "108267695853695427",
+      "username": "admin",
+      "acct": "admin",
+      ...
+    }
+  }
+]
+```
+
+##### 403: Forbidden
+
+Invalid or missing access token.
+
+```javascript
+{
+  "error": "This action is not allowed"
+}
+```
+
+---
+
+## View accounts (v2) {#v2}
+
+```http
+GET https://mastodon.example/api/v2/admin/accounts HTTP/1.1
+```
+
+View all accounts, optionally matching certain criteria for filtering, up to 100 at a time. Pagination may be done with the HTTP Link header in the response.
+
+**Returns:** [Admin::Account]({{<relref "entities/admin-account">}})\
+**OAuth:** User token + `admin:read:accounts`\
+**Version history:**\
+3.5.0 - added\
+3.6.0 - added `role_ids`
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+origin
+: String. Filter for `local` or `remote` accounts.
+
+status
+: String. Filter for `active`, `pending`, `disabled`, `silenced`, or `suspended` accounts.
+
+permissions
+: String. Filter for accounts with `staff` permissions (users that can manage reports).
+
+role_ids
+: String. Filter for users with these roles.
+
+invited_by
+: String. Lookup users invited by the account with this ID.
+
+username
+: String. Search for the given username.
+
+display_name
+: String. Search for the given display name.
+
+by_domain
+: String. Filter by the given domain.
+
+email
+: String. Lookup a user with this email.
+
+ip
+: String. Lookup users with this IP address.
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 100.
+
+#### Response
+##### 200: OK
+
+```javascript
+[
+  {
+    "id": "108267695853695427",
+    "username": "admin",
+    "domain": null,
+    "created_at": "2022-05-08T18:18:53.221Z",
+    "email": "admin@mastodon.local",
+    "ip": {
+      "user_id": 1,
+      "ip": "192.168.42.1",
+      "used_at": "2022-09-08T16:10:38.621Z"
+    },
+    "role": {
+		"id": 3,
+		"name": "Owner",
+		"color": "#3584e4",
+		"position": 1000,
+		"permissions": 1,
+		"highlighted": true,
+		"created_at": "2022-09-08T22:48:07.983Z",
+		"updated_at": "2022-09-09T10:45:13.226Z"
+	},
     "confirmed": true,
     "suspended": false,
     "silenced": false,
@@ -842,6 +968,8 @@ Account does not exist
 ```
 
 ---
+
+
 
 ## See also
 
