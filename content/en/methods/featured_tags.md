@@ -22,7 +22,7 @@ GET https://mastodon.example/api/v1/featured_tags HTTP/1.1
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -65,7 +65,7 @@ POST https://mastodon.example/api/v1/featured_tags HTTP/1.1
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters
@@ -137,7 +137,7 @@ DELETE https://mastodon.example/api/v1/featured_tags/:id HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -187,7 +187,7 @@ Shows your 10 most-used tags, with usage history for the past week.
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response

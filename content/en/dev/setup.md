@@ -31,7 +31,14 @@ vagrant ssh -c "cd /vagrant && foreman start"
 
 Once the Mastodon processes have fully started up, you can load `http://mastodon.local` in your browser to access the Mastodon instance within the VM. You can log in as the default admin user with the username `admin@mastodon.local` and the password `mastodonadmin`.
 
-Any changes to the source code will be reflected after saving your files. 
+Any changes to the source code will be reflected after saving your files.
+
+To reset the VM to a fresh state, you can destroy it and bring it up again:
+
+```sh
+vagrant destroy
+vagrant up
+```
 
 ## Manual install from source {#manual}
 

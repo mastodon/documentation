@@ -32,7 +32,7 @@ Types to filter include \(`follow`, `favourite`, `reblog`, `mention`, `poll`, `f
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
@@ -174,7 +174,7 @@ View information about a notification with a given ID.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -250,7 +250,7 @@ Clear all notifications from the server.
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -297,7 +297,7 @@ Dismiss a single notification from the server.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -340,7 +340,7 @@ Dismiss a single notification from the server.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters

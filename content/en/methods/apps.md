@@ -84,7 +84,7 @@ Confirm that the app's OAuth2 credentials work.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response

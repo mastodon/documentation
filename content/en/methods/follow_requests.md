@@ -24,7 +24,7 @@ GET https://mastodon.example/api/v1/follow_requests HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
@@ -95,7 +95,7 @@ POST https://mastodon.example/api/v1/follow_requests/:account_id/authorize HTTP/
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -162,7 +162,7 @@ POST https://mastodon.example/api/v1/follow_requests/:account_id/reject HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response

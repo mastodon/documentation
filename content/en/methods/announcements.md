@@ -24,7 +24,7 @@ See all currently active announcements set by admins.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
@@ -118,7 +118,7 @@ Allows a user to mark the announcement as read.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -174,7 +174,7 @@ React to an announcement with an emoji.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -239,7 +239,7 @@ Undo a react emoji to an announcement.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response

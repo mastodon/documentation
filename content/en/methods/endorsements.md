@@ -26,7 +26,7 @@ Accounts that the user is currently featuring on their profile.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters

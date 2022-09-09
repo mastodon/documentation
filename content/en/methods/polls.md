@@ -30,7 +30,7 @@ GET https://mastodon.example/api/v1/polls/:id HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -94,7 +94,7 @@ POST https://mastodon.example/api/v1/polls/:id/votes HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters

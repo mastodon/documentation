@@ -26,7 +26,7 @@ Accounts the user has had past positive interactions with, but is not yet follow
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
@@ -95,7 +95,7 @@ Remove an account from follow suggestions.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response

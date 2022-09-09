@@ -28,7 +28,7 @@ GET https://mastodon.example/api/v2/search HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
@@ -162,7 +162,7 @@ GET https://mastodon.example/api/v1/search HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters

@@ -24,7 +24,7 @@ GET https://mastodon.example/api/v1/scheduled_statuses HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
@@ -98,7 +98,7 @@ GET https://mastodon.example/api/v1/scheduled_statuses/:id HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -166,7 +166,7 @@ PUT https://mastodon.example/api/v1/scheduled_statuses/:id HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters
@@ -247,7 +247,7 @@ DELETE https://mastodon.example/api/v1/scheduled_statuses/:id HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response

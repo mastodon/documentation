@@ -38,7 +38,7 @@ Add a Web Push API subscription to receive notifications. Each access token can 
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters
@@ -108,7 +108,7 @@ View the PushSubscription currently associated with this access token.
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -159,7 +159,7 @@ Updates the current push subscription. Only the data part can be updated. To cha
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters
@@ -233,7 +233,7 @@ Removes the current Web Push API subscription.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response

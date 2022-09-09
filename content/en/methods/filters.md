@@ -22,7 +22,7 @@ GET https://mastodon.example/api/v1/filters HTTP/1.1
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -92,7 +92,7 @@ GET https://mastodon.example/api/v1/filters/:id HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -151,7 +151,7 @@ POST https://mastodon.example/api/v1/filters HTTP/1.1
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters
@@ -245,7 +245,7 @@ Replaces a filter's parameters in-place.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters
@@ -346,7 +346,7 @@ DELETE https://mastodon.example/api/v1/filters/:id HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response

@@ -88,7 +88,7 @@ Returns events that are relevant to the authorized user, i.e. home timeline and 
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Events
@@ -132,7 +132,7 @@ Returns all public statuses
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Events
@@ -169,7 +169,7 @@ Returns all local public statuses
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Events
@@ -206,7 +206,7 @@ Returns all public statuses for a particular hashtag
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
@@ -248,7 +248,7 @@ Returns all local public statuses for a particular hashtag
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
@@ -290,7 +290,7 @@ Returns statuses for a list
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
@@ -332,7 +332,7 @@ Returns events for received direct messages.
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Events

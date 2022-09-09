@@ -28,7 +28,7 @@ GET https://mastodon.example/api/v1/timelines/public HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
@@ -106,7 +106,7 @@ View public statuses containing the given hashtag.
 
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
@@ -222,7 +222,7 @@ View statuses from followed users.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
@@ -298,7 +298,7 @@ View statuses in the given list timeline.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
@@ -371,7 +371,7 @@ x.x.x - added\
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters

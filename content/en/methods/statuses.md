@@ -27,7 +27,7 @@ Post a new status.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 Idempotency-Key
@@ -156,7 +156,7 @@ Obtain information about a status.
 
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -270,7 +270,7 @@ Delete one of your own statuses.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -459,7 +459,7 @@ View statuses above and below this status in the thread.
 
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -536,7 +536,7 @@ View who boosted a given status.
 
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -590,7 +590,7 @@ View who favourited a given status.
 
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -644,7 +644,7 @@ Add a status to your favourites list.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -710,7 +710,7 @@ Remove a status from your favourites list.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -777,7 +777,7 @@ Reshare a status on your own profile.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters
@@ -859,7 +859,7 @@ Undo a reshare of a status.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -925,7 +925,7 @@ Privately bookmark a status.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -981,7 +981,7 @@ Remove a status from your private bookmarks.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -1047,7 +1047,7 @@ Do not receive notifications for the thread that this status is part of. Must be
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -1113,7 +1113,7 @@ Start receiving notifications again for the thread that this status is part of.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -1180,7 +1180,7 @@ Feature one of your own public statuses at the top of your profile.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -1273,7 +1273,7 @@ Unfeature a status from the top of your profile.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -1348,7 +1348,7 @@ Edit a given status to change its text, sensitivity, media attachments, or poll.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters
@@ -1478,7 +1478,7 @@ Get all known versions of a status, including the initial and current states.
 
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -1594,14 +1594,11 @@ Authorization
 
 Status does not exist or is private.
 
-<!-- TODO: https://github.com/mastodon/mastodon/issues/19115
-
 ```javascript
 {
   "error": "Record not found"
 }
 ```
--->
 
 ---
 
@@ -1627,7 +1624,7 @@ Obtain the source properties for a status so that it can be edited.
 
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -1685,7 +1682,7 @@ GET https://mastodon.example/api/v1/statuses/:id/card HTTP/1.1
 
 ##### Headers
 
-Authorization 
+Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response

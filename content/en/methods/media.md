@@ -27,7 +27,7 @@ Creates an attachment to be used with a new status. The full sized attachment wi
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters
@@ -134,7 +134,7 @@ Get an Attachment, before it is attached to a status and posted, but after it is
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
@@ -237,7 +237,7 @@ Update an Attachment's parameters, before it is attached to a status and posted.
 
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters
@@ -337,7 +337,7 @@ Creates an attachment to be used with a new status. This method will return afte
 #### Request
 ##### Headers
 
-Authorization 
+Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters
