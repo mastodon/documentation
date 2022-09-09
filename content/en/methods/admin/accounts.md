@@ -20,7 +20,7 @@ GET https://mastodon.example/api/v1/admin/accounts HTTP/1.1
 
 View all accounts, optionally matching certain criteria for filtering, up to 100 at a time. Pagination may be done with the HTTP Link header in the response.
 
-**Returns:** [Admin::Account]({{<relref "entities/admin-account">}})\
+**Returns:** Array of [Admin::Account]({{<relref "entities/admin-account">}})\
 **OAuth:** User token + `admin:read:accounts`\
 **Version history:**\
 2.9.1 - added\
@@ -181,7 +181,7 @@ GET https://mastodon.example/api/v2/admin/accounts HTTP/1.1
 
 View all accounts, optionally matching certain criteria for filtering, up to 100 at a time. Pagination may be done with the HTTP Link header in the response.
 
-**Returns:** [Admin::Account]({{<relref "entities/admin-account">}})\
+**Returns:** Array of [Admin::Account]({{<relref "entities/admin-account">}})\
 **OAuth:** User token + `admin:read:accounts`\
 **Version history:**\
 3.5.0 - added\
@@ -954,7 +954,8 @@ Authorization
 The account is no longer marked as sensitive, or was already not marked as sensitive.
 
 <!--
-TODO: 
+TODO: There is no way to know if an account is marked sensitive
+https://github.com/mastodon/mastodon/issues/19148
 -->
 
 ##### 404: Not found
@@ -968,8 +969,6 @@ Account does not exist
 ```
 
 ---
-
-
 
 ## See also
 

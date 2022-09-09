@@ -184,6 +184,8 @@ If the title is missing:
 ```
 
 <!-- TODO: Currently this returns HTML response with HTTP 500
+https://github.com/mastodon/mastodon/issues/19097
+
 If the replies_policy is not understood:
 
 ```javascript
@@ -260,6 +262,8 @@ If the title is missing:
 ```
 
 <!-- TODO: Currently this returns HTML response with HTTP 500
+https://github.com/mastodon/mastodon/issues/19097
+
 If the replies_policy is not understood:
 
 ```javascript
