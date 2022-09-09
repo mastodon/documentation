@@ -118,7 +118,7 @@ menu:
 **Type:** [Role]({{<relref "entities/role">}})\
 **Version history:**\
 2.9.1 - added, can be `user` `moderator` or `admin`
-3.6.0 - 
+3.6.0 - now uses Role entity
 
 ### `confirmed` {#confirmed}
 
