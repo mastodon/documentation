@@ -7,10 +7,6 @@ menu:
     identifier: methods-admin-reports
 ---
 
-<!--
-TODO: verify and document responses
--->
-
 ## View all reports {#get}
 
 ```http
@@ -34,10 +30,10 @@ Authorization
 ##### Query parameters
 
 resolved
-: Boolean. Include resolved reports? <!--TODO: verify this is true-->
+: Boolean. Filter for resolved reports?
 
 account_id
-: String. Filter for reports filed by this account. <!--TODO: verify this is true-->
+: String. Filter for reports filed by this account.
 
 target_account_id
 : String. Filter for reports targeting this account.
@@ -45,15 +41,63 @@ target_account_id
 #### Response
 ##### 200: OK
 
-<!--
-TODO:
--->
+```javascript
+[
+	{
+		"id": "3",
+		"action_taken": false,
+		"action_taken_at": null,
+		"category": "spam",
+		"comment": "",
+		"forwarded": false,
+		"created_at": "2022-09-09T21:19:23.085Z",
+		"updated_at": "2022-09-09T21:19:23.085Z",
+		"account": {
+			"id": "108965218747268792",
+			"username": "admin",
+			"domain": null,
+			"created_at": "2022-09-08T22:48:07.985Z",
+			"email": "admin@mastodon.local",
+			...
+			"account": {
+				"id": "108965218747268792",
+				"username": "admin",
+				"acct": "admin",
+				...
+			}
+		},
+		"target_account": {
+			"id": "108965430868193066",
+			"username": "goody",
+			"domain": null,
+			"created_at": "2022-09-08T23:42:04.731Z",
+			"email": "goody@mastodon.local",
+			...
+			"account": {
+				"id": "108965430868193066",
+				"username": "goody",
+				"acct": "goody",
+				...
+			}
+		},
+		"assigned_account": null,
+		"action_taken_by_account": null,
+		"statuses": [],
+		"rules": []
+	},
+	...
+]
+```
 
 ##### 403: Forbidden
 
-<!--
-TODO:
--->
+Authorized user is not allowed to perform this action, or invalid or missing Authorization header
+
+```javascript
+{
+  "error": "This action is not allowed"
+}
+```
 
 ---
 
@@ -73,7 +117,7 @@ GET https://mastodon.example/api/v1/admin/reports/:id HTTP/1.1
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the Report in the database.
 
 ##### Headers
 
@@ -83,15 +127,134 @@ Authorization
 #### Response
 ##### 200: OK
 
-<!--
-TODO:
--->
+```javascript
+{
+  "id": "2",
+  "action_taken": true,
+  "action_taken_at": "2022-09-09T21:38:54.679Z",
+  "category": "spam",
+  "comment": "",
+  "forwarded": false,
+  "created_at": "2022-09-09T21:19:44.021Z",
+  "updated_at": "2022-09-09T21:38:54.681Z",
+  "account": {
+    "id": "108965218747268792",
+    "username": "admin",
+    "domain": null,
+    "created_at": "2022-09-08T22:48:07.985Z",
+    "email": "admin@mastodon.local",
+    ...
+    "account": {
+      "id": "108965218747268792",
+      "username": "admin",
+      "acct": "admin",
+      ...
+    }
+  },
+  "target_account": {
+    "id": "108965430868193066",
+    "username": "goody",
+    "domain": null,
+    "created_at": "2022-09-08T23:42:04.731Z",
+    "email": "goody@mastodon.local",
+    ...
+    "account": {
+      "id": "108965430868193066",
+      "username": "goody",
+      "acct": "goody",
+      ...
+    }
+  },
+  "assigned_account": null,
+  "action_taken_by_account": {
+    "id": "108965218747268792",
+    "username": "admin",
+    "domain": null,
+    "created_at": "2022-09-08T22:48:07.985Z",
+    "email": "admin@mastodon.local",
+    ...
+    "account": {
+      "id": "108965218747268792",
+      "username": "admin",
+      "acct": "admin",
+      ...
+    }
+  },
+  "statuses": [],
+  "rules": []
+}
+```
 
 ##### 403: Forbidden
 
-<!--
-TODO:
--->
+Authorized user is not allowed to perform this action, or invalid or missing Authorization header
+
+```javascript
+{
+  "error": "This action is not allowed"
+}
+```
+
+---
+
+## Update a report {#update}
+
+```http
+PUT https://mastodon.example/api/v1/admin/reports/:id HTTP/1.1
+```
+
+Change metadata for a report.
+
+**Returns:** [Admin::Report]({{< relref "entities/admin-report" >}})\
+**OAuth:** User token + `admin:write:reports`\
+**Version history:**\
+3.5.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Report in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+category
+: String. Change the classification of the report to `spam`, `violation`, or `other`.
+
+rule_ids[]
+: Array of Integer. For `violation` category reports, specify the ID of the exact rules broken. Rules and their IDs are available via [GET /api/v1/instance/rules]({{< relref "methods/instance#rules" >}}) and [GET /api/v1/instance]({{< relref "methods/instance#get" >}}).
+
+#### Response
+##### 200: OK
+
+The report category and/or rule IDs should now be updated.
+
+```javascript
+{
+  "id": "3",
+  "action_taken": false,
+  "action_taken_at": null,
+  "category": "other",
+  ...
+  "rules": []
+}
+```
+
+##### 403: Forbidden
+
+Authorized user is not allowed to perform this action, or invalid or missing Authorization header
+
+```javascript
+{
+  "error": "This action is not allowed"
+}
+```
 
 ---
 
@@ -108,18 +271,63 @@ Claim the handling of this report to yourself.
 **Version history:**\
 2.9.1 - added
 
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Report in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
 #### Response
 ##### 200: OK
 
-<!--
-TODO:
--->
+The report should now be assigned to you, or it was already assigned to you.
+
+```javascript
+{
+  "id": "3",
+  "action_taken": false,
+  "action_taken_at": null,
+  "category": "other",
+  "comment": "",
+  "forwarded": false,
+  "created_at": "2022-09-09T21:21:01.204Z",
+  "updated_at": "2022-09-11T14:39:01.531Z",
+  ...
+  "assigned_account": {
+    "id": "108965218747268792",
+    "username": "admin",
+    "domain": null,
+    "created_at": "2022-09-08T22:48:07.985Z",
+    "email": "admin@mastodon.local",
+    ...
+    "account": {
+      "id": "108965218747268792",
+      "username": "admin",
+      "acct": "admin",
+      ...
+    }
+  },
+  "action_taken_by_account": null,
+  "statuses": [],
+  "rules": []
+}
+```
 
 ##### 403: Forbidden
 
-<!--
-TODO:
--->
+Authorized user is not allowed to perform this action, or invalid or missing Authorization header
+
+```javascript
+{
+  "error": "This action is not allowed"
+}
+```
 
 ---
 
@@ -141,7 +349,7 @@ Unassign a report so that someone else can claim it.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the Report in the database.
 
 ##### Headers
 
@@ -151,15 +359,35 @@ Authorization
 #### Response
 ##### 200: OK
 
-<!--
-TODO:
--->
+The report should no longer be assigned to you, or it was already not assigned to anyone.
+
+```javascript
+{
+  "id": "3",
+  "action_taken": false,
+  "action_taken_at": null,
+  "category": "other",
+  "comment": "",
+  "forwarded": false,
+  "created_at": "2022-09-09T21:21:01.204Z",
+  "updated_at": "2022-09-11T14:39:01.531Z",
+  ...
+  "assigned_account": null,
+  "action_taken_by_account": null,
+  "statuses": [],
+  "rules": []
+}
+```
 
 ##### 403: Forbidden
 
-<!--
-TODO:
--->
+Authorized user is not allowed to perform this action, or invalid or missing Authorization header
+
+```javascript
+{
+  "error": "This action is not allowed"
+}
+```
 
 ---
 
@@ -181,7 +409,7 @@ Mark a report as resolved with no further action taken.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the Report in the database.
 
 ##### Headers
 
@@ -191,21 +419,40 @@ Authorization
 #### Response
 ##### 200: OK
 
-<!--
-TODO:
--->
+The report is now resolved, or it was already resolved.
+
+```javascript
+{
+  "id": "2",
+  "action_taken": true,
+  "action_taken_at": "2022-09-11T14:46:22.936Z",
+  "category": "spam",
+  "comment": "",
+  "forwarded": false,
+  "created_at": "2022-09-09T21:19:44.021Z",
+  "updated_at": "2022-09-11T14:46:22.945Z",
+  ...
+}
+```
 
 ##### 403: Forbidden
 
-<!--
-TODO:
--->
+Authorized user is not allowed to perform this action, or invalid or missing Authorization header
 
+```javascript
+{
+  "error": "This action is not allowed"
+}
+```
 ---
 
 ## Reopen a closed report {#reopen}
 
-Reopen a currently closed report.
+```http
+POST https://mastodon.example/api/v1/admin/reports/:id/reopen HTTP/1.1
+```
+
+Reopen a currently closed report, if it is closed.
 
 **Returns:** [Admin::Report]({{< relref "entities/admin-report" >}})\
 **OAuth:** User token + `admin:write:reports`\
@@ -227,18 +474,36 @@ Authorization
 #### Response
 ##### 200: OK
 
-<!--
-TODO:
--->
+The report no longer has an action taken, or it already had no action taken.
+
+```javascript
+{
+  "id": "2",
+  "action_taken": false,
+  "action_taken_at": null,
+  "category": "spam",
+  "comment": "",
+  "forwarded": false,
+  "created_at": "2022-09-09T21:19:44.021Z",
+  "updated_at": "2022-09-11T14:42:21.855Z",
+  ...
+}
+```
 
 ##### 403: Forbidden
 
-<!--
-TODO:
--->
+Authorized user is not allowed to perform this action, or invalid or missing Authorization header
+
+```javascript
+{
+  "error": "This action is not allowed"
+}
+```
 
 ---
 
 ## See also
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/admin/reports_controller.rb" caption="app/controllers/api/v1/admin/reports_controller.rb" >}}
+
+{{< page-relref ref="methods/admin/accounts#action" caption="POST /api/v1/admin/accounts/:id/action" >}}

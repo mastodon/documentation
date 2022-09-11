@@ -669,7 +669,7 @@ You cannot delete this account's data, or it was already deleted. Or, the access
 POST https://mastodon.example/api/v1/admin/accounts/:id/action HTTP/1.1
 ```
 
-Perform an action against an account and log this action in the moderation history.
+Perform an action against an account and log this action in the moderation history. Also resolves any open reports against this account.
 
 **Returns:** empty object\
 **OAuth:** User token + `admin:write:accounts`\

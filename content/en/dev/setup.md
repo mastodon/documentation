@@ -59,7 +59,7 @@ In the development environment, Mastodon will use PostgreSQL as the currently si
 sudo -u postgres createuser $YOUR_USERNAME_HERE --createdb
 ```
 
-You can now create the databases `mastodon_development` and `mastodon_test`, load the schema into them, and create seed data defined in `db/seeds.rb` into `mastodon_development`.
+You can now create the databases `mastodon_development` and `mastodon_test`, load the schema into them, and create seed data defined in `db/seeds/` into `mastodon_development`.
 
 ```sh
 rails db:setup

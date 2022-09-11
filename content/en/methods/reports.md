@@ -45,7 +45,7 @@ category
 : String. Specify if the report is due to `spam`, `violation` of enumerated instance rules, or some `other` reason. Defaults to `other`.
 
 rule_ids[]
-: Array of Number. For `violation` category reports, specify the ID of the exact rules broken. Rules and their IDs are available via [GET /api/v1/instance/rules]({{< relref "methods/instance#rules" >}}) and [GET /api/v1/instance]({{< relref "methods/instance#get" >}}).
+: Array of Integer. For `violation` category reports, specify the ID of the exact rules broken. Rules and their IDs are available via [GET /api/v1/instance/rules]({{< relref "methods/instance#rules" >}}) and [GET /api/v1/instance]({{< relref "methods/instance#get" >}}).
 
 #### Response
 ##### 200: OK

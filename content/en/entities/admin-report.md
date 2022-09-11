@@ -9,7 +9,48 @@ menu:
 ## Example
 
 ```javascript
-{}
+{
+  "id": "1",
+  "action_taken": false,
+  "action_taken_at": null,
+  "category": "spam",
+  "comment": "",
+  "forwarded": false,
+  "created_at": "2022-09-09T21:19:23.085Z",
+  "updated_at": "2022-09-09T21:19:23.085Z",
+  "account": {
+    "id": "108965218747268792",
+    "username": "admin",
+    "domain": null,
+    "created_at": "2022-09-08T22:48:07.985Z",
+    "email": "admin@mastodon.local",
+    ...
+    "account": {
+      "id": "108965218747268792",
+      "username": "admin",
+      "acct": "admin",
+      ...
+    }
+  },
+  "target_account": {
+    "id": "108965430868193066",
+    "username": "goody",
+    "domain": null,
+    "created_at": "2022-09-08T23:42:04.731Z",
+    "email": "goody@mastodon.local",
+    ...
+    "account": {
+      "id": "108965430868193066",
+      "username": "goody",
+      "acct": "goody",
+      ...
+    }
+  },
+  "assigned_account": null,
+  "action_taken_by_account": null,
+  "statuses": [],
+  "rules": []
+}
 ```
 
 ## Attributes
@@ -76,9 +117,9 @@ menu:
 
 ## See also
 
-{{< page-ref page="methods/admin.md" >}}
+{{< page-ref page="methods/admin/reports" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/admin/report_serializer.rb" caption="app/serializers/rest/admin/report\_serializer.rb" >}}
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/admin/report_serializer.rb" caption="app/serializers/rest/admin/report_serializer.rb" >}}
 
 
 

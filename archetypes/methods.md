@@ -65,6 +65,12 @@ Invalid or missing Authorization header.
 
 ##### 403: Forbidden
 
+```javascript
+{
+  "error": "This action is not allowed"
+}
+```
+
 ##### 404: Not found
 
 SOMETHING is not owned by you or does not exist
