@@ -64,6 +64,8 @@ curl -X POST \
 
 ### JSON {#json}
 
+*JavaScript Object Notation* as defined in ECMA-404. Quick one page overview: https://www.json.org/
+
 Similar to sending form data, but with an additional header to specify that the data is in JSON format. To send a JSON request with cURL, specify the JSON content type with a header, then send the JSON data as form data:
 
 ```bash
