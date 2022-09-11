@@ -65,6 +65,8 @@ Invalid or missing Authorization header.
 
 ##### 403: Forbidden
 
+Authorized user is not allowed to perform this action, or invalid or missing Authorization header
+
 ```javascript
 {
   "error": "This action is not allowed"
