@@ -21,13 +21,15 @@ menu:
 
 **Description:** An identifier for the rule.\
 **Type:** String (cast from integer)\
-**Version history:** Added in 3.4.0
+**Version history:**\
+3.4.0 - added
 
 ### `text` {#url}
 
 **Description:** The rule to be followed.\
 **Type:** String \
-**Version history:** Added in 3.4.0
+**Version history:**\
+3.4.0 - added
 
 ## See also
 

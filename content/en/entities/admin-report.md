@@ -58,62 +58,100 @@ menu:
 ### `id` {#id}
 
 **Description:** The ID of the report in the database.\
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
-**Version history:** Added in 2.9.1
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
+**Version history:**\
+2.9.1 - added
 
 ### `action_taken` {#action_taken}
 
-**Description:** The action taken to resolve this report.\
-**Type:** String \(Enumerable oneOf\)\
-**Version history:** Added in 2.9.1
+**Description:** Whether an action was taken to resolve this report.\
+**Type:** Boolean\
+**Version history:**\
+2.9.1 - added
+
+### `action_taken_at` {#action_taken_at}
+
+**Description:** When an action was taken, if this report is currently resolved.\
+**Type:** String (ISO 8601 Datetime) or null\
+**Version history:**\
+2.9.1 - added
+
+### `category` {#category}
+
+**Description:** The category under which the report is classified.\
+**Type:** String (Enumerable oneOf `spam` `violation` `other`)\
+**Version history:**\
+3.5.0 - added
 
 ### `comment` {#comment}
 
 **Description:** An optional reason for reporting.\
 **Type:** String\
-**Version history:** Added in 2.9.1
+**Version history:**\
+2.9.1 - added
+
+### `forwarded` {#forwarded}
+
+**Description:** Whether a report was forwarded to a remote instance.\
+**Type:** Boolean\
+**Version history:**\
+3.6.0 - added
 
 ### `created_at` {#created_at}
 
 **Description:** The time the report was filed.\
-**Type:** String \(ISO 8601 Datetime\)\
-**Version history:** Added in 2.9.1
+**Type:** String (ISO 8601 Datetime)\
+**Version history:**\
+2.9.1 - added
 
 ### `updated_at` {#updated_at}
 
 **Description:** The time of last action on this report.\
-**Type:** String \(ISO 8601 Datetime\)\
-**Version history:** Added in 2.9.1
+**Type:** String (ISO 8601 Datetime)\
+**Version history:**\
+2.9.1 - added
 
 ### `account` {#account}
 
 **Description:** The account which filed the report.\
-**Type:** [Account]({{< relref "account.md" >}})\
-**Version history:** Added in 2.9.1
+**Type:** [Admin::Account]({{< relref "entities/admin-account" >}})\
+**Version history:**\
+2.9.1 - added
 
 ### `target_account` {#target_account}
 
 **Description:** The account being reported.\
-**Type:** [Account]({{< relref "account.md" >}})\
-**Version history:** Added in 2.9.1
+**Type:** [Admin::Account]({{< relref "entities/admin-account" >}})\
+**Version history:**\
+2.9.1 - added
 
 ### `assigned_account` {#assigned_account}
 
 **Description:** The account of the moderator assigned to this report.\
-**Type:** [Account]({{< relref "account.md" >}})\
-**Version history:** Added in 2.9.1
+**Type:** [Admin::Account]({{< relref "entities/admin-account" >}}) or null\
+**Version history:**\
+2.9.1 - added
 
 ### `action_taken_by_account` {#action_taken_by_account}
 
-**Description:** The action taken by the moderator who handled the report.\
-**Type:** String \(Enumerable oneOf\)\
-**Version history:** Added in 2.9.1
+**Description:** The account of the moderator who handled the report.\
+**Type:** [Admin::Account]({{< relref "entities/admin-account" >}}) or null\
+**Version history:**\
+2.9.1 - added
 
 ### `statuses` {#statuses}
 
 **Description:** Statuses attached to the report, for context.\
-**Type:** Array of [Status]({{< relref "status.md" >}})\
-**Version history:** Added in 2.9.1
+**Type:** Array of [Status]({{< relref "entities/status" >}})\
+**Version history:**\
+2.9.1 - added
+
+### `rules` {#rules}
+
+**Description:** Statuses attached to the report, for context.\
+**Type:** Array of [Rule]({{< relref "entities/rule" >}})\
+**Version history:**\
+3.5.0 - added
 
 ## See also
 
