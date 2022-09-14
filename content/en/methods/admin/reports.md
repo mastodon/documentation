@@ -4,7 +4,7 @@ description: Perform moderation actions with reports.
 menu:
   docs:
     parent: methods-admin
-    identifier: methods-admin-reports
+    identifier: methods-Admin_Reports
 ---
 
 ## View all reports {#get}
@@ -15,7 +15,7 @@ GET https://mastodon.example/api/v1/admin/reports HTTP/1.1
 
 View information about all reports.
 
-**Returns:** Array of [Admin::Report]({{< relref "entities/admin-report" >}})\
+**Returns:** Array of [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:read:reports`\
 **Version history:**\
 2.9.1 - added
@@ -107,7 +107,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 GET https://mastodon.example/api/v1/admin/reports/:id HTTP/1.1
 ```
 
-**Returns:** [Admin::Report]({{< relref "entities/admin-report" >}})\
+**Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:read:reports`\
 **Version history:**\
 2.9.1 - added
@@ -205,7 +205,7 @@ PUT https://mastodon.example/api/v1/admin/reports/:id HTTP/1.1
 
 Change metadata for a report.
 
-**Returns:** [Admin::Report]({{< relref "entities/admin-report" >}})\
+**Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:write:reports`\
 **Version history:**\
 3.5.0 - added
@@ -266,7 +266,7 @@ POST https://mastodon.example/api/v1/admin/reports/:id/assign_to_self HTTP/1.1
 
 Claim the handling of this report to yourself.
 
-**Returns:** [Admin::Report]({{< relref "entities/admin-report" >}})\
+**Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:write:reports`\
 **Version history:**\
 2.9.1 - added
@@ -339,7 +339,7 @@ POST https://mastodon.example/api/v1/admin/reports/:id/unassign HTTP/1.1
 
 Unassign a report so that someone else can claim it.
 
-**Returns:** [Admin::Report]({{< relref "entities/admin-report" >}})\
+**Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:write:reports`\
 **Version history:**\
 2.9.1 - added
@@ -399,7 +399,7 @@ POST https://mastodon.example/api/v1/admin/reports/:id/resolve HTTP/1.1
 
 Mark a report as resolved with no further action taken.
 
-**Returns:** [Admin::Report]({{< relref "entities/admin-report" >}})\
+**Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:write:reports`\
 **Version history:**\
 2.9.1 - added
@@ -454,7 +454,7 @@ POST https://mastodon.example/api/v1/admin/reports/:id/reopen HTTP/1.1
 
 Reopen a currently closed report, if it is closed.
 
-**Returns:** [Admin::Report]({{< relref "entities/admin-report" >}})\
+**Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:write:reports`\
 **Version history:**\
 2.9.1 - added

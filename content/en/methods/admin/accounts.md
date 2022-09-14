@@ -4,7 +4,7 @@ description: Perform moderation actions with accounts.
 menu:
   docs:
     parent: methods-admin
-    identifier: methods-admin-accounts
+    identifier: methods-Admin_Accounts
 ---
 
 <!--
@@ -20,7 +20,7 @@ GET https://mastodon.example/api/v1/admin/accounts HTTP/1.1
 
 View all accounts, optionally matching certain criteria for filtering, up to 100 at a time. Pagination may be done with the HTTP Link header in the response.
 
-**Returns:** Array of [Admin::Account]({{<relref "entities/admin-account">}})\
+**Returns:** Array of [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:read:accounts`\
 **Version history:**\
 2.9.1 - added\
@@ -181,7 +181,7 @@ GET https://mastodon.example/api/v2/admin/accounts HTTP/1.1
 
 View all accounts, optionally matching certain criteria for filtering, up to 100 at a time. Pagination may be done with the HTTP Link header in the response.
 
-**Returns:** Array of [Admin::Account]({{<relref "entities/admin-account">}})\
+**Returns:** Array of [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:read:accounts`\
 **Version history:**\
 3.5.0 - added\
@@ -307,7 +307,7 @@ GET https://mastodon.example/api/v1/admin/accounts/:id HTTP/1.1
 
 View admin-level information about the given account.
 
-**Returns:** [Admin::Account]({{<relref "entities/admin-account">}})\
+**Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:read:accounts`\
 **Version history:**\
 2.9.1 - added
@@ -401,7 +401,7 @@ POST https://mastodon.example/api/v1/admin/accounts/:id/approve HTTP/1.1
 
 Approve the given local account if it is currently pending approval.
 
-**Returns:** [Admin::Account]({{<relref "entities/admin-account">}})\
+**Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
 **Version history:**\
 2.9.1 - added
@@ -465,7 +465,7 @@ POST https://mastodon.example/api/v1/admin/accounts/:id/reject HTTP/1.1
 
 Reject the given local account if it is currently pending approval.
 
-**Returns:** [Admin::Account]({{<relref "entities/admin-account">}})\
+**Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
 **Version history:**\
 2.9.1 - added
@@ -567,7 +567,7 @@ DELETE https://mastodon.example/api/v1/admin/accounts/:id HTTP/1.1
 
 Permanently delete data for a suspended account.
 
-**Returns:** [Admin::Account]({{<relref "entities/admin-account">}})\
+**Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
 **Version history:**\
 3.3.0 - added
@@ -759,7 +759,7 @@ POST https://mastodon.example/api/v1/admin/accounts/:id/enable HTTP/1.1
 
 Re-enable a local account whose login is currently disabled.
 
-**Returns:** [Admin::Account]({{<relref "entities/admin-account">}})\
+**Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
 **Version history:**\
 2.9.1 - added
@@ -813,7 +813,7 @@ POST https://mastodon.example/api/v1/admin/accounts/:id/unsilence HTTP/1.1
 
 Unsilence an account if it is currently silenced.
 
-**Returns:** [Admin::Account]({{<relref "entities/admin-account">}})\
+**Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
 **Version history:**\
 2.9.1 - added
@@ -867,7 +867,7 @@ POST https://mastodon.example/api/v1/admin/accounts/:id/unsuspend HTTP/1.1
 
 Unsuspend a currently suspended account.
 
-**Returns:** [Admin::Account]({{<relref "entities/admin-account">}})\
+**Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
 **Version history:**\
 2.9.1 - added
@@ -931,7 +931,7 @@ POST https://mastodon.example/api/v1/admin/accounts/:id/unsensitive HTTP/1.1
 
 Stops marking an account's posts as sensitive, if it was previously flagged as sensitive.
 
-**Returns:** [Admin::Account]({{<relref "entities/admin-account">}})\
+**Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
 **Version history:**\
 3.3.0 - added

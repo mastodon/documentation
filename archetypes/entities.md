@@ -13,6 +13,13 @@ menu:
 
 ## Attributes
 
+### `id` {#id}
+
+**Description:** The ID of the SOMETHING in the database.\
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
+**Version history:**\
+x.x.x - added
+
 ## See also
 
 {{< page-ref page="methods/SOMETHING" >}}

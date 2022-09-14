@@ -114,28 +114,28 @@ menu:
 ### `account` {#account}
 
 **Description:** The account which filed the report.\
-**Type:** [Admin::Account]({{< relref "entities/admin-account" >}})\
+**Type:** [Admin::Account]({{< relref "entities/admin_account" >}})\
 **Version history:**\
 2.9.1 - added
 
 ### `target_account` {#target_account}
 
 **Description:** The account being reported.\
-**Type:** [Admin::Account]({{< relref "entities/admin-account" >}})\
+**Type:** [Admin::Account]({{< relref "entities/admin_account" >}})\
 **Version history:**\
 2.9.1 - added
 
 ### `assigned_account` {#assigned_account}
 
 **Description:** The account of the moderator assigned to this report.\
-**Type:** [Admin::Account]({{< relref "entities/admin-account" >}}) or null\
+**Type:** [Admin::Account]({{< relref "entities/admin_account" >}}) or null\
 **Version history:**\
 2.9.1 - added
 
 ### `action_taken_by_account` {#action_taken_by_account}
 
 **Description:** The account of the moderator who handled the report.\
-**Type:** [Admin::Account]({{< relref "entities/admin-account" >}}) or null\
+**Type:** [Admin::Account]({{< relref "entities/admin_account" >}}) or null\
 **Version history:**\
 2.9.1 - added
 

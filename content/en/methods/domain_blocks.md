@@ -16,7 +16,7 @@ GET https://mastodon.example/api/v1/domain_blocks HTTP/1.1
 
 View domains the user has blocked.
 
-**Returns:** Array of strings\
+**Returns:** Array of String\
 **OAuth:** User token + `read:blocks` or `follow`\
 **Version:**\
 1.4.0 - added\
@@ -142,7 +142,7 @@ DELETE https://mastodon.example/api/v1/domain_blocks HTTP/1.1
 
 Remove a domain block, if it exists in the user's array of blocked domains.
 
-**Returns:** n/a\
+**Returns:** empty object\
 **OAuth:** User token + `write:blocks` or `follow`\
 **Version history:**\
 1.4.0 - added
