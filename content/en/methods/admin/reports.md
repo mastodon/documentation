@@ -4,7 +4,7 @@ description: Perform moderation actions with reports.
 menu:
   docs:
     parent: methods-admin
-    identifier: methods-Admin_Reports
+    identifier: methods-admin-reports
 ---
 
 ## View all reports {#get}

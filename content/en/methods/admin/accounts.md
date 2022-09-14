@@ -4,7 +4,7 @@ description: Perform moderation actions with accounts.
 menu:
   docs:
     parent: methods-admin
-    identifier: methods-Admin_Accounts
+    identifier: methods-admin-accounts
 ---
 
 <!--
