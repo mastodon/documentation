@@ -4,6 +4,7 @@ description: Admin-level information about a filed report.
 menu:
   docs:
     parent: entities
+aliases: [/entities/admin-report/]
 ---
 
 ## Example

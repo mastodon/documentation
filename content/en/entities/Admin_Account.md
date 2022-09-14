@@ -4,6 +4,7 @@ description: Admin-level information about a given account.
 menu:
   docs:
     parent: entities
+aliases: [/entities/admin-account/]
 ---
 
 ## Example
