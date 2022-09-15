@@ -1,5 +1,5 @@
 ---
-title: domain_allows
+title: admin/domain_allows
 description: Allow certain domains to federate.
 menu:
   docs:

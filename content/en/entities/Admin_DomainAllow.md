@@ -28,7 +28,7 @@ menu:
 ### `domain` {#domain}
 
 **Description:** The domain that is allowed to federate.\
-**Type:** String (not necessarily a valid URL)\
+**Type:** String\
 **Version history:**\
 3.6.0 - added
 
@@ -41,6 +41,6 @@ menu:
 
 ## See also
 
-{{< page-ref page="methods/admin/domain_allows" >}}
+{{< page-relref page="methods/admin/domain_allows" caption="/api/v1/admin/domain_allows" >}}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/admin/domain_allows_serializer.rb" caption="app/serializers/rest/admin/domain_allows_serializer.rb" >}}
