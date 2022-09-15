@@ -147,7 +147,7 @@ GET https://mastodon.example/api/v1/accounts/verify_credentials HTTP/1.1
 
 Test to make sure that the user token works.
 
-**Returns:** the user's own [Account]({{< relref "entities/account">}}) with [Source]({{< relref "entities/source">}})\
+**Returns:** the user's own [Account]({{< relref "entities/Account">}}) with [`source`]({{< relref "entities/Account#source">}}) attribute\
 **OAuth**: User token + `read:accounts`\
 **Version history:**\
 0.0.0 - added
@@ -298,7 +298,7 @@ PATCH https://mastodon.example/api/v1/accounts/update_credentials HTTP/1.1
 
 Update the user's display and preferences.
 
-**Returns:** the user's own [Account]({{< relref "entities/account">}}) with [Source]({{< relref "entities/source">}})\
+**Returns:** the user's own [Account]({{< relref "entities/Account">}}) with [`source`]({{< relref "entities/Account#source">}}) attribute\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
 1.1.1 - added\
@@ -463,7 +463,7 @@ GET https://mastodon.example/api/v1/accounts/:id HTTP/1.1
 
 View information about a profile.
 
-**Returns:** [Account]({{< relref "entities/account">}})\
+**Returns:** [Account]({{< relref "entities/Account">}})\
 **OAuth:** Public\
 **Version history:**\
 0.0.0 - added\
@@ -753,7 +753,7 @@ GET https://mastodon.example/api/v1/accounts/:id/followers HTTP/1.1
 
 Accounts which follow the given account, if network is not hidden by the account owner.
 
-**Returns:** Array of [Account]({{< relref "entities/account">}})\
+**Returns:** Array of [Account]({{< relref "entities/Account">}})\
 **OAuth:** App token + `read:accounts`\
 **Version history:**\
 0.0.0 - added\
@@ -884,7 +884,7 @@ GET https://mastodon.example/api/v1/accounts/:id/following HTTP/1.1
 
 Accounts which the given account is following, if network is not hidden by the account owner.
 
-**Returns:** Array of [Account]({{< relref "entities/account">}})\
+**Returns:** Array of [Account]({{< relref "entities/Account">}})\
 **OAuth:** App token + `read:accounts`\
 **Version history:**\
 0.0.0 - added\
@@ -1998,7 +1998,7 @@ GET https://mastodon.example/api/v1/accounts/familiar_followers HTTP/1.1
 
 Obtain a list of all accounts that follow a given account, filtered for accounts you follow.
 
-**Returns:** Array of Hash, where each Hash contains `id` (String, cast from integer) and `accounts` (Array of [Account]({{< relref "entities/account">}}))\
+**Returns:** Array of Hash, where each Hash contains `id` (String, cast from integer) and `accounts` (Array of [Account]({{< relref "entities/Account">}}))\
 **OAuth:** User token + `read:follows`\
 **Version history:**\
 3.5.0 - added
@@ -2076,7 +2076,7 @@ GET https://mastodon.example/api/v1/accounts/search HTTP/1.1
 
 Search for matching accounts by username or display name.
 
-**Returns:** Array of [Account]({{< relref "entities/account">}})\
+**Returns:** Array of [Account]({{< relref "entities/Account">}})\
 **OAuth:** User token + `read:accounts`\
 **Version history:**\
 0.0.0 - added
@@ -2153,7 +2153,7 @@ GET https://mastodon.example/api/v1/accounts/lookup HTTP/1.1
 
 Quickly lookup a username to see if it is available, or quickly resolve a Webfinger address to an account ID.
 
-**Returns:** [Account]({{< relref "entities/account">}})\
+**Returns:** [Account]({{< relref "entities/Account">}})\
 **OAuth:** Public\
 **Version history:**\
 3.4.0 - added
