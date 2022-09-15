@@ -18,3 +18,5 @@ menu:
 ## Delete a canonical email block {#delete}
 
 ## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/admin/canonical_email_blocks_controller.rb" caption="app/controllers/api/v1/admin/canonical_email_blocks_controller.rb" >}}

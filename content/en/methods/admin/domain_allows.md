@@ -17,6 +17,7 @@ Show information about all allowed domains.
 
 **Returns:** Array of [Admin::DomainAllow]({{< relref "entities/Admin_DomainAllow" >}})\
 **OAuth:** User token + `admin:read:domain_allows`\
+**Permissions:** Manage Federation\
 **Version history:**\
 3.6.0 - added
 
@@ -72,6 +73,7 @@ Show information about a single allowed domain.
 
 **Returns:** [Admin::DomainAllow]({{< relref "entities/Admin_DomainAllow" >}})\
 **OAuth:** User token + `admin:read:domain_allows`\
+**Permissions:** Manage Federation\
 **Version history:**\
 3.6.0 - added
 
@@ -128,6 +130,7 @@ Add a domain to the list of domains allowed to federate, to be used when the ins
 
 **Returns:** [Admin::DomainAllow]({{< relref "entities/Admin_DomainAllow" >}})\
 **OAuth:** User token + `admin:write:domain_allows`\
+**Permissions:** Manage Federation\
 **Version history:**\
 3.6.0 - added
 
@@ -197,6 +200,7 @@ Delete a domain from the allowed domains list.
 
 **Returns:** [Admin::DomainAllow]({{< relref "entities/Admin_DomainAllow" >}})\
 **OAuth:** User token + `admin:write:domain_allows`\
+**Permissions:** Manage Federation\
 **Version history:**\
 3.6.0 - added
 

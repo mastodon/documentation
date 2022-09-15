@@ -17,8 +17,10 @@ Generate a retention data report for a given time period and bucket.
 
 **Returns:** Array of [Admin::Cohort]({{< relref "entities/Admin_Cohort" >}})\
 **OAuth:** User token + `admin:read`\
+**Permissions:** View Dashboard\
 **Version history:**\
-3.5.0 - added
+3.5.0 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 

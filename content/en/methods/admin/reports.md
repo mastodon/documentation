@@ -17,8 +17,10 @@ View information about all reports.
 
 **Returns:** Array of [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:read:reports`\
+**Permissions:** Manage Reports\
 **Version history:**\
-2.9.1 - added
+2.9.1 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -109,8 +111,10 @@ GET https://mastodon.example/api/v1/admin/reports/:id HTTP/1.1
 
 **Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:read:reports`\
+**Permissions:** Manage Reports\
 **Version history:**\
-2.9.1 - added
+2.9.1 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -207,8 +211,10 @@ Change metadata for a report.
 
 **Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:write:reports`\
+**Permissions:** Manage Reports\
 **Version history:**\
-3.5.0 - added
+3.5.0 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -268,8 +274,10 @@ Claim the handling of this report to yourself.
 
 **Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:write:reports`\
+**Permissions:** Manage Reports\
 **Version history:**\
-2.9.1 - added
+2.9.1 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -341,8 +349,10 @@ Unassign a report so that someone else can claim it.
 
 **Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:write:reports`\
+**Permissions:** Manage Reports\
 **Version history:**\
 2.9.1 - added
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -401,8 +411,10 @@ Mark a report as resolved with no further action taken.
 
 **Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:write:reports`\
+**Permissions:** Manage Reports\
 **Version history:**\
-2.9.1 - added
+2.9.1 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -456,8 +468,10 @@ Reopen a currently closed report, if it is closed.
 
 **Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
 **OAuth:** User token + `admin:write:reports`\
+**Permissions:** Manage Reports\
 **Version history:**\
-2.9.1 - added
+2.9.1 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 

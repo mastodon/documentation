@@ -22,9 +22,11 @@ View all accounts, optionally matching certain criteria for filtering, up to 100
 
 **Returns:** Array of [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:read:accounts`\
+**Permissions:** Manage Users\
 **Version history:**\
 2.9.1 - added\
-3.3.0 - added `sensitized`
+3.3.0 - added `sensitized`\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -183,9 +185,10 @@ View all accounts, optionally matching certain criteria for filtering, up to 100
 
 **Returns:** Array of [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:read:accounts`\
+**Permissions:** Manage Users\
 **Version history:**\
 3.5.0 - added\
-3.6.0 - added `role_ids`
+3.6.0 - added `role_ids`. Support custom roles and permissions
 
 #### Request
 
@@ -309,8 +312,10 @@ View admin-level information about the given account.
 
 **Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:read:accounts`\
+**Permissions:** Manage Users\
 **Version history:**\
-2.9.1 - added
+2.9.1 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -403,8 +408,10 @@ Approve the given local account if it is currently pending approval.
 
 **Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
+**Permissions:** Manage Users\
 **Version history:**\
-2.9.1 - added
+2.9.1 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -467,8 +474,10 @@ Reject the given local account if it is currently pending approval.
 
 **Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
+**Permissions:** Manage Users\
 **Version history:**\
-2.9.1 - added
+2.9.1 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -569,8 +578,10 @@ Permanently delete data for a suspended account.
 
 **Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
+**Permissions:** Delete User Data\
 **Version history:**\
-3.3.0 - added
+3.3.0 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -673,9 +684,11 @@ Perform an action against an account and log this action in the moderation histo
 
 **Returns:** empty object\
 **OAuth:** User token + `admin:write:accounts`\
+**Permissions:** Manage Users, Manage Reports\
 **Version history:**\
 2.9.1 - added\
-3.3.0 - add `sensitive` as a possible `type`
+3.3.0 - add `sensitive` as a possible `type`\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -761,8 +774,10 @@ Re-enable a local account whose login is currently disabled.
 
 **Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
+**Permissions:** Manage Users\
 **Version history:**\
-2.9.1 - added
+2.9.1 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -815,8 +830,10 @@ Unsilence an account if it is currently silenced.
 
 **Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
+**Permissions:** Manage Users\
 **Version history:**\
-2.9.1 - added
+2.9.1 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -869,8 +886,10 @@ Unsuspend a currently suspended account.
 
 **Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
+**Permissions:** Manage Users\
 **Version history:**\
-2.9.1 - added
+2.9.1 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
@@ -933,8 +952,10 @@ Stops marking an account's posts as sensitive, if it was previously flagged as s
 
 **Returns:** [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:write:accounts`\
+**Permissions:** Manage Users\
 **Version history:**\
-3.3.0 - added
+3.3.0 - added\
+3.6.0 - support custom roles and permissions
 
 #### Request
 
