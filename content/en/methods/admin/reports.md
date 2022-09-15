@@ -1,5 +1,5 @@
 ---
-title: reports
+title: admin/reports
 description: Perform moderation actions with reports.
 menu:
   docs:

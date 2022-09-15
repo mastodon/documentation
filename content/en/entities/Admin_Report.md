@@ -80,7 +80,10 @@ aliases: [/entities/admin-report/]
 ### `category` {#category}
 
 **Description:** The category under which the report is classified.\
-**Type:** String (Enumerable oneOf `spam` `violation` `other`)\
+**Type:** String (Enumerable oneOf)\
+`spam` = Malicious, fake, or repetitive content\
+`violation` = Violates one or more specific [`rules`](#rules)\
+`other` = The default (catch-all) category\
 **Version history:**\
 3.5.0 - added
 
@@ -129,14 +132,14 @@ aliases: [/entities/admin-report/]
 ### `assigned_account` {#assigned_account}
 
 **Description:** The account of the moderator assigned to this report.\
-**Type:** [Admin::Account]({{< relref "entities/admin_account" >}}) or null\
+**Type:** {{<nullable>}} [Admin::Account]({{< relref "entities/admin_account" >}}) or null\
 **Version history:**\
 2.9.1 - added
 
 ### `action_taken_by_account` {#action_taken_by_account}
 
 **Description:** The account of the moderator who handled the report.\
-**Type:** [Admin::Account]({{< relref "entities/admin_account" >}}) or null\
+**Type:** {{<nullable>}} [Admin::Account]({{< relref "entities/admin_account" >}}) or null\
 **Version history:**\
 2.9.1 - added
 
@@ -149,14 +152,14 @@ aliases: [/entities/admin-report/]
 
 ### `rules` {#rules}
 
-**Description:** Statuses attached to the report, for context.\
+**Description:** Rules attached to the report, for context.\
 **Type:** Array of [Rule]({{< relref "entities/rule" >}})\
 **Version history:**\
 3.5.0 - added
 
 ## See also
 
-{{< page-ref page="methods/admin/reports" >}}
+{{< page-relref page="methods/admin/reports" caption="/api/v1/admin/reports">}}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/admin/report_serializer.rb" caption="app/serializers/rest/admin/report_serializer.rb" >}}
 
