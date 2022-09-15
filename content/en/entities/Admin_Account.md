@@ -66,7 +66,7 @@ aliases: [/entities/admin-account/]
 ### `id` {#id}
 
 **Description:** The ID of the account in the database.\
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:** Added in 2.9.1
 
 ### `username` {#username}

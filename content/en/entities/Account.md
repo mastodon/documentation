@@ -72,12 +72,12 @@ menu:
 }
 ```
 
-## Base attributes
+## Attributes
 
 ### **`id`** {#id}
 
-**Description:** The account id`header`.\
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
+**Description:** The account id.\
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
 0.1.0 - added
 
@@ -90,8 +90,7 @@ menu:
 
 ### `acct` {#acct}
 
-**Description:** The Webfinger account URI.
-Equal to `username` for local users, or `username@domain` for remote users.\
+**Description:** The Webfinger account URI. Equal to `username` for local users, or `username@domain` for remote users.\
 **Type:** String\
 **Version history:**\
 0.1.0 - added
@@ -99,11 +98,9 @@ Equal to `username` for local users, or `username@domain` for remote users.\
 ### `url` {#url}
 
 **Description:** The location of the user's profile page.\
-**Type:** String \(HTTPS URL\)\
+**Type:** String (URL)\
 **Version history:**\
 0.1.0 - added
-
-## Display attributes
 
 ### `display_name` {#display_name}
 
@@ -114,38 +111,36 @@ Equal to `username` for local users, or `username@domain` for remote users.\
 
 ### `note` {#note}
 
-**Description:** The profile's bio / description.\
-**Type:** String \(HTML\)\
+**Description:** The profile's bio or description.\
+**Type:** String (HTML)\
 **Version history:**\
 0.1.0 - added
 
 ### `avatar` {#avatar}
 
 **Description:** An image icon that is shown next to statuses and in the profile.\
-**Type:** String \(URL\)\
+**Type:** String (URL)\
 **Version history:**\
 0.1.0 - added
 
 ### `avatar_static` {#avatar_static}
 
-**Description:** A static version of the avatar.
-Equal to `avatar` if its value is a static image; different if `avatar` is an animated GIF.\
-**Type:** String \(URL\)\
+**Description:** A static version of the avatar. Equal to `avatar` if its value is a static image; different if `avatar` is an animated GIF.\
+**Type:** String (URL)\
 **Version history:**\
 1.1.2 - added
 
 ### `header` {#header}
 
 **Description:** An image banner that is shown above the profile and in profile cards.\
-**Type:** String \(URL\)\
+**Type:** String (URL)\
 **Version history:**\
 0.1.0 - added
 
 ### `header_static` {#header_static}
 
-**Description:** A static version of the header.
-Equal to `header` if its value is a static image; different if `header` is an animated GIF.\
-**Type:** String \(URL\)\
+**Description:** A static version of the header. Equal to `header` if its value is a static image; different if `header` is an animated GIF.\
+**Type:** String (URL)\
 **Version history:**\
 1.1.2 - added
 
@@ -156,26 +151,66 @@ Equal to `header` if its value is a static image; different if `header` is an an
 **Version history:**\
 0.1.0 - added
 
-### `emojis` {#emojis}
+### `fields` {#fields}
 
-**Description:** Custom emoji entities to be used when rendering the profile. If none, an empty array will be returned.\
-**Type:** Array of [Emoji]({{< relref "emoji.md" >}})\
+**Description:** Additional metadata attached to a profile as name-value pairs.\
+**Type:** Array of [Field]({{< relref "entities/Field" >}}), or empty array if none\
 **Version history:**\
 2.4.0 - added
 
-### `discoverable` {#discoverable}
+### `emojis` {#emojis}
 
-**Description:** Whether the account has opted into discovery features such as the profile directory.\
+**Description:** Custom emoji entities to be used when rendering the profile.\
+**Type:** Array of [Emoji]({{< relref "entities/Emoji" >}}), or empty array if none\
+**Version history:**\
+2.4.0 - added
+
+### `bot` {#bot}
+
+**Description:** Indicates that the account may perform automated actions, may not be monitored, or identifies as a robot.\
+**Type:** Boolean\
+**Version history:**\
+2.4.0 - added
+
+### `group` {#group}
+
+**Description:** Indicates that the account represents a Group actor.\
 **Type:** Boolean\
 **Version history:**\
 3.1.0 - added
 
-## Statistical attributes 
+### `discoverable` {#discoverable}
+
+**Description:** Whether the account has opted into discovery features such as the profile directory.\
+**Type:** {{<nullable>}} Boolean\
+**Version history:**\
+3.1.0 - added
+
+### `moved` {{<optional>}} {#moved}
+
+**Description:** Indicates that the profile is currently inactive and that its user has moved to a new account.\
+**Type:** {{<nullable>}} [Account]({{< relref "entities/Account" >}}), or null if the profile is supended.\
+**Version history:**\
+2.1.0 - added
+
+### `suspended` {{<optional>}} {#suspended}
+
+**Description:** An extra attribute returned only when an account is suspended.\
+**Type:**  Boolean\
+**Version history:**\
+3.3.0 - added
+
+### `limited` {{<optional>}} {#limited}
+
+**Description:** An extra attribute returned only when an account is silenced. If true, indicates that the account should be hidden behing a warning screen.\
+**Type:** Boolean\
+**Version history:**\
+3.5.3 - added
 
 ### `created_at` {#created_at}
 
 **Description:** When the account was created.\
-**Type:** String \(ISO 8601 Datetime\)\
+**Type:** String (ISO 8601 Datetime)\
 **Version history:**\
 0.1.0 - added
 3.4.0 - now resolves to midnight instead of an exact time
@@ -183,84 +218,56 @@ Equal to `header` if its value is a static image; different if `header` is an an
 ### `last_status_at` {#last_status_at}
 
 **Description:** When the most recent status was posted.\
-**Type:** String \(ISO 8601 Datetime\)\
+**Type:** {{<nullable>}} String (ISO 8601 Date), or null if no statuses\
 **Version history:**\
 3.0.0 - added\
 3.1.0 - now returns date only, no time
 
-
 ### `statuses_count` {#statuses_count}
 
 **Description:** How many statuses are attached to this account.\
-**Type:** Number\
+**Type:** Integer\
 **Version history:**\
 0.1.0 - added
 
 ### `followers_count` {#followers_count}
 
 **Description:** The reported followers of this profile.\
-**Type:** Number\
+**Type:** Integer\
 **Version history:**\
 0.1.0 - added
 
 ### `following_count` {#following_count}
 
 **Description:** The reported follows of this profile.\
-**Type:** Number\
+**Type:** Integer\
 **Version history:**\
 0.1.0 - added
 
-## Optional attributes
-
-### `moved` {#moved}
-
-**Description:** Indicates that the profile is currently inactive and that its user has moved to a new account.\
-**Type:** [Account]({{< relref "account.md" >}})\
-**Version history:**\
-2.1.0 - added
-
-### `fields` {#fields}
-
-**Description:** Additional metadata attached to a profile as name-value pairs.\
-**Type:** Array of [Field]({{< relref "field.md" >}})\
-**Version history:**\
-2.4.0 - added
-
-### `bot` {#bot}
-
-**Description:** A presentational flag. Indicates that the account may perform automated actions, may not be monitored, or identifies as a robot.\
-**Type:** Boolean\
-**Version history:**\
-2.4.0 - added
+## CredentialAccount attributes {#CredentialAccount}
 
 ### `source` {#source}
 
-**Description:** An extra entity to be used with API methods to [verify credentials]({{< relref "../methods/accounts/#verify-account-credentials" >}}) and [update credentials]({{< relref "../methods/accounts/#update-account-credentials" >}}).\
-**Type:** [Source]({{< relref "source.md" >}})\
+**Description:** An extra entity that contains source values to be used with API methods that [verify credentials]({{< relref "methods/accounts#verify_credentials" >}}) and [update credentials]({{< relref "methods/accounts#update_credentials" >}}).\
+**Type:** [Source]({{< relref "entities/Source" >}})\
 **Version history:**\
 2.4.0 - added
 
-### `suspended` {#suspended}
-
-**Description:** An extra entity returned when an account is suspended.\
-**Type:** Boolean\
-**Version history:**\
-3.3.0 - added
+## MutedAccount attributes {#MutedAccount}
 
 ### `mute_expires_at` {#mute_expires_at}
 
 **Description:** When a timed mute will expire, if applicable.\
-**Type:** String \(ISO 8601 Datetime\) or null\
+**Type:** {{<nullable>}} String (ISO 8601 Datetime), or null if the mute is indefinite\
 **Version history:**\
 3.3.0 - added
 
 ## See also
 
-{{< page-ref page="methods/accounts" >}}
+{{< page-relref ref="methods/accounts" caption="accounts API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/account_serializer.rb" caption="app/serializers/rest/account\_serializer.rb" >}}
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/account_serializer.rb" caption="app/serializers/rest/account_serializer.rb" >}}
 
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/credential_account_serializer.rb" caption="app/serializers/rest/credential_account_serializer.rb" >}}
 
-
-
-
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/muted_account_serializer.rb" caption="app/serializers/rest/muted_account_serializer.rb" >}}

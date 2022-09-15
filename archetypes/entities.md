@@ -22,6 +22,6 @@ x.x.x - added
 
 ## See also
 
-{{< page-ref page="methods/SOMETHING" >}}
+{{< page-relref ref="methods/SOMETHING#anchor" caption="POST /api/v1/something/" >}}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/SOMETHING_serializer.rb" caption="app/serializers/rest/SOMETHING_serializer.rb" >}}

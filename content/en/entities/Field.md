@@ -8,7 +8,6 @@ menu:
 
 ## Example
 
-{{< code title="Excerpt from Account\[source\]" >}}
 ```javascript
     "fields": [
       {
@@ -33,38 +32,35 @@ menu:
       }
     ],
 ```
-{{< /code >}}
 
-## Required attributes
+## Attributes
 
 ### `name` {#name}
 
 **Description:** The key of a given field's key-value pair.\
 **Type:** String\
-**Version history:** Added in 2.4.0
+**Version history:**\
+2.4.0 - added
 
 ### `value` {#value}
 
 **Description:** The value associated with the `name` key.\
-**Type:** String \(HTML\)\
-**Version history:** Added in 2.4.0
-
-## Optional attributes
+**Type:** String (HTML)\
+**Version history:**\
+2.4.0 - added
 
 ### `verified_at` {#verified_at}
 
 **Description:** Timestamp of when the server verified a URL value for a rel="me" link.\
-**Type:** String \(ISO 8601 Datetime\) if `value` is a verified URL. Otherwise, null\
-**Version history:** Added in 2.6.0
+**Type:** {{<nullable>}} String (ISO 8601 Datetime) if `value` is a verified URL. Otherwise, null.\
+**Version history:**\
+2.6.0 - added
 
 ## See also
 
-* [Account\#fields]({{< relref "account.md#fields" >}})
-* [Source\#fields]({{< relref "source.md#fields" >}})
+{{< page-relref ref="entities/Account#fields" caption="Account#fields" >}}
 
-{{< page-ref page="account.md" >}}
-
-{{< page-ref page="source.md" >}}
+{{< page-relref ref="entities/Source#fields" caption="Source#fields" >}}
 
 
 
