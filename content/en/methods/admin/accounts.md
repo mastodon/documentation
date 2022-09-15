@@ -1,5 +1,5 @@
 ---
-title: accounts
+title: admin/accounts
 description: Perform moderation actions with accounts.
 menu:
   docs:

@@ -16,7 +16,7 @@ aliases: [/entities/admin-account/]
   "domain": null,
   "created_at": "2022-09-08T23:03:26.762Z",
   "email": "admin@mastodon.local",
-  "ip": null,
+  "ip": "192.168.42.1",
   "role": {
     "id": 3,
     "name": "Owner",
@@ -34,7 +34,12 @@ aliases: [/entities/admin-account/]
   "approved": true,
   "locale": null,
   "invite_request": null,
-  "ips": [],
+  "ips": [
+    {
+      "ip": "192.168.42.1",
+      "used_at": "2022-09-15T01:38:58.851Z"
+    }
+  ],
   "account": {
     "id": "108965278956942133",
     "username": "admin",
@@ -67,115 +72,132 @@ aliases: [/entities/admin-account/]
 
 **Description:** The ID of the account in the database.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\
-**Version history:** Added in 2.9.1
+**Version history:**\
+2.9.1 - added
 
 ### `username` {#username}
 
 **Description:** The username of the account.\
 **Type:** String\
-**Version history:** Added in 2.9.1
+**Version history:**\
+2.9.1 - added
 
 ### `domain` {#domain}
 
-**Description:** The domain of the account.\
-**Type:** String\
-**Version history:** Added in 2.9.1
+**Description:** The domain of the account, if it is remote.\
+**Type:** {{<nullable>}} String, or null for local accounts\
+**Version history:**\
+2.9.1 - added
 
 ### `created_at` {#created_at}
 
 **Description:** When the account was first discovered.\
-**Type:** String \(ISO 8601 Datetime\)\
-**Version history:** Added in 2.9.1
+**Type:** String (ISO 8601 Datetime)\
+**Version history:**\
+2.9.1 - added
 
 ### `email` {#email}
 
 **Description:** The email address associated with the account.\
 **Type:** String\
-**Version history:** Added in 2.9.1
+**Version history:**\
+2.9.1 - added
 
 ### `ip` {#ip}
 
 **Description:** The IP address last used to login to this account.\
-**Type:** String\
-**Version history:** Added in 2.9.1
+**Type:** {{<nullable>}} String\
+**Version history:**\
+2.9.1 - added
+3.5.0 - return type changed from String to [Admin::Ip]({{< relref "entities/Admin_Ip" >}}) due to a bug
+
+### `ips` {#ip}
+
+**Description:** All known IP addresses associated with this account.\
+**Type:** Array of [Admin::Ip]({{< relref "entities/Admin_Ip" >}})\
+**Version history:**\
+3.5.0 - added
 
 ### `locale` {#locale}
 
 **Description:** The locale of the account.\
-**Type:** String \(ISO 639 Part 1 two-letter language code\)\
-**Version history:** Added in 2.9.1
+**Type:** String (ISO 639 Part 1 two-letter language code)\
+**Version history:**\
+2.9.1 - added
 
 ### `invite_request` {#invite_request}
 
-**Description:** Invite request text ???\
-**Type:** String\
-**Version history:** Added in 2.9.1
-
-## State attributes
+**Description:** The reason given when requesting an invite (for instances that require manual approval of registrations)\
+**Type:** {{<nullable>}} String\
+**Version history:**\
+2.9.1 - added
 
 ### `role` {#role}
 
 **Description:** The current role of the account.\
 **Type:** [Role]({{<relref "entities/role">}})\
 **Version history:**\
-2.9.1 - added, can be `user` `moderator` or `admin`
+2.9.1 - added, returns a String (enumerable, oneOf `user` `moderator` `admin`)
 3.6.0 - now uses Role entity
 
 ### `confirmed` {#confirmed}
 
 **Description:** Whether the account has confirmed their email address.\
 **Type:** Boolean\
-**Version history:** Added in 2.9.1
+**Version history:**\
+2.9.1 - added
 
 ### `approved` {#approved}
 
 **Description:** Whether the account is currently approved.\
 **Type:** Boolean\
-**Version history:** Added in 2.9.1
+**Version history:**\
+2.9.1 - added
 
 ### `disabled` {#disabled}
 
 **Description:** Whether the account is currently disabled.\
 **Type:** Boolean\
-**Version history:** Added in 2.9.1
+**Version history:**\
+2.9.1 - added
 
 ### `silenced` {#silenced}
 
 **Description:** Whether the account is currently silenced.
 **Type:** Boolean\
-**Version history:** Added in 2.9.1
+**Version history:**\
+2.9.1 - added
 
 ### `suspended` {#suspended}
 
 **Description:** Whether the account is currently suspended.\
 **Type:** Boolean\
-**Version history:** Added in 2.9.1
+**Version history:**\
+2.9.1 - added
 
 ### `account` {#account}
 
 **Description:** User-level information about the account.\
-**Type:** Account\
-**Version history:** Added in 2.9.1
+**Type:** [Account]({{< relref "entities/account" >}})\
+**Version history:**\
+2.9.1 - added
 
-## Nullable attributes
+### `created_by_application_id` {{<optional>}} {#created_by_application_id}
 
-### `created_by_application_id` {#created_by_application_id}
+**Description:** The ID of the [Application]({{< relref "entities/application" >}}) that created this account, if applicable.\
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
+**Version history:**\
+2.9.1 - added
 
-**Description:** The ID of the application that created this account.\
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
-**Version history:** Added in 2.9.1
+### `invited_by_account_id` {{<optional>}} {#invited_by_account_id}
 
-### `invited_by_account_id` {#invited_by_account_id}
-
-**Description:** The ID of the account that invited this user\
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
-**Version history:** Added in 2.9.1
+**Description:** The ID of the [Account]({{< relref "entities/account" >}}) that invited this user, if applicable.\
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
+**Version history:**\
+2.9.1 - added
 
 ## See also
 
-{{< page-ref page="methods/admin.md" >}}
+{{< page-relref ref="methods/admin/accounts" caption="admin/accounts API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/admin/account_serializer.rb" caption="app/serializers/rest/admin/account\_serializer.rb" >}}
-
-
-
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/admin/account_serializer.rb" caption="app/serializers/rest/admin/account_serializer.rb" >}}
