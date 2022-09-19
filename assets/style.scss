@@ -829,3 +829,14 @@ main {
     padding: 20px;
   }
 }
+
+.heading {
+  display: flex;
+  align-items: center;
+
+  &__anchor-link {
+    display: inline-flex;
+    align-content: center;
+    margin-left: 0.25em;
+  }
+}

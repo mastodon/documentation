@@ -65,7 +65,7 @@ Invalid or missing Authorization header.
 
 ##### 403: Forbidden
 
-Authorized user is not allowed to perform this action, or invalid or missing Authorization header
+Authorized user is missing a permission, or invalid or missing Authorization header
 
 ```javascript
 {
@@ -104,3 +104,5 @@ SOMETHING is not owned by you or does not exist
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/SOMETHING" caption="app/controllers/api/v1/SOMETHING/" >}}
 
 {{< page-relref ref="methods/SOMETHING#anchor" caption="POST /api/v1/something/" >}}
+
+{{< page-ref page="client/authorized" >}}

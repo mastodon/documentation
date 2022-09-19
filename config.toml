@@ -10,7 +10,7 @@ enableGitInfo = true
 
 [markup]
   [markup.tableOfContents]
-    endLevel = 2
+    endLevel = 3
     ordered = false
     startLevel = 1
   [markup.goldmark.renderer]
