@@ -6,7 +6,12 @@ menu:
     weight: 30
     parent: methods
     identifier: methods-statuses
+aliases: ["/methods/statuses"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## Publish new status {#create}
 
@@ -76,7 +81,7 @@ scheduled_at
 
 Status will be posted with chosen parameters:
 
-```javascript
+```json
 {
   "id": "103254962155278888",
   "created_at": "2019-12-05T11:34:47.196Z",
@@ -93,7 +98,7 @@ Status will be posted with chosen parameters:
 
 If scheduled_at is provided, then a ScheduledStatus will be returned instead:
 
-```javascript
+```json
 {
   "id": "3221",
   "scheduled_at": "2019-12-05T12:33:01.000Z",
@@ -117,7 +122,7 @@ If scheduled_at is provided, then a ScheduledStatus will be returned instead:
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -125,7 +130,7 @@ Invalid or missing Authorization header.
 
 ##### 422: Unprocessable entity
 
-```javascript
+```json
 {
   "error": "Validation failed: Text can't be blank"
 }
@@ -162,7 +167,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
   "id": "1",
   "created_at": "2016-03-16T14:44:31.580Z",
@@ -229,7 +234,7 @@ Authorization
 
 Instance is in authorized-fetch mode.
 
-```javascript
+```json
 {
   "error": "This API requires an authenticated user"
 }
@@ -239,7 +244,7 @@ Instance is in authorized-fetch mode.
 
 Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -280,7 +285,7 @@ Note the special properties `text` and `poll` or `media_attachments` which may b
 
 Example of deleting a media post:
 
-```javascript
+```json
 {
   "id": "103254193998341330",
   "created_at": "2019-12-05T08:19:26.052Z",
@@ -353,7 +358,7 @@ Example of deleting a media post:
 
 Example of deleting a poll:
 
-```javascript
+```json
 {
   "id": "103254222827484720",
   "created_at": "2019-12-05T08:26:45.958Z",
@@ -419,7 +424,7 @@ Example of deleting a poll:
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -429,7 +434,7 @@ Invalid or missing Authorization header.
 
 Status is not owned by you or does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -465,7 +470,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
   "ancestors": [
     {
@@ -506,7 +511,7 @@ Authorization
 
 Status is private or does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -544,7 +549,7 @@ Authorization
 
 A list of statuses that boosted the status
 
-```javascript
+```json
 [
   {
     "id": "711345",
@@ -560,7 +565,7 @@ A list of statuses that boosted the status
 
 Status does not exist or is private
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -598,7 +603,7 @@ Authorization
 
 A list of accounts who favourited the status
 
-```javascript
+```json
 [
   {
     "id": "828600",
@@ -614,7 +619,7 @@ A list of accounts who favourited the status
 
 Status does not exist or is private
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -652,7 +657,7 @@ Authorization
 
 Status favourited or was already favourited
 
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
@@ -670,7 +675,7 @@ Status favourited or was already favourited
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -680,7 +685,7 @@ Invalid or missing Authorization header.
 
 Status does not exist or is private
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -718,7 +723,7 @@ Authorization
 
 Status unfavourited or was already not favourited
 
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
@@ -736,7 +741,7 @@ Status unfavourited or was already not favourited
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -746,7 +751,7 @@ Invalid or missing Authorization header.
 
 Status does not exist or is private
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -790,7 +795,7 @@ visibility
 
 Status has been reblogged. Note that the top-level id has changed. The id of the boosted status is now inside the `reblog` property. The top-level id is the id of the reblog itself. Also note that reblogs cannot be pinned.
 
-```javascript
+```json
 {
   "id": "103254401326800919",
   "created_at": "2019-12-05T09:12:09.625Z",
@@ -819,7 +824,7 @@ Status has been reblogged. Note that the top-level id has changed. The id of the
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -829,7 +834,7 @@ Invalid or missing Authorization header.
 
 Status does not exist or is private
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -867,7 +872,7 @@ Authorization
 
 Status unboosted or was already not boosted
 
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
@@ -885,7 +890,7 @@ Status unboosted or was already not boosted
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -895,7 +900,7 @@ Invalid or missing Authorization header.
 
 Status does not exist or is private
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -933,7 +938,7 @@ Authorization
 
 Status bookmarked or was already bookmarked
 
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
@@ -951,7 +956,7 @@ Status bookmarked or was already bookmarked
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -989,7 +994,7 @@ Authorization
 
 Status was unbookmarked or was already not bookmarked
 
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
@@ -1007,7 +1012,7 @@ Status was unbookmarked or was already not bookmarked
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1017,7 +1022,7 @@ Invalid or missing Authorization header.
 
 Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -1055,7 +1060,7 @@ Authorization
 
 Status's conversation muted, or was already muted
 
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
@@ -1073,7 +1078,7 @@ Status's conversation muted, or was already muted
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1083,7 +1088,7 @@ Invalid or missing Authorization header.
 
 Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -1121,7 +1126,7 @@ Authorization
 
 Status's conversation unmuted, or was already unmuted
 
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
@@ -1139,7 +1144,7 @@ Status's conversation unmuted, or was already unmuted
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1149,7 +1154,7 @@ Invalid or missing Authorization header.
 
 Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -1188,7 +1193,7 @@ Authorization
 
 Status pinned. Note the status is not a reblog and its authoring account is your own.
 
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
@@ -1215,7 +1220,7 @@ Status pinned. Note the status is not a reblog and its authoring account is your
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1225,7 +1230,7 @@ Invalid or missing Authorization header.
 
 Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -1235,7 +1240,7 @@ Status does not exist or is private.
 
 Status is not owned by you:
 
-```javascript
+```json
 {
   "error": "Validation failed: Someone else's toot cannot be pinned"
 }
@@ -1243,7 +1248,7 @@ Status is not owned by you:
 
 Prior to 3.5.0, you could not pin one of your private statuses because private statuses could not be fetched from remote sites, and must have been delivered. (3.5.0 added a mechanism to fetch statuses on behalf of an account.)
 
-```javascript
+```json
 {
   "error": "Validation failed: Non-public toot cannot be pinned"
 }
@@ -1281,7 +1286,7 @@ Authorization
 
 Status unpinned, or was already not pinned
 
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
@@ -1308,7 +1313,7 @@ Status unpinned, or was already not pinned
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1318,7 +1323,7 @@ Invalid or missing Authorization header.
 
 Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -1382,7 +1387,7 @@ poll[hide_totals]
 
 Status has been successfully edited.
 
-```javascript
+```json
 {
   "id": "108942703571991143",
   "created_at": "2022-09-04T23:22:13.704Z",
@@ -1430,7 +1435,7 @@ Status has been successfully edited.
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1440,7 +1445,7 @@ Invalid or missing Authorization header.
 
 Status does not exist, is private, or is not owned by you.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -1448,7 +1453,7 @@ Status does not exist, is private, or is not owned by you.
 
 ##### 422: Unprocessable entity
 
-```javascript
+```json
 {
   "error": "Validation failed: Text can't be blank"
 }
@@ -1484,7 +1489,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "content": "<p>this is a status that will be edited</p>",
@@ -1594,7 +1599,7 @@ Authorization
 
 Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -1630,7 +1635,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
   "id": "108942703571991143",
   "text": "this is a status that will be edited",
@@ -1642,7 +1647,7 @@ Authorization
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1652,7 +1657,7 @@ Invalid or missing Authorization header.
 
 Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -1666,7 +1671,7 @@ Status does not exist or is private.
 GET https://mastodon.example/api/v1/statuses/:id/card HTTP/1.1
 ```
 
-**Returns:** [Card]({{< relref "entities/card" >}})\
+**Returns:** [PreviewCard]({{< relref "entities/PreviewCard" >}})\
 **OAuth:** Public for public statuses, user token + `read:statuses` for private statuses\
 **Version history:**\
 0.0.0 - added\
@@ -1688,7 +1693,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
   "url": "https://www.youtube.com/watch?v=OMv_EPMED8Y",
   "title": "♪ Brand New Friend (Christmas Song!)",
@@ -1710,7 +1715,7 @@ Authorization
 
 Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -1722,4 +1727,20 @@ Status does not exist or is private.
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses_controller.rb" caption="app/controllers/api/v1/statuses_controller.rb" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses" caption="app/controllers/api/v1/statuses/" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/bookmarks_controller.rb" caption="app/controllers/api/v1/statuses/bookmarks_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/favourited_by_accounts_controller.rb" caption="app/controllers/api/v1/statuses/favourited_by_accounts_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/favourites_controller.rb" caption="app/controllers/api/v1/statuses/favourites_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/histories_controller.rb" caption="app/controllers/api/v1/statuses/histories_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/mutes_controller.rb" caption="app/controllers/api/v1/statuses/mutes_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/pins_controller.rb" caption="app/controllers/api/v1/statuses/pins_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/reblogged_by_accounts_controller.rb" caption="app/controllers/api/v1/statuses/reblogged_by_accounts_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/reblogs_controller.rb" caption="app/controllers/api/v1/statuses/reblogs_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/sources_controller.rb" caption="app/controllers/api/v1/statuses/sources_controller.rb" >}}

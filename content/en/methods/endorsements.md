@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 90
     parent: methods-accounts
-aliases: [/methods/accounts/endorsements/]
+    identifier: methods-endorsements
+aliases: ["/methods/endorsements", "/methods/accounts/endorsements"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View currently featured profiles {#get}
 
@@ -52,7 +57,7 @@ Sample call with limit=2. Because endorsement IDs are private, you must parse th
 Link: <https://mastodon.social/api/v1/endorsements?limit=2&max_id=832844>; rel="next", <https://mastodon.social/api/v1/endorsements?limit=2&since_id=952529>; rel="prev"
 ```
 
-```javascript
+```json
 [
   {
     "id": "952529",
@@ -110,7 +115,7 @@ Link: <https://mastodon.social/api/v1/endorsements?limit=2&max_id=832844>; rel="
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -120,8 +125,8 @@ Invalid or missing Authorization header.
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/endorsements_controller.rb" caption="app/controllers/api/v1/endorsements_controller.rb" >}}
-
 {{< page-relref ref="methods/accounts#pin" caption="POST /api/v1/accounts/:id/pin" >}}
 
 {{< page-relref ref="methods/accounts#unpin" caption="POST /api/v1/accounts/:id/unpin" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/endorsements_controller.rb" caption="app/controllers/api/v1/endorsements_controller.rb" >}}

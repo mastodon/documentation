@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 10
     parent: methods-apps
-aliases: [/methods/apps/oauth/]
+    identifier: methods-oauth
+aliases: ["/methods/oauth", "/methods/apps/oauth"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## Authorize a user {#authorize}
 
@@ -53,7 +58,7 @@ redirect_uri?code=qDFUEaYrRK5c-HNmTCJbAzazwLRInJ7VHFat0wcMgCU
 
 If the authorization code is incorrect or has been used already, the request will fail.
 
-```javascript
+```json
 {
   "error": "invalid_grant",
   "error_description": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
@@ -98,7 +103,7 @@ code
 
 Store this access_token for later use with auth-required methods. The token should be passed as an HTTP `Authorization` header when making API calls, with the value `Bearer access_token`
 
-```javascript
+```json
 {
   "access_token": "ZA-Yj3aBD8U8Cm7lKUp-lm9O9BmDgdhHzDeqsY8tlL0",
   "token_type": "Bearer",
@@ -111,7 +116,7 @@ Store this access_token for later use with auth-required methods. The token shou
 
 If you try to request a scope that was not included when registering the app, the request will fail.
 
-```javascript
+```json
 {
   "error": "invalid_scope",
   "error_description": "The requested scope is invalid, unknown, or malformed."
@@ -122,7 +127,7 @@ If you try to request a scope that was not included when registering the app, th
 
 If client_id and client_secret do not match or are invalid, the request will fail.
 
-```javascript
+```json
 {
   "error": "invalid_client",
   "error_description": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method."
@@ -161,7 +166,7 @@ token
 
 If you own the provided token, the API call will provide an empty response. This operation is idempotent, so calling this API multiple times will still return OK.
 
-```javascript
+```json
 {}
 ```
 
@@ -169,7 +174,7 @@ If you own the provided token, the API call will provide an empty response. This
 
 If you provide a token you do not own, or no token at all, the API call will return a 403 error.
 
-```javascript
+```json
 {
   "error": "unauthorized_client",
   "error_description": "You are not authorized to revoke this token"
@@ -180,6 +185,10 @@ If you provide a token you do not own, or no token at all, the API call will ret
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/oauth" caption="app/controllers/oauth/" >}}
-
 {{< page-relref ref="methods/apps#create" caption="POST /api/v1/apps" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/oauth/authorizations_controller.rb" caption="app/controllers/oauth/authorizations_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/oauth/authorized_applications_controller.rb" caption="app/controllers/oauth/authorized_applications_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/oauth/tokens_controller.rb" caption="app/controllers/oauth/tokens_controller.rb" >}}

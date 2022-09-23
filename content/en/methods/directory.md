@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 20
     parent: methods-instance
-aliases: [/methods/instance/directory/]
+    identifier: methods-directory
+aliases: ["/methods/directory", "/methods/instance/directory"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View profile directory {#get}
 
@@ -42,7 +47,7 @@ local
 
 Sample results with limit=2
 
-```javascript
+```json
 [
   {
     "id": "796927",

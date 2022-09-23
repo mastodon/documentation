@@ -4,21 +4,25 @@ description: Represents a retention metric.
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/admin-cohort",
+  "/entities/admin_cohort",
+  "/entities/Admin_Cohort"]
 ---
 
 ## Example
 
 Monthly retention data for the month of 2022-09, given that 2 users registered during 2022-09 and were active at least once during that month.
 
-```javascript
+```json
 {
 	"period": "2022-09-01T00:00:00+00:00",
 	"frequency": "month",
 	"data": [
 		{
-				"date": "2022-09-01T00:00:00+00:00",
-				"rate": 1.0,
-				"value": "2"
+			"date": "2022-09-01T00:00:00+00:00",
+			"rate": 1.0,
+			"value": "2"
 		}
 	]
 }
@@ -26,45 +30,45 @@ Monthly retention data for the month of 2022-09, given that 2 users registered d
 
 Daily retention data for the week between 2022-09-08 and 2022-09-14, given that 2 users registered on 2022-09-08 and 1 of those users stopped being active after 2022-09-09.
 
-```javascript
+```json
 {
 	"period": "2022-09-08T00:00:00+00:00",
 	"frequency": "day",
 	"data": [
 		{
-				"date": "2022-09-08T00:00:00+00:00",
-				"rate": 1.0,
-				"value": "2"
+			"date": "2022-09-08T00:00:00+00:00",
+			"rate": 1.0,
+			"value": "2"
 		},
 		{
-				"date": "2022-09-09T00:00:00+00:00",
-				"rate": 1.0,
-				"value": "2"
+			"date": "2022-09-09T00:00:00+00:00",
+			"rate": 1.0,
+			"value": "2"
 		},
 		{
-				"date": "2022-09-10T00:00:00+00:00",
-				"rate": 0.5,
-				"value": "1"
+			"date": "2022-09-10T00:00:00+00:00",
+			"rate": 0.5,
+			"value": "1"
 		},
 		{
-				"date": "2022-09-11T00:00:00+00:00",
-				"rate": 0.5,
-				"value": "1"
+			"date": "2022-09-11T00:00:00+00:00",
+			"rate": 0.5,
+			"value": "1"
 		},
 		{
-				"date": "2022-09-12T00:00:00+00:00",
-				"rate": 0.5,
-				"value": "1"
+			"date": "2022-09-12T00:00:00+00:00",
+			"rate": 0.5,
+			"value": "1"
 		},
 		{
-				"date": "2022-09-13T00:00:00+00:00",
-				"rate": 0.5,
-				"value": "1"
+			"date": "2022-09-13T00:00:00+00:00",
+			"rate": 0.5,
+			"value": "1"
 		},
 		{
-				"date": "2022-09-14T00:00:00+00:00",
-				"rate": 0.5,
-				"value": "1"
+			"date": "2022-09-14T00:00:00+00:00",
+			"rate": 0.5,
+			"value": "1"
 		}
 	]
 },
@@ -91,11 +95,11 @@ Daily retention data for the week between 2022-09-08 and 2022-09-14, given that 
 ### `data` {#data}
 
 **Description:** Retention data for users who registered during the given period.\
-**Type:** Array of [CohortData](#cohortdata)\
+**Type:** Array of [CohortData](#CohortData)\
 **Version history:**\
 3.5.0 - added
 
-## CohortData entity attributes {#cohortdata}
+## CohortData entity attributes {#CohortData}
 
 ### `date` {date}
 
@@ -120,6 +124,6 @@ Daily retention data for the week between 2022-09-08 and 2022-09-14, given that 
 
 ## See also
 
-{{< page-relref ref="methods/admin/retention" caption="POST /api/v1/admin/retention" >}}
+{{< page-relref ref="methods/admin/retention" caption="admin/retention API methods" >}}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/admin/cohort_serializer.rb" caption="app/serializers/rest/admin/cohort_serializer.rb" >}}

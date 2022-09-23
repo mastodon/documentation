@@ -4,11 +4,15 @@ description: Represents a canonical email block (hashed).
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/admin-canonicalemailblock",
+  "/entities/admin_canonicalemailblock",
+  "/entities/Admin_CanonicalEmailBlock"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
 	"id": "2",
 	"canonical_email_hash": "b344e55d11b3fc25d0d53194e0475838bf17e9be67ce3e6469956222d9a34f9c"
@@ -33,6 +37,6 @@ menu:
 
 ## See also
 
-{{< page-relref ref="methods/admin/canonical_email_blocks" caption="/api/v1/admin/canonical_email_blocks" >}}
+{{< page-relref ref="methods/admin/canonical_email_blocks" caption="admin/canonical_email_blocks API methods" >}}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/admin/canonical_email_block_serializer.rb" caption="app/serializers/rest/admin/canonical_email_block_serializer.rb" >}}

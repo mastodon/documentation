@@ -5,7 +5,16 @@ menu:
   docs:
     parent: methods-admin
     identifier: methods-admin-canonical_email_blocks
+aliases: ["/methods/admin/canonical_email_blocks"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
+
+<!--
+TODO:
+-->
 
 ## List all canonical email blocks {#get}
 

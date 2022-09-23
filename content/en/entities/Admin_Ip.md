@@ -4,11 +4,15 @@ description: Represents an IP address associated with a user.
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/admin-ip",
+  "/entities/admin_ip",
+  "/entities/Admin_Ip"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
 	"ip": "192.168.42.1",
 	"used_at": "2022-09-15T01:38:58.851Z"
@@ -33,6 +37,6 @@ menu:
 
 ## See also
 
-{{< page-relref ref="entities/Admin_Account#ips" caption="Admin::Account#ips" >}}
+{{< page-relref ref="entities/Admin_Account#ips" caption="Admin::Account (`ips` attribute)" >}}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/admin/ip_serializer.rb" caption="app/serializers/rest/admin/ip_serializer.rb" >}}

@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 30
     parent: methods-accounts
-aliases: [/methods/accounts/mutes/]
+    identifier: methods-mutes
+aliases: ["/methods/mutes", "/methods/accounts/mutes"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View muted accounts {#get}
 
@@ -51,7 +56,7 @@ Sample response with limit=2. The ID of mutes is private, so parse the HTTP `Lin
 Link: <https://mastodon.social/api/v1/mutes?limit=2&max_id=317646>; rel="next", <https://mastodon.social/api/v1/mutes?limit=2&since_id=317647>; rel="prev"
 ```
 
-```javascript
+```json
 [
   {
     "id": "963076",
@@ -125,7 +130,7 @@ Link: <https://mastodon.social/api/v1/mutes?limit=2&max_id=317646>; rel="next", 
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -135,8 +140,8 @@ Invalid or missing Authorization header.
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/mutes_controller.rb" caption="app/controllers/api/v1/mutes_controller.rb" >}}
-
 {{< page-relref ref="methods/accounts#mute" caption="POST /api/v1/accounts/:id/mute" >}}
 
 {{< page-relref ref="methods/accounts#unmute" caption="POST /api/v1/accounts/:id/unmute" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/mutes_controller.rb" caption="app/controllers/api/v1/mutes_controller.rb" >}}

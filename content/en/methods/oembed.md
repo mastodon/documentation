@@ -5,7 +5,13 @@ menu:
   docs:
     weight: 110
     parent: methods
+    identifier: methods-oembed
+aliases: ["/methods/oembed"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## Get OEmbed info as JSON {#get}
 
@@ -35,7 +41,7 @@ maxheight
 
 Represents OEmbed "rich" preview, with associated iframe and metadata.
 
-```javascript
+```json
 {
   "type": "rich",
   "version": "1.0",
@@ -55,7 +61,7 @@ Represents OEmbed "rich" preview, with associated iframe and metadata.
 
 Status not found for given URL
 
-```javascript
+```json
 {
   "error": "Record not found"
 }

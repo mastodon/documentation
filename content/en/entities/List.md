@@ -4,15 +4,18 @@ description: Represents a list of some users that the authenticated user follows
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/list",
+  "/entities/List"]
 ---
 
 ## Example
 
-```javascript
-  {
-    "id": "12249",
-    "title": "Friends"
-  }
+```json
+{
+  "id": "12249",
+  "title": "Friends"
+}
 ```
 
 ## Required attributes
@@ -43,9 +46,11 @@ menu:
 
 ## See also
 
-{{< page-ref page="methods/timelines/lists.md" >}}
+{{< page-relref ref="methods/accounts#lists" caption="GET /api/v1/accounts/:id/lists" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/list_serializer.rb" caption="app/serializers/rest/list\_serializer.rb" >}}
+{{< page-relref ref="methods/lists" caption="lists API methods" >}}
+
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/list_serializer.rb" caption="app/serializers/rest/list_serializer.rb" >}}
 
 
 

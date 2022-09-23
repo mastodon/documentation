@@ -4,11 +4,14 @@ description: Represents a rule that server users should follow.
 menu:
   docs:
     parent: entities
+aliases: [
+	"/entities/rule",
+	"/entities/Rule"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
 	"id": "2",
 	"text": "No racism, sexism, homophobia, transphobia, xenophobia, or casteism"
@@ -20,7 +23,7 @@ menu:
 ### `id` {#name}
 
 **Description:** An identifier for the rule.\
-**Type:** String (cast from integer)\
+**Type:** String (cast from integer, but not guaranteed to be a number)\
 **Version history:**\
 3.4.0 - added
 
@@ -33,7 +36,7 @@ menu:
 
 ## See also
 
-{{< page-ref page="methods/instance.md" >}}
+{{< page-relref ref="methods/instance#rules" caption="GET /api/v1/instance/rules" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/models/rule.rb" caption="app/models/rule.rb" >}}
 

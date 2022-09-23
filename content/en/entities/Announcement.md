@@ -4,10 +4,13 @@ description: Represents an announcement set by an administrator.
 menu:
   docs:
     parent: entities
+aliases: [
+	"/entities/announcement",
+	"/entities/Announcement"]
 ---
 
 ## Example
-```javascript
+```json
 {
   "id": "8",
   "content": "<p>Looks like there was an issue processing audio attachments without embedded art since yesterday due to an experimental new feature. That issue has now been fixed, so you may see older posts with audio from other servers pop up in your feeds now as they are being finally properly processed. Sorry!</p>",
@@ -52,23 +55,37 @@ menu:
 }
 ```
 
-## Base attributes
+## Attributes
 
-### `id`
+### `id` {#id}
 
-**Description:** The announcement id.\
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
+**Description:** The ID of the announcement in the database.\
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
 3.1.0 - added
 
-### `text`
+### `content` {#content}
 
-**Description:** The content of the announcement.\
-**Type:** String\
+**Description:** The text of the announcement.\
+**Type:** String (HTML)\
 **Version history:**\
 3.1.0 - added
 
-### `published`
+### `starts_at` {#starts_at}
+
+**Description:** When the announcement will start.\
+**Type:** {{<nullable>}} String (ISO 8601 Datetime) or null\
+**Version history:**\
+3.1.0 - added
+
+### `ends_at` {#ends_at}
+
+**Description:** When the announcement will end.\
+**Type:** {{<nullable>}} String (ISO 8601 Datetime) or null\
+**Version history:**\
+3.1.0 - added
+
+### `published` {#published}
 
 **Description:** Whether the announcement is currently active.\
 **Type:** Boolean\
@@ -77,59 +94,115 @@ menu:
 
 ### `all_day` {#all_day}
 
-**Description:** Whether the announcement has a start/end time.\
+**Description:** Whether the announcement should start and end on dates only instead of datetimes. Will be false if there is no `starts_at` or `ends_at` time.\
 **Type:** Boolean\
 **Version history:**\
 3.1.0 - added
 
-### `created_at` {#created_at}
+### `published_at` {#created_at}
 
-**Description:** When the announcement was created.\
-**Type:** String \(ISO 8601 Datetime\)\
+**Description:** When the announcement was published.\
+**Type:** String (ISO 8601 Datetime)\
 **Version history:**\
 3.1.0 - added
 
 ### `updated_at` {#updated_at}
 
 **Description:** When the announcement was last updated.\
-**Type:** String \(ISO 8601 Datetime\)\
+**Type:** String (ISO 8601 Datetime)\
 **Version history:**\
 3.1.0 - added
 
-### `read`
+### `read` {{%optional%}} {#read}
 
-**Description:** Whether the announcement has been read by the user.\
+**Description:** Whether the announcement has been read by the current user.\
 **Type:** Boolean\
 **Version history:**\
 3.1.0 - added
 
-### `reactions`
+### `mentions` {#mentions}
+
+**Description:** Accounts mentioned in the announcement text.\
+**Type:** Array of [Announcement::Account](#Account)\
+**Version history:**\
+3.1.0 - added
+
+### `statuses` {#statuses}
+
+**Description:** Statuses linked in the announcement text.\
+**Type:** Array of [Announcement::Status](#Status)\
+**Version history:**\
+3.1.0 - added
+
+### `tags` {#tags}
+
+**Description:** Tags linked in the announcement text.\
+**Type:** Array of [Status::Tag]({{< relref "entities/Status#Tag" >}})\
+**Version history:**\
+3.1.0 - added
+
+### `emojis` {#emojis}
+
+**Description:** Custom emoji used in the announcement text.\
+**Type:** Array of [CustomEmoji]({{< relref "entities/CustomEmoji" >}})\
+**Version history:**\
+3.1.0 - added
+
+### `reactions` {#reactions}
 
 **Description:** Emoji reactions attached to the announcement.\
-**Type:** Array of AnnouncementReaction\
+**Type:** Array of [Reaction]({{< relref "entities/Reaction" >}})\
 **Version history:**\
 3.1.0 - added
 
+## Announcement::Account attributes {#Account}
 
-## Optional attributes
+### `id` {#Account-id}
 
-### `scheduled_at` {#scheduled_at}
-
-**Description:** When the future announcement was scheduled.\
-**Type:** String \(ISO 8601 Datetime\)\
+**Description:** The account ID of the mentioned user.\
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
 3.1.0 - added
 
-### `starts_at` {#starts_at}
+### `username` {#Account-username}
 
-**Description:** When the future announcement will start.\
-**Type:** String \(ISO 8601 Datetime\)\
+**Description:** The username of the mentioned user.\
+**Type:** String\
 **Version history:**\
 3.1.0 - added
 
-### `ends_at` {#ends_at}
+### `url` {#Account-url}
 
-**Description:** When the future announcement will end.\
-**Type:** String \(ISO 8601 Datetime\)\
+**Description:** The location of the mentioned user's profile.\
+**Type:** String (URL)\
 **Version history:**\
 3.1.0 - added
+
+### `acct` {#Account-acct}
+
+**Description:** The webfinger acct: URI of the mentioned user. Equivalent to `username` for local users, or `username@domain` for remote users.\
+**Type:** String\
+**Version history:**\
+3.1.0 - added
+
+## Announcement::Status attributes {#Status}
+
+### `id` {#Status-id}
+
+**Description:** The ID of an attached Status in the database.\
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
+**Version history:**\
+3.1.0 - added
+
+### `url` {#Status-url}
+
+**Description:** The URL of an attached Status.\
+**Type:** String (URL)\
+**Version history:**\
+3.1.0 - added
+
+## See also
+
+{{< page-relref ref="methods/announcements" caption="announcements API methods" >}}
+
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/announcement_serializer.rb" caption="app/serializers/rest/announcement_serializer.rb" >}}

@@ -4,11 +4,14 @@ description: Represents the relationship between accounts, such as following / b
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/relationship",
+  "/entities/Relationship"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
   "id": "1",
   "following": true,
@@ -26,55 +29,21 @@ menu:
 }
 ```
 
-## Required attributes
+## Attributes
 
-### `id`
+### `id` {#id}
 
-**Description:** The account id.\
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
+**Description:** The account ID.\
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
 0.6.0 - added
 
-### `following`
+### `following` {#following}
 
 **Description:** Are you following this user?\
 **Type:** Boolean\
 **Version history:**\
 0.6.0 - added
-
-### `requested`
-
-**Description:** Do you have a pending follow request for this user?\
-**Type:** Boolean\
-**Version history:**\
-0.9.9 - added
-
-### `endorsed`
-
-**Description:** Are you featuring this user on your profile?\
-**Type:** Boolean\
-**Version history:**\
-2.5.0 - added
-
-### `followed_by` {#followed_by}
-
-**Description:** Are you followed by this user?\
-**Type:** Boolean\
-**Version history:**\
-0.6.0 - added
-
-### `muting`
-
-**Description:** Are you muting this user?\
-**Type:** Boolean\
-**Version history:** Added in 1.1.0
-
-### `muting_notifications` {#muting_notifications}
-
-**Description:** Are you muting notifications from this user?\
-**Type:** Boolean\
-**Version history:**\
-2.1.0 - added
 
 ### `showing_reblogs` {#showing_reblogs}
 
@@ -90,19 +59,26 @@ menu:
 **Version history:**\
 3.3.0 - added
 
-### `blocking`
+### `languages` {#languages}
+
+**Description:** Which languages are you following from this user?\
+**Type:** Array of String (ISO 639-1 language two-letter code)\
+**Version history:**\
+3.6.0 - added
+
+### `followed_by` {#followed_by}
+
+**Description:** Are you followed by this user?\
+**Type:** Boolean\
+**Version history:**\
+0.6.0 - added
+
+### `blocking` {#blocking}
 
 **Description:** Are you blocking this user?\
 **Type:** Boolean\
 **Version history:**\
 0.6.0 - added
-
-### `domain_blocking` {#domain_blocking}
-
-**Description:** Are you blocking this user's domain?\
-**Type:** Boolean\
-**Version history:**\
-1.4.0 - added
 
 ### `blocked_by` {#blocked_by}
 
@@ -111,7 +87,42 @@ menu:
 **Version history:**\
 2.8.0 - added
 
-### `note`
+### `muting` {#muting}
+
+**Description:** Are you muting this user?\
+**Type:** Boolean\
+**Version history:**\
+1.1.0 - added
+
+### `muting_notifications` {#muting_notifications}
+
+**Description:** Are you muting notifications from this user?\
+**Type:** Boolean\
+**Version history:**\
+2.1.0 - added
+
+### `requested` {#requested}
+
+**Description:** Do you have a pending follow request for this user?\
+**Type:** Boolean\
+**Version history:**\
+0.9.9 - added
+
+### `domain_blocking` {#domain_blocking}
+
+**Description:** Are you blocking this user's domain?\
+**Type:** Boolean\
+**Version history:**\
+1.4.0 - added
+
+### `endorsed` {#endorsed}
+
+**Description:** Are you featuring this user on your profile?\
+**Type:** Boolean\
+**Version history:**\
+2.5.0 - added
+
+### `note` {#note}
 
 **Description:** This user's profile bio\
 **Type:** String\
@@ -120,6 +131,6 @@ menu:
 
 ## See also
 
-* [GET /api/v1/accounts/relationships]({{< relref "../methods/accounts.md#check-relationships-to-other-accounts" >}})
+{{< page-relref ref="methods/accounts#relationships" caption="POST /api/v1/accounts/relationships" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/relationship_serializer.rb" caption="app/serializers/rest/relationship\_serializer.rb" >}}
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/relationship_serializer.rb" caption="app/serializers/rest/relationship_serializer.rb" >}}

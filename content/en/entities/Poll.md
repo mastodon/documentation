@@ -4,11 +4,14 @@ description: Represents a poll attached to a status.
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/poll",
+  "/entities/Poll"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
   "id": "34830",
   "expires_at": "2019-12-05T04:05:08.302Z",
@@ -39,81 +42,96 @@ menu:
 ### `id` {#id}
 
 **Description:** The ID of the poll in the database.\
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
-**Version history:** Added in 2.8.0
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
+**Version history:**\
+2.8.0 - added
 
 ### `expires_at` {#expires_at}
 
 **Description:** When the poll ends.\
-**Type:** String \(ISO 8601 Datetime\), or null if the poll does not end\
-**Version history:** Added in 2.8.0
+**Type:** {{<nullable>}} String (ISO 8601 Datetime), or null if the poll does not end\
+**Version history:**\
+2.8.0 - added
 
 ### `expired` {#expired}
 
 **Description:** Is the poll currently expired?\
 **Type:** Boolean\
-**Version history:** Added in 2.8.0
+**Version history:**\
+2.8.0 - added
 
 ### `multiple` {#multiple}
 
 **Description:** Does the poll allow multiple-choice answers?\
 **Type:** Boolean\
-**Version history:** Added in 2.8.0
+**Version history:**\
+2.8.0 - added
 
 ### `votes_count` {#votes_count}
 
 **Description:** How many votes have been received.\
-**Type:** Number\
-**Version history:** Added in 2.8.0
+**Type:** Integer\
+**Version history:**\
+2.8.0 - added
 
 ### `voters_count` {#voters_count}
 
 **Description:** How many unique accounts have voted on a multiple-choice poll.\
-**Type:** Number, or null if `multiple` is false.\
-**Version history:** Added in 2.8.0
+**Type:** {{<nullable>}} Integer, or null if `multiple` is false.\
+**Version history:**\
+2.8.0 - added
 
-### `voted` {#voted}
-
-**Description:** When called with a user token, has the authorized user voted?\
-**Type:** Boolean, or null if no current user\
-**Version history:** Added in 2.8.0
-
-### `own_votes` {#own_votes}
-
-**Description:** When called with a user token, which options has the authorized user chosen? Contains an array of index values for `options`.\
-**Type:** Array of Number, or null if no current user\
-**Version history:** Added in 2.8.0
-
-### `options[]` {#options}
+### `options` {#options}
 
 **Description:** Possible answers for the poll.\
-**Type:** Array of Hash\
-**Version history:** Added in 2.8.0
-
-#### `options[][title]`
-
-The text value of the poll option. String.
-
-#### `options[][votes_count]`
-
-The number of received votes for this option. Number, or null if results are not published yet.
+**Type:** Array of [Poll::Option](#Option)\
+**Version history:**\
+2.8.0 - added
 
 ### `emojis` {#emojis}
 
 **Description:** Custom emoji to be used for rendering poll options.\
-**Type:** Array of Emoji\
-**Version history:** Added in 2.8.0
+**Type:** Array of [CustomEmoji]({{< relref "entities/CustomEmoji" >}})\
+**Version history:**\
+2.8.0 - added
+
+### `voted` {{%optional%}} {#voted}
+
+**Description:** When called with a user token, has the authorized user voted?\
+**Type:** Boolean\
+**Version history:**\
+2.8.0 - added
+
+### `own_votes` {{%optional%}} {#own_votes}
+
+**Description:** When called with a user token, which options has the authorized user chosen? Contains an array of index values for `options`.\
+**Type:** Array of Integer\
+**Version history:**\
+2.8.0 - added
+
+## Poll::Option attributes {#Option}
+
+### `title` {#option-title}
+
+**Description:** The text value of the poll option.\
+**Type:** String\
+**Version history:**\
+2.8.0 - added
+
+#### `votes_count` {#option-votes_count}
+
+**Description:** The total number of received votes for this option.\
+**Type:** {{<nullable>}} Integer, or null if results are not published yet.\
+**Version history:**\
+2.8.0 - added
 
 ## See also
 
-* [Status\#poll]({{< relref "entities/status#poll" >}})
-* [/api/v1/polls]({{< relref "methods/polls" >}})
+{{< page-relref ref="entities/Status#poll" caption="Status (`poll` attribute)" >}}
 
-{{< page-ref page="status.md" >}}
+{{< page-relref ref="methods/polls" caption="polls API methods" >}}
 
-{{< page-ref page="methods/statuses/polls.md" >}}
-
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/poll_serializer.rb" caption="app/serializers/rest/poll\_serializer.rb" >}}
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/poll_serializer.rb" caption="app/serializers/rest/poll_serializer.rb" >}}
 
 
 

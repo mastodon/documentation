@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 20
     parent: methods-apps
-aliases: [/methods/apps/emails/]
+    identifier: methods-emails
+aliases: ["/methods/emails", "/methods/apps/emails"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## Resend confirmation email {#confirmation}
 
@@ -33,14 +38,14 @@ email
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {}
 ```
 
 ##### 403: Forbidden
 The client associated with the token does not own the unconfirmed user.
 
-```javascript
+```json
 {
 	"error": "This method is only available to the application the user originally signed-up with"
 }
@@ -50,8 +55,8 @@ The client associated with the token does not own the unconfirmed user.
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/emails/confirmations_controller.rb" caption="app/controllers/api/v1/emails/confirmations_controller.rb" >}}
-
 {{< page-relref ref="methods/apps#create" caption="POST /api/v1/apps" >}}
 
 {{< page-relref ref="methods/accounts#create" caption="POST /api/v1/accounts" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/emails/confirmations_controller.rb" caption="app/controllers/api/v1/emails/confirmations_controller.rb" >}}

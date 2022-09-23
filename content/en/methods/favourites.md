@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 20
     parent: methods-accounts
-aliases: [/methods/accounts/favourites/]
+    identifier: methods-favourites
+aliases: ["/methods/favourites", "/methods/accounts/favourites"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View favourited statuses {#get}
 
@@ -52,8 +57,9 @@ An example call with limit=2. Because the id of a favourite is not public, an HT
 Link: <https://mastodon.social/api/v1/favourites?limit=2&max_id=23716836>; rel="next", <https://mastodon.social/api/v1/favourites?limit=2&min_id=23716978>; rel="prev"
 ```
 
-```javascript
+```json
 [
+  {
     "id": "103186075217296344",
     "created_at": "2019-11-23T07:35:52.000Z",
     "in_reply_to_id": null,
@@ -111,7 +117,7 @@ Link: <https://mastodon.social/api/v1/favourites?limit=2&max_id=23716836>; rel="
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -121,8 +127,8 @@ Invalid or missing Authorization header.
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/favourites_controller.rb" caption="app/controllers/api/v1/favourites_controller.rb" >}}
-
 {{< page-relref ref="methods/statuses#favourite" caption="POST /api/v1/statuses/:id/favourite" >}}
 
 {{< page-relref ref="methods/statuses#unfavourite" caption="POST /api/v1/statuses/:id/unfavourite" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/favourites_controller.rb" caption="app/controllers/api/v1/favourites_controller.rb" >}}

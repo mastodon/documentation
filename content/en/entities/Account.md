@@ -4,11 +4,20 @@ description: Represents a user of Mastodon and their associated profile.
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/source/",
+  "/entities/field/",
+  "/entities/account",
+  "/entities/Account",
+  "/entities/CredentialAccount",
+  "/api/entities/CredentialAccount",
+  "/entities/MutedAccount",
+  "/api/entities/MutedAccount"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
   "id": "23634",
   "username": "noiob",
@@ -74,7 +83,7 @@ menu:
 
 ## Attributes
 
-### **`id`** {#id}
+### `id` {#id}
 
 **Description:** The account id.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\
@@ -154,14 +163,14 @@ menu:
 ### `fields` {#fields}
 
 **Description:** Additional metadata attached to a profile as name-value pairs.\
-**Type:** Array of [Field]({{< relref "entities/Field" >}}), or empty array if none\
+**Type:** Array of [Field](#Field)\
 **Version history:**\
 2.4.0 - added
 
 ### `emojis` {#emojis}
 
 **Description:** Custom emoji entities to be used when rendering the profile.\
-**Type:** Array of [Emoji]({{< relref "entities/Emoji" >}}), or empty array if none\
+**Type:** Array of [CustomEmoji]({{< relref "entities/CustomEmoji" >}})\
 **Version history:**\
 2.4.0 - added
 
@@ -186,21 +195,21 @@ menu:
 **Version history:**\
 3.1.0 - added
 
-### `moved` {{<optional>}} {#moved}
+### `moved` {{%optional%}} {#moved}
 
 **Description:** Indicates that the profile is currently inactive and that its user has moved to a new account.\
 **Type:** {{<nullable>}} [Account]({{< relref "entities/Account" >}}), or null if the profile is supended.\
 **Version history:**\
 2.1.0 - added
 
-### `suspended` {{<optional>}} {#suspended}
+### `suspended` {{%optional%}} {#suspended}
 
 **Description:** An extra attribute returned only when an account is suspended.\
 **Type:**  Boolean\
 **Version history:**\
 3.3.0 - added
 
-### `limited` {{<optional>}} {#limited}
+### `limited` {{%optional%}} {#limited}
 
 **Description:** An extra attribute returned only when an account is silenced. If true, indicates that the account should be hidden behing a warning screen.\
 **Type:** Boolean\
@@ -244,16 +253,140 @@ menu:
 **Version history:**\
 0.1.0 - added
 
-## CredentialAccount attributes {#CredentialAccount}
+## CredentialAccount entity attributes {#CredentialAccount}
+
+```json
+{
+  "id": "14715",
+  "username": "trwnh",
+  "acct": "trwnh",
+  "display_name": "infinite love ⴳ",
+  // ...
+  "note": "<p>i have approximate knowledge of many things. perpetual student. (nb/ace/they)</p><p>xmpp/email: a@trwnh.com<br /><a href=\"https://trwnh.com\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a><br />help me live: <a href=\"https://liberapay.com/trwnh\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/trwnh</span><span class=\"invisible\"></span></a> or paypal</p><p>- my triggers are moths and glitter<br />- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise<br />- dm me if i did something wrong, so i can improve<br />- purest person on fedi, do not lewd in my presence</p>",
+  // ...
+  "source": {
+    "privacy": "public",
+    "sensitive": false,
+    "language": "",
+    "note": "i have approximate knowledge of many things. perpetual student. (nb/ace/they)\r\n\r\nxmpp/email: a@trwnh.com\r\nhttps://trwnh.com\r\nhelp me live: https://liberapay.com/trwnh or paypal\r\n\r\n- my triggers are moths and glitter\r\n- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise\r\n- dm me if i did something wrong, so i can improve\r\n- purest person on fedi, do not lewd in my presence",
+    "fields": [
+      {
+        "name": "Website",
+        "value": "https://trwnh.com",
+        "verified_at": "2019-08-29T04:14:55.571+00:00"
+      },
+      {
+        "name": "Portfolio",
+        "value": "https://abdullahtarawneh.com",
+        "verified_at": "2021-02-11T20:34:13.574+00:00"
+      },
+      {
+        "name": "Fan of:",
+        "value": "Punk-rock and post-hardcore (Circa Survive, letlive., La Dispute, THE FEVER 333)Manga (Yu-Gi-Oh!, One Piece, JoJo's Bizarre Adventure, Death Note, Shaman King)Platformers and RPGs (Banjo-Kazooie, Boktai, Final Fantasy Crystal Chronicles)",
+        "verified_at": null
+      },
+      {
+        "name": "What to expect:",
+        "value": "talking about various things i find interesting, and otherwise being a genuine and decent wholesome poster. i'm just here to hang out and talk to cool people! and to spill my thoughts.",
+        "verified_at": null
+      }
+    ],
+    "follow_requests_count": 5
+  },
+  // ...
+  "fields": [
+    {
+      "name": "Website",
+      "value": "<a href=\"https://trwnh.com\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a>",
+      "verified_at": "2019-08-29T04:14:55.571+00:00"
+    },
+    {
+      "name": "Portfolio",
+      "value": "<a href=\"https://abdullahtarawneh.com\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"><span class=\"invisible\">https://</span><span class=\"\">abdullahtarawneh.com</span><span class=\"invisible\"></span></a>",
+      "verified_at": "2021-02-11T20:34:13.574+00:00"
+    },
+    {
+      "name": "Fan of:",
+      "value": "Punk-rock and post-hardcore (Circa Survive, letlive., La Dispute, THE FEVER 333)Manga (Yu-Gi-Oh!, One Piece, JoJo&#39;s Bizarre Adventure, Death Note, Shaman King)Platformers and RPGs (Banjo-Kazooie, Boktai, Final Fantasy Crystal Chronicles)",
+      "verified_at": null
+    },
+    {
+      "name": "What to expect:",
+      "value": "talking about various things i find interesting, and otherwise being a genuine and decent wholesome poster. i&#39;m just here to hang out and talk to cool people! and to spill my thoughts.",
+      "verified_at": null
+    }
+  ],
+  "role": {
+    "id": "-99",
+    "name": "",
+    "permissions": "65536",
+    "color": "",
+    "highlighted": false
+  }
+}
+```
 
 ### `source` {#source}
 
-**Description:** An extra entity that contains source values to be used with API methods that [verify credentials]({{< relref "methods/accounts#verify_credentials" >}}) and [update credentials]({{< relref "methods/accounts#update_credentials" >}}).\
-**Type:** [Source]({{< relref "entities/Source" >}})\
+**Description:** An extra attribute that contains source values to be used with API methods that [verify credentials]({{< relref "methods/accounts#verify_credentials" >}}) and [update credentials]({{< relref "methods/accounts#update_credentials" >}}).\
+**Type:** Hash\
 **Version history:**\
 2.4.0 - added
 
-## MutedAccount attributes {#MutedAccount}
+#### `source[note]` {#source-note}
+
+**Description:** Profile bio, in plain-text instead of in HTML.\
+**Type:** String\
+**Version history:**\
+1.5.0 - added
+
+#### `source[fields]` {#source-fields}
+
+**Description:** Metadata about the account.\
+**Type:** Array of [Field](#Field)\
+**Version history:**\
+2.4.0 - added
+
+#### `source[privacy]` {#source-privacy}
+
+**Description:** The default post privacy to be used for new statuses.\
+**Type:** String (Enumerable, oneOf)\
+`public` = Public post\
+`unlisted` = Unlisted post\
+`private` = Followers-only post\
+`direct` = Direct post\
+**Version history:**\
+1.5.0 - added
+
+#### `source[sensitive]` {#source-sensitive}
+
+**Description:** Whether new statuses should be marked sensitive by default.\
+**Type:** Boolean\
+**Version history:**\
+1.5.0 - added
+
+#### `source[language]` {#source-language}
+
+**Description:** The default posting language for new statuses.\
+**Type:** String (ISO 639-1 language two-letter code) or empty string\
+**Version history:**\
+2.4.2 - added
+
+#### `source[follow_requests_count]` {#follow_requests_count}
+
+**Description:** The number of pending follow requests.\
+**Type:** Integer\
+**Version history:**\
+3.0.0 - added
+
+### `role` {#role}
+
+**Description:** The role assigned to the currently authorized user.\
+**Type:** [Role]({{< relref "entities/Role" >}})\
+**Version history:**\
+3.6.0 - added
+
+## MutedAccount entity attributes {#MutedAccount}
 
 ### `mute_expires_at` {#mute_expires_at}
 
@@ -261,6 +394,29 @@ menu:
 **Type:** {{<nullable>}} String (ISO 8601 Datetime), or null if the mute is indefinite\
 **Version history:**\
 3.3.0 - added
+
+## Field entity attributes {#Field}
+
+### `name` {#name}
+
+**Description:** The key of a given field's key-value pair.\
+**Type:** String\
+**Version history:**\
+2.4.0 - added
+
+### `value` {#value}
+
+**Description:** The value associated with the `name` key.\
+**Type:** String (HTML)\
+**Version history:**\
+2.4.0 - added
+
+### `verified_at` {#verified_at}
+
+**Description:** Timestamp of when the server verified a URL value for a rel="me" link.\
+**Type:** {{<nullable>}} String (ISO 8601 Datetime) if `value` is a verified URL. Otherwise, null.\
+**Version history:**\
+2.6.0 - added
 
 ## See also
 

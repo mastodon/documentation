@@ -7,8 +7,13 @@ menu:
   docs:
     weight: 10
     parent: methods-timelines
-aliases: [/methods/timelines/conversations/]
+    identifier: methods-conversations
+aliases: ["/methods/conversations", "/methods/timelines/conversations"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View all conversations {#get}
 
@@ -53,7 +58,7 @@ Truncated sample results of an API call with limit=2
 Link: <https://mastodon.social/api/v1/conversations?limit=2&max_id=108835003356700379>; rel="next", <https://mastodon.social/api/v1/conversations?limit=2&min_id=108888782724768580>; rel="prev"
 ```
 
-```javascript
+```json
 [
   {
     "id": "418450",
@@ -100,7 +105,7 @@ Link: <https://mastodon.social/api/v1/conversations?limit=2&max_id=1088350033567
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -136,7 +141,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {}
 ```
 
@@ -144,7 +149,7 @@ Authorization
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -154,7 +159,7 @@ Invalid or missing Authorization header.
 
 The conversation does not exist, or is not owned by you.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -190,7 +195,7 @@ Authorization
 
 The value of `unread` has been changed to false.
 
-```javascript
+```json
 {
   "id": "418450",
   "unread": false,
@@ -211,7 +216,7 @@ The value of `unread` has been changed to false.
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -221,7 +226,7 @@ Invalid or missing Authorization header.
 
 The conversation does not exist, or is not owned by you.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }

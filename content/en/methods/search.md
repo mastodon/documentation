@@ -5,15 +5,21 @@ menu:
   docs:
     weight: 60
     parent: methods
+    identifier: methods-search
+aliases: ["/methods/search"]
 ---
 
-# Perform a search {#v2}
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
+
+## Perform a search {#v2}
 
 ```http
 GET https://mastodon.example/api/v2/search HTTP/1.1
 ```
 
-**Returns:** [Results]({{< relref "entities/results" >}})\
+**Returns:** [Search]({{< relref "entities/Search" >}})\
 **OAuth:** User token + `read:search`\
 **Version history:**\
 2.4.1 - added, limit hardcoded to 5\
@@ -68,7 +74,7 @@ offset
 
 Truncated results of a sample search for "cats" with limit=2.
 
-```javascript
+```json
 {
   "accounts": [
     {
@@ -136,7 +142,7 @@ Truncated results of a sample search for "cats" with limit=2.
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -144,19 +150,20 @@ Invalid or missing Authorization header.
 
 ---
 
-## (DEPRECATED) Search results (v1) {#v1}
+## (REMOVED) Search results (v1) {#v1}
 
 ```http
 GET https://mastodon.example/api/v1/search HTTP/1.1
 ```
 
-**Returns:** [Results]({{< relref "entities/results" >}}), but `hashtags` is an array of strings instead of an array of Tag.\
+**Returns:** [Search]({{< relref "entities/Search" >}}), but `hashtags` is an array of strings instead of an array of Tag.\
 **OAuth:** User token + `read:search`\
 **Version history:**\
 1.1 - added, limit hardcoded to 5\
 1.5.0 - now requires authentication\
+2.4.1 - deprecated in favor of [v2 search](#v2)\
 2.8.0 - added `limit`, pagination, and account options\
-3.0.0 - removed; use v2 instead
+3.0.0 - removed; use [v2 search](#v2) instead
 
 #### Request
 
@@ -196,7 +203,7 @@ offset
 
 v1 search was deprecated because hashtags were returned as strings instead of as Tag entities.
 
-```javascript
+```json
 {
   "accounts": [...],
   "statuses": [...],
@@ -208,7 +215,7 @@ v1 search was deprecated because hashtags were returned as strings instead of as
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -218,8 +225,8 @@ Invalid or missing Authorization header.
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v2/search_controller.rb" caption="app/controllers/api/v2/search_controller.rb" >}}
-
 {{< page-relref ref="methods/accounts#search" caption="GET /api/v1/accounts/search" >}}
 
 {{< page-relref ref="methods/accounts#lookup" caption="GET /api/v1/accounts/lookup" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v2/search_controller.rb" caption="app/controllers/api/v2/search_controller.rb" >}}

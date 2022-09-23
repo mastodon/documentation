@@ -5,7 +5,12 @@ menu:
   docs:
     parent: methods-admin
     identifier: methods-admin-reports
+aliases: ["/methods/admin/reports"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View all reports {#get}
 
@@ -43,7 +48,7 @@ target_account_id
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
 	{
 		"id": "3",
@@ -95,7 +100,7 @@ target_account_id
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -131,7 +136,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
   "id": "2",
   "action_taken": true,
@@ -193,7 +198,7 @@ Authorization
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -241,7 +246,7 @@ rule_ids[]
 
 The report category and/or rule IDs should now be updated.
 
-```javascript
+```json
 {
   "id": "3",
   "action_taken": false,
@@ -256,7 +261,7 @@ The report category and/or rule IDs should now be updated.
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -296,7 +301,7 @@ Authorization
 
 The report should now be assigned to you, or it was already assigned to you.
 
-```javascript
+```json
 {
   "id": "3",
   "action_taken": false,
@@ -331,7 +336,7 @@ The report should now be assigned to you, or it was already assigned to you.
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -371,7 +376,7 @@ Authorization
 
 The report should no longer be assigned to you, or it was already not assigned to anyone.
 
-```javascript
+```json
 {
   "id": "3",
   "action_taken": false,
@@ -393,7 +398,7 @@ The report should no longer be assigned to you, or it was already not assigned t
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -433,7 +438,7 @@ Authorization
 
 The report is now resolved, or it was already resolved.
 
-```javascript
+```json
 {
   "id": "2",
   "action_taken": true,
@@ -451,7 +456,7 @@ The report is now resolved, or it was already resolved.
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -490,7 +495,7 @@ Authorization
 
 The report no longer has an action taken, or it already had no action taken.
 
-```javascript
+```json
 {
   "id": "2",
   "action_taken": false,
@@ -508,7 +513,7 @@ The report no longer has an action taken, or it already had no action taken.
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -518,6 +523,6 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/admin/reports_controller.rb" caption="app/controllers/api/v1/admin/reports_controller.rb" >}}
-
 {{< page-relref ref="methods/admin/accounts#action" caption="POST /api/v1/admin/accounts/:id/action" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/admin/reports_controller.rb" caption="app/controllers/api/v1/admin/reports_controller.rb" >}}

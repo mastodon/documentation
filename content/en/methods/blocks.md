@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 40
     parent: methods-accounts
-aliases: [/methods/accounts/blocks/]
+    identifier: methods-blocks
+aliases: ["/methods/blocks", "/methods/accounts/blocks"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View blocked users {#get}
 
@@ -50,7 +55,7 @@ Sample call with limit=2. Because block IDs are private, you must parse the HTTP
 Link: <https://mastodon.social/api/v1/blocks?limit=2&max_id=441449>; rel="next", <https://mastodon.social/api/v1/blocks?limit=2&since_id=444808>; rel="prev"
 ```
 
-```javascript
+```json
 [
   {
     "id": "585315",
@@ -101,7 +106,7 @@ Link: <https://mastodon.social/api/v1/blocks?limit=2&max_id=441449>; rel="next",
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -111,8 +116,8 @@ Invalid or missing Authorization header.
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/blocks_controller.rb" caption="app/controllers/api/v1/blocks_controller.rb" >}}
-
 {{< page-relref ref="methods/accounts#block" caption="POST /api/v1/accounts/:id/block" >}}
 
 {{< page-relref ref="methods/accounts#unblock" caption="POST /api/v1/accounts/:id/unblock" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/blocks_controller.rb" caption="app/controllers/api/v1/blocks_controller.rb" >}}

@@ -5,7 +5,12 @@ menu:
   docs:
     parent: methods-admin
     identifier: methods-admin-retention
+aliases: ["/methods/admin/retention"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## Calculate retention data {#create}
 
@@ -45,7 +50,7 @@ frequency
 
 Monthly retention data for the month of 2022-09, given that 2 users registered during 2022-09 and were active at least once during that month.
 
-```javascript
+```json
 [
 	{
 		"period": "2022-09-01T00:00:00+00:00",
@@ -63,7 +68,7 @@ Monthly retention data for the month of 2022-09, given that 2 users registered d
 
 Daily retention data for the week between 2022-09-08 and 2022-09-14, given that 2 users registered on 2022-09-08 and 1 of those users stopped being active after 2022-09-09.
 
-```javascript
+```json
 [
   {
     "period": "2022-09-08T00:00:00+00:00",
@@ -143,7 +148,7 @@ Daily retention data for the week between 2022-09-08 and 2022-09-14, given that 
 
 If any of the parameters are missing, cohort calculation will fail and an empty array will be returned.
 
-```javascript
+```json
 []
 ```
 
@@ -151,7 +156,7 @@ If any of the parameters are missing, cohort calculation will fail and an empty 
 
 Authorized user is missing a permission, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }

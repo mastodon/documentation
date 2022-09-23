@@ -7,8 +7,13 @@ menu:
   docs:
     weight: 30
     parent: methods-instance
-aliases: [/methods/instance/custom_emojis/]
+    identifier: methods-custom_emojis
+aliases: ["/methods/custom_emojis", "/methods/instance/custom_emojis"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View all custom emoji {#get}
 
@@ -18,7 +23,7 @@ GET https://mastodon.example/api/v1/custom_emojis HTTP/1.1
 
 Returns custom emojis that are available on the server.
 
-**Returns:** Array of [Emoji]({{< relref "entities/emoji" >}})\
+**Returns:** Array of [CustomEmoji]({{< relref "entities/CustomEmoji" >}})\
 **OAuth:** Public\
 **Version history:**\
 2.0.0 - added\
@@ -29,7 +34,7 @@ Returns custom emojis that are available on the server.
 
 Sample response from mastodon.social
 
-```javascript
+```json
 [
   {
     "shortcode": "aaaa",

@@ -7,8 +7,13 @@ menu:
   docs:
     weight: 20
     parent: methods-timelines
-aliases: [/methods/timelines/lists/]
+    identifier: methods-lists
+aliases: ["/methods/lists", "/methods/timelines/lists"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View your lists {#get}
 
@@ -35,7 +40,7 @@ Authorization
 
 Use `id` as a parameter for related API calls.
 
-```javascript
+```json
 [
   {
     "id": "12249",
@@ -54,7 +59,7 @@ Use `id` as a parameter for related API calls.
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -92,7 +97,7 @@ Authorization
 
 The list 12249 exists and is owned by you
 
-```javascript
+```json
 {
   "id": "12249",
   "title": "Friends",
@@ -104,7 +109,7 @@ The list 12249 exists and is owned by you
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -114,7 +119,7 @@ Invalid or missing Authorization header.
 
 List does not exist or is not owned by you
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -155,7 +160,7 @@ replies_policy
 
 A sample list was created with a `title` of "test".
 
-```javascript
+```json
 {
   "id": "13585",
   "title": "test",
@@ -167,7 +172,7 @@ A sample list was created with a `title` of "test".
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -177,7 +182,7 @@ Invalid or missing Authorization header.
 
 If the title is missing:
 
-```javascript
+```json
 {
   "error": "Validation failed: Title can't be blank"
 }
@@ -188,7 +193,7 @@ https://github.com/mastodon/mastodon/issues/19097
 
 If the replies_policy is not understood:
 
-```javascript
+```json
 ```
 -->
 
@@ -233,7 +238,7 @@ replies_policy
 
 The `title` of list 13585 was successfully updated to "testing"
 
-```javascript
+```json
 {
   "id": "13585",
   "title": "test",
@@ -245,7 +250,7 @@ The `title` of list 13585 was successfully updated to "testing"
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -255,7 +260,7 @@ Invalid or missing Authorization header.
 
 If the title is missing:
 
-```javascript
+```json
 {
   "error": "Validation failed: Title can't be blank"
 }
@@ -266,7 +271,7 @@ https://github.com/mastodon/mastodon/issues/19097
 
 If the replies_policy is not understood:
 
-```javascript
+```json
 ```
 -->
 
@@ -300,7 +305,7 @@ Authorization
 
 List was successfully deleted
 
-```javascript
+```json
 {}
 ```
 
@@ -308,7 +313,7 @@ List was successfully deleted
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -319,7 +324,7 @@ Invalid or missing Authorization header.
 List does not exist or is not owned by you
 
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -368,7 +373,7 @@ limit
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "id": "952529",
@@ -407,7 +412,7 @@ limit
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -418,7 +423,7 @@ Invalid or missing Authorization header.
 List does not exist or is not owned by you.
 
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -459,7 +464,7 @@ account_ids[]
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {}
 ```
 
@@ -467,7 +472,7 @@ account_ids[]
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -477,7 +482,7 @@ Invalid or missing Authorization header.
 
 You are not following a given account ID, or you do not own the list ID, or list/account ID does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -487,7 +492,7 @@ You are not following a given account ID, or you do not own the list ID, or list
 
 An Account with one of the provided IDs is already in the list
 
-```javascript
+```json
 {
   "error": "Validation failed: Account has already been taken"
 }
@@ -530,7 +535,7 @@ account_ids[]
 
 Account was successfully removed from the list, or it was already not in the list.
 
-```javascript
+```json
 {}
 ```
 
@@ -538,7 +543,7 @@ Account was successfully removed from the list, or it was already not in the lis
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -548,7 +553,7 @@ Invalid or missing Authorization header.
 
 SOMETHING is not owned by you or does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -558,8 +563,8 @@ SOMETHING is not owned by you or does not exist
 
 ## See also
 
+{{< page-relref ref="methods/accounts#lists" caption="GET /api/v1/accounts/:id/lists" >}}
+
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/lists_controller.rb" caption="app/controllers/api/v1/lists_controller.rb" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/lists" caption="app/controllers/api/v1/lists/" >}}
-
-{{< page-relref ref="methods/accounts#lists" caption="GET /api/v1/accounts/:id/lists" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/lists/accounts_controller.rb" caption="app/controllers/api/v1/lists/accounts_controller.rb" >}}

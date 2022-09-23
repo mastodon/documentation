@@ -7,21 +7,26 @@ menu:
   docs:
     weight: 120
     parent: methods-accounts
-aliases: [/methods/accounts/suggestions/]
+    identifier: methods-suggestions
+aliases: ["/methods/suggestions", "/methods/accounts/suggestions"]
 ---
 
-## View follow suggestions {#get}
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
+
+## View follow suggestions (v2) {#v2}
 
 ```http
-GET https://mastodon.example/api/v1/suggestions HTTP/1.1
+GET https://mastodon.example/api/v2/suggestions HTTP/1.1
 ```
 
 Accounts the user has had past positive interactions with, but is not yet following.
 
-**Returns:** Array of [Account]({{< relref "entities/account" >}})\
+**Returns:** Array of [Suggestion]({{< relref "entities/Suggestion" >}})\
 **OAuth:** User token + `read`\
 **Version history:**\
-2.4.3 - added
+3.4.0 - added
 
 #### Request
 ##### Headers
@@ -37,27 +42,25 @@ limit
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
-    "id": "332766",
-    "username": "kaniini",
-    "acct": "kaniini@pleroma.site",
-    ...
+    "source": "past_interactions",
+    "account": {
+      "id": "784058",
+      "username": "katie",
+      "acct": "katie@pleroma.voidlurker.net",
+      // ...
   },
+  // ...
   {
-    "id": "689455",
-    "username": "interneteh",
-    "acct": "interneteh@sunbeam.city",
-    ...
-  },
-  {
-    "id": "764276",
-    "username": "Dee",
-    "acct": "Dee@fedi.underscore.world",
-    ...
-  },
-  ...
+    "source": "global",
+    "account": {
+      "id": "108194863260762493",
+      "username": "thunderbird",
+      "acct": "thunderbird@mastodon.online",
+      // ...
+  }
 ]
 ```
 
@@ -65,7 +68,7 @@ limit
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -103,7 +106,7 @@ Authorization
 
 A successful call will return an empty object. Note the call will be successful even if the account id provided is invalid or is not a suggested account.
 
-```javascript
+```json
 {}
 ```
 
@@ -111,7 +114,71 @@ A successful call will return an empty object. Note the call will be successful 
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## (DEPRECATED) View follow suggestions (v1) {#v1}
+
+```http
+GET https://mastodon.example/api/v1/suggestions HTTP/1.1
+```
+
+Accounts the user has had past positive interactions with, but is not yet following.
+
+**Returns:** Array of [Account]({{< relref "entities/Account" >}})\
+**OAuth:** User token + `read`\
+**Version history:**\
+2.4.3 - added\
+3.4.0 - deprecated
+
+#### Request
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+limit
+: Integer. Maximum number of results to return. Defaults to 40.
+
+#### Response
+##### 200: OK
+
+```json
+[
+  {
+    "id": "332766",
+    "username": "kaniini",
+    "acct": "kaniini@pleroma.site",
+    // ...
+  },
+  {
+    "id": "689455",
+    "username": "interneteh",
+    "acct": "interneteh@sunbeam.city",
+    // ...
+  },
+  {
+    "id": "764276",
+    "username": "Dee",
+    "acct": "Dee@fedi.underscore.world",
+    // ...
+  },
+  // ...
+]
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
 {
   "error": "The access token is invalid"
 }
@@ -121,6 +188,9 @@ Invalid or missing Authorization header.
 
 ## See also
 
+{{< page-relref ref="methods/accounts#follow" caption="POST /api/v1/accounts/:id/follow" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v2/suggestions_controller.rb" caption="app/controllers/api/v2/suggestions_controller.rb" >}}
+
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/suggestions_controller.rb" caption="app/controllers/api/v1/suggestions_controller.rb" >}}
 
-{{< page-relref ref="methods/accounts#follow" caption="POST /api/v1/accounts/:id/follow" >}}

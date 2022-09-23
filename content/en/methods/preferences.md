@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 110
     parent: methods-accounts
-aliases: [/methods/accounts/preferences/]
+    identifier: methods-preferences
+aliases: ["/methods/preferences", "/methods/accounts/preferences"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View user preferences {#get}
 
@@ -31,7 +36,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
   "posting:default:visibility": "public",
   "posting:default:sensitive": false,
@@ -45,7 +50,7 @@ Authorization
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }

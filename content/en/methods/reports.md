@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 70
     parent: methods-accounts
-aliases: [/methods/accounts/reports/]
+    identifier: methods-reports
+aliases: ["/methods/reports", "/methods/accounts/reports"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## File a report {#post}
 
@@ -52,7 +57,7 @@ rule_ids[]
 
 Sample call with one status ID provided and a category of `spam` with a comment
 
-```javascript
+```json
 {
   "id": "48914",
   "action_taken": false,
@@ -95,7 +100,7 @@ Sample call with one status ID provided and a category of `spam` with a comment
 
 Invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -105,7 +110,7 @@ Invalid or missing Authorization header
 
 Report not filed.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -115,7 +120,7 @@ Report not filed.
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -123,7 +128,7 @@ Token does not have an authorized user
 
 Alternatively, the `category` was set to `violation` but invalid or missing `rule_ids` were provided
 
-```javascript
+```json
 {
   "error": "Validation failed: Rule ids does not reference valid rules"
 }

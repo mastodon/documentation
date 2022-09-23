@@ -1,16 +1,20 @@
 ---
-title: Attachment
+title: MediaAttachment
 description: Represents a file or media attachment that can be added to a status.
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/attachment",
+  "/entities/mediaattachment",
+  "/entities/MediaAttachment"]
 ---
 
 ## Example
 
-{{< tabs >}}
-{{< tab title="Image" >}}
-```javascript
+### Image
+
+```json
 {
   "id": "22345792",
   "type": "image",
@@ -40,10 +44,10 @@ menu:
   "blurhash": "UFBWY:8_0Jxv4mx]t8t64.%M-:IUWGWAt6M}"
 }
 ```
-{{< endtab >}}
 
-{{< tab title="Video" >}}
-```javascript
+### Video
+
+```json
 {
   "id": "22546306",
   "type": "video",
@@ -80,10 +84,10 @@ menu:
   "blurhash": "U58E0g8_0M.94T?bIr00?bD%NGoM?bD%oLt7"
 }
 ```
-{{< endtab >}}
 
-{{< tab title="GIFV" >}}
-```javascript
+### GIFV
+
+```json
 {
   "id": "21130559",
   "type": "gifv",
@@ -117,10 +121,10 @@ menu:
   "blurhash": "URHT%Jm,2a1d%MRO%LozkrNH$*n*oMn$Rjt7"
 }
 ```
-{{< endtab >}}
 
-{{< tab title="Audio" >}}
-```javascript
+### Audio
+
+```json
 {
   "id": "21165404",
   "type": "audio",
@@ -143,88 +147,93 @@ menu:
   "blurhash": null
 }
 ```
-{{< endtab >}}
-{{< endtabs >}}
 
-## Required attributes
+## Attributes
 
 ### `id` {#id}
 
 **Description:** The ID of the attachment in the database.\
-**Type:** String \(cast from an integer but not guaranteed to be a number\)\
-**Version history:** Added in 0.6.0.
+**Type:** String (cast from an integer but not guaranteed to be a number)\
+**Version history:**\
+0.6.0 - added
 
 ### `type` {#type}
 
 **Description:** The type of the attachment.\
-**Type:** String \(Enumerable, oneOf\)\
+**Type:** String (Enumerable, oneOf)\
 `unknown` = unsupported or unrecognized file type\
 `image` = Static image\
 `gifv` = Looping, soundless animation\
 `video` = Video clip\
 `audio` = Audio track\
-**Version history:** Added in 0.6.0. Audio added in 2.9.1.
+**Version history:**\
+0.6.0 - added\
+2.9.1 - added `audio`
 
 ### `url` {#url}
 
 **Description:** The location of the original full-size attachment.\
-**Type:** String \(URL\)\
-**Version history:** Added in 0.6.0.
+**Type:** String (URL)\
+**Version history:**\
+0.6.0 - added
 
 ### `preview_url` {#preview_url}
 
 **Description:** The location of a scaled-down preview of the attachment.\
-**Type:** String \(URL\)\
-**Version history:** Added in 0.6.0.
-
-## Optional attributes
+**Type:** String (URL)\
+**Version history:**\
+0.6.0 - added
 
 ### `remote_url` {#remote_url}
 
 **Description:** The location of the full-size original attachment on the remote website.\
-**Type:** String \(URL\), or null if the attachment is local\
-**Version history:** Added in 0.6.0.
+**Type:** {{<nullable>}} String (URL), or null if the attachment is local\
+**Version history:**\
+0.6.0 - added
 
 ### `meta` {#meta}
 
 **Description:** Metadata returned by Paperclip.\
 **Type:** Hash\
-**Version history:** Added in 1.5.0. meta\[focus\] added in 2.3.0.
+**Version history:**\
+1.5.0 - added\
+2.3.0 - added `meta.focus`
 
 May contain subtrees `small` and `original`, as well as various other top-level properties.
 
-More importantly, there may be another top-level `focus` Hash object as of 2.3.0, with coordinates can be used for smart thumbnail cropping -- see [Focal points]({{< relref "methods/media#focal-points" >}}) for more.
+More importantly, there may be another topl-level `focus` Hash object on images as of 2.3.0, with coordinates can be used for smart thumbnail cropping -- see [Focal points for cropped media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more.
 
 ### `description` {#description}
 
 **Description:** Alternate text that describes what is in the media attachment, to be used for the visually impaired or when media attachments do not load.\
 **Type:** String\
-**Version history:** Added in 2.0.0
+**Version history:**\
+2.0.0 - added
 
 ### `blurhash` {#blurhash}
 
 **Description:** A hash computed by [the BlurHash algorithm](https://github.com/woltapp/blurhash), for generating colorful preview thumbnails when media has not been downloaded yet.\
 **Type:** String\
-**Version history:** Added in 2.8.1
+**Version history:**\
+2.8.1 - added
 
 ## Deprecated attributes
 
 ### `text_url` {#text_url}
 
 **Description:** A shorter URL for the attachment.\
-**Type:** String \(URL\)\
-**Version history:** Added in 0.6.0 and deprecated in 3.5.0.
+**Type:** String (URL)\
+**Version history:**\
+0.6.0 - added\
+3.5.0 - removed
 
 ## See also
 
-* Status\#media\_attachments
-* /api/v1/media
+{{< page-relref ref="entities/Status#media_attachments" caption="Status (`media_attachments` attribute)" >}}
 
-{{< page-ref page="status.md" >}}
+{{< page-relref ref="methods/media" caption="media API methods" >}}
 
-{{< page-ref page="methods/statuses/media.md" >}}
-
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/media_attachment_serializer.rb" caption="app/serializers/rest/media\_attachment\_serializer.rb" >}}
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/media_attachment_serializer.rb" caption="app/serializers/rest/media_attachment_serializer.rb" >}}
 
 
 

@@ -4,11 +4,14 @@ description: Reports filed against users and/or statuses, to be taken action on 
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/report",
+  "/entities/Report"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
   "id": "48914",
   "action_taken": false,
@@ -70,17 +73,20 @@ menu:
 **Version history:**\
 1.1.0 - added
 
+### `category` {#category}
+
+**Description:** The generic reason for the report.\
+**Type:** String (Enumerable oneOf)\
+`spam` = Unwanted or repetitive content\
+`violation` = A specific rule was violated\
+`other` = Some other reason\
+**Version history:**\
+3.5.0 - added
+
 ### `comment` {#comment}
 
 **Description:** The reason for the report.\
 **Type:** String\
-**Version history:**\
-1.1.0 - added
-
-### `status_ids` {#status_ids}
-
-**Description:** The domain name of the instance.\
-**Type:** Array of Number, or null\
 **Version history:**\
 1.1.0 - added
 
@@ -98,19 +104,12 @@ menu:
 **Version history:**\
 1.1.0 - added
 
-### `target_account` {#target_account}
+### `status_ids` {#status_ids}
 
-**Description:** The account that was reported.\
-**Type:** [Account]({{< relref "entities/account" >}})\
+**Description:** The domain name of the instance.\
+**Type:** Array of Number, or null\
 **Version history:**\
 1.1.0 - added
-
-### `category` {#category}
-
-**Description:** The generic reason for the report.\
-**Type:** String (Enumerable oneOf `spam`, `violation`, `other`)\
-**Version history:**\
-3.5.0 - added
 
 ### `rule_ids` {#rule_ids}
 
@@ -119,11 +118,20 @@ menu:
 **Version history:**\
 3.5.0 - added
 
+### `target_account` {#target_account}
+
+**Description:** The account that was reported.\
+**Type:** [Account]({{< relref "entities/account" >}})\
+**Version history:**\
+1.1.0 - added
+
 ## See also
 
-{{< page-ref page="methods/accounts/reports.md" >}}
+{{< page-relref ref="methods/reports" caption="reports API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/report_serializer.rb" caption="app/serializers/rest/report_serializer.rb" >}}
+{{< page-relref ref="entities/Notification#report" caption="Notification (`report` attribute)" >}}
+
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/report_serializer.rb" caption="app/serializers/rest/report_serializer.rb" >}}
 
 
 

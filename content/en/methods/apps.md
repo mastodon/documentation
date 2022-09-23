@@ -6,7 +6,12 @@ menu:
     weight: 10
     parent: methods
     identifier: methods-apps
+aliases: ["/methods/apps"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## Create an application {#create}
 
@@ -16,7 +21,7 @@ POST https://mastodon.example/api/v1/apps HTTP/1.1
 
 Create a new application to obtain OAuth2 credentials.
 
-**Returns:** [Application]({{< relref "entities/application" >}}), with `client_id` and `client_secret`\
+**Returns:** [Application]({{< relref "entities/Application" >}})\
 **OAuth:** Public\
 **Version history:**\
 0.0.0 - added\
@@ -42,7 +47,7 @@ website
 
 Store the `client_id` and `client_secret` in your cache, as these will be used to obtain OAuth tokens.
 
-```javascript
+```json
 {
   "id": "563419",
   "name": "test app",
@@ -58,7 +63,7 @@ Store the `client_id` and `client_secret` in your cache, as these will be used t
 
 If a required parameter is missing or improperly formatted, the request will fail.
 
-```javascript
+```json
 {
   "error": "Validation failed: Redirect URI must be an absolute URI."
 }
@@ -74,7 +79,7 @@ GET https://mastodon.example/api/v1/apps/verify_credentials HTTP/1.1
 
 Confirm that the app's OAuth2 credentials work.
 
-**Returns:** [Application]({{< relref "entities/application" >}})\
+**Returns:** [Application]({{< relref "entities/application" >}}), but without `client_id` or `client_secret`\
 **OAuth level:** App token\
 **Version history:**\
 2.0.0 - added\
@@ -92,7 +97,7 @@ Authorization
 
 If the Authorization header was provided with a valid token, you should see your app returned as an Application entity.
 
-```javascript
+```json
 {
   "name": "test app",
   "website": null,
@@ -104,7 +109,7 @@ If the Authorization header was provided with a valid token, you should see your
 
 If the Authorization header contains an invalid token, is malformed, or is not present, an error will be returned indicating an authorization failure.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -116,4 +121,4 @@ If the Authorization header contains an invalid token, is malformed, or is not p
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/apps_controller.rb" caption="app/controllers/api/v1/apps_controller.rb" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/apps" caption="app/controllers/api/v1/apps/" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/apps/credentials_controller.rb" caption="app/controllers/api/v1/apps/credentials_controller.rb" >}}

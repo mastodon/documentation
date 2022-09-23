@@ -6,7 +6,12 @@ menu:
     weight: 20
     parent: methods
     identifier: methods-accounts
+aliases: ["/methods/accounts"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## Register an account {#create}
 
@@ -54,12 +59,12 @@ reason
 
 ##### 200: OK
 
-```javascript
+```json
 ```
 
 ##### 401: Unauthorized
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -71,7 +76,7 @@ The `details` parameter contains all detected errors. Its structure is a Hash wi
 
 Example error response:
 
-```javascript
+```json
 {
   "error": "Validation failed: Password can't be blank, Username must contain only letters, numbers and underscores, Agreement must be accepted",
   "details": {
@@ -131,7 +136,7 @@ ERR_INCLUSION
 
 ##### 429: Rate limited
 
-```javascript
+```json
 {
   "error": "Too many requests"
 }
@@ -165,7 +170,7 @@ Authorization
 
 Note the extra `source` property, which is not visible on accounts other than your own. Also note that plain-text is used within `source` and HTML is used for their corresponding properties such as `note` and `fields`.
 
-```javascript
+```json
 {
   "id": "14715",
   "username": "trwnh",
@@ -250,7 +255,7 @@ Note the extra `source` property, which is not visible on accounts other than yo
 
 Your credential verification will fail if the token is invalid or incorrect.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -260,19 +265,19 @@ Your credential verification will fail if the token is invalid or incorrect.
 
 Your user account is currently disabled, missing a confirmed email address, or pending approval.
 
-```javascript
+```json
 {
   "error": "Your login is currently disabled"
 }
 ```
 
-```javascript
+```json
 {
   "error": "Your login is missing a confirmed e-mail address"
 }
 ```
 
-```javascript
+```json
 {
   "error": "Your login is currently pending approval"
 }
@@ -282,7 +287,7 @@ Your user account is currently disabled, missing a confirmed email address, or p
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -354,7 +359,7 @@ fields_attributes[]
 
 You should use accounts/verify_credentials to first obtain plaintext representations from within the `source` parameter, then allow the user to edit these plaintext representations before submitting them through this API. The server will generate the corresponding HTML.
 
-```javascript
+```json
 {
   "id": "14715",
   "username": "trwnh",
@@ -437,7 +442,7 @@ You should use accounts/verify_credentials to first obtain plaintext representat
 
 ##### 401: Unauthorized
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -447,7 +452,7 @@ You should use accounts/verify_credentials to first obtain plaintext representat
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -488,7 +493,7 @@ The Account record will be returned. Note that `acct` of local users does not in
 
 ###### Local user
 
-```javascript
+```json
 {
   "id": "1",
   "username": "Gargron",
@@ -525,7 +530,7 @@ The Account record will be returned. Note that `acct` of local users does not in
 
 ###### Remote user
 
-```javascript
+```json
 {
   "id": "23634",
   "username": "noiob",
@@ -591,7 +596,7 @@ The Account record will be returned. Note that `acct` of local users does not in
 
 ###### Suspended user
 
-```javascript
+```json
 {
   "id": "14",
   "username": "stigatle",
@@ -622,7 +627,7 @@ The Account record will be returned. Note that `acct` of local users does not in
 
 If the instance is in whitelist mode and the Authorization header is missing or invalid
 
-```javascript
+```json
 {
   "error": "This API requires an authenticated user"
 }
@@ -632,7 +637,7 @@ If the instance is in whitelist mode and the Authorization header is missing or 
 
 Account does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -695,7 +700,7 @@ tagged
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "id": "108880211901672326",
@@ -715,7 +720,7 @@ If the instance is in whitelist mode and the Authorization header is missing or 
 
 Sample response for whitelist mode:
 
-```javascript
+```json
 {
   "error": "This API requires an authenticated user"
 }
@@ -723,7 +728,7 @@ Sample response for whitelist mode:
 
 Sample response before 2.7.0:
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -733,7 +738,7 @@ Sample response before 2.7.0:
 
 Account does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -793,7 +798,7 @@ Sample output with limit=2. Because the ID of follow relationships is not genera
 Link: <https://mastodon.social/api/v1/accounts/14715/followers?limit=2&max_id=7486869>; rel="next", <https://mastodon.social/api/v1/accounts/14715/followers?limit=2&since_id=7489740>; rel="prev"
 ```
 
-```javascript
+```json
 [
   {
     "id": "1020382",
@@ -846,7 +851,7 @@ Invalid or missing Authorization header, or instance is in whitelist mode and yo
 
 Sample response for whitelist mode:
 
-```javascript
+```json
 {
   "error": "This API requires an authenticated user"
 }
@@ -854,7 +859,7 @@ Sample response for whitelist mode:
 
 Sample response with missing header or invalid token:
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -864,7 +869,7 @@ Sample response with missing header or invalid token:
 
 Account does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -924,7 +929,7 @@ Sample output with limit=2. Because the ID of follow relationships is not genera
 Link: <https://mastodon.social/api/v1/accounts/1/followers?limit=2&max_id=7628164>; rel="next", <https://mastodon.social/api/v1/accounts/1/followers?limit=2&since_id=7628165>; rel="prev"
 ```
 
-```javascript
+```json
 [
   {
     "id": "963410",
@@ -988,7 +993,7 @@ Invalid or missing Authorization header, or instance is in whitelist mode and yo
 
 Sample response for whitelist mode:
 
-```javascript
+```json
 {
   "error": "This API requires an authenticated user"
 }
@@ -996,7 +1001,7 @@ Sample response for whitelist mode:
 
 Sample response with missing header or invalid token:
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1006,7 +1011,7 @@ Sample response with missing header or invalid token:
 
 Account does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -1045,7 +1050,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "id": "627",
@@ -1087,7 +1092,7 @@ Authorization
 
 If the account is part of any lists, those entities will be returned. If the account is not part of any of your lists, then an empty array will be returned.
 
-```javascript
+```json
 [
   {
     "id": "13694",
@@ -1096,7 +1101,7 @@ If the account is part of any lists, those entities will be returned. If the acc
 ]
 ```
 
-```javascript
+```json
 []
 ```
 
@@ -1106,7 +1111,7 @@ Invalid or missing Authorization header, or instance is in whitelist mode and yo
 
 Sample response for whitelist mode:
 
-```javascript
+```json
 {
   "error": "This API requires an authenticated user"
 }
@@ -1114,7 +1119,7 @@ Sample response for whitelist mode:
 
 Sample response with missing header or invalid token:
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1124,7 +1129,7 @@ Sample response with missing header or invalid token:
 
 Account does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -1138,7 +1143,7 @@ Account is suspended (since 2.4.0 and until 3.3.0)
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -1159,7 +1164,8 @@ Follow the given account. Can also be used to update whether to show reblogs or 
 **Version history:**\
 0.0.0 - added\
 3.3.0 - added `notify`\
-3.5.0 - deprecated `follow` scope. now additionally accepts `write`
+3.5.0 - deprecated `follow` scope. now additionally accepts `write`\
+3.6.0 - added `languages`
 
 #### Request
 ##### Path parameters
@@ -1180,12 +1186,15 @@ reblogs
 notify
 : Boolean. Receive notifications when this account posts a status? Defaults to false.
 
+languages
+: Array of String (ISO 639-1 language two-letter code). Filter received statuses for these languages. If not provided, you will receive this account's posts in all languages.
+
 #### Response
 ##### 200: OK
 
 Successfully followed, or account was already followed
 
-```javascript
+```json
 {
   "id": "3",
   "following": true,
@@ -1206,7 +1215,7 @@ Successfully followed, or account was already followed
 
 Trying to follow someone that you block or that blocks you
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -1216,7 +1225,7 @@ Trying to follow someone that you block or that blocks you
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -1254,7 +1263,7 @@ Authorization
 
 Successfully unfollowed, or account was already not followed
 
-```javascript
+```json
 {
   "id": "3",
   "following": false,
@@ -1275,7 +1284,7 @@ Successfully unfollowed, or account was already not followed
 
 Invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1285,7 +1294,7 @@ Invalid or missing Authorization header
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -1322,7 +1331,7 @@ Authorization
 
 Successfully removed from followers, or account was already not following you
 
-```javascript
+```json
 {
   "id": "3",
   "following": false,
@@ -1343,7 +1352,7 @@ Successfully removed from followers, or account was already not following you
 
 Invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1353,7 +1362,7 @@ Invalid or missing Authorization header
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -1391,7 +1400,7 @@ Authorization
 
 Successfully blocked, or account was already blocked
 
-```javascript
+```json
 {
   "id": "3",
   "following": false,
@@ -1412,7 +1421,7 @@ Successfully blocked, or account was already blocked
 
 Invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1422,7 +1431,7 @@ Invalid or missing Authorization header
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -1460,7 +1469,7 @@ Authorization
 
 Successfully unblocked, or account was already not blocked
 
-```javascript
+```json
 {
   "id": "3",
   "following": false,
@@ -1481,7 +1490,7 @@ Successfully unblocked, or account was already not blocked
 
 Invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1491,7 +1500,7 @@ Invalid or missing Authorization header
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -1538,7 +1547,7 @@ duration
 
 Successfully muted, or account was already muted. Note that you can call this API method again with notifications=false to update the relationship so that only statuses are muted.
 
-```javascript
+```json
 {
   "id": "3",
   "following": false,
@@ -1559,7 +1568,7 @@ Successfully muted, or account was already muted. Note that you can call this AP
 
 Invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1569,7 +1578,7 @@ Invalid or missing Authorization header
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -1607,7 +1616,7 @@ Authorization
 
 Successfully unmuted, or account was already unmuted
 
-```javascript
+```json
 {
   "id": "3",
   "following": false,
@@ -1628,7 +1637,7 @@ Successfully unmuted, or account was already unmuted
 
 Invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1638,7 +1647,7 @@ Invalid or missing Authorization header
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -1675,7 +1684,7 @@ Authorization
 
 Successfully endorsed, or was already endorsing.
 
-```javascript
+```json
 {
   "id": "1",
   "following": true,
@@ -1696,7 +1705,7 @@ Successfully endorsed, or was already endorsing.
 
 Invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1706,7 +1715,7 @@ Invalid or missing Authorization header
 
 Token is missing a required scope
 
-```javascript
+```json
 {
   "error": "This action is outside the authorized scopes"
 }
@@ -1716,7 +1725,7 @@ Token is missing a required scope
 
 You are not following this account
 
-```javascript
+```json
 {
   "error": "Validation failed: You must be already following the person you want to endorse"
 }
@@ -1724,7 +1733,7 @@ You are not following this account
 
 Alternatively, the account may already be endorsed
 
-```javascript
+```json
 {
   "error": "Duplicate record"
 }
@@ -1732,7 +1741,7 @@ Alternatively, the account may already be endorsed
 
 Alternatively, the token is not authorized with a user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -1773,7 +1782,7 @@ Authorization
 
 Successfully unendorsed, or account was already not endorsed
 
-```javascript
+```json
 {
   "id": "1",
   "following": true,
@@ -1794,7 +1803,7 @@ Successfully unendorsed, or account was already not endorsed
 
 Invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1804,7 +1813,7 @@ Invalid or missing Authorization header
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -1846,7 +1855,7 @@ comment
 
 Successfully updated profile note
 
-```javascript
+```json
 {
   "id": "1",
   "following": true,
@@ -1866,7 +1875,7 @@ Successfully updated profile note
 
 Successfully removed profile note
 
-```javascript
+```json
 {
   "id": "1",
   "following": true,
@@ -1888,7 +1897,7 @@ Successfully removed profile note
 
 Invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1898,7 +1907,7 @@ Invalid or missing Authorization header
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -1935,7 +1944,7 @@ id[]
 
 Sample call with `id[]=1&id[]=2`
 
-```javascript
+```json
 [
   {
     "id": "1",
@@ -1972,7 +1981,7 @@ Sample call with `id[]=1&id[]=2`
 
 Invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -1982,7 +1991,7 @@ Invalid or missing Authorization header
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -1998,7 +2007,7 @@ GET https://mastodon.example/api/v1/accounts/familiar_followers HTTP/1.1
 
 Obtain a list of all accounts that follow a given account, filtered for accounts you follow.
 
-**Returns:** Array of Hash, where each Hash contains `id` (String, cast from integer) and `accounts` (Array of [Account]({{< relref "entities/Account">}}))\
+**Returns:** Array of [FamiliarFollowers]({{< relref "entities/FamiliarFollowers">}})\
 **OAuth:** User token + `read:follows`\
 **Version history:**\
 3.5.0 - added
@@ -2019,7 +2028,7 @@ id[]
 
 Sample call with `id[]=1&id[]=2`
 
-```javascript
+```json
 [
   {
     "id":"1",
@@ -2028,15 +2037,15 @@ Sample call with `id[]=1&id[]=2`
         "id":"1087990",
         "username":"moss",
         "acct":"moss@goblin.camp",
-        ...
+        // ...
       },
       {
         "id":"1092723",
         "username":"vivianrose",
         "acct":"vivianrose",
-        ...
+        // ...
       },
-      ...
+      // ...
     ]
   },
   {
@@ -2050,7 +2059,7 @@ Sample call with `id[]=1&id[]=2`
 
 Invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -2060,7 +2069,7 @@ Invalid or missing Authorization header
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -2106,7 +2115,7 @@ following
 
 Accounts matching "trwnh" in username or display name
 
-```javascript
+```json
 [
   {
     "id": "14715",
@@ -2137,7 +2146,7 @@ Accounts matching "trwnh" in username or display name
 
 resolve=true, but the domain part of the user@domain address is not a currently live website
 
-```javascript
+```json
 {
   "error": "Remote data could not be fetched"
 }
@@ -2172,7 +2181,7 @@ skip_webfinger
 
 Sample call with `?acct=trwnh`
 
-```javascript
+```json
 {
   "id": "14715",
   "username": "trwnh",
@@ -2185,7 +2194,7 @@ Sample call with `?acct=trwnh`
 
 Sample call with `?acct=trwnh@pixelfed.social`
 
-```javascript
+```json
 {
   "id": "418714",
   "username": "trwnh",
@@ -2200,7 +2209,7 @@ Sample call with `?acct=trwnh@pixelfed.social`
 
 Username or address does not map to an account
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -2230,7 +2239,7 @@ GET https://mastodon.example/api/v1/accounts/:id/identity_proofs HTTP/1.1
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "provider": "Keybase",
@@ -2246,7 +2255,7 @@ GET https://mastodon.example/api/v1/accounts/:id/identity_proofs HTTP/1.1
 
 Account does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -2260,7 +2269,7 @@ Account is suspended (since 2.4.0 and until 3.3.0)
 
 Token does not have an authorized user
 
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
@@ -2272,4 +2281,28 @@ Token does not have an authorized user
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts_controller.rb" caption="app/controllers/api/v1/accounts_controller.rb" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts" caption="app/controllers/api/v1/accounts/" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/credentials_controller.rb" caption="app/controllers/api/v1/accounts/credentials_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/familiar_followers_controller.rb" caption="app/controllers/api/v1/accounts/familiar_followers_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/featured_tags_controller.rb" caption="app/controllers/api/v1/accounts/featured_tags_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/follower_accounts_controller.rb" caption="app/controllers/api/v1/accounts/follower_accounts_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/following_accounts_controller.rb" caption="app/controllers/api/v1/accounts/following_accounts_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/identity_proofs_controller.rb" caption="app/controllers/api/v1/accounts/identity_proofs_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/lists_controller.rb" caption="app/controllers/api/v1/accounts/lists_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/lookup_controller.rb" caption="app/controllers/api/v1/accounts/lookup_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/notes_controller.rb" caption="app/controllers/api/v1/accounts/notes_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/pins_controller.rb" caption="app/controllers/api/v1/accounts/pins_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/relationships_controller.rb" caption="app/controllers/api/v1/accounts/relationships_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/search_controller.rb" caption="app/controllers/api/v1/accounts/search_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/statuses_controller.rb" caption="app/controllers/api/v1/accounts/statuses_controller.rb" >}}

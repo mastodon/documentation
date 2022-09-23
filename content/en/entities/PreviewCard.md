@@ -1,14 +1,20 @@
 ---
-title: Card
+title: PreviewCard
 description: Represents a rich preview card that is generated using OpenGraph tags from a URL.
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/card",
+  "/entities/previewcard",
+  "/entities/PreviewCard"]
 ---
 
-{{< tabs >}}
-{{< tab title="video" >}}
-```javascript
+## Examples
+
+### Video
+
+```json
 {
   "url": "https://www.youtube.com/watch?v=OMv_EPMED8Y",
   "title": "♪ Brand New Friend (Christmas Song!)",
@@ -26,10 +32,10 @@ menu:
   "blurhash": "UvK0HNkV,:s9xBR%njog0fo2W=WBS5ozofV@"
 }
 ```
-{{< endtab >}}
 
-{{< tab title="photo" >}}
-```javascript
+### Photo
+
+```json
 {
   "url": "https://www.flickr.com/photos/tomfenskephotography/49088768431/",
   "title": "Oregon",
@@ -47,10 +53,10 @@ menu:
   "blurhash": "UnE{@jt6M_oIAhjYs+ayT2WBf9ayRkkDXAj["
 }
 ```
-{{< endtab >}}
 
-{{< tab title="link" >}}
-```javascript
+### Link
+
+```json
 {
   "url": "https://www.theguardian.com/money/2019/dec/07/i-lost-my-193000-inheritance-with-one-wrong-digit-on-my-sort-code",
   "title": "‘I lost my £193,000 inheritance – with one wrong digit on my sort code’",
@@ -68,44 +74,40 @@ menu:
   "blurhash": null
 }
 ```
-{{< endtab >}}
-{{< endtabs >}}
 
-## Base attributes
+## Attributes
 
-### `url`
+### `url` {#url}
 
 **Description:** Location of linked resource.\
-**Type:** String \(URL\)\
+**Type:** String (URL)\
 **Version history:**\
 1.0.0 - added
 
-### `title`
+### `title` {#title}
 
 **Description:** Title of linked resource.\
 **Type:** String\
 **Version history:**\
 1.0.0 - added
 
-### `description`
+### `description` {#description}
 
 **Description:** Description of preview.\
 **Type:** String\
 **Version history:**\
 1.0.0 - added
 
-### `type`
+### `type` {#type}
 
 **Description:** The type of the preview card.\
-**Type:** String \(Enumerable, oneOf\)\
+**Type:** String (Enumerable, oneOf)\
 `link` = Link OEmbed\
 `photo` = Photo OEmbed\
 `video` = Video OEmbed\
 `rich` = iframe OEmbed. Not currently accepted, so won't show up in practice.\
 **Version history:**\
 1.3.0 - added
-
-## Optional attributes
 
 ### `author_name` {#author_name}
 
@@ -117,7 +119,7 @@ menu:
 ### `author_url` {#author_url}
 
 **Description:** A link to the author of the original resource.\
-**Type:** String \(URL\)\
+**Type:** String (URL)\
 **Version history:**\
 1.3.0 - added
 
@@ -131,55 +133,55 @@ menu:
 ### `provider_url` {#provider_url}
 
 **Description:** A link to the provider of the original resource.\
-**Type:** String \(URL\)\
+**Type:** String (URL)\
 **Version history:**\
 1.3.0 - added
 
-### `html`
+### `html` {#html}
 
 **Description:** HTML to be used for generating the preview card.\
-**Type:** String \(HTML\)\
+**Type:** String (HTML)\
 **Version history:**\
 1.3.0 - added
 
-### `width`
+### `width` {#height}
 
 **Description:** Width of preview, in pixels.\
-**Type:** Number\
+**Type:** Integer\
 **Version history:**\
 1.3.0 - added
 
-### `height`
+### `height` {#height}
 
 **Description:** Height of preview, in pixels.\
-**Type:** Number\
+**Type:** Integer\
 **Version history:**\
 1.3.0 - added
 
-### `image`
+### `image` {#image}
 
 **Description:** Preview thumbnail.\
-**Type:** String \(URL\)\
+**Type:** {{<nullable>}} String (URL)\
 **Version history:**\
 1.0.0 - added
 
 ### `embed_url` {#embed_url}
 
 **Description:** Used for photo embeds, instead of custom `html`.\
-**Type:** String \(URL\)\
+**Type:** String (URL)\
 **Version history:**\
 2.1.0 - added
 
-### `blurhash`
+### `blurhash` {#blurhash}
+
 **Description:** A hash computed by [the BlurHash algorithm](https://github.com/woltapp/blurhash), for generating colorful preview thumbnails when media has not been downloaded yet.\
-**Type:** String\
+**Type:** {{<nullable>}} String\
 **Version history:**\
 3.2.0 - added
 
-
 ## See also
 
-{{< page-ref page="status.md" >}}
+{{< page-relref ref="entities/Status#card" caption="Status (`card` attribute)" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/preview_card_serializer.rb" caption="app/serializers/rest/preview\_card\_serializer.rb" >}}
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/preview_card_serializer.rb" caption="app/serializers/rest/preview_card_serializer.rb" >}}
 

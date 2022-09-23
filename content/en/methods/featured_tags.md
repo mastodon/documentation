@@ -5,14 +5,21 @@ menu:
   docs:
     weight: 100
     parent: methods-accounts
-aliases: [/methods/accounts/featured_tags/]
+    identifier: methods-featured_tags
+aliases: ["/methods/featured_tags", "/methods/accounts/featured_tags"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View your featured tags {#get}
 
 ```http
 GET https://mastodon.example/api/v1/featured_tags HTTP/1.1
 ```
+
+List all hashtags featured on your profile.
 
 **Returns:** Array of [FeaturedTag]({{< relref "entities/featuredtag" >}})\
 **OAuth:** User token + `read:accounts`\
@@ -28,13 +35,14 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "id": "627",
     "name": "nowplaying",
-    "statuses_count": 36,
-    "last_status_at": "2019-11-15T07:14:43.524Z"
+    "url": "https://mastodon.social/@trwnh/tagged/nowplaying",
+    "statuses_count": 70,
+    "last_status_at": "2022-08-29T12:03:35.061Z"
   }
 ]
 ```
@@ -43,7 +51,7 @@ Authorization
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -56,6 +64,8 @@ Invalid or missing Authorization header.
 ```http
 POST https://mastodon.example/api/v1/featured_tags HTTP/1.1
 ```
+
+Promote a hashtag on your profile.
 
 **Returns:** [FeaturedTag]({{< relref "entities/featuredtag" >}})\
 **OAuth:** User token + `write:accounts`\
@@ -78,12 +88,13 @@ name
 
 A FeaturedTag will be created with the specified `name`.
 
-```javascript
+```json
 {
   "id": "13174",
   "name": "circasurvive",
-  "statuses_count": 11,
-  "last_status_at": "2019-11-15T06:20:32.769Z"
+  "url": "https://mastodon.social/@trwnh/tagged/circasurvive",
+  "statuses_count": 23,
+  "last_status_at": "2021-10-22T14:47:35.357Z"
 }
 ```
 
@@ -91,7 +102,7 @@ A FeaturedTag will be created with the specified `name`.
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -101,7 +112,7 @@ Invalid or missing Authorization header.
 
 If `name` is not a valid hashtag, e.g. contains illegal characters or only numbers
 
-```javascript
+```json
 {
   "error": "Validation failed: Tag is invalid"
 }
@@ -115,25 +126,19 @@ If `name` is not a valid hashtag, e.g. contains illegal characters or only numbe
 DELETE https://mastodon.example/api/v1/featured_tags/:id HTTP/1.1
 ```
 
+Stop promoting a hashtag on your profile.
+
 **Returns:** empty object\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
 3.0.0 - added
-
-
-
----
-
-
-{{< api-method method="delete" host="https://mastodon.example" path="/api/v1/featured_tags/:id" title="Unfeature a tag" >}}
-{{< api-method-description >}}
 
 #### Request
 
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the FeaturedTag to be unfeatured.
+: {{<required>}} String. The ID of the FeaturedTag in the database.
 
 ##### Headers
 
@@ -143,9 +148,9 @@ Authorization
 #### Response
 ##### 200: OK
 
-An empty object will be returned if the featured tag was successfully deleted.
+The tag was unfeatured.
 
-```javascript
+```json
 {}
 ```
 
@@ -153,7 +158,7 @@ An empty object will be returned if the featured tag was successfully deleted.
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -161,9 +166,9 @@ Invalid or missing Authorization header.
 
 ##### 404: Not found
 
-If the ID does not exist or is not owned by you
+FeaturedTag is not owned by you or does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -177,9 +182,9 @@ If the ID does not exist or is not owned by you
 GET https://mastodon.example/api/v1/featured_tags/suggestions HTTP/1.1
 ```
 
-Shows your 10 most-used tags, with usage history for the past week.
+Shows up to 10 recently-used tags.
 
-**Returns:** Array of [Tag]({{< relref "entities/tag" >}}) with [History]({{< relref "entities/history" >}})\
+**Returns:** Array of [Tag]({{< relref "entities/Tag" >}})\
 **OAuth:** User token + `read:accounts`\
 **Version history:**\
 3.0.0 - added
@@ -195,7 +200,7 @@ Authorization
 
 Truncated results to first and last tag.
 
-```javascript
+```json
 [
   {
     "name": "nowplaying",
@@ -238,7 +243,7 @@ Truncated results to first and last tag.
       }
     ]
   },
-  ...
+  // ...
   {
     "name": "mastothemes",
     "url": "https://mastodon.social/tags/mastothemes",
@@ -287,7 +292,7 @@ Truncated results to first and last tag.
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -299,4 +304,4 @@ Invalid or missing Authorization header.
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/featured_tags_controller.rb" caption="app/controllers/api/v1/featured_tags_controller.rb" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/featured_tags" caption="app/controllers/api/v1/featured_tags/" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/featured_tags/suggestions_controller.rb" caption="app/controllers/api/v1/featured_tags/suggestions_controller.rb" >}}

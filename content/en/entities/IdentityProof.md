@@ -4,14 +4,16 @@ description: Represents a proof from an external identity provider.
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/identityproof",
+  "/entities/IdentityProof"]
 ---
 
 {{< hint style="danger" >}}
-**Deprecated**\
 Identity proofs have been deprecated in 3.5.0 and newer. Previously, the only proof provider was Keybase, but development on Keybase has stalled entirely since it was acquired by Zoom.
 {{< /hint >}}
 
-```javascript
+```json
 {
   "provider": "Keybase",
   "provider_username": "gargron",
@@ -27,39 +29,42 @@ Identity proofs have been deprecated in 3.5.0 and newer. Previously, the only pr
 
 **Description:** The name of the identity provider.\
 **Type:** String\
-**Version history:** Added in 2.8.0
+**Version history:**\
+2.8.0 - added
 
 ### `provider_username` {#provider_username}
 
 **Description:** The account owner's username on the identity provider's service.\
 **Type:** String\
-**Version history:** Added in 2.8.0
-
-### `profile_url` {#profile_url}
-
-**Description:** The account owner's profile URL on the identity provider.\
-**Type:** String \(URL\)\
-**Version history:** Added in 2.8.0
-
-### `proof_url` {#proof_url}
-
-**Description:** A link to a statement of identity proof, hosted by the identity provider.\
-**Type:** String \(URL\)\
-**Version history:** Added in 2.8.0
+**Version history:**\
+2.8.0 - added
 
 ### `updated_at` {#updated_at}
 
 **Description:** When the identity proof was last updated.\
-**Type:** String \(ISO 8601 Datetime\)\
-**Version history:** Added in 2.8.0
+**Type:** String (ISO 8601 Datetime)\
+**Version history:**\
+2.8.0 - added
+
+### `proof_url` {#proof_url}
+
+**Description:** A link to a statement of identity proof, hosted by the identity provider.\
+**Type:** String (URL)\
+**Version history:**\
+2.8.0 - added
+
+### `profile_url` {#profile_url}
+
+**Description:** The account owner's profile URL on the identity provider.\
+**Type:** String (URL)\
+**Version history:**\
+2.8.0 - added
 
 ## See also
 
-* [GET /api/v1/accounts/:id/identity\_proofs]({{< relref "../methods/accounts/#identity-proofs" >}})
-* /api/proofs
-* [About identity proofs]({{< relref "../user/contacts.md#identity-proofs" >}})
+{{< page-relref ref="methods/accounts#identity_proofs" caption="GET /api/v1/accounts/:id/identity_proofs" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/identity_proof_serializer.rb" caption="app/serializers/rest/identity\_proof\_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/pull/17045" caption="Remove Keybase integration (#17045)" >}}
 
 
 

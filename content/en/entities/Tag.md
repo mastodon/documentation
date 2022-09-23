@@ -4,11 +4,15 @@ description: Represents a hashtag used within the content of a status.
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/history",
+  "/entities/tag",
+  "/entities/Tag"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
   "name": "nowplaying",
   "url": "https://mastodon.social/tags/nowplaying",
@@ -48,42 +52,77 @@ menu:
       "uses": "214",
       "accounts": "34"
     }
-  ]
+  ],
+  "following": false
 }
 ```
 
-## Base attributes
+## Attributes
 
 ### `name` {#name}
 
 **Description:** The value of the hashtag after the \# sign.\
 **Type:** String\
-**Version history:** Added in 0.9.0
+**Version history:**\
+0.9.0 - added
 
 ### `url` {#url}
 
 **Description:** A link to the hashtag on the instance.\
-**Type:** String \(URL\)\
-**Version history:** Added in 0.9.0
-
-## Optional attributes
+**Type:** String (URL)\
+**Version history:**\
+0.9.0 - added
 
 ### `history` {#history}
 
 **Description:** Usage statistics for given days.\
-**Type:** Array of [History]({{< relref "entities/history" >}})\
-**Version history:** Added in 2.4.1
+**Type:** Array of Hash\
+**Version history:**\
+2.4.1 - added
+
+### `following` {{%optional%}} {#following}
+
+**Description:** Whether the current token's authorized user is following this tag.\
+**Type:** Boolean\
+**Version history:**\
+3.6.0 - added
+
+## History attributes {#history-hash}
+
+### `day` {#history-day}
+
+**Description:** UNIX timestamp on midnight of the given day.\
+**Type:** String (UNIX timestamp)\
+**Version history:**\
+2.4.1 - added
+
+### `uses` {#history-uses}
+
+**Description:** The counted usage of the tag within that day.\
+**Type:** String (cast from an integer)\
+**Version history:**\
+2.4.1 - added
+
+### `accounts` {#history-accounts}
+
+**Description:** The total of accounts using the tag within that day.\
+**Type:** String (cast from an integer)\
+**Version history:**\
+2.4.1 - added
 
 ## See also
 
-* [Status\#tags]({{< relref "status#tags" >}})
-* [GET /api/v1/featured\_tags/suggestions]({{< relref "methods/featured_tags#suggestions" >}})
+{{< page-relref ref="entities/Search#tags" caption="Search (`tags` attribute)" >}}
 
-{{< page-ref page="status" >}}
+{{< page-relref ref="methods/tags" caption="tags API methods" >}}
 
-{{< page-ref page="methods/search" >}}
+<!--
+TODO: This one may be replaced with FeaturedTag
+https://github.com/mastodon/mastodon/pull/19221
+-->
+{{< page-relref ref="methods/featured_tags#suggestions" caption="GET /api/v1/featured_tags/suggestions" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/tag_serializer.rb" caption="app/serializers/rest/tag\_serializer.rb" >}}
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/tag_serializer.rb" caption="app/serializers/rest/tag_serializer.rb" >}}
 
 
 

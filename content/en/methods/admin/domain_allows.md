@@ -5,7 +5,12 @@ menu:
   docs:
     parent: methods-admin
     identifier: methods-admin-domain_allows
+aliases: ["/methods/admin/domain_allows"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## List all allowed domains {#get}
 
@@ -37,7 +42,7 @@ limit
 
 ##### 200: OK
 
-```javascript
+```json
 [
 	{
 		"id": "2",
@@ -56,7 +61,7 @@ limit
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -90,7 +95,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
 	"id": "1",
 	"domain": "mastodon.social",
@@ -102,7 +107,7 @@ Authorization
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -112,7 +117,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 
 DomainAllow with the given ID does not exist
 
-```javascript
+```json
 {
 	"error": "Record not found"
 }
@@ -151,7 +156,7 @@ domain
 
 Domain has been allowed to federate, or was already allowed to federate
 
-```javascript
+```json
 {
 	"id": "1",
 	"domain": "mastodon.social",
@@ -163,7 +168,7 @@ Domain has been allowed to federate, or was already allowed to federate
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -173,7 +178,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 
 The domain parameter was not provided
 
-```javascript
+```json
 {
 	"error": "Validation failed: Domain can't be blank"
 }
@@ -221,7 +226,7 @@ Authorization
 
 The allowed domain has been removed from the allow list
 
-```javascript
+```json
 {
 	"id": "4",
 	"domain": "*",
@@ -232,7 +237,7 @@ The allowed domain has been removed from the allow list
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -242,7 +247,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 
 DomainAllow with the given ID does not exist
 
-```javascript
+```json
 {
 	"error": "Record not found"
 }

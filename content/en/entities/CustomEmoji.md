@@ -1,14 +1,18 @@
 ---
-title: Emoji
+title: CustomEmoji
 description: Represents a custom emoji.
 menu:
   docs:
     parent: entities
+aliases: [
+	"/entities/emoji",
+	"/entities/customemoji",
+  "/entities/CustomEmoji"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
   "shortcode": "blobaww",
   "url": "https://files.mastodon.social/custom_emojis/images/000/011/739/original/blobaww.png",
@@ -18,49 +22,52 @@ menu:
 }
 ```
 
-## Required attributes
+## Attributes
 
 ### `shortcode` {#shortcode}
 
 **Description:** The name of the custom emoji.\
 **Type:** String\
-**Version history:** Added in 2.0.0
+**Version history:**\
+2.0.0 - added
 
 ### `url` {#url}
 
 **Description:** A link to the custom emoji.\
-**Type:** String \(URL\)\
-**Version history:** Added in 2.0.0
+**Type:** String (URL)\
+**Version history:**\
+2.0.0 - added
 
 ### `static_url` {#static_url}
 
 **Description:** A link to a static copy of the custom emoji.\
-**Type:** String \(URL\)\
-**Version history:** Added in 2.0.0
+**Type:** String (URL)\
+**Version history:**\
+2.0.0 - added
 
 ### `visible_in_picker` {#visible_in_picker}
 
 **Description:** Whether this Emoji should be visible in the picker or unlisted.\
 **Type:** Boolean\
-**Version history:** Added in 2.0.0
-
-## Optional attributes
+**Version history:**\
+2.0.0 - added
 
 ### `category` {#category}
 
 **Description:** Used for sorting custom emoji in the picker.\
 **Type:** String\
-**Version history:** Added in 3.0.0
+**Version history:**\
+3.0.0 - added
 
 ## See also
 
-* [Status\#emojis]({{< relref "status.md#emojis" >}})
+{{< page-relref ref="methods/custom_emojis" caption="GET /api/v1/custom_emojis" >}}
 
-{{< page-ref page="status.md" >}}
+{{< page-relref ref="entities/Status#emojis" caption="Status (`emojis` attribute)" >}}
 
-{{< page-ref page="methods/instance/custom_emojis.md" >}}
+{{< page-relref ref="entities/Announcement#emojis" caption="Announcement (`emojis` attribute)" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/custom_emoji_serializer.rb" caption="app/serializers/rest/custom\_emoji\_serializer.rb" >}}
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/custom_emoji_serializer.rb" caption="app/serializers/rest/custom_emoji_serializer.rb" >}}
 
 
 

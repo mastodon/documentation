@@ -33,7 +33,7 @@ curl https://mastodon.example/api/v1/timelines/public?limit=2
 
 Our response should be more manageable this time. We can parse or beautify this JSON with our chosen utility, and we should see that the response looks something like this:
 
-```javascript
+```json
 [
   {
     "id": "103206804533200177",

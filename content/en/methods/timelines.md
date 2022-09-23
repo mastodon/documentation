@@ -6,7 +6,12 @@ menu:
     weight: 40
     parent: methods
     identifier: methods-timelines
+aliases: ["/methods/timelines"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View public timeline {#public}
 
@@ -59,7 +64,7 @@ limit
 
 Sample API call with limit=2
 
-```javascript
+```json
 [
   {
     "id": "103206804533200177",
@@ -134,7 +139,7 @@ limit
 
 Sample timeline for the hashtag \#cats and limit=2
 
-```javascript
+```json
 [
   {
     "id": "103206185588894565",
@@ -195,7 +200,7 @@ Sample timeline for the hashtag \#cats and limit=2
 
 Hashtag does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -244,7 +249,7 @@ limit
 
 Statuses in your home timeline will be returned
 
-```javascript
+```json
 [
   {
     "id": "103206791453397862",
@@ -266,7 +271,7 @@ Home feed is regenerating
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -320,7 +325,7 @@ limit
 
 Statuses in this list will be returned.
 
-```javascript
+```json
 [
   {
     "id": "103206791453397862",
@@ -335,7 +340,7 @@ Statuses in this list will be returned.
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -345,7 +350,7 @@ Invalid or missing Authorization header.
 
 List is not owned by you or does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -393,7 +398,7 @@ limit
 
 Statuses with direct visibility, authored by you or mentioning you. Statuses are not grouped by conversation, but are simply returned in chronological order.
 
-```javascript
+```json
 [
   {
     "id": "103206185588894565",
@@ -410,7 +415,7 @@ Statuses with direct visibility, authored by you or mentioning you. Statuses are
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -420,4 +425,10 @@ Invalid or missing Authorization header.
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/timelines" caption="app/controllers/api/v1/timelines/" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/timelines/home_controller.rb" caption="app/controllers/api/v1/timelines/home_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/timelines/list_controller.rb" caption="app/controllers/api/v1/timelines/list_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/timelines/public_controller.rb" caption="app/controllers/api/v1/timelines/public_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/timelines/tag_controller.rb" caption="app/controllers/api/v1/timelines/tag_controller.rb" >}}

@@ -5,19 +5,153 @@ menu:
   docs:
     weight: 60
     parent: methods-accounts
-aliases: [/methods/accounts/filters/]
+    identifier: methods-filters
+aliases: ["/methods/filters", "/methods/accounts/filters"]
 ---
 
-## View your filters {#get}
+## Server-side (v2) methods {#v2}
+
+Since Mastodon 3.6, filters can contain multiple keywords and are matched server-side. Clients apply the filter action based on [the status's `filtered` attribute]({{< relref "entities/Status#filtered" >}}).
+
+---
+
+### View all filters {#get}
+
+<!--
+TODO:
+-->
+
+```http
+GET https://mastodon.example/api/v2/filters HTTP/1.1
+```
+
+---
+
+### View a specific filter {#get-one}
+
+<!--
+TODO:
+-->
+
+```http
+GET https://mastodon.example/api/v2/filters/:id HTTP/1.1
+```
+
+---
+
+### Create a filter {#create}
+
+<!--
+TODO:
+-->
+
+```http
+POST https://mastodon.example/api/v2/filters HTTP/1.1
+```
+
+---
+
+### Update a filter {#update}
+
+<!--
+TODO:
+-->
+
+```http
+PUT https://mastodon.example/api/v2/filters/:id HTTP/1.1
+```
+
+---
+
+### Delete a filter {#delete}
+
+<!--
+TODO:
+-->
+
+```http
+DELETE https://mastodon.example/api/v2/filters/:id HTTP/1.1
+```
+
+---
+
+### View keywords added to a filter {#keywords-get}
+
+<!--
+TODO:
+-->
+
+```http
+GET https://mastodon.example/api/v2/filters/:id/keywords HTTP/1.1
+```
+
+---
+
+### View a single keyword within a filter {#keywords-get-one}
+
+<!--
+TODO:
+-->
+
+```http
+GET https://mastodon.example/api/v1/filters/keywords/:id HTTP/1.1
+```
+
+---
+
+### Add a keyword to a filter {#keywords-create}
+
+<!--
+TODO:
+-->
+
+```http
+POST https://mastodon.example/api/v2/filters/:filter_id/keywords/:id HTTP/1.1
+```
+
+---
+
+### Edit a keyword within a filter {#keywords-update}
+
+<!--
+TODO:
+-->
+
+```http
+PUT https://mastodon.example/api/v1/filters/keywords/:id HTTP/1.1
+```
+
+---
+
+### Remove keywords from a filter {#keywords-get}
+
+<!--
+TODO:
+-->
+
+```http
+DELETE https://mastodon.example/api/v1/filters/keywords/:id HTTP/1.1
+```
+
+---
+
+## Client-side (v1) methods {#v1}
+
+Prior to Mastodon 3.6, matching filters was done client-size and filters could only contain one phrase to filter against.
+
+---
+
+### View your filters {#get-v1}
 
 ```http
 GET https://mastodon.example/api/v1/filters HTTP/1.1
 ```
 
-**Returns:** List of [Filter]({{< relref "entities/filter" >}})\
+**Returns:** List of [V1::Filter]({{< relref "entities/V1_Filter" >}})\
 **OAuth:** User token + `read:filters`\
 **Version history:**\
-2.4.3 - added
+2.4.3 - added\
+3.6.0 - deprecated. For compatibility purposes, now returns a List of V1::Filter, with each V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute)
 
 #### Request
 ##### Headers
@@ -30,7 +164,7 @@ Authorization
 
 Excerpts of various filters in different contexts.
 
-```javascript
+```json
 [
   {
     "id": "6191",
@@ -64,7 +198,7 @@ Excerpts of various filters in different contexts.
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -72,23 +206,24 @@ Invalid or missing Authorization header.
 
 ---
 
-## View a single filter {#get-one}
+### View a single filter {#get-one-v1}
 
 ```http
 GET https://mastodon.example/api/v1/filters/:id HTTP/1.1
 ```
 
-**Returns:** [Filter]({{< relref "entities/filter" >}})\
+**Returns:** [V1::Filter]({{< relref "entities/V1_Filter" >}})\
 **OAuth:** User token + `read:filters`\
 **Version history:**\
-2.4.3 - added
+2.4.3 - added\
+3.6.0 - deprecated. For compatibility purposes, now returns a V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute)
 
 #### Request
 
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the Filter in the database.
+: {{<required>}} String. The ID of the FilterKeyword in the database.
 
 ##### Headers
 
@@ -98,7 +233,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
   "id": "8449",
   "phrase": "test",
@@ -118,7 +253,7 @@ Authorization
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -128,7 +263,7 @@ Invalid or missing Authorization header.
 
 Filter ID does not exist, or is not owned by you
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -136,17 +271,18 @@ Filter ID does not exist, or is not owned by you
 
 ---
 
-## Create a filter {#create}
+### Create a filter {#create-v1}
 
 ```http
 POST https://mastodon.example/api/v1/filters HTTP/1.1
 ```
 
-**Returns:** [Filter]({{< relref "entities/filter" >}})\
+**Returns:** [V1::Filter]({{< relref "entities/V1_Filter" >}})\
 **OAuth:** User token + `write:filters`\
 **Version history:**\
 2.4.3 - added\
-3.1.0 - added `account` context to filter in profile views
+3.1.0 - added `account` context to filter in profile views\
+3.6.0 - deprecated. For compatibility purposes, now returns a V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute). This method will create a Filter that contains only one FilterKeyword. The `title` of the Filter and the `keyword` of the FilterKeyword will be set equal to the `phrase` provided.
 
 #### Request
 ##### Headers
@@ -160,13 +296,13 @@ phrase
 : {{<required>}} String. The text to be filtered.
 
 context[]
-: {{<required>}} Array of String. Specify at least one of `home`, `notifications`, `public`, `thread`, `account`.
+: {{<required>}} Array of String. Where the filter should be applied. Specify at least one of `home`, `notifications`, `public`, `thread`, `account`.
 
 irreversible
 : Boolean. Should the server irreversibly drop matching entities from home and notifications? Defaults to false.
 
 whole_word
-: Boolean. Should the filter consider word boundaries? Defaults to false.
+: Boolean. Should the filter consider word boundaries for this keyword? Defaults to false.
 
 expires_in
 : Integer. Number of seconds from now that the filter should expire. Otherwise, `null` for a filter that doesn't expire.
@@ -176,7 +312,7 @@ expires_in
 
 The newly-created filter will be returned.
 
-```javascript
+```json
 {
   "id": "8449",
   "phrase": "test",
@@ -196,7 +332,7 @@ The newly-created filter will be returned.
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -206,7 +342,7 @@ Invalid or missing Authorization header.
 
 If phrase is not provided properly:
 
-```javascript
+```json
 {
   "error": "Validation failed: Phrase can't be blank"
 }
@@ -214,7 +350,7 @@ If phrase is not provided properly:
 
 If context is not provided properly:
 
-```javascript
+```json
 {
   "error": "Validation failed: Context can't be blank, Context None or invalid context supplied"
 }
@@ -222,7 +358,7 @@ If context is not provided properly:
 
 ---
 
-## Update a filter {#update}
+### Update a filter {#update-v1}
 
 ```http
 PUT https://mastodon.example/api/v1/filters/:id HTTP/1.1
@@ -230,18 +366,19 @@ PUT https://mastodon.example/api/v1/filters/:id HTTP/1.1
 
 Replaces a filter's parameters in-place.
 
-**Returns:** [Filter]({{< relref "entities/filter" >}})\
+**Returns:** [V1::Filter]({{< relref "entities/V1_Filter" >}})\
 **OAuth:** User token + `write:filters`\
 **Version history:**\
 2.4.3 - added\
-3.1.0 - added `account` context to filter in profile views
+3.1.0 - added `account` context to filter in profile views\
+3.6.0 - deprecated. or compatibility purposes, now returns a V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute). This method will return an error if you attempt to change `expires_in`, `irreversible`, or `context` for a filter with multiple keywords. Changing `phrase` and `whole_word` is always safe.
 
 #### Request
 
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the Filter in the database.
+: {{<required>}} String. The ID of the FilterKeyword in the database.
 
 ##### Headers
 
@@ -270,7 +407,7 @@ expires_in
 
 Filter updated
 
-```javascript
+```json
 {
   "id": "8449",
   "phrase": "test",
@@ -290,7 +427,7 @@ Filter updated
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -300,7 +437,7 @@ Invalid or missing Authorization header.
 
 Filter does not exist or is not owned by you
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -310,7 +447,7 @@ Filter does not exist or is not owned by you
 
 If phrase is not provided properly:
 
-```javascript
+```json
 {
   "error": "Validation failed: Phrase can't be blank"
 }
@@ -318,7 +455,7 @@ If phrase is not provided properly:
 
 If context is not provided properly:
 
-```javascript
+```json
 {
   "error": "Validation failed: Context can't be blank, Context None or invalid context supplied"
 }
@@ -326,7 +463,7 @@ If context is not provided properly:
 
 ---
 
-## Remove a filter {#delete}
+### Remove a filter {#delete-v1}
 
 ```http
 DELETE https://mastodon.example/api/v1/filters/:id HTTP/1.1
@@ -335,7 +472,8 @@ DELETE https://mastodon.example/api/v1/filters/:id HTTP/1.1
 **Returns:** empty object\
 **OAuth:** User token + `write:filters`\
 **Version history:**\
-2.4.3 - added
+2.4.3 - added\
+3.6.0 - deprecated. This method will delete only the FilterKeyword from its parent Filter. To delete the parent Filter, you must use the v2 filters API.
 
 #### Request
 
@@ -354,7 +492,7 @@ Authorization
 
 The filter has been deleted successfully, so an empty object will be returned.
 
-```javascript
+```json
 {}
 ```
 
@@ -362,7 +500,7 @@ The filter has been deleted successfully, so an empty object will be returned.
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -372,7 +510,7 @@ Invalid or missing Authorization header.
 
 Filter does not exist or is not owned by you
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -382,6 +520,12 @@ Filter does not exist or is not owned by you
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/filters_controller.rb" caption="app/controllers/api/v1/filters_controller.rb" >}}
+{{< page-relref ref="api/guidelines#filters" caption="Implementation guidelines for filters" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/filters" caption="app/controllers/api/v1/filters/" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v2/filters_controller.rb" caption="app/controllers/api/v2/filters_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/filters/keywords_controller.rb" caption="app/controllers/api/v1/filters/keywords_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/filters/statuses_controller.rb" caption="app/controllers/api/v1/filters/statuses_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/filters_controller.rb" caption="app/controllers/api/v1/filters_controller.rb" >}}

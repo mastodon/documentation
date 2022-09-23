@@ -4,11 +4,15 @@ description: Represents a domain allowed to federate.
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/admin-domainallow",
+  "/entities/admin_domainallow",
+  "/entities/Admin_DomainAllow"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
 	"id": "1",
 	"domain": "mastodon.social",
@@ -41,6 +45,6 @@ menu:
 
 ## See also
 
-{{< page-relref page="methods/admin/domain_allows" caption="/api/v1/admin/domain_allows" >}}
+{{< page-relref page="methods/admin/domain_allows" caption="admin/domain_allows API methods" >}}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/admin/domain_allows_serializer.rb" caption="app/serializers/rest/admin/domain_allows_serializer.rb" >}}

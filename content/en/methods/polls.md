@@ -7,8 +7,13 @@ menu:
   docs:
     weight: 20
     parent: methods-statuses
-aliases: [/methods/statuses/polls/]
+    identifier: methods-polls
+aliases: ["/methods/polls", "/methods/statuses/polls"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View a poll {#get}
 
@@ -36,7 +41,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
   "id": "34830",
   "expires_at": "2019-12-05T04:05:08.302Z",
@@ -66,7 +71,7 @@ Authorization
 
 Poll does not exist, or poll's parent status is private
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -107,7 +112,7 @@ choices[]
 
 Poll was voted on
 
-```javascript
+```json
 {
   "id": "34873",
   "expires_at": "2019-12-05T11:16:17.426Z",
@@ -173,7 +178,7 @@ Poll was voted on
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -183,7 +188,7 @@ Invalid or missing Authorization header.
 
 Poll does not exist, or poll's parent status is private
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -193,7 +198,7 @@ Poll does not exist, or poll's parent status is private
 
 The poll has expired
 
-```javascript
+```json
 {
   "error": "Validation failed: The poll has already ended"
 }
@@ -201,7 +206,7 @@ The poll has expired
 
 Alternatively, you have already voted
 
-```javascript
+```json
 {
   "error": "Validation failed: You have already voted on this poll"
 }
@@ -211,8 +216,8 @@ Alternatively, you have already voted
 
 ## See also
 
+{{< page-relref ref="methods/statuses#create" caption="POST /api/v1/statuses (`poll` parameter)" >}}
+
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/polls_controller.rb" caption="app/controllers/api/v1/polls_controller.rb" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/polls" caption="app/controllers/api/v1/polls/" >}}
-
-{{< page-relref ref="methods/statuses#create" caption="POST /api/v1/statuses (`poll` parameter)" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/polls/votes_controller.rb" caption="app/controllers/api/v1/polls/votes_controller.rb" >}}

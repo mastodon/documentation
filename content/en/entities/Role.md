@@ -4,11 +4,14 @@ description: Represents a custom user role that grants permissions.
 menu:
   docs:
     parent: entities
+aliases: [
+	"/entities/role",
+	"/entities/Role"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
 	"id": 3,
 	"name": "Owner",

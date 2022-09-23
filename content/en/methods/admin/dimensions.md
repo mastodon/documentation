@@ -1,13 +1,18 @@
 ---
 title: admin/dimensions
-description: Obtain certain statistics about the server.
+description: Obtain qualitative metrics about the server.
 menu:
   docs:
     parent: methods-admin
     identifier: methods-admin-dimensions
+aliases: ["/methods/admin/dimensions"]
 ---
 
-## Generate dimensional data {#create}
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
+
+## Get dimensional data {#get}
 
 ```http
 POST https://mastodon.example/api/v1/admin/dimensions HTTP/1.1
@@ -32,7 +37,16 @@ Authorization
 ##### Form data parameters
 
 keys[]
-: {{<required>}} Array of String. Request specific measurements by their keystring.
+: {{<required>}} Array of String. Request specific dimensions by their keystring. Supported dimensions include:
+- `languages` = Most-used languages on this server
+- `sources` = Most-used client apps on this server
+- `servers` = Remote servers with the most statuses
+- `space_usage` = How much space is used by your software stack
+- `software_versions` = The version numbers for your software stack
+- `tag_servers` = Most-common servers for statuses including a trending tag
+- `tag_languages` = Most-used languages for statuses including a trending tag
+- `instance_accounts` = Most-followed accounts from a remote server
+- `instance_languages` = Most-used languages from a remote server
 
 start_at
 : String (ISO 8601 Datetime). The start date for the time period. If a time is provided, it will be ignored.
@@ -41,7 +55,7 @@ end_at
 : String (ISO 8601 Datetime). The end date for the time period. If a time is provided, it will be ignored.
 
 limit
-: Integer. The maximum number of results to return for sources, servers, languages, tag or instance dimensions. ???
+: Integer. The maximum number of results to return for sources, servers, languages, tag or instance dimensions.
 
 tag_servers[id]
 : String. When `tag_servers` is one of the requested keys, you must provide a trending tag ID to obtain information about which servers are posting the tag.
@@ -50,10 +64,10 @@ tag_languages[id]
 : String. When `tag_languages` is one of the requested keys, you must provide a trending tag ID to obtain information about which languages are posting the tag.
 
 instance_accounts[domain]
-: String. When `instance_accounts` is one of the requested keys, you must provide a domain to obtain information about popular accounts from that domain.
+: String. When `instance_accounts` is one of the requested keys, you must provide a domain to obtain information about popular accounts from that server.
 
 instance_languages[domain]
-: String. When `instance_accounts` is one of the requested keys, you must provide a domain to obtain information about popular languages from that domain.
+: String. When `instance_accounts` is one of the requested keys, you must provide a domain to obtain information about popular languages from that server.
 
 #### Response
 
@@ -61,7 +75,7 @@ instance_languages[domain]
 
 Requesting data on mastodon.social and a given trending tag with a limit of 2.
 
-```javascript
+```json
 [
   {
     "key": "languages",
@@ -225,7 +239,7 @@ Requesting data on mastodon.social and a given trending tag with a limit of 2.
 
 Authorized user is missing a permission, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }

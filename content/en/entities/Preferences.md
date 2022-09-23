@@ -4,11 +4,14 @@ description: Represents a user's preferences.
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/preferences",
+  "/entities/Preferences"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
   "posting:default:visibility": "public",
   "posting:default:sensitive": false,
@@ -20,52 +23,53 @@ menu:
 
 ## Attributes
 
-### `posting:default:visibility` {#visibility}
+### `posting:default:visibility` {#posting-default-visibility}
 
-**Description:** Default visibility for new posts. Equivalent to [Source\#privacy]({{< relref "source.md#privacy" >}}).\
-**Type:** String \(Enumerable, oneOf\)\
+**Description:** Default visibility for new posts. Equivalent to [CredentialAccount#source\[privacy\]]({{< relref "entities/Account#source-privacy" >}}).\
+**Type:** String (Enumerable, oneOf)\
 `public` = Public post\
 `unlisted` = Unlisted post\
 `private` = Followers-only post\
 `direct` = Direct post\
-**Version history:** Added in 2.8.0
+**Version history:**\
+2.8.0 - added
 
-### `posting:default:sensitive` {#sensitive}
+### `posting:default:sensitive` {#posting-default-sensitive}
 
-**Description:** Default sensitivity flag for new posts. Equivalent to [Source\#sensitive]({{< relref "source.md#sensitive" >}}).\
+**Description:** Default sensitivity flag for new posts. Equivalent to [CredentialAccount#source\[sensitive\]]({{< relref "entities/Account#source-sensitive" >}}).\
 **Type:** Boolean\
-**Version history:** Added in 2.8.0
+**Version history:**\
+2.8.0 - added
 
-### `posting:default:language` {#language}
+### `posting:default:language` {#posting-default-language}
 
-**Description:** Default language for new posts. Equivalent to [Source\#language]({{< relref "source.md#language" >}})\
-**Type:** String \(ISO 639-1 language two-letter code\), or null\
-**Version history:** Added in 2.8.0
+**Description:** Default language for new posts. Equivalent to [CredentialAccount#source\[language\]]({{< relref "entities/Account#source-language" >}})\
+**Type:** {{<nullable>}} String (ISO 639-1 language two-letter code), or null\
+**Version history:**\
+2.8.0 - added
 
-### `reading:expand:media` {#media}
+### `reading:expand:media` {#reading-expand-media}
 
 **Description:** Whether media attachments should be automatically displayed or blurred/hidden.\
-**Type:** String \(Enumerable, oneOf\)\
+**Type:** String (Enumerable, oneOf)\
 `default` = Hide media marked as sensitive\
 `show_all` = Always show all media by default, regardless of sensitivity\
 `hide_all` = Always hide all media by default, regardless of sensitivity\
-**Version history:** Added in 2.8.0
+**Version history:**\
+2.8.0 - added
 
-### `reading:expand:spoilers` {#cw}
+### `reading:expand:spoilers` {#reading-expand-spoilers}
 
 **Description:** Whether CWs should be expanded by default.\
 **Type:** Boolean\
-**Version history:** Added in 2.8.0
+**Version history:**\
+2.8.0 - added
 
 ## See also
 
-* [GET /api/v1/accounts/verify\_credentials]({{< relref "methods/accounts#verify-account-credentials" >}})
-* [PATCH /api/v1/accounts/update\_credentials]({{< relref "methods/accounts#update-account-credentials" >}})
-* [GET /api/v1/preferences]({{< relref "methods/preferences#view-user-preferences" >}})
+{{< page-relref ref="methods/preferences" caption="preferences API methods" >}}
 
-{{< page-ref page="methods/preferences" >}}
-
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/preferences_serializer.rb" caption="app/serializers/rest/preferences\_serializer.rb" >}}
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/preferences_serializer.rb" caption="app/serializers/rest/preferences_serializer.rb" >}}
 
 
 

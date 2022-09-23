@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 80
     parent: methods-accounts
-aliases: [/methods/accounts/follow_requests/]
+    identifier: methods-follow_requests
+aliases: ["/methods/follow_requests", "/methods/accounts/follow_requests"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View pending follow requests {#get}
 
@@ -50,7 +55,7 @@ Accounts that are requesting a follow
 Link: <https://mastodon.social/api/v1/follow_requests?max_id=23716836>; rel="next", <https://mastodon.social/api/v1/follow_requests?min_id=23716978>; rel="prev"
 ```
 
-```javascript
+```json
 [
   {
     "id": "8889777",
@@ -66,7 +71,7 @@ Link: <https://mastodon.social/api/v1/follow_requests?max_id=23716836>; rel="nex
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -103,7 +108,7 @@ Authorization
 
 Your Relationship with this account should be updated so that you are `followed_by` this account.
 
-```javascript
+```json
 {
   "id": "8889777",
   "following": false,
@@ -123,7 +128,7 @@ Your Relationship with this account should be updated so that you are `followed_
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -133,7 +138,7 @@ Invalid or missing Authorization header.
 
 No pending follow request from that account ID
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -170,7 +175,7 @@ Authorization
 
 Your Relationship with this account should be unchanged.
 
-```javascript
+```json
 {
   "id": "8889777",
   "following": false,
@@ -190,7 +195,7 @@ Your Relationship with this account should be unchanged.
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -200,7 +205,7 @@ Invalid or missing Authorization header.
 
 No pending follow request from that account ID
 
-```javascript
+```json
 {
   "error": "Record not found"
 }

@@ -30,7 +30,7 @@ Signature:
 
 The `keyId` should correspond to the actor and the key being used to generate the `signature`, whose value is equal to all parameters in `headers` concatenated together and signed by the key, then Base64-encoded. See [ActivityPub &gt; Public key]({{< relref "activitypub.md#publicKey" >}}) for more information on actor keys. An example key looks like this:
 
-```javascript
+```json
 "publicKey": {
     "id": "https://my-example.com/actor#main-key",
     "owner": "https://my-example.com/actor",
@@ -108,7 +108,7 @@ Mastodon verifies the signature using the following algorithm:
 
 To create a signature, Mastodon uses the keypair attached to an actor at `https://mastodon.example/users/username#main-key`. It then creates an SHA256 hash of the document, signs it with the keypair, and Base64-strict-encodes the resulting output to derive a `signatureValue`. The following hash is merged into the JSON-LD document:
 
-```javascript
+```json
 "signature": {
     "type": "RsaSignature2017",
     "creator": "https://mastodon.example/users/username#main-key",

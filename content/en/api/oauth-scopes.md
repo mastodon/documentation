@@ -3,7 +3,7 @@ title: OAuth Scopes
 description: Defining what you have permission to do with the API
 menu:
   docs:
-    weight: 10
+    weight: 20
     parent: api
 ---
 

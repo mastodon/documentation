@@ -8,7 +8,7 @@ menu:
 
 ## Example
 
-```javascript
+```json
 ```
 
 ## Attributes

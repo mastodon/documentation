@@ -198,16 +198,16 @@ manuallyApprovesFollowers
 : Will be shown as a locked account.
 
 discoverable
-: Will be shown in the profile directory. See [Discoverability flag]({{< relref "activitypub.md#discoverable" >}}).
+: Will be shown in the profile directory. See [Discoverability flag](#discoverable).
 
 publicKey
-: Required for signatures. See [Public key]({{< relref "activitypub.md#publicKey" >}}).
+: Required for signatures. See [Public key](#publicKey).
 
 featured
-: Pinned posts. See [Featured collection]({{< relref "activitypub.md#featured" >}}).
+: Pinned posts. See [Featured collection](#featured).
 
 attachment
-: Used for profile fields. See [Profile metadata]({{< relref "activitypub.md#profile-metadata" >}}) and [Identity proofs]({{< relref "activitypub.md#identityproof" >}}).
+: Used for profile fields. See [Profile metadata](#PropertyValue) and [Identity proofs](#IdentityProof).
 
 alsoKnownAs
 : Required for Move activity.
@@ -236,7 +236,7 @@ published
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/lib/activitypub/adapter.rb" caption="app/lib/activitypub/adapter.rb" >}}
 
-### Mastodon extensions \(`toot:`\) {#toot}
+### Mastodon extensions (`toot:`) {#toot}
 
 Contains definitions for Mastodon features.
 
@@ -250,7 +250,7 @@ Contains definitions for Mastodon features.
 * toot:suspended
 * toot:votersCount
 
-### ActivityStreams extensions \(`as:`\) {#as}
+### ActivityStreams extensions (`as:`) {#as}
 
 Contains ActivityStreams extended properties that have been proposed but not officially adopted yet.
 
@@ -260,9 +260,9 @@ Contains ActivityStreams extended properties that have been proposed but not off
 * as:movedTo
 * as:sensitive
 
-### W3ID Security Vocabulary \(`sec:`\) {#sec}
+### W3ID Security Vocabulary (`sec:`) {#sec}
 
-Contains properties used for HTTPS Signatures and Linked Data Signatures. Also used for identity proofs. See [Security]({{< relref "security.md" >}}) for more information.
+Contains properties used for HTTPS Signatures and Linked Data Signatures. Also used for identity proofs. See [Security]({{< relref "spec/security" >}}) for more information.
 
 * sec:publicKey
 * sec:publicKeyPem
@@ -279,7 +279,7 @@ Contains a collection of terms from various namespaces, used for Linked Data Sig
 * sec:signature
 * sec:signatureValue
 
-### schema.org extensions \(`schema:`\) {#schema}
+### schema.org extensions (`schema:`) {#schema}
 
 Contains properties used for profile metadata.
 
@@ -290,9 +290,9 @@ Contains properties used for profile metadata.
 
 ### Public key {#publicKey}
 
-Public keys are used for HTTPS Signatures and Linked Data Signatures. This is implemented using an extra property `publicKey` on actor objects. See [Security]({{< relref "security.md" >}}) for more information. Example:
+Public keys are used for HTTPS Signatures and Linked Data Signatures. This is implemented using an extra property `publicKey` on actor objects. See [Security]({{< relref "spec/security" >}}) for more information. Example:
 
-```javascript
+```json
 {
   "@context": [
     "https://www.w3.org/ns/activitystreams",
@@ -312,7 +312,7 @@ Public keys are used for HTTPS Signatures and Linked Data Signatures. This is im
 
 What is known in Mastodon as “pinned toots”, or statuses that are always featured at the top of people’s profiles, is implemented using an extra property `featured` on the actor object that points to a `Collection` of objects. Example:
 
-```javascript
+```json
 {
   "@context": [
     "https://www.w3.org/ns/activitystreams",
@@ -335,7 +335,7 @@ What is known in Mastodon as “pinned toots”, or statuses that are always fea
 
 Mastodon allows users to feature specific hashtags on their profile for easy browsing, as a discoverability mechanism. This is implemented using an extra property `featuredTags` on the actor object that points to a `Collection` of `Hashtag` objects specifically.
 
-```javascript
+```json
 {
   "@context": [
     "https://www.w3.org/ns/activitystreams",
@@ -358,7 +358,7 @@ Mastodon allows users to feature specific hashtags on their profile for easy bro
 
 Mastodon supports arbitrary emojis, that is, small images uploaded by admins and invokable via shortcodes. For this, an `Emoji` type is used. These emojis are listed in the `tag` property just like `Mention` and `Hashtag` objects, since they are entities that affect how the text is rendered. Example:
 
-```javascript
+```json
 {
   "@context": [
     "https://www.w3.org/ns/activitystreams",
@@ -388,9 +388,9 @@ Mastodon supports arbitrary emojis, that is, small images uploaded by admins and
 
 ### Focal points {#focalPoint}
 
-Mastodon supports setting a focal point on uploaded images, so that wherever that image is displayed, the focal point stays in view. This is implemented using an extra property `focalPoint` on `Image` objects. The property is simply an array of two floating points between -1.0 and 1.0, with 0,0 being the center of the image, the first value being x \(-1.0 is the left edge, +1.0 is the right edge\) and the second value being y \(-1.0 is the bottom edge, +1.0 is the top edge\). See [Focal points]({{< relref "methods/media#focal-points" >}}) for more information. Example:
+Mastodon supports setting a focal point on uploaded images, so that wherever that image is displayed, the focal point stays in view. This is implemented using an extra property `focalPoint` on `Image` objects. The property is simply an array of two floating points between -1.0 and 1.0, with 0,0 being the center of the image, the first value being x (-1.0 is the left edge, +1.0 is the right edge) and the second value being y (-1.0 is the bottom edge, +1.0 is the top edge). See [API Guidelines > Focal points]({{< relref "api/guidelines#focal-points" >}}) for more information. Example:
 
-```javascript
+```json
 {
   "@context": [
     "https://www.w3.org/ns/activitystreams",
@@ -420,11 +420,15 @@ Mastodon supports setting a focal point on uploaded images, so that wherever tha
 }
 ```
 
+{{< figure src="/assets/focal-points.jpg" caption="A demonstration of various focal points and their coordinates." >}}
+
+The focal point of (-0.55, 0.43) in the example above corresponds to a point 55% to the left of center and 43% above center. This focal point should remain visible within the cropped thumbnail, if any cropping is done.
+
 ### Blurhash {#blurhash}
 
 Mastodon generates colorful preview thumbnails for attachments. This is implemented using an extra property `blurhash` on `Image` objects. The property is a string generated by the [BlurHash algorithm](https://blurha.sh). Example:
 
-```javascript
+```json
 {
   "@context": [
     "https://www.w3.org/ns/activitystreams",
@@ -452,7 +456,7 @@ Mastodon generates colorful preview thumbnails for attachments. This is implemen
 
 Mastodon supports arbitrary profile fields containing name-value pairs. This is implemented using the `attachment` property on actor objects, with objects in the array having a type of `PropertyValue` and a `value` property, both from the schema.org namespace. Example:
 
-```javascript
+```json
 {
   "@context": [
     "https://www.w3.org/ns/activitystreams",
@@ -480,9 +484,13 @@ Mastodon supports arbitrary profile fields containing name-value pairs. This is 
 
 ### Identity proofs {#IdentityProof}
 
+{{< hint style="warning" >}}
+This property is currently unused/deprecated due to the removal of Keybase support in Mastodon 3.5: <https://github.com/mastodon/mastodon/pull/17045>
+{{</hint>}}
+
 Mastodon supports integration with identity providers to prove that a profile is linked to a certain identity. This is implemented using the `attachment` property on actor objects, with objects in the array having a type of `IdentityProof` from the Mastodon namespace. The object also includes `signatureAlgorithm` and `signatureValue` from the W3ID Security Vocabulary namespace. Example:
 
-```javascript
+```json
 {
   "@context": [
     "https://www.w3.org/ns/activitystreams",
@@ -509,7 +517,7 @@ Mastodon supports integration with identity providers to prove that a profile is
 
 Mastodon allows users to opt-in or opt-out of discoverability features like the profile directory. This flag may also be used as an indicator of the user's preferences toward being included in external discovery services, such as search engines or other indexing tools. If you are implementing such a tool, it is recommended that you respect this property if it is present. This is implemented using an extra property `discoverable` on objects. Example:
 
-```javascript
+```json
 {
   "@context": [
     "https://www.w3.org/ns/activitystreams",
@@ -528,7 +536,7 @@ Mastodon allows users to opt-in or opt-out of discoverability features like the 
 
 Mastodon reports whether a user was locally suspended, for better handling of these accounts. Suspended accounts in Mastodon return empty data. If a remote account is marked as suspended, it cannot be unsuspended locally. Suspended accounts can be targeted by activities such as Update, Undo, Reject, and Delete. This functionality is implemented using an extra property `suspended` on objects. Example:
 
-```javascript
+```json
 {
   "@context": [
     "https://www.w3.org/ns/activitystreams",
@@ -547,7 +555,7 @@ Mastodon reports whether a user was locally suspended, for better handling of th
 
 ### Secure mode {#secure-mode}
 
-When a Mastodon server runs in secure mode, all cross-server HTTP requests to it must be signed (in other words, even `GET` requests to public resources). That way, the Mastodon server can choose to reject requests from servers it has blocked and avoid "leaking" public information. Mastodon itself uses a dedicated system actor to sign such HTTP requests. See [Security](../security) for more details on HTTP signatures.
+When a Mastodon server runs in secure mode, all cross-server HTTP requests to it must be signed (in other words, even `GET` requests to public resources). That way, the Mastodon server can choose to reject requests from servers it has blocked and avoid "leaking" public information. Mastodon itself uses a dedicated system actor to sign such HTTP requests. See [Security]({{< relref "spec/security" >}}) for more details on HTTP signatures.
 
 Secure mode is the foundation upon which "limited federation mode" is built. A Mastodon server in limited federation mode will only federate with servers its admin has explicitly allowed, and reject all other requests.
 
@@ -586,4 +594,3 @@ Signature: ... # a signature from an account on mastodon.social
   ]
 }
 ```
-

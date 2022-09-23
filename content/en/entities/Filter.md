@@ -4,23 +4,35 @@ description: Represents a user-defined filter for determining which statuses sho
 menu:
   docs:
     parent: entities
+aliases: [
+	"/entities/filter",
+	"/entities/Filter"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
-  "id": "8449",
-  "phrase": "test",
-  "context": [
-    "home",
-    "notifications",
-    "public",
-    "thread"
-  ],
-  "whole_word": false,
-  "expires_at": "2019-11-26T09:08:06.254Z",
-  "irreversible": true
+	"id": "19972",
+	"title": "Test filter",
+	"context": [
+		"home"
+	],
+	"expires_at": "2022-09-20T17:27:39.296Z",
+	"filter_action": "warn",
+	"keywords": [
+		{
+			"id": "1197",
+			"keyword": "bad word",
+			"whole_word": false
+		}
+	],
+	"statuses": [
+		{
+			"id": "1",
+			"status_id": "109031743575371913"
+		}
+    ]
 }
 ```
 
@@ -28,63 +40,66 @@ menu:
 
 ### `id` {#id}
 
-**Description:** The ID of the filter in the database.\
-**Type:** String \(cast from an integer, but not guaranteed to be a number\)\
-**Version history:** Added in 2.4.3
+**Description:** The ID of the Filter in the database.\
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
+**Version history:**\
+3.6.0 - added
 
-### `phrase` {#phrase}
+### `title` {#title}
 
-**Description:** The text to be filtered.\
+**Description:** A title given by the user to name the filter.\
 **Type:** String\
-**Version history:** Added in 2.4.3
+**Version history:**\
+3.6.0 - added
 
 ### `context` {#context}
 
 **Description:** The contexts in which the filter should be applied.\
-**Type:** Array of String \(Enumerable anyOf\)\
+**Type:** Array of String (Enumerable, anyOf)\
 `home` = home timeline and lists\
 `notifications` = notifications timeline\
 `public` = public timelines\
 `thread` = expanded thread of a detailed status\
-**Version history:** Added in 2.4.3
+`account` = when viewing a profile\
+**Version history:**\
+3.6.0 - added
 
 ### `expires_at` {#expires_at}
 
-**Description:** When the filter should no longer be applied\
-**Type:** String \(ISO 8601 Datetime\), or null if the filter does not expire\
-**Version history:** Added in 2.4.3
+**Description:** When the filter should no longer be applied.\
+**Type:** {{<nullable>}} String (ISO 8601 Datetime), or null if the filter does not expire\
+**Version history:**\
+3.6.0 - added
 
-### `irreversible` {#irreversible}
+### `filter_action` {#filter_action}
 
-**Description:** Should matching entities in home and notifications be dropped by the server?\
-**Type:** Boolean\
-**Version history:** Added in 2.4.3
+**Description:** The action to be taken when a status matches this filter.\
+**Type:** String (Enumerable, oneOf)\
+`warn` = show a warning that identifies the matching filter by `title`, and allow the user to expand the filtered status. This is the default (and unknown values should be treated as equivalent to `warn`).\
+`hide` = do not show this status if it is received\
+**Version history:**\
+3.6.0 - added
 
-### `whole_word` {#whole_word}
+### `keywords` {#keywords}
 
-**Description:** Should the filter consider word boundaries?\
-**Type:** Boolean\
-**Version history:** Added in 2.4.3
+**Description:** The keywords grouped under this filter.\
+**Type:** Array of [FilterKeyword]({{< relref "entities/FilterKeyword" >}})\
+**Version history:**\
+3.6.0 - added
 
-## Implementation notes
+### `statuses` {#statuses}
 
-If `whole_word` is true , client app should do:
-
-* Define ‘word constituent character’ for your app. In the official implementation, it’s `[A-Za-z0-9_]` in JavaScript, and `[[:word:]]` in Ruby. Ruby uses the POSIX character class \(Letter \| Mark \| Decimal\_Number \| Connector\_Punctuation\).
-* If the phrase starts with a word character, and if the previous character before matched range is a word character, its matched range should be treated to not match.
-* If the phrase ends with a word character, and if the next character after matched range is a word character, its matched range should be treated to not match.
-
-Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_manager.rb` in the Mastodon source code for more details.
+**Description:** The statuses grouped under this filter.\
+**Type:** Array of [FilterStatus]({{< relref "entities/FilterStatus" >}})\
+**Version history:**\
+3.6.0 - added
 
 ## See also
 
-{{< page-ref page="methods/accounts/filters.md" >}}
+{{< page-relref ref="api/guidelines#filters" caption="Implementation guidelines for filters" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/lib/feed_manager.rb" caption="app/lib/feed\_manager.rb" >}}
+{{< page-relref ref="entities/V1_Filter" caption="V1::Filter (for Mastodon 3.5 and earlier)" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/javascript/mastodon/selectors/index.js" caption="app/javascript/mastodon/selectors/index.js" >}}
+{{< page-relref ref="methods/filters" caption="/api/v2/filters methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/filter_serializer.rb" caption="app/serializers/rest/filter\_serializer.rb" >}}
-
-
-
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/filter_serializer.rb" caption="app/serializers/rest/filter_serializer.rb" >}}

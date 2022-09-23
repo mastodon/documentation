@@ -88,7 +88,7 @@ array = [
 
 As JSON, arrays are formatted like so:
 
-```javascript
+```json
 {
   "array": ["foo", "bar"]
 }
@@ -107,7 +107,7 @@ source = {
 
 As JSON, hashes are formatted like so:
 
-```javascript
+```json
 {
   "source": {
     "privacy": "public",

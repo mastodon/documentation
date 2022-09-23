@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 50
     parent: methods-accounts
-aliases: [/methods/accounts/domain_blocks/]
+    identifier: methods-domain_blocks
+aliases: ["/methods/accounts", "/methods/accounts/domain_blocks"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## Get domain blocks {#get}
 
@@ -50,7 +55,7 @@ Sample call with limit=2. Because domain ids are not public, you must parse the 
 Link: <https://mastodon.social/api/v1/domain_blocks?limit=2&max_id=16194>; rel="next", <https://mastodon.social/api/v1/domain_blocks?limit=2&since_id=16337>; rel="prev"
 ```
 
-```javascript
+```json
 ["nsfw.social","artalley.social"]
 ```
 
@@ -58,7 +63,7 @@ Link: <https://mastodon.social/api/v1/domain_blocks?limit=2&max_id=16194>; rel="
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -100,7 +105,7 @@ domain
 
 If the call was successful, an empty object will be returned. Note that the call will be successful even if the domain is already blocked, or if the domain does not exist, or if the domain is not a domain.
 
-```javascript
+```json
 {}
 ```
 
@@ -108,7 +113,7 @@ If the call was successful, an empty object will be returned. Note that the call
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -118,7 +123,7 @@ Invalid or missing Authorization header.
 
 If `domain` is not provided, the request will fail.
 
-```javascript
+```json
 {
   "error": "Validation failed: Domain can't be blank"
 }
@@ -126,7 +131,7 @@ If `domain` is not provided, the request will fail.
 
 If `domain` contains spaces, the request will fail.
 
-```javascript
+```json
 {
   "error": "Validation failed: Domain is not a valid domain name"
 }
@@ -162,7 +167,7 @@ domain
 
 If the call was successful, an empty object will be returned. Note that the call will be successful even if the domain was not previously blocked.
 
-```javascript
+```json
 {}
 ```
 
@@ -170,7 +175,7 @@ If the call was successful, an empty object will be returned. Note that the call
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -180,7 +185,7 @@ Invalid or missing Authorization header.
 
 If `domain` is not provided, the request will fail.
 
-```javascript
+```json
 {
   "error": "Validation failed: Domain can't be blank"
 }
@@ -188,7 +193,7 @@ If `domain` is not provided, the request will fail.
 
 If `domain` contains spaces, the request will fail.
 
-```javascript
+```json
 {
   "error": "Validation failed: Domain is not a valid domain name"
 }

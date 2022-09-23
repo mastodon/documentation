@@ -4,11 +4,14 @@ description: Represents a status's source as plain text.
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/statussource",
+  "/entities/StatusSource"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
   "id": "108942703571991143",
   "text": "this is a status that will be edited",
@@ -41,6 +44,6 @@ menu:
 
 ## See also
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/status_source_serializer.rb" caption="app/serializers/rest/status_source_serializer.rb" >}}
-
 {{< page-relref ref="methods/statuses#source" caption="GET /api/v1/statuses/:id/source" >}}
+
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/status_source_serializer.rb" caption="app/serializers/rest/status_source_serializer.rb" >}}

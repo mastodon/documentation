@@ -5,7 +5,13 @@ menu:
   docs:
     weight: 100
     parent: methods
+    identifier: methods-proofs
+aliases: ["/methods/proofs", "/methods/accounts/proofs"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 {{< hint style="danger" >}}
 **Deprecated**\
@@ -37,7 +43,7 @@ username
 
 Looking up the `username` "gargron" via the "keybase" `provider`
 
-```javascript
+```json
 {
   "avatar": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
   "signatures": [
@@ -53,7 +59,7 @@ Looking up the `username` "gargron" via the "keybase" `provider`
 
 No identity proof found for `username` on `provider`
 
-```javascript
+```json
 {
   "error": "Record not found"
 }

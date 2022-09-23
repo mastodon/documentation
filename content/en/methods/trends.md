@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 10
     parent: methods-instance
-aliases: [/methods/instance/trends/]
+    identifier: methods-trends
+aliases: ["/methods/trends", "/methods/instance/trends"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View trending tags {#get}
 
@@ -31,7 +36,7 @@ limit
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "name": "hola",
@@ -83,7 +88,7 @@ GET https://mastodon.example/api/v1/trends/tags HTTP/1.1
 
 Tags that are being used more frequently within the past week.
 
-**Returns:** Array of [Tag]({{< relref "entities/tag" >}}) with [History]({{< relref "entities/history" >}})\
+**Returns:** Array of [REST::Tag]({{< relref "entities/tag" >}})\
 **OAuth:** Public\
 **Version history:**\
 3.0.0 - added\
@@ -99,7 +104,7 @@ limit
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "name": "hola",
@@ -165,7 +170,7 @@ limit
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "id": "108910940413327534",
@@ -191,7 +196,7 @@ GET https://mastodon.example/api/v1/trends/links HTTP/1.1
 
 Links that have been shared more than others.
 
-**Returns:** Array of [Card]({{< relref "entities/card" >}}) with [History]({{< relref "entities/history" >}})\
+**Returns:** Array of [Trends::Link]({{< relref "entities/PreviewCard#trends-link" >}})\
 **OAuth:** Public\
 **Version history:**\
 3.5.0 - added
@@ -205,7 +210,7 @@ limit
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "url": "https://www.nbcnews.com/specials/plan-your-vote-2022-elections/index.html",
@@ -268,4 +273,8 @@ limit
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/trends/" caption="app/controllers/api/v1/trends/" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/trends/links_controller.rb" caption="app/controllers/api/v1/trends/links_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/trends/statuses_controller.rb" caption="app/controllers/api/v1/trends/statuses_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/trends/tags_controller.rb" caption="app/controllers/api/v1/trends/tags_controller.rb" >}}

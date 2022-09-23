@@ -4,12 +4,15 @@ description: Admin-level information about a given account.
 menu:
   docs:
     parent: entities
-aliases: [/entities/admin-account/]
+aliases: [
+  "/entities/admin-account",
+  "/entities/admin_account",
+  "/entities/Admin_Account"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
   "id": "108965278956942133",
   "username": "admin",
@@ -110,6 +113,10 @@ aliases: [/entities/admin-account/]
 **Version history:**\
 2.9.1 - added
 3.5.0 - return type changed from String to [Admin::Ip]({{< relref "entities/Admin_Ip" >}}) due to a bug
+3.5.4 - bug fixed, return type is now a String again
+<!--
+TODO: is there going to be a 3.5.4 at all or is this just part of 3.6
+-->
 
 ### `ips` {#ip}
 
@@ -182,14 +189,14 @@ aliases: [/entities/admin-account/]
 **Version history:**\
 2.9.1 - added
 
-### `created_by_application_id` {{<optional>}} {#created_by_application_id}
+### `created_by_application_id` {{%optional%}} {#created_by_application_id}
 
 **Description:** The ID of the [Application]({{< relref "entities/application" >}}) that created this account, if applicable.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
 2.9.1 - added
 
-### `invited_by_account_id` {{<optional>}} {#invited_by_account_id}
+### `invited_by_account_id` {{%optional%}} {#invited_by_account_id}
 
 **Description:** The ID of the [Account]({{< relref "entities/account" >}}) that invited this user, if applicable.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\

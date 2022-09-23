@@ -4,11 +4,14 @@ description: Represents the software instance of Mastodon running on this domain
 menu:
   docs:
     parent: entities
+aliases: [
+  "/entities/instance",
+  "/entities/Instance"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
   "uri":"mastodon.social",
   "title":"Mastodon",
@@ -138,7 +141,7 @@ menu:
 }
 ```
 
-## Required attributes
+## Attributes
 
 ### `uri` {#uri}
 
@@ -154,19 +157,19 @@ menu:
 **Version history:**\
 1.1.0 - added
 
-### `description` {#description}
-
-**Description:** Admin-defined description of the Mastodon site.\
-**Type:** String\
-**Version history:**\
-1.1.0 - added
-
 ### `short_description` {#short_description}
 
-**Description:** A shorter description defined by the admin.\
+**Description:** A short, plain-text description defined by the admin.\
 **Type:** String\
 **Version history:**\
 2.9.2 - added
+
+### `description` {#description}
+
+**Description:** An HTML-permitted description of the Mastodon site.\
+**Type:** String\
+**Version history:**\
+1.1.0 - added
 
 ### `email` {#email}
 
@@ -182,10 +185,59 @@ menu:
 **Version history:**\
 1.3.0 - added
 
+### `urls` {#urls}
+
+**Description:** URLs of interest for clients apps.\
+**Type:** Hash\
+**Version history:**\
+1.4.2 - added
+
+#### `urls[streaming_api]` {#streaming_api}
+
+**Description:** The Websockets URL for connecting to the streaming API.\
+**Type:** String (URL)\
+**Version history:**\
+1.4.2 - added
+
+### `stats` {#stats}
+
+**Description:** Statistics about how much information the instance contains.\
+**Type:** Hash\
+**Version history:**\
+1.6.0 - added
+
+#### `stats[user_count]` {#user_count}
+
+**Description:** Total users on this instance.\
+**Type:** Integer\
+**Version history:**\
+1.6.0 - added
+
+#### `stats[status_count]` {#status_count}
+
+**Description:** Total statuses on this instance.\
+**Type:** Integer\
+**Version history:**\
+1.6.0 - added
+
+#### `stats[domain_count]` {#domain_count}
+
+**Description:** Total domains discovered by this instance.\
+**Type:** Integer\
+**Version history:**\
+1.6.0 - added
+
+### `thumbnail` {#thumbnail}
+
+**Description:** Banner image for the website.\
+**Type:** {{<nullable>}} String (URL)\
+**Version history:**\
+1.6.1 - added
+
 ### `languages` {#languages}
 
 **Description:** Primary languages of the website and its staff.\
-**Type:** Array of String \(ISO 639 Part 1-5 language codes\)\
+**Type:** Array of String (ISO 639 Part 1-5 language codes)\
 **Version history:**\
 2.3.0 - added
 
@@ -210,135 +262,144 @@ menu:
 **Version history:**\
 3.1.4 - added
 
-### `urls` {#urls}
+### `configuration` {#configuration}
 
-**Description:** URLs of interest for clients apps.\
-**Type:** Hash \(`streaming_api`\)\
+**Description:** Configured values and limits for this website.\
+**Type:** Hash\
 **Version history:**\
-1.4.2 - added
+3.4.2 - added
 
-#### `urls.streaming_api` {#streaming_api}
+#### `configuration[statuses]` {#statuses}
 
-Websockets address for push streaming. String \(URL\).
-
-### `stats` {#stats}
-
-**Description:** Statistics about how much information the instance contains.\
-**Type:** Hash \(`user_count`, `status_count`, `domain_count`\)\
+**Description:** Limits related to authoring statuses.\
+**Type:** Hash\
 **Version history:**\
-1.6.0 - added
+3.4.2 - added
 
-#### `stats.user_count` {#user_count}
+##### `configuration[statuses][max_characters]` {#max_characters}
 
-Users registered on this instance. Number.
-
-#### `stats.status_count` {#status_count}
-
-Statuses authored by users on instance. Number.
-
-#### `stats.domain_count` {#domain_count}
-
-Domains federated with this instance. Number.
-
-## Optional attributes
-
-### `thumbnail` {#thumbnail}
-
-**Description:** Banner image for the website.\
-**Type:** String (URL)\
+**Description:** The maximum number of allowed characters per status.\
+**Type:** Integer\
 **Version history:**\
-1.6.1 - added
+3.4.2 - added
+
+##### `configuration[statuses][max_media_attachments]` {#max_media_attachments}
+
+**Description:** The maximum number of media attachments that can be added to a status.\
+**Type:** Integer\
+**Version history:**\
+3.4.2 - added
+
+##### `configuration[statuses][characters_reserved_per_url]` {#characters_reserved_per_url}
+
+**Description:** Each URL in a status will be assumed to be exactly this many characters.\
+**Type:** Integer\
+**Version history:**\
+3.4.2 - added
+
+#### `configuration[media_attachments]` {#media_attachments}
+
+**Description:** Hints for which attachments will be accepted.\
+**Type:** Hash\
+**Version history:**\
+3.4.2 - added
+
+##### `configuration[media_attachments][supported_mime_types]` {#supported_mime_types}
+
+**Description:** Contains MIME types that can be uploaded.\
+**Type:** Array of String\
+**Version history:**\
+3.4.2 - added
+
+##### `configuration[media_attachments][image_size_limit]` {#image_size_limit}
+
+**Description:** The maximum size of any uploaded image, in bytes.\
+**Type:** Integer\
+**Version history:**\
+3.4.2 - added
+
+##### `configuration[media_attachments][image_matrix_limit]` {#image_matrix_limit}
+
+**Description:** The maximum number of pixels (width times height) for image uploads.\
+**Type:** Integer\
+**Version history:**\
+3.4.2 - added
+
+##### `configuration[media_attachments][video_size_limit]` {#video_size_limit}
+
+**Description:** The maximum size of any uploaded video, in bytes.\
+**Type:** Integer\
+**Version history:**\
+3.4.2 - added
+
+##### `configuration[media_attachments][video_frame_rate_limit]` {#video_frame_rate_limit}
+
+**Description:** The maximum frame rate for any uploaded video.\
+**Type:** Integer\
+**Version history:**\
+3.4.2 - added
+
+##### `configuration[media_attachments][video_matrix_limit]` {#video_matrix_limit}
+
+**Description:** The maximum number of pixels (width times height) for video uploads.\
+**Type:** Integer\
+**Version history:**\
+3.4.2 - added
+
+#### `configuration[polls]` {#polls}
+
+**Description:** Limits related to polls.\
+**Type:** Hash\
+**Version history:**\
+3.4.2 - added
+
+##### `configuration[polls][max_options]` {#max_options}
+
+**Description:** Each poll is allowed to have up to this many options.\
+**Type:** Integer\
+**Version history:**\
+3.4.2 - added
+
+##### `configuration[polls][max_characters_per_option]` {#max_characters_per_option}
+
+**Description:** Each poll option is allowed to have this many characters.\
+**Type:** Integer\
+**Version history:**\
+3.4.2 - added
+
+##### `configuration[polls.min_expiration]` {#min_expiration}
+
+**Description:** The shortest allowed poll duration, in seconds.\
+**Type:** Integer\
+**Version history:**\
+3.4.2 - added
+
+##### `configuration[polls.max_expiration]` {#max_expiration}
+
+**Description:** The longest allowed poll duration, in seconds.\
+**Type:** Integer\
+**Version history:**\
+3.4.2 - added
 
 ### `contact_account` {#contact_account}
 
 **Description:** A user that can be contacted, as an alternative to `email`.\
-**Type:** [Account]({{< relref "account.md" >}})\
+**Type:** [Account]({{< relref "entities/Account" >}})\
 **Version history:**\
 2.3.0 - added
 
 ### `rules` {#rules}
 
-**Description:** Simple list of rules for this website\
-**Type:** Array of [Rule]({{< relref "rule.md" >}})\
+**Description:** An itemized list of rules for this website.\
+**Type:** Array of [Rule]({{< relref "entities/Rule" >}})\
 **Version history:**\
 3.4.0 - added
 
-### `configuration` {#configuration}
-
-**Description:** Configured values and limits for this website.\
-**Type:** Hash\
-**Version history:**
-3.4.2 - added
-
-#### `configuration.statuses` {#statuses}
-
-Hash. Limits related to authoring statuses.
-
-##### `configuration.statuses.max_characters` {#max_characters}
-
-Number. The maximum number of allowed characters per status.
-
-##### `configuration.statuses.max_media_attachments` {#max_media_attachments}
-
-Number. The maximum number of media attachments that can be added to a status.
-
-##### `configuration.statuses.characters_reserved_per_url` {#characters_reserved_per_url}
-
-Number. Each URL in a status will be assumed to be exactly this many characters.
-
-#### `configuration.media_attachments` {#media_attachments}
-
-Hash. Hints for which attachments will be accepted.
-
-##### `configuration.media_attachments.supported_mime_types` {#supported_mime_types}
-
-Array of String. Contains MIME types that can be uploaded.
-
-##### `configuration.media_attachments.image_size_limit` {#image_size_limit}
-
-Number. The maximum size of any uploaded image, in bytes.
-
-##### `configuration.media_attachments.image_matrix_limit` {#image_matrix_limit}
-
-Number. The maximum number of pixels (width times height) for image uploads.
-
-##### `configuration.media_attachments.video_size_limit` {#video_size_limit}
-
-Number. The maximum size of any uploaded video, in bytes.
-
-##### `configuration.media_attachments.video_frame_rate_limit` {#video_frame_rate_limit}
-
-Number. The maximum frame rate for any uploaded video.
-
-##### `configuration.media_attachments.video_matrix_limit` {#video_matrix_limit}
-
-Number. The maximum number of pixels (width times height) for video uploads.
-
-#### `configuration.polls` {#polls}
-
-Hash. Limits related to polls.
-
-##### `configuration.polls.max_options` {#max_options}
-
-Number. Each poll is allowed to have up to this many options.
-
-##### `configuration.polls.max_characters_per_option` {#max_characters_per_option}
-
-Number. Each poll option is allowed to have this many characters.
-
-##### `configuration.polls.min_expiration` {#min_expiration}
-
-Number. The shortest allowed poll duration, in seconds.
-
-##### `configuration.polls.max_expiration` {#max_expiration}
-
-Number. The longest allowed poll duration, in seconds.
-
 ## See also
 
-{{< page-ref page="methods/instance.md" >}}
+{{< page-relref ref="methods/instance" caption="instance API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/instance_serializer.rb" caption="app/serializers/rest/instance\_serializer.rb" >}}
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/instance_serializer.rb" caption="app/serializers/rest/instance_serializer.rb" >}}
 
 
 

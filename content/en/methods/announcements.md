@@ -4,8 +4,14 @@ description: For announcements set by administration.
 menu:
   docs:
     weight: 90
-    parent: methods
+    parent: methods-instance
+    identifier: methods-announcements
+aliases: ["/methods/announcements", "/methods/instance/announcements"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View all announcements {#get}
 
@@ -37,7 +43,7 @@ with_dismissed
 
 Currently active announcements
 
-```javascript
+```json
 [
   {
     "id": "8",
@@ -88,7 +94,7 @@ Currently active announcements
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -123,7 +129,7 @@ Authorization
 
 #### Response
 ##### 200: OK
-```javascript
+```json
 {}
 ```
 
@@ -131,7 +137,7 @@ Authorization
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -141,7 +147,7 @@ Invalid or missing Authorization header.
 
 Announcement with given ID does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -180,7 +186,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {}
 ```
 
@@ -188,7 +194,7 @@ Authorization
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -198,7 +204,7 @@ Invalid or missing Authorization header.
 
 Announcement with given ID does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -206,7 +212,7 @@ Announcement with given ID does not exist
 
 ##### 422: Unprocessable entity
 
-```javascript
+```json
 {
   "error": "Validation failed: Name is not a recognized emoji"
 }
@@ -245,7 +251,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {}
 ```
 
@@ -253,7 +259,7 @@ Authorization
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -263,7 +269,7 @@ Invalid or missing Authorization header.
 
 Announcement with given ID does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -271,7 +277,7 @@ Announcement with given ID does not exist
 
 ##### 422: Unprocessable entity
 
-```javascript
+```json
 {
   "error": "Validation failed: Name is not a recognized emoji"
 }
@@ -283,4 +289,4 @@ Announcement with given ID does not exist
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/announcements_controller.rb" caption="app/controllers/api/v1/announcements_controller.rb" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/announcements" caption="app/controllers/api/v1/announcements/" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/announcements/reactions_controller.rb" caption="app/controllers/api/v1/announcements/reactions_controller.rb" >}}

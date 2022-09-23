@@ -6,7 +6,12 @@ menu:
     weight: 50
     parent: methods
     identifier: methods-notifications
+aliases: ["/methods/notifications"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## Get all notifications {#get}
 
@@ -14,19 +19,30 @@ menu:
 GET https://mastodon.example/api/v1/notifications HTTP/1.1
 ```
 
-Notifications concerning the user. This API returns Link headers containing links to the next/previous page. However, the links can also be constructed dynamically using query params and `id` values.\
-\
-Types to filter include \(`follow`, `favourite`, `reblog`, `mention`, `poll`, `follow_request`, `status`, `admin.signup`\)
+Notifications concerning the user. This API returns Link headers containing links to the next/previous page. However, the links can also be constructed dynamically using query params and `id` values.
 
-**Returns:** Array of [Notification]({{< relref "entities/notification" >}})\
+Types to filter include:
+- `mention` = Someone mentioned you in their status
+- `status` = Someone you enabled notifications for has posted a status
+- `reblog` = Someone boosted one of your statuses
+- `follow` = Someone followed you
+- `follow_request` = Someone requested to follow you
+- `favourite` = Someone favourited one of your statuses
+- `poll` = A poll you have voted in or created has ended
+- `update` = A status you interacted with has been edited
+- `admin.sign_up` = Someone signed up (optionally sent to admins)
+- `admin.report` = A new report has been filed
+
+**Returns:** Array of [Notification]({{< relref "entities/Notification" >}})\
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
 0.0.0 - added\
-2.6.0 - add `min_id`\
-2.9.0 - add `account_id`\
-3.1.0 - add `follow_request` type\
-3.3.0 - add `status` type; both `min_id` and `max_id` can be used at the same time now\
-3.5.0 - add `types`; add `admin.signup` type
+2.6.0 - added `min_id`\
+2.9.0 - added `account_id`\
+3.1.0 - added `follow_request` type\
+3.3.0 - added `status` type; both `min_id` and `max_id` can be used at the same time now\
+3.5.0 - added `types`; add `update` and `admin.sign_up` types\
+3.6.0 - added `admin.report` type
 
 #### Request
 
@@ -75,7 +91,7 @@ The response body contains one page of notifications. You can use the HTTP Link 
 Link: <https://mastodon.social/api/v1/notifications?max_id=34975535>; rel="next", <https://mastodon.social/api/v1/notifications?min_id=34975861>;
 ```
 
-```javascript
+```json
 [
   {
     "id": "34975861",
@@ -85,23 +101,23 @@ Link: <https://mastodon.social/api/v1/notifications?max_id=34975535>; rel="next"
       "id": "971724",
       "username": "zsc",
       "acct": "zsc",
-      ...
+      // ...
     },
     "status": {
       "id": "103186126728896492",
       "created_at": "2019-11-23T07:49:01.940Z",
       "in_reply_to_id": "103186038209478945",
       "in_reply_to_account_id": "14715",
-      ...
+      // ...
       "content": "<p><span class=\"h-card\"><a href=\"https://mastodon.social/@trwnh\" class=\"u-url mention\">@<span>trwnh</span></a></span> sup!</p>",
-      ...
+      // ...
       "account": {
         "id": "971724",
         "username": "zsc",
         "acct": "zsc",
-        ...
+        // ...
       },
-      ...
+      // ...
       "mentions": [
         {
           "id": "14715",
@@ -110,7 +126,7 @@ Link: <https://mastodon.social/api/v1/notifications?max_id=34975535>; rel="next"
           "acct": "trwnh"
         }
       ],
-      ...
+      // ...
     }
   },
   {
@@ -121,19 +137,19 @@ Link: <https://mastodon.social/api/v1/notifications?max_id=34975535>; rel="next"
       "id": "297420",
       "username": "haskal",
       "acct": "haskal@cybre.space",
-      ...
+      // ...
     },
     "status": {
       "id": "103186046267791694",
       "created_at": "2019-11-23T07:28:34.210Z",
       "in_reply_to_id": "103186044372624124",
       "in_reply_to_account_id": "297420",
-      ...
+      // ...
       "account": {
         "id": "14715",
         "username": "trwnh",
         "acct": "trwnh",
-        ...
+        // ...
       }
     }
   }
@@ -144,7 +160,7 @@ Link: <https://mastodon.social/api/v1/notifications?max_id=34975535>; rel="next"
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -160,7 +176,7 @@ GET https://mastodon.example/api/v1/notification/:id HTTP/1.1
 
 View information about a notification with a given ID.
 
-**Returns:** [Notification]({{< relref "entities/notification" >}})\
+**Returns:** [Notification]({{< relref "entities/Notification" >}})\
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
 0.0.0 - added
@@ -183,7 +199,7 @@ Authorization
 
 A single Notification
 
-```javascript
+```json
 {
   "id": "34975861",
   "type": "mention",
@@ -192,23 +208,23 @@ A single Notification
     "id": "971724",
     "username": "zsc",
     "acct": "zsc",
-    ...
+    // ...
   },
   "status": {
     "id": "103186126728896492",
     "created_at": "2019-11-23T07:49:01.940Z",
     "in_reply_to_id": "103186038209478945",
     "in_reply_to_account_id": "14715",
-    ...
+    // ...
     "content": "<p><span class=\"h-card\"><a href=\"https://mastodon.social/@trwnh\" class=\"u-url mention\">@<span>trwnh</span></a></span> sup!</p>",
-    ...
+    // ...
     "account": {
       "id": "971724",
       "username": "zsc",
       "acct": "zsc",
-      ...
+      // ...
     },
-    ...
+    // ...
     "mentions": [
       {
         "id": "14715",
@@ -217,7 +233,7 @@ A single Notification
         "acct": "trwnh"
       }
     ],
-    ...
+    // ...
   }
 }
 ```
@@ -226,7 +242,7 @@ A single Notification
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -259,7 +275,7 @@ Authorization
 
 Notifications successfully cleared.
 
-```javascript
+```json
 {}
 ```
 
@@ -267,7 +283,7 @@ Notifications successfully cleared.
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -306,7 +322,7 @@ Authorization
 
 Notification with given ID successfully dismissed
 
-```javascript
+```json
 {}
 ```
 
@@ -314,7 +330,7 @@ Notification with given ID successfully dismissed
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -322,7 +338,7 @@ Invalid or missing Authorization header.
 
 ---
 
-### (DEPRECATED) Dismiss a single notification {#dismiss-deprecated}
+## (REMOVED) Dismiss a single notification {#dismiss-deprecated}
 
 ```http
 POST https://mastodon.example/api/v1/notifications/dismiss HTTP/1.1
@@ -334,6 +350,7 @@ Dismiss a single notification from the server.
 **OAuth:** User token + `write:notifications`\
 **Version history**:\
 0.0.0 - available\
+1.3.0 - deprecated in favor of [notifications/:id/dismiss](#dismiss)
 3.0.0 - removed
 
 #### Request
@@ -344,8 +361,8 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Form data parameters
-:id
-: {{<required>}} String. ID of the notification in the database.
+id
+: {{<required>}} String. The ID of the notification in the database.
 
 #### Response
 
@@ -353,7 +370,7 @@ Authorization
 
 Notification with given ID successfully dismissed
 
-```javascript
+```json
 {}
 ```
 
@@ -361,7 +378,7 @@ Notification with given ID successfully dismissed
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -370,5 +387,7 @@ Invalid or missing Authorization header.
 ---
 
 ## See also
+
+{{< page-relref ref="methods/push" caption="push API methods" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/notifications_controller.rb" caption="app/controllers/api/v1/notifications_controller.rb" >}}

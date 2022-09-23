@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 30
     parent: methods-statuses
-aliases: [/methods/statuses/scheduled_statuses/]
+    identifier: methods-scheduled_statuses
+aliases: ["/methods/scheduled_statuses", "/methods/statuses/scheduled_statuses"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View scheduled statuses {#get}
 
@@ -44,7 +49,7 @@ limit
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "id": "3221",
@@ -70,7 +75,7 @@ limit
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -104,7 +109,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
   "id": "3221",
   "scheduled_at": "2019-12-05T12:33:01.000Z",
@@ -128,7 +133,7 @@ Authorization
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -138,7 +143,7 @@ Invalid or missing Authorization header.
 
 ScheduledStatus is not owned by you or does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -177,7 +182,7 @@ scheduled_at
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
   "id": "3221",
   "scheduled_at": "2019-12-05T13:33:01.000Z",
@@ -201,7 +206,7 @@ scheduled_at
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -211,7 +216,7 @@ Invalid or missing Authorization header.
 
 ScheduledStatus is not owned by you or does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -219,7 +224,7 @@ ScheduledStatus is not owned by you or does not exist
 
 ##### 422: Unprocessable entity
 
-```javascript
+```json
 {
   "error": "Validation failed: Scheduled at The scheduled date must be in the future"
 }
@@ -253,7 +258,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {}
 ```
 
@@ -261,7 +266,7 @@ Authorization
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -271,7 +276,7 @@ Invalid or missing Authorization header.
 
 ScheduledStatus is not owned by you or does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -281,6 +286,6 @@ ScheduledStatus is not owned by you or does not exist
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/scheduled_statuses_controller.rb" caption="app/controllers/api/v1/scheduled_statuses_controller.rb" >}}
-
 {{< page-relref ref="methods/statuses#create" caption="POST /api/v1/statuses (`scheduled_at` parameter)" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/scheduled_statuses_controller.rb" caption="app/controllers/api/v1/scheduled_statuses_controller.rb" >}}

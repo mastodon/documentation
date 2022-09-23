@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 10
     parent: methods-accounts
-aliases: [/methods/accounts/bookmarks/]
+    identifier: methods-bookmarks
+aliases: ["/methods/bookmarks", "/methods/accounts/bookmarks"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## View bookmarked statuses {#get}
 
@@ -45,7 +50,7 @@ limit
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "id": "108724195870225687",
@@ -75,7 +80,7 @@ limit
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -85,8 +90,8 @@ Invalid or missing Authorization header.
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/bookmarks_controller.rb" caption="app/controllers/api/v1/bookmarks_controller.rb" >}}
-
 {{< page-relref ref="methods/statuses#bookmark" caption="POST /api/v1/statuses/:id/bookmark" >}}
 
 {{< page-relref ref="methods/statuses#unbookmark" caption="POST /api/v1/statuses/:id/unbookmark" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/bookmarks_controller.rb" caption="app/controllers/api/v1/bookmarks_controller.rb" >}}

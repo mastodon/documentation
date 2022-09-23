@@ -4,11 +4,14 @@ description: Represents an application that interfaces with the REST API to acce
 menu:
   docs:
     parent: entities
+aliases: [
+	"/entities/application",
+	"/entities/Application"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
   "name": "test app",
   "website": null,
@@ -16,54 +19,48 @@ menu:
 }
 ```
 
-## Required attributes
+## Attributes
 
 ### `name` {#name}
 
 **Description:** The name of your application.\
 **Type:** String\
-**Version history:** Added in 0.9.9
+**Version history:**\
+0.9.9 - added
 
-## Optional attributes
-
-### `website` {#website}
+### `website` {{%optional%}} {#website}
 
 **Description:** The website associated with your application.\
-**Type:** String \(URL\)\
+**Type:** {{<nullable>}} String (URL)\
 **Version history:**\
-- 0.9.9: Added
-- 3.5.1: This property is now nullable.
+0.9.9 - added
+3.5.1 - this property is now nullable
 
 ### `vapid_key` {#vapid_key}
 
-**Description:** Used for Push Streaming API. Returned with [POST /api/v1/apps]({{< relref "../methods/apps/#create-an-application" >}}). Equivalent to [PushSubscription\#server\_key]({{< relref "pushsubscription.md#server_key" >}})\
+**Description:** Used for Push Streaming API. Returned with [POST /api/v1/apps]({{< relref "methods/apps#create" >}}). Equivalent to [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}})\
 **Type:** String\
-**Version history:** Added in 2.8.0
+**Version history:**\
+2.8.0 - added
 
-## Client attributes
-
-### `client_id` {#client_id}
+### `client_id` {{%optional%}} {#client_id}
 
 **Description:** Client ID key, to be used for obtaining OAuth tokens\
 **Type:** String\
-**Version history:** Added in 0.9.9
+**Version history:**\
+0.9.9 - added
 
-### `client_secret` {#client_secret}
+### `client_secret` {{%optional%}} {#client_secret}
 
 **Description:** Client secret key, to be used for obtaining OAuth tokens\
 **Type:** String\
-**Version history:** Added in 0.9.9
+**Version history:**\
+0.9.9 - added
 
 ## See also
 
-* [Status\#application]({{< relref "status.md#application" >}})
-* [Create an application \(POST /api/v1/apps\)]({{< relref "../methods/apps/#create-an-application" >}})
+{{< page-relref ref="methods/apps" caption="apps API methods" >}}
 
-{{< page-ref page="status.md" >}}
+{{< page-relref ref="entities/Status#application" caption="Status (`application` attribute)" >}}
 
-{{< page-ref page="methods/apps.md" >}}
-
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/application_serializer.rb" caption="app/serializers/rest/application\_serializer.rb" >}}
-
-
-
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/application_serializer.rb" caption="app/serializers/rest/application_serializer.rb" >}}

@@ -5,7 +5,12 @@ menu:
   docs:
     parent: methods-admin
     identifier: methods-admin-accounts
+aliases: ["/methods/admin/accounts"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 <!--
 TODO: wrong token currently returns HTML and 403 instead of JSON and 401
@@ -94,7 +99,7 @@ limit
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "id": "108267707882207829",
@@ -167,7 +172,7 @@ limit
 
 Invalid or missing access token.
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -244,7 +249,7 @@ limit
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "id": "108267695853695427",
@@ -294,7 +299,7 @@ limit
 
 Invalid or missing access token.
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -332,7 +337,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
 	"id": "108267695853695427",
 	"username": "admin",
@@ -380,7 +385,7 @@ Authorization
 
 Invalid or missing access token.
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -390,7 +395,7 @@ Invalid or missing access token.
 
 Account does not exist
 
-```javascript
+```json
 {
 	"error": "Record not found"
 }
@@ -430,7 +435,7 @@ Authorization
 
 The account is now approved
 
-```javascript
+```json
 {
   "id": "108965430868193066",
   "username": "goody",
@@ -446,7 +451,7 @@ The account is now approved
 
 Invalid or missing access token, or the account is not currently pending.
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -456,7 +461,7 @@ Invalid or missing access token, or the account is not currently pending.
 
 Account does not exist
 
-```javascript
+```json
 {
 	"error": "Record not found"
 }
@@ -494,7 +499,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
   "id": "108965436418975594",
   "username": "badguy",
@@ -550,7 +555,7 @@ Authorization
 
 Invalid or missing access token, or the account is not currently pending.
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -560,7 +565,7 @@ Invalid or missing access token, or the account is not currently pending.
 
 Account does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -600,7 +605,7 @@ Authorization
 
 The account's data has been deleted.
 
-```javascript
+```json
 {
   "id": "108965430868193066",
   "username": "goody",
@@ -666,7 +671,7 @@ The account's data has been deleted.
 
 You cannot delete this account's data, or it was already deleted. Or, the access token is missing or invalid.
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -724,7 +729,7 @@ send_email_notification
 
 The action was successfully taken
 
-```javascript
+```json
 {}
 ```
 
@@ -732,7 +737,7 @@ The action was successfully taken
 
 Invalid or missing access token.
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -747,7 +752,7 @@ TODO: this also happens when report_id is not found, but the action is still tak
 https://github.com/mastodon/mastodon/issues/19145
 -->
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -796,7 +801,7 @@ Authorization
 
 Account was enabled, or was already enabled.
 
-```javascript
+```json
 {
 	"id": "108965430868193066",
 	"username": "goody",
@@ -812,7 +817,7 @@ Account was enabled, or was already enabled.
 
 Account does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -852,7 +857,7 @@ Authorization
 
 Account was unsilenced, or was already not silenced
 
-```javascript
+```json
 {
   "id": "108965430868193066",
   "username": "goody",
@@ -868,7 +873,7 @@ Account was unsilenced, or was already not silenced
 
 Account does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -908,7 +913,7 @@ Authorization
 
 Account successfully unsuspended
 
-```javascript
+```json
 {
   "id": "108965430868193066",
   "username": "goody",
@@ -924,7 +929,7 @@ Account successfully unsuspended
 
 Account is not currently suspended
 
-```javascript
+```json
 {
 	"error": "This action is not allowed"
 }
@@ -934,7 +939,7 @@ Account is not currently suspended
 
 Account does not exist
 
-```javascript
+```json
 {
 	"error": "Record not found"
 }
@@ -983,7 +988,7 @@ https://github.com/mastodon/mastodon/issues/19148
 
 Account does not exist
 
-```javascript
+```json
 {
 	"error": "Record not found"
 }

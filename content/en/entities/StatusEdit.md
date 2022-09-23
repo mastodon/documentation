@@ -4,11 +4,14 @@ description: Represents a revision of a status that has been edited.
 menu:
   docs:
     parent: entities
+aliases: [
+	"/entities/statusedit",
+	"/entities/StatusEdit"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
 	"content": "<p>this is a status that has been edited three times. this time a poll has been added.</p>",
 	"spoiler_text": "",
@@ -32,11 +35,11 @@ menu:
 		"username": "trwnh",
 		"acct": "trwnh",
 		"display_name": "infinite love ⴳ",
-		...
+		// ...
 	},
 	"media_attachments": [],
 	"emojis": []
-},
+}
 ```
 
 ## Attributes
@@ -76,29 +79,30 @@ menu:
 **Version history:**\
 3.5.0 - added
 
-### `poll` {#poll}
+### `poll` {{%optional%}} {#poll}
 
 **Description:** The current state of the poll options at this revision. Note that edits changing the poll options will be collapsed together into one edit, since this action resets the poll.\
-**Type:** null, or nested Hash with `options` and `title`\
+**Type:** Hash with `options` (Array of Hash with `title`)\
 **Version history:**\
 3.5.0 - added
 
 ### `media_attachments` {#media_attachments}
 
 **Description:** The current state of the poll options at this revision. Note that edits changing the poll options will be collapsed together into one edit, since this action resets the poll.\
-**Type:** Array of [Attachment]({{<relref "entities/attachment">}})\
+**Type:** Array of [MediaAttachment]({{<relref "entities/MediaAttachment">}})\
 **Version history:**\
 3.5.0 - added
 
 ### `emojis` {#emojis}
 
 **Description:** Any custom emoji that are used in the current revision.\
-**Type:** Array of [Emoji]({{<relref "entities/emoji">}})\
+**Type:** Array of [CustomEmoji]({{<relref "entities/CustomEmoji">}})\
 **Version history:**\
 3.5.0 - added
 
 ## See also
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/status_edit_serializer.rb" caption="app/serializers/rest/status_edit_serializer.rb" >}}
-
 {{< page-relref ref="methods/statuses#history" caption="GET /api/v1/statuses/:id/history" >}}
+
+{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/status_edit_serializer.rb" caption="app/serializers/rest/status_edit_serializer.rb" >}}
+

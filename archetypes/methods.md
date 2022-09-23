@@ -50,14 +50,14 @@ limit
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 ```
 
 ##### 401: Unauthorized
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -67,7 +67,7 @@ Invalid or missing Authorization header.
 
 Authorized user is missing a permission, or invalid or missing Authorization header
 
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
@@ -77,7 +77,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 
 SOMETHING is not owned by you or does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -87,9 +87,17 @@ SOMETHING is not owned by you or does not exist
 
 ##### 422: Unprocessable entity
 
+##### 429: Rate limited
+
+```json
+{
+  "error": "Too many requests"
+}
+```
+
 ##### 503: Service unavailable
 
-```javascript
+```json
 {
   "error": "There was a temporary problem serving your request, please try again"
 }
@@ -99,10 +107,10 @@ SOMETHING is not owned by you or does not exist
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/SOMETHING_controller.rb" caption="app/controllers/api/v1/SOMETHING_controller.rb" >}}
-
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/SOMETHING" caption="app/controllers/api/v1/SOMETHING/" >}}
-
 {{< page-relref ref="methods/SOMETHING#anchor" caption="POST /api/v1/something/" >}}
 
 {{< page-ref page="client/authorized" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/SOMETHING_controller.rb" caption="app/controllers/api/v1/SOMETHING_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/SOMETHING" caption="app/controllers/api/v1/SOMETHING/" >}}

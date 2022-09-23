@@ -7,8 +7,13 @@ menu:
   docs:
     weight: 40
     parent: methods-timelines
-aliases: [/methods/timelines/streaming/]
+    identifier: methods-streaming
+aliases: ["/methods/streaming", "/methods/timelines/streaming"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## Event types and payloads {#events}
 
@@ -368,20 +373,20 @@ wss://mastodon.example/api/v1/streaming
 
 Open a multiplexed WebSocket connection to receive events.
 
-### Parameters
+##### Parameters
 
 {{< hint style="info" >}}
 Query parameters are recommended for single-purpose connections, but parameters may also be provided by sending a JSON-encoded payload over the WebSocket connection with `type` parameter.
 
 Example subscription to local statuses containing the hashtag `#foo`:
 
-```javascript
+```json
 { "type": "subscribe", "stream": "hashtag:local", "tag": "foo" }
 ```
 
 Example unsubscription from user updates:
 
-```javascript
+```json
 { "type": "unsubscribe", "stream": "user" }
 ```
 {{</hint>}}
@@ -402,13 +407,13 @@ type
 : String. For JSON-encoded payloads sent to the server, specify either `subscribe` or `unsubscribe` in order to manage the events that you wish to receive.
 
 
-### Events
+##### Events
 
 Events are JSON-encoded. If an invalid access token is provided, the connection will be closed immediately. If your server has enabled limited federation mode or authorized-fetch mode, then an access token must be provided in order to receive events.
 
 An example update to the public timeline:
 
-```javascript
+```json
 {
   "stream": [
     "public"
@@ -424,7 +429,7 @@ Note that while the event is JSON-encoded, the `payload` is string-encoded and e
 
 An example delete event from the public timeline:
 
-```javascript
+```json
 {
   "stream": [
     "public"
@@ -436,7 +441,7 @@ An example delete event from the public timeline:
 
 An example filter change by the user:
 
-```javascript
+```json
 {
   "stream": [
     "user"

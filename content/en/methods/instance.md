@@ -6,15 +6,20 @@ menu:
     weight: 70
     parent: methods
     identifier: methods-instance
+aliases: ["/methods/instance"]
 ---
 
-## General information {#get}
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
+
+## View server information {#get}
 
 ```http
 GET https://mastodon.example/api/v1/instance HTTP/1.1
 ```
 
-Information about the server.
+Obtain general information about the server.
 
 **Returns:** [Instance]({{< relref "entities/instance" >}})\
 **OAuth:** Public\
@@ -29,7 +34,7 @@ Information about the server.
 
 ##### 200: OK
 
-```javascript
+```json
 {
   "uri":"mastodon.social",
   "title":"Mastodon",
@@ -186,7 +191,7 @@ Authorization
 
 ##### 200: OK
 
-```javascript
+```json
 ["tilde.zone","mspsocial.net",...,"conf.tube"]
 ```
 
@@ -194,7 +199,7 @@ Authorization
 
 If the instance is in whitelist mode and the Authorization header is missing or invalid
 
-```javascript
+```json
 {
   "error": "This API requires an authenticated user"
 }
@@ -210,7 +215,7 @@ GET https://mastodon.example/api/v1/instance/activity HTTP/1.1
 
 Instance activity over the last 3 months, binned weekly.
 
-**Returns:** Array of [Activity]({{< relref "entities/activity" >}})\
+**Returns:** Array of Hash\
 **OAuth:** Public\
 **Version history:**\
 2.1.2 - added\
@@ -226,7 +231,21 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+Each hash in the array will contain the following attributes:
+
+week
+: String (UNIX Timestamp). Midnight at the first day of the week.
+
+statuses
+: String (cast from an integer). The number of Statuses created since the week began.
+
+logins
+: String (cast from an integer). The number of user logins since the week began.
+
+registrations
+: String (cast from an integer). The number of user registrations since the week began.
+
+```json
 [
   {
     "week": "1574640000",
@@ -307,7 +326,7 @@ Authorization
 
 If the instance is in whitelist mode and the Authorization header is missing or invalid
 
-```javascript
+```json
 {
   "error": "This API requires an authenticated user"
 }
@@ -332,7 +351,7 @@ Rules that the users of this service should follow.
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 [
   {
     "id": "1",
@@ -367,4 +386,8 @@ Rules that the users of this service should follow.
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/instances_controller.rb" caption="app/controllers/api/v1/instances_controller.rb" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/instances" caption="app/controllers/api/v1/instances/" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/instances/activity_controller.rb" caption="app/controllers/api/v1/instances/activity_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/instances/peers_controller.rb" caption="app/controllers/api/v1/instances/peers_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/instances/rules_controller.rb" caption="app/controllers/api/v1/instances/rules_controller.rb" >}}

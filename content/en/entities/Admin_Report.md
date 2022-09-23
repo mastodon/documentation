@@ -4,12 +4,15 @@ description: Admin-level information about a filed report.
 menu:
   docs:
     parent: entities
-aliases: [/entities/admin-report/]
+aliases: [
+  "/entities/admin-report",
+  "/entities/admin_report",
+  "/entities/Admin_Report"]
 ---
 
 ## Example
 
-```javascript
+```json
 {
   "id": "1",
   "action_taken": false,
@@ -25,12 +28,12 @@ aliases: [/entities/admin-report/]
     "domain": null,
     "created_at": "2022-09-08T22:48:07.985Z",
     "email": "admin@mastodon.local",
-    ...
+    // ...
     "account": {
       "id": "108965218747268792",
       "username": "admin",
       "acct": "admin",
-      ...
+      // ...
     }
   },
   "target_account": {
@@ -39,12 +42,12 @@ aliases: [/entities/admin-report/]
     "domain": null,
     "created_at": "2022-09-08T23:42:04.731Z",
     "email": "goody@mastodon.local",
-    ...
+    // ...
     "account": {
       "id": "108965430868193066",
       "username": "goody",
       "acct": "goody",
-      ...
+      // ...
     }
   },
   "assigned_account": null,
@@ -118,48 +121,48 @@ aliases: [/entities/admin-report/]
 ### `account` {#account}
 
 **Description:** The account which filed the report.\
-**Type:** [Admin::Account]({{< relref "entities/admin_account" >}})\
+**Type:** [Admin::Account]({{< relref "entities/Admin_Account" >}})\
 **Version history:**\
 2.9.1 - added
 
 ### `target_account` {#target_account}
 
 **Description:** The account being reported.\
-**Type:** [Admin::Account]({{< relref "entities/admin_account" >}})\
+**Type:** [Admin::Account]({{< relref "entities/Admin_Account" >}})\
 **Version history:**\
 2.9.1 - added
 
 ### `assigned_account` {#assigned_account}
 
 **Description:** The account of the moderator assigned to this report.\
-**Type:** {{<nullable>}} [Admin::Account]({{< relref "entities/admin_account" >}}) or null\
+**Type:** {{<nullable>}} [Admin::Account]({{< relref "entities/Admin_Account" >}}) or null\
 **Version history:**\
 2.9.1 - added
 
 ### `action_taken_by_account` {#action_taken_by_account}
 
 **Description:** The account of the moderator who handled the report.\
-**Type:** {{<nullable>}} [Admin::Account]({{< relref "entities/admin_account" >}}) or null\
+**Type:** {{<nullable>}} [Admin::Account]({{< relref "entities/Admin_Account" >}}) or null\
 **Version history:**\
 2.9.1 - added
 
 ### `statuses` {#statuses}
 
 **Description:** Statuses attached to the report, for context.\
-**Type:** Array of [Status]({{< relref "entities/status" >}})\
+**Type:** Array of [Status]({{< relref "entities/Status" >}})\
 **Version history:**\
 2.9.1 - added
 
 ### `rules` {#rules}
 
 **Description:** Rules attached to the report, for context.\
-**Type:** Array of [Rule]({{< relref "entities/rule" >}})\
+**Type:** Array of [Rule]({{< relref "entities/Rule" >}})\
 **Version history:**\
 3.5.0 - added
 
 ## See also
 
-{{< page-relref page="methods/admin/reports" caption="/api/v1/admin/reports">}}
+{{< page-relref page="methods/admin/reports" caption="admin/reports API methods">}}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/admin/report_serializer.rb" caption="app/serializers/rest/admin/report_serializer.rb" >}}
 

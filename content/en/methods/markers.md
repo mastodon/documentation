@@ -5,8 +5,13 @@ menu:
   docs:
     weight: 30
     parent: methods-timelines
-aliases: [/methods/timelines/markers/]
+    identifier: methods-markers
+aliases: ["/methods/markers", "/methods/timelines/markers"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## Get saved timeline positions {#get}
 
@@ -14,7 +19,7 @@ aliases: [/methods/timelines/markers/]
 GET https://mastodon.example/api/v1/markers HTTP/1.1
 ```
 
-**Returns:** [Marker]({{< relref "entities/marker" >}})\
+**Returns:** Hash of timeline key and associated [Marker]({{< relref "entities/Marker" >}})\
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
 3.0.0 - added
@@ -36,7 +41,7 @@ timeline[]
 
 timeline[] = ["home", "notifications"]
 
-```javascript
+```json
 {
   "notifications": {
     "last_read_id": "35098814",
@@ -55,7 +60,7 @@ timeline[] = ["home", "notifications"]
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -94,7 +99,7 @@ notifications[last_read_id]
 
 Calling this API with home[last_read_id] causes a marker to be created for the home timeline.
 
-```javascript
+```json
 {
   "home": {
     "last_read_id": "103194548672408537",
@@ -108,7 +113,7 @@ Calling this API with home[last_read_id] causes a marker to be created for the h
 
 Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
@@ -118,7 +123,7 @@ Invalid or missing Authorization header.
 
 If object is stale while being updated, an error will occur.
 
-```javascript
+```json
 {
   "error": "Conflict during update, please try again"
 }
@@ -128,8 +133,8 @@ If object is stale while being updated, an error will occur.
 
 ## See also
 
+{{< page-relref ref="methods/timelines#home" caption="GET /api/v1/timelines/home (with `min_id` or `since_id` parameter)" >}}
+
+{{< page-relref ref="methods/notifications#get" caption="GET /api/v1/notifications (with `min_id` or `since_id` parameter)" >}}
+
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/markers_controller.rb" caption="app/controllers/api/v1/markers_controller.rb" >}}
-
-{{< page-relref ref="methods/timelines#home" caption="GET /api/v1/timelines/home" >}}
-
-{{< page-relref ref="methods/notifications#get" caption="GET /api/v1/notifications" >}}

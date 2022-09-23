@@ -7,8 +7,13 @@ menu:
   docs:
     weight: 10
     parent: methods-notifications
-aliases: [/methods/notifications/push/]
+    identifier: methods-push
+aliases: ["/methods/push", "/methods/notifications/push"]
 ---
+
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
 ## About the Web Push API {#about}
 
@@ -28,11 +33,14 @@ POST https://mastodon.example/api/v1/push/subscription HTTP/1.1
 
 Add a Web Push API subscription to receive notifications. Each access token can have one push subscription. If you create a new subscription, the old subscription is deleted.
 
-**Returns:** [PushSubscription]({{< relref "entities/pushsubscription" >}})\
+**Returns:** [WebPushSubscription]({{< relref "entities/WebPushSubscription" >}})\
 **OAuth:** User token + `push`\
 **Version history:**\
 2.4.0 - added\
-3.4.0 - add `policy`
+3.3.0 - added `data[alerts][status]`\
+3.4.0 - added `policy`\
+3.5.0 - added `data[alerts][update]` and `data[alerts][admin.sign_up]`\
+3.6.0 - added `data[alerts][admin.report]`
 
 #### Request
 
@@ -67,6 +75,18 @@ data[alerts][mention]
 data[alerts][poll]
 : Boolean. Receive poll notifications? Defaults to false.
 
+data[alerts][status]
+: Boolean. Receive new subscribed account notifications? Defaults to false.
+
+data[alerts][update]
+: Boolean. Receive status edited notifications? Defaults to false.
+
+data[alerts][admin.sign_up]
+: Boolean. Receive new user signup notifications? Defaults to false. Must have a role with the appropriate permissions.
+
+data[alerts][admin.report]
+: Boolean. Receive new report notifications? Defaults to false. Must have a role with the appropriate permissions.
+
 policy
 : String. Specify whether to receive push notifications from `all`, `followed`, `follower`, or `none` users.
 
@@ -75,7 +95,7 @@ policy
 
 A new PushSubscription has been generated, which will send the requested alerts to your endpoint.
 
-```javascript
+```json
 {
   "id": 328183,
   "endpoint": "https://yourdomain.example/listener",
@@ -87,6 +107,16 @@ A new PushSubscription has been generated, which will send the requested alerts 
     "poll": true
   },
   "server_key": "BCk-QqERU0q-CfYZjcuB6lnyyOYfJ2AifKqfeGIm7Z-HiTU5T9eTG5GxVA0_OH5mMlI4UkkDTpaZwozy0TzdZ2M="
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
 }
 ```
 
@@ -100,7 +130,7 @@ GET https://mastodon.example/api/v1/push/subscription HTTP/1.1
 
 View the PushSubscription currently associated with this access token.
 
-**Returns:** [PushSubscription]({{< relref "entities/pushsubscription" >}})\
+**Returns:** [WebPushSubscription]({{< relref "entities/WebPushSubscription" >}})\
 **OAuth:** User token + `push`\
 **Version history:**\
 2.4.0 - added
@@ -114,7 +144,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-```javascript
+```json
 {
   "id": 328183,
   "endpoint": "https://yourdomain.example/listener",
@@ -129,11 +159,21 @@ Authorization
 }
 ```
 
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
 ##### 404: Not found
 
 A PushSubscription does not exist for this token.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -149,11 +189,14 @@ PUT https://mastodon.example/api/v1/push/subscription HTTP/1.1
 
 Updates the current push subscription. Only the data part can be updated. To change fundamentals, a new subscription must be created instead.
 
-**Returns:** [PushSubscription]({{< relref "entities/pushsubscription" >}})\
+**Returns:** [WebPushSubscription]({{< relref "entities/WebPushSubscription" >}})\
 **OAuth:** User token + `push`\
 **Version history:**\
-2.4.0 - added
-3.4.0 - add `policy`
+2.4.0 - added\
+3.3.0 - added `data[alerts][status]`\
+3.4.0 - added `policy`\
+3.5.0 - added `data[alerts][update]` and `data[alerts][admin.sign_up]`\
+3.6.0 - added `data[alerts][admin.report]`
 
 #### Request
 
@@ -179,6 +222,18 @@ data[alerts][mention]
 data[alerts][poll]
 : Boolean. Receive poll notifications? Defaults to false.
 
+data[alerts][status]
+: Boolean. Receive new subscribed account notifications? Defaults to false.
+
+data[alerts][update]
+: Boolean. Receive status edited notifications? Defaults to false.
+
+data[alerts][admin.sign_up]
+: Boolean. Receive new user signup notifications? Defaults to false. Must have a role with the appropriate permissions.
+
+data[alerts][admin.report]
+: Boolean. Receive new report notifications? Defaults to false. Must have a role with the appropriate permissions.
+
 policy
 : String. Specify whether to receive push notifications from `all`, `followed`, `follower`, or `none` users.
 
@@ -187,7 +242,7 @@ policy
 
 Updating a PushSubscription to only receive mention alerts
 
-```javascript
+```json
 {
   "id": 328183,
   "endpoint": "https://yourdomain.example/listener",
@@ -202,11 +257,21 @@ Updating a PushSubscription to only receive mention alerts
 }
 ```
 
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
 ##### 404: Not found
 
 No existing PushSubscription for this token
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
@@ -229,8 +294,6 @@ Removes the current Web Push API subscription.
 
 #### Request
 
-##### Path parameters
-
 ##### Headers
 
 Authorization
@@ -242,8 +305,18 @@ Authorization
 
 PushSubscription successfully deleted or did not exist previously
 
-```javascript
+```json
 {}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
 ```
 
 ---
