@@ -92,3 +92,14 @@ This will start processes defined in `Procfile.dev`, which will give you: A Rail
 
 `rubocop`
 : Check the Ruby code for conformance with our code style
+
+## Updating your development instance {#update}
+
+`bundle install`
+: Update Ruby gems and install any new dependencies
+
+`yarn install`
+: Update Javascript packages and install any new dependencies
+
+`RAILS_ENV=development rails db:migrate`
+: Run new database migrations for your development instance's database
