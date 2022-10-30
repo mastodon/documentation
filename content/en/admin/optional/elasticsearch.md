@@ -36,7 +36,7 @@ apt install elasticsearch
 {{< /hint >}}
 
 {{< hint style="danger" >}}
-**Security warning:** Due to the recently disclosed [exploit](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) found in `log4j` lib used by ElasticSearch, some versions of ES may be affected by this issue(Check if your ES instance used `log4j` version between `2.0` and `2.14.1`). If affcted, please refer to [this issue](https://github.com/elastic/elasticsearch/issues/81618#issuecomment-991000240) for a temporary mitigation.
+**Security warning:** ElasticSearch versions between `2.0` and `2.14.1` are affected by an [exploit](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) in the `log4j` library. If affected, please refer to the [temporary mitigation](https://github.com/elastic/elasticsearch/issues/81618#issuecomment-991000240) from the ElasticSearch issue tracker.
 {{< /hint >}}
 
 To start ElasticSearch:
