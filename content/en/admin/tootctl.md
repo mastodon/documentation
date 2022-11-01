@@ -124,7 +124,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 : Local username for the account. {{<required>}}
 
 `--role ROLE`
-: Define the account as a `user`, `moderator`, or `admin`.
+: Define the account as a `User`, `Moderator`, or `Admin`.
 
 `--email EMAIL`
 : Update the user's email address to `EMAIL`.

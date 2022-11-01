@@ -6,8 +6,6 @@ menu:
     weight: -99
 ---
 
-{{< youtube id="IPSbNdBmWKE" caption="Wideo wprowadzające, wyjaśniające podstawowe koncepcje Mastodona z użyciem ładnych animacji" >}}
-
 ## Czym jest mikroblog? {#microblogging}
 
 Tak jak blogowaniem nazwiemy publikowanie aktualności na stronie, **mikroblogowanie** to publikowanie mniejszych aktualności na strumieniu aktualności na własnym profilu. Możesz publikować wpisy tekstowe, dodatkowo umieszczając media takie jak zdjęcia, dźwięk, filmy czy ankiety. Mastodon pozwala na obserwowanie znajomych i poznawanie nowych.
