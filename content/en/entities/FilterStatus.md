@@ -25,14 +25,14 @@ aliases: [
 **Description:** The ID of the FilterStatus in the database.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `status_id` {#keyword}
 
 **Description:** The ID of the filtered Status in the database.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ## See also
 

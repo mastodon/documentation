@@ -40,7 +40,7 @@ aliases: [
 3.1.0 - added `follow_request`\
 3.3.0 - added `status`\
 3.5.0 - added `update` and `admin.sign_up`\
-3.6.0 - added `admin.report`
+4.0.0 - added `admin.report`
 
 ### `created_at` {#created_at}
 
@@ -68,7 +68,7 @@ aliases: [
 **Description:** Report that was the object of the notification. Attached when `type` of the notification is `admin.report`.\
 **Type:** [Report]({{< relref "entities/Report" >}})\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ## Examples
 

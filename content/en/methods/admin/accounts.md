@@ -31,7 +31,7 @@ View all accounts, optionally matching certain criteria for filtering, up to 100
 **Version history:**\
 2.9.1 - added\
 3.3.0 - added `sensitized`\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -193,7 +193,7 @@ View all accounts, optionally matching certain criteria for filtering, up to 100
 **Permissions:** Manage Users\
 **Version history:**\
 3.5.0 - added\
-3.6.0 - added `role_ids`. Support custom roles and permissions
+4.0.0 - added `role_ids`. Support custom roles and permissions
 
 #### Request
 
@@ -320,7 +320,7 @@ View admin-level information about the given account.
 **Permissions:** Manage Users\
 **Version history:**\
 2.9.1 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -416,7 +416,7 @@ Approve the given local account if it is currently pending approval.
 **Permissions:** Manage Users\
 **Version history:**\
 2.9.1 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -482,7 +482,7 @@ Reject the given local account if it is currently pending approval.
 **Permissions:** Manage Users\
 **Version history:**\
 2.9.1 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -586,7 +586,7 @@ Permanently delete data for a suspended account.
 **Permissions:** Delete User Data\
 **Version history:**\
 3.3.0 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -693,7 +693,7 @@ Perform an action against an account and log this action in the moderation histo
 **Version history:**\
 2.9.1 - added\
 3.3.0 - add `sensitive` as a possible `type`\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -782,7 +782,7 @@ Re-enable a local account whose login is currently disabled.
 **Permissions:** Manage Users\
 **Version history:**\
 2.9.1 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -838,7 +838,7 @@ Unsilence an account if it is currently silenced.
 **Permissions:** Manage Users\
 **Version history:**\
 2.9.1 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -894,7 +894,7 @@ Unsuspend a currently suspended account.
 **Permissions:** Manage Users\
 **Version history:**\
 2.9.1 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -960,7 +960,7 @@ Stops marking an account's posts as sensitive, if it was previously flagged as s
 **Permissions:** Manage Users\
 **Version history:**\
 3.3.0 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 

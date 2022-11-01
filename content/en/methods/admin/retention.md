@@ -25,7 +25,7 @@ Generate a retention data report for a given time period and bucket.
 **Permissions:** View Dashboard\
 **Version history:**\
 3.5.0 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 

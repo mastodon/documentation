@@ -1165,7 +1165,7 @@ Follow the given account. Can also be used to update whether to show reblogs or 
 0.0.0 - added\
 3.3.0 - added `notify`\
 3.5.0 - deprecated `follow` scope. now additionally accepts `write`\
-3.6.0 - added `languages`
+4.0.0 - added `languages`
 
 #### Request
 ##### Path parameters

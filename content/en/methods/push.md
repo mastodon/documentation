@@ -40,7 +40,7 @@ Add a Web Push API subscription to receive notifications. Each access token can 
 3.3.0 - added `data[alerts][status]`\
 3.4.0 - added `policy`\
 3.5.0 - added `data[alerts][update]` and `data[alerts][admin.sign_up]`\
-3.6.0 - added `data[alerts][admin.report]`
+4.0.0 - added `data[alerts][admin.report]`
 
 #### Request
 
@@ -196,7 +196,7 @@ Updates the current push subscription. Only the data part can be updated. To cha
 3.3.0 - added `data[alerts][status]`\
 3.4.0 - added `policy`\
 3.5.0 - added `data[alerts][update]` and `data[alerts][admin.sign_up]`\
-3.6.0 - added `data[alerts][admin.report]`
+4.0.0 - added `data[alerts][admin.report]`
 
 #### Request
 

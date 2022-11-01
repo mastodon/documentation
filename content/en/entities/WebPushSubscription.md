@@ -61,7 +61,7 @@ aliases: [
 3.1.0 - added `alerts[follow_request]`\
 3.3.0 - added `alerts[status]`\
 3.5.0 - added `alerts[update]` and `alerts[admin.sign_up]`\
-3.6.0 - added `alerts[admin.report]`
+4.0.0 - added `alerts[admin.report]`
 
 #### `alerts[mention]` {#mention}
 
@@ -131,7 +131,7 @@ aliases: [
 **Description:** Receive a push notification when a new report has been filed?\
 **Type:** Boolean\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ## See also
 

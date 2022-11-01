@@ -25,7 +25,7 @@ View information about all reports.
 **Permissions:** Manage Reports\
 **Version history:**\
 2.9.1 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -119,7 +119,7 @@ GET https://mastodon.example/api/v1/admin/reports/:id HTTP/1.1
 **Permissions:** Manage Reports\
 **Version history:**\
 2.9.1 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -219,7 +219,7 @@ Change metadata for a report.
 **Permissions:** Manage Reports\
 **Version history:**\
 3.5.0 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -282,7 +282,7 @@ Claim the handling of this report to yourself.
 **Permissions:** Manage Reports\
 **Version history:**\
 2.9.1 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -357,7 +357,7 @@ Unassign a report so that someone else can claim it.
 **Permissions:** Manage Reports\
 **Version history:**\
 2.9.1 - added
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -419,7 +419,7 @@ Mark a report as resolved with no further action taken.
 **Permissions:** Manage Reports\
 **Version history:**\
 2.9.1 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 
@@ -476,7 +476,7 @@ Reopen a currently closed report, if it is closed.
 **Permissions:** Manage Reports\
 **Version history:**\
 2.9.1 - added\
-3.6.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions
 
 #### Request
 

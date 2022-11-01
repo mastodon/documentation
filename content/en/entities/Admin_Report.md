@@ -102,7 +102,7 @@ aliases: [
 **Description:** Whether a report was forwarded to a remote instance.\
 **Type:** Boolean\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `created_at` {#created_at}
 

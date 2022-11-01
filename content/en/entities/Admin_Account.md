@@ -113,10 +113,7 @@ aliases: [
 **Version history:**\
 2.9.1 - added
 3.5.0 - return type changed from String to [Admin::Ip]({{< relref "entities/Admin_Ip" >}}) due to a bug
-3.5.4 - bug fixed, return type is now a String again
-<!--
-TODO: is there going to be a 3.5.4 at all or is this just part of 3.6
--->
+4.0.0 - bug fixed, return type is now a String again
 
 ### `ips` {#ip}
 
@@ -145,7 +142,7 @@ TODO: is there going to be a 3.5.4 at all or is this just part of 3.6
 **Type:** [Role]({{<relref "entities/role">}})\
 **Version history:**\
 2.9.1 - added, returns a String (enumerable, oneOf `user` `moderator` `admin`)
-3.6.0 - now uses Role entity
+4.0.0 - now uses Role entity
 
 ### `confirmed` {#confirmed}
 

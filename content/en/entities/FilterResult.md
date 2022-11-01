@@ -38,21 +38,21 @@ aliases: [
 **Description:** The filter that was matched.\
 **Type:** [Filter]({{< relref "entities/Filter" >}})\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `keyword_matches` {#keyword_matches}
 
 **Description:** The keyword within the filter that was matched.\
 **Type:** {{<nullable>}} Array of String, or null\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `status_matches` {#status_matches}
 
 **Description:** The status ID within the filter that was matched.\
 **Type:** {{<nullable>}} String, or null\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ## See also
 

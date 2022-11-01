@@ -151,7 +151,7 @@ GET https://mastodon.example/api/v1/filters HTTP/1.1
 **OAuth:** User token + `read:filters`\
 **Version history:**\
 2.4.3 - added\
-3.6.0 - deprecated. For compatibility purposes, now returns a List of V1::Filter, with each V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute)
+4.0.0 - deprecated. For compatibility purposes, now returns a List of V1::Filter, with each V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute)
 
 #### Request
 ##### Headers
@@ -216,7 +216,7 @@ GET https://mastodon.example/api/v1/filters/:id HTTP/1.1
 **OAuth:** User token + `read:filters`\
 **Version history:**\
 2.4.3 - added\
-3.6.0 - deprecated. For compatibility purposes, now returns a V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute)
+4.0.0 - deprecated. For compatibility purposes, now returns a V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute)
 
 #### Request
 
@@ -282,7 +282,7 @@ POST https://mastodon.example/api/v1/filters HTTP/1.1
 **Version history:**\
 2.4.3 - added\
 3.1.0 - added `account` context to filter in profile views\
-3.6.0 - deprecated. For compatibility purposes, now returns a V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute). This method will create a Filter that contains only one FilterKeyword. The `title` of the Filter and the `keyword` of the FilterKeyword will be set equal to the `phrase` provided.
+4.0.0 - deprecated. For compatibility purposes, now returns a V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute). This method will create a Filter that contains only one FilterKeyword. The `title` of the Filter and the `keyword` of the FilterKeyword will be set equal to the `phrase` provided.
 
 #### Request
 ##### Headers
@@ -371,7 +371,7 @@ Replaces a filter's parameters in-place.
 **Version history:**\
 2.4.3 - added\
 3.1.0 - added `account` context to filter in profile views\
-3.6.0 - deprecated. or compatibility purposes, now returns a V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute). This method will return an error if you attempt to change `expires_in`, `irreversible`, or `context` for a filter with multiple keywords. Changing `phrase` and `whole_word` is always safe.
+4.0.0 - deprecated. or compatibility purposes, now returns a V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute). This method will return an error if you attempt to change `expires_in`, `irreversible`, or `context` for a filter with multiple keywords. Changing `phrase` and `whole_word` is always safe.
 
 #### Request
 
@@ -473,7 +473,7 @@ DELETE https://mastodon.example/api/v1/filters/:id HTTP/1.1
 **OAuth:** User token + `write:filters`\
 **Version history:**\
 2.4.3 - added\
-3.6.0 - deprecated. This method will delete only the FilterKeyword from its parent Filter. To delete the parent Filter, you must use the v2 filters API.
+4.0.0 - deprecated. This method will delete only the FilterKeyword from its parent Filter. To delete the parent Filter, you must use the v2 filters API.
 
 #### Request
 

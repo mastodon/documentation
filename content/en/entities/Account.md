@@ -384,7 +384,7 @@ aliases: [
 **Description:** The role assigned to the currently authorized user.\
 **Type:** [Role]({{< relref "entities/Role" >}})\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ## MutedAccount entity attributes {#MutedAccount}
 

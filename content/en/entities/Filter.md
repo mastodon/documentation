@@ -43,14 +43,14 @@ aliases: [
 **Description:** The ID of the Filter in the database.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `title` {#title}
 
 **Description:** A title given by the user to name the filter.\
 **Type:** String\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `context` {#context}
 
@@ -62,14 +62,14 @@ aliases: [
 `thread` = expanded thread of a detailed status\
 `account` = when viewing a profile\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `expires_at` {#expires_at}
 
 **Description:** When the filter should no longer be applied.\
 **Type:** {{<nullable>}} String (ISO 8601 Datetime), or null if the filter does not expire\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `filter_action` {#filter_action}
 
@@ -78,21 +78,21 @@ aliases: [
 `warn` = show a warning that identifies the matching filter by `title`, and allow the user to expand the filtered status. This is the default (and unknown values should be treated as equivalent to `warn`).\
 `hide` = do not show this status if it is received\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `keywords` {#keywords}
 
 **Description:** The keywords grouped under this filter.\
 **Type:** Array of [FilterKeyword]({{< relref "entities/FilterKeyword" >}})\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `statuses` {#statuses}
 
 **Description:** The statuses grouped under this filter.\
 **Type:** Array of [FilterStatus]({{< relref "entities/FilterStatus" >}})\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ## See also
 

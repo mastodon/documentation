@@ -26,14 +26,14 @@ aliases: [
 **Description:** The ID of the email block in the database.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `canonical_email_hash` {#canonical_email_hash}
 
 **Description:** The SHA256 hash of the canonical email address.\
 **Type:** String (SHA256)\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ## See also
 

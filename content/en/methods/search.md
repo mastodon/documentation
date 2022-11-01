@@ -27,7 +27,7 @@ GET https://mastodon.example/api/v2/search HTTP/1.1
 3.0.0 - add `exclude_unreviewed` param\
 3.3.0 - `min_id` and `max_id` can be used together
 <!--
-3.6.0 - no longer requires a user token
+4.0.0 - no longer requires a user token
 -->
 
 #### Request

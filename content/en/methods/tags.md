@@ -10,7 +10,7 @@ aliases: ["/methods/tags"]
 ---
 
 <!--
-TODO: 3.6.0
+TODO: 4.0.0
 -->
 
 ## View information about a single tag {#get}

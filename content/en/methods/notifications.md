@@ -42,7 +42,7 @@ Types to filter include:
 3.1.0 - added `follow_request` type\
 3.3.0 - added `status` type; both `min_id` and `max_id` can be used at the same time now\
 3.5.0 - added `types`; add `update` and `admin.sign_up` types\
-3.6.0 - added `admin.report` type
+4.0.0 - added `admin.report` type
 
 #### Request
 

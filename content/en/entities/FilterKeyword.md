@@ -26,21 +26,21 @@ aliases: [
 **Description:** The ID of the FilterKeyword in the database.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `keyword` {#keyword}
 
 **Description:** The phrase to be matched against.\
 **Type:** String\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `whole_word` {#whole_word}
 
 **Description:** Should the filter consider word boundaries? See [implementation guidelines for filters]({{< relref "api/guidelines#filters" >}}).\
 **Type:** Boolean\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ## See also
 

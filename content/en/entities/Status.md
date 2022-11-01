@@ -330,7 +330,7 @@ aliases: [
 **Description:** If the current token has an authorized user: The filter and keywords that matched this status.\
 **Type:** Array of [FilterResult]({{ relref "entities/FilterResult" }})\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ## Status::Mention attributes {#Mention}
 

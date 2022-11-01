@@ -64,7 +64,7 @@ aliases: [
 **Description:** Which languages are you following from this user?\
 **Type:** Array of String (ISO 639-1 language two-letter code)\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ### `followed_by` {#followed_by}
 

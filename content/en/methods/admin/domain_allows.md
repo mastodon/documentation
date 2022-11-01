@@ -24,7 +24,7 @@ Show information about all allowed domains.
 **OAuth:** User token + `admin:read:domain_allows`\
 **Permissions:** Manage Federation\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 #### Request
 
@@ -80,7 +80,7 @@ Show information about a single allowed domain.
 **OAuth:** User token + `admin:read:domain_allows`\
 **Permissions:** Manage Federation\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ##### Path parameters
 
@@ -137,7 +137,7 @@ Add a domain to the list of domains allowed to federate, to be used when the ins
 **OAuth:** User token + `admin:write:domain_allows`\
 **Permissions:** Manage Federation\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 #### Request
 
@@ -207,7 +207,7 @@ Delete a domain from the allowed domains list.
 **OAuth:** User token + `admin:write:domain_allows`\
 **Permissions:** Manage Federation\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 #### Request
 

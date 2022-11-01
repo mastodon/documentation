@@ -10,7 +10,7 @@ aliases: ["/methods/followed_tags"]
 ---
 
 <!--
-TODO: 3.6.0
+TODO: 4.0.0
 -->
 
 ## View all followed tags {#get}

@@ -85,7 +85,7 @@ aliases: [
 **Description:** Whether the current token's authorized user is following this tag.\
 **Type:** Boolean\
 **Version history:**\
-3.6.0 - added
+4.0.0 - added
 
 ## History attributes {#history-hash}
 
