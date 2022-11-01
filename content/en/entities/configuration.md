@@ -43,19 +43,19 @@ menu:
 ### `statuses` {#statuses}
 
 **Description:** Instance configuration options for statuses like character counts.\
-**Type:** [Configuration]({{< relref "configuration-statuses.md" >}})\
+**Type:** [Statuses]({{< relref "configuration-statuses.md" >}})\
 **Version history:** Added in 3.5.0
 
 ### `media_attachments` {#media_attachments}
 
 **Description:** Instance configuration options for media files like size limits and supported mime types.\
-**Type:** [Configuration]({{< relref "configuration-media-attachments.md" >}})\
+**Type:** [MediaAttachments]({{< relref "configuration-media-attachments.md" >}})\
 **Version history:** Added in 3.5.0
 
 ### `polls` {#polls}
 
 **Description:** Instance configuration options for polls like option count and permitted durations.\
-**Type:** [Configuration]({{< relref "configuration-polls.md" >}})\
+**Type:** [Polls]({{< relref "configuration-polls.md" >}})\
 **Version history:** Added in 3.5.0
 
 ## See also
