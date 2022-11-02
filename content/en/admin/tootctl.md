@@ -98,7 +98,7 @@ Create a new user account with given `USERNAME` and provided `--email`.
 : Skip sending the confirmation email and activate the account immediately.
 
 `--role ROLE`
-: Define the new account as a `user`, `moderator`, or `admin`. Defaults to `user`.
+: Define the new account's custom role by providing the `name` of that [Role]({{< relref "entities/Role" >}}). Default roles include `Owner`, `Admin`, and `Moderator`.
 
 `--reattach`
 : Reuse an old USERNAME after its account has been deleted.
@@ -110,7 +110,8 @@ Forcefully delete any existing account with this `USERNAME` and reattach the new
 : Forcefully ensure that the user is never asked for an e-mailed security code.
 
 **Version history:**\
-2.6.0 - added
+2.6.0 - added\
+4.0.0 - `--role` no longer takes hard-coded `user`, `moderator`, or `admin` roles. Specify the name of the custom Role instead.
 
 
 ---
@@ -124,7 +125,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 : Local username for the account. {{<required>}}
 
 `--role ROLE`
-: Define the account as a `User`, `Moderator`, or `Admin`.
+: Define the existing account's custom role by providing the `name` of that [Role]({{< relref "entities/Role" >}}). Default roles include `Owner`, `Admin`, and `Moderator`.
 
 `--email EMAIL`
 : Update the user's email address to `EMAIL`.
@@ -152,7 +153,8 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 
 **Version history:**\
 2.6.0 - added\
-3.1.2 - added `--reset-password`
+3.1.2 - added `--reset-password`\
+4.0.0 - `--role` no longer takes hard-coded `user`, `moderator`, or `admin` roles. Specify the name of the custom Role instead.
 
 
 ---

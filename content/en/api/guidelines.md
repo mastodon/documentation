@@ -69,7 +69,7 @@ The spans with the `invisible` class can be hidden. The middle span is intended 
 
 ## Filters {#filters}
 
-### Server-side filtering (v2, Mastodon 3.6 and above) {#server-filtered}
+### Server-side filtering (v2, Mastodon 4.0 and above) {#server-filtered}
 
 If a filter applies to a Status, a corresponding FilterResult will be included in the `filtered` attribute. Clients should check this attribute for any matches and use them to apply the intended filter action.
 
