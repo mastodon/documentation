@@ -1,9 +1,10 @@
 ---
-title: oembed
+title: oembed API methods
 description: For generating OEmbed previews.
 menu:
   docs:
     weight: 110
+    name: oembed
     parent: methods
     identifier: methods-oembed
 aliases: ["/methods/oembed"]

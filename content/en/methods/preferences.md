@@ -1,9 +1,10 @@
 ---
-title: preferences
+title: preferences API methods
 description: Preferred common behaviors to be shared across clients.
 menu:
   docs:
     weight: 110
+    name: preferences
     parent: methods-accounts
     identifier: methods-preferences
 aliases: ["/methods/preferences", "/methods/accounts/preferences"]

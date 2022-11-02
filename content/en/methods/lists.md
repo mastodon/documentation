@@ -1,11 +1,12 @@
 ---
-title: lists
+title: lists API methods
 description: >-
   View and manage lists. See also: /api/v1/timelines/list/id for loading a list
   timeline.
 menu:
   docs:
     weight: 20
+    name: lists
     parent: methods-timelines
     identifier: methods-lists
 aliases: ["/methods/lists", "/methods/timelines/lists"]
@@ -379,31 +380,31 @@ limit
     "id": "952529",
     "username": "alayna",
     "acct": "alayna@desvox.es",
-    ...
+    // ...
   },
   {
     "id": "917388",
     "username": "cole",
     "acct": "cole@be.cutewith.me",
-    ...
+    // ...
   },
   {
     "id": "869022",
     "username": "alayna",
     "acct": "alayna@be.cutewith.me",
-    ...
+    // ...
   },
   {
     "id": "832844",
     "username": "a9",
     "acct": "a9@broadcast.wolfgirl.engineering",
-    ...
+    // ...
   },
   {
     "id": "482403",
     "username": "amic",
     "acct": "amic@nulled.red",
-    ...
+    // ...
   }
 ]
 ```

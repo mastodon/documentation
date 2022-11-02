@@ -1,9 +1,10 @@
 ---
-title: mutes
-description: 'View your mutes. See also accounts/:id/{mute,unmute}'
+title: mutes API methods
+description: View your mutes. See also accounts/:id/{mute,unmute}
 menu:
   docs:
     weight: 30
+    name: mutes
     parent: methods-accounts
     identifier: methods-mutes
 aliases: ["/methods/mutes", "/methods/accounts/mutes"]

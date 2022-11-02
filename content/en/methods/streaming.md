@@ -1,11 +1,12 @@
 ---
-title: streaming
+title: streaming API methods
 description: >-
   Subscribe to server-sent events for real-time updates via a long-lived HTTP
   connection or via WebSocket.
 menu:
   docs:
     weight: 40
+    name: streaming
     parent: methods-timelines
     identifier: methods-streaming
 aliases: ["/methods/streaming", "/methods/timelines/streaming"]

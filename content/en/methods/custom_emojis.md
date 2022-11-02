@@ -1,11 +1,12 @@
 ---
-title: custom_emojis
+title: custom_emojis API methods
 description: >-
   Each site can define and upload its own custom emoji to be attached to
   profiles or statuses.
 menu:
   docs:
     weight: 30
+    name: custom_emojis
     parent: methods-instance
     identifier: methods-custom_emojis
 aliases: ["/methods/custom_emojis", "/methods/instance/custom_emojis"]

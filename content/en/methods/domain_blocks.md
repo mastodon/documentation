@@ -1,9 +1,10 @@
 ---
-title: domain_blocks
-description: View and update domain blocks.
+title: domain_blocks API methods
+description: Manage a user's blocked domains.
 menu:
   docs:
     weight: 50
+    name: domain_blocks
     parent: methods-accounts
     identifier: methods-domain_blocks
 aliases: ["/methods/accounts", "/methods/accounts/domain_blocks"]

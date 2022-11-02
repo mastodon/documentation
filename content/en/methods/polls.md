@@ -1,11 +1,12 @@
 ---
-title: polls
+title: polls API methods
 description: >-
   View and vote on polls attached to statuses. To discover poll ID, you will
   need to GET a Status first and then check for a `poll` property.
 menu:
   docs:
     weight: 20
+    name: polls
     parent: methods-statuses
     identifier: methods-polls
 aliases: ["/methods/polls", "/methods/statuses/polls"]

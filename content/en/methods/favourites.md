@@ -1,9 +1,10 @@
 ---
-title: favourites
-description: 'View your favourites. See also statuses/:id/{favourite,unfavourite}'
+title: favourites API methods
+description: View your favourites. See also statuses/:id/{favourite,unfavourite}
 menu:
   docs:
     weight: 20
+    name: favourites
     parent: methods-accounts
     identifier: methods-favourites
 aliases: ["/methods/favourites", "/methods/accounts/favourites"]
@@ -84,7 +85,7 @@ Link: <https://mastodon.social/api/v1/favourites?limit=2&max_id=23716836>; rel="
       "username": "haskal",
       "acct": "haskal@cybre.space",
       "display_name": "soft nb friend :blobcatsleep:",
-      ...
+      // ...
     },
     "media_attachments": [],
     "mentions": [],
@@ -96,7 +97,7 @@ Link: <https://mastodon.social/api/v1/favourites?limit=2&max_id=23716836>; rel="
   {
     "id": "103186044372624124",
     "created_at": "2019-11-23T07:28:03.000Z",
-    ...
+    // ...
     "content": "<p>cute,,,</p>",
     "reblog": null,
     "account": {
@@ -106,9 +107,9 @@ Link: <https://mastodon.social/api/v1/favourites?limit=2&max_id=23716836>; rel="
       "display_name": "soft nb friend :blobcatsleep:",
       "locked": false,
       "bot": false,
-      ...
+      // ...
     },
-    ...
+    // ...
   }
 ]
 ```

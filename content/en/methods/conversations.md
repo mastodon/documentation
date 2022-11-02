@@ -1,11 +1,12 @@
 ---
-title: conversations
+title: conversations API methods
 description: >-
   Direct conversations with other participants. (Currently, just threads
   containing a post with "direct" visibility.)
 menu:
   docs:
     weight: 10
+    name: conversations
     parent: methods-timelines
     identifier: methods-conversations
 aliases: ["/methods/conversations", "/methods/timelines/conversations"]
@@ -68,7 +69,7 @@ Link: <https://mastodon.social/api/v1/conversations?limit=2&max_id=1088350033567
         "id": "482403",
         "username": "amic",
         "acct": "amic@nulled.red",
-        ...
+        // ...
       }
     ],
     "last_status": {
@@ -76,7 +77,7 @@ Link: <https://mastodon.social/api/v1/conversations?limit=2&max_id=1088350033567
       "created_at": "2019-11-25T04:08:24.000Z",
       "in_reply_to_id": "103196540587943467",
       "in_reply_to_account_id": "14715",
-      ...
+      // ...
     }
   },
   {
@@ -87,7 +88,7 @@ Link: <https://mastodon.social/api/v1/conversations?limit=2&max_id=1088350033567
         "id": "464472",
         "username": "freon",
         "acct": "freon@letsalllovela.in",
-        ...
+        // ...
       }
     ],
     "last_status": {
@@ -95,7 +96,7 @@ Link: <https://mastodon.social/api/v1/conversations?limit=2&max_id=1088350033567
       "created_at": "2019-11-24T22:29:56.331Z",
       "in_reply_to_id": "103195239650546339",
       "in_reply_to_account_id": "14715",
-      ...
+      // ...
     }
   }
 ]
@@ -202,12 +203,12 @@ The value of `unread` has been changed to false.
   "accounts": [
     {
       "id": "482403",
-      ...
+      // ...
     }
   ],
   "last_status": {
     "id": "103196583826321184",
-    ...
+    // ...
   }
 }
 ```

@@ -1,11 +1,12 @@
 ---
-title: suggestions
+title: suggestions API methods
 description: >-
   Server-generated suggestions on who to follow, based on previous positive
   interactions.
 menu:
   docs:
     weight: 120
+    name: suggestions
     parent: methods-accounts
     identifier: methods-suggestions
 aliases: ["/methods/suggestions", "/methods/accounts/suggestions"]
@@ -21,7 +22,7 @@ aliases: ["/methods/suggestions", "/methods/accounts/suggestions"]
 GET https://mastodon.example/api/v2/suggestions HTTP/1.1
 ```
 
-Accounts the user has had past positive interactions with, but is not yet following.
+Accounts that are promoted by staff, or that the user has had past positive interactions with, but is not yet following.
 
 **Returns:** Array of [Suggestion]({{< relref "entities/Suggestion" >}})\
 **OAuth:** User token + `read`\

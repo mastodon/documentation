@@ -1,9 +1,10 @@
 ---
-title: followed_tags
-description: 
+title: followed_tags API methods
+description: View your followed hashtags.
 menu:
   docs:
     weight: 120
+    name: followed_tags
     parent: methods-accounts
     identifier: methods-followed_tags
 aliases: ["/methods/followed_tags"]

@@ -1,11 +1,12 @@
 ---
-title: push
+title: push API methods
 description: >-
   Subscribe to and receive push notifications when a server-side notification is
   received, via the Web Push API
 menu:
   docs:
     weight: 10
+    name: push
     parent: methods-notifications
     identifier: methods-push
 aliases: ["/methods/push", "/methods/notifications/push"]

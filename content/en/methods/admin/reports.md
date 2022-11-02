@@ -1,8 +1,9 @@
 ---
-title: admin/reports
+title: admin/reports API methods
 description: Perform moderation actions with reports.
 menu:
   docs:
+    name: admin/reports
     parent: methods-admin
     identifier: methods-admin-reports
 aliases: ["/methods/admin/reports"]
@@ -65,12 +66,12 @@ target_account_id
 			"domain": null,
 			"created_at": "2022-09-08T22:48:07.985Z",
 			"email": "admin@mastodon.local",
-			...
+			// ...
 			"account": {
 				"id": "108965218747268792",
 				"username": "admin",
 				"acct": "admin",
-				...
+				// ...
 			}
 		},
 		"target_account": {
@@ -79,12 +80,12 @@ target_account_id
 			"domain": null,
 			"created_at": "2022-09-08T23:42:04.731Z",
 			"email": "goody@mastodon.local",
-			...
+			// ...
 			"account": {
 				"id": "108965430868193066",
 				"username": "goody",
 				"acct": "goody",
-				...
+				// ...
 			}
 		},
 		"assigned_account": null,
@@ -92,7 +93,7 @@ target_account_id
 		"statuses": [],
 		"rules": []
 	},
-	...
+	// ...
 ]
 ```
 
@@ -152,12 +153,12 @@ Authorization
     "domain": null,
     "created_at": "2022-09-08T22:48:07.985Z",
     "email": "admin@mastodon.local",
-    ...
+    // ...
     "account": {
       "id": "108965218747268792",
       "username": "admin",
       "acct": "admin",
-      ...
+      // ...
     }
   },
   "target_account": {
@@ -166,12 +167,12 @@ Authorization
     "domain": null,
     "created_at": "2022-09-08T23:42:04.731Z",
     "email": "goody@mastodon.local",
-    ...
+    // ...
     "account": {
       "id": "108965430868193066",
       "username": "goody",
       "acct": "goody",
-      ...
+      // ...
     }
   },
   "assigned_account": null,
@@ -181,12 +182,12 @@ Authorization
     "domain": null,
     "created_at": "2022-09-08T22:48:07.985Z",
     "email": "admin@mastodon.local",
-    ...
+    // ...
     "account": {
       "id": "108965218747268792",
       "username": "admin",
       "acct": "admin",
-      ...
+      // ...
     }
   },
   "statuses": [],
@@ -252,7 +253,7 @@ The report category and/or rule IDs should now be updated.
   "action_taken": false,
   "action_taken_at": null,
   "category": "other",
-  ...
+  // ...
   "rules": []
 }
 ```
@@ -311,19 +312,19 @@ The report should now be assigned to you, or it was already assigned to you.
   "forwarded": false,
   "created_at": "2022-09-09T21:21:01.204Z",
   "updated_at": "2022-09-11T14:39:01.531Z",
-  ...
+  // ...
   "assigned_account": {
     "id": "108965218747268792",
     "username": "admin",
     "domain": null,
     "created_at": "2022-09-08T22:48:07.985Z",
     "email": "admin@mastodon.local",
-    ...
+    // ...
     "account": {
       "id": "108965218747268792",
       "username": "admin",
       "acct": "admin",
-      ...
+      // ...
     }
   },
   "action_taken_by_account": null,
@@ -386,7 +387,7 @@ The report should no longer be assigned to you, or it was already not assigned t
   "forwarded": false,
   "created_at": "2022-09-09T21:21:01.204Z",
   "updated_at": "2022-09-11T14:39:01.531Z",
-  ...
+  // ...
   "assigned_account": null,
   "action_taken_by_account": null,
   "statuses": [],
@@ -448,7 +449,7 @@ The report is now resolved, or it was already resolved.
   "forwarded": false,
   "created_at": "2022-09-09T21:19:44.021Z",
   "updated_at": "2022-09-11T14:46:22.945Z",
-  ...
+  // ...
 }
 ```
 
@@ -505,7 +506,7 @@ The report no longer has an action taken, or it already had no action taken.
   "forwarded": false,
   "created_at": "2022-09-09T21:19:44.021Z",
   "updated_at": "2022-09-11T14:42:21.855Z",
-  ...
+  // ...
 }
 ```
 

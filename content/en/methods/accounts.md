@@ -1,9 +1,10 @@
 ---
-title: accounts
-description: Methods concerning user accounts and related information.
+title: accounts API methods
+description: Methods concerning accounts and profiles.
 menu:
   docs:
     weight: 20
+    name: accounts
     parent: methods
     identifier: methods-accounts
 aliases: ["/methods/accounts"]
@@ -658,7 +659,7 @@ GET https://mastodon.example/api/v1/accounts/:id/statuses HTTP/1.1
 Statuses posted to the given account.
 
 **Returns:** Array of [Status]({{< relref "entities/status">}})\
-**OAuth:** Public \(for public statuses only\), or user token + `read:statuses` \(for private statuses the user is authorized to see\)\
+**OAuth:** Public (for public statuses only), or user token + `read:statuses` (for private statuses the user is authorized to see)\
 **Version history:**\
 0.0.0 - added\
 2.6.0 - add `min_id`\
@@ -708,9 +709,9 @@ tagged
     "in_reply_to_id": "108880209317577809",
     "in_reply_to_account_id": "103641",
     "sensitive": false,
-    ...
+    // ...
   },
-  ...
+  // ...
 ]
 ```
 
@@ -1634,7 +1635,7 @@ Successfully unmuted, or account was already unmuted
 ```
 
 ##### 401: Unauthorized
-
+pin
 Invalid or missing Authorization header
 
 ```json
@@ -2122,23 +2123,23 @@ Accounts matching "trwnh" in username or display name
     "username": "trwnh",
     "acct": "trwnh",
     "display_name": "infinite love ⴳ",
-    ...
+    // ...
   },
   {
     "id": "418714",
     "username": "trwnh",
     "acct": "trwnh@pixelfed.social",
     "display_name": "Abdullah Tarawneh",
-    ...
+    // ...
   },
   {
     "id": "419674",
     "username": "trwnh",
     "acct": "trwnh@write.as",
     "display_name": "trwnh",
-    ...
+    // ...
   },
-  ...
+  // ...
 ]
 ```
 
@@ -2188,7 +2189,7 @@ Sample call with `?acct=trwnh`
   "acct": "trwnh",
   "display_name": "infinite love ⴳ",
   "locked": false,
-  ...
+  // ...
 }
 ```
 
@@ -2201,7 +2202,7 @@ Sample call with `?acct=trwnh@pixelfed.social`
   "acct": "trwnh@pixelfed.social",
   "display_name": "Abdullah Tarawneh",
   "locked": false,
-  ...
+  // ...
 }
 ```
 

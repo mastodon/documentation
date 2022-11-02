@@ -1,9 +1,10 @@
 ---
-title: follow_requests
+title: follow_requests API methods
 description: View and manage follow requests.
 menu:
   docs:
     weight: 80
+    name: follow_requests
     parent: methods-accounts
     identifier: methods-follow_requests
 aliases: ["/methods/follow_requests", "/methods/accounts/follow_requests"]
@@ -61,9 +62,9 @@ Link: <https://mastodon.social/api/v1/follow_requests?max_id=23716836>; rel="nex
     "id": "8889777",
     "username": "example",
     "acct": "example@social.example",
-    ...
+    // ...
   },
-  ...
+  // ...
 ]
 ```
 

@@ -1,9 +1,10 @@
 ---
-title: trends
+title: trends API methods
 description: View hashtags that are currently being used more frequently than usual.
 menu:
   docs:
     weight: 10
+    name: trends
     parent: methods-instance
     identifier: methods-trends
 aliases: ["/methods/trends", "/methods/instance/trends"]
@@ -47,7 +48,7 @@ limit
         "uses": "13",
         "accounts": "10"
       },
-      ...
+      // ...
     ]
   },
   {
@@ -59,7 +60,7 @@ limit
         "uses": "9",
         "accounts": "9"
       },
-      ...
+      // ...
     ]
   },
   {
@@ -71,10 +72,10 @@ limit
         "uses": "15",
         "accounts": "14"
       },
-      ...
+      // ...
     ]
   },
-  ...
+  // ...
 ]
 ```
 
@@ -115,7 +116,7 @@ limit
         "uses": "13",
         "accounts": "10"
       },
-      ...
+      // ...
     ]
   },
   {
@@ -127,7 +128,7 @@ limit
         "uses": "9",
         "accounts": "9"
       },
-      ...
+      // ...
     ]
   },
   {
@@ -139,10 +140,10 @@ limit
         "uses": "15",
         "accounts": "14"
       },
-      ...
+      // ...
     ]
   },
-  ...
+  // ...
 ]
 ```
 
@@ -178,11 +179,11 @@ limit
     "in_reply_to_id": null,
     "in_reply_to_account_id": null,
     "sensitive": false,
-    ...
+    // ...
     "content": "<p>In order to prevent such incidents from happening in the future, we are implementing a fixed set of internal guidelines which must be met before any media content can be shared on our social media platforms. The distribution of material which promotes a message of racism or sexism is unacceptable. We can do better and in the future we will do better.</p><p>We apologize again for this incident and can assure you that it will not happen again.</p><p>Your Tutanota Team</p>",
-    ...
+    // ...
   },
-  ...
+  // ...
 ]
 ```
 
@@ -265,7 +266,7 @@ limit
       }
     ]
   },
-  ...
+  // ...
 ]
 ```
 

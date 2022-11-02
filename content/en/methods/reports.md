@@ -1,9 +1,10 @@
 ---
-title: reports
+title: reports API methods
 description: Report problematic users to your moderators.
 menu:
   docs:
     weight: 70
+    name: reports
     parent: methods-accounts
     identifier: methods-reports
 aliases: ["/methods/reports", "/methods/accounts/reports"]

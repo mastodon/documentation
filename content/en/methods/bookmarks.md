@@ -1,9 +1,10 @@
 ---
-title: bookmarks
-description: 'View your bookmarks. See also statuses/:id/{bookmark,unbookmark}'
+title: bookmarks API methods
+description: View your bookmarks. See also statuses/:id/{bookmark,unbookmark}
 menu:
   docs:
     weight: 10
+    name: bookmarks
     parent: methods-accounts
     identifier: methods-bookmarks
 aliases: ["/methods/bookmarks", "/methods/accounts/bookmarks"]
@@ -60,7 +61,7 @@ limit
     "sensitive": false,
     "spoiler_text": "",
     "visibility": "public",
-    ...
+    // ...
   },
   {
     "id": "108200780982641655",
@@ -70,9 +71,9 @@ limit
     "sensitive": false,
     "spoiler_text": "",
     "visibility": "public",
-    ...
+    // ...
   },
-  ...
+  // ...
 ]
 ```
 

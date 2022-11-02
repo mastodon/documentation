@@ -1,9 +1,10 @@
 ---
-title: statuses
-description: 'Publish, interact, and view information about statuses.'
+title: statuses API methods
+description: Publish, interact, and view information about statuses.
 menu:
   docs:
     weight: 30
+    name: statuses
     parent: methods
     identifier: methods-statuses
 aliases: ["/methods/statuses"]
@@ -85,14 +86,14 @@ Status will be posted with chosen parameters:
 {
   "id": "103254962155278888",
   "created_at": "2019-12-05T11:34:47.196Z",
-  ...
+  // ...
   "content": "<p>test content</p>",
-  ...
+  // ...
   "application": {
     "name": "test app",
     "website": null
   },
-  ...
+  // ...
 }
 ```
 
@@ -316,7 +317,7 @@ Example of deleting a media post:
     "username": "trwnh",
     "acct": "trwnh",
     "display_name": "infinite love ⴳ",
-    ...
+    // ...
   },
   "media_attachments": [
     {
@@ -389,7 +390,7 @@ Example of deleting a poll:
     "username": "trwnh",
     "acct": "trwnh",
     "display_name": "infinite love ⴳ",
-    ...
+    // ...
   },
   "media_attachments": [],
   "mentions": [],
@@ -478,21 +479,21 @@ Authorization
       "created_at": "2019-11-23T19:44:00.124Z",
       "in_reply_to_id": null,
       "in_reply_to_account_id": null,
-      ...
+      // ...
     },
     {
       "id": "103188971072973252",
       "created_at": "2019-11-23T19:52:23.398Z",
       "in_reply_to_id": "103188938570975982",
       "in_reply_to_account_id": "634458",
-      ...
+      // ...
     },
     {
       "id": "103188982235527758",
       "created_at": "2019-11-23T19:55:08.208Z",
       "in_reply_to_id": "103188971072973252",
       "in_reply_to_account_id": "14715",
-      ...
+      // ...
     }
   ],
   "descendants": [
@@ -501,7 +502,7 @@ Authorization
       "created_at": "2019-11-23T20:06:36.011Z",
       "in_reply_to_id": "103189005915505698",
       "in_reply_to_account_id": "634458",
-      ...
+      // ...
     }
   ]
 }
@@ -555,9 +556,9 @@ A list of statuses that boosted the status
     "id": "711345",
     "username": "Norman_Doors",
     "acct": "Norman_Doors@witches.live",
-    ...
+    // ...
   },
-  ...
+  // ...
 ]
 ```
 
@@ -609,9 +610,9 @@ A list of accounts who favourited the status
     "id": "828600",
     "username": "fructose_dealer",
     "acct": "fructose_dealer@radical.town",
-    ...
+    // ...
   },
-  ...
+  // ...
 ]
 ```
 
@@ -661,13 +662,13 @@ Status favourited or was already favourited
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": true,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
 }
 ```
 
@@ -727,13 +728,13 @@ Status unfavourited or was already not favourited
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
 }
 ```
 
@@ -799,24 +800,24 @@ Status has been reblogged. Note that the top-level id has changed. The id of the
 {
   "id": "103254401326800919",
   "created_at": "2019-12-05T09:12:09.625Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": true,
   "muted": false,
   "bookmarked": false,
-  ...
+  // ...
   "reblog": {
     "id": "99734435964706331",
     "created_at": "2018-03-23T17:38:40.700Z",
-    ...
+    // ...
     "favourited": false,
     "reblogged": true,
     "muted": false,
     "bookmarked": false,
     "pinned": false,
-    ...
+    // ...
   },
-  ...
+  // ...
 }
 ```
 
@@ -876,13 +877,13 @@ Status unboosted or was already not boosted
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
 }
 ```
 
@@ -942,13 +943,13 @@ Status bookmarked or was already bookmarked
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": true,
   "pinned": false,
-  ...
+  // ...
 }
 ```
 
@@ -998,13 +999,13 @@ Status was unbookmarked or was already not bookmarked
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
 }
 ```
 
@@ -1064,13 +1065,13 @@ Status's conversation muted, or was already muted
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": true,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
 }
 ```
 
@@ -1130,13 +1131,13 @@ Status's conversation unmuted, or was already unmuted
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
 }
 ```
 
@@ -1197,22 +1198,22 @@ Status pinned. Note the status is not a reblog and its authoring account is your
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": true,
-  ...
+  // ...
   "reblog": null,
-  ...
+  // ...
   "account": {
     "id": "14715",
     "username": "trwnh",
     "acct": "trwnh",
-    ...
+    // ...
   },
-  ...
+  // ...
 }
 ```
 
@@ -1290,22 +1291,22 @@ Status unpinned, or was already not pinned
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
   "reblog": null,
-  ...
+  // ...
   "account": {
     "id": "14715",
     "username": "trwnh",
     "acct": "trwnh",
-    ...
+    // ...
   },
-  ...
+  // ...
 }
 ```
 
@@ -1420,7 +1421,7 @@ Status has been successfully edited.
     "username": "trwnh",
     "acct": "trwnh",
     "display_name": "infinite love ⴳ",
-    ...
+    // ...
   },
   "media_attachments": [],
   "mentions": [],
@@ -1501,7 +1502,7 @@ Authorization
       "username": "trwnh",
       "acct": "trwnh",
       "display_name": "infinite love ⴳ",
-      ...
+      // ...
     },
     "media_attachments": [],
     "emojis": []
@@ -1516,7 +1517,7 @@ Authorization
       "username": "trwnh",
       "acct": "trwnh",
       "display_name": "infinite love ⴳ",
-      ...
+      // ...
     },
     "media_attachments": [],
     "emojis": []
@@ -1531,7 +1532,7 @@ Authorization
       "username": "trwnh",
       "acct": "trwnh",
       "display_name": "infinite love ⴳ",
-      ...
+      // ...
     },
     "media_attachments": [],
     "emojis": []
@@ -1559,7 +1560,7 @@ Authorization
       "username": "trwnh",
       "acct": "trwnh",
       "display_name": "infinite love ⴳ",
-      ...
+      // ...
     },
     "media_attachments": [],
     "emojis": []
@@ -1587,7 +1588,7 @@ Authorization
       "username": "trwnh",
       "acct": "trwnh",
       "display_name": "infinite love ⴳ",
-      ...
+      // ...
     },
     "media_attachments": [],
     "emojis": []

@@ -1,9 +1,10 @@
 ---
-title: search
-description: 'Search for content in accounts, statuses and hashtags.'
+title: search API methods
+description: Search for content in accounts, statuses and hashtags.
 menu:
   docs:
     weight: 60
+    name: search
     parent: methods
     identifier: methods-search
 aliases: ["/methods/search"]
@@ -20,15 +21,13 @@ GET https://mastodon.example/api/v2/search HTTP/1.1
 ```
 
 **Returns:** [Search]({{< relref "entities/Search" >}})\
-**OAuth:** User token + `read:search`\
+**OAuth:** Public (without `resolve` or `offset`), or User token + `read:search`\
 **Version history:**\
 2.4.1 - added, limit hardcoded to 5\
 2.8.0 - add `type`, `limit`, `offset`, `min_id`, `max_id`, `account_id`\
 3.0.0 - add `exclude_unreviewed` param\
-3.3.0 - `min_id` and `max_id` can be used together
-<!--
-4.0.0 - no longer requires a user token
--->
+3.3.0 - `min_id` and `max_id` can be used together\
+4.0.0 - no longer requires a user token. Without a valid user token, you cannot use the `resolve` or `offset` parameters.
 
 #### Request
 
@@ -82,32 +81,32 @@ Truncated results of a sample search for "cats" with limit=2.
       "username": "catstar",
       "acct": "catstar@catgram.jp",
       "display_name": "catstar",
-      ...
+      // ...
     },
     {
       "id": "214293",
       "username": "catsareweird",
       "acct": "catsareweird",
       "display_name": "Cats Are Weird",
-      ...
+      // ...
     }
   ],
   "statuses": [
     {
       "id": "103085519055545958",
       "created_at": "2019-11-05T13:23:09.000Z",
-      ...
+      // ...
       "content": "<p>cats<br>cats never change</p>",
-      ...
+      // ...
     },
     {
       "id": "101068121469614510",
       "created_at": "2018-11-14T06:31:48.000Z",
-      ...
+      // ...
       "spoiler_text": "Cats",
-      ...
+      // ...
       "content": "<p>Cats are inherently good at self-care. </p><p><a href=\"https://mspsocial.net/tags/cats\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>cats</span></a></p>",
-      ...
+      // ...
   ],
   "hashtags": [
     {
@@ -119,7 +118,7 @@ Truncated results of a sample search for "cats" with limit=2.
           "uses": "10",
           "accounts": "9"
         },
-        ...
+        // ...
       ]
     },
     {
@@ -131,7 +130,7 @@ Truncated results of a sample search for "cats" with limit=2.
           "uses": "6",
           "accounts": "5"
         },
-        ...
+        // ...
       ]
     }
   ]

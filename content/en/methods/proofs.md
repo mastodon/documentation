@@ -1,9 +1,10 @@
 ---
-title: proofs
+title: proofs API methods
 description: For use by identity providers.
 menu:
   docs:
     weight: 100
+    name: proofs
     parent: methods
     identifier: methods-proofs
 aliases: ["/methods/proofs", "/methods/accounts/proofs"]

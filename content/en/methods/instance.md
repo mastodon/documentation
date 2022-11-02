@@ -1,9 +1,10 @@
 ---
-title: instance
-description: Informational endpoint to discover information about a Mastodon website.
+title: instance API methods
+description: Discover information about a Mastodon website.
 menu:
   docs:
     weight: 70
+    name: instance
     parent: methods
     identifier: methods-instance
 aliases: ["/methods/instance"]

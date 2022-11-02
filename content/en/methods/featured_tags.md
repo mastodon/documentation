@@ -1,9 +1,10 @@
 ---
-title: featured_tags
-description: Feature tags that you use frequently.
+title: featured_tags API methods
+description: Feature tags that you use frequently on your profile.
 menu:
   docs:
     weight: 100
+    name: featured_tags
     parent: methods-accounts
     identifier: methods-featured_tags
 aliases: ["/methods/featured_tags", "/methods/accounts/featured_tags"]

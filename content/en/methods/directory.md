@@ -1,9 +1,10 @@
 ---
-title: directory
+title: directory API methods
 description: A directory of profiles that your website is aware of.
 menu:
   docs:
     weight: 20
+    name: directory
     parent: methods-instance
     identifier: methods-directory
 aliases: ["/methods/directory", "/methods/instance/directory"]
@@ -54,14 +55,14 @@ Sample results with limit=2
     "username": "eternalNo3",
     "acct": "eternalNo3@best-friends.chat",
     "display_name": "ESD＠┓（谷）┏",
-    ...
+    // ...
   },
   {
     "id": "787648",
     "username": "ariel",
     "acct": "ariel@best-friends.chat",
     "display_name": "あやっしー🧜🏻‍♀️",
-    ...
+    // ...
   }
 ]
 ```

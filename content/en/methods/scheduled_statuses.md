@@ -1,9 +1,10 @@
 ---
-title: scheduled_statuses
-description: Schedule statuses for your instance to publish later.
+title: scheduled_statuses API methods
+description: Manage statuses that were scheduled to be published at a future date.
 menu:
   docs:
     weight: 30
+    name: scheduled_statuses
     parent: methods-statuses
     identifier: methods-scheduled_statuses
 aliases: ["/methods/scheduled_statuses", "/methods/statuses/scheduled_statuses"]

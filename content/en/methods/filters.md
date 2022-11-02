@@ -1,9 +1,10 @@
 ---
-title: filters
+title: filters API methods
 description: Create and manage filters.
 menu:
   docs:
     weight: 60
+    name: filters
     parent: methods-accounts
     identifier: methods-filters
 aliases: ["/methods/filters", "/methods/accounts/filters"]
@@ -176,7 +177,7 @@ Excerpts of various filters in different contexts.
     "expires_at": "2019-05-21T13:47:31.333Z",
     "irreversible": false
   },
-  ...
+  // ...
   {
     "id": "5580",
     "phrase": "@twitter.com",
@@ -190,7 +191,7 @@ Excerpts of various filters in different contexts.
     "expires_at": null,
     "irreversible": true
   },
-  ...
+  // ...
 ]
 ```
 

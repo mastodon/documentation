@@ -1,9 +1,10 @@
 ---
-title: tags
-description: 
+title: tags API methods
+description: View information about or follow/unfollow hashtags.
 menu:
   docs:
     weight: 120
+    name: tags
     parent: methods-accounts
     identifier: methods-tags
 aliases: ["/methods/tags"]

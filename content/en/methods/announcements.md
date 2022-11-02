@@ -1,9 +1,10 @@
 ---
-title: announcements
+title: announcements API methods
 description: For announcements set by administration.
 menu:
   docs:
     weight: 90
+    name: announcements
     parent: methods-instance
     identifier: methods-announcements
 aliases: ["/methods/announcements", "/methods/instance/announcements"]

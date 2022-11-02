@@ -1,8 +1,9 @@
 ---
-title: admin/measures
+title: admin/measures API methods
 description: Obtain quantitative metrics about the server.
 menu:
   docs:
+    name: admin/measures
     parent: methods-admin
     identifier: methods-admin-measures
 aliases: ["/methods/admin/measures"]

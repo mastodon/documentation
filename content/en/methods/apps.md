@@ -1,9 +1,10 @@
 ---
-title: apps
+title: apps API methods
 description: Register client applications that can be used to obtain OAuth tokens.
 menu:
   docs:
     weight: 10
+    name: apps
     parent: methods
     identifier: methods-apps
 aliases: ["/methods/apps"]

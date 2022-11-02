@@ -1,11 +1,12 @@
 ---
-title: media
+title: media API methods
 description: >-
   Attach media to authored statuses. See Using Mastodon > Posting toots >
   Attachments for more information about size and format limits.
 menu:
   docs:
     weight: 10
+    name: media
     parent: methods-statuses
     identifier: methods-media
 aliases: ["/methods/media", "/methods/statuses/media"]
@@ -442,6 +443,10 @@ File or file type is unsupported or invalid
 ---
 
 ## See also
+
+{{< page-relref ref="methods/instance" caption="GET /api/v2/instance (for obtaining configuration limits)">}}
+
+{{< page-relref ref="entities/instance#media_attachments" caption="Instance#configuration[media_attachments]">}}
 
 {{< page-relref ref="api/guidelines#focal-points" caption="Focal points for cropping media thumbnails" >}}
 

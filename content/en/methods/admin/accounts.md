@@ -1,8 +1,9 @@
 ---
-title: admin/accounts
+title: admin/accounts API methods
 description: Perform moderation actions with accounts.
 menu:
   docs:
+    name: admin/accounts
     parent: methods-admin
     identifier: methods-admin-accounts
 aliases: ["/methods/admin/accounts"]
@@ -130,7 +131,7 @@ limit
       "id": "108267707882207829",
       "username": "trwnh",
       "acct": "trwnh",
-      ...
+      // ...
     }
   },
   {
@@ -162,7 +163,7 @@ limit
       "id": "108267695853695427",
       "username": "admin",
       "acct": "admin",
-      ...
+      // ...
     }
   }
 ]
@@ -289,7 +290,7 @@ limit
       "id": "108267695853695427",
       "username": "admin",
       "acct": "admin",
-      ...
+      // ...
     }
   }
 ]
@@ -376,7 +377,7 @@ Authorization
 		"id": "108267695853695427",
 		"username": "admin",
 		"acct": "admin",
-		...
+		// ...
 	}
 }
 ```
@@ -441,9 +442,9 @@ The account is now approved
   "username": "goody",
   "domain": null,
   "created_at": "2022-09-08T23:42:04.731Z",
-  ...
+  // ...
   "approved": true,
-  ...
+  // ...
 }
 ```
 
@@ -807,9 +808,9 @@ Account was enabled, or was already enabled.
 	"username": "goody",
 	"domain": null,
 	"created_at": "2022-09-08T23:42:04.731Z",
-	...
+	// ...
 	"disabled": false,
-	...
+	// ...
 }
 ```
 
@@ -863,9 +864,9 @@ Account was unsilenced, or was already not silenced
   "username": "goody",
   "domain": null,
   "created_at": "2022-09-08T23:42:04.731Z",
-  ...
+  // ...
   "silenced": false,
-  ...
+  // ...
 }
 ```
 
@@ -919,9 +920,9 @@ Account successfully unsuspended
   "username": "goody",
   "domain": null,
   "created_at": "2022-09-08T23:42:04.731Z",
-  ...
+  // ...
   "suspended": false,
-  ...
+  // ...
 }
 ```
 
