@@ -213,7 +213,7 @@ More importantly, there may be another topl-level `focus` Hash object on images 
 ### `blurhash` {#blurhash}
 
 **Description:** A hash computed by [the BlurHash algorithm](https://github.com/woltapp/blurhash), for generating colorful preview thumbnails when media has not been downloaded yet.\
-**Type:** String\
+**Type:** String (Blurhash)\
 **Version history:**\
 2.8.1 - added
 
@@ -234,8 +234,3 @@ More importantly, there may be another topl-level `focus` Hash object on images 
 {{< page-relref ref="methods/media" caption="media API methods" >}}
 
 {{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/media_attachment_serializer.rb" caption="app/serializers/rest/media_attachment_serializer.rb" >}}
-
-
-
-
-
