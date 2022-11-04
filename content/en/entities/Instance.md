@@ -471,7 +471,7 @@ aliases: [
 
 #### `contact[account]` {#contact-account}
 
-**Description:** An account that can be contacted natively over the network, as an alternative to `contact[email]`.\
+**Description:** An account that can be contacted natively over the network regarding inquiries or issues.\
 **Type:** [Account]({{< relref "entities/Account" >}})\
 **Version history:**\
 4.0.0 - added
