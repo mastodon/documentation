@@ -33,7 +33,7 @@ menu:
 
 ## Dart
 
-* [mastodon_dart](https://pub.dev/packages/mastodon_dart)
+* [mastodon](https://pub.dev/packages/mastodon)
 
 ## Elixir {#elixir}
 
