@@ -448,10 +448,10 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
-#### `registrations[message]` {{<nullable>}} {#registrations-message}
+#### `registrations[message]` {#registrations-message}
 
 **Description:** A custom message to be shown when registrations are closed.\
-**Type:** String (HTML) or null\
+**Type:** {{<nullable>}} String (HTML) or null\
 **Version history:**\
 4.0.0 - added
 
