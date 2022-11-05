@@ -14,7 +14,7 @@ menu:
 After signing up in the browser, you will need to use the command line to give your newly created account admin privileges. Assuming your username is `alice`:
 
 ```bash
-RAILS_ENV=production bin/tootctl accounts modify alice --role admin
+RAILS_ENV=production bin/tootctl accounts modify alice --role Admin
 ```
 
 ### From the command line {#admin-cli}
@@ -26,7 +26,7 @@ RAILS_ENV=production bin/tootctl accounts create \
   alice \
   --email alice@example.com \
   --confirmed \
-  --role admin
+  --role Admin
 ```
 
 A randomly generated password will be shown in the terminal.
