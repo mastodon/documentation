@@ -71,6 +71,8 @@ If you put a link in your profile metadata, Mastodon checks if the linked page l
 
 Behind the scenes, Mastodon checks for the `rel="me"` attribute on the link back. Likewise, Mastodon puts `rel="me"` on the links within profile metadata.
 
+More precisely, Mastodon will validate the link if at least one ``a`` or ``link`` tag with a ``rel="me"`` has an ``href`` attribute which is literally the URL for your Mastodon profile. Alternatively, validation will occur if the *first* of those ``a`` or ``link`` tags has an ``href`` URL that redirects to your Mastodon profile (eg. through a link shortener).
+
 {{< hint style="info" >}}
 Because Mastodon can be self-hosted, there is no better way to verify your identity than to host Mastodon on your own domain, which people already trust.
 {{< /hint >}}
