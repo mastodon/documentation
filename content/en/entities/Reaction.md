@@ -6,8 +6,14 @@ menu:
     parent: entities
 aliases: [
   "/entities/announcementreaction",
+  "/entities/AnnouncementReaction",
   "/entities/reaction",
-  "/entities/Reaction"]
+  "/entities/Reaction",
+  "/api/entities/announcementreaction",
+  "/api/entities/AnnouncementReaction",
+  "/api/entities/reaction",
+  "/api/entities/Reaction",
+]
 ---
 
 ## Example

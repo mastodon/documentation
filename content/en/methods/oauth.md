@@ -7,7 +7,11 @@ menu:
     name: oauth
     parent: methods-apps
     identifier: methods-oauth
-aliases: ["/methods/oauth", "/methods/apps/oauth"]
+aliases: [
+  "/methods/oauth",
+  "/api/methods/oauth",
+  "/methods/apps/oauth",
+]
 ---
 
 <style>

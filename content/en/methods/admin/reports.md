@@ -6,7 +6,10 @@ menu:
     name: admin/reports
     parent: methods-admin
     identifier: methods-admin-reports
-aliases: ["/methods/admin/reports"]
+aliases: [
+  "/methods/admin/reports",
+  "/api/methods/admin/reports",
+]
 ---
 
 <style>

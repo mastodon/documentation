@@ -6,8 +6,14 @@ menu:
     parent: entities
 aliases: [
   "/entities/attachment",
+  "/entities/Attachment",
   "/entities/mediaattachment",
-  "/entities/MediaAttachment"]
+  "/entities/MediaAttachment",
+  "/api/entities/attachment",
+  "/api/entities/Attachment",
+  "/api/entities/mediaattachment",
+  "/api/entities/MediaAttachment",
+]
 ---
 
 ## Example

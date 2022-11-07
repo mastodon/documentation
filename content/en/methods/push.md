@@ -9,7 +9,11 @@ menu:
     name: push
     parent: methods-notifications
     identifier: methods-push
-aliases: ["/methods/push", "/methods/notifications/push"]
+aliases: [
+  "/methods/push",
+  "/api/methods/push",
+  "/methods/notifications/push",
+]
 ---
 
 <style>

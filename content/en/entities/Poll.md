@@ -6,7 +6,10 @@ menu:
     parent: entities
 aliases: [
   "/entities/poll",
-  "/entities/Poll"]
+  "/entities/Poll",
+  "/api/entities/poll",
+  "/api/entities/Poll",
+]
 ---
 
 ## Example

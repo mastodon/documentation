@@ -7,7 +7,11 @@ menu:
     name: proofs
     parent: methods
     identifier: methods-proofs
-aliases: ["/methods/proofs", "/methods/accounts/proofs"]
+aliases: [
+  "/methods/proofs",
+  "/api/methods/proofs",
+  "/methods/accounts/proofs",
+]
 ---
 
 <style>

@@ -9,7 +9,11 @@ menu:
     name: lists
     parent: methods-timelines
     identifier: methods-lists
-aliases: ["/methods/lists", "/methods/timelines/lists"]
+aliases: [
+  "/methods/lists",
+  "/api/methods/lists",
+  "/methods/timelines/lists",
+]
 ---
 
 <style>

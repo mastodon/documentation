@@ -6,7 +6,10 @@ menu:
     parent: entities
 aliases: [
 	"/entities/featuredtag",
-	"/entities/FeaturedTag"]
+	"/entities/FeaturedTag",
+  "/api/entities/featuredtag",
+	"/api/entities/FeaturedTag",
+]
 ---
 
 ## Example

@@ -6,7 +6,10 @@ menu:
     parent: entities
 aliases: [
 	"/entities/encryptedmessage",
-  "/entities/EncryptedMessage"]
+  "/entities/EncryptedMessage",
+  "/entities/encryptedmessage",
+  "/entities/EncryptedMessage",
+]
 draft: true
 ---
 

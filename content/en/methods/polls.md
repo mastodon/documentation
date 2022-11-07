@@ -9,7 +9,11 @@ menu:
     name: polls
     parent: methods-statuses
     identifier: methods-polls
-aliases: ["/methods/polls", "/methods/statuses/polls"]
+aliases: [
+  "/methods/polls",
+  "/api/methods/polls",
+  "/methods/statuses/polls",
+]
 ---
 
 <style>

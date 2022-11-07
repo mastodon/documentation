@@ -7,7 +7,11 @@ menu:
     name: announcements
     parent: methods-instance
     identifier: methods-announcements
-aliases: ["/methods/announcements", "/methods/instance/announcements"]
+aliases: [
+  "/methods/announcements",
+  "/api/methods/announcements",
+  "/methods/instance/announcements",
+]
 ---
 
 <style>

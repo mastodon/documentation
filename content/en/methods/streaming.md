@@ -9,7 +9,11 @@ menu:
     name: streaming
     parent: methods-timelines
     identifier: methods-streaming
-aliases: ["/methods/streaming", "/methods/timelines/streaming"]
+aliases: [
+  "/methods/streaming",
+  "/api/methods/streaming",
+  "/methods/timelines/streaming",
+]
 ---
 
 <style>

@@ -7,7 +7,10 @@ menu:
     name: tags
     parent: methods-accounts
     identifier: methods-tags
-aliases: ["/methods/tags"]
+aliases: [
+  "/methods/tags",
+  "/api/methods/tags",
+]
 ---
 
 <!--

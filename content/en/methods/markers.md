@@ -7,7 +7,11 @@ menu:
     name: markers
     parent: methods-timelines
     identifier: methods-markers
-aliases: ["/methods/markers", "/methods/timelines/markers"]
+aliases: [
+  "/methods/markers",
+  "/api/methods/markers",
+  "/methods/timelines/markers",
+]
 ---
 
 <style>

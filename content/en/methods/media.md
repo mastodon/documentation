@@ -9,7 +9,11 @@ menu:
     name: media
     parent: methods-statuses
     identifier: methods-media
-aliases: ["/methods/media", "/methods/statuses/media"]
+aliases: [
+  "/methods/media",
+  "/api/methods/media",
+  "/methods/statuses/media",
+]
 ---
 
 <style>

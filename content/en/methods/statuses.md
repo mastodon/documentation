@@ -7,7 +7,10 @@ menu:
     name: statuses
     parent: methods
     identifier: methods-statuses
-aliases: ["/methods/statuses"]
+aliases: [
+  "/methods/statuses",
+  "/api/methods/statuses",
+]
 ---
 
 <style>

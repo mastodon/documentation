@@ -6,7 +6,10 @@ menu:
     name: admin/measures
     parent: methods-admin
     identifier: methods-admin-measures
-aliases: ["/methods/admin/measures"]
+aliases: [
+  "/methods/admin/measures",
+  "/api/methods/admin/measures",
+]
 ---
 
 <style>

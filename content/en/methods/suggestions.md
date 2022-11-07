@@ -9,7 +9,11 @@ menu:
     name: suggestions
     parent: methods-accounts
     identifier: methods-suggestions
-aliases: ["/methods/suggestions", "/methods/accounts/suggestions"]
+aliases: [
+  "/methods/suggestions",
+  "/api/methods/suggestions",
+  "/methods/accounts/suggestions",
+]
 ---
 
 <style>

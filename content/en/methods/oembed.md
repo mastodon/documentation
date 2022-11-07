@@ -7,7 +7,10 @@ menu:
     name: oembed
     parent: methods
     identifier: methods-oembed
-aliases: ["/methods/oembed"]
+aliases: [
+  "/methods/oembed",
+  "/api/methods/oembed",
+]
 ---
 
 <style>

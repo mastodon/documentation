@@ -6,8 +6,14 @@ menu:
     parent: entities
 aliases: [
   "/entities/admin-domainallow",
+  "/entities/Admin-DomainAllow",
   "/entities/admin_domainallow",
-  "/entities/Admin_DomainAllow"]
+  "/entities/Admin_DomainAllow",
+  "/api/entities/admin-domainallow",
+  "/api/entities/Admin-DomainAllow",
+  "/api/entities/admin_domainallow",
+  "/api/entities/Admin_DomainAllow",
+]
 ---
 
 ## Example

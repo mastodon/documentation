@@ -6,7 +6,10 @@ menu:
     parent: entities
 aliases: [
   "/entities/preferences",
-  "/entities/Preferences"]
+  "/entities/Preferences",
+  "/api/entities/preferences",
+  "/api/entities/Preferences",
+]
 ---
 
 ## Example

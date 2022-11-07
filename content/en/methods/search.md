@@ -7,7 +7,10 @@ menu:
     name: search
     parent: methods
     identifier: methods-search
-aliases: ["/methods/search"]
+aliases: [
+  "/methods/search",
+  "/api/methods/search",
+]
 ---
 
 <style>

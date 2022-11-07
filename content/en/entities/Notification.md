@@ -6,7 +6,10 @@ menu:
     parent: entities
 aliases: [
   "/entities/notification",
-  "/entities/Notification"]
+  "/entities/Notification",
+  "/entities/notification",
+  "/entities/Notification",
+]
 ---
 
 

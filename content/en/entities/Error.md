@@ -6,7 +6,10 @@ menu:
     parent: entities
 aliases: [
 	"/entities/error",
-	"/entities/Error"]
+	"/entities/Error",
+  "/api/entities/error",
+	"/api/entities/Error",
+]
 ---
 
 ## Example

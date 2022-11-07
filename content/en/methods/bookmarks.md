@@ -7,7 +7,11 @@ menu:
     name: bookmarks
     parent: methods-accounts
     identifier: methods-bookmarks
-aliases: ["/methods/bookmarks", "/methods/accounts/bookmarks"]
+aliases: [
+  "/methods/bookmarks",
+  "/api/methods/bookmarks",
+  "/methods/accounts/bookmarks",
+]
 ---
 
 <style>

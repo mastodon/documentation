@@ -6,7 +6,10 @@ menu:
     parent: entities
 aliases: [
   "/entities/identityproof",
-  "/entities/IdentityProof"]
+  "/entities/IdentityProof",
+  "/api/entities/identityproof",
+  "/api/entities/IdentityProof",
+]
 ---
 
 {{< hint style="danger" >}}

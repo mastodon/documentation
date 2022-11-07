@@ -7,7 +7,10 @@ menu:
     name: apps
     parent: methods
     identifier: methods-apps
-aliases: ["/methods/apps"]
+aliases: [
+  "/methods/apps",
+  "/api/methods/apps",
+]
 ---
 
 <style>

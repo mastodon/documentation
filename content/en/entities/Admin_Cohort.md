@@ -6,8 +6,14 @@ menu:
     parent: entities
 aliases: [
   "/entities/admin-cohort",
+  "/entities/Admin-Cohort",
   "/entities/admin_cohort",
-  "/entities/Admin_Cohort"]
+  "/entities/Admin_Cohort",
+  "/api/entities/admin-cohort",
+  "/api/entities/Admin-Cohort",
+  "/api/entities/admin_cohort",
+  "/api/entities/Admin_Cohort",
+]
 ---
 
 ## Example

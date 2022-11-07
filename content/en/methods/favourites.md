@@ -7,7 +7,11 @@ menu:
     name: favourites
     parent: methods-accounts
     identifier: methods-favourites
-aliases: ["/methods/favourites", "/methods/accounts/favourites"]
+aliases: [
+  "/methods/favourites",
+  "/api/methods/favourites",
+  "/methods/accounts/favourites",
+]
 ---
 
 <style>

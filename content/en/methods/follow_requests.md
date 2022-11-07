@@ -7,7 +7,11 @@ menu:
     name: follow_requests
     parent: methods-accounts
     identifier: methods-follow_requests
-aliases: ["/methods/follow_requests", "/methods/accounts/follow_requests"]
+aliases: [
+  "/methods/follow_requests",
+  "/api/methods/follow_requests",
+  "/methods/accounts/follow_requests",
+]
 ---
 
 <style>

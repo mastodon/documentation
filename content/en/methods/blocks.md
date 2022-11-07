@@ -7,7 +7,11 @@ menu:
     name: blocks
     parent: methods-accounts
     identifier: methods-blocks
-aliases: ["/methods/blocks", "/methods/accounts/blocks"]
+aliases: [
+  "/methods/blocks",
+  "/api/methods/blocks",
+  "/methods/accounts/blocks",
+]
 ---
 
 <style>

@@ -6,8 +6,14 @@ menu:
     parent: entities
 aliases: [
   "/entities/admin-canonicalemailblock",
+  "/entities/Admin-CanonicalEmailBlock",
   "/entities/admin_canonicalemailblock",
-  "/entities/Admin_CanonicalEmailBlock"]
+  "/entities/Admin_CanonicalEmailBlock",
+  "/api/entities/admin-canonicalemailblock",
+  "/api/entities/Admin-CanonicalEmailBlock",
+  "/api/entities/admin_canonicalemailblock",
+  "/api/entities/Admin_CanonicalEmailBlock",
+]
 ---
 
 ## Example

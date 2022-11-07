@@ -6,7 +6,10 @@ menu:
     name: admin/accounts
     parent: methods-admin
     identifier: methods-admin-accounts
-aliases: ["/methods/admin/accounts"]
+aliases: [
+  "/methods/admin/accounts",
+  "/api/methods/admin/accounts",
+]
 ---
 
 <style>

@@ -6,8 +6,14 @@ menu:
     parent: entities
 aliases: [
   "/entities/history",
+  "/entities/History",
   "/entities/tag",
-  "/entities/Tag"]
+  "/entities/Tag",
+  "/api/entities/history",
+  "/api/entities/History",
+  "/api/entities/tag",
+  "/api/entities/Tag",
+]
 ---
 
 ## Example

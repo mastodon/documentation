@@ -7,7 +7,11 @@ menu:
     name: reports
     parent: methods-accounts
     identifier: methods-reports
-aliases: ["/methods/reports", "/methods/accounts/reports"]
+aliases: [
+  "/methods/reports",
+  "/api/methods/reports",
+  "/methods/accounts/reports",
+]
 ---
 
 <style>

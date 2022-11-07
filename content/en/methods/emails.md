@@ -7,7 +7,11 @@ menu:
     name: emails
     parent: methods-apps
     identifier: methods-emails
-aliases: ["/methods/emails", "/methods/apps/emails"]
+aliases: [
+  "/methods/emails",
+  "/api/methods/emails",
+  "/methods/apps/emails",
+]
 ---
 
 <style>

@@ -7,7 +7,11 @@ menu:
     name: featured_tags
     parent: methods-accounts
     identifier: methods-featured_tags
-aliases: ["/methods/featured_tags", "/methods/accounts/featured_tags"]
+aliases: [
+  "/methods/featured_tags",
+  "/api/methods/featured_tags",
+  "/methods/accounts/featured_tags",
+]
 ---
 
 <style>

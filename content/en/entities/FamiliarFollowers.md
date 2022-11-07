@@ -6,7 +6,10 @@ menu:
     parent: entities
 aliases: [
 	"/entities/familiarfollowers",
-  "/entities/FamiliarFollowers"]
+  "/entities/FamiliarFollowers",
+  "/api/entities/familiarfollowers",
+  "/api/entities/FamiliarFollowers",
+]
 ---
 
 ## Example

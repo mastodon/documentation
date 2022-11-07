@@ -6,8 +6,14 @@ menu:
     parent: entities
 aliases: [
   "/entities/admin-measure",
+  "/entities/Admin-Measure",
   "/entities/admin_measure",
-  "/entities/Admin_Measure"]
+  "/entities/Admin_Measure",
+  "/api/entities/admin-measure",
+  "/api/entities/Admin-Measure",
+  "/api/entities/admin_measure",
+  "/api/entities/Admin_Measure",
+]
 ---
 
 ## Examples

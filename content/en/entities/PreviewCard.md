@@ -6,8 +6,14 @@ menu:
     parent: entities
 aliases: [
   "/entities/card",
+  "/entities/Card",
   "/entities/previewcard",
-  "/entities/PreviewCard"]
+  "/entities/PreviewCard",
+  "/api/entities/card",
+  "/api/entities/Card",
+  "/api/entities/previewcard",
+  "/api/entities/PreviewCard",
+]
 ---
 
 ## Examples

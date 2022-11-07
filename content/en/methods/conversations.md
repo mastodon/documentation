@@ -9,7 +9,11 @@ menu:
     name: conversations
     parent: methods-timelines
     identifier: methods-conversations
-aliases: ["/methods/conversations", "/methods/timelines/conversations"]
+aliases: [
+  "/methods/conversations",
+  "/api/methods/conversations",
+  "/methods/timelines/conversations",
+]
 ---
 
 <style>

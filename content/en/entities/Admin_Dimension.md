@@ -6,8 +6,14 @@ menu:
     parent: entities
 aliases: [
   "/entities/admin-dimension",
+  "/entities/Admin-Dimension",
   "/entities/admin_dimension",
-  "/entities/Admin_Dimension"]
+  "/entities/Admin_Dimension",
+  "/api/entities/admin-dimension",
+  "/api/entities/Admin-Dimension",
+  "/api/entities/admin_dimension",
+  "/api/entities/Admin_Dimension",
+]
 ---
 
 ## Attributes

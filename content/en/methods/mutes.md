@@ -7,7 +7,11 @@ menu:
     name: mutes
     parent: methods-accounts
     identifier: methods-mutes
-aliases: ["/methods/mutes", "/methods/accounts/mutes"]
+aliases: [
+  "/methods/mutes",
+  "/api/methods/mutes",
+  "/methods/accounts/mutes",
+]
 ---
 
 <style>

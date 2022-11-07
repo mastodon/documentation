@@ -7,7 +7,10 @@ menu:
     name: notifications
     parent: methods
     identifier: methods-notifications
-aliases: ["/methods/notifications"]
+aliases: [
+  "/methods/notifications",
+  "/api/methods/notifications",
+]
 ---
 
 <style>

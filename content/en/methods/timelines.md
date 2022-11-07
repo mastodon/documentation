@@ -7,7 +7,10 @@ menu:
     name: timelines
     parent: methods
     identifier: methods-timelines
-aliases: ["/methods/timelines"]
+aliases: [
+  "/methods/timelines",
+  "/api/methods/timelines",
+]
 ---
 
 <style>

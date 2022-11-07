@@ -7,7 +7,11 @@ menu:
     name: directory
     parent: methods-instance
     identifier: methods-directory
-aliases: ["/methods/directory", "/methods/instance/directory"]
+aliases: [
+  "/methods/directory",
+  "/api/methods/directory",
+  "/methods/instance/directory",
+]
 ---
 
 <style>

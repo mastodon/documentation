@@ -8,7 +8,12 @@ aliases: [
   "/entities/results",
   "/entities/Results",
   "/entities/search",
-  "/entities/Search"]
+  "/entities/Search",
+  "/api/entities/results",
+  "/api/entities/Results",
+  "/api/entities/search",
+  "/api/entities/Search",
+]
 ---
 
 ## Example

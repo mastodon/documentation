@@ -6,13 +6,26 @@ menu:
     parent: entities
 aliases: [
   "/entities/source/",
+  "/entities/Source/",
   "/entities/field/",
+  "/entities/Field/",
   "/entities/account",
   "/entities/Account",
+  "/entities/credentialaccount",
   "/entities/CredentialAccount",
-  "/api/entities/CredentialAccount",
+  "/entities/mutedaccount",
   "/entities/MutedAccount",
-  "/api/entities/MutedAccount"]
+  "/api/entities/source/",
+  "/api/entities/Source/",
+  "/api/entities/field/",
+  "/api/entities/Field/",
+  "/api/entities/account",
+  "/api/entities/Account",
+  "/api/entities/credentialaccount",
+  "/api/entities/CredentialAccount",
+  "/api/entities/mutedaccount",
+  "/api/entities/MutedAccount",
+]
 ---
 
 ## Example

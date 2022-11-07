@@ -6,7 +6,10 @@ menu:
     name: admin/canonical_email_blocks
     parent: methods-admin
     identifier: methods-admin-canonical_email_blocks
-aliases: ["/methods/admin/canonical_email_blocks"]
+aliases: [
+  "/methods/admin/canonical_email_blocks",
+  "/api/methods/admin/canonical_email_blocks",
+]
 ---
 
 <style>

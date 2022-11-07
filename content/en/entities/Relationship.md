@@ -6,7 +6,10 @@ menu:
     parent: entities
 aliases: [
   "/entities/relationship",
-  "/entities/Relationship"]
+  "/entities/Relationship",
+  "/api/entities/relationship",
+  "/api/entities/Relationship",
+]
 ---
 
 ## Example

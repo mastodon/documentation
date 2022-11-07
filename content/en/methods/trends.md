@@ -7,7 +7,11 @@ menu:
     name: trends
     parent: methods-instance
     identifier: methods-trends
-aliases: ["/methods/trends", "/methods/instance/trends"]
+aliases: [
+  "/methods/trends",
+  "/api/methods/trends",
+  "/methods/instance/trends",
+]
 ---
 
 <style>

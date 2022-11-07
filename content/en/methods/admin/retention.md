@@ -6,7 +6,10 @@ menu:
     name: admin/retention
     parent: methods-admin
     identifier: methods-admin-retention
-aliases: ["/methods/admin/retention"]
+aliases: [
+  "/methods/admin/retention",
+  "/api/methods/admin/retention",
+]
 ---
 
 <style>

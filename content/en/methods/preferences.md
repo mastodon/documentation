@@ -7,7 +7,11 @@ menu:
     name: preferences
     parent: methods-accounts
     identifier: methods-preferences
-aliases: ["/methods/preferences", "/methods/accounts/preferences"]
+aliases: [
+  "/methods/preferences",
+  "/api/methods/preferences",
+  "/methods/accounts/preferences",
+]
 ---
 
 <style>

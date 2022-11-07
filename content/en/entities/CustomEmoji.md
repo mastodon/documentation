@@ -6,8 +6,14 @@ menu:
     parent: entities
 aliases: [
 	"/entities/emoji",
+  "/entities/Emoji",
 	"/entities/customemoji",
-  "/entities/CustomEmoji"]
+  "/entities/CustomEmoji",
+  "/api/entities/emoji",
+  "/api/entities/Emoji",
+	"/api/entities/customemoji",
+  "/api/entities/CustomEmoji",
+]
 ---
 
 ## Example

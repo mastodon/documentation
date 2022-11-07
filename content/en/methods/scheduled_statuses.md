@@ -7,7 +7,11 @@ menu:
     name: scheduled_statuses
     parent: methods-statuses
     identifier: methods-scheduled_statuses
-aliases: ["/methods/scheduled_statuses", "/methods/statuses/scheduled_statuses"]
+aliases: [
+  "/methods/scheduled_statuses",
+  "/api/methods/scheduled_statuses",
+  "/methods/statuses/scheduled_statuses",
+]
 ---
 
 <style>

@@ -7,7 +7,10 @@ menu:
     name: instance
     parent: methods
     identifier: methods-instance
-aliases: ["/methods/instance"]
+aliases: [
+  "/methods/instance",
+  "/api/methods/instance",
+]
 ---
 
 <style>

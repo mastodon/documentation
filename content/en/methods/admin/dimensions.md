@@ -6,7 +6,10 @@ menu:
     name: admin/dimensions
     parent: methods-admin
     identifier: methods-admin-dimensions
-aliases: ["/methods/admin/dimensions"]
+aliases: [
+  "/methods/admin/dimensions",
+  "/api/methods/admin/dimensions",
+]
 ---
 
 <style>

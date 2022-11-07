@@ -6,8 +6,14 @@ menu:
     parent: entities
 aliases: [
   "/entities/admin-ip",
+  "/entities/Admin-Ip",
   "/entities/admin_ip",
-  "/entities/Admin_Ip"]
+  "/entities/Admin_Ip",
+  "/api/entities/admin-ip",
+  "/api/entities/Admin-Ip",
+  "/api/entities/admin_ip",
+  "/api/entities/Admin_Ip",
+]
 ---
 
 ## Example

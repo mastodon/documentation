@@ -7,7 +7,11 @@ menu:
     name: endorsements
     parent: methods-accounts
     identifier: methods-endorsements
-aliases: ["/methods/endorsements", "/methods/accounts/endorsements"]
+aliases: [
+  "/methods/endorsements",
+  "/api/methods/endorsements",
+  "/methods/accounts/endorsements",
+]
 ---
 
 <style>

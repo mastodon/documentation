@@ -8,7 +8,12 @@ aliases: [
   "/entities/pushsubscription",
   "/entities/PushSubscription",
   "/entities/webpushsubscription",
-  "/entities/WebPushSubscription"]
+  "/entities/WebPushSubscription",
+  "/api/entities/pushsubscription",
+  "/api/entities/PushSubscription",
+  "/api/entities/webpushsubscription",
+  "/api/entities/WebPushSubscription",
+]
 ---
 
 ## Example

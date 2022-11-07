@@ -9,7 +9,11 @@ menu:
     name: custom_emojis
     parent: methods-instance
     identifier: methods-custom_emojis
-aliases: ["/methods/custom_emojis", "/methods/instance/custom_emojis"]
+aliases: [
+  "/methods/custom_emojis",
+  "/api/methods/custom_emojis",
+  "/methods/instance/custom_emojis"
+]
 ---
 
 <style>

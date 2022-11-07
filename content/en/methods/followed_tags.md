@@ -7,7 +7,10 @@ menu:
     name: followed_tags
     parent: methods-accounts
     identifier: methods-followed_tags
-aliases: ["/methods/followed_tags"]
+aliases: [
+  "/methods/followed_tags",
+  "/api/methods/followed_tags",
+]
 ---
 
 <!--

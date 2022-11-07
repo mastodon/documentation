@@ -7,7 +7,11 @@ menu:
     name: filters
     parent: methods-accounts
     identifier: methods-filters
-aliases: ["/methods/filters", "/methods/accounts/filters"]
+aliases: [
+  "/methods/filters",
+  "/api/methods/filters",
+  "/methods/accounts/filters",
+]
 ---
 
 ## Server-side (v2) methods {#v2}

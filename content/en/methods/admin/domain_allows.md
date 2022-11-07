@@ -6,7 +6,10 @@ menu:
     name: admin/domain_allows
     parent: methods-admin
     identifier: methods-admin-domain_allows
-aliases: ["/methods/admin/domain_allows"]
+aliases: [
+	"/methods/admin/domain_allows",
+	"/api/methods/admin/domain_allows",
+]
 ---
 
 <style>
