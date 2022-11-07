@@ -53,7 +53,7 @@ apt install -y \
 
 ```bash
 corepack enable
-yarn set version stable
+yarn set version classic
 ```
 
 ### Installing Ruby {#installing-ruby}
