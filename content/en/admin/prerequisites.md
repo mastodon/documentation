@@ -54,6 +54,9 @@ Finally restart fail2ban:
 systemctl restart fail2ban
 ```
 
+**Check your logs**. If you see an error such as `Unable to read the filter 'sshd-ddos'` then rather than
+add the `[sshd-ddos]` setting try adding an extra setting to `[sshd]`: `mode=ddos` and restart again.
+
 ## Install a firewall and only allow SSH, HTTP and HTTPS ports
 
 First, install iptables-persistent. During installation it will ask you if you want to keep current rules–decline.
