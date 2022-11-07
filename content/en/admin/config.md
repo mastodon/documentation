@@ -427,7 +427,7 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 Similar to `CDN_HOST`, you may serve *user-uploaded* files from a separate host. In fact, if you are using external storage like Amazon S3, Minio or Google Cloud, you will by default be serving files from those services' URLs.
 
-It is *extremely recommended* to use your own host instead, for a few reasons:
+It is *highly recommended* to use your own host instead, for a few reasons:
 
 1. Bandwidth on external storage providers is metered and expensive
 2. You may want to switch to a different provider later without breaking old links
@@ -447,18 +447,53 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 ### Amazon S3 and compatible {#s3}
 
-* `S3_ENABLED`
-* `S3_BUCKET`
-* `AWS_ACCESS_KEY_ID`
-* `AWS_SECRET_ACCESS_KEY`
-* `S3_REGION`
-* `S3_PROTOCOL`
-* `S3_HOSTNAME`
-* `S3_ENDPOINT`
-* `S3_SIGNATURE_VERSION`
-* `S3_OVERRIDE_PATH_STYLE`
-* `S3_OPEN_TIMEOUT`
-* `S3_READ_TIMEOUT`
+#### `S3_ENABLED`
+
+Enables use of S3-compatible object storage.
+
+#### `S3_BUCKET`
+
+S3 Bucket name.
+
+#### `AWS_ACCESS_KEY_ID`
+
+S3 access key ID.
+
+#### `AWS_SECRET_ACCESS_KEY`
+
+S3 secret access key.
+
+#### `S3_REGION`
+
+S3 region.
+
+#### `S3_PROTOCOL`
+
+S3 access protocol. Defaults to `https`.
+
+#### `S3_HOSTNAME`
+
+S3 hostname. Defaults to the regional AWS hostname.
+
+#### `S3_ENDPOINT`
+
+S3 endpoint URL.
+
+#### `S3_OVERRIDE_PATH_STYLE`
+
+If set to `true`, disables path-style bucket access. Only applies when endpoint is set.
+
+#### `S3_SIGNATURE_VERSION`
+
+S3 signature version. Defaults to `v4`.
+
+#### `S3_OPEN_TIMEOUT`
+
+HTTP open timeout. Defaults to `5`.
+
+#### `S3_READ_TIMEOUT`
+
+HTTP read timeout. Defaults to `5`.
 
 ### Swift {#swift}
 
@@ -557,4 +592,4 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 #### `SKIP_POST_DEPLOYMENT_MIGRATIONS`
 
-This variable only has any effect when running `rake db:migrate` and it is extremely specific to the Mastodon upgrade process. There are two types of database migrations, those that run before new code is deployed and running, and those that run after. By default, both types of migrations are executed. If you shut down all Mastodon processes before running migrations, then there is no difference. The variable makes sense for zero-downtime upgrades. You will see in the upgrade instructions of a specific Mastodon version if you need to use it or not.
+This variable only has any effect when running `rake db:migrate` and it is specific to the Mastodon upgrade process. There are two types of database migrations, those that run before new code is deployed and running, and those that run after. By default, both types of migrations are executed. If you shut down all Mastodon processes before running migrations, then there is no difference. The variable makes sense for zero-downtime upgrades. You will see in the upgrade instructions of a specific Mastodon version if you need to use it or not.
