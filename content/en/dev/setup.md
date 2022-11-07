@@ -17,7 +17,7 @@ You can follow the [pre-requisites instructions from the production guide](https
 
 ### Setup {#setup}
 
-Run following commands in the project directory `bundle install`, `yarn install`.
+Run following commands in the project directory `bundler install`, `yarn install`.
 
 In the development environment, Mastodon will use PostgreSQL as the currently signed-in Linux user using the `ident` method, which usually works out of the box. The one command you need to run is `rails db:setup` which will create the databases `mastodon_development` and `mastodon_test`, load the schema into them, and then create seed data defined in `db/seed.rb` in `mastodon_development`. The only seed data is an admin account with the credentials `admin@localhost:3000` / `mastodonadmin`.
 
