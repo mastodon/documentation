@@ -139,6 +139,19 @@ Alternatively, the `category` was set to `violation` but invalid or missing `rul
 }
 ```
 
+<!--
+TODO: maybe this might change?
+https://github.com/mastodon/mastodon/issues/20120
+-->
+
+Alternatively, the `category` was set to something other than `violation` but some `rule_ids` were provided
+
+```json
+{
+  "error": "Validation failed: Rule ids must be blank"
+}
+```
+
 ---
 
 ## See also
