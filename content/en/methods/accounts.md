@@ -1574,7 +1574,7 @@ Successfully unmuted, or account was already unmuted
 ```
 
 ##### 401: Unauthorized
-pin
+
 Invalid or missing Authorization header
 
 ```json
@@ -1606,7 +1606,8 @@ Add the given account to the user's featured profiles. (Featured profiles are cu
 **Returns:** [Relationship]({{< relref "entities/relationship">}})\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
-2.5.0 - added
+2.5.0 - added\
+4.0.0 - calling this method is now idempotent
 
 #### Request
 ##### Path parameters
@@ -1671,19 +1672,19 @@ You are not following this account
 }
 ```
 
-Alternatively, the account may already be endorsed
-
-```json
-{
-  "error": "Duplicate record"
-}
-```
-
 Alternatively, the token is not authorized with a user
 
 ```json
 {
   "error": "This method requires an authenticated user"
+}
+```
+
+Alternatively (prior to 4.0), the account may already be endorsed
+
+```json
+{
+  "error": "Duplicate record"
 }
 ```
 

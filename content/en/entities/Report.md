@@ -24,7 +24,7 @@ aliases: [
   "forwarded": false,
   "created_at": "2022-08-25T09:56:16.763Z",
   "status_ids": [
-    108882889550545820
+    "108882889550545820"
   ],
   "rule_ids": null,
   "target_account": {
@@ -72,9 +72,9 @@ aliases: [
 ### `action_taken_at` {#action_taken_at}
 
 **Description:** When an action was taken against the report.\
-**Type:** String (ISO 8601 Datetime) or null\
+**Type:** {{<nullable>}} String (ISO 8601 Datetime) or null\
 **Version history:**\
-1.1.0 - added
+4.0.0 - added
 
 ### `category` {#category}
 
@@ -84,49 +84,49 @@ aliases: [
 `violation` = A specific rule was violated\
 `other` = Some other reason\
 **Version history:**\
-3.5.0 - added
+4.0.0 - added
 
 ### `comment` {#comment}
 
 **Description:** The reason for the report.\
 **Type:** String\
 **Version history:**\
-1.1.0 - added
+4.0.0 - added
 
 ### `forwarded` {#forwarded}
 
 **Description:** Whether the report was forwarded to a remote domain.\
 **Type:** Boolean\
 **Version history:**\
-2.3.0 - added
+4.0.0 - added
 
 ### `created_at` {#created_at}
 
 **Description:** When the report was created.\
 **Type:** String (ISO 8601 Datetime)\
 **Version history:**\
-1.1.0 - added
+4.0.0 - added
 
 ### `status_ids` {#status_ids}
 
 **Description:** The domain name of the instance.\
-**Type:** Array of Number, or null\
+**Type:** {{<nullable>}} Array of String (cast from integer), or null\
 **Version history:**\
-1.1.0 - added
+4.0.0 - added
 
 ### `rule_ids` {#rule_ids}
 
 **Description:** The domain name of the instance.\
-**Type:** Array of Number, or null\
+**Type:** {{<nullable>}} Array of String (cast from integer), or null\
 **Version history:**\
-3.5.0 - added
+4.0.0 - added
 
 ### `target_account` {#target_account}
 
 **Description:** The account that was reported.\
 **Type:** [Account]({{< relref "entities/account" >}})\
 **Version history:**\
-1.1.0 - added
+4.0.0 - added
 
 ## See also
 

@@ -29,7 +29,8 @@ POST https://mastodon.example/api/v1/reports HTTP/1.1
 **Version history:**\
 1.1 - added\
 2.3.0 - add `forward` parameter\
-3.5.0 - add `category` and `rule_ids` parameters
+3.5.0 - add `category` and `rule_ids` parameters\
+4.0.0 - `category` is now optional if `rule_ids` is provided
 
 #### Request
 ##### Headers
@@ -52,7 +53,7 @@ forward
 : Boolean. If the account is remote, should the report be forwarded to the remote admin? Defaults to false.
 
 category
-: String. Specify if the report is due to `spam`, `violation` of enumerated instance rules, or some `other` reason. Defaults to `other`.
+: String. Specify if the report is due to `spam`, `violation` of enumerated instance rules, or some `other` reason. Defaults to `other`. Will be set to `violation` if `rule_ids[]` is provided (regardless of any category value you provide).
 
 rule_ids[]
 : Array of Integer. For `violation` category reports, specify the ID of the exact rules broken. Rules and their IDs are available via [GET /api/v1/instance/rules]({{< relref "methods/instance#rules" >}}) and [GET /api/v1/instance]({{< relref "methods/instance#get" >}}).
@@ -72,7 +73,7 @@ Sample call with one status ID provided and a category of `spam` with a comment
   "forwarded": false,
   "created_at": "2022-08-25T09:56:16.763Z",
   "status_ids": [
-    108882889550545820
+    "108882889550545820"
   ],
   "rule_ids": null,
   "target_account": {
@@ -139,12 +140,7 @@ Alternatively, the `category` was set to `violation` but invalid or missing `rul
 }
 ```
 
-<!--
-TODO: maybe this might change?
-https://github.com/mastodon/mastodon/issues/20120
--->
-
-Alternatively, the `category` was set to something other than `violation` but some `rule_ids` were provided
+Alternatively (Mastodon 3.5), the `category` was set to something other than `violation` but some `rule_ids` were provided
 
 ```json
 {
