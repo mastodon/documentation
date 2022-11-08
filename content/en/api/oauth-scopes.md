@@ -60,7 +60,7 @@ Grants access to [Web Push API subscriptions.]({{< relref "methods/push" >}}) Ad
 
 ### Admin scopes {#admin}
 
-Used for moderation API. Added in Mastodon 2.9.1. The following granular scopes are available \(note that there is no singular `admin` scope\):
+Used for moderation API. Added in Mastodon 2.9.1. The following granular scopes are available (note that there is no singular `admin` scope):
 
 * `admin:read`
   * `admin:read:accounts`

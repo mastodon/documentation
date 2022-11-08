@@ -81,7 +81,7 @@ When at least one active matched filter has `hide` for `filter_action`, the post
 
 For extension purposes, unknown values for `filter_action` should be treated as `warn`.
 
-### Client-side filtering (v1, prior to Mastodon 3.6) {#client-filtered}
+### Client-side filtering (v1, prior to Mastodon 4.0) {#client-filtered}
 
 Clients must do their own text filtering based on filters returned from the API. The server will apply `irreversible` filters for `home` and `notifications` contexts, but **anything else is still up to the client to filter**! If a status is somehow not removed by an `irreversible` filter, the client should still filter it.
 
