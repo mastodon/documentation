@@ -1,4 +1,4 @@
-baseURL = "http://docs.joinmastodon.org/"
+baseURL = "https://docs.joinmastodon.org/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Mastodon documentation"
