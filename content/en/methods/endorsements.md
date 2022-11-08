@@ -56,11 +56,7 @@ limit
 #### Response
 ##### 200: OK
 
-Sample call with limit=2. Because endorsement IDs are private, you must parse the HTTP Link header to find next and previous pages.
-
-```http
-Link: <https://mastodon.social/api/v1/endorsements?limit=2&max_id=832844>; rel="next", <https://mastodon.social/api/v1/endorsements?limit=2&since_id=952529>; rel="prev"
-```
+Sample call with limit=2.
 
 ```json
 [
@@ -114,6 +110,12 @@ Link: <https://mastodon.social/api/v1/endorsements?limit=2&max_id=832844>; rel="
     "fields": []
   }
 ]
+```
+
+Because AccountPin IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.social/api/v1/endorsements?limit=2&max_id=832844>; rel="next", <https://mastodon.social/api/v1/endorsements?limit=2&since_id=952529>; rel="prev"
 ```
 
 ##### 401: Unauthorized

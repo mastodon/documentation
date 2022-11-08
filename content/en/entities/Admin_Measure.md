@@ -16,12 +16,6 @@ aliases: [
 ]
 ---
 
-## Examples
-
-<!--
-TODO:
--->
-
 ## Attributes
 
 ### `key` {#key}

@@ -373,7 +373,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Integer. Maximum number of results. Defaults to 40. Max 40. Set to 0 in order to get all accounts without pagination. Pagination is done with the HTTP Link header.
+: Integer. Maximum number of results. Defaults to 40. Max 40. Set to 0 in order to get all accounts without pagination.
 
 #### Response
 ##### 200: OK
@@ -411,6 +411,12 @@ limit
     // ...
   }
 ]
+```
+
+Because you do not know beforehand which Accounts are included in a List, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.social/api/v1/lists/12249/accounts?max_id=106931203247163945>; rel="next", <https://mastodon.social/api/v1/lists/12249/accounts?since_id=108632085572655915>; rel="prev"
 ```
 
 ##### 401: Unauthorized

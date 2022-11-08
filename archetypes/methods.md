@@ -54,6 +54,12 @@ limit
 ```json
 ```
 
+Because SOMETHING IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link:
+```
+
 ##### 401: Unauthorized
 
 Invalid or missing Authorization header.

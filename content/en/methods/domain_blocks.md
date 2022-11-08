@@ -53,14 +53,17 @@ limit
 
 #### Response
 ##### 200: OK
-Sample call with limit=2. Because domain ids are not public, you must parse the HTTP Link header to access next and previous pages.
 
-```http
-Link: <https://mastodon.social/api/v1/domain_blocks?limit=2&max_id=16194>; rel="next", <https://mastodon.social/api/v1/domain_blocks?limit=2&since_id=16337>; rel="prev"
-```
+Sample call with limit=2.
 
 ```json
 ["nsfw.social","artalley.social"]
+```
+
+Because AccountDomainBlock IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.social/api/v1/domain_blocks?limit=2&max_id=16194>; rel="next", <https://mastodon.social/api/v1/domain_blocks?limit=2&since_id=16337>; rel="prev"
 ```
 
 ##### 401: Unauthorized

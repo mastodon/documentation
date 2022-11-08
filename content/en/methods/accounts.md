@@ -796,11 +796,7 @@ limit
 #### Response
 ##### 200: OK
 
-Sample output with limit=2. Because the ID of follow relationships is not generally used or provided with any API calls, an HTTP `Link` header is used instead to indicate next and previous pages. You will have to parse this header yourself to extract the paging URLs.
-
-```http
-Link: <https://mastodon.social/api/v1/accounts/14715/followers?limit=2&max_id=7486869>; rel="next", <https://mastodon.social/api/v1/accounts/14715/followers?limit=2&since_id=7489740>; rel="prev"
-```
+Sample output with limit=2.
 
 ```json
 [
@@ -809,44 +805,22 @@ Link: <https://mastodon.social/api/v1/accounts/14715/followers?limit=2&max_id=74
     "username": "atul13061987",
     "acct": "atul13061987",
     "display_name": "",
-    "locked": false,
-    "bot": false,
-    "created_at": "2019-12-04T07:17:02.745Z",
-    "note": "<p></p>",
-    "url": "https://mastodon.social/@atul13061987",
-    "avatar": "https://mastodon.social/avatars/original/missing.png",
-    "avatar_static": "https://mastodon.social/avatars/original/missing.png",
-    "header": "https://mastodon.social/headers/original/missing.png",
-    "header_static": "https://mastodon.social/headers/original/missing.png",
-    "followers_count": 0,
-    "following_count": 2,
-    "statuses_count": 0,
-    "last_status_at": null,
-    "emojis": [],
-    "fields": []
+    // ...
   },
   {
     "id": "1020381",
     "username": "linuxliner",
     "acct": "linuxliner",
     "display_name": "",
-    "locked": false,
-    "bot": false,
-    "created_at": "2019-12-04T07:15:56.426Z",
-    "note": "<p></p>",
-    "url": "https://mastodon.social/@linuxliner",
-    "avatar": "https://mastodon.social/avatars/original/missing.png",
-    "avatar_static": "https://mastodon.social/avatars/original/missing.png",
-    "header": "https://mastodon.social/headers/original/missing.png",
-    "header_static": "https://mastodon.social/headers/original/missing.png",
-    "followers_count": 0,
-    "following_count": 2,
-    "statuses_count": 0,
-    "last_status_at": null,
-    "emojis": [],
-    "fields": []
+    // ...
   }
 ]
+```
+
+Because Follow IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.social/api/v1/accounts/14715/followers?limit=2&max_id=7486869>; rel="next", <https://mastodon.social/api/v1/accounts/14715/followers?limit=2&since_id=7489740>; rel="prev"
 ```
 
 ##### 401: Unauthorized
@@ -927,11 +901,7 @@ limit
 #### Response
 ##### 200: OK
 
-Sample output with limit=2. Because the ID of follow relationships is not generally used or provided with any API calls, an HTTP `Link` header is used instead to indicate next and previous pages. You will have to parse this header yourself to extract the paging URLs.
-
-```http
-Link: <https://mastodon.social/api/v1/accounts/1/followers?limit=2&max_id=7628164>; rel="next", <https://mastodon.social/api/v1/accounts/1/followers?limit=2&since_id=7628165>; rel="prev"
-```
+Sample output with limit=2.
 
 ```json
 [
@@ -940,55 +910,21 @@ Link: <https://mastodon.social/api/v1/accounts/1/followers?limit=2&max_id=762816
     "username": "gautambhatia",
     "acct": "gautambhatia",
     "display_name": "Gautam Bhatia",
-    "locked": false,
-    "bot": false,
-    "created_at": "2019-11-07T13:06:57.442Z",
-    "note": "<p>SF reader, editor, and writer.</p>",
-    "url": "https://mastodon.social/@gautambhatia",
-    "avatar": "https://files.mastodon.social/accounts/avatars/000/963/410/original/d8e0fd5cefcf9687.jpg",
-    "avatar_static": "https://files.mastodon.social/accounts/avatars/000/963/410/original/d8e0fd5cefcf9687.jpg",
-    "header": "https://mastodon.social/headers/original/missing.png",
-    "header_static": "https://mastodon.social/headers/original/missing.png",
-    "followers_count": 1900,
-    "following_count": 52,
-    "statuses_count": 183,
-    "last_status_at": "2019-12-02T17:52:39.463Z",
-    "emojis": [],
-    "fields": []
+    // ...
   },
   {
     "id": "1007400",
     "username": "seafrog",
     "acct": "seafrog@glitterkitten.co.uk",
     "display_name": "🐓🦃 Heck Partridge 🤠 🦆",
-    "locked": false,
-    "bot": false,
-    "created_at": "2019-11-19T18:46:49.977Z",
-    "note": "<p>hi im elise!! this is scribblefrog's new account</p><p>she/her, 27</p>",
-    "url": "https://glitterkitten.co.uk/@seafrog",
-    "avatar": "https://files.mastodon.social/accounts/avatars/001/007/400/original/306cd22c1b118693.png",
-    "avatar_static": "https://files.mastodon.social/accounts/avatars/001/007/400/original/306cd22c1b118693.png",
-    "header": "https://files.mastodon.social/accounts/headers/001/007/400/original/fd9728559f7265f5.jpeg",
-    "header_static": "https://files.mastodon.social/accounts/headers/001/007/400/original/fd9728559f7265f5.jpeg",
-    "followers_count": 168,
-    "following_count": 223,
-    "statuses_count": 944,
-    "last_status_at": "2019-12-04T00:44:08.603Z",
-    "emojis": [],
-    "fields": [
-      {
-        "name": "gotdamb",
-        "value": "frog",
-        "verified_at": null
-      },
-      {
-        "name": "whomst lov",
-        "value": "the oceane",
-        "verified_at": null
-      }
-    ]
-  }
+    // ...
 ]
+```
+
+Because Follow IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.social/api/v1/accounts/1/followers?limit=2&max_id=7628164>; rel="next", <https://mastodon.social/api/v1/accounts/1/followers?limit=2&since_id=7628165>; rel="prev"
 ```
 
 ##### 401: Unauthorized

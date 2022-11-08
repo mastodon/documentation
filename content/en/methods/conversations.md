@@ -59,10 +59,6 @@ limit
 
 Truncated sample results of an API call with limit=2
 
-```http
-Link: <https://mastodon.social/api/v1/conversations?limit=2&max_id=108835003356700379>; rel="next", <https://mastodon.social/api/v1/conversations?limit=2&min_id=108888782724768580>; rel="prev"
-```
-
 ```json
 [
   {
@@ -104,6 +100,12 @@ Link: <https://mastodon.social/api/v1/conversations?limit=2&max_id=1088350033567
     }
   }
 ]
+```
+
+Because AccountConversation IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.social/api/v1/conversations?limit=2&max_id=108835003356700379>; rel="next", <https://mastodon.social/api/v1/conversations?limit=2&min_id=108888782724768580>; rel="prev"
 ```
 
 ##### 401: Unauthorized

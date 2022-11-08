@@ -56,11 +56,7 @@ limit
 #### Response
 ##### 200: OK
 
-An example call with limit=2. Because the id of a favourite is not public, an HTTP `Link` header can be parsed for next and previous pages.
-
-```http
-Link: <https://mastodon.social/api/v1/favourites?limit=2&max_id=23716836>; rel="next", <https://mastodon.social/api/v1/favourites?limit=2&min_id=23716978>; rel="prev"
-```
+An example call with limit=2.
 
 ```json
 [
@@ -116,6 +112,12 @@ Link: <https://mastodon.social/api/v1/favourites?limit=2&max_id=23716836>; rel="
     // ...
   }
 ]
+```
+
+Because Favourite IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.social/api/v1/favourites?limit=2&max_id=23716836>; rel="next", <https://mastodon.social/api/v1/favourites?limit=2&min_id=23716978>; rel="prev"
 ```
 
 ##### 401: Unauthorized

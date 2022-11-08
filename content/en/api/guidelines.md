@@ -30,6 +30,34 @@ With that said, because IDs are string representations of numbers, they can stil
 1. Sort by size. Newer statuses will have longer IDs.
 2. Sort lexically. Newer statuses will have at least one digit that is higher when compared positionally.
 
+## Paginating through API responses {#pagination}
+
+Many API methods allow you to paginate for more information, using parameters such as `limit`, `max_id`, `min_id`, and `since_id`. However, some of these API methods operate on entity IDs that are not publicly exposed in the API response, and are only known to the backend and the database. (This is usually the case for entities that reference other entities, such as Follow entities which reference Accounts, or Favourite entities which reference Statuses, etc.)
+
+To get around this, Mastodon may return links to a "prev" and "next" page. These links are made available via the HTTP `Link` header on the response. Consider the following fictitious API call:
+
+```http
+GET https://mastodon.social/api/v1/endpoint HTTP/1.1
+Authorization: Bearer token
+
+Link: <https://mastodon.social/api/v1/endpoint?max_id=7163058>; rel="next", <https://mastodon.social/api/v1/endpoint?since_id=7275607>; rel="prev"
+[
+  {
+    // some Entity
+  },
+  // more Entities in an Array
+]
+```
+
+In this case, you may retrieve the `Link` header and parse it for links to the older or newer page. Keep in mind the following rules:
+
+- The links will be returned all via one `Link` header, separated by a comma and a space (`, `)
+- Each link consists of a URL and a link relation, separated by a semicolon and a space (`; `)
+- The URL will be surrounded by angle brackets (`<>`), and the link relation will be surrounded by double quotes (`""`) and prefixed with `rel=`.
+- The value of the link relation will be either `prev` or `next`.
+
+Following the `next` link should show you older results. Following the `prev` link should show you newer results.
+
 ## Formatting {#formatting}
 
 Plain text is not available for content from remote servers, and plain text syntax rules may vary wildly between Mastodon and other fediverse applications. For certain attributes, such as the content of statuses, **Mastodon provides sanitized HTML**. See [HTML Sanitization]({{< relref "spec/activitypub#sanitization" >}}) for more details. You may expect these tags to appear in the content:

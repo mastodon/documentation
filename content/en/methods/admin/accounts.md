@@ -16,18 +16,13 @@ aliases: [
 #TableOfContents ul ul ul {display: none}
 </style>
 
-<!--
-TODO: wrong token currently returns HTML and 403 instead of JSON and 401
-https://github.com/mastodon/mastodon/issues/19142
--->
-
 ## View accounts (v1) {#v1}
 
 ```http
 GET https://mastodon.example/api/v1/admin/accounts HTTP/1.1
 ```
 
-View all accounts, optionally matching certain criteria for filtering, up to 100 at a time. Pagination may be done with the HTTP Link header in the response.
+View all accounts, optionally matching certain criteria for filtering, up to 100 at a time. Pagination may be done with the HTTP Link header in the response. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 **Returns:** Array of [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:read:accounts`\
@@ -89,13 +84,13 @@ staff
 : Boolean. Filter for staff accounts?
 
 max_id 
-: **Internal parameter.** Use HTTP `Link` header for pagination.
+: String. Return results older than ID.
 
 since_id
-: **Internal parameter.** Use HTTP `Link` header for pagination.
+: String. Return results newer than ID.
 
 min_id
-: **Internal parameter.** Use HTTP `Link` header for pagination.
+: String. Return results immediately newer than ID.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 100.
@@ -174,7 +169,7 @@ limit
 
 ##### 403: Forbidden
 
-Invalid or missing access token.
+Authorized user is missing a permission, or invalid or missing Authorization header
 
 ```json
 {
@@ -190,7 +185,7 @@ Invalid or missing access token.
 GET https://mastodon.example/api/v2/admin/accounts HTTP/1.1
 ```
 
-View all accounts, optionally matching certain criteria for filtering, up to 100 at a time. Pagination may be done with the HTTP Link header in the response.
+View all accounts, optionally matching certain criteria for filtering, up to 100 at a time. Pagination may be done with the HTTP Link header in the response. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 **Returns:** Array of [Admin::Account]({{<relref "entities/Admin_Account">}})\
 **OAuth:** User token + `admin:read:accounts`\
@@ -239,13 +234,13 @@ ip
 : String. Lookup users with this IP address.
 
 max_id 
-: **Internal parameter.** Use HTTP `Link` header for pagination.
+: String. Return results older than ID.
 
 since_id
-: **Internal parameter.** Use HTTP `Link` header for pagination.
+: String. Return results newer than ID.
 
 min_id
-: **Internal parameter.** Use HTTP `Link` header for pagination.
+: String. Return results immediately newer than ID.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 100.
@@ -301,7 +296,7 @@ limit
 
 ##### 403: Forbidden
 
-Invalid or missing access token.
+Authorized user is missing a permission, or invalid or missing Authorization header
 
 ```json
 {
@@ -387,7 +382,7 @@ Authorization
 
 ##### 403: Forbidden
 
-Invalid or missing access token.
+Authorized user is missing a permission, or invalid or missing Authorization header
 
 ```json
 {
@@ -453,7 +448,7 @@ The account is now approved
 
 ##### 403: Forbidden
 
-Invalid or missing access token, or the account is not currently pending.
+Authorized user is missing a permission, or invalid or missing Authorization header, or account is currently not pending. <!-- TODO: verify that last bit -->
 
 ```json
 {
@@ -557,7 +552,7 @@ Authorization
 
 ##### 403: Forbidden
 
-Invalid or missing access token, or the account is not currently pending.
+Authorized user is missing a permission, or invalid or missing Authorization header, or the account is not currently pending.
 
 ```json
 {
@@ -673,7 +668,7 @@ The account's data has been deleted.
 
 ##### 403: Forbidden
 
-You cannot delete this account's data, or it was already deleted. Or, the access token is missing or invalid.
+Authorized user is missing a permission, or invalid or missing Authorization header, or account was already deleted.
 
 ```json
 {
@@ -739,7 +734,7 @@ The action was successfully taken
 
 ##### 403: Forbidden
 
-Invalid or missing access token.
+Authorized user is missing a permission, or invalid or missing Authorization header
 
 ```json
 {
@@ -749,12 +744,9 @@ Invalid or missing access token.
 
 ##### 404: Not found
 
-Account does not exist
+Account or Report does not exist
 
-<!--
-TODO: this also happens when report_id is not found, but the action is still taken
-https://github.com/mastodon/mastodon/issues/19145
--->
+<!-- TODO: verify response on invalid report_id -->
 
 ```json
 {
@@ -762,14 +754,16 @@ https://github.com/mastodon/mastodon/issues/19145
 }
 ```
 
-##### 500: Server error
-
-<!--
-TODO: This should be a 422
-https://github.com/mastodon/mastodon/issues/19143
--->
+##### 422: Server error
 
 `type` is not provided or is not understood
+
+<!-- TODO: verify error text -->
+```json
+{
+  "error": "Record invalid"
+}
+```
 
 ---
 
@@ -814,6 +808,16 @@ Account was enabled, or was already enabled.
 	// ...
 	"disabled": false,
 	// ...
+}
+```
+
+##### 403: Forbidden
+
+Authorized user is missing a permission, or invalid or missing Authorization header
+
+```json
+{
+  "error": "This action is not allowed"
 }
 ```
 
@@ -870,6 +874,16 @@ Account was unsilenced, or was already not silenced
   // ...
   "silenced": false,
   // ...
+}
+```
+
+##### 403: Forbidden
+
+Authorized user is missing a permission, or invalid or missing Authorization header
+
+```json
+{
+  "error": "This action is not allowed"
 }
 ```
 
@@ -931,7 +945,7 @@ Account successfully unsuspended
 
 ##### 403: Forbidden
 
-Account is not currently suspended
+Authorized user is missing a permission, or invalid or missing Authorization header, or Account is not currently suspended
 
 ```json
 {
@@ -983,10 +997,27 @@ Authorization
 
 The account is no longer marked as sensitive, or was already not marked as sensitive.
 
-<!--
-TODO: There is no way to know if an account is marked sensitive
-https://github.com/mastodon/mastodon/issues/19148
--->
+```json
+{
+  "id": "108965430868193066",
+  "username": "goody",
+  "domain": null,
+  "created_at": "2022-09-08T23:42:04.731Z",
+  // ...
+  "sensitized": false,
+  // ...
+}
+```
+
+##### 403: Forbidden
+
+Authorized user is missing a permission, or invalid or missing Authorization header
+
+```json
+{
+  "error": "This action is not allowed"
+}
+```
 
 ##### 404: Not found
 

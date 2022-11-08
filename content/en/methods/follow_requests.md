@@ -54,22 +54,31 @@ limit
 #### Response
 ##### 200: OK
 
-Accounts that are requesting a follow
-
-```http
-Link: <https://mastodon.social/api/v1/follow_requests?max_id=23716836>; rel="next", <https://mastodon.social/api/v1/follow_requests?min_id=23716978>; rel="prev"
-```
+Sample call for Accounts that are requesting a follow, with limit=2
 
 ```json
 [
   {
-    "id": "8889777",
-    "username": "example",
-    "acct": "example@social.example",
+    "id":"108119793981152178",
+    "username":"spcpro3022",
+    "acct":"spcpro3022@shitposter.club",
+    "display_name":"spcpro3022",
     // ...
   },
-  // ...
+  {
+    "id":"106780475844882270",
+    "username":"EricStoner",
+    "acct":"EricStoner@freeatlantis.com",
+    "display_name":"EricStoner",
+    // ...
+  }
 ]
+```
+
+Because FollowRequest IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.social/api/v1/follow_requests?limit=2&max_id=7163058>; rel="next", <https://mastodon.social/api/v1/follow_requests?limit=2&since_id=7275607>; rel="prev"
 ```
 
 ##### 401: Unauthorized
