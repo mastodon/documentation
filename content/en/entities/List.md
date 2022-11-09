@@ -39,7 +39,7 @@ aliases: [
 
 ### `replies_policy` {#replies_policy}
 
-**Description:** The user-defined title of the list.\
+**Description:** Which replies should be shown in the list.\
 **Type:** String (Enumerable oneOf)\
 `followed` = Show replies to any followed user\
 `list` = Show replies to members of the list\
