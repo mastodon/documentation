@@ -11,7 +11,7 @@ menu:
 
 The API is divided up into access scopes. The scopes are hierarchical, i.e. if you have access to `read`, you automatically have access to `read:accounts`. **It is recommended that you request as little as possible for your application.**
 
-Multiple scopes can be requested at the same time: During app creation with the `scopes` param, and during the authorization phase with the `scope` query param \(space-separate the scopes\).
+Multiple scopes can be requested at the same time: During app creation with the `scopes` param, and during the authorization phase with the `scope` query param (space-separate the scopes).
 
 {{< hint style="info" >}}
 Mind the `scope` vs `scopes` difference. This is because `scope` is a standard OAuth parameter name, so it is used in the OAuth methods. Mastodon’s own REST API uses the more appropriate `scopes`.
@@ -26,7 +26,7 @@ The set of scopes saved during app creation must include all the scopes that you
 - 0.9.0 - read, write, follow
 - 2.4.0 - push
 - 2.4.3 - granular scopes [https://github.com/mastodon/mastodon/pull/7929](https://github.com/mastodon/mastodon/pull/7929)
-- 2.6.0 - read:reports deprecated \(unused stub\) [https://github.com/mastodon/mastodon/pull/8736/commits/adcf23f1d00c8ff6877ca2ee2af258f326ae4e1f](https://github.com/mastodon/mastodon/pull/8736/commits/adcf23f1d00c8ff6877ca2ee2af258f326ae4e1f)
+- 2.6.0 - read:reports deprecated (unused stub) [https://github.com/mastodon/mastodon/pull/8736/commits/adcf23f1d00c8ff6877ca2ee2af258f326ae4e1f](https://github.com/mastodon/mastodon/pull/8736/commits/adcf23f1d00c8ff6877ca2ee2af258f326ae4e1f)
 - 2.6.0 - write:conversations added [https://github.com/mastodon/mastodon/pull/9009](https://github.com/mastodon/mastodon/pull/9009)
 - 2.9.1 - Admin scopes added [https://github.com/mastodon/mastodon/pull/9387](https://github.com/mastodon/mastodon/pull/9387)
 - 3.1.0 - Bookmark scopes added

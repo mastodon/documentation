@@ -30,7 +30,7 @@ Serwer Mastodona może funkcjonować samodzielnie. Tak jak na tradycyjnej stroni
 
 Mastodon używa standaryzowanego, otwartego protokołu, aby implementować federację. Nazywa się on **ActivityPub**. Dowolne oprogramowanie, które również implementuje ActivityPub, może komunikować się z Mastodonem, tak jak serwery Mastodona komunikują się między sobą.
 
-**Fediwersum** \(„sfederowane uniwersum”, z ang. „fediverse”\) to nazwa dla wszystkich stron mogących komunikować się wzajemnie w Internecie z użyciem ActivityPub. Zaliczają się do tego wszystkie serwery Mastodona, ale też inne implementacje:
+**Fediwersum** („sfederowane uniwersum”, z ang. „fediverse”) to nazwa dla wszystkich stron mogących komunikować się wzajemnie w Internecie z użyciem ActivityPub. Zaliczają się do tego wszystkie serwery Mastodona, ale też inne implementacje:
 
 * Pleroma, modularny silnik mikroblogowy,
 * Pixelfed, sfederowana platforma do udostępniania zdjęć, pozwalająca na tworzenie i dzielenie się i przeglądanie wpisów multimedialnych,
@@ -51,7 +51,7 @@ Ponieważ Mastodon jest po prostu oprogramowaniem, o które może opierać się 
 >
 > -- Eugen Rochko, 6 lipca 2018, [„Cage the Mastodon”](https://blog.joinmastodon.org/2018/07/cage-the-mastodon/)
 
-> Scentralizowana platforma społecznościowa ma hierarchiczną strukturę, gdzie jej zasady i ich wymuszanie, jak i rozwój oraz kierunek rozwoju platformy są decyzją jej CEO \[...\] Zdecentralizowana sieć jest pozbawiona możliwości kontroli przez właściciela platormy, dzięki temu, że tego właściciela nie ma.
+> Scentralizowana platforma społecznościowa ma hierarchiczną strukturę, gdzie jej zasady i ich wymuszanie, jak i rozwój oraz kierunek rozwoju platformy są decyzją jej CEO [...] Zdecentralizowana sieć jest pozbawiona możliwości kontroli przez właściciela platormy, dzięki temu, że tego właściciela nie ma.
 >
 > -- Eugen Rochko, 30 grudnia 2018, [„Dlaczego decentralizacja ma znaczenie?”](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
 

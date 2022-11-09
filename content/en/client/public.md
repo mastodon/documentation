@@ -52,7 +52,7 @@ Our response should be more manageable this time. We can parse or beautify this 
 ]
 ```
 
-We can do similarly for hashtags by calling [GET /api/v1/timelines/tag/:hashtag]({{< relref "methods/timelines#tag" >}}) -- here, the colon means that this part of the endpoint is a path parameter. In the case of :hashtag, this means we use the hashtag's name \(and once again, a limit of 2\):
+We can do similarly for hashtags by calling [GET /api/v1/timelines/tag/:hashtag]({{< relref "methods/timelines#tag" >}}) -- here, the colon means that this part of the endpoint is a path parameter. In the case of :hashtag, this means we use the hashtag's name (and once again, a limit of 2):
 
 ```bash
 curl https://mastodon.example/api/v1/timelines/tag/cats?limit=2

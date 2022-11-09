@@ -8,7 +8,7 @@ menu:
 
 If you are setting up a fresh machine, it is recommended that you secure it first. Assuming that you are running **Ubuntu 20.04**:
 
-## Do not allow password-based SSH login \(keys only\)
+## Do not allow password-based SSH login (keys only)
 
 First make sure you are actually logging in to the server using keys and not via a password, otherwise this will lock you out. Many hosting providers support uploading a public key and automatically set up key-based root login on new machines for you.
 

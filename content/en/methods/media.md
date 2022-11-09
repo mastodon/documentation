@@ -52,7 +52,7 @@ description
 : String. A plain-text description of the media, for accessibility purposes.
 
 focus
-: String. Two floating points \(x,y\), comma-delimited, ranging from -1.0 to 1.0. See [Focal points for cropping media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more information.
+: String. Two floating points (x,y), comma-delimited, ranging from -1.0 to 1.0. See [Focal points for cropping media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more information.
 
 #### Response
 ##### 202: Accepted
@@ -260,7 +260,7 @@ description
 : String. A plain-text description of the media, for accessibility purposes.
 
 focus
-: String. Two floating points \(x,y\), comma-delimited, ranging from -1.0 to 1.0. See [Focal points for cropping media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more information.
+: String. Two floating points (x,y), comma-delimited, ranging from -1.0 to 1.0. See [Focal points for cropping media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more information.
 
 #### Response
 

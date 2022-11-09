@@ -10,7 +10,7 @@ menu:
 ## Pre-requisites {#pre-requisites}
 
 * A machine running **Ubuntu 20.04** or **Debian 11** that you have root access to
-* A **domain name** \(or a subdomain\) for the Mastodon server, e.g. `example.com`
+* A **domain name** (or a subdomain) for the Mastodon server, e.g. `example.com`
 * An e-mail delivery service or other **SMTP server**
 
 You will be running the commands as root. If you aren’t already root, switch to root:
@@ -104,7 +104,7 @@ exit
 
 ### Setting up PostgreSQL {#setting-up-postgresql}
 
-#### Performance configuration \(optional\) {#performance-configuration-optional}
+#### Performance configuration (optional) {#performance-configuration-optional}
 
 For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/14/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
 
@@ -140,7 +140,7 @@ su - mastodon
 Use git to download the latest stable release of Mastodon:
 
 ```bash
-git clone https://github.com/tootsuite/mastodon.git live && cd live
+git clone https://github.com/mastodon/mastodon.git live && cd live
 git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 ```
 

@@ -9,9 +9,9 @@ menu:
 
 ## Authentication and authorization {#auth}
 
-Up until this point, we've been working with publicly available information, but not all information is public. Some information requires permission before viewing it, in order to audit who is requesting that information \(and to potentially revoke or deny access\).
+Up until this point, we've been working with publicly available information, but not all information is public. Some information requires permission before viewing it, in order to audit who is requesting that information (and to potentially revoke or deny access).
 
-This is where [OAuth]({{< relref "spec/oauth" >}}) comes in. OAuth is a mechanism for generating access tokens which can be used to _authenticate \(verify\)_ that a request is coming from a specific client, and ensure that the requested action is _authorized \(allowed\)_ by the server's access control policies.
+This is where [OAuth]({{< relref "spec/oauth" >}}) comes in. OAuth is a mechanism for generating access tokens which can be used to _authenticate (verify)_ that a request is coming from a specific client, and ensure that the requested action is _authorized (allowed)_ by the server's access control policies.
 
 ## Creating our application {#app}
 
@@ -52,7 +52,7 @@ Note the following:
 * `redirect_uri` must be one of the URIs defined when registering the application.
 * We are requesting a `grant_type` of `client_credentials`, which defaults to giving us the `read` scope.
 
-The response of this method is a [Token]({{< relref "entities/token" >}}) entity. We will need the `access_token` value. Once you have the access token, save it in your local cache. To use it in requests, add the HTTP header `Authorization: Bearer ...` to any API call that requires OAuth \(i.e., one that is not publicly accessible\). Let's verify that our obtained credentials are working by calling [GET /api/v1/apps/verify\_credentials]({{< relref "methods/apps#verify_credentials" >}}):
+The response of this method is a [Token]({{< relref "entities/token" >}}) entity. We will need the `access_token` value. Once you have the access token, save it in your local cache. To use it in requests, add the HTTP header `Authorization: Bearer ...` to any API call that requires OAuth (i.e., one that is not publicly accessible). Let's verify that our obtained credentials are working by calling [GET /api/v1/apps/verify\_credentials]({{< relref "methods/apps#verify_credentials" >}}):
 
 ```bash
 curl \

@@ -15,7 +15,7 @@ menu:
 
 All microformats classes use a prefix. The prefix indicates the type of the element, independent of hierarchy. These are the microformats classes as used in Mastodon's codebase.
 
-### Root elements \(`h-*`\) {#h}
+### Root elements (`h-*`) {#h}
 
 #### `h-feed` {#h-feed}
 
@@ -33,7 +33,7 @@ Represents a reference to another online publication. Attached to a boost. Also 
 
 Represents a person or organization. Attached to the container of display name, username, and avatar. Also attached to mentions.
 
-### Plain-text properties \(`p-*`\) {#p}
+### Plain-text properties (`p-*`) {#p}
 
 #### `p-author` {#p-author}
 
@@ -57,7 +57,7 @@ Within h-entry of a detailed status, represents a post that is a reblog and also
 
 Within `h-entry` of a detailed status, represents statuses that are direct children.
 
-### URL properties \(`u-*`\) {#u}
+### URL properties (`u-*`) {#u}
 
 #### `u-photo` {#u-photo}
 
@@ -72,13 +72,13 @@ Within `h-entry` or `h-cite`, represents a universally unique identifier. Attach
 Within `h-entry` or `h-cite`, represents the status permalink. Attached to timestamp link.
 Within `h-card`, represents the profile permalink. Attached to display name link.
 
-### Datetime properties \(`dt-*`\) {#dt}
+### Datetime properties (`dt-*`) {#dt}
 
 #### `dt-published` {#dt-published}
 
 Within `h-entry` or `h-cite`, represents the date and time at which the status was published. Attached to `data` element with `value` attribute.
 
-### Element tree \(`e-*`\) {#e}
+### Element tree (`e-*`) {#e}
 
 #### `e-content` {#e-content}
 

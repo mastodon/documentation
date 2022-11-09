@@ -20,7 +20,7 @@ REST API endpoints can be called with certain HTTP methods, and more than one me
 * **PUT** \| **PATCH**: Update a resource.
 * **DELETE**: Removes a resource.
 
-Your favorite programming language probably has a utility or library to make HTTP requests. For the purposes of this section, the cURL utility will be used for examples, which is a command-line utility included with many operating systems by default \(as `curl`\).
+Your favorite programming language probably has a utility or library to make HTTP requests. For the purposes of this section, the cURL utility will be used for examples, which is a command-line utility included with many operating systems by default (as `curl`).
 
 With cURL, the default HTTP method is GET, but you can specify the type of request to make by using the `--request` or `-X` flag; for example, `curl -X POST` will send a POST request instead of a GET request. You may also want to use the `-i` flag to include additional HTTP headers that may be returned as part of the response where relevant.
 
@@ -75,7 +75,7 @@ curl -X POST \
 
 ## Data types {#types}
 
-### Multiple values \(Array\) {#array}
+### Multiple values (Array) {#array}
 
 An array parameter must encoded using bracket notation, e.g. `array[]=foo&array[]=bar` would be translated into the following:
 
@@ -94,7 +94,7 @@ As JSON, arrays are formatted like so:
 }
 ```
 
-### Nested parameters \(Hash\) {#hash}
+### Nested parameters (Hash) {#hash}
 
 Some parameters need to be nested. For that, bracket notation must also be used. For example, `source[privacy]=public&source[language]=en` would be translated into:
 
@@ -116,7 +116,7 @@ As JSON, hashes are formatted like so:
 }
 ```
 
-### True-or-false \(Booleans\) {#boolean}
+### True-or-false (Booleans) {#boolean}
 
 A boolean value is considered false for the values `0`, `f`, `F`, `false`, `FALSE`, `off`, `OFF`, considered to not be provided for empty strings, and considered to be true for all other values. When using JSON data, use the literals `true`, `false`, and `null` instead.
 

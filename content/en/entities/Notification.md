@@ -26,7 +26,7 @@ aliases: [
 ### `type` {#type}
 
 **Description:** The type of event that resulted in the notification.\
-**Type:** String \(Enumerable oneOf\)\
+**Type:** String (Enumerable oneOf)\
 `mention` = Someone mentioned you in their status\
 `status` = Someone you enabled notifications for has posted a status\
 `reblog` = Someone boosted one of your statuses\

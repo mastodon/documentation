@@ -35,7 +35,7 @@ Obtain an access token. This corresponds to the token endpoint, section 3.2 of t
 
 ### [POST /oauth/revoke]({{< relref "../methods/oauth#revoke" >}}) {#post-oauth-revoke}
 
-Post here with client credentials to revoke an access token. This corresponds to the token endpoint, using the OAuth 2.0 Token Revocation RFC \(RFC 7009\).
+Post here with client credentials to revoke an access token. This corresponds to the token endpoint, using the OAuth 2.0 Token Revocation RFC (RFC 7009).
 
 ## Common gotchas {#gotchas}
 

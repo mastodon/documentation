@@ -30,7 +30,7 @@ A Mastodon website can operate alone. Just like a traditional website, people si
 
 Mastodon uses a standardized, open protocol to implement federation. It is called **ActivityPub**. Any software that likewise implements federation via ActivityPub can seamlessly communicate with Mastodon, just like Mastodon websites communicate with one another.
 
-The **fediverse** \(“federated universe”\) is the name for all websites that can communicate with each other over ActivityPub and the World Wide Web. That includes all Mastodon servers, but also other implementations:
+The **fediverse** (“federated universe”) is the name for all websites that can communicate with each other over ActivityPub and the World Wide Web. That includes all Mastodon servers, but also other implementations:
 
 * Pleroma, a modular microblogging engine,
 * Pixelfed, federated image sharing platform, which lets you share and consume media posts,
@@ -51,7 +51,7 @@ Because Mastodon is simply software that can be used to power any website, poten
 >
 > -- Eugen Rochko, Jul 6 2018, ["Cage the Mastodon"](https://blog.joinmastodon.org/2018/07/cage-the-mastodon/)
 
-> A centralized social media platform has a hierarchical structure where rules and their enforcement, as well as the development and direction of the platform, are decided by the CEO \[...\] A decentralized network deliberately relinquishes control of the platform owner, by essentially not having one.
+> A centralized social media platform has a hierarchical structure where rules and their enforcement, as well as the development and direction of the platform, are decided by the CEO [...] A decentralized network deliberately relinquishes control of the platform owner, by essentially not having one.
 >
 > -- Eugen Rochko, Dec 30 2018, ["Why does decentralization matter?"](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
 

@@ -49,7 +49,7 @@ Mastodon使用一种标准化的、开放的协议来实现站点之间的互动
 >
 > -- Eugen Rochko, Jul 6 2018, [《将Mastodon关到笼子里去》](https://blog.joinmastodon.org/2018/07/cage-the-mastodon/)
 
-> 一个中心化的社交媒体平台有一个等级结构，在这个结构中平台的规则及其实施，以及平台的发展方向都是由CEO决定的\[……\] 一个去中心化的网络有意放弃了对平台所有权的控制，从本质上来讲是没有平台所有者的。
+> 一个中心化的社交媒体平台有一个等级结构，在这个结构中平台的规则及其实施，以及平台的发展方向都是由CEO决定的[……] 一个去中心化的网络有意放弃了对平台所有权的控制，从本质上来讲是没有平台所有者的。
 >
 > -- Eugen Rochko, Dec 30 2018, [《为什么去中心化很重要？》](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
 

@@ -61,7 +61,7 @@ Note the following:
 * We are requesting a `grant_type` of `authorization_code`, which still defaults to giving us the `read` scope. However, while authorizing our user, we requested a certain `scope` -- pass the exact same value here.
 * The `code` can only be used once. If you need to obtain a new token, you will need to have the user authorize again by repeating the above [Authorize the user]({{< relref "client/authorized#authorize-the-user" >}}) step.
 
-The response of this method is a [Token]({{< relref "entities/token" >}}) entity. We will need the `access_token` value. Once you have the access token, save it in your local cache. To use it in requests, add the HTTP header `Authorization: Bearer ...` to any API call that requires OAuth \(i.e., one that is not publicly accessible\). Let's verify that our obtained credentials are working by calling [GET /api/v1/accounts/verify\_credentials]({{< relref "methods/accounts#verify_credentials" >}}):
+The response of this method is a [Token]({{< relref "entities/token" >}}) entity. We will need the `access_token` value. Once you have the access token, save it in your local cache. To use it in requests, add the HTTP header `Authorization: Bearer ...` to any API call that requires OAuth (i.e., one that is not publicly accessible). Let's verify that our obtained credentials are working by calling [GET /api/v1/accounts/verify\_credentials]({{< relref "methods/accounts#verify_credentials" >}}):
 
 ```bash
 curl \
