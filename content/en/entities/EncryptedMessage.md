@@ -84,7 +84,7 @@ This entity is currently unused.
 
 ## See also
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/encrypted_message_serializer.rb" caption="app/serializers/rest/encrypted_message_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/encrypted_message_serializer.rb" caption="app/serializers/rest/encrypted_message_serializer.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/pull/13820" caption="Add end-to-end encryption API (#13820)" >}}
 

@@ -67,4 +67,4 @@ aliases: [
 
 {{< page-relref ref="methods/statuses#context" caption="GET /api/v1/statuses/:id/context" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/context_serializer.rb" caption="app/serializers/rest/context_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/context_serializer.rb" caption="app/serializers/rest/context_serializer.rb" >}}

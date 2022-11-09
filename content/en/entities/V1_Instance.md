@@ -416,7 +416,7 @@ aliases: [
 
 {{< page-relref ref="methods/instance#v1" caption="GET /api/v1/instance" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/v1/instance_serializer.rb" caption="app/serializers/rest/v1/instance_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/v1/instance_serializer.rb" caption="app/serializers/rest/v1/instance_serializer.rb" >}}
 
 
 

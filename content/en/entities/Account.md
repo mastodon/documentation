@@ -435,8 +435,8 @@ aliases: [
 
 {{< page-relref ref="methods/accounts" caption="accounts API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/account_serializer.rb" caption="app/serializers/rest/account_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/account_serializer.rb" caption="app/serializers/rest/account_serializer.rb" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/credential_account_serializer.rb" caption="app/serializers/rest/credential_account_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/credential_account_serializer.rb" caption="app/serializers/rest/credential_account_serializer.rb" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/serializers/rest/muted_account_serializer.rb" caption="app/serializers/rest/muted_account_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/muted_account_serializer.rb" caption="app/serializers/rest/muted_account_serializer.rb" >}}

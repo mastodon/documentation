@@ -47,7 +47,7 @@ aliases: [
 
 {{< page-relref ref="methods/markers" caption="markers API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/marker_serializer.rb" caption="app/serializers/rest/marker_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/marker_serializer.rb" caption="app/serializers/rest/marker_serializer.rb" >}}
 
 
 

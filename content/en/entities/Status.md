@@ -392,4 +392,4 @@ aliases: [
 
 {{< page-relref ref="methods/statuses" caption="statuses methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/status_serializer.rb" caption="app/serializers/rest/status_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/status_serializer.rb" caption="app/serializers/rest/status_serializer.rb" >}}

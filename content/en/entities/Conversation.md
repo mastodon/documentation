@@ -70,7 +70,7 @@ aliases: [
 
 {{< page-relref ref="methods/conversations" caption="conversations API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/conversation_serializer.rb" caption="app/serializers/rest/conversation_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/conversation_serializer.rb" caption="app/serializers/rest/conversation_serializer.rb" >}}
 
 
 

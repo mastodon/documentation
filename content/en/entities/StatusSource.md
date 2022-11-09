@@ -49,4 +49,4 @@ aliases: [
 
 {{< page-relref ref="methods/statuses#source" caption="GET /api/v1/statuses/:id/source" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/status_source_serializer.rb" caption="app/serializers/rest/status_source_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/status_source_serializer.rb" caption="app/serializers/rest/status_source_serializer.rb" >}}

@@ -23,7 +23,7 @@ To obtain an OAuth token for a Mastodon website, make sure that you allow your u
 
 The following descriptions are taken from the [Doorkeeper documentation](https://github.com/doorkeeper-gem/doorkeeper/wiki/API-endpoint-descriptions-and-examples). Mastodon uses Doorkeeper to implement OAuth 2. For more information on how to use these endpoints, see the [API documentation for OAuth.]({{< relref "methods/oauth" >}})
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/config/initializers/doorkeeper.rb" caption="Doorkeeper config initializer" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/config/initializers/doorkeeper.rb" caption="Doorkeeper config initializer" >}}
 
 ### [GET /oauth/authorize]({{< relref "methods/oauth#authorize" >}})
 

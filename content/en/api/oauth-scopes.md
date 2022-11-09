@@ -25,10 +25,10 @@ The set of scopes saved during app creation must include all the scopes that you
 
 - 0.9.0 - read, write, follow
 - 2.4.0 - push
-- 2.4.3 - granular scopes [https://github.com/tootsuite/mastodon/pull/7929](https://github.com/tootsuite/mastodon/pull/7929)
-- 2.6.0 - read:reports deprecated \(unused stub\) [https://github.com/tootsuite/mastodon/pull/8736/commits/adcf23f1d00c8ff6877ca2ee2af258f326ae4e1f](https://github.com/tootsuite/mastodon/pull/8736/commits/adcf23f1d00c8ff6877ca2ee2af258f326ae4e1f)
-- 2.6.0 - write:conversations added [https://github.com/tootsuite/mastodon/pull/9009](https://github.com/tootsuite/mastodon/pull/9009)
-- 2.9.1 - Admin scopes added [https://github.com/tootsuite/mastodon/pull/9387](https://github.com/tootsuite/mastodon/pull/9387)
+- 2.4.3 - granular scopes [https://github.com/mastodon/mastodon/pull/7929](https://github.com/mastodon/mastodon/pull/7929)
+- 2.6.0 - read:reports deprecated \(unused stub\) [https://github.com/mastodon/mastodon/pull/8736/commits/adcf23f1d00c8ff6877ca2ee2af258f326ae4e1f](https://github.com/mastodon/mastodon/pull/8736/commits/adcf23f1d00c8ff6877ca2ee2af258f326ae4e1f)
+- 2.6.0 - write:conversations added [https://github.com/mastodon/mastodon/pull/9009](https://github.com/mastodon/mastodon/pull/9009)
+- 2.9.1 - Admin scopes added [https://github.com/mastodon/mastodon/pull/9387](https://github.com/mastodon/mastodon/pull/9387)
 - 3.1.0 - Bookmark scopes added
 
 ## List of scopes

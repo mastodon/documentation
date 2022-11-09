@@ -86,7 +86,7 @@ aliases: [
 
 {{< page-relref ref="methods/filters#v1" caption="v1 filters API" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/v1/filter_serializer.rb" caption="app/serializers/rest/v1/filter_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/v1/filter_serializer.rb" caption="app/serializers/rest/v1/filter_serializer.rb" >}}
 
 
 

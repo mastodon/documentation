@@ -61,4 +61,4 @@ aliases: [
 
 {{< page-relref ref="methods/accounts#familiar_followers" caption="GET /api/v1/accounts/:id/familiar_followers" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/familiar_followers_serializer.rb" caption="app/serializers/rest/familiar_followers_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/familiar_followers_serializer.rb" caption="app/serializers/rest/familiar_followers_serializer.rb" >}}

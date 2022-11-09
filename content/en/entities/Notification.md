@@ -131,7 +131,7 @@ aliases: [
 
 {{< page-relref ref="methods/notifications" caption="notifications API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/notification_serializer.rb" caption="app/serializers/rest/notification_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/notification_serializer.rb" caption="app/serializers/rest/notification_serializer.rb" >}}
 
 
 

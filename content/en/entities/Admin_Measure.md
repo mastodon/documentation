@@ -780,7 +780,7 @@ Total local accounts followed by accounts from a remote domain within the time p
 
 {{< page-relref ref="methods/admin/dimensions" caption="admin/dimensions API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/admin/measure_serializer.rb" caption="app/serializers/rest/admin/measure_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/measure_serializer.rb" caption="app/serializers/rest/admin/measure_serializer.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/admin/metrics/measure.rb" caption="app/lib/admin/metrics/measure.rb" >}}
 

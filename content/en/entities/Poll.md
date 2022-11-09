@@ -134,7 +134,7 @@ aliases: [
 
 {{< page-relref ref="methods/polls" caption="polls API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/poll_serializer.rb" caption="app/serializers/rest/poll_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/poll_serializer.rb" caption="app/serializers/rest/poll_serializer.rb" >}}
 
 
 

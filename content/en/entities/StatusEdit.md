@@ -107,5 +107,5 @@ aliases: [
 
 {{< page-relref ref="methods/statuses#history" caption="GET /api/v1/statuses/:id/history" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/status_edit_serializer.rb" caption="app/serializers/rest/status_edit_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/status_edit_serializer.rb" caption="app/serializers/rest/status_edit_serializer.rb" >}}
 

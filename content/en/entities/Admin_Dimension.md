@@ -299,7 +299,7 @@ Count how many statuses from the given `domain` are posted in each language, the
 
 {{< page-relref ref="methods/admin/dimensions" caption="admin/dimensions API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/admin/dimension_serializer.rb" caption="app/serializers/rest/admin/dimension_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/dimension_serializer.rb" caption="app/serializers/rest/admin/dimension_serializer.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/admin/metrics/dimension.rb" caption="app/lib/admin/metrics/dimension.rb" >}}
 

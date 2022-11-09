@@ -45,4 +45,4 @@ aliases: [
 
 {{< page-relref ref="methods/admin/canonical_email_blocks" caption="admin/canonical_email_blocks API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/admin/canonical_email_block_serializer.rb" caption="app/serializers/rest/admin/canonical_email_block_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/canonical_email_block_serializer.rb" caption="app/serializers/rest/admin/canonical_email_block_serializer.rb" >}}

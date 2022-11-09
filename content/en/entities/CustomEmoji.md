@@ -73,7 +73,7 @@ aliases: [
 
 {{< page-relref ref="entities/Announcement#emojis" caption="Announcement (`emojis` attribute)" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/custom_emoji_serializer.rb" caption="app/serializers/rest/custom_emoji_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/custom_emoji_serializer.rb" caption="app/serializers/rest/custom_emoji_serializer.rb" >}}
 
 
 

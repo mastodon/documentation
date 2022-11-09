@@ -51,4 +51,4 @@ aliases: [
 
 {{< page-relref ref="methods/filters" caption="/api/v2/filters methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/filter_keyword_serializer.rb" caption="app/serializers/rest/filter_keyword_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/filter_keyword_serializer.rb" caption="app/serializers/rest/filter_keyword_serializer.rb" >}}

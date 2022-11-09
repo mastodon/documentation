@@ -128,7 +128,7 @@ https://github.com/mastodon/mastodon/pull/19221
 -->
 {{< page-relref ref="methods/featured_tags#suggestions" caption="GET /api/v1/featured_tags/suggestions" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/tag_serializer.rb" caption="app/serializers/rest/tag_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/tag_serializer.rb" caption="app/serializers/rest/tag_serializer.rb" >}}
 
 
 

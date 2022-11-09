@@ -490,4 +490,4 @@ aliases: [
 
 {{< page-relref ref="methods/instance#v2" caption="GET /api/v2/instance" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/instance_serializer.rb" caption="app/serializers/rest/instance_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/instance_serializer.rb" caption="app/serializers/rest/instance_serializer.rb" >}}

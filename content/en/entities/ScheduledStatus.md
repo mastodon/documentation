@@ -102,7 +102,7 @@ Returned from `GET /api/v1/scheduled_statuses`:
 
 {{< page-relref ref="methods/scheduled_statuses" caption="scheduled_statuses API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/scheduled_status_serializer.rb" caption="app/serializers/rest/scheduled_status_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/scheduled_status_serializer.rb" caption="app/serializers/rest/scheduled_status_serializer.rb" >}}
 
 
 

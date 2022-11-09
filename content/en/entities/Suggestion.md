@@ -49,7 +49,7 @@ aliases: [
 
 {{< page-relref ref="methods/suggestions#v2" caption="GET /api/v2/suggestions" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/suggestion_serializer.rb" caption="app/serializers/rest/suggestion_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/suggestion_serializer.rb" caption="app/serializers/rest/suggestion_serializer.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/models/account_suggestions.rb" caption="app/models/account_suggestions.rb" >}}
 

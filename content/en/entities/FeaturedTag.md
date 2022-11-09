@@ -65,7 +65,7 @@ aliases: [
 
 {{< page-relref ref="methods/featured_tags" caption="featured_tags API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/featured_tag_serializer.rb" caption="app/serializers/rest/featured_tag_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/featured_tag_serializer.rb" caption="app/serializers/rest/featured_tag_serializer.rb" >}}
 
 
 

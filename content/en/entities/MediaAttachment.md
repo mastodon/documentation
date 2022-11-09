@@ -239,4 +239,4 @@ More importantly, there may be another topl-level `focus` Hash object on images 
 
 {{< page-relref ref="methods/media" caption="media API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/media_attachment_serializer.rb" caption="app/serializers/rest/media_attachment_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/media_attachment_serializer.rb" caption="app/serializers/rest/media_attachment_serializer.rb" >}}

@@ -123,9 +123,9 @@ If `whole_word` is true, the client app should do the following:
 
 Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_manager.rb` in the Mastodon source code for more details.
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/javascript/mastodon/selectors/index.js" caption="app/javascript/mastodon/selectors/index.js" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/javascript/mastodon/selectors/index.js" caption="app/javascript/mastodon/selectors/index.js" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/lib/feed_manager.rb" caption="app/lib/feed_manager.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/feed_manager.rb" caption="app/lib/feed_manager.rb" >}}
 
 ## Focal points for cropping media thumbnails {#focal-points}
 

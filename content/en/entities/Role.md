@@ -151,4 +151,4 @@ To determine the permissions available to a certain role, convert the `permissio
 
 ## See also
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/role_serializer.rb" caption="app/serializers/rest/role_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/role_serializer.rb" caption="app/serializers/rest/role_serializer.rb" >}}

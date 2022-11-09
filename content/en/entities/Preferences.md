@@ -72,7 +72,7 @@ aliases: [
 
 {{< page-relref ref="methods/preferences" caption="preferences API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/preferences_serializer.rb" caption="app/serializers/rest/preferences_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/preferences_serializer.rb" caption="app/serializers/rest/preferences_serializer.rb" >}}
 
 
 

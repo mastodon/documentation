@@ -113,7 +113,7 @@ Truncated sample search for q=cats limit=2
 
 {{< page-relref ref="methods/search" caption="search API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/search_serializer.rb" caption="app/serializers/rest/search_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/search_serializer.rb" caption="app/serializers/rest/search_serializer.rb" >}}
 
 
 

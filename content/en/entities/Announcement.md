@@ -208,4 +208,4 @@ aliases: [
 
 {{< page-relref ref="methods/announcements" caption="announcements API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/announcement_serializer.rb" caption="app/serializers/rest/announcement_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/announcement_serializer.rb" caption="app/serializers/rest/announcement_serializer.rb" >}}

@@ -132,4 +132,4 @@ Daily retention data for the week between 2022-09-08 and 2022-09-14, given that 
 
 {{< page-relref ref="methods/admin/retention" caption="admin/retention API methods" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/admin/cohort_serializer.rb" caption="app/serializers/rest/admin/cohort_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/cohort_serializer.rb" caption="app/serializers/rest/admin/cohort_serializer.rb" >}}

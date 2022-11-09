@@ -45,4 +45,4 @@ aliases: [
 
 {{< page-relref ref="entities/Admin_Account#ips" caption="Admin::Account (`ips` attribute)" >}}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/main/app/serializers/rest/admin/ip_serializer.rb" caption="app/serializers/rest/admin/ip_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/ip_serializer.rb" caption="app/serializers/rest/admin/ip_serializer.rb" >}}
