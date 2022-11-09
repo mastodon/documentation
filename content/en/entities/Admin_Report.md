@@ -82,7 +82,7 @@ aliases: [
 ### `action_taken_at` {#action_taken_at}
 
 **Description:** When an action was taken, if this report is currently resolved.\
-**Type:** String (ISO 8601 Datetime) or null\
+**Type:** {{<nullable>}} String (ISO 8601 Datetime) or null\
 **Version history:**\
 2.9.1 - added
 
