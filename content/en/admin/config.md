@@ -37,13 +37,13 @@ location /.well-known/webfinger {
 
 If you have multiple domains pointed at your Mastodon server, this setting will allow Mastodon to recognize itself when users are addressed using those other domains. Separate the domains by commas, e.g. `foo.com,bar.com`
 
-#### `AUTHORIZED_FETCH` {#authorized_fetch}
+#### `AUTHORIZED_FETCH`
 
 Also called "secure mode". When set to `true`, the following changes occur:
 
 - Mastodon will stop generating linked-data signatures for public posts, which prevents them from being re-distributed efficiently but without precise control. Since a linked-data object with a signature is entirely self-contained, it can be passed around without making extra requests to the server where it originates.
 - Mastodon will require HTTP signature authentication on ActivityPub representations of public posts and profiles, which are normally available without any authentication. Profiles will only return barebones technical information when no authentication is supplied.
-- Mastodon will require any REST/streaming API access to have a user context (i.e. having gone through an OAuth authorization screen with an active user), when normally some API endpoints are available without any authentication.
+- Prior to v4.0.0: Mastodon will require any REST/streaming API access to have a user context (i.e. having gone through an OAuth authorization screen with an active user), when normally some API endpoints are available without any authentication.
 
 As a result, through the authentication mechanism and avoiding re-distribution mechanisms that do not have your server in the loop, it becomes possible to enforce who can and cannot retrieve even public content from your server, e.g. servers whose domains you have blocked.
 
@@ -55,7 +55,7 @@ Unfortunately, secure mode is not without its drawbacks, which is why it is not 
 Secure mode does not hide HTML representations of public posts and profiles. HTML is a more lossy format compared to first-class ActivityPub representations or the REST API but it is still a potential vector for scraping content.
 {{</ hint >}}
 
-#### `LIMITED_FEDERATION_MODE` {#limited_federation_mode}
+#### `LIMITED_FEDERATION_MODE`
 
 When set to `true`, Mastodon will restrict federation to servers you have manually approved only, as well as disable all public pages and some REST APIs. Limited federation mode is based on secure mode (`AUTHORIZED_FETCH`).
 
@@ -72,6 +72,10 @@ This mode is intended for private use only, such as in academic instituations or
 {{< hint style="info" >}}
 This setting was known as `WHITELIST_MODE` prior to 3.1.5.
 {{</ hint >}}
+
+#### `DISALLOW_UNAUTHENTICATED_API_ACCESS`
+
+As of Mastodon v4.0.0, the web app is now used to render all requests, even for logged-out viewers. In order to make these views work, the web app makes public API requests in order to fetch accounts and statuses. If you would like to disallow this, then set this variable to `true`. Note that disallowing unauthenticated API access will cause profile and post permalinks to return an error to logged-out users, essentially making it so that the only ways to view content is to either log in locally or fetch it via ActivityPub.
 
 ### Secrets {#secrets}
 
