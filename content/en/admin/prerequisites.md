@@ -88,6 +88,9 @@ Edit `/etc/iptables/rules.v4` and put this inside:
 #  Allow ping
 -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
 
+# Allow destination unreachable messages, espacally code 4 (fragmentation required) is required or PMTUD breaks
+-A INPUT -p icmp -m icmp --icmp-type 3 -j ACCEPT
+
 #  Log iptables denied calls
 -A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
 
