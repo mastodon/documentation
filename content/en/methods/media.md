@@ -26,13 +26,14 @@ aliases: [
 POST https://mastodon.example/api/v2/media HTTP/1.1
 ```
 
-Creates a media attachment to be used with a new status. The full sized media will be processed asynchronously in the background
+Creates a media attachment to be used with a new status. The full sized media will be processed asynchronously in the background for large uploads.
 
 **Returns:** [MediaAttachment]({{< relref "entities/MediaAttachment" >}}), but without a URL\
 **OAuth:** User token + `write:media`\
 **Version history:**\
 3.1.3 - added\
-3.2.0 - add `thumbnail` parameter
+3.2.0 - add `thumbnail` parameter\
+4.0.0 - Smaller media formats (image) will be processed synchronously and return 200 instead of 202. Larger media formats (video, gifv, audio) will continue to be processed asynchronously and return 202.
 
 #### Request
 ##### Headers
@@ -55,9 +56,45 @@ focus
 : String. Two floating points (x,y), comma-delimited, ranging from -1.0 to 1.0. See [Focal points for cropping media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more information.
 
 #### Response
+
+##### 200: OK
+
+MediaAttachment was created successfully, and the full-size file was processed synchronously.
+
+```json
+{
+  "id": "22348641",
+  "type": "image",
+  "url": "https://files.mastodon.social/media_attachments/files/022/348/641/original/e96382f26c72a29c.jpeg",
+  "preview_url": "https://files.mastodon.social/media_attachments/files/022/348/641/small/e96382f26c72a29c.jpeg",
+  "remote_url": null,
+  "text_url": "https://mastodon.social/media/4Zj6ewxzzzDi0g8JnZQ",
+  "meta": {
+    "focus": {
+      "x": -0.42,
+      "y": 0.69
+    },
+    "original": {
+      "width": 640,
+      "height": 480,
+      "size": "640x480",
+      "aspect": 1.3333333333333333
+    },
+    "small": {
+      "width": 461,
+      "height": 346,
+      "size": "461x346",
+      "aspect": 1.3323699421965318
+    }
+  },
+  "description": "test uploaded via api",
+  "blurhash": "UFBWY:8_0Jxv4mx]t8t64.%M-:IUWGWAt6M}"
+}
+```
+
 ##### 202: Accepted
 
-MediaAttachment created successfully. Note that the MediaAttachment's `url` will still be null, as the media is still being processed in the background.
+MediaAttachment was created successfully, but the full-size file is still processing. Note that the MediaAttachment's `url` will still be null, as the media is still being processed in the background. However, the `preview_url` should be available.
 
 ```json
 {
