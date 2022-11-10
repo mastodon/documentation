@@ -13,7 +13,7 @@ For convenience, it can read them from a flat file called `.env.production` in t
 
 ## Basic {#basic}
 
-### Federation {#federation}
+### Federation and display {#federation}
 
 #### `LOCAL_DOMAIN`
 
@@ -36,6 +36,10 @@ location /.well-known/webfinger {
 #### `ALTERNATE_DOMAINS`
 
 If you have multiple domains pointed at your Mastodon server, this setting will allow Mastodon to recognize itself when users are addressed using those other domains. Separate the domains by commas, e.g. `foo.com,bar.com`
+
+#### `ALLOWED_PRIVATE_ADDRESSES`
+
+Comma-separated specific addresses/subnets allowed in outgoing HTTP queries.
 
 #### `AUTHORIZED_FETCH`
 
@@ -76,6 +80,88 @@ This setting was known as `WHITELIST_MODE` prior to 3.1.5.
 #### `DISALLOW_UNAUTHENTICATED_API_ACCESS`
 
 As of Mastodon v4.0.0, the web app is now used to render all requests, even for logged-out viewers. In order to make these views work, the web app makes public API requests in order to fetch accounts and statuses. If you would like to disallow this, then set this variable to `true`. Note that disallowing unauthenticated API access will cause profile and post permalinks to return an error to logged-out users, essentially making it so that the only ways to view content is to either log in locally or fetch it via ActivityPub.
+
+#### `SINGLE_USER_MODE`
+
+If set to `true`, the frontpage of your Mastodon server will always redirect to the first profile in the database and registrations will be disabled.
+
+#### `DEFAULT_LOCALE`
+
+By default, Mastodon will automatically detect the visitor's language from browser headers and display the Mastodon interface in that language (if it's supported). If you are running a language-specific or regional server, that behaviour may mislead visitors who do not speak your language into signing up on your server. For this reason, you may want to set this variable to a specific language.
+
+Example value: `de`
+
+Supported languages:
+
+- `ar`
+- `ast`
+- `bg`
+- `bn`
+- `br`
+- `ca`
+- `co`
+- `cs`
+- `cy`
+- `da`
+- `de`
+- `el`
+- `en`
+- `eo`
+- `es`
+- `es-AR`
+- `et`
+- `eu`
+- `fa`
+- `fi`
+- `fr`
+- `ga`
+- `gl`
+- `he`
+- `hi`
+- `hr`
+- `hu`
+- `hy`
+- `id`
+- `io`
+- `is`
+- `it`
+- `ja`
+- `ka`
+- `kab`
+- `kk`
+- `kn`
+- `ko`
+- `lt`
+- `lv`
+- `mk`
+- `ml`
+- `mr`
+- `ms`
+- `nl`
+- `nn`
+- `no`
+- `oc`
+- `pl`
+- `pt-BR`
+- `pt-PT`
+- `ro`
+- `ru`
+- `sk`
+- `sl`
+- `sq`
+- `sr`
+- `sr-Latn`
+- `sv`
+- `ta`
+- `te`
+- `th`
+- `tr`
+- `uk`
+- `ur`
+- `vi`
+- `zh-CN`
+- `zh-HK`
+- `zh-TW`
 
 ### Secrets {#secrets}
 
@@ -161,6 +247,10 @@ Specific to Puma, this variable determines how many different processes Puma for
 
 Specific to Puma, this variable determines how many threads each Puma process maintains. Defaults to `5`.
 
+#### `PERSISTENT_TIMEOUT`
+
+Specific to Puma, this variable determines how long Puma should wait before closing a connection. Defaults to `20`.
+
 #### `PREPARED_STATEMENTS`
 
 By default, Mastodon uses the prepared statements feature of PostgreSQL, which offers some performance advantages. This feature is not available if you are using a connection pool where connections are shared between transactions and must thus be set to `false`. When you are scaling up, the advantages of having a transaction-based connection pool outweigh those provided by prepared statements.
@@ -175,7 +265,7 @@ Example value: `wss://streaming.example.com`
 
 Specific to the streaming API, this variable determines how many different processes the streaming API forks into. Defaults to the number of CPU cores minus one.
 
-## Database connections {#connections}
+## Backend {#backend}
 
 ### PostgreSQL {#postgresql}
 
@@ -253,6 +343,8 @@ If provided, takes precedence over `CACHE_REDIS_HOST` and `CACHE_REDIS_PORT`. De
 
 Defaults to value of `REDIS_NAMESPACE`.
 
+#### `SIDEKIQ_REDIS_URL`
+
 ### ElasticSearch {#elasticsearch}
 
 {{< page-ref page="admin/optional/elasticsearch.md" >}}
@@ -293,137 +385,25 @@ Example value: `localhost:8125`
 
 If set, all StatsD keys will be prefixed with this. Defaults to `Mastodon.production` when `RAILS_ENV` is `production`, `Mastodon.development` when it's `development`, etc.
 
-## Limits {#limits}
+### SMTP email delivery {#smtp}
 
-#### `SINGLE_USER_MODE`
+#### `SMTP_SERVER`
+#### `SMTP_PORT`
+#### `SMTP_LOGIN`
+#### `SMTP_PASSWORD`
+#### `SMTP_FROM_ADDRESS`
+#### `SMTP_DOMAIN`
+#### `SMTP_DELIVERY_METHOD`
+#### `SMTP_AUTH_METHOD`
+#### `SMTP_CA_FILE`
+#### `SMTP_OPENSSL_VERIFY_MODE`
+#### `SMTP_ENABLE_STARTTLS_AUTO`
+#### `SMTP_TLS`
+#### `SMTP_SSL`
 
-If set to `true`, the frontpage of your Mastodon server will always redirect to the first profile in the database and registrations will be disabled.
+## File storage {#files}
 
-#### `EMAIL_DOMAIN_ALLOWLIST`
-
-If set, registrations will not be possible with any e-mails **except** those from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
-
-#### `EMAIL_DOMAIN_DENYLIST`
-
-If set, registrations will not be possible with any e-mails from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
-
-{{< hint style="warning" >}}
-This option is deprecated. You can dynamically block e-mail domains from the admin interface or from the `tootctl` command-line interface.
-{{</ hint >}}
-
-#### `DEFAULT_LOCALE`
-
-By default, Mastodon will automatically detect the visitor's language from browser headers and display the Mastodon interface in that language (if it's supported). If you are running a language-specific or regional server, that behaviour may mislead visitors who do not speak your language into signing up on your server. For this reason, you may want to set this variable to a specific language.
-
-Example value: `de`
-
-Supported languages:
-
-- `ar`
-- `ast`
-- `bg`
-- `bn`
-- `br`
-- `ca`
-- `co`
-- `cs`
-- `cy`
-- `da`
-- `de`
-- `el`
-- `en`
-- `eo`
-- `es`
-- `es-AR`
-- `et`
-- `eu`
-- `fa`
-- `fi`
-- `fr`
-- `ga`
-- `gl`
-- `he`
-- `hi`
-- `hr`
-- `hu`
-- `hy`
-- `id`
-- `io`
-- `is`
-- `it`
-- `ja`
-- `ka`
-- `kab`
-- `kk`
-- `kn`
-- `ko`
-- `lt`
-- `lv`
-- `mk`
-- `ml`
-- `mr`
-- `ms`
-- `nl`
-- `nn`
-- `no`
-- `oc`
-- `pl`
-- `pt-BR`
-- `pt-PT`
-- `ro`
-- `ru`
-- `sk`
-- `sl`
-- `sq`
-- `sr`
-- `sr-Latn`
-- `sv`
-- `ta`
-- `te`
-- `th`
-- `tr`
-- `uk`
-- `ur`
-- `vi`
-- `zh-CN`
-- `zh-HK`
-- `zh-TW`
-
-#### `MAX_SESSION_ACTIVATIONS`
-
-How many browser sessions are allowed per-user. Defaults to `10`. If a new browser session is created, then the oldest session is deleted, e.g. user in that browser is logged out.
-
-#### `USER_ACTIVE_DAYS`
-
-Mastodon stores home feeds in RAM (specifically, in the Redis database). This makes them very fast to access and update, but it also means that you don't want to keep them there if they're not used, and you don't want to spend resources on inserting new items into home feeds that will not be accessed. For this reason, Mastodon periodically clears out home feeds of users who haven't been online in a while, and if they re-appear, it regenerates those home feeds from database data. By default, users are considered active if they have been online in the past `7` days.
-
-Regeneration of home feeds is computationally expensive, if your Sidekiq is constantly doing it because your users come online every 3 days but your `USER_ACTIVE_DAYS` is set to 2, then consider adjusting it up.
-
-{{< hint style="info" >}}
-This setting has no relation to which users are considered active for the purposes of statistics, such as the Monthly Active Users number.
-{{</ hint >}}
-
-#### `ALLOWED_PRIVATE_ADDRESSES`
-
-Comma-separated specific addresses/subnets allowed in outgoing HTTP queries.
-
-## E-mail {#email}
-
-* `SMTP_SERVER`
-* `SMTP_PORT`
-* `SMTP_LOGIN`
-* `SMTP_PASSWORD`
-* `SMTP_FROM_ADDRESS`
-* `SMTP_DOMAIN`
-* `SMTP_DELIVERY_METHOD`
-* `SMTP_AUTH_METHOD`
-* `SMTP_CA_FILE`
-* `SMTP_OPENSSL_VERIFY_MODE`
-* `SMTP_ENABLE_STARTTLS_AUTO`
-* `SMTP_TLS`
-* `SMTP_SSL`
-
-## File storage {#cdn}
+### CDN {cdn}
 
 #### `CDN_HOST`
 
@@ -454,121 +434,218 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 ### Local file storage {#paperclip}
 
-* `PAPERCLIP_ROOT_PATH`
-* `PAPERCLIP_ROOT_URL`
+#### `PAPERCLIP_ROOT_PATH`
+#### `PAPERCLIP_ROOT_URL`
 
 ### Amazon S3 and compatible {#s3}
 
-* `S3_ENABLED`
-* `S3_BUCKET`
-* `AWS_ACCESS_KEY_ID`
-* `AWS_SECRET_ACCESS_KEY`
-* `S3_REGION`
-* `S3_PROTOCOL`
-* `S3_HOSTNAME`
-* `S3_ENDPOINT`
-* `S3_SIGNATURE_VERSION`
-* `S3_OVERRIDE_PATH_STYLE`
-* `S3_OPEN_TIMEOUT`
-* `S3_READ_TIMEOUT`
-* `S3_FORCE_SINGLE_REQUEST`
+#### `S3_ENABLED`
+#### `S3_BUCKET`
+#### `AWS_ACCESS_KEY_ID`
+#### `AWS_SECRET_ACCESS_KEY`
+#### `S3_REGION`
+#### `S3_PROTOCOL`
+#### `S3_HOSTNAME`
+#### `S3_ENDPOINT`
+#### `S3_SIGNATURE_VERSION`
+#### `S3_OVERRIDE_PATH_STYLE`
+#### `S3_OPEN_TIMEOUT`
+#### `S3_READ_TIMEOUT`
+#### `S3_FORCE_SINGLE_REQUEST`
 
 ### Swift {#swift}
 
-* `SWIFT_ENABLED`
-* `SWIFT_USERNAME`
-* `SWIFT_TENANT`
-* `SWIFT_PASSWORD`
-* `SWIFT_PROJECT_ID`
-* `SWIFT_AUTH_URL`
-* `SWIFT_CONTAINER`
-* `SWIFT_OBJECT_URL`
-* `SWIFT_REGION`
-* `SWIFT_DOMAIN_NAME`
-* `SWIFT_CACHE_TTL`
+#### `SWIFT_ENABLED`
+#### `SWIFT_USERNAME`
+#### `SWIFT_TENANT`
+#### `SWIFT_PASSWORD`
+#### `SWIFT_PROJECT_ID`
+#### `SWIFT_AUTH_URL`
+#### `SWIFT_CONTAINER`
+#### `SWIFT_OBJECT_URL`
+#### `SWIFT_REGION`
+#### `SWIFT_DOMAIN_NAME`
+#### `SWIFT_CACHE_TTL`
 
 ## External authentication {#external-authentication}
 
-* `OMNIAUTH_ONLY`
+### OmniAuth
+
+#### `OMNIAUTH_ONLY`
 
 ### LDAP {#ldap}
 
-* `LDAP_ENABLED`
-* `LDAP_HOST`
-* `LDAP_PORT`
-* `LDAP_METHOD`
-* `LDAP_BASE`
-* `LDAP_BIND_DN`
-* `LDAP_PASSWORD`
-* `LDAP_UID`
-* `LDAP_SEARCH_FILTER`
-* `LDAP_MAIL`
-* `LDAP_UID_CONVERSTION_ENABLED`
+#### `LDAP_ENABLED`
+#### `LDAP_HOST`
+#### `LDAP_PORT`
+#### `LDAP_METHOD`
+#### `LDAP_BASE`
+#### `LDAP_BIND_DN`
+#### `LDAP_PASSWORD`
+#### `LDAP_UID`
+#### `LDAP_SEARCH_FILTER`
+#### `LDAP_MAIL`
+#### `LDAP_UID_CONVERSTION_ENABLED`
 
 ### PAM {#pam}
 
-* `PAM_ENABLED`
-* `PAM_EMAIL_DOMAIN`
-* `PAM_DEFAULT_SERVICE`
-* `PAM_CONTROLLED_SERVICE`
+#### `PAM_ENABLED`
+#### `PAM_EMAIL_DOMAIN`
+#### `PAM_DEFAULT_SERVICE`
+#### `PAM_CONTROLLED_SERVICE`
 
 ### CAS {#cas}
 
-* `CAS_ENABLED`
-* `CAS_URL`
-* `CAS_HOST`
-* `CAS_PORT`
-* `CAS_SSL`
-* `CAS_VALIDATE_URL`
-* `CAS_CALLBACK_URL`
-* `CAS_LOGOUT_URL`
-* `CAS_LOGIN_URL`
-* `CAS_UID_FIELD`
-* `CAS_CA_PATH`
-* `CAS_DISABLE_SSL_VERIFICATION`
-* `CAS_UID_KEY`
-* `CAS_NAME_KEY`
-* `CAS_EMAIL_KEY`
-* `CAS_NICKNAME_KEY`
-* `CAS_FIRST_NAME_KEY`
-* `CAS_LAST_NAME_KEY`
-* `CAS_LOCATION_KEY`
-* `CAS_IMAGE_KEY`
-* `CAS_PHONE_KEY`
-* `CAS_SECURITY_ASSUME_EMAIL_IS_VERIFIED`
+#### `CAS_ENABLED`
+#### `CAS_DISPLAY_NAME`
+#### `CAS_URL`
+#### `CAS_HOST`
+#### `CAS_PORT`
+#### `CAS_SSL`
+#### `CAS_VALIDATE_URL`
+#### `CAS_CALLBACK_URL`
+#### `CAS_LOGOUT_URL`
+#### `CAS_LOGIN_URL`
+#### `CAS_UID_FIELD`
+#### `CAS_CA_PATH`
+#### `CAS_DISABLE_SSL_VERIFICATION`
+#### `CAS_UID_KEY`
+#### `CAS_NAME_KEY`
+#### `CAS_EMAIL_KEY`
+#### `CAS_NICKNAME_KEY`
+#### `CAS_FIRST_NAME_KEY`
+#### `CAS_LAST_NAME_KEY`
+#### `CAS_LOCATION_KEY`
+#### `CAS_IMAGE_KEY`
+#### `CAS_PHONE_KEY`
+#### `CAS_SECURITY_ASSUME_EMAIL_IS_VERIFIED`
 
 ### SAML {#saml}
 
-* `SAML_ENABLED`
-* `SAML_ACS_URL`
-* `SAML_ISSUER`
-* `SAML_IDP_SSO_TARGET_URL`
-* `SAML_IDP_CERT`
-* `SAML_IDP_CERT_FINGERPRINT`
-* `SAML_NAME_IDENTIFIER_FORMAT`
-* `SAML_CERT`
-* `SAML_PRIVATE_KEY`
-* `SAML_SECURITY_WANT_ASSERTION_SIGNED`
-* `SAML_SECURITY_WANT_ASSERTION_ENCRYPTED`
-* `SAML_SECURITY_ASSUME_EMAIL_IS_VERIFIED`
-* `SAML_ATTRIBUTES_STATEMENTS_UID`
-* `SAML_ATTRIBUTES_STATEMENTS_EMAIL`
-* `SAML_ATTRIBUTES_STATEMENTS_FULL_NAME`
-* `SAML_ATTRIBUTES_STATEMENTS_FIRST_NAME`
-* `SAML_ATTRIBUTES_STATEMENTS_LAST_NAME`
-* `SAML_UID_ATTRIBUTE`
-* `SAML_ATTRIBUTES_STATEMENTS_VERIFIED`
-* `SAML_ATTRIBUTES_STATEMENTS_VERIFIED_EMAIL`
+#### `SAML_ENABLED`
+#### `SAML_ACS_URL`
+#### `SAML_ISSUER`
+#### `SAML_IDP_SSO_TARGET_URL`
+#### `SAML_IDP_CERT`
+#### `SAML_IDP_CERT_FINGERPRINT`
+#### `SAML_NAME_IDENTIFIER_FORMAT`
+#### `SAML_CERT`
+#### `SAML_PRIVATE_KEY`
+#### `SAML_SECURITY_WANT_ASSERTION_SIGNED`
+#### `SAML_SECURITY_WANT_ASSERTION_ENCRYPTED`
+#### `SAML_SECURITY_ASSUME_EMAIL_IS_VERIFIED`
+#### `SAML_ATTRIBUTES_STATEMENTS_UID`
+#### `SAML_ATTRIBUTES_STATEMENTS_EMAIL`
+#### `SAML_ATTRIBUTES_STATEMENTS_FULL_NAME`
+#### `SAML_ATTRIBUTES_STATEMENTS_FIRST_NAME`
+#### `SAML_ATTRIBUTES_STATEMENTS_LAST_NAME`
+#### `SAML_UID_ATTRIBUTE`
+#### `SAML_ATTRIBUTES_STATEMENTS_VERIFIED`
+#### `SAML_ATTRIBUTES_STATEMENTS_VERIFIED_EMAIL`
 
 ## Hidden services {#hidden-services}
 
+### TOR {#tor}
+
 {{< page-ref page="admin/optional/tor.md" >}}
 
-* `http_proxy`
-* `ALLOW_ACCESS_TO_HIDDEN_SERVICE`
+#### `http_proxy`
+#### `http_hidden_proxy`
+#### `ALLOW_ACCESS_TO_HIDDEN_SERVICE`
+
+## Limits {#limits}
+
+### Email domains
+
+#### `EMAIL_DOMAIN_ALLOWLIST`
+
+If set, registrations will not be possible with any e-mails **except** those from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
+
+#### `EMAIL_DOMAIN_DENYLIST`
+
+If set, registrations will not be possible with any e-mails from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
+
+{{< hint style="warning" >}}
+This option is deprecated. You can dynamically block e-mail domains from the admin interface or from the `tootctl` command-line interface.
+{{</ hint >}}
+
+### Sessions
+
+#### `MAX_SESSION_ACTIVATIONS`
+
+How many browser sessions are allowed per-user. Defaults to `10`. If a new browser session is created, then the oldest session is deleted, e.g. user in that browser is logged out.
+
+### Home feeds
+
+#### `USER_ACTIVE_DAYS`
+
+Mastodon stores home feeds in RAM (specifically, in the Redis database). This makes them very fast to access and update, but it also means that you don't want to keep them there if they're not used, and you don't want to spend resources on inserting new items into home feeds that will not be accessed. For this reason, Mastodon periodically clears out home feeds of users who haven't been online in a while, and if they re-appear, it regenerates those home feeds from database data. By default, users are considered active if they have been online in the past `7` days.
+
+Regeneration of home feeds is computationally expensive, if your Sidekiq is constantly doing it because your users come online every 3 days but your `USER_ACTIVE_DAYS` is set to 2, then consider adjusting it up.
+
+{{< hint style="info" >}}
+This setting has no relation to which users are considered active for the purposes of statistics, such as the Monthly Active Users number.
+{{</ hint >}}
 
 ## Other {#other}
+
+### DB migrations {#migrations}
 
 #### `SKIP_POST_DEPLOYMENT_MIGRATIONS`
 
 This variable only has any effect when running `rake db:migrate` and it is extremely specific to the Mastodon upgrade process. There are two types of database migrations, those that run before new code is deployed and running, and those that run after. By default, both types of migrations are executed. If you shut down all Mastodon processes before running migrations, then there is no difference. The variable makes sense for zero-downtime upgrades. You will see in the upgrade instructions of a specific Mastodon version if you need to use it or not.
+
+### Uncategorized or unsorted
+
+#### `BUNDLE_GEMFILE`
+#### `DEEPL_API_KEY`
+#### `DEEPL_PLAN`
+#### `LIBRE_TRANSLATE_ENDPOINT`
+#### `LIBRE_TRANSLATE_API_KEY`
+#### `CACHE_BUSTER_ENABLED`
+#### `CACHE_BUSTER_SECRET_HEADER`
+#### `CACHE_BUSTER_SECRET`
+#### `GITHUB_REPOSITORY`
+
+Defaults to `mastodon/mastodon`
+
+#### `SOURCE_BASE_URL`
+
+Defaults to `https://github.com/$GITHUB_REPOSITORY`
+
+#### `FFMPEG_BINARY`
+#### `LOCAL_HTTPS`
+#### `PATH`
+#### `MAX_FOLLOWS_THRESHOLD`
+
+Defaults to `7500`
+
+#### `MAX_FOLLOWS_RATIO`
+
+Defaults to `1.1`
+
+#### `IP_RETENTION_PERIOD`
+
+Defaults to `31536000` (1 year)
+
+#### `SESSION_RETENTION_PERIOD`
+
+Defaults to `31536000` (1 year)
+
+#### `BACKTRACE`
+
+Set to `1` to allow backtracing to Rails framework code.
+
+#### `DISABLE_SIMPLECOV`
+
+#### `EMAIL_DOMAIN_LISTS_APPLY_AFTER_CONFIRMATION`
+
+#### `DISABLE_FOLLOWERS_SYNCHRONIZATION`
+
+#### `MAX_REQUEST_POOL_SIZE`
+
+Defaults to `512`.
+
+#### `GITHUB_API_TOKEN`
+
+Used in a rake task for generating AUTHORS.md from Github commit history.
