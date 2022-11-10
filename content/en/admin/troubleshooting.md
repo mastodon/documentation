@@ -29,4 +29,8 @@ Check that you are specifying the correct environment with `RAILS_ENV=production
 
 ## **I encountered a compilation error while executing `RAILS_ENV=production bundle exec rails assets:precompile`, but no more information is given. How to fix it?**
 
-Usually it's because your server ran out of memory while compiling assets. Use a swapfile or increase the swap space to increase the memory capacity. Run `RAILS_ENV=production bundle exec rake tmp:cache:clear` to clear cache, then execute `RAILS_ENV=production bundle exec rails assets:precompile` to compile again. Make sure you clear the cache after a compilation error, or it will show "Everything's OK" but leave the assets unchanged.
+Usually it's because your server ran out of memory while compiling assets:
+ 
+- Run `NODE_OPTIONS="--max-old-space-size=1024 RAILS_ENV=production bundle exec rake tmp:cache:clear` to clear cache. Adjust `--max-old-space-size` upwards as needed. You may need to use a swapfile or increase the swap space to increase the memory capacity
+- Execute `RAILS_ENV=production bundle exec rails assets:precompile` to compile again
+- Make sure you clear the cache after a compilation error, or it will show "Everything's OK" but leave the assets unchanged.
