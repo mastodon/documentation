@@ -401,6 +401,93 @@ Rules that the users of this service should follow.
 
 ---
 
+## View moderated servers {#domain_blocks}
+
+```http
+GET https://mastodon.example/api/v1/instance/domain_block HTTP/1.1
+```
+
+Obtain a list of domains that have been blocked.
+
+**Returns:** Array of [DomainBlock]({{< relref "entities/DomainBlock" >}})\
+**OAuth:** Public, or User token if limited to users\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+The complete list of domains blocked by this instance
+
+```json
+[
+  {
+    "domain":"birb.elfenban.de",
+    "digest":"5d2c6e02a0cced8fb05f32626437e3d23096480b47efbba659b6d9e80c85d280",
+    "severity":"suspend",
+    "comment":"Third-party bots"
+  },
+  {
+    "domain":"birdbots.leptonics.com",
+    "digest":"ce019d8d32cce8e369ac4367f4dc232103e6f489fbdd247fb99f9c8a646078a4",
+    "severity":"suspend",
+    "comment":"Third-party bots"
+  },
+  // ...
+]
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header, if the admin has chosen to show domain blocks to users.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+The admin has chosen to show domain blocks to no one. The response body is empty; only the HTTP 404 error code is relevant.
+
+```text
+```
+
+---
+
+## View extended description {#extended_description}
+
+```http
+GET https://mastodon.example/api/v1/example HTTP/1.1
+```
+
+Obtain an extended description of this server
+
+**Returns:** [ExtendedDescription]({{< relref "entities/ExtendedDescription" >}})\
+**OAuth:** Public\
+**Version history:**\
+4.0.0 - added
+
+#### Response
+##### 200: OK
+
+```json
+{
+  "updated_at":"2022-11-03T04:09:07Z",
+  "content":"<p>For inquiries not related specifically to the operation of this server, such as press inquiries, please contact <a href=\"mailto:press@joinmastodon.org\">press@joinmastodon.org</a>.</p>\n\n<h2>Funding</h2>\n\n<p>This server is crowdfunded by <a href=\"https://patreon.com/mastodon\">Patreon donations</a>. For a list of sponsors, see <a href=\"https://joinmastodon.org/sponsors\">joinmastodon.org</a>.</p>\n\n<h2>Reporting and moderation</h2>\n\n<p>When reporting accounts, please make sure to include at least a few posts that show rule-breaking behaviour, when applicable. If there is any additional context that might help make a decision, please also include it in the comment. This is especially important when the content is in a language nobody on the moderation team speaks.</p>\n\n<p>We usually handle reports within 24 hours. Please mind that you are not notified when a report you have made has led to a punitive action, and that not all punitive actions are externally visible. For first time offenses, we may opt to delete offending content, escalating to harsher measures on repeat offenses.</p>\n\n<h2>Impressum</h2>\n\n<p>Mastodon gGmbH<br>\nMühlenstraße 8a<br>\n14167 Berlin<br>\nGermany</p>\n\n<p>E-Mail-Adresse: hello@joinmastodon.org</p>\n\n<p>Vertretungsberechtigt: Eugen Rochko (Geschäftsführer)</p>\n\n<p>Umsatzsteuer Identifikationsnummer (USt-ID): DE344258260</p>\n\n<p>Handelsregister<br>\nGeführt bei: Amtsgericht Charlottenburg<br>\nNummer: HRB 230086 B</p>\n"
+}
+```
+
+---
+
 ## (DEPRECATED) View server information (V1) {#v1}
 
 ```http
