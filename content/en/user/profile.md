@@ -67,11 +67,14 @@ It’s completely up to you what you put there. The content can contain mentions
 
 Document-based verification and blue ticks are not possible without a central authority. However, Mastodon can cross-reference the links you put on your profile to prove that you are the real owner of those links. In case one of those links is your personal homepage that is known and trusted, it can serve as the next-best-thing to identity verification.
 
-If you put a link in your profile metadata, Mastodon checks if the linked page links back to your Mastodon profile. If so, you get a verification checkmark next to that link, since you are confirmed as the owner.
-
-Behind the scenes, Mastodon checks for the `rel="me"` attribute on the link back. Likewise, Mastodon puts `rel="me"` on the links within profile metadata.
-
 {{< hint style="info" >}}
 Because Mastodon can be self-hosted, there is no better way to verify your identity than to host Mastodon on your own domain, which people already trust.
 {{< /hint >}}
 
+If you put a link in your profile metadata, Mastodon checks if the linked page links back to your Mastodon profile with a special `rel=me` attribute. If so, you get a verification checkmark next to that link, since you are confirmed as the owner. Likewise, Mastodon puts `rel="me"` on the links within profile metadata. The link might look something like this:
+
+```html
+<a href="https://social.example.com/@username" rel="me">Follow me on Mastodon!</a>
+```
+
+More precisely, Mastodon will validate the link if at least one ``a`` or ``link`` tag with a ``rel="me"`` has an ``href`` attribute which is literally the URL for your Mastodon profile. Alternatively, validation will occur if the *first* of those ``a`` or ``link`` tags has an ``href`` URL that redirects to your Mastodon profile (eg. through a link shortener).
