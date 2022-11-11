@@ -399,6 +399,12 @@ If set, all StatsD keys will be prefixed with this. Defaults to `Mastodon.produc
 #### `SMTP_OPENSSL_VERIFY_MODE`
 #### `SMTP_ENABLE_STARTTLS_AUTO`
 #### `SMTP_ENABLE_STARTTLS`
+
+Set to `auto` (default), `always`, or `never`.
+
+**Version history:**\
+4.0.0 - added
+
 #### `SMTP_TLS`
 #### `SMTP_SSL`
 
