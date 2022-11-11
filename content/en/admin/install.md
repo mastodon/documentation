@@ -183,6 +183,14 @@ exit
 
 ### Setting up nginx {#setting-up-nginx}
 
+
+Nginx needs permission to traverse `/home/mastodon`:
+
+```bash
+sudo chmod o+x ~
+```
+
+
 Copy the configuration template for nginx from the Mastodon directory:
 
 ```bash
