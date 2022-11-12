@@ -71,6 +71,8 @@ If you put a link in your profile metadata, Mastodon checks if the linked page l
 
 Behind the scenes, Mastodon checks for the `rel="me"` attribute on the link back. Likewise, Mastodon puts `rel="me"` on the links within profile metadata.
 
+Every instance repeats the website verification process on their own, so if you are visiting a profile of a different instance through your own instance, you know that the instance you use and trust has verified the link as well. If the verification process is correctly finished, the box that contains the URL will have a green background.
+
 {{< hint style="info" >}}
 Because Mastodon can be self-hosted, there is no better way to verify your identity than to host Mastodon on your own domain, which people already trust.
 {{< /hint >}}
