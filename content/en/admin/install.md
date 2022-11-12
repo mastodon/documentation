@@ -112,6 +112,12 @@ For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) t
 
 You will need to create a PostgreSQL user that Mastodon could use. It is easiest to go with “ident” authentication in a simple setup, i.e. the PostgreSQL user does not have a separate password and can be used by the Linux user with the same username.
 
+First make sure our home directory has the correct permissions (replace the username with your username):
+
+```bash
+chmod og+rX /home /home/user
+```
+
 Open the prompt:
 
 ```bash
