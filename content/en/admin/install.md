@@ -15,6 +15,10 @@ menu:
 
 You will be running the commands as root. If you aren’t already root, switch to root:
 
+```bash
+sudo -s
+```
+
 ### System repositories {#system-repositories}
 
 Make sure curl, wget, gnupg, apt-transport-https, lsb-release and ca-certificates is installed first:
