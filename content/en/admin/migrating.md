@@ -15,7 +15,7 @@ This guide was written with Ubuntu Server in mind; your mileage may vary for oth
 
 ## Basic steps {#basic-steps}
 
-1. Set up a new Mastodon server using the [Production Guide]({{< relref "install.md" >}}) (however, don’t run `mastodon:setup`).
+1. Set up a new Mastodon server using the [Production Guide]({{< relref "install" >}}) (however, don’t run `mastodon:setup`).
 2. Stop Mastodon on the old server (e.g. `systemctl stop 'mastodon-*.service'`).
 3. Dump and load the Postgres database using the instructions below.
 4. Copy the `system/` files using the instructions below. (Note: if you’re using S3, you can skip this step.)

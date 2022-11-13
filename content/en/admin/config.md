@@ -237,7 +237,7 @@ This variable cannot be defined in dotenv (`.env`) files as it's used before the
 
 ### Scaling options {#scaling}
 
-{{< page-ref page="admin/scaling.md" >}}
+{{< page-ref page="admin/scaling" >}}
 
 #### `WEB_CONCURRENCY`
 
@@ -347,7 +347,7 @@ Defaults to value of `REDIS_NAMESPACE`.
 
 ### ElasticSearch {#elasticsearch}
 
-{{< page-ref page="admin/optional/elasticsearch.md" >}}
+{{< page-ref page="admin/optional/elasticsearch" >}}
 
 #### `ES_ENABLED`
 
@@ -433,7 +433,7 @@ It is *extremely recommended* to use your own host instead, for a few reasons:
 
 Example value: `files.example.com`
 
-{{< page-ref page="admin/optional/object-storage-proxy.md" >}}
+{{< page-ref page="admin/optional/object-storage-proxy" >}}
 
 {{< hint style="info" >}}
 You must serve the files with CORS headers, otherwise some functions of Mastodon's web UI will not work. For example, `Access-Control-Allow-Origin: *`
@@ -554,7 +554,7 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 ### TOR {#tor}
 
-{{< page-ref page="admin/optional/tor.md" >}}
+{{< page-ref page="admin/optional/tor" >}}
 
 #### `http_proxy`
 #### `http_hidden_proxy`

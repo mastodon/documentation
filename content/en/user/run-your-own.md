@@ -58,4 +58,4 @@ That however does assume a single-machine setup. Mastodon scales quite well hori
 
 If you're interested in installing everything on your own, proceed here:
 
-{{< page-ref page="admin/prerequisites.md" >}}
+{{< page-ref page="admin/prerequisites" >}}

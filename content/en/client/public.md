@@ -78,7 +78,7 @@ Parsing JSON and using it in your program is outside of the scope of this tutori
 [MastoVue](https://mastovue.glitch.me) is an example of an application that lets you browse public timelines.
 {{< /hint >}}
 
-## Fetching public accounts and statuses {#toots}
+## Fetching public accounts and statuses {#posts}
 
 Now that we are familiar with how to make requests and how to handle responses, you can experiment with more public data. The following methods may be of interest:
 
@@ -96,8 +96,8 @@ IDs of accounts and statuses are local to the Mastodon website's database and wi
 
 One last thing you can do with anonymous requests is to view information about the Mastodon website.
 
-* View general information with [GET /api/v1/instance]({{< relref "../../methods/instance#fetch-instance" >}}),
-  * view its peers with [GET /api/v1/instance/peers]({{< relref "../../methods/instance#peers" >}}) or
+* View general information with [GET /api/v1/instance]({{< relref "methods/instance#fetch-instance" >}}),
+  * view its peers with [GET /api/v1/instance/peers]({{< relref "methods/instance#peers" >}}) or
   * its weekly activity with [GET /api/v1/instance/activity]({{< relref "methods/instance#activity" >}}), or to
   * list all custom emoji available with [GET /api/v1/custom\_emojis]({{< relref "methods/custom_emojis" >}}).
 * See [GET /api/v1/directory]({{< relref "methods/directory" >}}) for a directory of all available profiles.

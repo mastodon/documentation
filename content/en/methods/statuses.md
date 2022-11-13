@@ -1246,7 +1246,7 @@ Status is not owned by you:
 
 ```json
 {
-  "error": "Validation failed: Someone else's toot cannot be pinned"
+  "error": "Validation failed: Someone else's post cannot be pinned"
 }
 ```
 

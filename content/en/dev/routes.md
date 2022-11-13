@@ -94,8 +94,8 @@ The sections below this point are under construction.
 * `/users/username` = user URI
 * `/users/username/remote_follow` = remote follow dialog
 * `/users/username/statuses/id` = status URI
-* `/@username` = "toots" tab
-* `/@username/with_replies` = "toots and replies" tab
+* `/@username` = "posts" tab
+* `/@username/with_replies` = "posts and replies" tab
 * `/@username/media` = "media" tab
 * `/@username/tagged/:hashtag` = tagged statuses by user
 * `/@username/:status_id` = status permalink

@@ -91,19 +91,19 @@ Unlike proprietary services, **anyone has the complete freedom to run, examine, 
 
 Learn how to use Mastodon:
 
-{{< page-ref page="user/signup.md" >}}
+{{< page-ref page="user/signup" >}}
 
 Learn how to install Mastodon:
 
-{{< page-ref page="admin/prerequisites.md" >}}
+{{< page-ref page="admin/prerequisites" >}}
 
 Learn how to write an app for Mastodon:
 
-{{< page-ref page="client/intro.md" >}}
+{{< page-ref page="client/intro" >}}
 
 Learn about the Mastodon backend and how to contribute:
 
-{{< page-ref page="dev/overview.md" >}}
+{{< page-ref page="dev/overview" >}}
 
 
 

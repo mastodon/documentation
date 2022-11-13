@@ -52,4 +52,4 @@ Zakłada to jednak konfigurację na jednym urządzeniu. Mastodon dość dobrze s
 
 Jeżeli chcesz zainstalować wszystko samodzielnie, przejdź tutaj:
 
-{{< page-ref page="admin/prerequisites.md" >}}
+{{< page-ref page="admin/prerequisites" >}}

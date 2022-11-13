@@ -19,7 +19,7 @@ This is similar to the authentication flow from before, but this time, we need t
 
 ### Client ID and secret {#client}
 
-First, if you have not already registered a client application, then see [Creating our application]({{< relref "client/token#creating-our-application" >}}) on the previous page or go directly to [POST /api/v1/apps]({{< relref "../methods/apps#create" >}}) for the full documentation of that method. We will need the `client_id` and `client_secret` for our application.
+First, if you have not already registered a client application, then see [Creating our application]({{< relref "client/token#creating-our-application" >}}) on the previous page or go directly to [POST /api/v1/apps]({{< relref "methods/apps#create" >}}) for the full documentation of that method. We will need the `client_id` and `client_secret` for our application.
 
 ### Authorize the user {#login}
 

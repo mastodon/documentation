@@ -91,19 +91,19 @@ W przeciwieństwie do własnościowych usług, **każdy może dowolnie uruchamia
 
 Naucz się korzystać z Mastodona:
 
-{{< page-ref page="user/signup.md" >}}
+{{< page-ref page="user/signup" >}}
 
 Naucz się instalować Mastodona:
 
-{{< page-ref page="admin/prerequisites.md" >}}
+{{< page-ref page="admin/prerequisites" >}}
 
 Naucz się tworzyć aplikacje dla Mastodona:
 
-{{< page-ref page="client/intro.md" >}}
+{{< page-ref page="client/intro" >}}
 
 Naucz się o back-endzie Mastodona i dowiedz się jak wnieść swój wkład:
 
-{{< page-ref page="dev/overview.md" >}}
+{{< page-ref page="dev/overview" >}}
 
 
 

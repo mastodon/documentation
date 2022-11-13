@@ -33,7 +33,7 @@ Displays an authorization form to the user. If approved, it will create and retu
 
 Obtain an access token. This corresponds to the token endpoint, section 3.2 of the OAuth 2 RFC.
 
-### [POST /oauth/revoke]({{< relref "../methods/oauth#revoke" >}}) {#post-oauth-revoke}
+### [POST /oauth/revoke]({{< relref "methods/oauth#revoke" >}}) {#post-oauth-revoke}
 
 Post here with client credentials to revoke an access token. This corresponds to the token endpoint, using the OAuth 2.0 Token Revocation RFC (RFC 7009).
 

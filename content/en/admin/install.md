@@ -173,7 +173,7 @@ This will:
 * Run asset precompilation
 * Create the database schema
 
-The configuration file is saved as `.env.production`. You can review and edit it to your liking. Refer to the [documentation on configuration.]({{< relref "config.md" >}})
+The configuration file is saved as `.env.production`. You can review and edit it to your liking. Refer to the [documentation on configuration.]({{< relref "config" >}})
 
 You’re done with the mastodon user for now, so switch back to root:
 

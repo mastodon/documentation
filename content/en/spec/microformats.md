@@ -19,7 +19,7 @@ All microformats classes use a prefix. The prefix indicates the type of the elem
 
 #### `h-feed` {#h-feed}
 
-Represents a stream of entries. Attached to a profile's toots. Also attached to the parent thread within detailed status views.
+Represents a stream of entries. Attached to a profile's statuses. Also attached to the parent thread within detailed status views.
 
 #### `h-entry` {#h-entry}
 

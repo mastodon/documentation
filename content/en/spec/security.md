@@ -28,7 +28,7 @@ Signature:
   signature="Y2FiYW...IxNGRiZDk4ZA=="
 ```
 
-The `keyId` should correspond to the actor and the key being used to generate the `signature`, whose value is equal to all parameters in `headers` concatenated together and signed by the key, then Base64-encoded. See [ActivityPub &gt; Public key]({{< relref "activitypub.md#publicKey" >}}) for more information on actor keys. An example key looks like this:
+The `keyId` should correspond to the actor and the key being used to generate the `signature`, whose value is equal to all parameters in `headers` concatenated together and signed by the key, then Base64-encoded. See [ActivityPub &gt; Public key]({{< relref "activitypub#publicKey" >}}) for more information on actor keys. An example key looks like this:
 
 ```json
 "publicKey": {
@@ -101,7 +101,7 @@ Mastodon verifies the signature using the following algorithm:
 
 [Linked Data Signatures 1.0](https://w3c-dvcg.github.io/ld-signatures/) is a specification for attaching cryptographic signatures to JSON-LD documents. LD Signatures are not used widely within Mastodon, but they are used in the following situations:
 
-* When running a [self-destruct]({{< relref "../admin/tootctl.md#tootctl-self-destruct" >}}) sequence to send Delete activities to all known peers, the payload will use LD Signatures because HTTP Signatures will not be available. Receiving servers will process the signature by validating it against the locally cached actor key, since the HTTP server will no longer be hosting old actor information.
+* When running a [self-destruct]({{< relref "admin/tootctl#tootctl-self-destruct" >}}) sequence to send Delete activities to all known peers, the payload will use LD Signatures because HTTP Signatures will not be available. Receiving servers will process the signature by validating it against the locally cached actor key, since the HTTP server will no longer be hosting old actor information.
 * When accepting activities from a relay. Public activities can optionally be sent to a relay with LD Signatures, and any server subscribing to a relay does not have to manually refetch the activity from the origin. This prevents having potentially infinite servers attempt to load the status from your instance.
 
 ### Creating LD signatures {#ld-sign}

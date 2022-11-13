@@ -162,7 +162,7 @@ RAILS_ENV=production bundle exec rake mastodon:setup
 * 预编译静态文件
 * 创建数据库schema
 
-配置文件被保存在`.env.production`。如果你愿意的话，你可以查看并编辑这个文件。请参阅[配置文件的文档]({{< relref "config.md" >}})。
+配置文件被保存在`.env.production`。如果你愿意的话，你可以查看并编辑这个文件。请参阅[配置文件的文档]({{< relref "config" >}})。
 
 你已经完成需使用mastodon用户进行的操作，请切换回root用户：
 

@@ -13,7 +13,7 @@ menu:
 
 At any time you want, you can go to Settings &gt; Export and download a CSV file for your current followed accounts, your currently created lists, your currently blocked accounts, your currently muted accounts, and your currently blocked domains. Your following, blocking, muting, and domain-blocking lists can be imported at Settings &gt; Import, where they can either be merged or overwritten.
 
-Requesting an archive of your toots and media can be done once every 7 days, and can be downloaded in ActivityPub JSON format. Mastodon currently does not support importing toots or media due to technical limitations, but your archive can be viewed by any software that understands how to parse ActivityPub documents.
+Requesting an archive of your posts and media can be done once every 7 days, and can be downloaded in ActivityPub JSON format. Mastodon currently does not support importing posts or media due to technical limitations, but your archive can be viewed by any software that understands how to parse ActivityPub documents.
 
 ## Redirecting or moving your profile {#migration}
 
@@ -29,7 +29,7 @@ Redirecting your account disables posting from that account and displays a "prof
 
 {{< figure src="/assets/account-move.jpg" caption="Profile move form" >}}
 
-Moving your account is the same as redirecting your account, but it will also irreversibly force everyone to unfollow your current account and follow your new account, if their software supports the Move activity. Your toots will not be moved, due to technical limitations. There is also a very heavy cooldown period in which you cannot migrate again, so be very careful before using this option!
+Moving your account is the same as redirecting your account, but it will also irreversibly force everyone to unfollow your current account and follow your new account, if their software supports the Move activity. Your posts will not be moved, due to technical limitations. There is also a very heavy cooldown period in which you cannot migrate again, so be very careful before using this option!
 
 ### Account aliases {#aliases}
 

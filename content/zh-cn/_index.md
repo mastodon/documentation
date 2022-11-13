@@ -89,18 +89,18 @@ Mastodon的开发同样是通过[Patreon](https://patreon.com/mastodon)和[OpenC
 
 学习如何使用Mastodon：
 
-{{< page-ref page="user/signup.md" >}}
+{{< page-ref page="user/signup" >}}
 
 学习如何安装Mastodon：
 
-{{< page-ref page="admin/prerequisites.md" >}}
+{{< page-ref page="admin/prerequisites" >}}
 
 学习如何为Mastodon编写应用程序：
 
-{{< page-ref page="client/intro.md" >}}
+{{< page-ref page="client/intro" >}}
 
 了解Mastodon后端以及如何向Mastodon项目做贡献：
 
-{{< page-ref page="dev/overview.md" >}}
+{{< page-ref page="dev/overview" >}}
 
 {{< translation-status-zh-cn raw_title="What is Mastodon?" raw_link="/" last_tranlation_time="2020-05-02" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}

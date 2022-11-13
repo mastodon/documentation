@@ -310,7 +310,7 @@ Public keys are used for HTTPS Signatures and Linked Data Signatures. This is im
 
 ### Featured collection {#featured}
 
-What is known in Mastodon as “pinned toots”, or statuses that are always featured at the top of people’s profiles, is implemented using an extra property `featured` on the actor object that points to a `Collection` of objects. Example:
+What is known in Mastodon as “pinned statuses”, or statuses that are always featured at the top of people’s profiles, is implemented using an extra property `featured` on the actor object that points to a `Collection` of objects. Example:
 
 ```json
 {
