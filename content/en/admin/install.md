@@ -173,6 +173,10 @@ The two `bundle config` commands are only needed the first time you're installin
 
 Run the interactive setup wizard:
 
+{{< hint style="info" >}}
+If you're on ARM64, you'll get an error `ERR_OSSL_EVP_UNSUPPORTED` during this step, run `export NODE_OPTIONS=--openssl-legacy-provider` first to make sure this doesn't happen.
+{{< /hint >}}
+
 ```bash
 RAILS_ENV=production bundle exec rake mastodon:setup
 ```
