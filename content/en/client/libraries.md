@@ -66,6 +66,10 @@ menu:
 * [node-mastodon](https://github.com/jessicahayley/node-mastodon)
 * [mastodon-api](https://github.com/vanita5/mastodon-api)
 
+## Kotlin \(Multiplatform\) {#kotlin-kmp}
+
+* [mastodonk](https://github.com/outadoc/mastodonk)
+
 ## Perl {#perl}
 
 * [Mastodon::Client](https://metacpan.org/pod/Mastodon::Client)
