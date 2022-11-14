@@ -26,7 +26,7 @@ This page is currently under construction.
     "poll": null,
     "idempotency": null,
     "in_reply_to_id": null,
-    "application_id": 596551
+    "application_id": "596551"
   },
   "media_attachments": []
 }
