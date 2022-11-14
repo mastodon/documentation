@@ -43,17 +43,15 @@ menu:
       "id": "103186046267791694",
       "created_at": "2019-11-23T07:28:34.210Z",
       ...
-      },
-      "account": {
-        "id": "14715",
-        "username": "trwnh",
-        "acct": "trwnh",
-        ...
-      },
+    },
+    "account": {
+      "id": "14715",
+      "username": "trwnh",
+      "acct": "trwnh",
       ...
-    }
-  },
-  ...
+    },
+    ...
+  }
 ]
 ```
 {{< /code >}}

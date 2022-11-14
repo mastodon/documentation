@@ -49,7 +49,7 @@ menu:
 
       "content": "<p>Cats are inherently good at self-care. </p><p><a href=\"https://mspsocial.net/tags/cats\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>cats</span}</p>",
       ...
-
+    }
   ],
   "hashtags": [
     {
