@@ -10,7 +10,7 @@ menu:
 
 ```javascript
 {
-  "id": 328183,
+  "id": "328183",
   "endpoint": "https://yourdomain.example/listener",
   "alerts": {
     "follow": false,
