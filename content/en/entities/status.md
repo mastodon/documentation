@@ -41,7 +41,6 @@ menu:
     "locked": false,
     "bot": false,
     "discoverable": true,
-    "group": false,
     "created_at": "2016-03-16T14:34:26.392Z",
     "note": "<p>Developer of Mastodon and administrator of mastodon.social. I post service announcements, development updates, and personal stuff.</p>",
     "url": "https://mastodon.social/@Gargron",
