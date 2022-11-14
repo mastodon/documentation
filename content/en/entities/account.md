@@ -74,7 +74,7 @@ menu:
 
 ## Base attributes
 
-### **`id`** {#id}
+### `id` {#id}
 
 **Description:** The account id`header`.\
 **Type:** String \(cast from an integer, but not guaranteed to be a number\)\
