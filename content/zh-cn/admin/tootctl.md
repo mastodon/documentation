@@ -413,7 +413,7 @@ RAILS_ENV=production bin/tootctl help
 
 ### `tootctl search deploy` {#search-deploy}
 
-创建或更新ElasticSearch索引并进行填充。 如果ElasticSearch为空，此命令将创建必要的索引，然后将数据从数据库导入到这些索引中。如果自上次运行以来索引结构已更改，此命令还将升级索引。
+创建或更新Elasticsearch索引并进行填充。 如果Elasticsearch为空，此命令将创建必要的索引，然后将数据从数据库导入到这些索引中。如果自上次运行以来索引结构已更改，此命令还将升级索引。
 
 **版本历史：**
 * 2.8.0 - 被加入
