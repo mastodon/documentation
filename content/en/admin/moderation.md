@@ -27,7 +27,7 @@ When the user's account is un-frozen, normal functionality resumes.
 
 ### Limit {#limit-user}
 
-A limited account is hidden to all other users on that instance, except for its followers. All of the content is still there, and it can still be found via search, mentions, and following, but the content is invisible publicly.
+A limited account is hidden to all other users on that instance, except for its followers. All of the content is still there, and it can still be found via search, mentions, and following, but the content is invisible publicly. Limiting was previously known as "silencing".
 
 At this moment, limit does not affect federation. A locally limited account is _not_ limited automatically on other servers. Account limitations are reversible.
 
@@ -47,9 +47,9 @@ Because individually moderating a large volume of users from a misbehaving serve
 
 With this option active, no files from the server will be processed locally. That includes avatars, headers, emojis and media attachments.
 
-### Silence {#silence-server}
+### Limit {#limit-server}
 
-Applies a silence to all past and future accounts from the server.
+Applies a limit to all past and future accounts from the server.
 
 ### Suspend {#suspend-server}
 
