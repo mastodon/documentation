@@ -90,7 +90,7 @@ menu:
 
 ### `acct` {#acct}
 
-**Description:** The Webfinger account URI.
+**Description:** The WebFinger account URI.
 Equal to `username` for local users, or `username@domain` for remote users.\
 **Type:** String\
 **Version history:**\
