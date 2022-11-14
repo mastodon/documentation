@@ -9,10 +9,11 @@ menu:
 ## Example
 
 ```javascript
-  {
-    "id": "12249",
-    "title": "Friends"
-  }
+{
+  "id": "12249",
+  "title": "Friends",
+  "replies_policy": "list"
+}
 ```
 
 ## Required attributes
