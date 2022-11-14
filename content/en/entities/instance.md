@@ -9,7 +9,7 @@ menu:
 ## Example
 
 ```javascript
-
+{
   "uri": "mastodon.social",
   "title": "Mastodon",
   "short_description": "Server run by the main developers of the project <img draggable=\"false\" alt=\"🐘\" class=\"emojione\" src=\"https://mastodon.social/emoji/1f418.svg\" /> It is not focused on any particular niche interest - everyone is welcome as long as you follow our code of conduct!",
@@ -30,6 +30,7 @@ menu:
   ],
   "registrations": true,
   "approval_required": false,
+  "invites_enabled": false,
   "contact_account": {
     "id": "1",
     "username": "Gargron",
