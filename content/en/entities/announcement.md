@@ -10,17 +10,14 @@ menu:
 ```javascript
 {
   "id": "8",
-  "content": "<p>Looks like there was an issue processing audio attachments without embedded art since yesterday due to an experimental new feature. That issue has now been fixed, so you may see older posts with audio from other servers pop up in your feeds now as they are being finally properly processed. Sorry!</p>",
+  "text": "<p>Looks like there was an issue processing audio attachments without embedded art since yesterday due to an experimental new feature. That issue has now been fixed, so you may see older posts with audio from other servers pop up in your feeds now as they are being finally properly processed. Sorry!</p>",
+  "is_published": false,
   "starts_at": null,
   "ends_at": null,
   "all_day": false,
-  "published_at": "2020-07-03T01:27:38.726Z",
+  "created_at": "2020-07-03T01:27:38.726Z",
   "updated_at": "2020-07-03T01:27:38.752Z",
   "read": true,
-  "mentions": [],
-  "statuses": [],
-  "tags": [],
-  "emojis": [],
   "reactions": [
     {
       "name": "bongoCat",
