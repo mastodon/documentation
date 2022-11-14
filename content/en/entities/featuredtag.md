@@ -12,6 +12,7 @@ menu:
 {
   "id": "627",
   "name": "nowplaying",
+  "url": "https://foo.bar",
   "statuses_count": 36,
   "last_status_at": "2019-11-15T07:14:43.524Z"
 }
