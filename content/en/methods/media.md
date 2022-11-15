@@ -44,7 +44,7 @@ Authorization
 ##### Form data parameters
 
 file
-: {{<required>}} Object. The file to be attached, encoded using multipart form data.
+: {{<required>}} Object. The file to be attached, encoded using multipart form data. The file must have a MIME type.
 
 thumbnail
 : Object. The custom thumbnail of the media to be attached, encoded using multipart form data.
@@ -391,7 +391,7 @@ Authorization
 ##### Form data parameters
 
 file
-: {{<required>}} Object. The file to be attached, encoded using multipart form data.
+: {{<required>}} Object. The file to be attached, encoded using multipart form data. The file must have a MIME type.
 
 thumbnail
 : Object. The custom thumbnail of the media to be attached, encoded using multipart form data.
