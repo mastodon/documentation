@@ -84,8 +84,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 Once this is done, we can install the correct Ruby version:
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.0.3
-rbenv global 3.0.3
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.0.4
+rbenv global 3.0.4
 ```
 
 We’ll also need to install bundler:
@@ -106,7 +106,7 @@ exit
 
 #### Performance configuration \(optional\) {#performance-configuration-optional}
 
-For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/14/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
+For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/15/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
 
 #### Creating a user {#creating-a-user}
 
@@ -146,7 +146,7 @@ git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 
 #### Installing the last dependencies {#installing-the-last-dependencies}
 
-Now to install Ruby and JavaScript dependencies:
+Now to install Ruby and JavaScript dependencies (change to subdir 'live' if you are not in it already):
 
 ```bash
 bundle config deployment 'true'
