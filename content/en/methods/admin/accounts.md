@@ -448,7 +448,7 @@ The account is now approved
 
 ##### 403: Forbidden
 
-Authorized user is missing a permission, or invalid or missing Authorization header, or account is currently not pending. <!-- TODO: verify that last bit -->
+Authorized user is missing a permission, or invalid or missing Authorization header, or account is currently not pending.
 
 ```json
 {
@@ -744,9 +744,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 
 ##### 404: Not found
 
-Account or Report does not exist
-
-<!-- TODO: verify response on invalid report_id -->
+Account or Report with given ID does not exist
 
 ```json
 {
@@ -758,7 +756,6 @@ Account or Report does not exist
 
 `type` is not provided or is not understood
 
-<!-- TODO: verify error text -->
 ```json
 {
   "error": "Record invalid"
