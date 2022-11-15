@@ -94,7 +94,7 @@ MediaAttachment was created successfully, and the full-size file was processed s
 
 ##### 202: Accepted
 
-MediaAttachment was created successfully, but the full-size file is still processing. Note that the MediaAttachment's `url` will still be null, as the media is still being processed in the background. However, the `preview_url` should be available.
+MediaAttachment was created successfully, but the full-size file is still processing. Note that the MediaAttachment's `url` will still be null, as the media is still being processed in the background. However, the `preview_url` should be available. Use [`GET /api/v1/media/:id`](#get) to check the status of the media attachment.
 
 ```json
 {
@@ -187,7 +187,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-The media file was processed
+The media file was processed, and a `url` to the processed media is available.
 
 ```json
 {
