@@ -9,7 +9,7 @@ menu:
     parent: methods-statuses
 ---
 
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/media" title="Upload media as attachment" >}}
+{{< api-method method="post" host="https://mastodon.example" path="/api/v2/media" title="Upload media as attachment" >}}
 {{< api-method-description >}}
 
 Creates an attachment to be used with a new status.
@@ -19,7 +19,7 @@ Creates an attachment to be used with a new status.
 **Version history:**\
 0.0.0 - added\
 2.3.0 - add `focus` parameter\
-3.1.3 - deprecated in favor of `POST /api/v2/media`, which is equal to v1 in all aspects, except it returns HTTP 202, and the returned JSON object has a url of null, because while the thumbnail is prepared synchronously, the full version of the media attachment will be processed in the background\
+3.1.3 - deprecated in favor of `POST /api/v2/media`, which is equal to v1 in all aspects, except it returns HTTP 202, and the returned JSON object has a url of null, because while the thumbnail is prepared synchronously, the full version of the media attachment will be processed in the background, `GET` the media object to determine when it can be attached to a status.\
 3.2.0 - add `thumbnail` parameter
 
 {{< endapi-method-description >}}
@@ -32,7 +32,7 @@ Bearer &lt;user token&gt;
 {{< endapi-method-headers >}}
 {{< api-method-form-data-parameters >}}
 {{< api-method-parameter name="file" type="object" required=true >}}
-The file to be attached, using multipart form data.
+The file to be attached, using multipart form data. Requires a mime/type.
 {{< endapi-method-parameter >}}
 {{< api-method-parameter name="thumbnail" type="object" required=false >}}
 The custom thumbnail of the media to be attached, using multipart form data.
@@ -140,10 +140,10 @@ File or file type is unsupported or invalid
 {{< endapi-method >}}
 
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/media/:id" title="Update attachment" >}}
+{{< api-method method="get" host="https://mastodon.example" path="/api/v1/media/:id" title="Get attachment" >}}
 {{< api-method-description >}}
 
-Get an Attachment, before it is attached to a status and posted, but after it is accepted for processing.
+Get an Attachment, before it is attached to a status and posted, but after it is accepted for processing. If `url` is null the media is still being processed and it cannot be attached to a status.
 
 **Returns:** Attachment\
 **OAuth:** User token + `write:media`\
