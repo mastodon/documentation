@@ -7,41 +7,62 @@ menu:
     parent: dev
 ---
 
-{{< hint style="danger" >}}
-This page is under construction.
-{{< /hint >}}
-
 ### Pre-requisites {#prerequisites}
 
-You can follow the [pre-requisites instructions from the production guide](https://docs.joinmastodon.org/admin/install/), but do not create a `mastodon` user. You also don't have to install `nginx`, `certbot` and `python-certbot-nginx` as the development environment brings its own webserver. Setting up and running a development environment has been proven successful over WSL2 as well if you are on Windows.
+The following programs are required to be installed to develop Mastodon:
+
+| Program | Debian package |
+| :--- | :--- |
+| Ruby | `ruby` and `ruby-dev` |
+| PostgreSQL | `postgresql` and `libpq-dev` |
+| Redis | `redis` |
+| Bundle | `ruby-bundler` |
+| Yarn | `yarnpkg` |
+| libicu | `libicu-dev` |
+| libidn | `libidn-dev` |
+| libz | `libz-dev` |
+
+To install all of the required packages on Debian:
+
+```
+# apt install ruby ruby-dev postgresql libpq-dev redis ruby-bundler yarnpkg libicu-dev libidn-dev libz-dev
+```
 
 ### Setup {#setup}
 
-Run following commands in the project directory `bundle install`, `yarn install`.
+First, enable the PostgreSQL and Redis services. This will depend on your operating system, but on Linux distributions using systemd (such as Debian, Fedora, and Arch Linux), it should be:
 
-In the development environment, Mastodon will use PostgreSQL as the currently signed-in Linux user using the `ident` method, which usually works out of the box. The one command you need to run is `rails db:setup` which will create the databases `mastodon_development` and `mastodon_test`, load the schema into them, and then create seed data defined in `db/seed.rb` in `mastodon_development`. The only seed data is an admin account with the credentials `admin@localhost:3000` / `mastodonadmin`.
+```
+# systemctl start postgresql.service
+# systemctl start redis.service
+```
 
-> Please keep in mind, by default Mastodon will run on port 3000. If you configure a different port for it, the generated admin account will use that number.
+Then, run the following commands in the project directory::
 
-If `rails db:setup` gives you the Postgres error:
+```
+$ bundle config set --local path 'vendor/bundle'
+$ bundle install
+$ export RAILS_ENV=development
+$ bin/rails yarn:install
+$ bin/rails webpacker:compile
+$ bin/rails db:setup
+```
 
-    ActiveRecord::NoDatabaseError: FATAL:  role "your_user_name" does not exist
+> On Debian, `yarn` was renamed to `yarnpkg` due to a naming conflict. You may have to run `# ln -s yarnpkg /usr/bin/yarn`, because some scripts expect to find an executable called `yarn`.
 
-(where `your_user_name` is your username), then run:
+> If the last command fails with "role <username> does not exist", try running `sudo -u postgres createuser <username> --createdb` to create a new PostgreSQL user with your username.
 
-    sudo -u postgres createuser your_user_name --createdb
-
-This will create the necessary Postgres user with the permission to create a database.
+> You may wish to add `export RAILS_ENV=development` to your shell initialization file, as it must be run every time you want to develop Mastodon.
 
 ### Running {#running}
 
-There are multiple processes that need to be run for the full set of Mastodon’s functionality, although they can be selectively omitted. To run all of them with just one command, you can install Foreman with `gem install foreman --no-document` and then use:
+To run the development server:
 
-```text
-foreman start
+```
+$ bundle exec foreman start
 ```
 
-In the Mastodon directory. This will start processes defined in `Procfile.dev`, which will give you: A Rails server, a Webpack server, a streaming API server, and Sidekiq. Of course, you can run any of those things stand-alone depending on your needs.
+Go to `localhost:3000` and log in with username `admin`, e-mail `admin@localhost:3000`, and password `mastodonadmin`.
 
 ### Testing {#testing}
 
@@ -50,4 +71,3 @@ In the Mastodon directory. This will start processes defined in `Procfile.dev`, 
 | `rspec` | Run the Ruby test suite |
 | `yarn run test` | Run the JavaScript test suite |
 | `rubocop` | Check the Ruby code for conformance with our code style |
-
