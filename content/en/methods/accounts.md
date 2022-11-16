@@ -1688,7 +1688,7 @@ Alternatively (prior to 4.0), the account may already be endorsed
 }
 ```
 
-##### 500: Client error
+##### 500: Server error
 
 Can sometimes be returned if the account already endorsed.
 

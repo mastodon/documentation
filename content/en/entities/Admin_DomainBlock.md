@@ -22,10 +22,18 @@ This page is under construction.
 
 ## Example
 
-<!-- TODO: sample response -->
-
 ```json
-
+{
+  "id": "1",
+  "domain": "example.com",
+  "created_at": "2022-11-16T08:15:34.238Z",
+  "severity": "noop",
+  "reject_media": false,
+  "reject_reports": false,
+  "private_comment": null,
+  "public_comment": null,
+  "obfuscate": false
+}
 ```
 
 ## Attributes
@@ -46,50 +54,53 @@ This page is under construction.
 
 ### `created_at` {#created_at}
 
-**Description:** When the domain was allowed to federate.\
+**Description:** When the domain was blocked from federating.\
 **Type:** String (ISO 8601 Datetime)\
 **Version history:**\
 4.0.0 - added
 
 ### `severity` {#severity}
-<!-- TODO: -->
-**Description:** \
-**Type:** \
+
+**Description:** The policy to be applied by this domain block.\
+**Type:** String (Enumerable oneOf)\
+`silence` = Account statuses from this domain will be hidden by default\
+`suspend` = All incoming data from this domain will be rejected\
+`noop` = Do nothing. Allows for rejecting media or reports\
 **Version history:**\
 4.0.0 - added
 
 ### `reject_media` {#reject_media}
-<!-- TODO: -->
-**Description:** \
-**Type:** \
+
+**Description:** Whether to reject media attachments from this domain\
+**Type:** Boolean\
 **Version history:**\
 4.0.0 - added
 
 ### `reject_reports` {#reject_reports}
-<!-- TODO: -->
-**Description:** \
-**Type:** \
+
+**Description:** Whether to reject reports from this domain\
+**Type:** Boolean\
 **Version history:**\
 4.0.0 - added
 
 ### `private_comment` {#private_comment}
-<!-- TODO: -->
+
 **Description:** \
-**Type:** \
+**Type:** {{<nullable>}} String\
 **Version history:**\
 4.0.0 - added
 
 ### `public_comment` {#public_comment}
-<!-- TODO: -->
+
 **Description:** \
-**Type:** \
+**Type:** {{<nullable>}} String\
 **Version history:**\
 4.0.0 - added
 
 ### `obfuscate` {#obfuscate}
-<!-- TODO: -->
-**Description:** \
-**Type:** \
+
+**Description:** Whether to obfuscate public displays of this domain block\
+**Type:** Boolean\
 **Version history:**\
 4.0.0 - added
 

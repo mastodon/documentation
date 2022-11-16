@@ -103,7 +103,7 @@ TODO:
 -->
 
 ```http
-GET https://mastodon.example/api/v1/filters/keywords/:id HTTP/1.1
+GET https://mastodon.example/api/v2/filters/:filter_id/keywords/:id HTTP/1.1
 ```
 
 ---
@@ -115,7 +115,7 @@ TODO:
 -->
 
 ```http
-POST https://mastodon.example/api/v2/filters/:filter_id/keywords/:id HTTP/1.1
+POST https://mastodon.example/api/v2/filters/:filter_id/keywords HTTP/1.1
 ```
 
 ---
@@ -127,7 +127,7 @@ TODO:
 -->
 
 ```http
-PUT https://mastodon.example/api/v1/filters/keywords/:id HTTP/1.1
+PUT https://mastodon.example/api/v2/filters/keywords/:id HTTP/1.1
 ```
 
 ---
@@ -139,7 +139,7 @@ TODO:
 -->
 
 ```http
-DELETE https://mastodon.example/api/v1/filters/keywords/:id HTTP/1.1
+DELETE https://mastodon.example/api/v2/filters/keywords/:id HTTP/1.1
 ```
 
 ---

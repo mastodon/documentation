@@ -30,7 +30,7 @@ Show information about all blocked domains.
 
 **Returns:** Array of [Admin::DomainBlock]({{< relref "entities/Admin_DomainBlock" >}})\
 **OAuth:** User token + `admin:read:domain_blocks`\
-**Permissions:** Manage Federation\ <!-- TODO: verify -->
+**Permissions:** Manage Federation\
 **Version history:**\
 4.0.0 - added
 
@@ -50,10 +50,21 @@ limit
 
 ##### 200: OK
 
-<!-- TODO: sample response -->
-
 ```json
-
+[
+  {
+    "id": "1",
+    "domain": "example.com",
+    "created_at": "2022-11-16T08:15:34.238Z",
+    "severity": "noop",
+    "reject_media": false,
+    "reject_reports": false,
+    "private_comment": null,
+    "public_comment": null,
+    "obfuscate": false
+  },
+  // ...
+]
 ```
 
 ##### 403: Forbidden
@@ -77,7 +88,7 @@ Show information about a single blocked domain.
 
 **Returns:** [Admin::DomainBlock]({{< relref "entities/Admin_DomainBlock" >}})\
 **OAuth:** User token + `admin:read:domain_blocks`\
-**Permissions:** Manage Federation\ <!-- TODO: verify -->
+**Permissions:** Manage Federation\
 **Version history:**\
 4.0.0 - added
 
@@ -94,10 +105,18 @@ Authorization
 #### Response
 ##### 200: OK
 
-<!-- TODO: sample response -->
-
 ```json
-
+{
+  "id": "1",
+  "domain": "example.com",
+  "created_at": "2022-11-16T08:15:34.238Z",
+  "severity": "noop",
+  "reject_media": false,
+  "reject_reports": false,
+  "private_comment": null,
+  "public_comment": null,
+  "obfuscate": false
+}
 ```
 
 ##### 403: Forbidden
@@ -132,7 +151,7 @@ Add a domain to the list of domains blocked from federating.
 
 **Returns:** [Admin::DomainBlock]({{< relref "entities/Admin_DomainBlock" >}})\
 **OAuth:** User token + `admin:write:domain_blocks`\
-**Permissions:** Manage Federation\ <!-- TODO: verify -->
+**Permissions:** Manage Federation\
 **Version history:**\
 4.0.0 - added
 
@@ -149,32 +168,40 @@ domain
 : {{<required>}} String. The domain to block federation with.
 
 severity
-: TODO:
+: String. Whether to apply a `silence`, `suspend`, or `noop` to the domain. Defaults to `silence`
 
 reject_media
-: TODO:
+: Boolean. Whether media attachments should be rejected. Defaults to false
 
 reject_reports
-: TODO:
+: Boolean. Whether reports from this domain should be rejected. Defaults to false
 
 private_comment
-: TODO:
+: String. A private note about this domain block, visible only to admins.
 
 public_comment
-: TODO:
+: String. A public note about this domain block, optionally shown on the about page.
 
 obfuscate
-: TODO:
+: Boolean. Whether to partially censor the domain when shown in public. Defaults to false
 
 #### Response
 ##### 200: OK
 
 Domain has been blocked from federating.
 
-<!-- TODO: sample response -->
-
 ```json
-
+{
+  "id": "1",
+  "domain": "example.com",
+  "created_at": "2022-11-16T08:15:34.238Z",
+  "severity": "noop",
+  "reject_media": false,
+  "reject_reports": false,
+  "private_comment": null,
+  "public_comment": null,
+  "obfuscate": false
+}
 ```
 
 ##### 403: Forbidden
@@ -197,15 +224,6 @@ The domain parameter was not provided
 }
 ```
 
-##### 500: Server error
-
-The domain provided contains an invalid character
-
-<!--
-TODO: remove when fixed
-https://github.com/mastodon/mastodon/issues/19175
--->
-
 ---
 
 ## Update a domain block {#update}
@@ -218,7 +236,7 @@ Change parameters for an existing domain block.
 
 **Returns:** [Admin::DomainBlock]({{< relref "entities/Admin_DomainBlock" >}})\
 **OAuth:** User token + `admin:write:domain_blocks`\
-**Permissions:** Manage Federation\ <!-- TODO: verify -->
+**Permissions:** Manage Federation\
 **Version history:**\
 4.0.0 - added
 
@@ -237,22 +255,55 @@ Authorization
 ##### Form data parameters
 
 severity
-: TODO:
+: String. Whether to apply a `silence`, `suspend`, or `noop` to the domain. Defaults to `silence`
 
 reject_media
-: TODO:
+: Boolean. Whether media attachments should be rejected. Defaults to false
 
 reject_reports
-: TODO:
+: Boolean. Whether reports from this domain should be rejected. Defaults to false
 
 private_comment
-: TODO:
+: String. A private note about this domain block, visible only to admins.
 
 public_comment
-: TODO:
+: String. A public note about this domain block, optionally shown on the about page.
 
 obfuscate
-: TODO:
+: Boolean. Whether to partially censor the domain when shown in public. Defaults to false
+
+#### Response
+##### 200: OK
+
+Domain block has been updated
+
+```json
+{
+  "id": "1",
+  "domain": "example.com",
+  "created_at": "2022-11-16T08:15:34.238Z",
+  "severity": "noop",
+  "reject_media": false,
+  "reject_reports": false,
+  "private_comment": null,
+  "public_comment": null,
+  "obfuscate": false
+}
+```
+
+##### 403: Forbidden
+
+Authorized user is not allowed to perform this action, or invalid or missing Authorization header
+
+```json
+{
+  "error": "This action is not allowed"
+}
+```
+
+##### 500: Server error
+<!-- TODO: fix -->
+Invalid severity
 
 ---
 
@@ -266,7 +317,7 @@ Lift a block against a domain.
 
 **Returns:** [Admin::DomainBlock]({{< relref "entities/Admin_DomainBlock" >}})\
 **OAuth:** User token + `admin:write:domain_blocks`\
-**Permissions:** Manage Federation\ <!-- TODO: verify -->
+**Permissions:** Manage Federation\
 **Version history:**\
 4.0.0 - added
 
@@ -287,10 +338,8 @@ Authorization
 
 The domain has been removed from the block list
 
-<!-- TODO: sample response -->
-
 ```json
-
+{}
 ```
 ##### 403: Forbidden
 
