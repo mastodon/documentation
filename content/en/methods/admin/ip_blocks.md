@@ -219,7 +219,7 @@ Change parameters for an existing IP block.
 
 **Returns:** [Admin::IpBlock]({{< relref "entities/Admin_IpBlock" >}})\
 **OAuth:** User token + `admin:write:ip_blocks`\
-**Permissions:** Manage Blocks\ <!-- TODO: verify -->
+**Permissions:** Manage Blocks\
 **Version history:**\
 4.0.0 - added
 

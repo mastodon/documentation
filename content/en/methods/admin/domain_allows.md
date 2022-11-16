@@ -180,22 +180,13 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 
 ##### 422: Unprocessable entity
 
-The domain parameter was not provided
+The domain parameter was not provided or was invalid
 
 ```json
 {
 	"error": "Validation failed: Domain can't be blank"
 }
 ```
-
-##### 500: Server error
-
-The domain provided contains an invalid character
-
-<!--
-TODO: remove when fixed
-https://github.com/mastodon/mastodon/issues/19175
--->
 
 ---
 
