@@ -1,9 +1,9 @@
 ---
-title: admin/retention API methods
+title: retention API methods
 description: Show retention data over time.
 menu:
   docs:
-    name: admin/retention
+    name: retention
     parent: methods-admin
     identifier: methods-admin-retention
 aliases: [

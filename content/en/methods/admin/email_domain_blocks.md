@@ -1,9 +1,9 @@
 ---
-title: admin/email_domain_blocks API methods
+title: email_domain_blocks API methods
 description: Disallow certain email domains from signing up.
 menu:
   docs:
-    name: admin/email_domain_blocks
+    name: email_domain_blocks
     parent: methods-admin
     identifier: methods-admin-email_domain_blocks
 aliases: [
@@ -26,11 +26,11 @@ This page is under construction.
 GET https://mastodon.example/api/v1/admin/email_domain_blocks HTTP/1.1
 ```
 
-Show information about all blocked email domains.
+Show information about all email domains blocked from signing up.
 
 **Returns:** Array of [Admin::EmailDomainBlock]({{< relref "entities/Admin_EmailDomainBlock" >}})\
 **OAuth:** User token + `admin:read:email_domain_blocks`\
-**Permissions:** Manage Blocks\ <!-- TODO: verify -->
+**Permissions:** Manage Blocks\
 **Version history:**\
 4.0.0 - added
 
@@ -50,10 +50,52 @@ limit
 
 ##### 200: OK
 
-<!-- TODO: sample response -->
-
 ```json
-
+[
+  {
+    "id": "1",
+    "domain": "foo",
+    "created_at": "2022-11-16T06:09:36.176Z",
+    "history": [
+      {
+        "day": "1668556800",
+        "accounts": "0",
+        "uses": "0"
+      },
+      {
+        "day": "1668470400",
+        "accounts": "0",
+        "uses": "0"
+      },
+      {
+        "day": "1668384000",
+        "accounts": "0",
+        "uses": "0"
+      },
+      {
+        "day": "1668297600",
+        "accounts": "0",
+        "uses": "0"
+      },
+      {
+        "day": "1668211200",
+        "accounts": "0",
+        "uses": "0"
+      },
+      {
+        "day": "1668124800",
+        "accounts": "0",
+        "uses": "0"
+      },
+      {
+        "day": "1668038400",
+        "accounts": "0",
+        "uses": "0"
+      }
+    ]
+  },
+  // ...
+]
 ```
 
 ##### 403: Forbidden
@@ -68,18 +110,18 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 
 ---
 
-## Get a single blocked domain {#get-one}
+## Get a single blocked email domain {#get-one}
 
 ```http
 GET https://mastodon.example/api/v1/admin/email_domain_blocks/:id HTTP/1.1
 ```
-Show information about a single blocked domain.
+Show information about a single email domain that is blocked from signups.
 
 **Returns:** [Admin::EmailDomainBlock]({{< relref "entities/Admin_EmailDomainBlock" >}})\
 **OAuth:** User token + `admin:read:email_domain_blocks`\
-**Permissions:** Manage Blocks\ <!-- TODO: verify -->
+**Permissions:** Manage Blocks\
 **Version history:**\
-4.0.0 - added
+4.0.3 - added <!-- TODO: https://github.com/mastodon/mastodon/pull/20846 -->
 
 ##### Path parameters
 
@@ -94,10 +136,49 @@ Authorization
 #### Response
 ##### 200: OK
 
-<!-- TODO: sample response -->
-
 ```json
-
+{
+  "id": "1",
+  "domain": "foo",
+  "created_at": "2022-11-16T06:09:36.176Z",
+  "history": [
+    {
+      "day": "1668556800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668470400",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668384000",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668297600",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668211200",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668124800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668038400",
+      "accounts": "0",
+      "uses": "0"
+    }
+  ]
+}
 ```
 
 ##### 403: Forbidden
@@ -132,7 +213,7 @@ Add a domain to the list of email domains blocked from signups.
 
 **Returns:** [Admin::EmailDomainBlock]({{< relref "entities/Admin_EmailDomainBlock" >}})\
 **OAuth:** User token + `admin:write:email_domain_blocks`\
-**Permissions:** Manage Blocks\ <!-- TODO: verify -->
+**Permissions:** Manage Blocks\
 **Version history:**\
 4.0.0 - added
 
@@ -153,10 +234,49 @@ domain
 
 Email domain has been blocked from signups.
 
-<!-- TODO: sample response -->
-
 ```json
-
+{
+  "id": "1",
+  "domain": "foo",
+  "created_at": "2022-11-16T06:09:36.176Z",
+  "history": [
+    {
+      "day": "1668556800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668470400",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668384000",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668297600",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668211200",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668124800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668038400",
+      "accounts": "0",
+      "uses": "0"
+    }
+  ]
+}
 ```
 
 ##### 403: Forbidden
@@ -179,28 +299,27 @@ The domain parameter was not provided
 }
 ```
 
-##### 500: Server error
+Alternatively, the domain provided contains an invalid character
 
-The domain provided contains an invalid character
-
-<!--
-TODO: remove when fixed
-https://github.com/mastodon/mastodon/issues/19175
--->
+```json
+{
+  "error": "Validation failed: Domain is invalid, Domain is not a valid domain name"
+}
+```
 
 ---
 
 ## Delete an email domain block {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/admin/email_domain_allows/:id HTTP/1.1
+DELETE https://mastodon.example/api/v1/admin/email_domain_blocks/:id HTTP/1.1
 ```
 
 Lift a block against an email domain.
 
 **Returns:** [Admin::EmailDomainBlock]({{< relref "entities/Admin_EmailDomainBlock" >}})\
 **OAuth:** User token + `admin:write:email_domain_blocks`\
-**Permissions:** Manage Blocks\ <!-- TODO: verify -->
+**Permissions:** Manage Blocks\
 **Version history:**\
 4.0.0 - added
 
@@ -221,10 +340,8 @@ Authorization
 
 The email domain has been removed from the block list
 
-<!-- TODO: sample response -->
-
 ```json
-
+{}
 ```
 ##### 403: Forbidden
 

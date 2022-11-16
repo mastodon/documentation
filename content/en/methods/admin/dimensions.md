@@ -1,9 +1,9 @@
 ---
-title: admin/dimensions API methods
+title: dimensions API methods
 description: Obtain qualitative metrics about the server.
 menu:
   docs:
-    name: admin/dimensions
+    name: dimensions
     parent: methods-admin
     identifier: methods-admin-dimensions
 aliases: [

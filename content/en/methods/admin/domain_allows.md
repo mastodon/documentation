@@ -1,9 +1,9 @@
 ---
-title: admin/domain_allows API methods
+title: domain_allows API methods
 description: Allow certain domains to federate.
 menu:
   docs:
-    name: admin/domain_allows
+    name: domain_allows
     parent: methods-admin
     identifier: methods-admin-domain_allows
 aliases: [

@@ -81,8 +81,29 @@ aliases: [
 
 ### `history` {#history}
 
-**Description:** Usage statistics for given days.\
+**Description:** Usage statistics for given days (typically the past week).\
 **Type:** Array of Hash\
+**Version history:**\
+2.4.1 - added
+
+#### `history[][day]` {#history-day}
+
+**Description:** UNIX timestamp on midnight of the given day.\
+**Type:** String (UNIX timestamp)\
+**Version history:**\
+2.4.1 - added
+
+#### `history[][uses]` {#history-uses}
+
+**Description:** The counted usage of the tag within that day.\
+**Type:** String (cast from an integer)\
+**Version history:**\
+2.4.1 - added
+
+#### `history[][accounts]` {#history-accounts}
+
+**Description:** The total of accounts using the tag within that day.\
+**Type:** String (cast from an integer)\
 **Version history:**\
 2.4.1 - added
 
@@ -92,29 +113,6 @@ aliases: [
 **Type:** Boolean\
 **Version history:**\
 4.0.0 - added
-
-## History attributes {#history-hash}
-
-### `day` {#history-day}
-
-**Description:** UNIX timestamp on midnight of the given day.\
-**Type:** String (UNIX timestamp)\
-**Version history:**\
-2.4.1 - added
-
-### `uses` {#history-uses}
-
-**Description:** The counted usage of the tag within that day.\
-**Type:** String (cast from an integer)\
-**Version history:**\
-2.4.1 - added
-
-### `accounts` {#history-accounts}
-
-**Description:** The total of accounts using the tag within that day.\
-**Type:** String (cast from an integer)\
-**Version history:**\
-2.4.1 - added
 
 ## See also
 

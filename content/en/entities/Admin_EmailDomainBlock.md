@@ -16,45 +16,101 @@ aliases: [
 ]
 ---
 
-{{< hint style="danger" >}}
-This page is under construction.
-{{< /hint >}}
-
 ## Example
 
-<!-- TODO: sample response -->
-
 ```json
-
+{
+  "id": "1",
+  "domain": "foo",
+  "created_at": "2022-11-16T06:09:36.176Z",
+  "history": [
+    {
+      "day": "1668556800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668470400",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668384000",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668297600",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668211200",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668124800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668038400",
+      "accounts": "0",
+      "uses": "0"
+    }
+  ]
+}
 ```
 
 ## Attributes
 
 ### `id` {#id}
 
-**Description:** The ID of the DomainBlock in the database.\
+**Description:** The ID of the EmailDomainBlock in the database.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
 4.0.0 - added
 
 ### `domain` {#domain}
 
-**Description:** The domain that is not allowed to federate.\
+**Description:** The email domain that is not allowed to be used for signups.\
 **Type:** String\
 **Version history:**\
 4.0.0 - added
 
 ### `created_at` {#created_at}
 
-**Description:** When the domain was allowed to federate.\
+**Description:** When the email domain was disallowed from signups.\
 **Type:** String (ISO 8601 Datetime)\
 **Version history:**\
 4.0.0 - added
 
 ### `history` {#history}
-<!-- TODO: -->
-**Description:** \
-**Type:** \
+
+**Description:** Usage statistics for given days (typically the past week).\
+**Type:** Array of Hash\
+**Version history:**\
+4.0.0 - added
+
+#### `history[][day]` {#history-day}
+
+**Description:** UNIX timestamp on midnight of the given day.\
+**Type:** String (UNIX timestamp)\
+**Version history:**\
+4.0.0 - added
+
+#### `history[][accounts]` {#history-accounts}
+<!-- TODO: verify -->
+**Description:** The counted accounts signup attempts using that email domain within that day.\
+**Type:** String (cast from an integer)\
+**Version history:**\
+4.0.0 - added
+
+#### `history[][uses]` {#history-uses}
+<!-- TODO: verify -->
+**Description:** The counted IP signup attempts of that email domain within that day.\
+**Type:** String (cast from an integer)\
 **Version history:**\
 4.0.0 - added
 

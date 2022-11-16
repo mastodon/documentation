@@ -1,9 +1,9 @@
 ---
-title: admin/ip_blocks API methods
+title: ip_blocks API methods
 description: Disallow certain IP address ranges from signing up.
 menu:
   docs:
-    name: admin/ip_blocks
+    name: ip_blocks
     parent: methods-admin
     identifier: methods-admin-ip_blocks
 aliases: [
