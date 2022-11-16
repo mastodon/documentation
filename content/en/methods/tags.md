@@ -13,18 +13,77 @@ aliases: [
 ]
 ---
 
-<!--
-TODO: 4.0.0
--->
-
-{{<hint style="danger">}}
-This page is under construction.
-{{</hint>}}
-
 ## View information about a single tag {#get}
 
 ```http
 GET https://mastodon.example/api/v1/tags/:id HTTP/1.1
+```
+
+Show a hashtag and its associated information
+
+**Returns:** [Tag]({{< relref "entities/Tag" >}})\
+**OAuth:** Public, or User token\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The name of the hashtag.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
+{
+  "name": "Test",
+  "url": "http://mastodon.example/tags/test",
+  "history": [
+    {
+      "day": "1668556800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668470400",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668384000",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668297600",
+      "accounts": "1",
+      "uses": "1"
+    },
+    {
+      "day": "1668211200",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668124800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668038400",
+      "accounts": "0",
+      "uses": "0"
+    }
+  ],
+  "following": false
+}
 ```
 
 ---
@@ -35,12 +94,180 @@ GET https://mastodon.example/api/v1/tags/:id HTTP/1.1
 POST https://mastodon.example/api/v1/tags/:id/follow HTTP/1.1
 ```
 
+Follow a hashtag. Posts containing a followed hashtag will be inserted into your home timeline.
+
+**Returns:** [Tag]({{< relref "entities/Tag" >}})\
+**OAuth:** User token + `write:follows`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The name of the hashtag.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Tag has been successfully followed
+
+```json
+{
+  "name": "Test",
+  "url": "http://mastodon.example/tags/test",
+  "history": [
+    {
+      "day": "1668556800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668470400",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668384000",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668297600",
+      "accounts": "1",
+      "uses": "1"
+    },
+    {
+      "day": "1668211200",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668124800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668038400",
+      "accounts": "0",
+      "uses": "0"
+    }
+  ],
+  "following": true
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 422: Unprocessable entity
+
+Tag was already followed <!-- TODO: make idempotent? https://github.com/mastodon/mastodon/pull/20860 -->
+
+```json
+{
+  "error": "Duplicate record"
+}
+```
+
 ---
 
 ## Unfollow a hashtag {#unfollow}
 
 ```http
 POST https://mastodon.example/api/v1/tags/:id/unfollow HTTP/1.1
+```
+
+Unfollow a hashtag. Posts containing this hashtag will no longer be inserted into your home timeline.
+
+**Returns:** [Tag]({{< relref "entities/Tag" >}})\
+**OAuth:** User token + `write:follows`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The name of the hashtag.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Tag has been successfully unfollowed, or was already unfollowed
+
+```json
+{
+  "name": "Test",
+  "url": "http://mastodon.example/tags/test",
+  "history": [
+    {
+      "day": "1668556800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668470400",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668384000",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668297600",
+      "accounts": "1",
+      "uses": "1"
+    },
+    {
+      "day": "1668211200",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668124800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668038400",
+      "accounts": "0",
+      "uses": "0"
+    }
+  ],
+  "following": false
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
 ```
 
 ---
