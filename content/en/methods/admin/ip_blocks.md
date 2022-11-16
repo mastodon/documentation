@@ -26,11 +26,11 @@ This page is under construction.
 GET https://mastodon.example/api/v1/admin/ip_blocks HTTP/1.1
 ```
 
-Show information about all blocked domains.
+Show information about all blocked IP ranges.
 
 **Returns:** Array of [Admin::IpBlock]({{< relref "entities/Admin_IpBlock" >}})\
 **OAuth:** User token + `admin:read:ip_blocks`\
-**Permissions:** Manage Blocks\ <!-- TODO: verify -->
+**Permissions:** Manage Blocks\
 **Version history:**\
 4.0.0 - added
 
@@ -50,10 +50,18 @@ limit
 
 ##### 200: OK
 
-<!-- TODO: sample response -->
-
 ```json
-
+[
+  {
+    "id": "1",
+    "ip": "8.8.8.8/32",
+    "severity": "no_access",
+    "comment": "",
+    "created_at": "2022-11-16T07:22:00.501Z",
+    "expires_at": null
+  },
+  // ...
+]
 ```
 
 ##### 403: Forbidden
@@ -73,11 +81,12 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ```http
 GET https://mastodon.example/api/v1/admin/ip_blocks/:id HTTP/1.1
 ```
+
 Show information about a single IP block.
 
 **Returns:** [Admin::IpBlock]({{< relref "entities/Admin_IpBlock" >}})\
 **OAuth:** User token + `admin:read:ip_blocks`\
-**Permissions:** Manage Blocks\ <!-- TODO: verify -->
+**Permissions:** Manage Blocks\
 **Version history:**\
 4.0.0 - added
 
@@ -94,10 +103,15 @@ Authorization
 #### Response
 ##### 200: OK
 
-<!-- TODO: sample response -->
-
 ```json
-
+{
+  "id": "1",
+  "ip": "8.8.8.8/32",
+  "severity": "no_access",
+  "comment": "",
+  "created_at": "2022-11-16T07:22:00.501Z",
+  "expires_at": null
+}
 ```
 
 ##### 403: Forbidden
@@ -132,7 +146,7 @@ Add an IP address range to the list of IP blocks.
 
 **Returns:** [Admin::IpBlock]({{< relref "entities/Admin_IpBlock" >}})\
 **OAuth:** User token + `admin:write:ip_blocks`\
-**Permissions:** Manage Blocks\ <!-- TODO: verify -->
+**Permissions:** Manage Blocks\
 **Version history:**\
 4.0.0 - added
 
@@ -146,26 +160,31 @@ Authorization
 ##### Form data parameters
 
 ip
-: TODO:
+: String. The IP address and prefix to block. Defaults to `0.0.0.0/32`
 
 severity
-: TODO:
+: {{<required>}} String. The policy to apply to this IP range: `sign_up_requires_approval`, `sign_up_block`, or `no_access`
 
 comment
-: TODO:
+: String. The reason for this IP block.
 
 expires_in
-: TODO:
+: Integer. The number of seconds in which this IP block will expire.
 
 #### Response
 ##### 200: OK
 
 IP has been blocked from signups.
 
-<!-- TODO: sample response -->
-
 ```json
-
+{
+  "id": "1",
+  "ip": "8.8.8.8/32",
+  "severity": "no_access",
+  "comment": "",
+  "created_at": "2022-11-16T07:22:00.501Z",
+  "expires_at": null
+}
 ```
 
 ##### 403: Forbidden
@@ -180,12 +199,12 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 
 ##### 422: Unprocessable entity
 
-The ip parameter was not provided
-
-<!-- TODO: sample response -->
+IP has already been blocked, and/or no severity was provided
 
 ```json
-
+{
+  "error": "Validation failed: Severity can't be blank, Ip has already been taken"
+}
 ```
 
 ---
@@ -219,16 +238,42 @@ Authorization
 ##### Form data parameters
 
 ip
-: TODO:
+: String. The IP address and prefix to block. Defaults to `0.0.0.0/32`
 
 severity
-: TODO:
+: String. The policy to apply to this IP range: `sign_up_requires_approval`, `sign_up_block`, or `no_access`
 
 comment
-: TODO:
+: String. The reason for this IP block.
 
 expires_in
-: TODO:
+: Integer. The number of seconds in which this IP block will expire.
+
+#### Response
+##### 200: OK
+
+IP block has been updated
+
+```json
+{
+  "id": "1",
+  "ip": "8.8.4.4/32",
+  "severity": "no_access",
+  "comment": "",
+  "created_at": "2022-11-16T07:22:00.501Z",
+  "expires_at": null
+}
+```
+
+##### 403: Forbidden
+
+Authorized user is not allowed to perform this action, or invalid or missing Authorization header
+
+```json
+{
+  "error": "This action is not allowed"
+}
+```
 
 ---
 
@@ -242,7 +287,7 @@ Lift a block against an IP range.
 
 **Returns:** [Admin::IpBlock]({{< relref "entities/Admin_IpBlock" >}})\
 **OAuth:** User token + `admin:write:domain_blocks`\
-**Permissions:** Manage Blocks\ <!-- TODO: verify -->
+**Permissions:** Manage Blocks\
 **Version history:**\
 4.0.0 - added
 
@@ -263,10 +308,8 @@ Authorization
 
 The IP has been removed from the block list
 
-<!-- TODO: sample response -->
-
 ```json
-
+{}
 ```
 ##### 403: Forbidden
 

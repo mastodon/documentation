@@ -16,16 +16,17 @@ aliases: [
 ]
 ---
 
-{{< hint style="danger" >}}
-This page is under construction.
-{{< /hint >}}
-
 ## Example
 
-<!-- TODO: sample response -->
-
 ```json
-
+{
+  "id": "1",
+  "ip": "8.8.8.8/32",
+  "severity": "no_access",
+  "comment": "",
+  "created_at": "2022-11-16T07:22:00.501Z",
+  "expires_at": null
+}
 ```
 
 ## Attributes
@@ -45,30 +46,33 @@ This page is under construction.
 4.0.0 - added
 
 ### `severity` {#severity}
-<!-- TODO: -->
-**Description:** \
-**Type:** \
+
+**Description:** The associated policy with this IP block.\
+**Type:** String (Enumerable, oneOf)\
+`sign_up_requires_approval` = Any signup from this IP range will create a pending account\
+`sign_up_block` = Any signup from this IP range will be rejected\
+`no_access` = Any activity from this IP range will be rejected entirely\
 **Version history:**\
 4.0.0 - added
 
 ### `comment` {#comment}
-<!-- TODO: -->
-**Description:** \
-**Type:** \
+
+**Description:** The recorded reason for this IP block.\
+**Type:** String\
 **Version history:**\
 4.0.0 - added
 
 ### `created_at` {#created_at}
 
-**Description:** When the domain was allowed to federate.\
+**Description:** When the IP block was created.\
 **Type:** String (ISO 8601 Datetime)\
 **Version history:**\
 4.0.0 - added
 
 ### `expires_at` {#expires_at}
-<!-- TODO: -->
-**Description:** \
-**Type:** \
+
+**Description:** When the IP block will expire.\
+**Type:** {{<nullable>}} String (ISO 8601 Datetime)\
 **Version history:**\
 4.0.0 - added
 
