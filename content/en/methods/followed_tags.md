@@ -13,18 +13,106 @@ aliases: [
 ]
 ---
 
-<!--
-TODO: 4.0.0
--->
-
-{{<hint style="danger">}}
-This page is under construction.
-{{</hint>}}
-
 ## View all followed tags {#get}
 
 ```http
 GET https://mastodon.example/api/v1/followed_tags HTTP/1.1
+```
+
+**Returns:** Array of [Tag]({{< relref "entities/Tag" >}})\
+**OAuth:** User token + `read:follows`\
+**Version history:**\
+4.0.0 - added\
+4.0.3 - add pagination headers <!-- TODO: https://github.com/mastodon/mastodon/pull/20861 -->
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 100.
+
+#### Response
+##### 200: OK
+
+List of followed hashtags
+
+```json
+[
+  {
+    "name": "Test",
+    "url": "http://mastodon.example/tags/test",
+    "history": [
+      {
+        "day": "1668556800",
+        "accounts": "0",
+        "uses": "0"
+      },
+      {
+        "day": "1668470400",
+        "accounts": "0",
+        "uses": "0"
+      },
+      {
+        "day": "1668384000",
+        "accounts": "0",
+        "uses": "0"
+      },
+      {
+        "day": "1668297600",
+        "accounts": "1",
+        "uses": "1"
+      },
+      {
+        "day": "1668211200",
+        "accounts": "0",
+        "uses": "0"
+      },
+      {
+        "day": "1668124800",
+        "accounts": "0",
+        "uses": "0"
+      },
+      {
+        "day": "1668038400",
+        "accounts": "0",
+        "uses": "0"
+      }
+    ],
+    "following": true
+  },
+  // ...
+]
+```
+
+Because TagFollow IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <http://mastodon.example/api/v1/followed_tags?limit=1&max_id=2>; rel="next", <http://mastodon.example/api/v1/followed_tags?limit=1&since_id=2>; rel="prev"
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
 ```
 
 ---
