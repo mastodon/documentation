@@ -181,6 +181,16 @@ You’re done with the mastodon user for now, so switch back to root:
 exit
 ```
 
+### Acquiring a SSL certificate {#acquiring-a-ssl-certificate}
+
+We’ll use Let’s Encrypt to get a free SSL certificate:
+
+```bash
+certbot certonly --nginx -d example.com
+```
+
+This will obtain the certificate, and save it in the directory `/etc/letsencrypt/live/example.com/`.
+
 ### Setting up nginx {#setting-up-nginx}
 
 Copy the configuration template for nginx from the Mastodon directory:
@@ -192,17 +202,9 @@ ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 
 Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with your own domain name, and make any other adjustments you might need.
 
+Un-comment the lines starting with `ssl_certificate` and `ssl_certificate_key`, updating the path with the correct domain name.
+
 Reload nginx for the changes to take effect:
-
-### Acquiring a SSL certificate {#acquiring-a-ssl-certificate}
-
-We’ll use Let’s Encrypt to get a free SSL certificate:
-
-```bash
-certbot --nginx -d example.com
-```
-
-This will obtain the certificate, automatically update `/etc/nginx/sites-available/mastodon` to use the new certificate, and reload nginx for the changes to take effect.
 
 At this point you should be able to visit your domain in the browser and see the elephant hitting the computer screen error page. This is because we haven’t started the Mastodon process yet.
 
