@@ -18,7 +18,7 @@ RAILS_ENV=production bin/tootctl accounts modify alice --role Owner
 ```
 
 {{<hint style="warning">}}
-Prior to Mastodon 4.0, roles were hardcoded to be one of `user`, `moderator`, or `admin`. Since Mastodon 4.0, there is a customizable role system, with default roles created for `Moderator`, `Admin`, and `Owner`.
+Prior to Mastodon 4.0, roles were hardcoded to be one of `user`, `moderator`, or `admin`. Since Mastodon 4.0, there is a customizable role system, with default roles created for `Moderator`, `Admin`, and `Owner`. Names of custom roles are case-sensitive.
 {{</hint>}}
 
 ### From the command line {#admin-cli}
