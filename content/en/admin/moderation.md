@@ -49,13 +49,13 @@ Because individually moderating a large volume of users from a misbehaving serve
 
 With this option active, no files from the server will be processed locally. That includes avatars, headers, emojis and media attachments.
 
-### Silence {#silence-server}
+### Limit {#limit-server}
 
-Applies a silence to all past and future accounts from the server.
+Equivalent to [limiting](#limit-user) all past and future accounts from the server.
 
 ### Suspend {#suspend-server}
 
-Applies a suspension to all past and future accounts from the server. No content from the server will be stored locally except for usernames.
+Equivalent to [suspending](#suspend-user) all past and future accounts from the server. No content from the server will be stored locally except for usernames.
 
 ## Spam-fighting measures {#spam-fighting-measures}
 
