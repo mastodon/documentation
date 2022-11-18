@@ -48,7 +48,7 @@ When unread notifications are present, a checkmark will appear in the column hea
 
 As long as you encounter a person within your app’s user interface, e.g. the web interface on your home server, or your mobile app, you can just click “follow” and you won’t notice a difference if that person is on your server or not.
 
-However if you come across someone’s public profile hosted on a different server, there’s an obstacle: That server sees you as just another anonymous visitor. Not to worry! You can simply copy the URL of that profile, or of one of their posts, and then paste that URL into the search function.
+However if you come across someone’s public profile hosted on a different server, there’s an obstacle: That server sees you as just another anonymous visitor. Not to worry! You can copy the URL of that profile, or of one of their posts, and then paste that URL into the search function.
 
 If you are visiting a public page on another Mastodon site, see [Using Mastodon outside of your site](../external/#interact).
 
@@ -82,7 +82,7 @@ The following operators are supported:
 
 {{< figure src="/assets/dm-column.jpg" caption="A list of conversations containing direct messages." >}}
 
-In Mastodon, direct messages are simply posts that have the "direct" visibility selected. Visibility can be selected per-post, which allows changing the privacy level later in a thread. The direct messages column currently shows a list of all conversations containing a direct post. Clicking on a conversation will load the associated thread.
+In Mastodon, direct messages are just posts that have the "direct" visibility selected. Visibility can be selected per-post, which allows changing the privacy level later in a thread. The direct messages column currently shows a list of all conversations containing a direct post. Clicking on a conversation will load the associated thread.
 
 {{< figure src="/assets/dm-thread.jpg" caption="A direct message in a thread." >}}
 

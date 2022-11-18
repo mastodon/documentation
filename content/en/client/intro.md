@@ -34,7 +34,7 @@ Query strings, form data, and JSON submitted via POST body are equally understoo
 
 ### Query strings {#query-strings}
 
-Simply request the URL, but append query strings to the end. Query strings can be appended by first typing ? and then appending them in the form of parameter=value. Multiple query strings can be appended by separating them with &. For example:
+Request the URL, but append query strings to the end. Query strings can be appended by first typing ? and then appending them in the form of parameter=value. Multiple query strings can be appended by separating them with &. For example:
 
 ```bash
 curl https://mastodon.example/endpoint?q=test&n=0

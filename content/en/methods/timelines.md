@@ -400,7 +400,7 @@ limit
 #### Response
 ##### 200: OK
 
-Statuses with direct visibility, authored by you or mentioning you. Statuses are not grouped by conversation, but are simply returned in chronological order.
+Statuses with direct visibility, authored by you or mentioning you. Statuses are not grouped by conversation, but are returned in chronological order.
 
 ```json
 [

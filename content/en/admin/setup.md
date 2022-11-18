@@ -46,7 +46,7 @@ After logging in, navigate to the **Site settings** page. While there are no tec
 | Instance description | Why did you start this server? Who is it for? What makes it different? |
 | Custom extended information | You can put all sorts of information in here but a **code of conduct** is recommended |
 
-After you fill these in, simply hit “Save changes”.
+After you fill these in, click “Save changes”.
 
 ## Running periodic cleanup tasks {#cleanup}
 

@@ -9,7 +9,7 @@ menu:
 
 ## What are microformats? {#intro}
 
-[Microformats 2.0](https://microformats.io/) is a standard used to embed metadata directly within an HTML document. Rather than needing to use an API for read-only purposes, a web page can simply be parsed for certain CSS classes in order to extract information that you have already fetched simply by viewing the page, rather than having to separately request that same information from an API. The use of microformats classes allows for semantic parsing of data within a given web page, and can be used to generate feeds, cards, or representations of that data.
+[Microformats 2.0](https://microformats.io/) is a standard used to embed metadata directly within an HTML document. Rather than needing to use an API for read-only purposes, a web page can be parsed for certain CSS classes in order to extract information that you have already fetched just by viewing the page, rather than having to separately request that same information from an API. The use of microformats classes allows for semantic parsing of data within a given web page, and can be used to generate feeds, cards, or representations of that data.
 
 ## Microformats classes {#classes}
 
