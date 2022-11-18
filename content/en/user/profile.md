@@ -71,7 +71,7 @@ If you put a link in your profile metadata, Mastodon checks if the linked page l
 
 Behind the scenes, Mastodon checks for the `rel="me"` attribute on the link back. Likewise, Mastodon puts `rel="me"` on the links within profile metadata.
 
-The profile page you're linking to must be served securely (over HTTPS) in order to pass verification.
+The profile page you're linking to must be served securely (over HTTPS) and not use an international domain name with non-latin characters in order to pass verification.
 
 {{< hint style="info" >}}
 Because Mastodon can be self-hosted, there is no better way to verify your identity than to host Mastodon on your own domain, which people already trust.
