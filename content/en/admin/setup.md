@@ -17,6 +17,10 @@ After signing up in the browser, you will need to use the command line to give y
 RAILS_ENV=production bin/tootctl accounts modify alice --role Owner
 ```
 
+{{<hint style="warning">}}
+Prior to Mastodon 4.0, roles were hardcoded to be one of `user`, `moderator`, or `admin`. Since Mastodon 4.0, there is a customizable role system, with default roles created for `Moderator`, `Admin`, and `Owner`.
+{{</hint>}}
+
 ### From the command line {#admin-cli}
 
 You can create a new account using the command-line interface.
