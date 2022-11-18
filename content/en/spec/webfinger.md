@@ -21,7 +21,7 @@ Enter WebFinger. WebFinger as described in [RFC 7033](https://tools.ietf.org/htm
 
 Suppose we want to lookup the user `@Gargron` hosted on the `mastodon.social` website.
 
-Simply make a request to that domain's `/.well-known/webfinger` endpoint, with the `resource` query parameter set to an `acct:` URI.
+Make a request to that domain's `/.well-known/webfinger` endpoint, with the `resource` query parameter set to an `acct:` URI.
 
 {{< code title="https://mastodon.social/.well-known/webfinger?resource=acct:gargron@mastodon.social" >}}
 ```javascript
@@ -71,5 +71,5 @@ This way, we have translated `@Gargron@mastodon.social` to `https://mastodon.soc
 ```
 {{< /code >}}
 
-Note in the above example that `social.example` does not use the same URI structure as Mastodon. Thus, we cannot simply guess the actor `id` given only the username and domain. However, if `social.example` supports WebFinger, then we can get this `id`simply by requesting `https://social.example/.well-known/webfinger?resource=acct:username@social.example`and parsing the response for a link with the `application/activity+json` type.
+Note in the above example that `social.example` does not use the same URI structure as Mastodon. Thus, we cannot guess the actor `id` given only the username and domain. However, if `social.example` supports WebFinger, then we can get this `id` by requesting `https://social.example/.well-known/webfinger?resource=acct:username@social.example`and parsing the response for a link with the `application/activity+json` type.
 
