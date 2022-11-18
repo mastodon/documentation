@@ -23,7 +23,7 @@ GET https://mastodon.example/api/v1/followed_tags HTTP/1.1
 **OAuth:** User token + `read:follows`\
 **Version history:**\
 4.0.0 - added\
-4.0.3 - add pagination headers <!-- TODO: https://github.com/mastodon/mastodon/pull/20861 -->
+4.0.3 - add pagination headers
 
 #### Request
 

@@ -99,7 +99,8 @@ Follow a hashtag. Posts containing a followed hashtag will be inserted into your
 **Returns:** [Tag]({{< relref "entities/Tag" >}})\
 **OAuth:** User token + `write:follows`\
 **Version history:**\
-4.0.0 - added
+4.0.0 - added\
+4.0.3 - this action is now idempotent
 
 #### Request
 
@@ -175,7 +176,7 @@ Invalid or missing Authorization header.
 
 ##### 422: Unprocessable entity
 
-Tag was already followed <!-- TODO: make idempotent? https://github.com/mastodon/mastodon/pull/20860 -->
+Prior to 4.0.3: Tag was already followed
 
 ```json
 {
