@@ -56,6 +56,6 @@ All locale files are normalized to ensure consistent formatting and key order, w
 
 | Command | Description |
 | :--- | :--- |
-| `i18n-tasks normalize` | Normalize server-side translations |
+| `bundle exec i18n-tasks normalize` | Normalize server-side translations |
 | `yarn run manage:translations` | Normalize client-side translations |
 
