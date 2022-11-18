@@ -84,8 +84,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 Once this is done, we can install the correct Ruby version:
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.0.3
-rbenv global 3.0.3
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.0.4
+rbenv global 3.0.4
 ```
 
 We’ll also need to install bundler:
@@ -172,6 +172,14 @@ This will:
 * Create a configuration file
 * Run asset precompilation
 * Create the database schema
+
+{{< hint style="info" >}}
+Although the installer says "If the database already exists, this will erase its contents.", it there is an existing database the process fails with an "You are attempting to run a destructive action against your 'production' database" error. If you really wish to overwrite your existing database, prefix the command with the environment variable DISABLE_DATABASE_ENVIRONMENT_CHECK=1:
+
+```bash
+RAILS_ENV=production DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rake mastodon:setup
+```
+{{< /hint >}}
 
 The configuration file is saved as `.env.production`. You can review and edit it to your liking. Refer to the [documentation on configuration.]({{< relref "config.md" >}})
 
