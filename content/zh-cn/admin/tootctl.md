@@ -77,7 +77,7 @@ RAILS_ENV=production bin/tootctl help
 | `USERNAME`      | 新帐户的本地用户名。 必须的。 |
 | `--email EMAIL` | 要附加到用户的电子邮件地址。 必须的。 |
 | `--confirmed`   | 跳过发送确认邮件步骤并立即激活帐户。 |
-| `--role ROLE`   | 设定新用户的身份为 `user`, `moderator` 或 `admin`。默认为 `user`。 |
+| `--role ROLE`   | 设定新用户的身份为 `User`, `Moderator` 或 `Admin`。默认为 `user`。 |
 | `--reattach`    | 重用已被删除帐户的旧用户名。 |
 | `--force`       | 强制删除使用此用户名（USERNAME）的现有帐户，然后重新的新帐户代替（刚刚删除的）该帐户。 |
 | `--skip-sign-in-token` | 强制跳过该用户登录时的邮件验证码（目前这是不可逆操作）。 |
@@ -92,7 +92,7 @@ RAILS_ENV=production bin/tootctl help
 | 选项 | 描述 |
 | :--- | :--- |
 | `USERNAME` | 本地帐户的用户名。 必须的。 |
-| `--role ROLE` | 设定该帐户的身份为 `user`, `moderator` 或 `admin`。 |
+| `--role ROLE` | 设定该帐户的身份为 `User`, `Moderator` 或 `Admin`。 |
 | `--email EMAIL` | 将该帐户电子邮箱地址改为 EMAIL。 |
 | `--confirm` | 跳过邮件确认步骤，当使用 --email 时可用。 |
 | `--disable` | 禁止 USERNAME 帐户登录。 |

@@ -92,7 +92,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 | Option | Description |
 | :--- | :--- |
 | `USERNAME` | Local username for the account. Required. |
-| `--role ROLE` | Define the account as a `user`, `moderator`, or `admin`. |
+| `--role ROLE` | Define the account as a `User`, `Moderator`, or `Admin`. |
 | `--email EMAIL` | Update the user's email address to EMAIL. |
 | `--confirm` | Skip confirmation email, when used with --email. |
 | `--disable` | Lock USERNAME out of their account. |
@@ -551,5 +551,3 @@ Upgrade the storage schema to store all non-local media resources in a top-level
 | :--- | :--- |
 | `--verbose` | Print additional information while task is processing. |
 | `--dry-run` | Print expected results only, without performing any actions. |
-
-
