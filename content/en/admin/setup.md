@@ -33,7 +33,7 @@ A randomly generated password will be shown in the terminal.
 
 ## Filling in server information {#info}
 
-After logging in, navigate to the **Site settings** page. While there are no technical requirements for filling in this information, it is considered crucial for operating a server for humans.
+After logging in, navigate to the **Site settings** page (under **Preferences** -> **Administration**). While there are no technical requirements for filling in this information, it is considered crucial for operating a server for humans.
 
 | Setting | Meaning |
 | :--- | :--- |
