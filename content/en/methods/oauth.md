@@ -30,7 +30,8 @@ Displays an authorization form to the user. If approved, it will create and retu
 **OAuth:** Public\
 **Version history:**\
 0.1.0 - added\
-2.6.0 - added `force_login`
+2.6.0 - added `force_login`\
+3.5.0 - added `lang`
 
 #### Request
 ##### Query parameters
@@ -49,6 +50,9 @@ scope
 
 force_login
 : Boolean. Forces the user to re-login, which is necessary for authorizing with multiple accounts from the same instance.
+
+lang
+: String. The ISO 639-1 two-letter language code to use while rendering the authorization form.
 
 #### Response
 ##### 200: OK
