@@ -36,6 +36,29 @@ wget -O /usr/share/keyrings/postgresql.asc https://www.postgresql.org/media/keys
 echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/postgresql.list
 ```
 
+#### Performance configuration \(optional\) {#performance-configuration-optional}
+
+For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/14/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
+
+#### Creating a user {#creating-a-user}
+
+You will need to create a PostgreSQL user that Mastodon could use. It is easiest to go with “ident” authentication in a simple setup, i.e. the PostgreSQL user does not have a separate password and can be used by the Linux user with the same username.
+
+Open the prompt:
+
+```bash
+sudo -u postgres psql
+```
+
+In the prompt, execute:
+
+```sql
+CREATE USER mastodon CREATEDB;
+\q
+```
+
+Done!
+
 ### System packages {#system-packages}
 
 ```bash
@@ -94,48 +117,9 @@ We’ll also need to install bundler:
 gem install bundler --no-document
 ```
 
-Return to the root user:
+## Setting up Mastodon {#setting-up-mastodon}
 
-```bash
-exit
-```
-
-## Setup {#setup}
-
-### Setting up PostgreSQL {#setting-up-postgresql}
-
-#### Performance configuration \(optional\) {#performance-configuration-optional}
-
-For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/14/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
-
-#### Creating a user {#creating-a-user}
-
-You will need to create a PostgreSQL user that Mastodon could use. It is easiest to go with “ident” authentication in a simple setup, i.e. the PostgreSQL user does not have a separate password and can be used by the Linux user with the same username.
-
-Open the prompt:
-
-```bash
-sudo -u postgres psql
-```
-
-In the prompt, execute:
-
-```sql
-CREATE USER mastodon CREATEDB;
-\q
-```
-
-Done!
-
-### Setting up Mastodon {#setting-up-mastodon}
-
-It is time to download the Mastodon code. Switch to the mastodon user:
-
-```bash
-su - mastodon
-```
-
-#### Checking out the code {#checking-out-the-code}
+### Checking out the code {#checking-out-the-code}
 
 Use git to download the latest stable release of Mastodon:
 
@@ -144,7 +128,7 @@ git clone https://github.com/tootsuite/mastodon.git live && cd live
 git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 ```
 
-#### Installing the last dependencies {#installing-the-last-dependencies}
+### Installing the last dependencies {#installing-the-last-dependencies}
 
 Now to install Ruby and JavaScript dependencies:
 
@@ -159,7 +143,7 @@ yarn install --pure-lockfile
 The two `bundle config` commands are only needed the first time you're installing dependencies. If you're going to be updating or re-installing dependencies later, just `bundle install` will be enough.
 {{< /hint >}}
 
-#### Generating a configuration {#generating-a-configuration}
+### Generating a configuration {#generating-a-configuration}
 
 Run the interactive setup wizard:
 
@@ -181,7 +165,7 @@ You’re done with the mastodon user for now, so switch back to root:
 exit
 ```
 
-### Setting up nginx {#setting-up-nginx}
+## Setting up nginx {#setting-up-nginx}
 
 Copy the configuration template for nginx from the Mastodon directory:
 
@@ -206,7 +190,7 @@ This will obtain the certificate, automatically update `/etc/nginx/sites-availab
 
 At this point you should be able to visit your domain in the browser and see the elephant hitting the computer screen error page. This is because we haven’t started the Mastodon process yet.
 
-### Setting up systemd services {#setting-up-systemd-services}
+## Setting up systemd services {#setting-up-systemd-services}
 
 Copy the systemd service templates from the Mastodon directory:
 
