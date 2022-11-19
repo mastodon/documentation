@@ -198,6 +198,11 @@ body {
     @media screen and (max-width: $mobile-width) {
         margin-bottom: 60px;
 
+        // css menu toggle for mobile.
+        // when the checkbox is checked, the menu shows,
+        // othewise it's hidden.
+        // it's important for it all to be scoped inside this media query,
+        // that way on larger screens the menu will always show even if the checkbox is unchecked.
         input[type="checkbox"] {
             display: none;
         }
@@ -227,8 +232,10 @@ body {
         }
     }
 
+    // on viewport sizes larger than mobile, always hide the mobile nav toggle.
     @media screen and (min-width: $mobile-width) {
-        .mobile-nav-wrapper {
+        .mobile-nav-toggle,
+        .mobile-nav-toggle + label {
             display: none;
         }
     }
