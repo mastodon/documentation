@@ -62,10 +62,11 @@ Sidekiq uses different queues for tasks of varying importance, where importance 
 | `default` | All tasks that affect local users |
 | `push` | Delivery of payloads to other servers |
 | `mailers` | Delivery of e-mails |
-| `pull` | Fetching information from other servers |
+| `pull` | Lower priority tasks such as handling imports, backups, resolving threads, deleting users, forwarding replies |
 | `scheduler` | Doing cron jobs like refreshing trending hashtags and cleaning up logs |
+| `ingress` | Incoming remote activities. Lower priority than the default queue so local users still see their posts when the server is under load |
 
-The default queues and their priorities are stored in `config/sidekiq.yml`, but can be overridden by the command-line invocation of Sidekiq, e.g.:
+The default queues and their priorities are stored in [config/sidekiq.yml](https://github.com/mastodon/mastodon/blob/main/config/sidekiq.yml), but can be overridden by the command-line invocation of Sidekiq, e.g.:
 
 ```bash
 bundle exec sidekiq -q default
