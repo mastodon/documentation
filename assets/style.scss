@@ -195,9 +195,44 @@ body {
 }
 
 .sidebar {
-  @media screen and (max-width: $mobile-width) {
-    margin-bottom: 60px;
-  }
+    @media screen and (max-width: $mobile-width) {
+        margin-bottom: 60px;
+
+        input[type="checkbox"] {
+            display: none;
+        }
+        label {
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 2rem;
+        }
+        label i {
+            margin-right: .25rem;
+        }
+        input[type="checkbox"]:not(:checked) + label > .menu-open {
+            display: none;
+        }
+
+        input[type="checkbox"]:checked + label > .menu-close {
+            display: none;
+        }
+
+        & > ul {
+            display: none;
+        }
+
+        #mobile-nav-toggle:checked ~ ul {
+            display: block;
+        }
+    }
+
+    @media screen and (min-width: $mobile-width) {
+        .mobile-nav-wrapper {
+            display: none;
+        }
+    }
+
 
   .brand {
     display: flex;
