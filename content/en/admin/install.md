@@ -64,6 +64,12 @@ We will be using rbenv to manage Ruby versions, because it’s easier to get the
 adduser --disabled-login mastodon
 ```
 
+The mastodon user's home directory will contain the application, so we need to ensure that other users (such as the web server process) can traverse files in it:
+
+```bash
+chmod a+x /home/mastodon
+```
+
 We can then switch to the user:
 
 ```bash
