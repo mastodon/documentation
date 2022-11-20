@@ -83,8 +83,6 @@ aliases: [
 
 ## Attributes
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/preview_card_serializer.rb" caption="app/serializers/rest/preview_card_serializer.rb" >}}
-
 ### `url` {#url}
 
 **Description:** Location of linked resource.\
@@ -189,10 +187,6 @@ aliases: [
 
 ## Trends::Link entity attributes {#trends-link}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/trends/link_serializer.rb" caption="app/serializers/rest/trends/link_serializer.rb" >}}
-
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/models/trends/links.rb" caption="app/models/trends/links.rb" >}}
-
 ```json
 {
   "url": "https://www.nbcnews.com/specials/plan-your-vote-2022-elections/index.html",
@@ -280,3 +274,9 @@ aliases: [
 ## See also
 
 {{< page-relref ref="entities/Status#card" caption="Status (`card` attribute)" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/preview_card_serializer.rb" caption="app/serializers/rest/preview_card_serializer.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/trends/link_serializer.rb" caption="app/serializers/rest/trends/link_serializer.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/models/trends/links.rb" caption="app/models/trends/links.rb" >}}
