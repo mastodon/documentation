@@ -101,7 +101,7 @@ server {
 
 ## Serve Tor over http {#http}
 
-While it may be tempting to serve your Tor version of Mastodon over https it is not a good idea for most people. See [this](https://blog.torproject.org/facebook-hidden-services-and-https-certs) blog post from the Tor Project about why https certificates do not add value. Since you cannot get an SSL cert for an onion domain, you will also be plagued with certificate errors when trying to use your Mastodon instance. A Tor developer has more recently spelled out the reasons why serving a Tor service over https is not beneficial for most use cases [here](https://matt.traudt.xyz/p/o44SnkW2.html).
+While it may be tempting to serve your Tor version of Mastodon over https it is not a good idea for most people. See [this](https://blog.torproject.org/facebook-hidden-services-and-https-certs) blog post from the Tor Project about why https certificates do not add value. Since you cannot get an SSL cert for an onion domain, you will also be plagued with certificate errors when trying to use your Mastodon instance. A Tor developer has more recently spelled out the reasons why serving a Tor service over https is not beneficial for most use cases [here](https://matt.traudt.xyz/posts/2017-12-02-dont-https-your-onions/).
 
 The solution is to serve your Mastodon instance over http, but only for Tor. This can be added by prepending an additional configuration to your Nginx configuration.
 
