@@ -70,7 +70,7 @@ tootctl domain purge --limited-federation-mode
 ```
 
 {{< hint style="warning" >}}
-This mode is intended for private use only, such as in academic instituations or internal company networks, as it effectively creates a data silo, which is contrary to Mastodon's mission of decentralization.
+This mode is intended for private use only, such as in academic institutions or internal company networks, as it effectively creates a data silo, which is contrary to Mastodon's mission of decentralization.
 {{</ hint >}}
 
 {{< hint style="info" >}}
