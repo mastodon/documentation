@@ -15,7 +15,7 @@ menu:
 
 ## 基本步骤 {#basic-steps}
 
-1. 依照[产品指南]({{< relref "install.md" >}})安装新的Mastodon服务器（切记，不要运行 `mastodon:setup`）。
+1. 依照[产品指南]({{< relref "install" >}})安装新的Mastodon服务器（切记，不要运行 `mastodon:setup`）。
 2. 停止旧服务器上的Mastodon（`systemctl stop 'mastodon-*.service'`）。
 3. 依照如下指示，导出并导入Postgres数据库。
 4. 依照如下指示，复制 `system/` 目录下文件。（注意：如果你使用S3存储，你可以跳过此步）。

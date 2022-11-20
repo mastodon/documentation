@@ -11,11 +11,11 @@ menu:
 
 Mastodon有三种进程：
 
-* Web \(Puma\)
+* Web (Puma)
 * Streaming API
-* 后台进程 \(Sidekiq\)
+* 后台进程 (Sidekiq)
 
-### Web \(Puma\) {#web}
+### Web (Puma) {#web}
 
 web进程处理绝大多数应用的短HTTP请求。以下环境变量可以控制它：
 
@@ -37,7 +37,7 @@ streaming API处理长HTTP连接与WebSockets连接，通过这些连接用户�
 
 一个进程可以处理相当数量的连接。 如果您愿意，streaming API可以托管在其他子域上，例如：避免nginx代理连接开销。
 
-### 后台进程 \(Sidekiq\) {#sidekiq}
+### 后台进程 (Sidekiq) {#sidekiq}
 
 Mastodon许多任务都分配给后台进程，以确保HTTP请求快速响应，并防止HTTP请求中止影响到这些任务的执行。Sidekiq是单个进程，具有可配置的线程数。
 

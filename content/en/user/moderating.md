@@ -25,7 +25,7 @@ This is the string that will be matched. The keyword will be searched for in any
 
 ### Expire after {#filter-expire}
 
-Optionally only apply the filter for a limited amount of time. Expired filters are not automatically deleted, but can be reactivated by setting a new expiry date \(or changing it back to "never" expire\).
+Optionally only apply the filter for a limited amount of time. Expired filters are not automatically deleted, but can be reactivated by setting a new expiry date (or changing it back to "never" expire).
 
 ### Filter contexts {#filter-context}
 
@@ -105,4 +105,4 @@ If you block an entire server:
 
 {{< figure src="/assets/report-modal.jpg" caption="The report modal allows selecting example statuses, adding a note, and forwarding reports." >}}
 
-If you see a status or user that is violating the rules of your website, you can report that user to your site's moderators. Clicking the "report" option on the user dropdown or status dropdown will open the report modal. Here, you can \(and should\) add a note about why you are reporting this account. You can attach certain problematic statuses for additional context on why you are reporting the account, and if their conduct is violating the rules of the remote website, you can also choose to forward the report to their site's moderators.
+If you see a status or user that is violating the rules of your website, you can report that user to your site's moderators. Clicking the "report" option on the user dropdown or status dropdown will open the report modal. Here, you can (and should) add a note about why you are reporting this account. You can attach certain problematic statuses for additional context on why you are reporting the account, and if their conduct is violating the rules of the remote website, you can also choose to forward the report to their site's moderators.

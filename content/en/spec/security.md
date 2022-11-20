@@ -9,7 +9,7 @@ menu:
 
 ## HTTP Signatures {#http}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/lib/request.rb" caption="app/lib/request.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/request.rb" caption="app/lib/request.rb" >}}
 
 [HTTP Signatures](https://w3c-dvcg.github.io/http-signatures/) is a specification for signing HTTP messages by using a \`Signature:\` header with your HTTP request. Mastodon requires the use of HTTP Signatures in order to validate that any activity received was authored by the actor generating it. When secure mode is enabled, all GET requests require HTTP signatures as well.
 
@@ -28,9 +28,9 @@ Signature:
   signature="Y2FiYW...IxNGRiZDk4ZA=="
 ```
 
-The `keyId` should correspond to the actor and the key being used to generate the `signature`, whose value is equal to all parameters in `headers` concatenated together and signed by the key, then Base64-encoded. See [ActivityPub &gt; Public key]({{< relref "activitypub.md#public-key" >}}) for more information on actor keys. An example key looks like this:
+The `keyId` should correspond to the actor and the key being used to generate the `signature`, whose value is equal to all parameters in `headers` concatenated together and signed by the key, then Base64-encoded. See [ActivityPub &gt; Public key]({{< relref "activitypub#publicKey" >}}) for more information on actor keys. An example key looks like this:
 
-```javascript
+```json
 "publicKey": {
     "id": "https://my-example.com/actor#main-key",
     "owner": "https://my-example.com/actor",
@@ -75,7 +75,7 @@ This request is functionally equivalent to saying that `https://my-example.com/a
 
 ### Verifying HTTP signatures {#http-verify}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/controllers/concerns/signature_verification.rb" caption="app/controllers/concerns/signature\_verification.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/controllers/concerns/signature_verification.rb" caption="app/controllers/concerns/signature\_verification.rb" >}}
 
 Consider the following request:
 
@@ -97,18 +97,18 @@ Mastodon verifies the signature using the following algorithm:
 
 ## Linked Data Signatures {#ld}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/app/lib/activitypub/linked_data_signature.rb" caption="app/lib/activitypub/linked\_data\_signature.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/activitypub/linked_data_signature.rb" caption="app/lib/activitypub/linked\_data\_signature.rb" >}}
 
 [Linked Data Signatures 1.0](https://w3c-dvcg.github.io/ld-signatures/) is a specification for attaching cryptographic signatures to JSON-LD documents. LD Signatures are not used widely within Mastodon, but they are used in the following situations:
 
-* When running a [self-destruct]({{< relref "../admin/tootctl.md#tootctl-self-destruct" >}}) sequence to send Delete activities to all known peers, the payload will use LD Signatures because HTTP Signatures will not be available. Receiving servers will process the signature by validating it against the locally cached actor key, since the HTTP server will no longer be hosting old actor information.
+* When running a [self-destruct]({{< relref "admin/tootctl#tootctl-self-destruct" >}}) sequence to send Delete activities to all known peers, the payload will use LD Signatures because HTTP Signatures will not be available. Receiving servers will process the signature by validating it against the locally cached actor key, since the HTTP server will no longer be hosting old actor information.
 * When accepting activities from a relay. Public activities can optionally be sent to a relay with LD Signatures, and any server subscribing to a relay does not have to manually refetch the activity from the origin. This prevents having potentially infinite servers attempt to load the status from your instance.
 
 ### Creating LD signatures {#ld-sign}
 
 To create a signature, Mastodon uses the keypair attached to an actor at `https://mastodon.example/users/username#main-key`. It then creates an SHA256 hash of the document, signs it with the keypair, and Base64-strict-encodes the resulting output to derive a `signatureValue`. The following hash is merged into the JSON-LD document:
 
-```javascript
+```json
 "signature": {
     "type": "RsaSignature2017",
     "creator": "https://mastodon.example/users/username#main-key",

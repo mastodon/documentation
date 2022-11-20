@@ -21,7 +21,7 @@ There is a way to filter the federated timeline to view only public posts create
 
 You can perform quick actions on a post directly from the timeline, or you can click on the post to load an expanded view that shows extra information, such as a full timestamp, interaction counts, and threaded replies, if any. The following actions can be performed on a post:
 
-* **Reply** to a post by clicking the arrow icon. Your toot will show up in the thread below the post you are replying to.
+* **Reply** to a post by clicking the arrow icon. Your post will show up in the thread below the post you are replying to.
 * **Boost** a post by clicking the cycled-arrow icon. The post will be reshared on your profile.
 * **Favourite** a post by clicking the star icon. The post will be added to your favourites list, and a favourite notification will be delivered to its author.
 * **Bookmark** a post by clicking the ribbon icon. The post will be privately added to your bookmarks list without generating a notification.
@@ -48,7 +48,7 @@ When unread notifications are present, a checkmark will appear in the column hea
 
 As long as you encounter a person within your app’s user interface, e.g. the web interface on your home server, or your mobile app, you can just click “follow” and you won’t notice a difference if that person is on your server or not.
 
-However if you come across someone’s public profile hosted on a different server, there’s an obstacle: That server sees you as just another anonymous visitor. Not to worry! You can simply copy the URL of that profile, or of one of their posts, and then paste that URL into the search function.
+However if you come across someone’s public profile hosted on a different server, there’s an obstacle: That server sees you as just another anonymous visitor. Not to worry! You can copy the URL of that profile, or of one of their posts, and then paste that URL into the search function.
 
 If you are visiting a public page on another Mastodon site, see [Using Mastodon outside of your site](../external/#interact).
 
@@ -62,15 +62,15 @@ If you are following someone, you also have the option to receive a notification
 
 {{< figure src="/assets/search.jpg" caption="The search function can be accessed from the sidebar." >}}
 
-Mastodon's basic search allows logged-in users to find toots containing a specific hashtag, or to load a user or status directly if they know the URL or address. Searching for a term will show profiles whose username or display name contains that term, as well as hashtags that match or contain that term.
+Mastodon's basic search allows logged-in users to find posts containing a specific hashtag, or to load a user or status directly if they know the URL or address. Searching for a term will show profiles whose username or display name contains that term, as well as hashtags that match or contain that term.
 
-{{< figure src="/assets/direct-url.jpg" caption="An example of a toot being loaded directly by its URL." >}}
+{{< figure src="/assets/direct-url.jpg" caption="An example of a post being loaded directly by its URL." >}}
 
 {{< figure src="/assets/search-accounts.jpg" caption="An example of accounts returned when searching for &quot;cats&quot;." >}}
 
 {{< figure src="/assets/search-hashtags.jpg" caption="An example of hashtags returned when searching for &quot;cats&quot;." >}}
 
-Admins may optionally install full-text search. Mastodon’s full-text search allows logged-in users to find results from their own toots, their favourites, their bookmarks and their mentions. It deliberately does not allow searching for arbitrary strings in the entire database, in order to reduce the risk of abuse by people searching for controversial terms to find people to dogpile.
+Admins may optionally install full-text search. Mastodon’s full-text search allows logged-in users to find results from their own posts, their favourites, their bookmarks and their mentions. It deliberately does not allow searching for arbitrary strings in the entire database, in order to reduce the risk of abuse by people searching for controversial terms to find people to dogpile.
 
 The following operators are supported:
 
@@ -82,7 +82,7 @@ The following operators are supported:
 
 {{< figure src="/assets/dm-column.jpg" caption="A list of conversations containing direct messages." >}}
 
-In Mastodon, direct messages are simply toots that have the "direct" visibility selected. Visibility can be selected per-post, which allows changing the privacy level later in a thread. The direct messages column currently shows a list of all conversations containing a direct post. Clicking on a conversation will load the associated thread.
+In Mastodon, direct messages are just posts that have the "direct" visibility selected. Visibility can be selected per-post, which allows changing the privacy level later in a thread. The direct messages column currently shows a list of all conversations containing a direct post. Clicking on a conversation will load the associated thread.
 
 {{< figure src="/assets/dm-thread.jpg" caption="A direct message in a thread." >}}
 

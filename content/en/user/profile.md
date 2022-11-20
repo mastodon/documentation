@@ -67,13 +67,20 @@ It’s completely up to you what you put there. The content can contain mentions
 
 Document-based verification and blue ticks are not possible without a central authority. However, Mastodon can cross-reference the links you put on your profile to prove that you are the real owner of those links. In case one of those links is your personal homepage that is known and trusted, it can serve as the next-best-thing to identity verification.
 
-If you put a link in your profile metadata, Mastodon checks if the linked page links back to your Mastodon profile. If so, you get a verification checkmark next to that link, since you are confirmed as the owner.
-
-Behind the scenes, Mastodon checks for the `rel="me"` attribute on the link back. Likewise, Mastodon puts `rel="me"` on the links within profile metadata.
-
-The profile page you're linking to must be served securely (over HTTPS) in order to pass verification.
-
 {{< hint style="info" >}}
 Because Mastodon can be self-hosted, there is no better way to verify your identity than to host Mastodon on your own domain, which people already trust.
 {{< /hint >}}
 
+If you put an HTTPS link in your profile metadata, Mastodon checks if that link resolves to a web page that links back to your Mastodon profile with a special `rel=me` attribute. If so, you get a verification checkmark next to that link, since you are confirmed as the owner. Likewise, Mastodon puts `rel="me"` on the links within profile metadata. The link might look something like this:
+
+```html
+<a href="https://social.example.com/@username" rel="me">Follow me on Mastodon!</a>
+```
+
+More precisely, Mastodon will validate the link under the following conditions:
+- Since 4.0: the hostname does not change after IDN normalization
+- it starts with HTTPS
+- the resolved page contains at least one `a` or `link` tag with a `rel="me"`
+- the `href` attribute on one of those elements is equal to the URL for your Mastodon profile
+
+Alternatively, validation will occur if the resolved page's *first* link has an `href` value that redirects to your Mastodon profile's URL (such as through a link shortener).

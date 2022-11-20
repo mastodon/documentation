@@ -30,7 +30,7 @@ A Mastodon website can operate alone. Just like a traditional website, people si
 
 Mastodon uses a standardized, open protocol to implement federation. It is called **ActivityPub**. Any software that likewise implements federation via ActivityPub can seamlessly communicate with Mastodon, just like Mastodon websites communicate with one another.
 
-The **fediverse** \(“federated universe”\) is the name for all websites that can communicate with each other over ActivityPub and the World Wide Web. That includes all Mastodon servers, but also other implementations:
+The **fediverse** (“federated universe”) is the name for all websites that can communicate with each other over ActivityPub and the World Wide Web. That includes all Mastodon servers, but also other implementations:
 
 * Pleroma, a modular microblogging engine,
 * Pixelfed, federated image sharing platform, which lets you share and consume media posts,
@@ -45,13 +45,13 @@ The fediverse does not have its own brand, so you might more often hear “follo
 
 ### Choice of service provider and policy {#choice}
 
-Because Mastodon is simply software that can be used to power any website, potential users of Mastodon have the option of choosing a service provider from already-existing Mastodon websites, or to create their own Mastodon website if they wish. The Mastodon project maintains a list of recommended service providers at [joinmastodon.org](https://joinmastodon.org), sortable by category and/or language. Some websites may have moderation policies that go beyond this, such as requiring the use of certain tags on potentially sensitive content, and some websites may have more relaxed moderation policies, but websites listed in the picker all agree to adopt the [Mastodon Server Covenant](https://joinmastodon.org/covenant), meaning that they pledge to actively moderate against hate speech, to take daily backups, to have at least one emergency admin, and to provide at least 3 months advance notice in case of shutdown.
+Because Mastodon is just software that can be used to power any website, potential users of Mastodon have the option of choosing a service provider from already-existing Mastodon websites, or to create their own Mastodon website if they wish. The Mastodon project maintains a list of recommended service providers at [joinmastodon.org](https://joinmastodon.org), sortable by category and/or language. Some websites may have moderation policies that go beyond this, such as requiring the use of certain tags on potentially sensitive content, and some websites may have more relaxed moderation policies, but websites listed in the picker all agree to adopt the [Mastodon Server Covenant](https://joinmastodon.org/covenant), meaning that they pledge to actively moderate against hate speech, to take daily backups, to have at least one emergency admin, and to provide at least 3 months advance notice in case of shutdown.
 
 > Maintaining communities that feel safe for all of its members is not easy. Mastodon provides a lot of foundational framework and tools for doing it, and shifts the power to effect change from one commercial entity to the communities themselves.
 >
 > -- Eugen Rochko, Jul 6 2018, ["Cage the Mastodon"](https://blog.joinmastodon.org/2018/07/cage-the-mastodon/)
 
-> A centralized social media platform has a hierarchical structure where rules and their enforcement, as well as the development and direction of the platform, are decided by the CEO \[...\] A decentralized network deliberately relinquishes control of the platform owner, by essentially not having one.
+> A centralized social media platform has a hierarchical structure where rules and their enforcement, as well as the development and direction of the platform, are decided by the CEO [...] A decentralized network deliberately relinquishes control of the platform owner, by essentially not having one.
 >
 > -- Eugen Rochko, Dec 30 2018, ["Why does decentralization matter?"](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
 
@@ -91,19 +91,19 @@ Unlike proprietary services, **anyone has the complete freedom to run, examine, 
 
 Learn how to use Mastodon:
 
-{{< page-ref page="user/signup.md" >}}
+{{< page-ref page="user/signup" >}}
 
 Learn how to install Mastodon:
 
-{{< page-ref page="admin/prerequisites.md" >}}
+{{< page-ref page="admin/prerequisites" >}}
 
 Learn how to write an app for Mastodon:
 
-{{< page-ref page="client/intro.md" >}}
+{{< page-ref page="client/intro" >}}
 
 Learn about the Mastodon backend and how to contribute:
 
-{{< page-ref page="dev/overview.md" >}}
+{{< page-ref page="dev/overview" >}}
 
 
 

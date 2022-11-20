@@ -25,7 +25,7 @@ In either interface, updates will load automatically as new posts are available.
 
 For accessibility reasons, the auto-play of animated GIFs is disabled by default. You can enable animated GIFs if you want to see animations. You can also reduce motion of animations throughout the UI.
 
-Trending hashtags can be shown or hidden below the getting started column in the advanced UI, or below the column switcher in the simple UI \(only when there is enough space to display them\).
+Trending hashtags can be shown or hidden below the getting started column in the advanced UI, or below the column switcher in the simple UI (only when there is enough space to display them).
 
 ### Confirmation dialogs {#confirm}
 
