@@ -78,7 +78,6 @@ menu:
 * [Phediverse Mastodon REST Client](https://github.com/phediverse/mastodon-rest)
 * [TootoPHP](https://framagit.org/MaxKoder/TootoPHP)
 * [oauth2-mastodon](https://github.com/lrf141/oauth2-mastodon)
-* [Mastodon Wordpress API](https://github.com/L1am0/mastodon_wordpress_api)
 
 ## Python {#python}
 
