@@ -1,4 +1,4 @@
-baseURL = "http://docs.joinmastodon.org/"
+baseURL = "https://docs.joinmastodon.org/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Mastodon documentation"
@@ -7,12 +7,15 @@ pygmentsStyle = "dracula"
 metaDataFormat = "yaml"
 paginate = 100
 enableGitInfo = true
+disablePathToLower = true
 
 [markup]
   [markup.tableOfContents]
-    endLevel = 2
+    endLevel = 3
     ordered = false
     startLevel = 1
+  [markup.goldmark.renderer]
+    unsafe = true
 
 [languages.en.menu]
   [[languages.en.menu.docs]]

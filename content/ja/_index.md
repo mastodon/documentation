@@ -93,19 +93,19 @@ Mastodonとの相互運用に必要な技術仕様ついて、詳しくは[Activ
 
 Mastodonの使い方を知る：
 
-{{< page-ref page="user/signup.md" >}}
+{{< page-ref page="user/signup" >}}
 
 Mastodonのインストール方法を学ぶ：
 
-{{< page-ref page="admin/prerequisites.md" >}}
+{{< page-ref page="admin/prerequisites" >}}
 
 Mastodonのアプリを作り方を学ぶ：
 
-{{< page-ref page="client/intro.md" >}}
+{{< page-ref page="client/intro" >}}
 
 Mastodonのバックエンドと貢献方法について知る：
 
-{{< page-ref page="dev/overview.md" >}}
+{{< page-ref page="dev/overview" >}}
 
 {{< hint style="info" >}}
 **［翻訳状態］** 日本語版は、英語版の「What is Mastodon?」（Mastodonとは？）と「Using Mastodon」（Masotodonを使う）が訳されている状態です（2020年9月27日）。他の項目や最新の情報については、[英語版](../)を参照してください。

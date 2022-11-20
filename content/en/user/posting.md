@@ -1,5 +1,5 @@
 ---
-title: Posting toots
+title: Posting to your profile
 description: Sharing your thoughts has never been more convenient.
 menu:
   docs:
@@ -15,7 +15,7 @@ The main body of each status update can be composed using the text field. The de
 
 ### Links {#links}
 
-{{< figure src="/assets/compose-links.jpg" caption="Links must start with http\(s\):// and are counted as 23 characters regardless of length." >}}
+{{< figure src="/assets/compose-links.jpg" caption="Links must start with http(s):// and are counted as 23 characters regardless of length." >}}
 
 If you include links in your post, they must begin with `http://` or `https://`. All links are counted as 23 characters, no matter how long they actually are, so there is no need to use a link shortener to save characters. In fact, using a link shortener is actively discouraged.
 
@@ -47,10 +47,10 @@ You can attach either files or a poll to your status.
 
 Click the paper clip to attach a file to your post. You can attach the following:
 
-* **Images** \(PNG, JPG, GIF\) **up to 8MB**. Images will be downscaled to 1.6 megapixels \(enough for a 1280x1280 image\). Up to 4 images can be attached.
-  * **Animated GIFs** are converted to soundless MP4s like on Imgur/Gfycat \(**GIFV**\). You can also upload soundless MP4 and WebM, which will be handled the same way.
-* **Videos** \(MP4, M4V, MOV, WebM\) **up to 40MB**. Video will be transcoded to H.264 MP4 with a maximum bitrate of 1300kbps and framerate of 60fps.
-* **Audio** \(MP3, OGG, WAV, FLAC, OPUS, AAC, M4A, 3GP\) **up to 40MB**. Audio will be transcoded to MP3 using V2 VBR \(roughly 192kbps\).
+* **Images** (PNG, JPG, GIF) **up to 8MB**. Images will be downscaled to 1.6 megapixels (enough for a 1280x1280 image). Up to 4 images can be attached.
+  * **Animated GIFs** are converted to soundless MP4s like on Imgur/Gfycat (**GIFV**). You can also upload soundless MP4 and WebM, which will be handled the same way.
+* **Videos** (MP4, M4V, MOV, WebM) **up to 40MB**. Video will be transcoded to H.264 MP4 with a maximum bitrate of 1300kbps and framerate of 60fps.
+* **Audio** (MP3, OGG, WAV, FLAC, OPUS, AAC, M4A, 3GP) **up to 40MB**. Audio will be transcoded to MP3 using V2 VBR (roughly 192kbps).
 
 #### Editing media {#edit}
 
@@ -77,7 +77,7 @@ Click the bar graph icon to attach a poll to your post.
 | Followers-only | No | Logged in on the same site | In-app or logged in | Yes |
 | Direct | No | Logged in and mentioned | In-app or logged in | No |
 
-Posts can be published with four different privacy levels:
+Posts can be published with one of four different privacy levels, as described below. You can [set a default privacy level for your posts](../preferences#posting), and you can change the privacy level for a draft post by selecting the "Change Post Privacy" icon beneath the text of the post. 
 
 ### Public {#public}
 
@@ -104,7 +104,7 @@ A more limited delivery option.
 * Your post cannot be boosted, except by yourself.
 
 {{< hint style="warning" >}}
-To effectively publish private \(followers-only\) posts, you must **lock your account**–otherwise, anyone could follow you to view older posts.
+To effectively publish private (followers-only) posts, you must **lock your account**–otherwise, anyone could follow you to view older posts.
 {{< /hint >}}
 
 {{< hint style="danger" >}}

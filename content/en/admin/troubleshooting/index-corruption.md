@@ -11,7 +11,7 @@ A somewhat common configuration issue can lead to index corruption throughout th
 
 ## Locale data and collation {#explanation}
 
-Textual values in the database, such as usernames, or toot identifiers, are compared using so-called collation rules defining how characters are ordered and how to change their case.
+Textual values in the database, such as usernames, or status identifiers, are compared using so-called collation rules defining how characters are ordered and how to change their case.
 When setting up a database, Mastodon will use the database server's default locale settings, including the default collation rules, which often is defined by the operating system's settings.
 
 Unfortunately, in late 2018, a `glibc` update changed the collation rules for many locales, which means databases using an affected locale would now order textual values differently.

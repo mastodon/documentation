@@ -15,7 +15,7 @@ Główna treść każdego wpisu może zostać utworzona z użyciem pola tekstowe
 
 ### Odnośniki {#links}
 
-{{< figure src="/assets/compose-links.jpg" caption="Odnośniki muszą zaczynać się od http\(s\):// i są liczone jako 23 znaki niezależnie od ich długości." >}}
+{{< figure src="/assets/compose-links.jpg" caption="Odnośniki muszą zaczynać się od http(s):// i są liczone jako 23 znaki niezależnie od ich długości." >}}
 
 Jeżeli uwzględnisz w swoim wpisie odnośniki, muszą one zaczynać się od `http://` lub `https://`. Wszystkie odnośniki są traktowane, jakby miały 23 znaki, niezależnie od ich rzeczywistej długości, więc nie musisz korzystać z usług skracania odnośników. Właściwie to odradzamy korzystanie z nich.
 
@@ -47,10 +47,10 @@ Możesz załączyć do wpisu pliki lub ankietę.
 
 Naciśnij ikonę spinacza, aby dodać plik do wpisu. Możesz załączyć:
 
-* **Zdjęcia** \(PNG, JPG, GIF\) **do 8MB**. Zdjęcia zostaną zmniejszone do 1.6 megapikseli \(wystarczająco na obraz 1280x1280\). Możesz załączyć maksymalnie 4 zdjęcia.
-  * **Animowane GIF-y** są konwertowane do plików MP4 bez dźwięku jak na Imgur/Gfycat \(**GIFV**\). Możesz też wysłać plik MP4 lub WebM bez dźwięku, zostaną one obsłużone w ten sam sposób.
-* **Filmy** \(MP4, M4V, MOV, WebM\) **do 40MB**. Filmy zostaną transkodowane do H.264 MP4 o maksymalnej przepustowości 1300kbps i liczby 60 klatek na sekundę.
-* **Dźwięk** \(MP3, OGG, WAV, FLAC, OPUS, AAC, M4A, 3GP\) **do 40MB**. Dźwięk zostanie transkodowany do MP3 z użyciem V2 VBR \(około 192kbps\).
+* **Zdjęcia** (PNG, JPG, GIF) **do 8MB**. Zdjęcia zostaną zmniejszone do 1.6 megapikseli (wystarczająco na obraz 1280x1280). Możesz załączyć maksymalnie 4 zdjęcia.
+  * **Animowane GIF-y** są konwertowane do plików MP4 bez dźwięku jak na Imgur/Gfycat (**GIFV**). Możesz też wysłać plik MP4 lub WebM bez dźwięku, zostaną one obsłużone w ten sam sposób.
+* **Filmy** (MP4, M4V, MOV, WebM) **do 40MB**. Filmy zostaną transkodowane do H.264 MP4 o maksymalnej przepustowości 1300kbps i liczby 60 klatek na sekundę.
+* **Dźwięk** (MP3, OGG, WAV, FLAC, OPUS, AAC, M4A, 3GP) **do 40MB**. Dźwięk zostanie transkodowany do MP3 z użyciem V2 VBR (około 192kbps).
 
 #### Edytowanie mediów {#edit}
 
@@ -104,7 +104,7 @@ Bardziej ograniczona opcja doręczania.
 * Tylko Ty możesz udostępnić ten wpis.
 
 {{< hint style="warning" >}}
-Aby publikowanie prywatnych wpisów \(tylko dla obserwujących\) miało sens, musisz **zablokować swoje konto** – w przeciwnym razie każdy może zaobserwować Cię, aby przeglądać Twoje starsze wpisy.
+Aby publikowanie prywatnych wpisów (tylko dla obserwujących) miało sens, musisz **zablokować swoje konto** – w przeciwnym razie każdy może zaobserwować Cię, aby przeglądać Twoje starsze wpisy.
 {{< /hint >}}
 
 {{< hint style="danger" >}}

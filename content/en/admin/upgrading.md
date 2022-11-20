@@ -7,10 +7,10 @@ menu:
 ---
 
 {{< hint style="info" >}}
-When a new version of Mastodon comes out, it appears on the [GitHub releases page](https://github.com/tootsuite/mastodon/releases). Please mind that running unreleased code from the `master` branch, while possible, is not recommended.
+When a new version of Mastodon comes out, it appears on the [GitHub releases page](https://github.com/mastodon/mastodon/releases). Please mind that running unreleased code from the `master` branch, while possible, is not recommended.
 {{< /hint >}}
 
-Mastodon releases correspond to git tags. Before attempting an upgrade, look up the desired release on the [GitHub releases page](https://github.com/tootsuite/mastodon/releases). The page will contain a **changelog** describing everything you need to know about what's different, as well as **specific upgrade instructions**.
+Mastodon releases correspond to git tags. Before attempting an upgrade, look up the desired release on the [GitHub releases page](https://github.com/mastodon/mastodon/releases). The page will contain a **changelog** describing everything you need to know about what's different, as well as **specific upgrade instructions**.
 
 To begin, switch to the `mastodon` user:
 

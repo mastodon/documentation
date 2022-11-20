@@ -23,9 +23,9 @@ You can choose to feature profiles of people that you are following. Go to that 
 
 ## Pinned posts {#pinned}
 
-{{< figure src="/assets/pinned.jpg" caption="A pinned toot by mastodon.social/@gargron" >}}
+{{< figure src="/assets/pinned.jpg" caption="A pinned post by mastodon.social/@gargron" >}}
 
-You can choose to feature up to 5 of your own public posts at the top of your profile. Go to the status dropdown menu and click "Pin on profile". When you pin a toot, it will appear at the top of your "toots" tab, before all other chronological status updates.
+You can choose to feature up to 5 of your own public posts at the top of your profile. Go to the status dropdown menu and click "Pin on profile". When you pin a post, it will appear at the top of your "posts" tab, before all other chronological status updates.
 
 ## Profile directory {#directory}
 
@@ -33,7 +33,7 @@ You can choose to feature up to 5 of your own public posts at the top of your pr
 
 The profile directory shows all accounts that have opted into being shown in the directory, and can be used to quickly find profiles that you may be interested in following.
 
-The profile directory can be sorted either by recent activity \(the most recently published status\), or by new arrivals \(the most recently created accounts\). The directory can also be filtered to show only local accounts, or to show all known accounts that your website is aware of.
+The profile directory can be sorted either by recent activity (the most recently published status), or by new arrivals (the most recently created accounts). The directory can also be filtered to show only local accounts, or to show all known accounts that your website is aware of.
 
-Profiles appear as cards that include a user's display name, address, account bio, and some brief stats such as how many toots they've published, how many followers they have, and the time of their last published status.
+Profiles appear as cards that include a user's display name, address, account bio, and some brief stats such as how many posts they've published, how many followers they have, and the time of their last published status.
 

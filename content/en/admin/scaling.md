@@ -11,11 +11,11 @@ menu:
 
 Mastodon has three types of processes:
 
-* Web \(Puma\)
+* Web (Puma)
 * Streaming API
-* Background processing \(Sidekiq\)
+* Background processing (Sidekiq)
 
-### Web \(Puma\) {#web}
+### Web (Puma) {#web}
 
 The web process serves short-lived HTTP requests for most of the application. The following environment variables control it:
 
@@ -37,7 +37,7 @@ The streaming API handles long-lived HTTP and WebSockets connections, through wh
 
 One process can handle a reasonably high number of connections. The streaming API can be hosted on a different subdomain if you want to e.g. avoid the overhead of nginx proxying the connections.
 
-### Background processing \(Sidekiq\) {#sidekiq}
+### Background processing (Sidekiq) {#sidekiq}
 
 Many tasks in Mastodon are delegated to background processing to ensure the HTTP requests are fast, and to prevent HTTP request aborts from affecting the execution of those tasks. Sidekiq is a single process, with a configurable number of threads.
 
@@ -62,10 +62,11 @@ Sidekiq uses different queues for tasks of varying importance, where importance 
 | `default` | All tasks that affect local users |
 | `push` | Delivery of payloads to other servers |
 | `mailers` | Delivery of e-mails |
-| `pull` | Fetching information from other servers |
+| `pull` | Lower priority tasks such as handling imports, backups, resolving threads, deleting users, forwarding replies |
 | `scheduler` | Doing cron jobs like refreshing trending hashtags and cleaning up logs |
+| `ingress` | Incoming remote activities. Lower priority than the default queue so local users still see their posts when the server is under load |
 
-The default queues and their priorities are stored in `config/sidekiq.yml`, but can be overridden by the command-line invocation of Sidekiq, e.g.:
+The default queues and their priorities are stored in [config/sidekiq.yml](https://github.com/mastodon/mastodon/blob/main/config/sidekiq.yml), but can be overridden by the command-line invocation of Sidekiq, e.g.:
 
 ```bash
 bundle exec sidekiq -q default
@@ -84,7 +85,7 @@ As a solution, it is possible to start different Sidekiq processes for the queue
 
 ### Why you might need PgBouncer {#pgbouncer-why}
 
-If you start running out of available Postgres connections \(the default is 100\) then you may find PgBouncer to be a good solution. This document describes some common gotchas as well as good configuration defaults for Mastodon.
+If you start running out of available Postgres connections (the default is 100) then you may find PgBouncer to be a good solution. This document describes some common gotchas as well as good configuration defaults for Mastodon.
 
 Note that you can check “PgHero” in the administration view to see how many Postgres connections are currently being used. Typically Mastodon uses as many connections as there are threads both in Puma, Sidekiq and the streaming API combined.
 
@@ -108,7 +109,7 @@ Here’s how you might reset the password:
 psql -p 5432 -U mastodon mastodon_production -w
 ```
 
-Then \(obviously, use a different password than the word “password”\):
+Then (obviously, use a different password than the word “password”):
 
 ```sql
 ALTER USER mastodon WITH PASSWORD 'password';
@@ -164,13 +165,13 @@ listen_addr = 127.0.0.1
 listen_port = 6432
 ```
 
-Put `md5` as the `auth_type` \(assuming you’re using the md5 format in `userlist.txt`\):
+Put `md5` as the `auth_type` (assuming you’re using the md5 format in `userlist.txt`):
 
 Make sure the `pgbouncer` user is an admin:
 
 **This next part is very important!** The default pooling mode is session-based, but for Mastodon we want transaction-based. In other words, a Postgres connection is created when a transaction is created and dropped when the transaction is done. So you’ll want to change the `pool_mode` from `session` to `transaction`:
 
-Next up, `max_client_conn` defines how many connections PgBouncer itself will accept, and `default_pool_size` puts a limit on how many Postgres connections will be opened under the hood. \(In PgHero the number of connections reported will correspond to `default_pool_size` because it has no knowledge of PgBouncer.\)
+Next up, `max_client_conn` defines how many connections PgBouncer itself will accept, and `default_pool_size` puts a limit on how many Postgres connections will be opened under the hood. (In PgHero the number of connections reported will correspond to `default_pool_size` because it has no knowledge of PgBouncer.)
 
 The defaults are fine to start, and you can always increase them later:
 
@@ -211,7 +212,7 @@ PREPARED_STATEMENTS=false
 
 Since we’re using transaction-based pooling, we can’t use prepared statements.
 
-Next up, configure Mastodon to use port 6432 \(PgBouncer\) instead of 5432 \(Postgres\) and you should be good to go:
+Next up, configure Mastodon to use port 6432 (PgBouncer) instead of 5432 (Postgres) and you should be good to go:
 
 ```bash
 DB_HOST=localhost
@@ -222,7 +223,7 @@ DB_PORT=6432
 ```
 
 {{< hint style="warning" >}}
-You cannot use pgBouncer to perform `db:migrate` tasks. But this is easy to work around. If your postgres and pgbouncer are on the same host, it can be as simple as defining `DB_PORT=5432` together with `RAILS_ENV=production` when calling the task, for example: `RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate` \(you can specify `DB_HOST` too if it’s different, etc\)
+You cannot use pgBouncer to perform `db:migrate` tasks. But this is easy to work around. If your postgres and pgbouncer are on the same host, it can be as simple as defining `DB_PORT=5432` together with `RAILS_ENV=production` when calling the task, for example: `RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate` (you can specify `DB_HOST` too if it’s different, etc)
 {{< /hint >}}
 
 #### Administering PgBouncer {#pgbouncer-admin}
@@ -249,13 +250,13 @@ Then use `\q` to quit.
 
 ## Separate Redis for cache {#redis}
 
-Redis is used widely throughout the application, but some uses are more important than others. Home feeds, list feeds, and Sidekiq queues as well as the streaming API are backed by Redis and that’s important data you wouldn’t want to lose \(even though the loss can be survived, unlike the loss of the PostgreSQL database - never lose that!\). However, Redis is also used for volatile cache. If you are at a stage of scaling up where you are worried if your Redis can handle everything, you can use a different Redis database for the cache. In the environment, you can specify `CACHE_REDIS_URL` or individual parts like `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT` etc. Unspecified parts fallback to the same values as without the cache prefix.
+Redis is used widely throughout the application, but some uses are more important than others. Home feeds, list feeds, and Sidekiq queues as well as the streaming API are backed by Redis and that’s important data you wouldn’t want to lose (even though the loss can be survived, unlike the loss of the PostgreSQL database - never lose that!). However, Redis is also used for volatile cache. If you are at a stage of scaling up where you are worried if your Redis can handle everything, you can use a different Redis database for the cache. In the environment, you can specify `CACHE_REDIS_URL` or individual parts like `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT` etc. Unspecified parts fallback to the same values as without the cache prefix.
 
 As far as configuring the Redis database goes, basically you can get rid of background saving to disk, since it doesn’t matter if the data gets lost on restart and you can save some disk I/O on that. You can also add a maximum memory limit and a key eviction policy, for that, see this guide: [Using Redis as an LRU cache](https://redis.io/topics/lru-cache)
 
 ## Read-replicas {#read-replicas}
 
-To reduce the load on your Postgresql server, you may wish to setup hot streaming replication \(read replica\). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
+To reduce the load on your Postgresql server, you may wish to setup hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
 
 * The streaming API server does not issue writes at all, so you can connect it straight to the replica. But it’s not querying the database very often anyway so the impact of this is little.
 * Use the Makara driver in the web and sidekiq processes, so that writes go to the master database, while reads go to the replica. Let’s talk about that.

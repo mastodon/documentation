@@ -25,7 +25,7 @@ In either interface, updates will load automatically as new posts are available.
 
 For accessibility reasons, the auto-play of animated GIFs is disabled by default. You can enable animated GIFs if you want to see animations. You can also reduce motion of animations throughout the UI.
 
-Trending hashtags can be shown or hidden below the getting started column in the advanced UI, or below the column switcher in the simple UI \(only when there is enough space to display them\).
+Trending hashtags can be shown or hidden below the getting started column in the advanced UI, or below the column switcher in the simple UI (only when there is enough space to display them).
 
 ### Confirmation dialogs {#confirm}
 
@@ -75,7 +75,7 @@ You can choose to hide your network, which will make your following and follower
 
 If you want to see posts that are boosted multiple times be reinserted into your feed at the top, you can disable boost grouping in timelines.
 
-### Posting defaults {#posting}
+### Setting defaults for post privacy, post language, and media sensitivity {#posting}
 
 Posts default to public privacy. You can choose to default new posts as unlisted or followers-only instead. For an explanation of post privacy levels, see [Posting to your Mastodon profile &gt; Publishing levels](../posting#privacy).
 

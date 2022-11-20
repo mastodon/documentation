@@ -46,6 +46,9 @@ other = "wymagane"
 [optional]
 other = "nieobowiązkowe"
 
+[nullable]
+other = "nullable"
+
 [pathParameters]
 other = "Parametry ścieżki"
 

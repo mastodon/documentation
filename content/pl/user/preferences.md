@@ -25,7 +25,7 @@ W obu interfejsach aktualizacje ładują się, gdy tylko dostępne są nowe wpis
 
 Z uwagi na dostępność, autoodtwarzanie animowanych GIF-ów jest domyślnie wyłączone. Możesz włączyć animowane GIF-y, jeżeli chcesz widzieć animacje. Możesz też ograniczyć ilość animacji w UI.
 
-Trendujące hashtagi mogą być wyświetlane lub ukryte pod kolumną „Rozpocznij” w zaawansowanym UI lub pod wyborem kolumn w uproszczonym UI \(tylko jeśli jest wystarczająco miejsca, aby je wyświetlić\).
+Trendujące hashtagi mogą być wyświetlane lub ukryte pod kolumną „Rozpocznij” w zaawansowanym UI lub pod wyborem kolumn w uproszczonym UI (tylko jeśli jest wystarczająco miejsca, aby je wyświetlić).
 
 ### Dialogi potwierdzenia {#confirm}
 

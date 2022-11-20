@@ -33,7 +33,7 @@ Możesz wybrać maksymalnie 5 spośród swoich publicznych wpisów do wyróżnie
 
 Katalog profilów pokazuje wszystkie konta, które zgodziły się być pokazywane w katalogu i może służyć szybkiemu wyszukiwaniu profilów, którymi możesz być zainteresowany(-a).
 
-Katalog profilów może być posortowany według ostatniej aktywności \(ostatnio opublikowane wpisy\) lub od najnowszych użytkowników \(ostatnio założone konto\). Katalog może wyświetlać tylko lokalne konta lub wszystkie znane przez serwer.
+Katalog profilów może być posortowany według ostatniej aktywności (ostatnio opublikowane wpisy) lub od najnowszych użytkowników (ostatnio założone konto). Katalog może wyświetlać tylko lokalne konta lub wszystkie znane przez serwer.
 
 Profile są przedstawiane jako karty zawierające nazwę wyświetlaną użytkownika, adres, biogram i kilka podstawowych statystyk jak liczba opublikowanych wpisów, liczba obserwujących i kiedy opublikowali ostatni wpis.
 

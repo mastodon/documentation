@@ -25,7 +25,7 @@ To ciąg znaków, który jest sprawdzany. Słowo kluczowe będzie wyszukiwane w 
 
 ### Wygasanie po czasie {#filter-expire}
 
-Opcjonalnie możesz zastosować filtr tylko na określony okres. Wygasłe filtry nie są automatycznie usuwane, ale mogą być włączone ponownie, ustawiając nową datę wygaśnięcia \(lub wyłączając wygasanie\).
+Opcjonalnie możesz zastosować filtr tylko na określony okres. Wygasłe filtry nie są automatycznie usuwane, ale mogą być włączone ponownie, ustawiając nową datę wygaśnięcia (lub wyłączając wygasanie).
 
 ### Kontekst filtrów {#filter-context}
 
@@ -104,5 +104,5 @@ Jeżeli zablokujesz cały serwer:
 
 {{< figure src="/assets/report-modal.jpg" caption="Okno zgłaszania pozwalające na wybór przykładowych wpisów, dodanie notatki czy przekierowanie zgłoszeń." >}}
 
-Jeżeli zobaczysz wpis lub użytkownika naruszającego zasady Twojego serwera, możesz zgłosić użytkownika moderatorom swojego serwera. Wybranie opcji „Zgłoś” otworzy okno zgłaszania. Tam możesz \(jest to wskazane\) dodać notatkę, w której napiszesz, dlaczego zgłaszasz to konto. Możesz załączyć nieodpowiednie wpisy dla dodatkowego kontekstu zgłoszenia, a jeżeli naruszają one zasady zdalnego serwera, możesz przekierować zgłoszenie również do jego moderatorów.
+Jeżeli zobaczysz wpis lub użytkownika naruszającego zasady Twojego serwera, możesz zgłosić użytkownika moderatorom swojego serwera. Wybranie opcji „Zgłoś” otworzy okno zgłaszania. Tam możesz (jest to wskazane) dodać notatkę, w której napiszesz, dlaczego zgłaszasz to konto. Możesz załączyć nieodpowiednie wpisy dla dodatkowego kontekstu zgłoszenia, a jeżeli naruszają one zasady zdalnego serwera, możesz przekierować zgłoszenie również do jego moderatorów.
 
