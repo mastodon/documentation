@@ -26,7 +26,7 @@ This page is under construction.
 GET https://mastodon.example/api/v1/admin/trends/links HTTP/1.1
 ```
 
-**Returns:** [???]({{< relref "entities/???" >}})\
+**Returns:** Array of [Trends::Link]({{< relref "entities/PreviewCard#trends-link" >}})\
 **OAuth:** User token + `admin:read`\
 **Permissions:** Manage Taxonomies\
 **Version history:**\
@@ -62,7 +62,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 GET https://mastodon.example/api/v1/admin/trends/statuses HTTP/1.1
 ```
 
-**Returns:** [???]({{< relref "entities/???" >}})\
+**Returns:** Array of [Status]({{< relref "entities/Status" >}})\
 **OAuth:** User token + `admin:read`\
 **Permissions:** Manage Taxonomies\
 **Version history:**\
@@ -98,7 +98,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 GET https://mastodon.example/api/v1/admin/trends/tags HTTP/1.1
 ```
 
-**Returns:** [???]({{< relref "entities/???" >}})\
+**Returns:** Array of [Tag]({{< relref "entities/Tag" >}})\
 **OAuth:** User token + `admin:read`\
 **Permissions:** Manage Taxonomies\
 **Version history:**\

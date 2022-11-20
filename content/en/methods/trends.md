@@ -26,7 +26,7 @@ GET https://mastodon.example/api/v1/trends/tags HTTP/1.1
 
 Tags that are being used more frequently within the past week.
 
-**Returns:** Array of [REST::Tag]({{< relref "entities/tag" >}})\
+**Returns:** Array of [Tag]({{< relref "entities/Tag" >}})\
 **OAuth:** Public\
 **Version history:**\
 3.0.0 - added\
@@ -94,7 +94,7 @@ GET https://mastodon.example/api/v1/trends/statuses HTTP/1.1
 
 Statuses that have been interacted with more than others.
 
-**Returns:** Array of [Status]({{< relref "entities/status" >}})\
+**Returns:** Array of [Status]({{< relref "entities/Status" >}})\
 **OAuth:** Public\
 **Version history:**\
 3.5.0 - added
