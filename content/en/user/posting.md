@@ -77,7 +77,7 @@ Click the bar graph icon to attach a poll to your post.
 | Followers-only | No | Logged in on the same site | In-app or logged in | Yes |
 | Direct | No | Logged in and mentioned | In-app or logged in | No |
 
-Posts can be published with four different privacy levels:
+Posts can be published with one of four different privacy levels, as described below. You can [set a default privacy level for your posts](../preferences#posting), and you can change the privacy level for a draft post by selecting the "Change Post Privacy" icon beneath the text of the post. 
 
 ### Public {#public}
 
