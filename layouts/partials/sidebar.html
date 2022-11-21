@@ -50,6 +50,12 @@
       header.parentNode.classList.toggle('collapsed', collapsed);
     }
     header.addEventListener('click', toggle);
+    header.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === 'Space' || e.key === ' ') {
+        toggle();
+        e.preventDefault();
+      }
+    });
     if (!header.nextElementSibling.querySelector('.active')) {
       toggle()
     }
