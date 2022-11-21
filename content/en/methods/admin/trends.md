@@ -16,7 +16,7 @@ aliases: [
 #TableOfContents ul ul ul {display: none}
 </style>
 
-{{< hint style="danger" >}}
+{{< hint style="warning" >}}
 This page is under construction.
 {{< /hint >}}
 

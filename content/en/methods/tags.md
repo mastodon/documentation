@@ -13,6 +13,10 @@ aliases: [
 ]
 ---
 
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
+
 ## View information about a single tag {#get}
 
 ```http
