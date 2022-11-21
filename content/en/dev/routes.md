@@ -73,7 +73,7 @@ Extensible Resource Descriptor (XRD). Advertises existence of Webfinger.
 
 Maps to NodeInfo 2.0 endpoint at `/nodeinfo/2.0`, used for advertising software name and version, protocols, usage statistics, and whether registrations are open.
 
-### /.well-know/webfinger {#webfinger}
+### /.well-known/webfinger {#webfinger}
 
 Used for discovering ActivityPub actor id. See [Spec compliance &gt; WebFinger]({{< relref "spec/webfinger" >}}) for more information.
 
