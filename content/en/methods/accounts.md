@@ -763,10 +763,11 @@ GET https://mastodon.example/api/v1/accounts/:id/followers HTTP/1.1
 Accounts which follow the given account, if network is not hidden by the account owner.
 
 **Returns:** Array of [Account]({{< relref "entities/Account">}})\
-**OAuth:** App token + `read:accounts`\
+**OAuth:** Public\
 **Version history:**\
 0.0.0 - added\
-3.3.0 - both `min_id` and `max_id` can be used at the same time now
+3.3.0 - both `min_id` and `max_id` can be used at the same time now\
+4.0.0 - no longer requires an app token + `read:accounts`
 
 #### Request
 ##### Path parameters
@@ -868,10 +869,11 @@ GET https://mastodon.example/api/v1/accounts/:id/following HTTP/1.1
 Accounts which the given account is following, if network is not hidden by the account owner.
 
 **Returns:** Array of [Account]({{< relref "entities/Account">}})\
-**OAuth:** App token + `read:accounts`\
+**OAuth:** Public\
 **Version history:**\
 0.0.0 - added\
-3.3.0 - both `min_id` and `max_id` can be used at the same time now
+3.3.0 - both `min_id` and `max_id` can be used at the same time now\
+4.0.0 - no longer requires an app token + `read:accounts`
 
 #### Request
 ##### Path parameters
