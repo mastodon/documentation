@@ -1,7 +1,7 @@
 ---
 title: media API methods
 description: >-
-  Attach media to authored statuses. See Using Mastodon > Posting toots >
+  Attach media to authored statuses. See Using Mastodon > Posting to your profile >
   Attachments for more information about size and format limits.
 menu:
   docs:
