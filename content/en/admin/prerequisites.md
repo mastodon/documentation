@@ -46,6 +46,7 @@ port = 22
 [sshd-ddos]
 enabled = true
 port = 22
+filter = sshd
 ```
 
 Finally restart fail2ban:
