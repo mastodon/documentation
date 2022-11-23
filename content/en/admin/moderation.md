@@ -39,7 +39,7 @@ A Mastodon suspension means the account is effectively deleted. The account no l
 
 If the account is reinstated within the 30 day period, all data is once again accessible publicly without any adverse affects. If the 30 day period lapses, **all** that user's data is purged from the instance. Admins also have the option to immediately delete the user's account data at any point during the 30 days.
 
-Once the data has been deleted, whether than be after the 30 day period, or if an admin has force deleted it, the account can still be un-suspended. However, the account will have no data (statuses, profile information, avatar or header image) associated with it.
+Once the data has been deleted, whether that is after the 30 day period, or if an admin has force deleted it, the account can still be un-suspended. However, the account will have no data (statuses, profile information, avatar or header image) associated with it.
 
 ## Moderating entire websites {#server-wide-moderation}
 
