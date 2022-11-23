@@ -29,6 +29,9 @@ To install Mastodon on `mastodon.example.com` in such a way it can serve `@alice
 
 ```
 location /.well-known/webfinger {
+  add-header Access-Control-Allow-Methods GET;
+  add-header Access-Control-Allow-Origin "*";
+  add-header Access-Control-Max-Age 7200;
   return 301 https://mastodon.example.com$request_uri;
 }
 ```
