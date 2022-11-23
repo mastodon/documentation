@@ -408,6 +408,8 @@ Set to `auto` (default), `always`, or `never`.
 #### `SMTP_TLS`
 #### `SMTP_SSL`
 
+The SMTP configuration options listed above have the meaning described in [the Action Mailer documentation](https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration).
+
 ## File storage {#files}
 
 ### CDN {cdn}
