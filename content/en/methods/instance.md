@@ -404,7 +404,7 @@ Rules that the users of this service should follow.
 ## View moderated servers {#domain_blocks}
 
 ```http
-GET https://mastodon.example/api/v1/instance/domain_block HTTP/1.1
+GET https://mastodon.example/api/v1/instance/domain_blocks HTTP/1.1
 ```
 
 Obtain a list of domains that have been blocked.
