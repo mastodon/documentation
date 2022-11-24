@@ -665,6 +665,8 @@ Statuses posted to the given account.
 **OAuth:** Public (for public statuses only), or user token + `read:statuses` (for private statuses the user is authorized to see)\
 **Version history:**\
 0.0.0 - added\
+1.4.2 - add `only_media` and `exclude_replies`\
+1.6.0 - add `pinned`\
 2.6.0 - add `min_id`\
 2.7.0 - add `exclude_reblogs` and allow unauthed use\
 2.8.0 - add `tagged` parameter\
@@ -695,8 +697,17 @@ min_id
 limit
 : Integer. Maximum number of results to return. Default: 20.
 
+only_media
+: Boolean. Filter out statuses without attachments.
+
+exclude_replies
+: Boolean. Filter out statuses in reply to a different account.
+
 exclude_reblogs
-: Boolean. Whether to filter out boosts from the response.
+: Boolean. Filter out boosts from the response.
+
+pinned
+: Boolean. Filter for pinned statuses only.
 
 tagged
 : String. Filter for statuses using a specific hashtag.
