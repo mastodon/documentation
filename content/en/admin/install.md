@@ -28,6 +28,7 @@ apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
 ```bash
 curl -sL https://deb.nodesource.com/setup_16.x | bash -
 ```
+Follow the instructions that it prints. Install the yarn package manager as well.
 
 #### PostgreSQL {#postgresql}
 
@@ -190,10 +191,16 @@ cp /home/mastodon/live/dist/nginx.conf /etc/nginx/sites-available/mastodon
 ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 ```
 
-Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with your own domain name, and make any other adjustments you might need.
+Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with your own domain name, and install a placeholder certificate:  
+```
+ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem
+ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key
+```
+Certbot will edit these lines after you run it.
+
+Make any other adjustments you might need. 
 
 Reload nginx for the changes to take effect:
-
 
 ```bash
 systemctl reload nginx
