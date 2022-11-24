@@ -2260,3 +2260,5 @@ Token does not have an authorized user
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/search_controller.rb" caption="app/controllers/api/v1/accounts/search_controller.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/statuses_controller.rb" caption="app/controllers/api/v1/accounts/statuses_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/models/account_statuses_filter.rb" caption="app/models/account_statuses_filter.rb" >}}
