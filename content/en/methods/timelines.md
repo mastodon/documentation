@@ -20,7 +20,7 @@ aliases: [
 ## View public timeline {#public}
 
 ```http
-GET https://mastodon.example/api/v1/timelines/public HTTP/1.1
+GET /api/v1/timelines/public HTTP/1.1
 ```
 
 **Returns:** Array of [Status]({{<relref "entities/status">}})\
@@ -92,7 +92,7 @@ Sample API call with limit=2
 ## View hashtag timeline {#tag}
 
 ```http
-GET https://mastodon.example/api/v1/timelines/tag/:hashtag HTTP/1.1
+GET /api/v1/timelines/tag/:hashtag HTTP/1.1
 ```
 
 View public statuses containing the given hashtag.
@@ -215,7 +215,7 @@ Hashtag does not exist
 ## View home timeline {#home}
 
 ```http
-GET https://mastodon.example/api/v1/timelines/home HTTP/1.1
+GET /api/v1/timelines/home HTTP/1.1
 ```
 
 View statuses from followed users.
@@ -286,7 +286,7 @@ Invalid or missing Authorization header.
 ## View list timeline {#list}
 
 ```http
-GET https://mastodon.example/api/v1/timelines/list/:list_id HTTP/1.1
+GET /api/v1/timelines/list/:list_id HTTP/1.1
 ```
 
 View statuses in the given list timeline.
@@ -365,7 +365,7 @@ List is not owned by you or does not exist
 ## (DEPRECATED) View direct timeline {#direct}
 
 ```http
-GET https://mastodon.example/api/v1/timelines/direct HTTP/1.1
+GET /api/v1/timelines/direct HTTP/1.1
 ```
 
 View statuses with a "direct" privacy, from your account or in your notifications.

@@ -20,7 +20,7 @@ aliases: [
 ## View all followed tags {#get}
 
 ```http
-GET https://mastodon.example/api/v1/followed_tags HTTP/1.1
+GET /api/v1/followed_tags HTTP/1.1
 ```
 
 **Returns:** Array of [Tag]({{< relref "entities/Tag" >}})\

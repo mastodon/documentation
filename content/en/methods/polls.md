@@ -23,7 +23,7 @@ aliases: [
 ## View a poll {#get}
 
 ```http
-GET https://mastodon.example/api/v1/polls/:id HTTP/1.1
+GET /api/v1/polls/:id HTTP/1.1
 ```
 
 **Returns:** [Poll]({{< relref "entities/poll" >}})\
@@ -87,7 +87,7 @@ Poll does not exist, or poll's parent status is private
 ## Vote on a poll {#vote}
 
 ```http
-POST https://mastodon.example/api/v1/polls/:id/votes HTTP/1.1
+POST /api/v1/polls/:id/votes HTTP/1.1
 ```
 
 **Returns:** [Poll]({{< relref "entities/poll" >}})\

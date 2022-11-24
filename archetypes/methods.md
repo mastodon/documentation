@@ -9,7 +9,7 @@ menu:
 ## What the method does {#anchor}
 
 ```http
-GET https://mastodon.example/api/v1/example HTTP/1.1
+GET /api/v1/example HTTP/1.1
 ```
 
 **Returns:** [SOMETHING]({{< relref "entities/SOMETHING" >}})\

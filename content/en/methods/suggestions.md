@@ -23,7 +23,7 @@ aliases: [
 ## View follow suggestions (v2) {#v2}
 
 ```http
-GET https://mastodon.example/api/v2/suggestions HTTP/1.1
+GET /api/v2/suggestions HTTP/1.1
 ```
 
 Accounts that are promoted by staff, or that the user has had past positive interactions with, but is not yet following.
@@ -84,7 +84,7 @@ Invalid or missing Authorization header.
 ## Remove a suggestion {#remove}
 
 ```http
-DELETE https://mastodon.example/api/v1/suggestions/:account_id HTTP/1.1
+DELETE /api/v1/suggestions/:account_id HTTP/1.1
 ```
 
 Remove an account from follow suggestions.
@@ -130,7 +130,7 @@ Invalid or missing Authorization header.
 ## (DEPRECATED) View follow suggestions (v1) {#v1}
 
 ```http
-GET https://mastodon.example/api/v1/suggestions HTTP/1.1
+GET /api/v1/suggestions HTTP/1.1
 ```
 
 Accounts the user has had past positive interactions with, but is not yet following.

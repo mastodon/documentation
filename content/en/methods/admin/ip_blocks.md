@@ -23,7 +23,7 @@ This page is under construction.
 ## List all IP blocks {#get}
 
 ```http
-GET https://mastodon.example/api/v1/admin/ip_blocks HTTP/1.1
+GET /api/v1/admin/ip_blocks HTTP/1.1
 ```
 
 Show information about all blocked IP ranges.
@@ -79,7 +79,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Get a single IP block {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/admin/ip_blocks/:id HTTP/1.1
+GET /api/v1/admin/ip_blocks/:id HTTP/1.1
 ```
 
 Show information about a single IP block.
@@ -139,7 +139,7 @@ IpBlock with the given ID does not exist
 ## Block an IP address range from signing up {#create}
 
 ```http
-POST https://mastodon.example/api/v1/admin/ip_blocks HTTP/1.1
+POST /api/v1/admin/ip_blocks HTTP/1.1
 ```
 
 Add an IP address range to the list of IP blocks.
@@ -212,7 +212,7 @@ IP has already been blocked, and/or no severity was provided
 ## Update a domain block {#update}
 
 ```http
-PUT https://mastodon.example/api/v1/admin/ip_blocks/:id HTTP/1.1
+PUT /api/v1/admin/ip_blocks/:id HTTP/1.1
 ```
 
 Change parameters for an existing IP block.
@@ -280,7 +280,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Delete an IP block {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/admin/ip_blocks/:id HTTP/1.1
+DELETE /api/v1/admin/ip_blocks/:id HTTP/1.1
 ```
 
 Lift a block against an IP range.

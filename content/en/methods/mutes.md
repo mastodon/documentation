@@ -21,7 +21,7 @@ aliases: [
 ## View muted accounts {#get}
 
 ```http
-GET https://mastodon.example/api/v1/mutes HTTP/1.1
+GET /api/v1/mutes HTTP/1.1
 ```
 
 Accounts the user has muted.

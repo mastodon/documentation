@@ -21,7 +21,7 @@ aliases: [
 ## Resend confirmation email {#confirmation}
 
 ```http
-POST https://mastodon.example/api/v1/emails/confirmation HTTP/1.1
+POST /api/v1/emails/confirmation HTTP/1.1
 ```
 
 **Returns:** Empty object\

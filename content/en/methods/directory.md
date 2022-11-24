@@ -21,7 +21,7 @@ aliases: [
 ## View profile directory {#get}
 
 ```http
-GET https://mastodon.example/api/v1/directory HTTP/1.1
+GET /api/v1/directory HTTP/1.1
 ```
 
 List accounts visible in the directory.

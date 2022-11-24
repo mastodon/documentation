@@ -31,7 +31,7 @@ TODO:
 -->
 
 ```http
-GET https://mastodon.example/api/v2/filters HTTP/1.1
+GET /api/v2/filters HTTP/1.1
 ```
 
 ---
@@ -43,7 +43,7 @@ TODO:
 -->
 
 ```http
-GET https://mastodon.example/api/v2/filters/:id HTTP/1.1
+GET /api/v2/filters/:id HTTP/1.1
 ```
 
 ---
@@ -55,7 +55,7 @@ TODO:
 -->
 
 ```http
-POST https://mastodon.example/api/v2/filters HTTP/1.1
+POST /api/v2/filters HTTP/1.1
 ```
 
 ---
@@ -67,7 +67,7 @@ TODO:
 -->
 
 ```http
-PUT https://mastodon.example/api/v2/filters/:id HTTP/1.1
+PUT /api/v2/filters/:id HTTP/1.1
 ```
 
 ---
@@ -79,7 +79,7 @@ TODO:
 -->
 
 ```http
-DELETE https://mastodon.example/api/v2/filters/:id HTTP/1.1
+DELETE /api/v2/filters/:id HTTP/1.1
 ```
 
 ---
@@ -91,7 +91,7 @@ TODO:
 -->
 
 ```http
-GET https://mastodon.example/api/v2/filters/:id/keywords HTTP/1.1
+GET /api/v2/filters/:id/keywords HTTP/1.1
 ```
 
 ---
@@ -103,7 +103,7 @@ TODO:
 -->
 
 ```http
-GET https://mastodon.example/api/v2/filters/:filter_id/keywords/:id HTTP/1.1
+GET /api/v2/filters/:filter_id/keywords/:id HTTP/1.1
 ```
 
 ---
@@ -115,7 +115,7 @@ TODO:
 -->
 
 ```http
-POST https://mastodon.example/api/v2/filters/:filter_id/keywords HTTP/1.1
+POST /api/v2/filters/:filter_id/keywords HTTP/1.1
 ```
 
 ---
@@ -127,7 +127,7 @@ TODO:
 -->
 
 ```http
-PUT https://mastodon.example/api/v2/filters/keywords/:id HTTP/1.1
+PUT /api/v2/filters/keywords/:id HTTP/1.1
 ```
 
 ---
@@ -139,7 +139,7 @@ TODO:
 -->
 
 ```http
-DELETE https://mastodon.example/api/v2/filters/keywords/:id HTTP/1.1
+DELETE /api/v2/filters/keywords/:id HTTP/1.1
 ```
 
 ---
@@ -153,7 +153,7 @@ Prior to Mastodon 3.6, matching filters was done client-size and filters could o
 ### View your filters {#get-v1}
 
 ```http
-GET https://mastodon.example/api/v1/filters HTTP/1.1
+GET /api/v1/filters HTTP/1.1
 ```
 
 **Returns:** List of [V1::Filter]({{< relref "entities/V1_Filter" >}})\
@@ -218,7 +218,7 @@ Invalid or missing Authorization header.
 ### View a single filter {#get-one-v1}
 
 ```http
-GET https://mastodon.example/api/v1/filters/:id HTTP/1.1
+GET /api/v1/filters/:id HTTP/1.1
 ```
 
 **Returns:** [V1::Filter]({{< relref "entities/V1_Filter" >}})\
@@ -283,7 +283,7 @@ Filter ID does not exist, or is not owned by you
 ### Create a filter {#create-v1}
 
 ```http
-POST https://mastodon.example/api/v1/filters HTTP/1.1
+POST /api/v1/filters HTTP/1.1
 ```
 
 **Returns:** [V1::Filter]({{< relref "entities/V1_Filter" >}})\
@@ -370,7 +370,7 @@ If context is not provided properly:
 ### Update a filter {#update-v1}
 
 ```http
-PUT https://mastodon.example/api/v1/filters/:id HTTP/1.1
+PUT /api/v1/filters/:id HTTP/1.1
 ```
 
 Replaces a filter's parameters in-place.
@@ -475,7 +475,7 @@ If context is not provided properly:
 ### Remove a filter {#delete-v1}
 
 ```http
-DELETE https://mastodon.example/api/v1/filters/:id HTTP/1.1
+DELETE /api/v1/filters/:id HTTP/1.1
 ```
 
 **Returns:** empty object\

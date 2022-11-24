@@ -23,7 +23,7 @@ aliases: [
 ## View your lists {#get}
 
 ```http
-GET https://mastodon.example/api/v1/lists HTTP/1.1
+GET /api/v1/lists HTTP/1.1
 ```
 
 Fetch all lists that the user owns.
@@ -75,7 +75,7 @@ Invalid or missing Authorization header.
 ## Show a single list {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/lists/:id HTTP/1.1
+GET /api/v1/lists/:id HTTP/1.1
 ```
 
 Fetch the list with the given ID. Used for verifying the title of a list, and which replies to show within that list.
@@ -135,7 +135,7 @@ List does not exist or is not owned by you
 ## Create a list {#create}
 
 ```http
-POST https://mastodon.example/api/v1/lists HTTP/1.1
+POST /api/v1/lists HTTP/1.1
 ```
 
 Create a new list.
@@ -207,7 +207,7 @@ If the replies_policy is not understood:
 ## Update a list {#update}
 
 ```http
-PUT https://mastodon.example/api/v1/lists/:id HTTP/1.1
+PUT /api/v1/lists/:id HTTP/1.1
 ```
 
 Change the title of a list, or which replies to show.
@@ -284,7 +284,7 @@ If the `replies_policy` is not understood:
 ## Delete a list {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/lists/:id HTTP/1.1
+DELETE /api/v1/lists/:id HTTP/1.1
 ```
 
 **Returns:** empty object\
@@ -339,7 +339,7 @@ List does not exist or is not owned by you
 ## View accounts in a list {#accounts}
 
 ```http
-GET https://mastodon.example/api/v1/lists/:id/accounts HTTP/1.1
+GET /api/v1/lists/:id/accounts HTTP/1.1
 ```
 
 **Returns:** Array of [Account]({{< relref "entities/account" >}})\
@@ -444,7 +444,7 @@ List does not exist or is not owned by you.
 ## Add accounts to a list {#accounts-add}
 
 ```http
-POST https://mastodon.example/api/v1/lists/:id/accounts HTTP/1.1
+POST /api/v1/lists/:id/accounts HTTP/1.1
 ```
 
 Add accounts to the given list. Note that the user must be following these accounts.
@@ -513,7 +513,7 @@ An Account with one of the provided IDs is already in the list
 ## Remove accounts from list {#accounts-remove}
 
 ```http
-DELETE https://mastodon.example/api/v1/lists/:id/accounts HTTP/1.1
+DELETE /api/v1/lists/:id/accounts HTTP/1.1
 ```
 
 Remove accounts from the given list.

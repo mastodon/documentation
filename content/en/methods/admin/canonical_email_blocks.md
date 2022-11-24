@@ -23,7 +23,7 @@ This page is under construction.
 ## List all canonical email blocks {#get}
 
 ```http
-GET https://mastodon.example/api/v1/admin/canonical_email_blocks HTTP/1.1
+GET /api/v1/admin/canonical_email_blocks HTTP/1.1
 ```
 
 **Returns:** Array of [Admin::CanonicalEmailBlock]({{< relref "entities/Admin_CanonicalEmailBlock" >}})\
@@ -67,7 +67,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 ## Show a single canonical email block {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/admin/canonical_email_blocks/:id HTTP/1.1
+GET /api/v1/admin/canonical_email_blocks/:id HTTP/1.1
 ```
 
 **Returns:** [Admin::CanonicalEmailBlock]({{< relref "entities/Admin_CanonicalEmailBlock" >}})\
@@ -106,7 +106,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 ## Test {#test}
 
 ```http
-POST https://mastodon.example/api/v1/admin/canonical_email_blocks/test HTTP/1.1
+POST /api/v1/admin/canonical_email_blocks/test HTTP/1.1
 ```
 
 **Returns:** [Admin::CanonicalEmailBlock]({{< relref "entities/Admin_CanonicalEmailBlock" >}})\
@@ -150,7 +150,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 ## Block a canonical email {#create}
 
 ```http
-POST https://mastodon.example/api/v1/admin/canonical_email_blocks HTTP/1.1
+POST /api/v1/admin/canonical_email_blocks HTTP/1.1
 ```
 
 **Returns:** [Admin::CanonicalEmailBlock]({{< relref "entities/Admin_CanonicalEmailBlock" >}})\
@@ -197,7 +197,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 ## Delete a canonical email block {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/admin/canonical_email_blocks/:id HTTP/1.1
+DELETE /api/v1/admin/canonical_email_blocks/:id HTTP/1.1
 ```
 
 **Returns:** [Admin::CanonicalEmailBlock]({{< relref "entities/Admin_CanonicalEmailBlock" >}})\

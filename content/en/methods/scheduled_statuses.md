@@ -21,7 +21,7 @@ aliases: [
 ## View scheduled statuses {#get}
 
 ```http
-GET https://mastodon.example/api/v1/scheduled_statuses HTTP/1.1
+GET /api/v1/scheduled_statuses HTTP/1.1
 ```
 
 **Returns:** Array of [ScheduledStatus]({{< relref "entities/scheduledstatus" >}})\
@@ -91,7 +91,7 @@ Invalid or missing Authorization header.
 ## View a single scheduled status {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/scheduled_statuses/:id HTTP/1.1
+GET /api/v1/scheduled_statuses/:id HTTP/1.1
 ```
 
 **Returns:** [ScheduledStatus]({{< relref "entities/scheduledstatus" >}})\
@@ -159,7 +159,7 @@ ScheduledStatus is not owned by you or does not exist
 ## Update a scheduled status's publishing date {#update}
 
 ```http
-PUT https://mastodon.example/api/v1/scheduled_statuses/:id HTTP/1.1
+PUT /api/v1/scheduled_statuses/:id HTTP/1.1
 ```
 
 **Returns:** [ScheduledStatus]({{< relref "entities/scheduledstatus" >}})\
@@ -240,7 +240,7 @@ ScheduledStatus is not owned by you or does not exist
 ## Cancel a scheduled status {#cancel}
 
 ```http
-DELETE https://mastodon.example/api/v1/scheduled_statuses/:id HTTP/1.1
+DELETE /api/v1/scheduled_statuses/:id HTTP/1.1
 ```
 
 **Returns:** empty object\

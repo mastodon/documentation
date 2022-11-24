@@ -20,7 +20,7 @@ aliases: [
 ## Register an account {#create}
 
 ```http
-POST https://mastodon.example/api/v1/accounts HTTP/1.1
+POST /api/v1/accounts HTTP/1.1
 ```
 
 Creates a user and account records. Returns an account access token for the app that initiated the request. The app should save this token for later, and should wait for the user to confirm their account by clicking a link in their email inbox.
@@ -151,7 +151,7 @@ ERR_INCLUSION
 ## Verify account credentials {#verify_credentials}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/verify_credentials HTTP/1.1
+GET /api/v1/accounts/verify_credentials HTTP/1.1
 ```
 
 Test to make sure that the user token works.
@@ -302,7 +302,7 @@ Token does not have an authorized user
 ## Update account credentials {#update_credentials}
 
 ```http
-PATCH https://mastodon.example/api/v1/accounts/update_credentials HTTP/1.1
+PATCH /api/v1/accounts/update_credentials HTTP/1.1
 ```
 
 Update the user's display and preferences.
@@ -467,7 +467,7 @@ Token does not have an authorized user
 ## Get account {#get}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id HTTP/1.1
+GET /api/v1/accounts/:id HTTP/1.1
 ```
 
 View information about a profile.
@@ -656,7 +656,7 @@ Account is suspended (since 2.4.0 and until 3.3.0)
 ## Get account's statuses {#statuses}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id/statuses HTTP/1.1
+GET /api/v1/accounts/:id/statuses HTTP/1.1
 ```
 
 Statuses posted to the given account.
@@ -768,7 +768,7 @@ Account is suspended (since 2.4.0 and until 3.3.0)
 ## Get account's followers {#followers}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id/followers HTTP/1.1
+GET /api/v1/accounts/:id/followers HTTP/1.1
 ```
 
 Accounts which follow the given account, if network is not hidden by the account owner.
@@ -874,7 +874,7 @@ Account is suspended (since 2.4.0 and until 3.3.0)
 ## Get account's following {#following}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id/following HTTP/1.1
+GET /api/v1/accounts/:id/following HTTP/1.1
 ```
 
 Accounts which the given account is following, if network is not hidden by the account owner.
@@ -979,7 +979,7 @@ Account is suspended (since 2.4.0 and until 3.3.0)
 ## Get account's featured tags {#featured_tags}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id/featured_tags HTTP/1.1
+GET /api/v1/accounts/:id/featured_tags HTTP/1.1
 ```
 
 Tags featured by this account.
@@ -1019,7 +1019,7 @@ Authorization
 ## Get lists containing this account {#lists}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id/lists HTTP/1.1
+GET /api/v1/accounts/:id/lists HTTP/1.1
 ```
 
 User lists that you have added this account to.
@@ -1107,7 +1107,7 @@ Token does not have an authorized user
 ## Follow account {#follow}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/follow HTTP/1.1
+POST /api/v1/accounts/:id/follow HTTP/1.1
 ```
 
 Follow the given account. Can also be used to update whether to show reblogs or enable notifications.
@@ -1189,7 +1189,7 @@ Token does not have an authorized user
 ## Unfollow account {#unfollow}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/unfollow HTTP/1.1
+POST /api/v1/accounts/:id/unfollow HTTP/1.1
 ```
 
 Unfollow the given account.
@@ -1258,7 +1258,7 @@ Token does not have an authorized user
 ## Remove account from followers {#remove_from_followers}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/remove_from_followers HTTP/1.1
+POST /api/v1/accounts/:id/remove_from_followers HTTP/1.1
 ```
 
 Remove the given account from your followers.
@@ -1326,7 +1326,7 @@ Token does not have an authorized user
 ## Block account {#block}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/block HTTP/1.1
+POST /api/v1/accounts/:id/block HTTP/1.1
 ```
 
 Block the given account. Clients should filter statuses from this account if received (e.g. due to a boost in the Home timeline)
@@ -1395,7 +1395,7 @@ Token does not have an authorized user
 ## Unblock account {#unblock}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/unblock HTTP/1.1
+POST /api/v1/accounts/:id/unblock HTTP/1.1
 ```
 
 Unblock the given account.
@@ -1464,7 +1464,7 @@ Token does not have an authorized user
 ## Mute account {#mute}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/mute HTTP/1.1
+POST /api/v1/accounts/:id/mute HTTP/1.1
 ```
 
 Mute the given account. Clients should filter statuses and notifications from this account, if received (e.g. due to a boost in the Home timeline).
@@ -1542,7 +1542,7 @@ Token does not have an authorized user
 ## Unmute account {#unmute}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/unmute HTTP/1.1
+POST /api/v1/accounts/:id/unmute HTTP/1.1
 ```
 
 Unmute the given account.
@@ -1611,7 +1611,7 @@ Token does not have an authorized user
 ## Feature account on your profile {#pin}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/pin HTTP/1.1
+POST /api/v1/accounts/:id/pin HTTP/1.1
 ```
 
 Add the given account to the user's featured profiles. (Featured profiles are currently shown on the user's own public profile.)
@@ -1710,7 +1710,7 @@ Can sometimes be returned if the account already endorsed.
 ## Unfeature account from profile {#unpin}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/unpin HTTP/1.1
+POST /api/v1/accounts/:id/unpin HTTP/1.1
 ```
 
 Remove the given account from the user's featured profiles.
@@ -1778,7 +1778,7 @@ Token does not have an authorized user
 ## Set private note on profile {#note}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/note HTTP/1.1
+POST /api/v1/accounts/:id/note HTTP/1.1
 ```
 
 Sets a private note on a user.
@@ -1872,7 +1872,7 @@ Token does not have an authorized user
 ## Check relationships to other accounts {#relationships}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/relationships HTTP/1.1
+GET /api/v1/accounts/relationships HTTP/1.1
 ```
 
 Find out whether a given account is followed, blocked, muted, etc.
@@ -1956,7 +1956,7 @@ Token does not have an authorized user
 ## Find familiar followers {#familiar_followers}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/familiar_followers HTTP/1.1
+GET /api/v1/accounts/familiar_followers HTTP/1.1
 ```
 
 Obtain a list of all accounts that follow a given account, filtered for accounts you follow.
@@ -2034,7 +2034,7 @@ Token does not have an authorized user
 ## Search for matching accounts {#search}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/search HTTP/1.1
+GET /api/v1/accounts/search HTTP/1.1
 ```
 
 Search for matching accounts by username or display name.
@@ -2111,7 +2111,7 @@ resolve=true, but the domain part of the user@domain address is not a currently 
 ## Lookup account ID from Webfinger address {#lookup}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/lookup HTTP/1.1
+GET /api/v1/accounts/lookup HTTP/1.1
 ```
 
 Quickly lookup a username to see if it is available, or quickly resolve a Webfinger address to an account ID.
@@ -2174,7 +2174,7 @@ Username or address does not map to an account
 ## (DEPRECATED) Identity proofs {#identity_proofs}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id/identity_proofs HTTP/1.1
+GET /api/v1/accounts/:id/identity_proofs HTTP/1.1
 ```
 
 **Returns:** Array of [IdentityProof]({{< relref "entities/identityproof">}})\

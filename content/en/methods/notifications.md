@@ -20,7 +20,7 @@ aliases: [
 ## Get all notifications {#get}
 
 ```http
-GET https://mastodon.example/api/v1/notifications HTTP/1.1
+GET /api/v1/notifications HTTP/1.1
 ```
 
 Notifications concerning the user. This API returns Link headers containing links to the next/previous page. However, the links can also be constructed dynamically using query params and `id` values.
@@ -175,7 +175,7 @@ Invalid or missing Authorization header.
 ## Get a single notification {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/notification/:id HTTP/1.1
+GET /api/v1/notification/:id HTTP/1.1
 ```
 
 View information about a notification with a given ID.
@@ -257,7 +257,7 @@ Invalid or missing Authorization header.
 ## Dismiss all notifications {#clear}
 
 ```http
-POST https://mastodon.example/api/v1/notifications/clear HTTP/1.1
+POST /api/v1/notifications/clear HTTP/1.1
 ```
 
 Clear all notifications from the server.
@@ -298,7 +298,7 @@ Invalid or missing Authorization header.
 ## Dismiss a single notification {#dismiss}
 
 ```http
-POST https://mastodon.example/api/v1/notifications/:id/dismiss HTTP/1.1
+POST /api/v1/notifications/:id/dismiss HTTP/1.1
 ```
 
 Dismiss a single notification from the server.
@@ -345,7 +345,7 @@ Invalid or missing Authorization header.
 ## (REMOVED) Dismiss a single notification {#dismiss-deprecated}
 
 ```http
-POST https://mastodon.example/api/v1/notifications/dismiss HTTP/1.1
+POST /api/v1/notifications/dismiss HTTP/1.1
 ```
 
 Dismiss a single notification from the server.

@@ -20,7 +20,7 @@ aliases: [
 ## Create an application {#create}
 
 ```http
-POST https://mastodon.example/api/v1/apps HTTP/1.1
+POST /api/v1/apps HTTP/1.1
 ```
 
 Create a new application to obtain OAuth2 credentials.
@@ -78,7 +78,7 @@ If a required parameter is missing or improperly formatted, the request will fai
 ## Verify your app works {#verify_credentials}
 
 ```http
-GET https://mastodon.example/api/v1/apps/verify_credentials HTTP/1.1
+GET /api/v1/apps/verify_credentials HTTP/1.1
 ```
 
 Confirm that the app's OAuth2 credentials work.

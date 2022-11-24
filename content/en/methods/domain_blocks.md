@@ -20,7 +20,7 @@ aliases: [
 ## Get domain blocks {#get}
 
 ```http
-GET https://mastodon.example/api/v1/domain_blocks HTTP/1.1
+GET /api/v1/domain_blocks HTTP/1.1
 ```
 
 View domains the user has blocked.
@@ -81,7 +81,7 @@ Invalid or missing Authorization header.
 ## Block a domain {#block}
 
 ```http
-POST https://mastodon.example/api/v1/domain_blocks HTTP/1.1
+POST /api/v1/domain_blocks HTTP/1.1
 ```
 
 Block a domain to:
@@ -149,7 +149,7 @@ If `domain` contains spaces, the request will fail.
 ## Unblock a domain {#unblock}
 
 ```http
-DELETE https://mastodon.example/api/v1/domain_blocks HTTP/1.1
+DELETE /api/v1/domain_blocks HTTP/1.1
 ```
 
 Remove a domain block, if it exists in the user's array of blocked domains.

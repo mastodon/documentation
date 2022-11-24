@@ -23,7 +23,7 @@ aliases: [
 ## Upload media as an attachment (async) {#v2}
 
 ```http
-POST https://mastodon.example/api/v2/media HTTP/1.1
+POST /api/v2/media HTTP/1.1
 ```
 
 Creates a media attachment to be used with a new status. The full sized media will be processed asynchronously in the background for large uploads.
@@ -162,7 +162,7 @@ Could not generate a thumbnail for the attachment
 ## Get media attachment {#get}
 
 ```http
-GET https://mastodon.example/api/v1/media/:id HTTP/1.1
+GET /api/v1/media/:id HTTP/1.1
 ```
 
 Get a media attachment, before it is attached to a status and posted, but after it is accepted for processing. Use this method to check that the full-sized media has finished processing.
@@ -264,7 +264,7 @@ There was an error processing the media attachment
 ## Update media attachment {#update}
 
 ```http
-PUT https://mastodon.example/api/v1/media/:id HTTP/1.1
+PUT /api/v1/media/:id HTTP/1.1
 ```
 
 Update a MediaAttachment's parameters, before it is attached to a status and posted.
@@ -369,7 +369,7 @@ Attachment is not owned by you or does not exist
 ## (DEPRECATED) Upload media as an attachment {#v1}
 
 ```http
-POST https://mastodon.example/api/v1/media HTTP/1.1
+POST /api/v1/media HTTP/1.1
 ```
 
 Creates an attachment to be used with a new status. This method will return after the full sized media is done processing.

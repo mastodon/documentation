@@ -23,7 +23,7 @@ aliases: [
 ## View all conversations {#get}
 
 ```http
-GET https://mastodon.example/api/v1/conversations HTTP/1.1
+GET /api/v1/conversations HTTP/1.1
 ```
 
 **Returns:** Array of [Conversation]({{< relref "entities/conversation" >}})\
@@ -123,7 +123,7 @@ Invalid or missing Authorization header.
 ## Remove a conversation {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/conversations/:id HTTP/1.1
+DELETE /api/v1/conversations/:id HTTP/1.1
 ```
 
 Removes a conversation from your list of conversations.
@@ -177,7 +177,7 @@ The conversation does not exist, or is not owned by you.
 ## Mark a conversation as read {#read}
 
 ```http
-POST https://mastodon.example/api/v1/conversations/:id/read HTTP/1.1
+POST /api/v1/conversations/:id/read HTTP/1.1
 ```
 
 **Returns:** [Conversation]({{< relref "entities/conversation" >}})\

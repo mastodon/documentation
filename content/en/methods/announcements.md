@@ -21,7 +21,7 @@ aliases: [
 ## View all announcements {#get}
 
 ```http
-GET https://mastodon.example/api/v1/announcements HTTP/1.1
+GET /api/v1/announcements HTTP/1.1
 ```
 
 See all currently active announcements set by admins.
@@ -110,7 +110,7 @@ Invalid or missing Authorization header.
 ## Dismiss an announcement {#dismiss}
 
 ```http
-POST https://mastodon.example/api/v1/announcements/:id/dismiss HTTP/1.1
+POST /api/v1/announcements/:id/dismiss HTTP/1.1
 ```
 
 Allows a user to mark the announcement as read.
@@ -163,7 +163,7 @@ Announcement with given ID does not exist
 ## Add a reaction to an announcement {#put-reactions}
 
 ```http
-PUT https://mastodon.example/api/v1/announcements/:id/reactions/:name HTTP/1.1
+PUT /api/v1/announcements/:id/reactions/:name HTTP/1.1
 ```
 
 React to an announcement with an emoji.
@@ -228,7 +228,7 @@ Announcement with given ID does not exist
 ## Remove a reaction from an announcement {#delete-reactions}
 
 ```http
-DELETE https://mastodon.example/api/v1/announcements/:id/reactions/:name HTTP/1.1
+DELETE /api/v1/announcements/:id/reactions/:name HTTP/1.1
 ```
 
 Undo a react emoji to an announcement.

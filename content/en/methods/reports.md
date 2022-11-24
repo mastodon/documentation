@@ -21,7 +21,7 @@ aliases: [
 ## File a report {#post}
 
 ```http
-POST https://mastodon.example/api/v1/reports HTTP/1.1
+POST /api/v1/reports HTTP/1.1
 ```
 
 **Returns:** [Report]({{< relref "entities/report" >}})\

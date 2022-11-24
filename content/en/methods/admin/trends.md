@@ -23,7 +23,7 @@ This page is under construction.
 ## View trending links {#links}
 
 ```http
-GET https://mastodon.example/api/v1/admin/trends/links HTTP/1.1
+GET /api/v1/admin/trends/links HTTP/1.1
 ```
 
 **Returns:** Array of [Trends::Link]({{< relref "entities/PreviewCard#trends-link" >}})\
@@ -59,7 +59,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 ## View trending statuses {#statuses}
 
 ```http
-GET https://mastodon.example/api/v1/admin/trends/statuses HTTP/1.1
+GET /api/v1/admin/trends/statuses HTTP/1.1
 ```
 
 **Returns:** Array of [Status]({{< relref "entities/Status" >}})\
@@ -95,7 +95,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 ## View trending tags {#tags}
 
 ```http
-GET https://mastodon.example/api/v1/admin/trends/tags HTTP/1.1
+GET /api/v1/admin/trends/tags HTTP/1.1
 ```
 
 **Returns:** Array of [Tag]({{< relref "entities/Tag" >}})\

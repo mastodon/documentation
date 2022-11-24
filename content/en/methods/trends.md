@@ -21,7 +21,7 @@ aliases: [
 ## View trending tags {#tags}
 
 ```http
-GET https://mastodon.example/api/v1/trends/tags HTTP/1.1
+GET /api/v1/trends/tags HTTP/1.1
 ```
 
 Tags that are being used more frequently within the past week.
@@ -89,7 +89,7 @@ limit
 ## View trending statuses {#statuses}
 
 ```http
-GET https://mastodon.example/api/v1/trends/statuses HTTP/1.1
+GET /api/v1/trends/statuses HTTP/1.1
 ```
 
 Statuses that have been interacted with more than others.
@@ -129,7 +129,7 @@ limit
 ## View trending links {#links}
 
 ```http
-GET https://mastodon.example/api/v1/trends/links HTTP/1.1
+GET /api/v1/trends/links HTTP/1.1
 ```
 
 Links that have been shared more than others.

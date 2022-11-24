@@ -21,7 +21,7 @@ aliases: [
 ## Get saved timeline positions {#get}
 
 ```http
-GET https://mastodon.example/api/v1/markers HTTP/1.1
+GET /api/v1/markers HTTP/1.1
 ```
 
 **Returns:** Hash of timeline key and associated [Marker]({{< relref "entities/Marker" >}})\
@@ -76,7 +76,7 @@ Invalid or missing Authorization header.
 ## Save your position in a timeline {#create}
 
 ```http
-POST https://mastodon.example/api/v1/markers HTTP/1.1
+POST /api/v1/markers HTTP/1.1
 ```
 
 **Returns:** [Marker]({{< relref "entities/marker" >}})\

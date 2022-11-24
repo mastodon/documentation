@@ -19,7 +19,7 @@ aliases: [
 ## View accounts (v1) {#v1}
 
 ```http
-GET https://mastodon.example/api/v1/admin/accounts HTTP/1.1
+GET /api/v1/admin/accounts HTTP/1.1
 ```
 
 View all accounts, optionally matching certain criteria for filtering, up to 100 at a time. Pagination may be done with the HTTP Link header in the response. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
@@ -182,7 +182,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 ## View accounts (v2) {#v2}
 
 ```http
-GET https://mastodon.example/api/v2/admin/accounts HTTP/1.1
+GET /api/v2/admin/accounts HTTP/1.1
 ```
 
 View all accounts, optionally matching certain criteria for filtering, up to 100 at a time. Pagination may be done with the HTTP Link header in the response. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
@@ -309,7 +309,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 ## View a specific account {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/admin/accounts/:id HTTP/1.1
+GET /api/v1/admin/accounts/:id HTTP/1.1
 ```
 
 View admin-level information about the given account.
@@ -405,7 +405,7 @@ Account does not exist
 ## Approve a pending account {#approve}
 
 ```http
-POST https://mastodon.example/api/v1/admin/accounts/:id/approve HTTP/1.1
+POST /api/v1/admin/accounts/:id/approve HTTP/1.1
 ```
 
 Approve the given local account if it is currently pending approval.
@@ -471,7 +471,7 @@ Account does not exist
 ## Reject a pending account {#reject}
 
 ```http
-POST https://mastodon.example/api/v1/admin/accounts/:id/reject HTTP/1.1
+POST /api/v1/admin/accounts/:id/reject HTTP/1.1
 ```
 
 Reject the given local account if it is currently pending approval.
@@ -575,7 +575,7 @@ Account does not exist
 ## Delete an account {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/admin/accounts/:id HTTP/1.1
+DELETE /api/v1/admin/accounts/:id HTTP/1.1
 ```
 
 Permanently delete data for a suspended account.
@@ -681,7 +681,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 ## Perform an action against an account {#action}
 
 ```http
-POST https://mastodon.example/api/v1/admin/accounts/:id/action HTTP/1.1
+POST /api/v1/admin/accounts/:id/action HTTP/1.1
 ```
 
 Perform an action against an account and log this action in the moderation history. Also resolves any open reports against this account.
@@ -767,7 +767,7 @@ Account or Report with given ID does not exist
 ## Enable a currently disabled account {#enable}
 
 ```http
-POST https://mastodon.example/api/v1/admin/accounts/:id/enable HTTP/1.1
+POST /api/v1/admin/accounts/:id/enable HTTP/1.1
 ```
 
 Re-enable a local account whose login is currently disabled.
@@ -833,7 +833,7 @@ Account does not exist
 ## Unsilence an account {#unsilence}
 
 ```http
-POST https://mastodon.example/api/v1/admin/accounts/:id/unsilence HTTP/1.1
+POST /api/v1/admin/accounts/:id/unsilence HTTP/1.1
 ```
 
 Unsilence an account if it is currently silenced.
@@ -899,7 +899,7 @@ Account does not exist
 ## Unsuspend an account {#unsuspend}
 
 ```http
-POST https://mastodon.example/api/v1/admin/accounts/:id/unsuspend HTTP/1.1
+POST /api/v1/admin/accounts/:id/unsuspend HTTP/1.1
 ```
 
 Unsuspend a currently suspended account.
@@ -965,7 +965,7 @@ Account does not exist
 ## Unmark an account as sensitive {#unsensitive}
 
 ```http
-POST https://mastodon.example/api/v1/admin/accounts/:id/unsensitive HTTP/1.1
+POST /api/v1/admin/accounts/:id/unsensitive HTTP/1.1
 ```
 
 Stops marking an account's posts as sensitive, if it was previously flagged as sensitive.

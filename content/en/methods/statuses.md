@@ -20,7 +20,7 @@ aliases: [
 ## Publish new status {#create}
 
 ```http
-POST https://mastodon.example/api/v1/statuses HTTP/1.1
+POST /api/v1/statuses HTTP/1.1
 ```
 
 Post a new status.
@@ -145,7 +145,7 @@ Invalid or missing Authorization header.
 ## View a single status {#get}
 
 ```http
-GET https://mastodon.example/api/v1/statuses/:id HTTP/1.1
+GET /api/v1/statuses/:id HTTP/1.1
 ```
 
 Obtain information about a status.
@@ -259,7 +259,7 @@ Status does not exist or is private.
 ## Delete a status {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/statuses/:id HTTP/1.1
+DELETE /api/v1/statuses/:id HTTP/1.1
 ```
 
 Delete one of your own statuses.
@@ -449,7 +449,7 @@ Status is not owned by you or does not exist
 ## Get parent and child statuses in context {#context}
 
 ```http
-GET https://mastodon.example/api/v1/statuses/:id/context HTTP/1.1
+GET /api/v1/statuses/:id/context HTTP/1.1
 ```
 
 View statuses above and below this status in the thread.
@@ -526,7 +526,7 @@ Status is private or does not exist
 ## See who boosted a status {#reblogged_by}
 
 ```http
-GET https://mastodon.example/api/v1/statuses/:id/reblogged_by HTTP/1.1
+GET /api/v1/statuses/:id/reblogged_by HTTP/1.1
 ```
 
 View who boosted a given status.
@@ -580,7 +580,7 @@ Status does not exist or is private
 ## See who favourited a status {#favourited_by}
 
 ```http
-GET https://mastodon.example/api/v1/statuses/:id/favourited_by HTTP/1.1
+GET /api/v1/statuses/:id/favourited_by HTTP/1.1
 ```
 
 View who favourited a given status.
@@ -634,7 +634,7 @@ Status does not exist or is private
 ## Favourite a status {#favourite}
 
 ```http
-POST https://mastodon.example/api/v1/statuses/:id/favourite HTTP/1.1
+POST /api/v1/statuses/:id/favourite HTTP/1.1
 ```
 
 Add a status to your favourites list.
@@ -700,7 +700,7 @@ Status does not exist or is private
 ## Undo favourite of a status {#unfavourite}
 
 ```http
-POST https://mastodon.example/api/v1/statuses/:id/unfavourite HTTP/1.1
+POST /api/v1/statuses/:id/unfavourite HTTP/1.1
 ```
 
 Remove a status from your favourites list.
@@ -766,7 +766,7 @@ Status does not exist or is private
 ## Boost a status {#boost}
 
 ```http
-POST https://mastodon.example/api/v1/statuses/:id/reblog HTTP/1.1
+POST /api/v1/statuses/:id/reblog HTTP/1.1
 ```
 
 Reshare a status on your own profile.
@@ -849,7 +849,7 @@ Status does not exist or is private
 ## Undo boost of a status {#unreblog}
 
 ```http
-POST https://mastodon.example/api/v1/statuses/:id/unreblog HTTP/1.1
+POST /api/v1/statuses/:id/unreblog HTTP/1.1
 ```
 
 Undo a reshare of a status.
@@ -915,7 +915,7 @@ Status does not exist or is private
 ## Bookmark a status {#bookmark}
 
 ```http
-POST https://mastodon.example/api/v1/statuses/:id/bookmark HTTP/1.1
+POST /api/v1/statuses/:id/bookmark HTTP/1.1
 ```
 
 Privately bookmark a status.
@@ -971,7 +971,7 @@ Invalid or missing Authorization header.
 ## Undo bookmark of a status {#unbookmark}
 
 ```http
-POST https://mastodon.example/api/v1/statuses/:id/unbookmark HTTP/1.1
+POST /api/v1/statuses/:id/unbookmark HTTP/1.1
 ```
 
 Remove a status from your private bookmarks.
@@ -1037,7 +1037,7 @@ Status does not exist or is private.
 ## Mute a conversation {#mute}
 
 ```http
-POST https://mastodon.example/api/v1/statuses/:id/mute HTTP/1.1
+POST /api/v1/statuses/:id/mute HTTP/1.1
 ```
 
 Do not receive notifications for the thread that this status is part of. Must be a thread in which you are a participant.
@@ -1103,7 +1103,7 @@ Status does not exist or is private.
 ## Unmute a conversation {#unmute}
 
 ```http
-POST https://mastodon.example/api/v1/statuses/:id/unmute HTTP/1.1
+POST /api/v1/statuses/:id/unmute HTTP/1.1
 ```
 
 Start receiving notifications again for the thread that this status is part of.
@@ -1169,7 +1169,7 @@ Status does not exist or is private.
 ## Pin status to profile {#pin}
 
 ```http
-POST https://mastodon.example/api/v1/statuses/:id/pin HTTP/1.1
+POST /api/v1/statuses/:id/pin HTTP/1.1
 ```
 
 Feature one of your own public statuses at the top of your profile.
@@ -1263,7 +1263,7 @@ Prior to 3.5.0, you could not pin one of your private statuses because private s
 ## Unpin status from profile {#unpin}
 
 ```http
-POST https://mastodon.example/api/v1/statuses/:id/unpin HTTP/1.1
+POST /api/v1/statuses/:id/unpin HTTP/1.1
 ```
 
 Unfeature a status from the top of your profile.
@@ -1338,7 +1338,7 @@ Status does not exist or is private.
 ## Edit a status {#edit}
 
 ```http
-PUT https://mastodon.example/api/v1/statuses/:id HTTP/1.1
+PUT /api/v1/statuses/:id HTTP/1.1
 ```
 
 Edit a given status to change its text, sensitivity, media attachments, or poll. Note that editing a poll's options will reset the votes.
@@ -1468,7 +1468,7 @@ Status does not exist, is private, or is not owned by you.
 ## View edit history of a status {#history}
 
 ```http
-GET https://mastodon.example/api/v1/statuses/:id/history HTTP/1.1
+GET /api/v1/statuses/:id/history HTTP/1.1
 ```
 
 Get all known versions of a status, including the initial and current states.
@@ -1614,7 +1614,7 @@ Status does not exist or is private.
 ## View status source {#source}
 
 ```http
-GET https://mastodon.example/api/v1/statuses/:id/source HTTP/1.1
+GET /api/v1/statuses/:id/source HTTP/1.1
 ```
 
 Obtain the source properties for a status so that it can be edited.
@@ -1672,7 +1672,7 @@ Status does not exist or is private.
 ## (DEPRECATED) Fetch preview card {#card}
 
 ```http
-GET https://mastodon.example/api/v1/statuses/:id/card HTTP/1.1
+GET /api/v1/statuses/:id/card HTTP/1.1
 ```
 
 **Returns:** [PreviewCard]({{< relref "entities/PreviewCard" >}})\

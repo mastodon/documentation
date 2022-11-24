@@ -21,7 +21,7 @@ aliases: [
 ## View blocked users {#get}
 
 ```http
-GET https://mastodon.example/api/v1/blocks HTTP/1.1
+GET /api/v1/blocks HTTP/1.1
 ```
 
 **Returns:** Array of [Account]({{< relref "entities/account" >}})\

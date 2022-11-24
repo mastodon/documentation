@@ -114,7 +114,7 @@ data: <payload>
 ## Check if the server is alive {#health}
 
 ```http
-GET https://mastodon.example/api/v1/streaming/health HTTP/1.1
+GET /api/v1/streaming/health HTTP/1.1
 ```
 
 Verify that the streaming service is alive before connecting to it
@@ -138,7 +138,7 @@ OK
 ## Watch your home timeline and notifications {#user}
 
 ```http
-GET https://mastodon.example/api/v1/streaming/user HTTP/1.1
+GET /api/v1/streaming/user HTTP/1.1
 ```
 
 Returns events that are relevant to the authorized user, i.e. home timeline and notifications
@@ -215,7 +215,7 @@ data: {"id":"109348677773283527","created_at":"2022-11-15T16:06:48.410Z","in_rep
 ## Watch your notifications {#notification}
 
 ```http
-GET https://mastodon.example/api/v1/streaming/user/notification HTTP/1.1
+GET /api/v1/streaming/user/notification HTTP/1.1
 ```
 
 Returns events for received notifications
@@ -245,7 +245,7 @@ data: {"id":"68739215","type":"mention","created_at":"2022-08-30T23:09:54.070Z",
 ## Watch the federated timeline {#public}
 
 ```http
-GET https://mastodon.example/api/v1/streaming/public HTTP/1.1
+GET /api/v1/streaming/public HTTP/1.1
 ```
 
 Returns all public statuses
@@ -296,7 +296,7 @@ data: {"id":"109348684737626801","created_at":"2022-11-15T16:08:30.000Z","in_rep
 ## Watch the local timeline {#public-local}
 
 ```http
-GET https://mastodon.example/api/v1/streaming/public/local HTTP/1.1
+GET /api/v1/streaming/public/local HTTP/1.1
 ```
 
 Returns all local public statuses
@@ -347,7 +347,7 @@ data: {"id":"109348699525106378","created_at":"2022-11-15T16:12:20.310Z","in_rep
 ## Watch for remote statuses {#public-remote}
 
 ```http
-GET https://mastodon.example/api/v1/streaming/public/remote HTTP/1.1
+GET /api/v1/streaming/public/remote HTTP/1.1
 ```
 
 Returns all public statuses from remote servers.
@@ -397,7 +397,7 @@ data: {"id":"109348684737626801","created_at":"2022-11-15T16:08:30.000Z","in_rep
 ## Watch the public timeline for a hashtag {#hashtag}
 
 ```http
-GET https://mastodon.example/api/v1/streaming/hashtag HTTP/1.1
+GET /api/v1/streaming/hashtag HTTP/1.1
 ```
 
 Returns all public statuses for a particular hashtag
@@ -447,7 +447,7 @@ data: {"id":"109348684737626801","created_at":"2022-11-15T16:08:30.000Z","in_rep
 ## Watch the local timeline for a hashtag {#hashtag-local}
 
 ```http
-GET https://mastodon.example/api/v1/streaming/hashtag/local HTTP/1.1
+GET /api/v1/streaming/hashtag/local HTTP/1.1
 ```
 
 Returns all local public statuses for a particular hashtag
@@ -497,7 +497,7 @@ data: {"id":"108914430312582020","created_at":"2022-08-30T23:32:12.006Z","in_rep
 ## Watch for list updates {#list}
 
 ```http
-GET https://mastodon.example/api/v1/streaming/list HTTP/1.1
+GET /api/v1/streaming/list HTTP/1.1
 ```
 
 Returns statuses for a list
@@ -547,7 +547,7 @@ data: {"id":"108914327388663283","created_at":"2022-08-30T23:05:53.839Z","in_rep
 ## Watch for direct messages {#direct}
 
 ```http
-GET https://mastodon.example/api/v1/streaming/direct HTTP/1.1
+GET /api/v1/streaming/direct HTTP/1.1
 ```
 
 Returns events for received direct messages.

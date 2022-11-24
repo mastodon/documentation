@@ -19,7 +19,7 @@ aliases: [
 ## List all allowed domains {#get}
 
 ```http
-GET https://mastodon.example/api/v1/admin/domain_allows HTTP/1.1
+GET /api/v1/admin/domain_allows HTTP/1.1
 ```
 
 Show information about all allowed domains.
@@ -76,7 +76,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Get a single allowed domain {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/admin/domain_allows/:id HTTP/1.1
+GET /api/v1/admin/domain_allows/:id HTTP/1.1
 ```
 Show information about a single allowed domain.
 
@@ -132,7 +132,7 @@ DomainAllow with the given ID does not exist
 ## Allow a domain to federate {#create}
 
 ```http
-POST https://mastodon.example/api/v1/admin/domain_allows HTTP/1.1
+POST /api/v1/admin/domain_allows HTTP/1.1
 ```
 
 Add a domain to the list of domains allowed to federate, to be used when the instance is in allow-list federation mode.
@@ -193,7 +193,7 @@ The domain parameter was not provided or was invalid
 ## Delete an allowed domain {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/admin/domain_allows/:id HTTP/1.1
+DELETE /api/v1/admin/domain_allows/:id HTTP/1.1
 ```
 
 Delete a domain from the allowed domains list.

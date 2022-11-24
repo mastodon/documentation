@@ -21,7 +21,7 @@ aliases: [
 ## View pending follow requests {#get}
 
 ```http
-GET https://mastodon.example/api/v1/follow_requests HTTP/1.1
+GET /api/v1/follow_requests HTTP/1.1
 ```
 
 **Returns:** Array of [Account]({{< relref "entities/account" >}})\
@@ -96,7 +96,7 @@ Invalid or missing Authorization header.
 ## Accept follow request {#accept}
 
 ```http
-POST https://mastodon.example/api/v1/follow_requests/:account_id/authorize HTTP/1.1
+POST /api/v1/follow_requests/:account_id/authorize HTTP/1.1
 ```
 
 **Returns:** [Relationship]({{< relref "entities/relationship" >}})\
@@ -163,7 +163,7 @@ No pending follow request from that account ID
 ## Reject follow request {#reject}
 
 ```http
-POST https://mastodon.example/api/v1/follow_requests/:account_id/reject HTTP/1.1
+POST /api/v1/follow_requests/:account_id/reject HTTP/1.1
 ```
 
 **Returns:** [Relationship]({{< relref "entities/relationship" >}})\

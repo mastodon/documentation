@@ -23,7 +23,7 @@ This page is under construction.
 ## List all blocked domains {#get}
 
 ```http
-GET https://mastodon.example/api/v1/admin/domain_blocks HTTP/1.1
+GET /api/v1/admin/domain_blocks HTTP/1.1
 ```
 
 Show information about all blocked domains.
@@ -82,7 +82,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Get a single blocked domain {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/admin/domain_blocks/:id HTTP/1.1
+GET /api/v1/admin/domain_blocks/:id HTTP/1.1
 ```
 Show information about a single blocked domain.
 
@@ -144,7 +144,7 @@ DomainBlock with the given ID does not exist
 ## Block a domain from federating {#create}
 
 ```http
-POST https://mastodon.example/api/v1/admin/domain_blocks HTTP/1.1
+POST /api/v1/admin/domain_blocks HTTP/1.1
 ```
 
 Add a domain to the list of domains blocked from federating.
@@ -229,7 +229,7 @@ The domain parameter was not provided
 ## Update a domain block {#update}
 
 ```http
-PUT https://mastodon.example/api/v1/admin/domain_blocks/:id HTTP/1.1
+PUT /api/v1/admin/domain_blocks/:id HTTP/1.1
 ```
 
 Change parameters for an existing domain block.
@@ -310,7 +310,7 @@ Invalid severity
 ## Remove a domain block {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/admin/domain_blocks/:id HTTP/1.1
+DELETE /api/v1/admin/domain_blocks/:id HTTP/1.1
 ```
 
 Lift a block against a domain.

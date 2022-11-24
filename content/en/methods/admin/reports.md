@@ -19,7 +19,7 @@ aliases: [
 ## View all reports {#get}
 
 ```http
-GET https://mastodon.example/api/v1/admin/reports HTTP/1.1
+GET /api/v1/admin/reports HTTP/1.1
 ```
 
 View information about all reports.
@@ -115,7 +115,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## View a single report {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/admin/reports/:id HTTP/1.1
+GET /api/v1/admin/reports/:id HTTP/1.1
 ```
 
 **Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
@@ -213,7 +213,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Update a report {#update}
 
 ```http
-PUT https://mastodon.example/api/v1/admin/reports/:id HTTP/1.1
+PUT /api/v1/admin/reports/:id HTTP/1.1
 ```
 
 Change metadata for a report.
@@ -276,7 +276,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Assign report to self {#assign_to_self}
 
 ```http
-POST https://mastodon.example/api/v1/admin/reports/:id/assign_to_self HTTP/1.1
+POST /api/v1/admin/reports/:id/assign_to_self HTTP/1.1
 ```
 
 Claim the handling of this report to yourself.
@@ -351,7 +351,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Unassign report {#unassign}
 
 ```http
-POST https://mastodon.example/api/v1/admin/reports/:id/unassign HTTP/1.1
+POST /api/v1/admin/reports/:id/unassign HTTP/1.1
 ```
 
 Unassign a report so that someone else can claim it.
@@ -413,7 +413,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Mark report as resolved {#resolve}
 
 ```http
-POST https://mastodon.example/api/v1/admin/reports/:id/resolve HTTP/1.1
+POST /api/v1/admin/reports/:id/resolve HTTP/1.1
 ```
 
 Mark a report as resolved with no further action taken.
@@ -470,7 +470,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Reopen a closed report {#reopen}
 
 ```http
-POST https://mastodon.example/api/v1/admin/reports/:id/reopen HTTP/1.1
+POST /api/v1/admin/reports/:id/reopen HTTP/1.1
 ```
 
 Reopen a currently closed report, if it is closed.

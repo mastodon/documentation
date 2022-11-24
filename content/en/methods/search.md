@@ -20,7 +20,7 @@ aliases: [
 ## Perform a search {#v2}
 
 ```http
-GET https://mastodon.example/api/v2/search HTTP/1.1
+GET /api/v2/search HTTP/1.1
 ```
 
 **Returns:** [Search]({{< relref "entities/Search" >}})\
@@ -155,7 +155,7 @@ Invalid or missing Authorization header.
 ## (REMOVED) Search results (v1) {#v1}
 
 ```http
-GET https://mastodon.example/api/v1/search HTTP/1.1
+GET /api/v1/search HTTP/1.1
 ```
 
 **Returns:** [Search]({{< relref "entities/Search" >}}), but `hashtags` is an array of strings instead of an array of Tag.\

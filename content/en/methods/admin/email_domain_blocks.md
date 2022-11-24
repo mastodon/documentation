@@ -23,7 +23,7 @@ This page is under construction.
 ## List all blocked email domains {#get}
 
 ```http
-GET https://mastodon.example/api/v1/admin/email_domain_blocks HTTP/1.1
+GET /api/v1/admin/email_domain_blocks HTTP/1.1
 ```
 
 Show information about all email domains blocked from signing up.
@@ -113,7 +113,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Get a single blocked email domain {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/admin/email_domain_blocks/:id HTTP/1.1
+GET /api/v1/admin/email_domain_blocks/:id HTTP/1.1
 ```
 Show information about a single email domain that is blocked from signups.
 
@@ -206,7 +206,7 @@ EmailDomainBlock with the given ID does not exist
 ## Block an email domain from signups {#create}
 
 ```http
-POST https://mastodon.example/api/v1/admin/email_domain_blocks HTTP/1.1
+POST /api/v1/admin/email_domain_blocks HTTP/1.1
 ```
 
 Add a domain to the list of email domains blocked from signups.
@@ -312,7 +312,7 @@ Alternatively, the domain provided contains an invalid character
 ## Delete an email domain block {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/admin/email_domain_blocks/:id HTTP/1.1
+DELETE /api/v1/admin/email_domain_blocks/:id HTTP/1.1
 ```
 
 Lift a block against an email domain.

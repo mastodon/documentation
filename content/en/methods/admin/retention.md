@@ -19,7 +19,7 @@ aliases: [
 ## Calculate retention data {#create}
 
 ```http
-POST https://mastodon.example/api/v1/admin/retention HTTP/1.1
+POST /api/v1/admin/retention HTTP/1.1
 ```
 
 Generate a retention data report for a given time period and bucket.

@@ -21,7 +21,7 @@ aliases: [
 ## View favourited statuses {#get}
 
 ```http
-GET https://mastodon.example/api/v1/favourites HTTP/1.1
+GET /api/v1/favourites HTTP/1.1
 ```
 
 Statuses the user has favourited.
