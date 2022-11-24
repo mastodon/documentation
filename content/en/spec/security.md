@@ -61,7 +61,7 @@ date: 18 Dec 2019 10:08:46 GMT
 
 Note that we don't care about the `Accept:` header because we won't be specifying it in `headers`.
 
-The signature string is then hashed with SHA256 and signed with the actor's public key. The resulting value is attached as `signature` within the Signature: header. The final request looks like this:
+The signature string is then hashed with SHA256 and signed with the actor's private key. The resulting value is attached as `signature` within the Signature: header. The final request looks like this:
 
 ```http
 GET /users/username/inbox HTTP/1.1
