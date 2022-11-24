@@ -11,9 +11,9 @@ menu:
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/request.rb" caption="app/lib/request.rb" >}}
 
-[HTTP Signatures](https://w3c-dvcg.github.io/http-signatures/) is a specification for signing HTTP messages by using a \`Signature:\` header with your HTTP request. Mastodon requires the use of HTTP Signatures in order to validate that any activity received was authored by the actor generating it. When secure mode is enabled, all GET requests require HTTP signatures as well.
+[HTTP Signatures](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures) is a specification for signing HTTP messages by using a `Signature:` header with your HTTP request. Mastodon requires the use of HTTP Signatures in order to validate that any activity received was authored by the actor generating it. When secure mode is enabled, all GET requests require HTTP signatures as well.
 
-For any HTTP request incoming to Mastodon, the following header should be attached:
+For any HTTP request incoming to Mastodon, the Signature header should be attached:
 
 ```http
 Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date",signature="Y2FiYW...IxNGRiZDk4ZA=="
@@ -28,7 +28,7 @@ Signature:
   signature="Y2FiYW...IxNGRiZDk4ZA=="
 ```
 
-The `keyId` should correspond to the actor and the key being used to generate the `signature`, whose value is equal to all parameters in `headers` concatenated together and signed by the key, then Base64-encoded. See [ActivityPub &gt; Public key]({{< relref "activitypub#publicKey" >}}) for more information on actor keys. An example key looks like this:
+The `keyId` should correspond to the actor and the key being used to generate the `signature`, whose value is equal to all parameters in `headers` concatenated together and signed by the key, then Base64-encoded. See [ActivityPub > Public key]({{< relref "activitypub#publicKey" >}}) for more information on actor keys. An example key looks like this:
 
 ```json
 "publicKey": {
