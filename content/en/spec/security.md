@@ -13,11 +13,13 @@ menu:
 
 [HTTP Signatures](https://w3c-dvcg.github.io/http-signatures/) is a specification for signing HTTP messages by using a \`Signature:\` header with your HTTP request. Mastodon requires the use of HTTP Signatures in order to validate that any activity received was authored by the actor generating it. When secure mode is enabled, all GET requests require HTTP signatures as well.
 
-For any HTTP request incoming to Mastodon, the following header should be attached:
+For any HTTP GET request incoming to Mastodon, the following header should be attached:
 
 ```http
-Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date digest",signature="Y2FiYW...IxNGRiZDk4ZA=="
+Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date",signature="Y2FiYW...IxNGRiZDk4ZA=="
 ```
+
+HTTP POST requests incoming to Mastodon requires a `digest` in the HTTP header and in the signature (`headers="(request-target) host date digest"`).
 
 The three parts of the `Signature:` header can be broken down like so:
 
@@ -40,9 +42,11 @@ The `keyId` should correspond to the actor and the key being used to generate th
 
 See also: [https://blog.joinmastodon.org/2018/07/how-to-make-friends-and-verify-requests/](https://blog.joinmastodon.org/2018/07/how-to-make-friends-and-verify-requests/)
 
-### Creating HTTP signatures {#http-sign}
+### Creating HTTP signatures without Digest {#http-sign}
 
-To create an HTTP signature, you will have to define which headers are being hashed and signed. For example, consider the following request being sent out:
+To create an HTTP signature, you will have to define which headers are being hashed and signed. GET requests require less data signed than POST requests.
+
+For example, consider the following request being sent out:
 
 ```http
 GET /users/username/inbox HTTP/1.1
@@ -51,13 +55,12 @@ Date: 18 Dec 2019 10:08:46 GMT
 Accept: application/activity+json
 ```
 
-The signature string is constructed using the values of the HTTP headers defined in `headers`, joined by newlines. Typically, you will want to include the request target, as well as the host and the date. Mastodon assumes `Date:` header if none are provided. For the above request, to generate a `Signature:` with `headers="(request-target) host date digest"` we would generate the following string:
+The signature string is constructed using the values of the HTTP headers defined in `headers`, joined by newlines. Typically, you will want to include the request target, as well as the host and the date. Mastodon assumes `Date:` header if none are provided. For the above request, to generate a `Signature:` with `headers="(request-target) host date"` we would generate the following string:
 
 ```text
 (request-target): get /users/username/inbox
 host: mastodon.example
 date: 18 Dec 2019 10:08:46 GMT
-digest: SHA-256=ILMNSQ...hJGdFk=
 ```
 
 Note that we don't care about the `Accept:` header because we won't be specifying it in `headers`.
@@ -69,10 +72,31 @@ GET /users/username/inbox HTTP/1.1
 Host: mastodon.example
 Date: 18 Dec 2019 10:08:46 GMT
 Accept: application/activity+json
-Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date digest",signature="Y2FiYW...IxNGRiZDk4ZA=="
+Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date",signature="Y2FiYW...IxNGRiZDk4ZA=="
 ```
 
-This request is functionally equivalent to saying that `https://my-example.com/actor` is requesting `https://mastodon.example/users/username/inbox` and is proving that they sent this request by signing `(request-target)`, `Host:`, `Date:`, and `Digest:` with their public key linked at `keyId`, resulting in the provided `signature`.
+This request is functionally equivalent to saying that `https://my-example.com/actor` is requesting `https://mastodon.example/users/username/inbox` and is proving that they sent this request by signing `(request-target)`, `Host:`, and `Date:` with their public key linked at `keyId`, resulting in the provided `signature`.
+
+### Creating HTTP signatures with Digest {#http-sign-digest}
+
+HTTP requests that send data require a SHA-256 digest of the payload as additional signed request header. Hence, for such a request, to generate a `Signature:` with `headers="(request-target) host date digest"` we would generate the following string:
+
+```text
+(request-target): get /users/username/inbox
+host: mastodon.example
+date: 18 Dec 2019 10:08:46 GMT
+digest: SHA-256=ILMNSQ...hJGdFk=
+```
+
+Accordingly, the final request looks like this:
+
+```http
+POST /users/username/inbox HTTP/1.1
+Host: mastodon.example
+Date: 18 Dec 2019 10:08:46 GMT
+Accept: application/activity+json
+Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date digest",signature="Y2FiYW...IxNGRiZDk4ZA=="
+```
 
 ### Verifying HTTP signatures {#http-verify}
 
@@ -85,7 +109,7 @@ GET /users/username/inbox HTTP/1.1
 Host: mastodon.example
 Date: 18 Dec 2019 10:08:46 GMT
 Accept: application/activity+json
-Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date digest",signature="Y2FiYW...IxNGRiZDk4ZA=="
+Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date",signature="Y2FiYW...IxNGRiZDk4ZA=="
 ```
 
 Mastodon verifies the signature using the following algorithm:
