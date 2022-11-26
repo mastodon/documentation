@@ -16,7 +16,7 @@ menu:
 For any HTTP request incoming to Mastodon, the following header should be attached:
 
 ```http
-Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date",signature="Y2FiYW...IxNGRiZDk4ZA=="
+Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date digest",signature="Y2FiYW...IxNGRiZDk4ZA=="
 ```
 
 The three parts of the `Signature:` header can be broken down like so:
@@ -24,7 +24,7 @@ The three parts of the `Signature:` header can be broken down like so:
 ```http
 Signature:
   keyId="https://my-example.com/actor#main-key",
-  headers="(request-target) host date",
+  headers="(request-target) host date digest",
   signature="Y2FiYW...IxNGRiZDk4ZA=="
 ```
 
@@ -51,12 +51,13 @@ Date: 18 Dec 2019 10:08:46 GMT
 Accept: application/activity+json
 ```
 
-The signature string is constructed using the values of the HTTP headers defined in `headers`, joined by newlines. Typically, you will want to include the request target, as well as the host and the date. Mastodon assumes `Date:` header if none are provided. For the above request, to generate a `Signature:` with `headers="(request-target) host date"` we would generate the following string:
+The signature string is constructed using the values of the HTTP headers defined in `headers`, joined by newlines. Typically, you will want to include the request target, as well as the host and the date. Mastodon assumes `Date:` header if none are provided. For the above request, to generate a `Signature:` with `headers="(request-target) host date digest"` we would generate the following string:
 
 ```text
 (request-target): get /users/username/inbox
 host: mastodon.example
 date: 18 Dec 2019 10:08:46 GMT
+digest: SHA-256=ILMNSQ...hJGdFk=
 ```
 
 Note that we don't care about the `Accept:` header because we won't be specifying it in `headers`.
@@ -68,10 +69,10 @@ GET /users/username/inbox HTTP/1.1
 Host: mastodon.example
 Date: 18 Dec 2019 10:08:46 GMT
 Accept: application/activity+json
-Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date",signature="Y2FiYW...IxNGRiZDk4ZA=="
+Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date digest",signature="Y2FiYW...IxNGRiZDk4ZA=="
 ```
 
-This request is functionally equivalent to saying that `https://my-example.com/actor` is requesting `https://mastodon.example/users/username/inbox` and is proving that they sent this request by signing `(request-target)`, `Host:`, and `Date:` with their public key linked at `keyId`, resulting in the provided `signature`.
+This request is functionally equivalent to saying that `https://my-example.com/actor` is requesting `https://mastodon.example/users/username/inbox` and is proving that they sent this request by signing `(request-target)`, `Host:`, `Date:`, and `Digest:` with their public key linked at `keyId`, resulting in the provided `signature`.
 
 ### Verifying HTTP signatures {#http-verify}
 
@@ -84,7 +85,7 @@ GET /users/username/inbox HTTP/1.1
 Host: mastodon.example
 Date: 18 Dec 2019 10:08:46 GMT
 Accept: application/activity+json
-Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date",signature="Y2FiYW...IxNGRiZDk4ZA=="
+Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date digest",signature="Y2FiYW...IxNGRiZDk4ZA=="
 ```
 
 Mastodon verifies the signature using the following algorithm:
