@@ -103,6 +103,7 @@ View public statuses containing the given hashtag.
 0.0.0 - added\
 2.3.0 - added `only_media`\
 2.6.0 - add `min_id`\
+2.7.0 - add `any[]`, `all[]`, `none[]` for additional tags\
 3.0.0 - auth is required if public preview is disabled\
 3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
@@ -119,6 +120,15 @@ Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 ##### Query parameters
+
+any[]
+: Array of String. Return statuses that contain any of these additional tags.
+
+all[]
+: Array of String. Return statuses that contain all of these additional tags.
+
+none[]
+: Array of String. Return statuses that contain none of these additional tags.
 
 local
 : Boolean. Return only local statuses? Defaults to false.
