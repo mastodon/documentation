@@ -112,7 +112,7 @@ View public statuses containing the given hashtag.
 ##### Path parameters
 
 :hashtag
-: {{<required>}} String. The name of the hashtag (not including the \# symbol).
+: {{<required>}} String. The name of the hashtag (not including the # symbol).
 
 ##### Headers
 
@@ -151,7 +151,7 @@ limit
 #### Response
 ##### 200: OK
 
-Sample timeline for the hashtag \#cats and limit=2
+Sample timeline for the hashtag #cats and limit=2
 
 ```json
 [

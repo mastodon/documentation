@@ -11,7 +11,7 @@ menu:
 
 * [apex-mastodon](https://github.com/tzmfreedom/apex-mastodon)
 
-## C\# (.NET Standard) {#c-net-standard}
+## C# (.NET Standard) {#c-net-standard}
 
 * [Mastodot](https://github.com/yamachu/Mastodot)
 * [Mastonet](https://github.com/glacasa/Mastonet)

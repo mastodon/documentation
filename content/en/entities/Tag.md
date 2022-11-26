@@ -63,7 +63,7 @@ aliases: [
 
 ### `name` {#name}
 
-**Description:** The value of the hashtag after the \# sign.\
+**Description:** The value of the hashtag after the # sign.\
 **Type:** String\
 **Version history:**\
 0.9.0 - added

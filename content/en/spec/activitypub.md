@@ -218,19 +218,19 @@ published
 
 ## HTML sanitization {#sanitization}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/sanitize_config.rb" caption="app/lib/sanitize\_config.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/sanitize_config.rb" caption="app/lib/sanitize_config.rb" >}}
 
  Mastodon sanitizes incoming HTML in order to not break assumptions for API client developers. Supported elements include `<p>`, `<span>`, `<br>`, and `<a>`. Unsupported elements will be converted to `<p>`.The sanitizer will keep classes if they begin with microformats prefixes or are semantic classes:
 
-* h-\*
-* p-\*
-* u-\*
-* dt-\*
-* e-\*
-* mention
-* hashtag
-* ellipsis
-* invisible
+- h-*
+- p-*
+- u-*
+- dt-*
+- e-*
+- mention
+- hashtag
+- ellipsis
+- invisible
 
 ## JSON-LD Namespacing {#namespaces}
 
@@ -240,51 +240,51 @@ published
 
 Contains definitions for Mastodon features.
 
-* toot:Emoji
-* toot:IdentityProof
-* toot:blurhash
-* toot:focalPoint
-* toot:featured
-* toot:featuredTags
-* toot:discoverable
-* toot:suspended
-* toot:votersCount
+- toot:Emoji
+- toot:IdentityProof
+- toot:blurhash
+- toot:focalPoint
+- toot:featured
+- toot:featuredTags
+- toot:discoverable
+- toot:suspended
+- toot:votersCount
 
 ### ActivityStreams extensions (`as:`) {#as}
 
 Contains ActivityStreams extended properties that have been proposed but not officially adopted yet.
 
-* as:Hashtag
-* as:alsoKnownAs
-* as:manuallyApprovesFollowers
-* as:movedTo
-* as:sensitive
+- as:Hashtag
+- as:alsoKnownAs
+- as:manuallyApprovesFollowers
+- as:movedTo
+- as:sensitive
 
 ### W3ID Security Vocabulary (`sec:`) {#sec}
 
 Contains properties used for HTTPS Signatures and Linked Data Signatures. Also used for identity proofs. See [Security]({{< relref "spec/security" >}}) for more information.
 
-* sec:publicKey
-* sec:publicKeyPem
-* sec:owner
-* sec:signature
-* sec:signatureValue
+- sec:publicKey
+- sec:publicKeyPem
+- sec:owner
+- sec:signature
+- sec:signatureValue
 
 #### W3ID Identity
 
 Contains a collection of terms from various namespaces, used for Linked Data Signatures.
 
-* dc:creator
-* dc:created
-* sec:signature
-* sec:signatureValue
+- dc:creator
+- dc:created
+- sec:signature
+- sec:signatureValue
 
 ### schema.org extensions (`schema:`) {#schema}
 
 Contains properties used for profile metadata.
 
-* schema:PropertyValue
-* schema:value
+- schema:PropertyValue
+- schema:value
 
 ## Extensions
 

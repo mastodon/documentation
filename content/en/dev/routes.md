@@ -37,7 +37,7 @@ end
 
 The first available resource is :statuses, which is nested under the :api and :v1 namespaces. Thus, the resulting HTTP route will be /api/v1/statuses. The `only` defines certain allowed methods, which are to be defined in the controller at `app/controllers/api/v1/statuses_controller.rb`.
 
-Within /api/v1/statuses, there is a scope for a module :statuses, where additional resources are defined. The controllers for these resources live in `app/controllers/api/v1/statuses/`. For example, :favourite will be handled by the \#create action within `app/controllers/api/v1/statuses/favourites_controller.rb` and :unfavourite will be handled within the same controller, but by the \#destroy action.
+Within /api/v1/statuses, there is a scope for a module :statuses, where additional resources are defined. The controllers for these resources live in `app/controllers/api/v1/statuses/`. For example, :favourite will be handled by the #create action within `app/controllers/api/v1/statuses/favourites_controller.rb` and :unfavourite will be handled within the same controller, but by the #destroy action.
 
 There is also a custom method defined for any `member` within this scope, or in other words, for any status to be controlled by `app/controllers/api/v1/statuses_controller.rb`, which is mapped to GET /api/v1/statuses/:id/context and handled by the :context action defined within that controller.
 
@@ -45,23 +45,23 @@ There is also a custom method defined for any `member` within this scope, or in 
 
 #### :index
 
-Maps to HTTP GET, for a list. Handled by the \#index action in a controller.
+Maps to HTTP GET, for a list. Handled by the #index action in a controller.
 
 #### :show
 
-Maps to HTTP GET, for a single view. Handled by the \#show action in a controller.
+Maps to HTTP GET, for a single view. Handled by the #show action in a controller.
 
 #### :create
 
-Maps to HTTP POST. Handled by the \#create action in a controller.
+Maps to HTTP POST. Handled by the #create action in a controller.
 
 #### :update
 
-Maps to HTTP PUT. Handled by the \#update action in a controller.
+Maps to HTTP PUT. Handled by the #update action in a controller.
 
 #### :destroy
 
-Maps to HTTP DELETE. Handled by the \#destroy action in a controller.
+Maps to HTTP DELETE. Handled by the #destroy action in a controller.
 
 ## .well-known {#well-known}
 
@@ -114,18 +114,18 @@ The sections below this point are under construction.
 * /api/proofs
 * /api/v1
   * [statuses]({{< relref "methods/statuses" >}}) [create, show, destroy]
-    * reblogged\_by [index]
-    * favourited\_by [index]
+    * reblogged_by [index]
+    * favourited_by [index]
     * reblog [create]
-    * unreblog [POST reblog\#destroy]
+    * unreblog [POST reblog#destroy]
     * favourite [create]
-    * unfavourite [POST favourites\#destroy]
+    * unfavourite [POST favourites#destroy]
     * bookmark [create]
-    * unbookmark [POST bookmarks\#destroy]
+    * unbookmark [POST bookmarks#destroy]
     * mute [create]
-    * unmute [POST mutes\#destroy]
+    * unmute [POST mutes#destroy]
     * pin [create]
-    * unpin [POST pins\#destroy]
+    * unpin [POST pins#destroy]
     * context [GET]
   * [timelines]({{< relref "methods/timelines" >}})
     * home [show]
@@ -133,9 +133,9 @@ The sections below this point are under construction.
     * tag [show]
     * list [show]
   * [streaming]({{< relref "methods/streaming" >}}) [index]
-  * [custom\_emojis]({{< relref "methods/custom_emojis" >}}) [index]
+  * [custom_emojis]({{< relref "methods/custom_emojis" >}}) [index]
   * [suggestions]({{< relref "methods/suggestions" >}}) [index, destroy]
-  * [scheduled\_statuses]({{< relref "methods/scheduled_statuses" >}}) [index, show, update, destroy]
+  * [scheduled_statuses]({{< relref "methods/scheduled_statuses" >}}) [index, show, update, destroy]
   * [preferences]({{< relref "methods/preferences" >}}) [index]
   * [conversations]({{< relref "methods/conversations" >}}) [index, destroy]
     * read [POST]
@@ -150,29 +150,29 @@ The sections below this point are under construction.
   * [endorsements]({{< relref "methods/endorsements" >}}) [index]
   * [markers]({{< relref "methods/markers" >}}) [index, create]
   * [apps]({{< relref "methods/apps" >}}) [create]
-    * verify\_credentials [credentials\#show]
+    * verify_credentials [credentials#show]
   * [instance]({{< relref "methods/instance" >}}) [show]
     * peers [index]
     * activity [show]
-  * [domain\_blocks]({{< relref "methods/domain_blocks" >}}) [show, create, destroy]
+  * [domain_blocks]({{< relref "methods/domain_blocks" >}}) [show, create, destroy]
   * [directory]({{< relref "methods/directory" >}}) [show]
-  * [follow\_requests]({{< relref "methods/follow_requests" >}}) [index]
+  * [follow_requests]({{< relref "methods/follow_requests" >}}) [index]
     * authorize [POST]
     * reject [POST]
   * [notifications]({{< relref "methods/notifications" >}}) [index, show]
     * clear [POST]
     * dismiss [POST]
   * [accounts]({{< relref "methods/accounts" >}})
-    * verify\_credentials [GET credentials\#show]
-    * update\_credentials [PATCH credentials\#update]
-    * search [show (search\#index)]
+    * verify_credentials [GET credentials#show]
+    * update_credentials [PATCH credentials#update]
+    * search [show (search#index)]
     * relationships [index]
   * [accounts]({{< relref "methods/accounts" >}}) [create, show]
     * statuses [index accounts/statuses]
-    * followers [index accounts/follower\_accounts]
-    * following [index accounts/following\_accounts]
+    * followers [index accounts/follower_accounts]
+    * following [index accounts/following_accounts]
     * lists [index accounts/lists]
-    * identity\_proofs [index accounts/identity\_proofs]
+    * identity_proofs [index accounts/identity_proofs]
     * follow [POST]
     * unfollow [POST]
     * block [POST]
@@ -182,9 +182,9 @@ The sections below this point are under construction.
     * pin [POST]
     * unpin [POST]
   * [lists]({{< relref "methods/lists" >}}) [index, create, show, update, destroy]
-    * accounts [POST accounts/pins\#destroy]
-  * [featured\_tags]({{< relref "methods/featured_tags" >}}) [index, create, destroy]
-    * suggestions [GET suggestions\#index]
+    * accounts [POST accounts/pins#destroy]
+  * [featured_tags]({{< relref "methods/featured_tags" >}}) [index, create, destroy]
+    * suggestions [GET suggestions#index]
   * [polls]({{< relref "methods/polls" >}}) [create, show]
     * votes [create polls/votes]
   * [push]({{< relref "methods/push" >}})
@@ -196,12 +196,12 @@ The sections below this point are under construction.
       * unsuspend [POST]
       * approve [POST]
       * reject [POST]
-      * action [create account\_actions]
+      * action [create account_actions]
     * reports [index, show]
-      * assign\_to\_self [POST]
+      * assign_to_self [POST]
       * unassign [POST]
       * reopen [POST]
       * resolve [POST]
 * /api/v2
-  * [search]({{< relref "methods/search" >}}) [GET search\#index]
+  * [search]({{< relref "methods/search" >}}) [GET search#index]
 

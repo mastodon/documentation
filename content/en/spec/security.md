@@ -75,7 +75,7 @@ This request is functionally equivalent to saying that `https://my-example.com/a
 
 ### Verifying HTTP signatures {#http-verify}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/controllers/concerns/signature_verification.rb" caption="app/controllers/concerns/signature\_verification.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/controllers/concerns/signature_verification.rb" caption="app/controllers/concerns/signature_verification.rb" >}}
 
 Consider the following request:
 
@@ -97,7 +97,7 @@ Mastodon verifies the signature using the following algorithm:
 
 ## Linked Data Signatures {#ld}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/activitypub/linked_data_signature.rb" caption="app/lib/activitypub/linked\_data\_signature.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/activitypub/linked_data_signature.rb" caption="app/lib/activitypub/linked_data_signature.rb" >}}
 
 [Linked Data Signatures 1.0](https://w3c-dvcg.github.io/ld-signatures/) is a specification for attaching cryptographic signatures to JSON-LD documents. LD Signatures are not used widely within Mastodon, but they are used in the following situations:
 

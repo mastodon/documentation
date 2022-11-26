@@ -279,7 +279,7 @@ production:
         url: postgresql://db_user:db_password@db_host:db_port/db_name
 ```
 
-确保URL指向PostgreSQL服务器所在位置。你可以添加多个副本（replica）。你可以本地安装一个pgBouncer，该pgBouncer可被配置为根据数据库名称连接两个不同服务器，例如：“mastodon”连接主服务器，“mastodon\_replica”连接副本服务器，这样上面文件中的两个URL可以使用同样用户名、密码、主机、端口，不同数据库名称。可能的设置有很多！有关Makara的更多信息，请参阅[其文档](https://github.com/taskrabbit/makara#databaseyml)。
+确保URL指向PostgreSQL服务器所在位置。你可以添加多个副本（replica）。你可以本地安装一个pgBouncer，该pgBouncer可被配置为根据数据库名称连接两个不同服务器，例如：“mastodon”连接主服务器，“mastodon_replica”连接副本服务器，这样上面文件中的两个URL可以使用同样用户名、密码、主机、端口，不同数据库名称。可能的设置有很多！有关Makara的更多信息，请参阅[其文档](https://github.com/taskrabbit/makara#databaseyml)。
 
 {{< hint style="warning" >}}
 Sidekiq无法可靠的使用只读副本（read-replicas），因为即使是最微小的复制延迟也会导致查询不到相关纪录所致的任务失败。

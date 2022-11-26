@@ -31,7 +31,7 @@ In the above example, we specify the client name and website, which will be show
 * `redirect_uris` has been set to the "out of band" token generation, which means that any generated tokens will have to be copied and pasted manually. The parameter is called `redirect_uris` because it is possible to define more than one redirect URI, but when generating the token, we will need to provide a URI that is included within this list.
 * `scopes` allow us to define what permissions we can request later. However, the requested scope later can be a subset of these registered scopes. See [OAuth Scopes]({{< relref "api/oauth-scopes" >}}) for more information.
 
-We should see an Application entity returned, but for now we only care about client\_id and client\_secret. These values will be used to generate access tokens, so they should be cached for later use. See [POST /api/v1/apps]({{< relref "methods/apps#create" >}}) for more details on registering applications.
+We should see an Application entity returned, but for now we only care about client_id and client_secret. These values will be used to generate access tokens, so they should be cached for later use. See [POST /api/v1/apps]({{< relref "methods/apps#create" >}}) for more details on registering applications.
 
 ## Example authentication code flow {#flow}
 
@@ -52,7 +52,7 @@ Note the following:
 * `redirect_uri` must be one of the URIs defined when registering the application.
 * We are requesting a `grant_type` of `client_credentials`, which defaults to giving us the `read` scope.
 
-The response of this method is a [Token]({{< relref "entities/token" >}}) entity. We will need the `access_token` value. Once you have the access token, save it in your local cache. To use it in requests, add the HTTP header `Authorization: Bearer ...` to any API call that requires OAuth (i.e., one that is not publicly accessible). Let's verify that our obtained credentials are working by calling [GET /api/v1/apps/verify\_credentials]({{< relref "methods/apps#verify_credentials" >}}):
+The response of this method is a [Token]({{< relref "entities/token" >}}) entity. We will need the `access_token` value. Once you have the access token, save it in your local cache. To use it in requests, add the HTTP header `Authorization: Bearer ...` to any API call that requires OAuth (i.e., one that is not publicly accessible). Let's verify that our obtained credentials are working by calling [GET /api/v1/apps/verify_credentials]({{< relref "methods/apps#verify_credentials" >}}):
 
 ```bash
 curl \
