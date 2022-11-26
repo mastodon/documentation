@@ -42,17 +42,17 @@ Undo
 
 The first-class Object types supported by Mastodon are `Note` and `Question`.
 
-* Notes are transformed into regular statuses.
-* Questions are transformed into a poll status.
+- Notes are transformed into regular statuses.
+- Questions are transformed into a poll status.
 
 Some other Object types are converted as best as possible:
 
-* Article
-* Page
-* Image
-* Audio
-* Video
-* Event
+- Article
+- Page
+- Image
+- Audio
+- Video
+- Event
 
 The transformer uses `content` if available, or `name` if not, in order to generate status text. The `url` will be appended. The `summary` property will be used as the CW text. The `icon` will be used as a thumbnail.
 
