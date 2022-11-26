@@ -61,7 +61,7 @@ date: 18 Dec 2019 10:08:46 GMT
 
 Note that we don't care about the `Accept:` header because we won't be specifying it in `headers`.
 
-The signature string is then hashed with SHA256 and signed with the actor's private key. The resulting value is attached as `signature` within the `Signature:` header. The final request looks like this:
+The signature string is then hashed with RSA-SHA256 (RSASSA-PKCS1-v1_5 with SHA-256) and signed with the actor's private key. The resulting value is attached as `signature` within the `Signature:` header. The final request looks like this:
 
 ```http
 GET /users/username/inbox HTTP/1.1
@@ -75,7 +75,7 @@ This request is functionally equivalent to saying that `https://my-example.com/a
 
 #### Signing POST requests and the Digest header {#digest}
 
-When making a POST request to Mastodon, you must calculate the SHA256 digest hash of your request's body and include this hash within the `Digest:` header. The `Digest:` header must also be included within the `headers` parameter of the `Signature:` header. For example:
+When making a POST request to Mastodon, you must calculate the RSA-SHA256 digest hash of your request's body and include this hash within the `Digest:` header. The `Digest:` header must also be included within the `headers` parameter of the `Signature:` header. For example:
 
 ```http
 POST /users/username/inbox HTTP/1.1
@@ -128,7 +128,7 @@ Mastodon verifies the signature using the following algorithm:
 * Split `Signature:` into its separate parameters.
 * Construct the signature string from the value of `headers`.
 * Fetch the `keyId` and resolve to an actor's `publicKey`.
-* SHA256 hash the signature string and compare to the Base64-decoded `signature` as decrypted by `publicKey[publicKeyPem]`.
+* RSA-SHA256 hash the signature string and compare to the Base64-decoded `signature` as decrypted by `publicKey[publicKeyPem]`.
 * Use the `Date:` header to check that the signed request was made within the past 12 hours.
 
 ## Linked Data Signatures {#ld}
@@ -146,7 +146,7 @@ Mastodon's current implementation of LD Signatures is outdated due to a change i
 
 ### Creating LD signatures {#ld-sign}
 
-To create a signature, Mastodon uses the keypair attached to an actor at `https://mastodon.example/users/username#main-key`. It then creates an SHA256 hash of the document, signs it with the keypair, and Base64-strict-encodes the resulting output to derive a `signatureValue`. The following hash is merged into the JSON-LD document:
+To create a signature, Mastodon uses the keypair attached to an actor at `https://mastodon.example/users/username#main-key`. It then creates an RSA-SHA256 hash of the document, signs it with the keypair, and Base64-strict-encodes the resulting output to derive a `signatureValue`. The following hash is merged into the JSON-LD document:
 
 ```json
 "signature": {
