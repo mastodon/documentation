@@ -61,7 +61,7 @@ date: 18 Dec 2019 10:08:46 GMT
 
 Note that we don't care about the `Accept:` header because we won't be specifying it in `headers`.
 
-The signature string is then hashed with SHA256 and signed with the actor's public key. The resulting value is attached as `signature` within the `Signature:` header. The final request looks like this:
+The signature string is then hashed with SHA256 and signed with the actor's private key. The resulting value is attached as `signature` within the `Signature:` header. The final request looks like this:
 
 ```http
 GET /users/username/inbox HTTP/1.1
@@ -71,7 +71,7 @@ Accept: application/ld+json; profile="http://www.w3.org/ns/activitystreams"
 Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date",signature="Y2FiYW...IxNGRiZDk4ZA=="
 ```
 
-This request is functionally equivalent to saying that `https://my-example.com/actor` is requesting `https://mastodon.example/users/username/inbox` and is proving that they sent this request by signing `(request-target)`, `Host:`, and `Date:` with their public key linked at `keyId`, resulting in the provided `signature`.
+This request is functionally equivalent to saying that `https://my-example.com/actor` is requesting `https://mastodon.example/users/username/inbox` and is proving that they sent this request by signing `(request-target)`, `Host:`, and `Date:` with their private key linked at `keyId`, resulting in the provided `signature`.
 
 #### Signing POST requests and the Digest header {#digest}
 
