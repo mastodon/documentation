@@ -79,7 +79,7 @@ If you put an HTTPS link in your profile metadata, Mastodon checks if that link 
 
 More precisely, Mastodon will validate the link under the following conditions:
 - Since 4.0: the hostname does not change after IDN normalization
-- the link to your Mastodon profile is added to a static HTML page used in your site. Websites served via Javascript-heavy content management systems such as StoryBlok often do not include static HTML, but check with your site developer
+- the link to your Mastodon profile is added to a static HTML page used in your site. Websites served via Javascript-heavy content management systems may not support these links. Check with your site developer.
 - it starts with HTTPS
 - the resolved page contains at least one `a` or `link` tag with a `rel="me"`
 - the `href` attribute on one of those elements is equal to the URL for your Mastodon profile
