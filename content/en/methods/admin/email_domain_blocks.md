@@ -121,7 +121,7 @@ Show information about a single email domain that is blocked from signups.
 **OAuth:** User token + `admin:read:email_domain_blocks`\
 **Permissions:** Manage Blocks\
 **Version history:**\
-4.0.3 - added
+4.1.0 - added
 
 ##### Path parameters
 

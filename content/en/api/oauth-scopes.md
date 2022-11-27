@@ -30,7 +30,7 @@ The set of scopes saved during app creation must include all the scopes that you
 - 2.6.0 - write:conversations added [#9009](https://github.com/mastodon/mastodon/pull/9009)
 - 2.9.1 - Admin scopes added [#9387](https://github.com/mastodon/mastodon/pull/9387)
 - 3.1.0 - Bookmark scopes added [#7107](https://github.com/mastodon/mastodon/pull/7107)
-- 4.0.3 - Added admin scopes for blocks and allows [#20918](https://github.com/mastodon/mastodon/pull/20918)
+- 4.1.0 - Added admin scopes for blocks and allows [#20918](https://github.com/mastodon/mastodon/pull/20918)
 
 ## List of scopes
 

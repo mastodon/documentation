@@ -104,7 +104,7 @@ Follow a hashtag. Posts containing a followed hashtag will be inserted into your
 **OAuth:** User token + `write:follows`\
 **Version history:**\
 4.0.0 - added\
-4.0.3 - this action is now idempotent
+4.1.0 - this action is now idempotent
 
 #### Request
 
@@ -180,7 +180,7 @@ Invalid or missing Authorization header.
 
 ##### 422: Unprocessable entity
 
-Prior to 4.0.3: Tag was already followed
+Prior to 4.1.0: Tag was already followed
 
 ```json
 {

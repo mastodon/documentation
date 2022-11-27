@@ -27,7 +27,7 @@ GET /api/v1/followed_tags HTTP/1.1
 **OAuth:** User token + `read:follows`\
 **Version history:**\
 4.0.0 - added\
-4.0.3 - add pagination headers
+4.1.0 - add pagination headers
 
 #### Request
 
