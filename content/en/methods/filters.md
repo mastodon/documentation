@@ -212,11 +212,13 @@ keywords_attributes[][keyword]
 keywords_attributes[][whole_word]
 : String. Whether the keyword should consider word boundaries.
 
-keywords_attributes[][id] <!-- TODO: remove when fixed -->
+<!-- TODO: Remove when https://github.com/mastodon/mastodon/issues/21727 is fixed
+keywords_attributes[][id]
 : String. Will cause a 404 error if provided.
 
-keywords_attributes[][_destroy] <!-- TODO: remove when fixed -->
+keywords_attributes[][_destroy]
 : Boolean. Will cause the keyword to not be attached if provided.
+-->
 
 #### Response
 
