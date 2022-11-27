@@ -84,6 +84,6 @@ More precisely, Mastodon will validate the link under the following conditions:
 - the resolved page contains at least one `a` or `link` tag with a `rel="me"`
 - the `href` attribute on one of those elements is equal to the URL for your Mastodon profile
 
-Alternately, validation will occur if the resolved page's *first* link has an `href` value that redirects to your Mastodon profile's URL (such as through a link shortener).
+Alternatively, validation will occur if the resolved page's *first* link has an `href` value that redirects to your Mastodon profile's URL (such as through a link shortener).
 
 If validation succeeds, the link to your website will turn green on your profile page. This may take a few minutes even after you deploy the update to your site's HTML. 
