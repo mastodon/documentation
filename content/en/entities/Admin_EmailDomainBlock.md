@@ -101,14 +101,14 @@ aliases: [
 4.0.0 - added
 
 #### `history[][accounts]` {#history-accounts}
-<!-- TODO: verify -->
+
 **Description:** The counted accounts signup attempts using that email domain within that day.\
 **Type:** String (cast from an integer)\
 **Version history:**\
 4.0.0 - added
 
 #### `history[][uses]` {#history-uses}
-<!-- TODO: verify -->
+
 **Description:** The counted IP signup attempts of that email domain within that day.\
 **Type:** String (cast from an integer)\
 **Version history:**\
