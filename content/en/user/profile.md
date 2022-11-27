@@ -86,5 +86,5 @@ More precisely, Mastodon will validate the link under the following conditions:
 Alternatively, validation will occur if the resolved page's *first* link has an `href` value that redirects to your Mastodon profile's URL (such as through a link shortener).
 
 {{< hint style="info" >}}
-Make sure to save your profile after adding the rel-me link to your web page! The verification process is triggered when you save your profile, and may take some time before completing.
+Make sure to save your profile *after* adding the rel-me link to your web page! The verification process is triggered when you save your profile, and may take some time before completing. If you have added the rel-me link and verification is not working, then try deleting the link, saving, re-adding the link, and saving again.
 {{< /hint >}}
