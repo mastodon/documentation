@@ -32,6 +32,7 @@ Statuses the user has favourited.
 0.0.0 - added\
 2.6.0 - `min_id` added\
 3.3.0 - both `min_id` and `max_id` can be used at the same time now
+4.0.0 - limit defaults to 20. Max is now 40
 
 #### Request
 ##### Headers
@@ -41,7 +42,7 @@ Authorization
 
 ##### Query parameters
 
-max_id 
+max_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 since_id
@@ -51,7 +52,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 20. Max 40.
 
 #### Response
 ##### 200: OK
