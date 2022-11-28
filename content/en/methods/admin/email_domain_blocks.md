@@ -16,10 +16,6 @@ aliases: [
 #TableOfContents ul ul ul {display: none}
 </style>
 
-{{< hint style="danger" >}}
-This page is under construction.
-{{< /hint >}}
-
 ## List all blocked email domains {#get}
 
 ```http

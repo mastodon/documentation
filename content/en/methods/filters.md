@@ -14,10 +14,6 @@ aliases: [
 ]
 ---
 
-{{<hint style="warning">}}
-This page is under construction.
-{{</hint>}}
-
 ## Server-side (v2) methods {#v2}
 
 Since Mastodon 3.6, filters can contain multiple keywords and are matched server-side. Clients apply the filter action based on [the status's `filtered` attribute]({{< relref "entities/Status#filtered" >}}).
