@@ -302,7 +302,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ```
 
 ##### 500: Server error
-<!-- TODO: remove when fixed -->
+<!-- TODO: remove when https://github.com/mastodon/mastodon/issues/21775 is fixed -->
 Invalid severity
 
 ---

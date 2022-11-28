@@ -16,10 +16,6 @@ aliases: [
 #TableOfContents ul ul ul {display: none}
 </style>
 
-{{< hint style="danger" >}}
-This page is under construction.
-{{< /hint >}}
-
 ## List all canonical email blocks {#get}
 
 ```http
@@ -47,9 +43,14 @@ limit
 #### Response
 ##### 200: OK
 
-<!-- TODO: -->
-
 ```json
+[
+  {
+    "id": "1",
+    "canonical_email_hash": "b344e55d11b3fc25d0d53194e0475838bf17e9be67ce3e6469956222d9a34f9c"
+  },
+  // ...
+]
 ```
 
 ##### 403: Forbidden
@@ -86,9 +87,11 @@ Authorization
 #### Response
 ##### 200: OK
 
-<!-- TODO: -->
-
 ```json
+{
+  "id": "1",
+  "canonical_email_hash": "b344e55d11b3fc25d0d53194e0475838bf17e9be67ce3e6469956222d9a34f9c"
+}
 ```
 
 ##### 403: Forbidden
@@ -101,6 +104,16 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 }
 ```
 
+##### 404: Not found
+
+Canonical email block does not exist or was already deleted
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
 ---
 
 ## Test {#test}
@@ -109,7 +122,9 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 POST /api/v1/admin/canonical_email_blocks/test HTTP/1.1
 ```
 
-**Returns:** [Admin::CanonicalEmailBlock]({{< relref "entities/Admin_CanonicalEmailBlock" >}})\
+Canoniocalize and hash an email address.
+
+**Returns:** Array of [Admin::CanonicalEmailBlock]({{< relref "entities/Admin_CanonicalEmailBlock" >}})\
 **OAuth:** User token + `admin:read:canonical_email_blocks`\
 **Permissions:** Manage Blocks\
 **Version history:**\
@@ -124,15 +139,21 @@ Authorization
 
 ##### Form data parameters
 
-parameter
-: TODO:
+email
+: {{<required>}} String. The email to canonicalize and hash.
 
 #### Response
 ##### 200: OK
 
-<!-- TODO: -->
+All matching canonical email blocks are returned.
 
 ```json
+[
+  {
+    "id": "1",
+    "canonical_email_hash": "b344e55d11b3fc25d0d53194e0475838bf17e9be67ce3e6469956222d9a34f9c"
+  }
+]
 ```
 
 ##### 403: Forbidden
@@ -144,6 +165,10 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
   "error": "This action is not allowed"
 }
 ```
+
+##### 500: Server error
+<!-- TODO: remove when https://github.com/mastodon/mastodon/issues/21774 is fixed -->
+No email was provided
 
 ---
 
@@ -169,17 +194,21 @@ Authorization
 ##### Form data parameters
 
 email
-: TODO:
+: {{<required>}} String. The email to canonicalize, hash, and block. If this parameter is provided, `canonical_email_hash` will be ignored.
 
 canonical_email_hash
-: TODO:
+: String. The hash to test against. If `email` is not provided, this parameter is required.
 
 #### Response
 ##### 200: OK
 
-<!-- TODO: -->
+Canonical email has been successfully blocked
 
 ```json
+{
+  "id": "1",
+  "canonical_email_hash": "b344e55d11b3fc25d0d53194e0475838bf17e9be67ce3e6469956222d9a34f9c"
+}
 ```
 
 ##### 403: Forbidden
@@ -189,6 +218,16 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 ```json
 {
   "error": "This action is not allowed"
+}
+```
+
+##### 422: Unprocessable entity
+
+Canonical email hash is already blocked
+
+```json
+{
+  "error":"Validation failed: Canonical email hash has already been taken"
 }
 ```
 
@@ -216,9 +255,10 @@ Authorization
 #### Response
 ##### 200: OK
 
-<!-- TODO: -->
+Canonical email block successfully deleted.
 
 ```json
+{}
 ```
 
 ##### 403: Forbidden
@@ -228,6 +268,16 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 ```json
 {
   "error": "This action is not allowed"
+}
+```
+
+##### 404: Not found
+
+Canonical email block does not exist or was already deleted
+
+```json
+{
+  "error": "Record not found"
 }
 ```
 
