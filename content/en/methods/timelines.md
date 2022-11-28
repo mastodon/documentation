@@ -105,7 +105,7 @@ View public statuses containing the given hashtag.
 2.6.0 - add `min_id`\
 2.7.0 - add `any[]`, `all[]`, `none[]` for additional tags\
 3.0.0 - auth is required if public preview is disabled\
-3.3.0 - both `min_id` and `max_id` can be used at the same time now
+3.3.0 - both `min_id` and `max_id` can be used at the same time now. add `remote`
 
 #### Request
 
@@ -132,6 +132,9 @@ none[]
 
 local
 : Boolean. Return only local statuses? Defaults to false.
+
+remote
+: Boolean. Return only remote statuses? Defaults to false.
 
 only_media
 : Boolean. Return only statuses with media attachments? Defaults to false.

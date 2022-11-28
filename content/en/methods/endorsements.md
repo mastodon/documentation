@@ -47,9 +47,6 @@ max_id
 since_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
-min_id
-: **Internal parameter.** Use HTTP `Link` header for pagination.
-
 limit
 : Integer. Maximum number of results to return. Defaults to 40.
 
@@ -115,7 +112,7 @@ Sample call with limit=2.
 Because AccountPin IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link: <https://mastodon.social/api/v1/endorsements?limit=2&max_id=832844>; rel="next", <https://mastodon.social/api/v1/endorsements?limit=2&since_id=952529>; rel="prev"
+Link: <https://mastodon.example/api/v1/endorsements?limit=2&max_id=832844>; rel="next", <https://mastodon.example/api/v1/endorsements?limit=2&since_id=952529>; rel="prev"
 ```
 
 ##### 401: Unauthorized

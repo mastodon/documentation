@@ -39,6 +39,9 @@ Tags that are being used more frequently within the past week.
 limit
 : Integer. Maximum number of results to return. Defaults to 10.
 
+offset
+: Integer. Skip the first n results.
+
 #### Response
 ##### 200: OK
 
@@ -105,6 +108,9 @@ Statuses that have been interacted with more than others.
 limit
 : Integer. Maximum number of results to return. Defaults to 10.
 
+offset
+: Integer. Skip the first n results.
+
 #### Response
 ##### 200: OK
 
@@ -144,6 +150,9 @@ Links that have been shared more than others.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 10.
+
+offset
+: Integer. Skip the first n results.
 
 #### Response
 ##### 200: OK

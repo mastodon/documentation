@@ -84,7 +84,7 @@ limit
 Because Bookmark IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link: <https://mastodon.social/api/v1/bookmarks?max_id=23771>; rel="next", <https://mastodon.social/api/v1/bookmarks?min_id=370065>; rel="prev"
+Link: <https://mastodon.example/api/v1/bookmarks?max_id=23771>; rel="next", <https://mastodon.example/api/v1/bookmarks?min_id=370065>; rel="prev"
 ```
 
 ##### 401: Unauthorized

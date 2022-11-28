@@ -69,7 +69,7 @@ limit
 : Integer. Maximum number of results to return, per type. Defaults to 20. Max 40.
 
 offset
-: Integer. Offset in search results, used for pagination. Defaults to 0.
+: Integer. Skip the first n results.
 
 #### Response
 ##### 200: OK

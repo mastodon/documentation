@@ -65,23 +65,26 @@ subscription[keys][p256dh]
 subscription[keys][auth]
 : {{<required>}} String. Auth secret. Base64 encoded string of 16 bytes of random data.
 
-data[alerts][follow]
-: Boolean. Receive follow notifications? Defaults to false.
+data[alerts][mention]
+: Boolean. Receive mention notifications? Defaults to false.
 
-data[alerts][favourite]
-: Boolean. Receive favourite notifications? Defaults to false.
+data[alerts][status]
+: Boolean. Receive new subscribed account notifications? Defaults to false.
 
 data[alerts][reblog]
 : Boolean. Receive reblog notifications? Defaults to false.
 
-data[alerts][mention]
-: Boolean. Receive mention notifications? Defaults to false.
+data[alerts][follow]
+: Boolean. Receive follow notifications? Defaults to false.
+
+data[alerts][follow_request]
+: Boolean. Receive follow request notifications? Defaults to false.
+
+data[alerts][favourite]
+: Boolean. Receive favourite notifications? Defaults to false.
 
 data[alerts][poll]
 : Boolean. Receive poll notifications? Defaults to false.
-
-data[alerts][status]
-: Boolean. Receive new subscribed account notifications? Defaults to false.
 
 data[alerts][update]
 : Boolean. Receive status edited notifications? Defaults to false.
@@ -212,23 +215,26 @@ Authorization
 
 ##### Form data parameters
 
-data[alerts][follow]
-: Boolean. Receive follow notifications? Defaults to false.
+data[alerts][mention]
+: Boolean. Receive mention notifications? Defaults to false.
 
-data[alerts][favourite]
-: Boolean. Receive favourite notifications? Defaults to false.
+data[alerts][status]
+: Boolean. Receive new subscribed account notifications? Defaults to false.
 
 data[alerts][reblog]
 : Boolean. Receive reblog notifications? Defaults to false.
 
-data[alerts][mention]
-: Boolean. Receive mention notifications? Defaults to false.
+data[alerts][follow]
+: Boolean. Receive follow notifications? Defaults to false.
+
+data[alerts][follow_request]
+: Boolean. Receive follow request notifications? Defaults to false.
+
+data[alerts][favourite]
+: Boolean. Receive favourite notifications? Defaults to false.
 
 data[alerts][poll]
 : Boolean. Receive poll notifications? Defaults to false.
-
-data[alerts][status]
-: Boolean. Receive new subscribed account notifications? Defaults to false.
 
 data[alerts][update]
 : Boolean. Receive status edited notifications? Defaults to false.

@@ -415,7 +415,7 @@ limit
 Because you do not know beforehand which Accounts are included in a List, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link: <https://mastodon.social/api/v1/lists/12249/accounts?max_id=106931203247163945>; rel="next", <https://mastodon.social/api/v1/lists/12249/accounts?since_id=108632085572655915>; rel="prev"
+Link: <https://mastodon.example/api/v1/lists/12249/accounts?max_id=106931203247163945>; rel="next", <https://mastodon.example/api/v1/lists/12249/accounts?since_id=108632085572655915>; rel="prev"
 ```
 
 ##### 401: Unauthorized

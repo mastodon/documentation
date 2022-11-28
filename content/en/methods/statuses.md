@@ -17,13 +17,13 @@ aliases: [
 #TableOfContents ul ul ul {display: none}
 </style>
 
-## Publish new status {#create}
+## Post a new status {#create}
 
 ```http
 POST /api/v1/statuses HTTP/1.1
 ```
 
-Post a new status.
+Publish a status with the given parameters.
 
 **Returns:** [Status]({{<relref "entities/status">}}). When `scheduled_at` is present, [ScheduledStatus]({{<relref "entities/scheduledstatus">}}) is returned instead.\
 **OAuth:** User + `write:statuses`\
@@ -548,6 +548,20 @@ View who boosted a given status.
 Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
+##### Query parameters
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 40.
+
 #### Response
 ##### 200: OK
 
@@ -563,6 +577,12 @@ A list of statuses that boosted the status
   },
   // ...
 ]
+```
+
+Because reblogged Status IDs are generally not known ahead of time, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.example/api/v1/statuses/109404970108594430/reblogged_by?limit=2&max_id=109406336446186031>; rel="next", <https://mastodon.example/api/v1/statuses/109404970108594430/reblogged_by?limit=2&since_id=109408462939099398>; rel="prev"
 ```
 
 ##### 404: Not found
@@ -602,6 +622,20 @@ View who favourited a given status.
 Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
+##### Query parameters
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 40.
+
 #### Response
 ##### 200: OK
 
@@ -617,6 +651,12 @@ A list of accounts who favourited the status
   },
   // ...
 ]
+```
+
+Because Favourite IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.example/api/v1/statuses/109419880690343548/favourited_by?limit=1&max_id=53286827>; rel="next", <https://mastodon.example/api/v1/statuses/109419880690343548/favourited_by?limit=1&since_id=53286827>; rel="prev"
 ```
 
 ##### 404: Not found
@@ -1346,7 +1386,8 @@ Edit a given status to change its text, sensitivity, media attachments, or poll.
 **Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
-3.5.0 - added
+3.5.0 - added\
+4.0.0 - add `language`
 
 #### Request
 
@@ -1370,6 +1411,9 @@ spoiler_text
 
 sensitive
 : Boolean. Whether the status should be marked as sensitive.
+
+language
+: String. ISO 639 language code for the status.
 
 media_ids[]
 : Array of String. Include Attachment IDs to be attached as media. If provided, `status` becomes optional, and `poll` cannot be used.

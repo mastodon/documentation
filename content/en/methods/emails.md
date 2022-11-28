@@ -48,11 +48,20 @@ email
 ```
 
 ##### 403: Forbidden
+
 The client associated with the token does not own the unconfirmed user.
 
 ```json
 {
 	"error": "This method is only available to the application the user originally signed-up with"
+}
+```
+
+Alternatively, the user has already confirmed their email.
+
+```json
+{
+  "error": "This method is only available while the e-mail is awaiting confirmation"
 }
 ```
 

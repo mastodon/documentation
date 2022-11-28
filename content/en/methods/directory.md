@@ -36,7 +36,7 @@ List accounts visible in the directory.
 ##### Query parameters
 
 offset
-: Number. How many accounts to skip before returning results. Default 0.
+: Number. Skip the first n results.
 
 limit
 : Number. How many accounts to load. Default 40.

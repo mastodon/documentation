@@ -49,6 +49,18 @@ account_id
 target_account_id
 : String. Filter for reports targeting this account.
 
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 100.
+
 #### Response
 ##### 200: OK
 
@@ -98,6 +110,12 @@ target_account_id
 	},
 	// ...
 ]
+```
+
+Because Report IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <http://mastodon.example/api/v1/admin/reports?limit=2&max_id=2>; rel="next", <http://mastodon.example/api/v1/admin/reports?limit=2&since_id=1>; rel="prev"
 ```
 
 ##### 403: Forbidden

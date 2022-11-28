@@ -156,7 +156,7 @@ GET /api/v1/accounts/verify_credentials HTTP/1.1
 
 Test to make sure that the user token works.
 
-**Returns:** the user's own [Account]({{< relref "entities/Account">}}) with [`source`]({{< relref "entities/Account#source">}}) attribute\
+**Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
 **OAuth**: User token + `read:accounts`\
 **Version history:**\
 0.0.0 - added
@@ -324,12 +324,6 @@ Authorization
 
 ##### Form data parameters
 
-discoverable
-: Boolean. Whether the account should be shown in the profile directory.
-
-bot
-: Boolean. Whether the account has a bot flag. 
-
 display_name
 : String. The display name to use for the profile. 
 
@@ -345,6 +339,18 @@ header
 locked
 : Boolean. Whether manual approval of follow requests is required.
 
+bot
+: Boolean. Whether the account has a bot flag.
+
+discoverable
+: Boolean. Whether the account should be shown in the profile directory.
+
+fields_attributes[][name]
+: String. The name of the profile field. By default, max 4 fields and 255 characters.
+
+fields_attributes[][value]
+: String. The value of the profile field. By default, max 4 fields and 255 characters.
+
 source[privacy]
 : String. Default post privacy for authored statuses. Can be `public`, `unlisted`, or `private`.
 
@@ -353,9 +359,6 @@ source[sensitive]
 
 source[language]
 : String. Default language to use for authored statuses (ISO 6391)
-
-fields_attributes[]
-: Array. Profile metadata `name` and `value`. By default, max 4 fields and 255 characters per property/value.
 
 #### Response
 
@@ -832,7 +835,7 @@ Sample output with limit=2.
 Because Follow IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link: <https://mastodon.social/api/v1/accounts/14715/followers?limit=2&max_id=7486869>; rel="next", <https://mastodon.social/api/v1/accounts/14715/followers?limit=2&since_id=7489740>; rel="prev"
+Link: <https://mastodon.example/api/v1/accounts/14715/followers?limit=2&max_id=7486869>; rel="next", <https://mastodon.example/api/v1/accounts/14715/followers?limit=2&since_id=7489740>; rel="prev"
 ```
 
 ##### 401: Unauthorized
@@ -937,7 +940,7 @@ Sample output with limit=2.
 Because Follow IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link: <https://mastodon.social/api/v1/accounts/1/followers?limit=2&max_id=7628164>; rel="next", <https://mastodon.social/api/v1/accounts/1/followers?limit=2&since_id=7628165>; rel="prev"
+Link: <https://mastodon.example/api/v1/accounts/1/followers?limit=2&max_id=7628164>; rel="next", <https://mastodon.example/api/v1/accounts/1/followers?limit=2&since_id=7628165>; rel="prev"
 ```
 
 ##### 401: Unauthorized
@@ -1877,7 +1880,7 @@ GET /api/v1/accounts/relationships HTTP/1.1
 
 Find out whether a given account is followed, blocked, muted, etc.
 
-**Returns:** Array of [Relationship]({{< relref "entities/relationship">}})\
+**Returns:** Array of [Relationship]({{< relref "entities/Relationship">}})\
 **OAuth:** User token + `read:follows`\
 **Version history:**\
 0.0.0 - added
@@ -2042,7 +2045,8 @@ Search for matching accounts by username or display name.
 **Returns:** Array of [Account]({{< relref "entities/Account">}})\
 **OAuth:** User token + `read:accounts`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+2.8.0 - add `limit`, `offset` and `following`
 
 #### Request
 ##### Headers
@@ -2056,7 +2060,10 @@ q
 : {{<required>}} String. Search query for accounts.
 
 limit
-: Maximum number of results. Defaults to 40.
+: Integer. Maximum number of results. Defaults to 40.
+
+offset
+: Integer. Skip the first n results.
 
 resolve
 : Boolean. Attempt WebFinger lookup. Defaults to false. Use this when `q` is an exact address.
@@ -2114,7 +2121,7 @@ resolve=true, but the domain part of the user@domain address is not a currently 
 GET /api/v1/accounts/lookup HTTP/1.1
 ```
 
-Quickly lookup a username to see if it is available, or quickly resolve a Webfinger address to an account ID.
+Quickly lookup a username to see if it is available, skipping WebFinger resolution.
 
 **Returns:** [Account]({{< relref "entities/Account">}})\
 **OAuth:** Public\
@@ -2126,9 +2133,6 @@ Quickly lookup a username to see if it is available, or quickly resolve a Webfin
 
 acct
 : {{<required>}} String. The username or Webfinger address to lookup.
-
-skip_webfinger
-: Boolean. Whether to use the locally cached result instead of performing full Webfinger resolution. Defaults to true.
 
 #### Response
 ##### 200: OK

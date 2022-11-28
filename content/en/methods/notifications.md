@@ -92,7 +92,7 @@ Authorization: Bearer xxx
 The response body contains one page of notifications. You can use the HTTP Link header for further pagination.
 
 ```http
-Link: <https://mastodon.social/api/v1/notifications?max_id=34975535>; rel="next", <https://mastodon.social/api/v1/notifications?min_id=34975861>;
+Link: <https://mastodon.example/api/v1/notifications?max_id=34975535>; rel="next", <https://mastodon.example/api/v1/notifications?min_id=34975861>;
 ```
 
 ```json

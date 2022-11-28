@@ -212,8 +212,8 @@ status
 permissions
 : String. Filter for accounts with `staff` permissions (users that can manage reports).
 
-role_ids
-: String. Filter for users with these roles.
+role_ids[]
+: Array of String. Filter for users with these roles.
 
 invited_by
 : String. Lookup users invited by the account with this ID.

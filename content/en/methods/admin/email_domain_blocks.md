@@ -39,6 +39,15 @@ Authorization
 
 ##### Query parameters
 
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
 limit
 : Integer. Maximum number of results to return. Defaults to 100.
 
