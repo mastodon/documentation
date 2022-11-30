@@ -50,7 +50,7 @@ There exist a number of **dedicated Mastodon hosting providers** that take care 
 
 {{< caption-link url="https://cloudplane.org" caption="Cloudplane" >}}
 
-{{< caption-link url="https://gridscale.io" caption="gridscale (Marketplace)" >}}
+{{< caption-link url="https://my.gridscale.io/Marketplace/49f1ca1d-71a4-4f71-9c72-ed457861cf55" caption="gridscale (Marketplace)" >}}
 
 Managed hosting solutions are great for those who do not have experience or desire to install and maintain software. However, being in charge of all components on your own hardware gives greater control over scaling, performance and customization.
 
