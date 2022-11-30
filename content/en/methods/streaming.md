@@ -601,7 +601,7 @@ Example subscription to local statuses containing the hashtag `#foo`:
 { "type": "subscribe", "stream": "hashtag:local", "tag": "foo" }
 ```
 
-Example unsubscription from user updates:
+Example unsubscribing from user updates:
 
 ```json
 { "type": "unsubscribe", "stream": "user" }

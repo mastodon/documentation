@@ -78,7 +78,7 @@ language
 : String. ISO 639 language code for this status.
 
 scheduled_at
-: String. ISO 8601 Datetime at which to schedule a status. Providing this paramter will cause ScheduledStatus to be returned instead of Status. Must be at least 5 minutes in the future.
+: String. ISO 8601 Datetime at which to schedule a status. Providing this parameter will cause ScheduledStatus to be returned instead of Status. Must be at least 5 minutes in the future.
 
 #### Response
 ##### 200: OK
