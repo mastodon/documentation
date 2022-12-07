@@ -675,7 +675,7 @@ Note that the `payload` property is not present for `filters_changed` events.
 
 ### Streaming server
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/streaming/index.js" caption="streaming/index.js" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/streaming/index.js" caption="streaming/index.js" >}}
 
 ### Backend event publishing
 
@@ -683,34 +683,34 @@ Streaming timelines are maintained in Redis, and are published to Redis via `red
 
 #### Status events
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/services/fan_out_on_write_service.rb" caption="app/services/fan_out_on_write_service.rb" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/services/fan_out_on_write_service.rb" caption="app/services/fan_out_on_write_service.rb" >}}
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/services/remove_status_service.rb" caption="app/services/remove_status_service.rb" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/services/remove_status_service.rb" caption="app/services/remove_status_service.rb" >}}
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/services/batched_remove_status_service.rb" caption="app/services/batched_remove_status_service.rb" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/services/batched_remove_status_service.rb" caption="app/services/batched_remove_status_service.rb" >}}
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/push_conversation_worker.rb" caption="app/workers/push_conversation_worker.rb" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/push_conversation_worker.rb" caption="app/workers/push_conversation_worker.rb" >}}
 
 #### User events
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/feed_manager.rb" caption="app/lib/feed_manager.rb" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/feed_manager.rb" caption="app/lib/feed_manager.rb" >}}
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/push_update_worker.rb" caption="app/workers/push_update_worker.rb" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/push_update_worker.rb" caption="app/workers/push_update_worker.rb" >}}
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/services/notify_service.rb" caption="app/services/notify_service.rb" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/services/notify_service.rb" caption="app/services/notify_service.rb" >}}
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/models/custom_filter.rb" caption="app/models/custom_filter.rb" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/models/custom_filter.rb" caption="app/models/custom_filter.rb" >}}
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/publish_scheduled_announcement_worker.rb" caption="app/workers/publish_scheduled_announcement_worker.rb" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/publish_scheduled_announcement_worker.rb" caption="app/workers/publish_scheduled_announcement_worker.rb" >}}
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/publish_announcement_reaction_worker.rb" caption="app/workers/publish_announcement_reaction_worker.rb" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/publish_announcement_reaction_worker.rb" caption="app/workers/publish_announcement_reaction_worker.rb" >}}
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/unpublish_announcement_worker.rb" caption="app/workers/unpublish_announcement_worker.rb" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/unpublish_announcement_worker.rb" caption="app/workers/unpublish_announcement_worker.rb" >}}
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/push_encrypted_message_worker.rb" caption="app/workers/push_encrypted_message_worker.rb" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/push_encrypted_message_worker.rb" caption="app/workers/push_encrypted_message_worker.rb" >}}
 
 ### Streaming client
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/javascript/mastodon/stream.js" caption="app/javascript/mastodon/stream.js" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/javascript/mastodon/stream.js" caption="app/javascript/mastodon/stream.js" >}}
 
-{{ caption-link url="https://github.com/mastodon/mastodon/blob/main/app/javascript/mastodon/actions/streaming.js" caption="app/javascript/mastodon/actions/streaming.js" }}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/javascript/mastodon/actions/streaming.js" caption="app/javascript/mastodon/actions/streaming.js" >}}
