@@ -19,7 +19,7 @@ Your display name is shown to other users before your address. You can set a dis
 
 ### Bio {#bio}
 
-Your bio is a short description of yourself that is displayed as a note on your profile. You can set a bio of up to 500 characters by default.
+Your bio is a short description of yourself that is displayed as a note on your profile. You can set a bio of up to 500 characters by default. All links are counted as 23 characters, no matter how long they actually are, so there is no need to use a link shortener to save characters. In fact, using a link shortener is actively discouraged.
 
 ### Avatar {#avatar}
 
