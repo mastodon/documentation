@@ -93,7 +93,7 @@ min_id
 : String. Return results immediately newer than ID.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 100.
+: Integer. Maximum number of results to return. Defaults to 100 accounts. Max 200 accounts.
 
 #### Response
 ##### 200: OK
@@ -243,7 +243,7 @@ min_id
 : String. Return results immediately newer than ID.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 100.
+: Integer. Maximum number of results to return. Defaults to 100 accounts. Max 200 accounts.
 
 #### Response
 ##### 200: OK

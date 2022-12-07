@@ -42,7 +42,7 @@ Authorization
 ##### Query parameters
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
 
 #### Response
 ##### 200: OK
@@ -150,7 +150,7 @@ Authorization
 ##### Query parameters
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
 
 #### Response
 ##### 200: OK

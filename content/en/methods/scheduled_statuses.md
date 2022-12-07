@@ -49,7 +49,7 @@ min_id
 : String. Return results immediately newer than ID.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
 
 #### Response
 ##### 200: OK

@@ -51,7 +51,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
 
 #### Response
 ##### 200: OK

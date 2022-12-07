@@ -372,7 +372,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Integer. Maximum number of results. Defaults to 40. Max 40. Set to 0 in order to get all accounts without pagination.
+: Integer. Maximum number of results. Defaults to 40 accounts. Max 80 accounts. Set to 0 in order to get all accounts without pagination.
 
 #### Response
 ##### 200: OK

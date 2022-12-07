@@ -44,7 +44,7 @@ min_id
 : String. Return results immediately newer than ID.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return. Defaults to 20 statuses or 40 accounts. Max twice the default limit.
 
 ##### Form data parameters
 

@@ -37,7 +37,7 @@ Tags that are being used more frequently within the past week.
 ##### Query parameters
 
 limit
-: Integer. Maximum number of results to return. Defaults to 10.
+: Integer. Maximum number of results to return. Defaults to 10 tags. Max 20 tags.
 
 offset
 : Integer. Skip the first n results.
@@ -106,7 +106,7 @@ Statuses that have been interacted with more than others.
 ##### Query parameters
 
 limit
-: Integer. Maximum number of results to return. Defaults to 10.
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
 
 offset
 : Integer. Skip the first n results.
@@ -149,7 +149,7 @@ Links that have been shared more than others.
 ##### Query parameters
 
 limit
-: Integer. Maximum number of results to return. Defaults to 10.
+: Integer. Maximum number of results to return. Defaults to 10 links. Max 20 links.
 
 offset
 : Integer. Skip the first n results.

@@ -66,7 +66,7 @@ min_id
 : String. Return results immediately newer than this ID.
 
 limit
-: Integer. Maximum number of results to return, per type. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return, per type. Defaults to 20 results per category. Max 40 results per category.
 
 offset
 : Integer. Skip the first n results.
@@ -195,7 +195,7 @@ min_id
 : String. Return results immediately newer than this ID.
 
 limit
-: Integer. Maximum number of results to return, per type. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return, per type. Defaults to 20 results per category. Max 40 results per category.
 
 offset
 : Integer. Offset in search results, used for pagination. Defaults to 0.

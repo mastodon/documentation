@@ -39,7 +39,7 @@ offset
 : Number. Skip the first n results.
 
 limit
-: Number. How many accounts to load. Default 40.
+: Number. How many accounts to load. Defaults to 40 accounts. Max 80 accounts.
 
 order
 : String. Use `active` to sort by most recently posted statuses (default) or `new` to sort by most recently created profiles.

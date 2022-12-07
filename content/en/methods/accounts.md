@@ -698,7 +698,7 @@ min_id
 : String. Return results immediately newer than this ID
 
 limit
-: Integer. Maximum number of results to return. Default: 20.
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
 
 only_media
 : Boolean. Filter out statuses without attachments.
@@ -806,7 +806,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
 
 #### Response
 ##### 200: OK
@@ -912,7 +912,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
 
 #### Response
 ##### 200: OK
@@ -2060,7 +2060,7 @@ q
 : {{<required>}} String. Search query for accounts.
 
 limit
-: Integer. Maximum number of results. Defaults to 40.
+: Integer. Maximum number of results. Defaults to 40 accounts. Max 80 accounts.
 
 offset
 : Integer. Skip the first n results.
