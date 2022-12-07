@@ -85,7 +85,21 @@ aliases: [
 ### `poll` {{%optional%}} {#poll}
 
 **Description:** The current state of the poll options at this revision. Note that edits changing the poll options will be collapsed together into one edit, since this action resets the poll.\
-**Type:** Hash with `options` (Array of Hash with `title`)\
+**Type:** Hash\
+**Version history:**\
+3.5.0 - added
+
+#### `poll.options[]` {#poll-options}
+
+**Description:** The poll options at this revision.\
+**Type:** Array of Hash\
+**Version history:**\
+3.5.0 - added
+
+#### `poll.options[].title` {#poll-options-title}
+
+**Description:** The text for a poll option.\
+**Type:** String\
 **Version history:**\
 3.5.0 - added
 

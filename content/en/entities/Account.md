@@ -234,7 +234,7 @@ aliases: [
 **Description:** When the account was created.\
 **Type:** String (ISO 8601 Datetime)\
 **Version history:**\
-0.1.0 - added
+0.1.0 - added\
 3.4.0 - now resolves to midnight instead of an exact time
 
 ### `last_status_at` {#last_status_at}

@@ -36,7 +36,7 @@ aliases: [
 **Description:** The website associated with your application.\
 **Type:** {{<nullable>}} String (URL)\
 **Version history:**\
-0.9.9 - added
+0.9.9 - added\
 3.5.1 - this property is now nullable
 
 ### `vapid_key` {#vapid_key}

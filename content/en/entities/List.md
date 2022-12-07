@@ -21,7 +21,7 @@ aliases: [
 }
 ```
 
-## Required attributes
+## Attributes
 
 ### `id` {#id}
 

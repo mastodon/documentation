@@ -62,7 +62,7 @@ Returned from `GET /api/v1/scheduled_statuses`:
 }
 ```
 
-## Required attributes
+## Attributes
 
 ### `id` {#id}
 

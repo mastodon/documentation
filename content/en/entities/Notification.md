@@ -12,8 +12,6 @@ aliases: [
 ]
 ---
 
-
-
 ## Attributes
 
 ### `id` {#id}
