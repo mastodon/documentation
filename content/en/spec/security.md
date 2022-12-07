@@ -11,7 +11,7 @@ menu:
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/request.rb" caption="app/lib/request.rb" >}}
 
-[HTTP Signatures](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures-08) is a specification for signing HTTP messages by using a `Signature:` header with your HTTP request. Mastodon requires the use of HTTP Signatures in order to validate that any activity received was authored by the actor generating it. When secure mode is enabled, all GET requests require HTTP signatures as well.
+[HTTP Signatures](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures) is a specification for signing HTTP messages by using a `Signature:` header with your HTTP request. Mastodon requires the use of HTTP Signatures in order to validate that any activity received was authored by the actor generating it. When secure mode is enabled, all GET requests require HTTP signatures as well.
 
 For any HTTP request incoming to Mastodon, the Signature header should be attached:
 
