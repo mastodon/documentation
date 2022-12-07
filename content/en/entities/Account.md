@@ -211,7 +211,7 @@ aliases: [
 ### `moved` {{%optional%}} {#moved}
 
 **Description:** Indicates that the profile is currently inactive and that its user has moved to a new account.\
-**Type:** {{<nullable>}} [Account]({{< relref "entities/Account" >}}), or null if the profile is supended.\
+**Type:** {{<nullable>}} [Account]({{< relref "entities/Account" >}}), or null if the profile is suspended.\
 **Version history:**\
 2.1.0 - added
 
@@ -224,7 +224,7 @@ aliases: [
 
 ### `limited` {{%optional%}} {#limited}
 
-**Description:** An extra attribute returned only when an account is silenced. If true, indicates that the account should be hidden behing a warning screen.\
+**Description:** An extra attribute returned only when an account is silenced. If true, indicates that the account should be hidden behind a warning screen.\
 **Type:** Boolean\
 **Version history:**\
 3.5.3 - added

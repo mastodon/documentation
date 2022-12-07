@@ -168,7 +168,7 @@ client_id
 : {{<required>}} String. The client ID, obtained during app registration.
 
 client_secret
-: {{<required>}} String. The client secret, obtained durign app registration.
+: {{<required>}} String. The client secret, obtained during app registration.
 
 token
 : {{<required>}} String. The previously obtained token, to be invalidated.

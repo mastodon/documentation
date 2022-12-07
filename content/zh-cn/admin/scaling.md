@@ -101,7 +101,7 @@ sudo apt install pgbouncer
 #### 设置密码 {#pgbouncer-password}
 
 首先，如果你的Postgres中`mastodon`帐户没有设置密码的话，你需要设置一个密码。
-First off, if your `mastodon` user in Postgres is set up wthout a password, you will need to set a password.
+First off, if your `mastodon` user in Postgres is set up without a password, you will need to set a password.
 
 下面是如何重置密码：
 
