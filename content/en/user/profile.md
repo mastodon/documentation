@@ -78,6 +78,7 @@ If you put an HTTPS link in your profile metadata, Mastodon checks if that link 
 ```
 
 More precisely, Mastodon will validate the link under the following conditions:
+- It is not within an `iframe` (note that some "block-based" CMS software may wrap block elements within iframes)
 - Since 4.0: the hostname does not change after IDN normalization
 - it starts with HTTPS
 - the resolved page contains at least one `a` or `link` tag with a `rel="me"`
