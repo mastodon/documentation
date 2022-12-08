@@ -345,11 +345,14 @@ bot
 discoverable
 : Boolean. Whether the account should be shown in the profile directory.
 
-fields_attributes[][name]
-: String. The name of the profile field. By default, max 4 fields and 255 characters.
+fields_attributes
+: Hash. The profile fields to be set. Inside this hash, the key is an integer cast to a string (although the exact integer does not matter), and the value is another hash including `name` and `value`. By default, max 4 fields.
 
-fields_attributes[][value]
-: String. The value of the profile field. By default, max 4 fields and 255 characters.
+fields_attributes[:index][name]
+: String. The name of the profile field. By default, max 255 characters.
+
+fields_attributes[:index][value]
+: String. The value of the profile field. By default, max 255 characters.
 
 source[privacy]
 : String. Default post privacy for authored statuses. Can be `public`, `unlisted`, or `private`.
@@ -363,6 +366,60 @@ source[language]
 #### Response
 
 ##### 200: OK
+
+To update account fields, you will need to construct your hash like so for example:
+
+```json
+{
+  "fields_attributes": {
+    "0": {
+      "name": "Website",
+      "value": "https://trwnh.com"
+    },
+    "1": {
+      "name": "Sponsor",
+      "value": "https://liberapay.com/at"
+    },
+    // ...
+  }
+}
+```
+
+As query parameters, your request may look something like this:
+
+```http
+PATCH https://mastodon.example/api/v1/accounts/update_credentials
+?fields_attributes[0][name]=Website
+&fields_attributes[0][value]=https://trwnh.com
+&fields_attributes[1][name]=Sponsor
+&fields_attributes[1][value]=https://liberapay.com/at
+&...
+```
+
+Note that the integer index does not actually matter -- fields will be populated by the order in which they are provided. For example:
+
+```json
+{
+  "fields_attributes": {
+    "420": {
+      "name": "1st",
+      "value": "field"
+    },
+    "69": {
+      "name": "2nd",
+      "value": "field"
+    },
+    "1312": {
+      "name": "3rd",
+      "value": "field"
+    },
+    "-99999999999999999999999999999999": {
+      "name": "4th",
+      "value": "field"
+    },
+  }
+}
+```
 
 You should use accounts/verify_credentials to first obtain plaintext representations from within the `source` parameter, then allow the user to edit these plaintext representations before submitting them through this API. The server will generate the corresponding HTML.
 
