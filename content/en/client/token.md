@@ -21,7 +21,7 @@ The first thing we will need to do is to register an application, in order to be
 curl -X POST \
 	-F 'client_name=Test Application' \
 	-F 'redirect_uris=urn:ietf:wg:oauth:2.0:oob' \
-	-F 'scopes=read write follow push' \
+	-F 'scopes=read write push' \
 	-F 'website=https://myapp.example' \
 	https://mastodon.example/api/v1/apps
 ```
