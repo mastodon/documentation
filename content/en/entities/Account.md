@@ -211,7 +211,7 @@ aliases: [
 ### `moved` {{%optional%}} {#moved}
 
 **Description:** Indicates that the profile is currently inactive and that its user has moved to a new account.\
-**Type:** {{<nullable>}} [Account]({{< relref "entities/Account" >}}), or null if the profile is supended.\
+**Type:** {{<nullable>}} [Account]({{< relref "entities/Account" >}}), or null if the profile is suspended.\
 **Version history:**\
 2.1.0 - added
 
