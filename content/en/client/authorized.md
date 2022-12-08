@@ -28,7 +28,7 @@ To authorize a user, request [GET /oauth/authorize]({{< relref "methods/oauth#au
 ```bash
 https://mastodon.example/oauth/authorize
 ?client_id=CLIENT_ID
-&scope=read+write+follow+push
+&scope=read+write+push
 &redirect_uri=urn:ietf:wg:oauth:2.0:oob
 &response_type=code
 ```
@@ -50,7 +50,7 @@ curl -X POST \
 	-F 'redirect_uri=urn:ietf:wg:oauth:2.0:oob' \
 	-F 'grant_type=authorization_code' \
 	-F 'code=user_authzcode_here' \
-	-F 'scope=read write follow push' \
+	-F 'scope=read write push' \
 	https://mastodon.example/oauth/token
 ```
 
