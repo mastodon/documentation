@@ -208,6 +208,13 @@ aliases: [
 **Version history:**\
 3.1.0 - added
 
+### `noindex` {{%optional%}} {#noindex}
+
+**Description:** Whether the local user has opted out of being indexed by search engines.\
+**Type:** {{<nullable>}} Boolean\
+**Version history:**\
+4.0.0 - added
+
 ### `moved` {{%optional%}} {#moved}
 
 **Description:** Indicates that the profile is currently inactive and that its user has moved to a new account.\
