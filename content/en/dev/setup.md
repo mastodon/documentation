@@ -93,7 +93,7 @@ RAILS_ENV=test ./bin/rails db:setup
 Generate test-mode precompiled assets:
 
 ```sh
-RAILS_ENV=test ./bin/rails assets:precompile
+RAILS_ENV=test NODE_ENV=tests ./bin/rails assets:precompile
 ```
 
 ## Useful commands for testing {#testing}
