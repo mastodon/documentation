@@ -13,7 +13,7 @@ Mastodon is a Ruby on Rails application with a React.js front-end.  It follows s
 
 Mastodon's architecture can be divided in the five sub-systems depicted in the image bellow:
 
-{{< figure src="/assets/architecture.png" caption="Architectural layout of a Mastodon deployment." >}}
+{{< figure src="/assets/architecture.png" caption="Architectural layout of Mastodon." >}}
 
   1. The web-server, who deals with the incoming HTTP calls from clients;
   2. Mastodon's logic which implements the Tooting functionalities you love;
@@ -23,7 +23,7 @@ Mastodon's architecture can be divided in the five sub-systems depicted in the i
 
 Because the Mastodon's logic is implemented in Ruby, as of now, all these systems are implemented on or easily integratable in a Ruby project stack. For instance, although one could imagine using any HTTP server or Queue framework, as of now, the default architecture uses [Puma](https://puma.io) and [Sidekiq](https://sidekiq.org), both Ruby libraries that made adding Web call-handling and Job processing conveniently easy to create. 
 
-In terms of data management, Mastodon uses the popular in-memory datastructure storage system [Redis](https://redis.io) which affords super-fast access to vital information like cached toot streams and Sidekiq's queues and its jobs. The final bit, the persistent storage, is accomplished by the [PosgreSQL][https://posgresql.org] for general data, and for media storage, Mastodon can use either a conventional filesystem or an Elastic Storage solution (a.k.a. storage bucket - initially created as the S3 API by Amazon Cloud, but now implemented by most cloud service providers like Google, Azure, or Digital Ocean.).
+In terms of data management, Mastodon uses the popular in-memory datastructure storage system [Redis](https://redis.io) which affords super-fast access to vital information like cached toot streams and Sidekiq's queues and its jobs. The final bit, the persistent storage, is accomplished by the [PosgreSQL](https://posgresql.org) for general data, and for media storage, Mastodon can use either a conventional filesystem or an Elastic Storage solution (a.k.a. storage bucket - initially created as the [S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Type_API_Reference.html) by Amazon Web Services (AWS) and now implemented by most cloud service providers like Google, Azure, or Digital Ocean).
 
 
 ## Development
