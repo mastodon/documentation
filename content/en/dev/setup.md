@@ -49,6 +49,7 @@ You can follow the [pre-requisites instructions from the production guide]({{<re
 Run the following commands in the project directory:
 
 ```sh
+bundle config set --local with 'development'
 bundle install
 yarn install
 ```
