@@ -82,6 +82,20 @@ foreman start
 
 This will start processes defined in `Procfile.dev`, which will give you: A Rails server, a Webpack server, a streaming API server, and Sidekiq. Of course, you can run any of those things stand-alone depending on your needs.
 
+## Preparing to run tests
+
+Prep the test database:
+
+```sh
+RAILS_ENV=test ./bin/rails db:setup
+```
+
+Generate test-mode precompiled assets:
+
+```sh
+RAILS_ENV=test ./bin/rails assets:precompile
+```
+
 ## Useful commands for testing {#testing}
 
 `rspec`
