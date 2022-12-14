@@ -117,8 +117,8 @@ aliases: [
 **Description:** The IP address last used to login to this account.\
 **Type:** {{<nullable>}} String\
 **Version history:**\
-2.9.1 - added
-3.5.0 - return type changed from String to [Admin::Ip]({{< relref "entities/Admin_Ip" >}}) due to a bug
+2.9.1 - added\
+3.5.0 - return type changed from String to [Admin::Ip]({{< relref "entities/Admin_Ip" >}}) due to a bug\
 4.0.0 - bug fixed, return type is now a String again
 
 ### `ips` {#ip}
@@ -147,7 +147,7 @@ aliases: [
 **Description:** The current role of the account.\
 **Type:** [Role]({{<relref "entities/role">}})\
 **Version history:**\
-2.9.1 - added, returns a String (enumerable, oneOf `user` `moderator` `admin`)
+2.9.1 - added, returns a String (enumerable, oneOf `user` `moderator` `admin`)\
 4.0.0 - now uses Role entity
 
 ### `confirmed` {#confirmed}

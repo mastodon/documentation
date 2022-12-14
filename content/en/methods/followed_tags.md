@@ -13,17 +13,21 @@ aliases: [
 ]
 ---
 
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
+
 ## View all followed tags {#get}
 
 ```http
-GET https://mastodon.example/api/v1/followed_tags HTTP/1.1
+GET /api/v1/followed_tags HTTP/1.1
 ```
 
 **Returns:** Array of [Tag]({{< relref "entities/Tag" >}})\
 **OAuth:** User token + `read:follows`\
 **Version history:**\
 4.0.0 - added\
-4.0.3 - add pagination headers
+4.1.0 - add pagination headers
 
 #### Request
 
@@ -44,7 +48,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 100.
+: Integer. Maximum number of results to return. Defaults to 100 tags. Max 200 tags.
 
 #### Response
 ##### 200: OK

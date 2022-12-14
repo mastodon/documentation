@@ -21,7 +21,7 @@ aliases: [
 ## View bookmarked statuses {#get}
 
 ```http
-GET https://mastodon.example/api/v1/bookmarks HTTP/1.1
+GET /api/v1/bookmarks HTTP/1.1
 ```
 
 Statuses the user has bookmarked.
@@ -50,7 +50,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
 
 #### Response
 ##### 200: OK
@@ -84,7 +84,7 @@ limit
 Because Bookmark IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link: <https://mastodon.social/api/v1/bookmarks?max_id=23771>; rel="next", <https://mastodon.social/api/v1/bookmarks?min_id=370065>; rel="prev"
+Link: <https://mastodon.example/api/v1/bookmarks?max_id=23771>; rel="next", <https://mastodon.example/api/v1/bookmarks?min_id=370065>; rel="prev"
 ```
 
 ##### 401: Unauthorized

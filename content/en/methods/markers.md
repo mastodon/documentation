@@ -21,7 +21,7 @@ aliases: [
 ## Get saved timeline positions {#get}
 
 ```http
-GET https://mastodon.example/api/v1/markers HTTP/1.1
+GET /api/v1/markers HTTP/1.1
 ```
 
 **Returns:** Hash of timeline key and associated [Marker]({{< relref "entities/Marker" >}})\
@@ -39,7 +39,7 @@ Authorization
 ##### Query parameters
 
 timeline[]
-: {{<required>}} Array of String. Specify the timeline(s) for which markers should be fetched. Possible values: `home`, `notifications`. If not provided, an empty object will be returned.
+: Array of String. Specify the timeline(s) for which markers should be fetched. Possible values: `home`, `notifications`. If not provided, an empty object will be returned.
 
 #### Response
 ##### 200: OK
@@ -76,7 +76,7 @@ Invalid or missing Authorization header.
 ## Save your position in a timeline {#create}
 
 ```http
-POST https://mastodon.example/api/v1/markers HTTP/1.1
+POST /api/v1/markers HTTP/1.1
 ```
 
 **Returns:** [Marker]({{< relref "entities/marker" >}})\

@@ -101,7 +101,7 @@ sudo apt install pgbouncer
 
 #### Setting a password {#pgbouncer-password}
 
-First off, if your `mastodon` user in Postgres is set up wthout a password, you will need to set a password.
+First off, if your `mastodon` user in Postgres is set up without a password, you will need to set a password.
 
 Here’s how you might reset the password:
 
@@ -279,7 +279,7 @@ production:
         url: postgresql://db_user:db_password@db_host:db_port/db_name
 ```
 
-Make sure the URLs point to wherever your PostgreSQL servers are. You can add multiple replicas. You could have a locally installed pgBouncer with configuration to connect to two different servers based on database name, e.g. “mastodon” going to master, “mastodon\_replica” going to the replica, so in the file above both URLs would point to the local pgBouncer with the same user, password, host and port, but different database name. There are many possibilities how this could be setup! For more information on Makara, [see their documentation](https://github.com/taskrabbit/makara#databaseyml).
+Make sure the URLs point to wherever your PostgreSQL servers are. You can add multiple replicas. You could have a locally installed pgBouncer with configuration to connect to two different servers based on database name, e.g. “mastodon” going to master, “mastodon_replica” going to the replica, so in the file above both URLs would point to the local pgBouncer with the same user, password, host and port, but different database name. There are many possibilities how this could be setup! For more information on Makara, [see their documentation](https://github.com/taskrabbit/makara#databaseyml).
 
 {{< hint style="warning" >}}
 Sidekiq cannot reliably use read-replicas because even the tiniest replication lag leads to failing jobs due to queued up records not being found.

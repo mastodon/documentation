@@ -37,10 +37,10 @@ Many API methods allow you to paginate for more information, using parameters su
 To get around this, Mastodon may return links to a "prev" and "next" page. These links are made available via the HTTP `Link` header on the response. Consider the following fictitious API call:
 
 ```http
-GET https://mastodon.social/api/v1/endpoint HTTP/1.1
+GET https://mastodon.example/api/v1/endpoint HTTP/1.1
 Authorization: Bearer token
 
-Link: <https://mastodon.social/api/v1/endpoint?max_id=7163058>; rel="next", <https://mastodon.social/api/v1/endpoint?since_id=7275607>; rel="prev"
+Link: <https://mastodon.example/api/v1/endpoint?max_id=7163058>; rel="next", <https://mastodon.example/api/v1/endpoint?since_id=7275607>; rel="prev"
 [
   {
     // some Entity

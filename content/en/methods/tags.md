@@ -13,10 +13,14 @@ aliases: [
 ]
 ---
 
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
+
 ## View information about a single tag {#get}
 
 ```http
-GET https://mastodon.example/api/v1/tags/:id HTTP/1.1
+GET /api/v1/tags/:id HTTP/1.1
 ```
 
 Show a hashtag and its associated information
@@ -91,7 +95,7 @@ Authorization
 ## Follow a hashtag {#follow}
 
 ```http
-POST https://mastodon.example/api/v1/tags/:id/follow HTTP/1.1
+POST /api/v1/tags/:id/follow HTTP/1.1
 ```
 
 Follow a hashtag. Posts containing a followed hashtag will be inserted into your home timeline.
@@ -100,7 +104,7 @@ Follow a hashtag. Posts containing a followed hashtag will be inserted into your
 **OAuth:** User token + `write:follows`\
 **Version history:**\
 4.0.0 - added\
-4.0.3 - this action is now idempotent
+4.1.0 - this action is now idempotent
 
 #### Request
 
@@ -176,7 +180,7 @@ Invalid or missing Authorization header.
 
 ##### 422: Unprocessable entity
 
-Prior to 4.0.3: Tag was already followed
+Prior to 4.1.0: Tag was already followed
 
 ```json
 {
@@ -189,7 +193,7 @@ Prior to 4.0.3: Tag was already followed
 ## Unfollow a hashtag {#unfollow}
 
 ```http
-POST https://mastodon.example/api/v1/tags/:id/unfollow HTTP/1.1
+POST /api/v1/tags/:id/unfollow HTTP/1.1
 ```
 
 Unfollow a hashtag. Posts containing this hashtag will no longer be inserted into your home timeline.

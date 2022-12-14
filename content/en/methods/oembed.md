@@ -20,7 +20,7 @@ aliases: [
 ## Get OEmbed info as JSON {#get}
 
 ```http
-GET https://mastodon.example/api/oembed HTTP/1.1
+GET /api/oembed HTTP/1.1
 ```
 
 **Returns:** OEmbed metadata\

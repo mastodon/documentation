@@ -20,7 +20,7 @@ aliases: [
 ## View public timeline {#public}
 
 ```http
-GET https://mastodon.example/api/v1/timelines/public HTTP/1.1
+GET /api/v1/timelines/public HTTP/1.1
 ```
 
 **Returns:** Array of [Status]({{<relref "entities/status">}})\
@@ -61,7 +61,7 @@ min_id
 : String. Return results immediately newer than ID.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
 
 #### Response
 ##### 200: OK
@@ -92,7 +92,7 @@ Sample API call with limit=2
 ## View hashtag timeline {#tag}
 
 ```http
-GET https://mastodon.example/api/v1/timelines/tag/:hashtag HTTP/1.1
+GET /api/v1/timelines/tag/:hashtag HTTP/1.1
 ```
 
 View public statuses containing the given hashtag.
@@ -103,15 +103,16 @@ View public statuses containing the given hashtag.
 0.0.0 - added\
 2.3.0 - added `only_media`\
 2.6.0 - add `min_id`\
+2.7.0 - add `any[]`, `all[]`, `none[]` for additional tags\
 3.0.0 - auth is required if public preview is disabled\
-3.3.0 - both `min_id` and `max_id` can be used at the same time now
+3.3.0 - both `min_id` and `max_id` can be used at the same time now. add `remote`
 
 #### Request
 
 ##### Path parameters
 
 :hashtag
-: {{<required>}} String. The name of the hashtag (not including the \# symbol).
+: {{<required>}} String. The name of the hashtag (not including the # symbol).
 
 ##### Headers
 
@@ -120,8 +121,20 @@ Authorization
 
 ##### Query parameters
 
+any[]
+: Array of String. Return statuses that contain any of these additional tags.
+
+all[]
+: Array of String. Return statuses that contain all of these additional tags.
+
+none[]
+: Array of String. Return statuses that contain none of these additional tags.
+
 local
 : Boolean. Return only local statuses? Defaults to false.
+
+remote
+: Boolean. Return only remote statuses? Defaults to false.
 
 only_media
 : Boolean. Return only statuses with media attachments? Defaults to false.
@@ -136,12 +149,12 @@ min_id
 : String. Return results immediately newer than ID.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
 
 #### Response
 ##### 200: OK
 
-Sample timeline for the hashtag \#cats and limit=2
+Sample timeline for the hashtag #cats and limit=2
 
 ```json
 [
@@ -215,7 +228,7 @@ Hashtag does not exist
 ## View home timeline {#home}
 
 ```http
-GET https://mastodon.example/api/v1/timelines/home HTTP/1.1
+GET /api/v1/timelines/home HTTP/1.1
 ```
 
 View statuses from followed users.
@@ -246,7 +259,7 @@ min_id
 : String. Return results immediately newer than ID.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
 
 #### Response
 ##### 200: OK
@@ -286,7 +299,7 @@ Invalid or missing Authorization header.
 ## View list timeline {#list}
 
 ```http
-GET https://mastodon.example/api/v1/timelines/list/:list_id HTTP/1.1
+GET /api/v1/timelines/list/:list_id HTTP/1.1
 ```
 
 View statuses in the given list timeline.
@@ -322,7 +335,7 @@ min_id
 : String. Return results immediately newer than ID.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
 
 #### Response
 ##### 200: OK
@@ -365,7 +378,7 @@ List is not owned by you or does not exist
 ## (DEPRECATED) View direct timeline {#direct}
 
 ```http
-GET https://mastodon.example/api/v1/timelines/direct HTTP/1.1
+GET /api/v1/timelines/direct HTTP/1.1
 ```
 
 View statuses with a "direct" privacy, from your account or in your notifications.
@@ -395,7 +408,7 @@ min_id
 : String. Return results immediately newer than ID.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
 
 #### Response
 ##### 200: OK

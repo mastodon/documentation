@@ -16,14 +16,10 @@ aliases: [
 #TableOfContents ul ul ul {display: none}
 </style>
 
-{{< hint style="danger" >}}
-This page is under construction.
-{{< /hint >}}
-
 ## List all blocked email domains {#get}
 
 ```http
-GET https://mastodon.example/api/v1/admin/email_domain_blocks HTTP/1.1
+GET /api/v1/admin/email_domain_blocks HTTP/1.1
 ```
 
 Show information about all email domains blocked from signing up.
@@ -43,8 +39,17 @@ Authorization
 
 ##### Query parameters
 
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
 limit
-: Integer. Maximum number of results to return. Defaults to 100.
+: Integer. Maximum number of results to return. Defaults to 100 blocks. Max 200 blocks.
 
 #### Response
 
@@ -113,7 +118,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Get a single blocked email domain {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/admin/email_domain_blocks/:id HTTP/1.1
+GET /api/v1/admin/email_domain_blocks/:id HTTP/1.1
 ```
 Show information about a single email domain that is blocked from signups.
 
@@ -121,7 +126,7 @@ Show information about a single email domain that is blocked from signups.
 **OAuth:** User token + `admin:read:email_domain_blocks`\
 **Permissions:** Manage Blocks\
 **Version history:**\
-4.0.3 - added
+4.1.0 - added
 
 ##### Path parameters
 
@@ -206,7 +211,7 @@ EmailDomainBlock with the given ID does not exist
 ## Block an email domain from signups {#create}
 
 ```http
-POST https://mastodon.example/api/v1/admin/email_domain_blocks HTTP/1.1
+POST /api/v1/admin/email_domain_blocks HTTP/1.1
 ```
 
 Add a domain to the list of email domains blocked from signups.
@@ -312,7 +317,7 @@ Alternatively, the domain provided contains an invalid character
 ## Delete an email domain block {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/admin/email_domain_blocks/:id HTTP/1.1
+DELETE /api/v1/admin/email_domain_blocks/:id HTTP/1.1
 ```
 
 Lift a block against an email domain.

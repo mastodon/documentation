@@ -34,7 +34,7 @@ aliases: [
 **Type:** String (Enumerable oneOf)\
 `staff` = This account was manually recommended by your administration team\
 `past_interactions` = You have interacted with this account previously\
-`global` = This account has many reblogs, favourites, and active local followers within the last 30 days
+`global` = This account has many reblogs, favourites, and active local followers within the last 30 days\
 **Version history:**\
 3.4.0 - added
 

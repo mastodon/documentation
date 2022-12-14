@@ -7,10 +7,6 @@ menu:
     parent: dev
 ---
 
-{{< hint style="danger" >}}
-This page is under construction.
-{{< /hint >}}
-
 ### Code structure {#structure}
 
 The following overview should not be seen as complete or authoritative, but as a rough guidance to help you find your way in the application.

@@ -9,7 +9,7 @@ menu:
 ## What the method does {#anchor}
 
 ```http
-GET https://mastodon.example/api/v1/example HTTP/1.1
+GET /api/v1/example HTTP/1.1
 ```
 
 **Returns:** [SOMETHING]({{< relref "entities/SOMETHING" >}})\
@@ -44,7 +44,7 @@ min_id
 : String. Return results immediately newer than ID.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return. Defaults to 20 statuses or 40 accounts. Max twice the default limit.
 
 ##### Form data parameters
 
@@ -57,7 +57,7 @@ limit
 Because SOMETHING IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link:
+Link: <https://mastodon.example/api/v1/SOMETHING?max_id=441449>; rel="next", <https://mastodon.example/api/v1/SOMETHING?since_id=444808>; rel="prev"
 ```
 
 ##### 401: Unauthorized

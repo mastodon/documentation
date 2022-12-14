@@ -19,7 +19,7 @@ aliases: [
 ## View all reports {#get}
 
 ```http
-GET https://mastodon.example/api/v1/admin/reports HTTP/1.1
+GET /api/v1/admin/reports HTTP/1.1
 ```
 
 View information about all reports.
@@ -48,6 +48,18 @@ account_id
 
 target_account_id
 : String. Filter for reports targeting this account.
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 100 reports. Max 200 reports.
 
 #### Response
 ##### 200: OK
@@ -100,6 +112,12 @@ target_account_id
 ]
 ```
 
+Because Report IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <http://mastodon.example/api/v1/admin/reports?limit=2&max_id=2>; rel="next", <http://mastodon.example/api/v1/admin/reports?limit=2&since_id=1>; rel="prev"
+```
+
 ##### 403: Forbidden
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
@@ -115,7 +133,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## View a single report {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/admin/reports/:id HTTP/1.1
+GET /api/v1/admin/reports/:id HTTP/1.1
 ```
 
 **Returns:** [Admin::Report]({{< relref "entities/Admin_Report" >}})\
@@ -213,7 +231,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Update a report {#update}
 
 ```http
-PUT https://mastodon.example/api/v1/admin/reports/:id HTTP/1.1
+PUT /api/v1/admin/reports/:id HTTP/1.1
 ```
 
 Change metadata for a report.
@@ -276,7 +294,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Assign report to self {#assign_to_self}
 
 ```http
-POST https://mastodon.example/api/v1/admin/reports/:id/assign_to_self HTTP/1.1
+POST /api/v1/admin/reports/:id/assign_to_self HTTP/1.1
 ```
 
 Claim the handling of this report to yourself.
@@ -351,7 +369,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Unassign report {#unassign}
 
 ```http
-POST https://mastodon.example/api/v1/admin/reports/:id/unassign HTTP/1.1
+POST /api/v1/admin/reports/:id/unassign HTTP/1.1
 ```
 
 Unassign a report so that someone else can claim it.
@@ -413,7 +431,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Mark report as resolved {#resolve}
 
 ```http
-POST https://mastodon.example/api/v1/admin/reports/:id/resolve HTTP/1.1
+POST /api/v1/admin/reports/:id/resolve HTTP/1.1
 ```
 
 Mark a report as resolved with no further action taken.
@@ -470,7 +488,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Reopen a closed report {#reopen}
 
 ```http
-POST https://mastodon.example/api/v1/admin/reports/:id/reopen HTTP/1.1
+POST /api/v1/admin/reports/:id/reopen HTTP/1.1
 ```
 
 Reopen a currently closed report, if it is closed.

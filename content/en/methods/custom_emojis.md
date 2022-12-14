@@ -23,7 +23,7 @@ aliases: [
 ## View all custom emoji {#get}
 
 ```http
-GET https://mastodon.example/api/v1/custom_emojis HTTP/1.1
+GET /api/v1/custom_emojis HTTP/1.1
 ```
 
 Returns custom emojis that are available on the server.

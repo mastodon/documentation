@@ -20,7 +20,7 @@ aliases: [
 ## Register an account {#create}
 
 ```http
-POST https://mastodon.example/api/v1/accounts HTTP/1.1
+POST /api/v1/accounts HTTP/1.1
 ```
 
 Creates a user and account records. Returns an account access token for the app that initiated the request. The app should save this token for later, and should wait for the user to confirm their account by clicking a link in their email inbox.
@@ -151,12 +151,12 @@ ERR_INCLUSION
 ## Verify account credentials {#verify_credentials}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/verify_credentials HTTP/1.1
+GET /api/v1/accounts/verify_credentials HTTP/1.1
 ```
 
 Test to make sure that the user token works.
 
-**Returns:** the user's own [Account]({{< relref "entities/Account">}}) with [`source`]({{< relref "entities/Account#source">}}) attribute\
+**Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
 **OAuth**: User token + `read:accounts`\
 **Version history:**\
 0.0.0 - added
@@ -302,7 +302,7 @@ Token does not have an authorized user
 ## Update account credentials {#update_credentials}
 
 ```http
-PATCH https://mastodon.example/api/v1/accounts/update_credentials HTTP/1.1
+PATCH /api/v1/accounts/update_credentials HTTP/1.1
 ```
 
 Update the user's display and preferences.
@@ -324,12 +324,6 @@ Authorization
 
 ##### Form data parameters
 
-discoverable
-: Boolean. Whether the account should be shown in the profile directory.
-
-bot
-: Boolean. Whether the account has a bot flag. 
-
 display_name
 : String. The display name to use for the profile. 
 
@@ -345,6 +339,21 @@ header
 locked
 : Boolean. Whether manual approval of follow requests is required.
 
+bot
+: Boolean. Whether the account has a bot flag.
+
+discoverable
+: Boolean. Whether the account should be shown in the profile directory.
+
+fields_attributes
+: Hash. The profile fields to be set. Inside this hash, the key is an integer cast to a string (although the exact integer does not matter), and the value is another hash including `name` and `value`. By default, max 4 fields.
+
+fields_attributes[:index][name]
+: String. The name of the profile field. By default, max 255 characters.
+
+fields_attributes[:index][value]
+: String. The value of the profile field. By default, max 255 characters.
+
 source[privacy]
 : String. Default post privacy for authored statuses. Can be `public`, `unlisted`, or `private`.
 
@@ -354,12 +363,63 @@ source[sensitive]
 source[language]
 : String. Default language to use for authored statuses (ISO 6391)
 
-fields_attributes[]
-: Array. Profile metadata `name` and `value`. By default, max 4 fields and 255 characters per property/value.
-
 #### Response
 
 ##### 200: OK
+
+To update account fields, you will need to construct your hash like so for example:
+
+```json
+{
+  "fields_attributes": {
+    "0": {
+      "name": "Website",
+      "value": "https://trwnh.com"
+    },
+    "1": {
+      "name": "Sponsor",
+      "value": "https://liberapay.com/at"
+    },
+    // ...
+  }
+}
+```
+
+As query parameters, your request may look something like this:
+
+```http
+PATCH https://mastodon.example/api/v1/accounts/update_credentials
+?fields_attributes[0][name]=Website
+&fields_attributes[0][value]=https://trwnh.com
+&fields_attributes[1][name]=Sponsor
+&fields_attributes[1][value]=https://liberapay.com/at
+&...
+```
+
+Note that the integer index does not actually matter -- fields will be populated by the order in which they are provided. For example:
+
+```json
+{
+  "fields_attributes": {
+    "420": {
+      "name": "1st",
+      "value": "field"
+    },
+    "69": {
+      "name": "2nd",
+      "value": "field"
+    },
+    "1312": {
+      "name": "3rd",
+      "value": "field"
+    },
+    "-99999999999999999999999999999999": {
+      "name": "4th",
+      "value": "field"
+    },
+  }
+}
+```
 
 You should use accounts/verify_credentials to first obtain plaintext representations from within the `source` parameter, then allow the user to edit these plaintext representations before submitting them through this API. The server will generate the corresponding HTML.
 
@@ -467,7 +527,7 @@ Token does not have an authorized user
 ## Get account {#get}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id HTTP/1.1
+GET /api/v1/accounts/:id HTTP/1.1
 ```
 
 View information about a profile.
@@ -656,7 +716,7 @@ Account is suspended (since 2.4.0 and until 3.3.0)
 ## Get account's statuses {#statuses}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id/statuses HTTP/1.1
+GET /api/v1/accounts/:id/statuses HTTP/1.1
 ```
 
 Statuses posted to the given account.
@@ -665,6 +725,8 @@ Statuses posted to the given account.
 **OAuth:** Public (for public statuses only), or user token + `read:statuses` (for private statuses the user is authorized to see)\
 **Version history:**\
 0.0.0 - added\
+1.4.2 - add `only_media` and `exclude_replies`\
+1.6.0 - add `pinned`\
 2.6.0 - add `min_id`\
 2.7.0 - add `exclude_reblogs` and allow unauthed use\
 2.8.0 - add `tagged` parameter\
@@ -693,10 +755,19 @@ min_id
 : String. Return results immediately newer than this ID
 
 limit
-: Integer. Maximum number of results to return. Default: 20.
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+
+only_media
+: Boolean. Filter out statuses without attachments.
+
+exclude_replies
+: Boolean. Filter out statuses in reply to a different account.
 
 exclude_reblogs
-: Boolean. Whether to filter out boosts from the response.
+: Boolean. Filter out boosts from the response.
+
+pinned
+: Boolean. Filter for pinned statuses only.
 
 tagged
 : String. Filter for statuses using a specific hashtag.
@@ -757,16 +828,17 @@ Account is suspended (since 2.4.0 and until 3.3.0)
 ## Get account's followers {#followers}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id/followers HTTP/1.1
+GET /api/v1/accounts/:id/followers HTTP/1.1
 ```
 
 Accounts which follow the given account, if network is not hidden by the account owner.
 
 **Returns:** Array of [Account]({{< relref "entities/Account">}})\
-**OAuth:** App token + `read:accounts`\
+**OAuth:** Public\
 **Version history:**\
 0.0.0 - added\
-3.3.0 - both `min_id` and `max_id` can be used at the same time now
+3.3.0 - both `min_id` and `max_id` can be used at the same time now\
+4.0.0 - no longer requires an app token + `read:accounts`
 
 #### Request
 ##### Path parameters
@@ -791,7 +863,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
 
 #### Response
 ##### 200: OK
@@ -820,7 +892,7 @@ Sample output with limit=2.
 Because Follow IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link: <https://mastodon.social/api/v1/accounts/14715/followers?limit=2&max_id=7486869>; rel="next", <https://mastodon.social/api/v1/accounts/14715/followers?limit=2&since_id=7489740>; rel="prev"
+Link: <https://mastodon.example/api/v1/accounts/14715/followers?limit=2&max_id=7486869>; rel="next", <https://mastodon.example/api/v1/accounts/14715/followers?limit=2&since_id=7489740>; rel="prev"
 ```
 
 ##### 401: Unauthorized
@@ -862,16 +934,17 @@ Account is suspended (since 2.4.0 and until 3.3.0)
 ## Get account's following {#following}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id/following HTTP/1.1
+GET /api/v1/accounts/:id/following HTTP/1.1
 ```
 
 Accounts which the given account is following, if network is not hidden by the account owner.
 
 **Returns:** Array of [Account]({{< relref "entities/Account">}})\
-**OAuth:** App token + `read:accounts`\
+**OAuth:** Public\
 **Version history:**\
 0.0.0 - added\
-3.3.0 - both `min_id` and `max_id` can be used at the same time now
+3.3.0 - both `min_id` and `max_id` can be used at the same time now\
+4.0.0 - no longer requires an app token + `read:accounts`
 
 #### Request
 ##### Path parameters
@@ -896,7 +969,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
 
 #### Response
 ##### 200: OK
@@ -924,7 +997,7 @@ Sample output with limit=2.
 Because Follow IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link: <https://mastodon.social/api/v1/accounts/1/followers?limit=2&max_id=7628164>; rel="next", <https://mastodon.social/api/v1/accounts/1/followers?limit=2&since_id=7628165>; rel="prev"
+Link: <https://mastodon.example/api/v1/accounts/1/followers?limit=2&max_id=7628164>; rel="next", <https://mastodon.example/api/v1/accounts/1/followers?limit=2&since_id=7628165>; rel="prev"
 ```
 
 ##### 401: Unauthorized
@@ -966,7 +1039,7 @@ Account is suspended (since 2.4.0 and until 3.3.0)
 ## Get account's featured tags {#featured_tags}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id/featured_tags HTTP/1.1
+GET /api/v1/accounts/:id/featured_tags HTTP/1.1
 ```
 
 Tags featured by this account.
@@ -1006,7 +1079,7 @@ Authorization
 ## Get lists containing this account {#lists}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id/lists HTTP/1.1
+GET /api/v1/accounts/:id/lists HTTP/1.1
 ```
 
 User lists that you have added this account to.
@@ -1094,7 +1167,7 @@ Token does not have an authorized user
 ## Follow account {#follow}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/follow HTTP/1.1
+POST /api/v1/accounts/:id/follow HTTP/1.1
 ```
 
 Follow the given account. Can also be used to update whether to show reblogs or enable notifications.
@@ -1176,7 +1249,7 @@ Token does not have an authorized user
 ## Unfollow account {#unfollow}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/unfollow HTTP/1.1
+POST /api/v1/accounts/:id/unfollow HTTP/1.1
 ```
 
 Unfollow the given account.
@@ -1245,7 +1318,7 @@ Token does not have an authorized user
 ## Remove account from followers {#remove_from_followers}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/remove_from_followers HTTP/1.1
+POST /api/v1/accounts/:id/remove_from_followers HTTP/1.1
 ```
 
 Remove the given account from your followers.
@@ -1313,7 +1386,7 @@ Token does not have an authorized user
 ## Block account {#block}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/block HTTP/1.1
+POST /api/v1/accounts/:id/block HTTP/1.1
 ```
 
 Block the given account. Clients should filter statuses from this account if received (e.g. due to a boost in the Home timeline)
@@ -1382,7 +1455,7 @@ Token does not have an authorized user
 ## Unblock account {#unblock}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/unblock HTTP/1.1
+POST /api/v1/accounts/:id/unblock HTTP/1.1
 ```
 
 Unblock the given account.
@@ -1451,7 +1524,7 @@ Token does not have an authorized user
 ## Mute account {#mute}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/mute HTTP/1.1
+POST /api/v1/accounts/:id/mute HTTP/1.1
 ```
 
 Mute the given account. Clients should filter statuses and notifications from this account, if received (e.g. due to a boost in the Home timeline).
@@ -1529,7 +1602,7 @@ Token does not have an authorized user
 ## Unmute account {#unmute}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/unmute HTTP/1.1
+POST /api/v1/accounts/:id/unmute HTTP/1.1
 ```
 
 Unmute the given account.
@@ -1598,7 +1671,7 @@ Token does not have an authorized user
 ## Feature account on your profile {#pin}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/pin HTTP/1.1
+POST /api/v1/accounts/:id/pin HTTP/1.1
 ```
 
 Add the given account to the user's featured profiles. (Featured profiles are currently shown on the user's own public profile.)
@@ -1697,7 +1770,7 @@ Can sometimes be returned if the account already endorsed.
 ## Unfeature account from profile {#unpin}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/unpin HTTP/1.1
+POST /api/v1/accounts/:id/unpin HTTP/1.1
 ```
 
 Remove the given account from the user's featured profiles.
@@ -1765,7 +1838,7 @@ Token does not have an authorized user
 ## Set private note on profile {#note}
 
 ```http
-POST https://mastodon.example/api/v1/accounts/:id/note HTTP/1.1
+POST /api/v1/accounts/:id/note HTTP/1.1
 ```
 
 Sets a private note on a user.
@@ -1859,12 +1932,12 @@ Token does not have an authorized user
 ## Check relationships to other accounts {#relationships}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/relationships HTTP/1.1
+GET /api/v1/accounts/relationships HTTP/1.1
 ```
 
 Find out whether a given account is followed, blocked, muted, etc.
 
-**Returns:** Array of [Relationship]({{< relref "entities/relationship">}})\
+**Returns:** Array of [Relationship]({{< relref "entities/Relationship">}})\
 **OAuth:** User token + `read:follows`\
 **Version history:**\
 0.0.0 - added
@@ -1943,7 +2016,7 @@ Token does not have an authorized user
 ## Find familiar followers {#familiar_followers}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/familiar_followers HTTP/1.1
+GET /api/v1/accounts/familiar_followers HTTP/1.1
 ```
 
 Obtain a list of all accounts that follow a given account, filtered for accounts you follow.
@@ -2021,7 +2094,7 @@ Token does not have an authorized user
 ## Search for matching accounts {#search}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/search HTTP/1.1
+GET /api/v1/accounts/search HTTP/1.1
 ```
 
 Search for matching accounts by username or display name.
@@ -2029,7 +2102,8 @@ Search for matching accounts by username or display name.
 **Returns:** Array of [Account]({{< relref "entities/Account">}})\
 **OAuth:** User token + `read:accounts`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+2.8.0 - add `limit`, `offset` and `following`
 
 #### Request
 ##### Headers
@@ -2043,7 +2117,10 @@ q
 : {{<required>}} String. Search query for accounts.
 
 limit
-: Maximum number of results. Defaults to 40.
+: Integer. Maximum number of results. Defaults to 40 accounts. Max 80 accounts.
+
+offset
+: Integer. Skip the first n results.
 
 resolve
 : Boolean. Attempt WebFinger lookup. Defaults to false. Use this when `q` is an exact address.
@@ -2098,10 +2175,10 @@ resolve=true, but the domain part of the user@domain address is not a currently 
 ## Lookup account ID from Webfinger address {#lookup}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/lookup HTTP/1.1
+GET /api/v1/accounts/lookup HTTP/1.1
 ```
 
-Quickly lookup a username to see if it is available, or quickly resolve a Webfinger address to an account ID.
+Quickly lookup a username to see if it is available, skipping WebFinger resolution.
 
 **Returns:** [Account]({{< relref "entities/Account">}})\
 **OAuth:** Public\
@@ -2113,9 +2190,6 @@ Quickly lookup a username to see if it is available, or quickly resolve a Webfin
 
 acct
 : {{<required>}} String. The username or Webfinger address to lookup.
-
-skip_webfinger
-: Boolean. Whether to use the locally cached result instead of performing full Webfinger resolution. Defaults to true.
 
 #### Response
 ##### 200: OK
@@ -2161,7 +2235,7 @@ Username or address does not map to an account
 ## (DEPRECATED) Identity proofs {#identity_proofs}
 
 ```http
-GET https://mastodon.example/api/v1/accounts/:id/identity_proofs HTTP/1.1
+GET /api/v1/accounts/:id/identity_proofs HTTP/1.1
 ```
 
 **Returns:** Array of [IdentityProof]({{< relref "entities/identityproof">}})\
@@ -2247,3 +2321,5 @@ Token does not have an authorized user
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/search_controller.rb" caption="app/controllers/api/v1/accounts/search_controller.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/statuses_controller.rb" caption="app/controllers/api/v1/accounts/statuses_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/models/account_statuses_filter.rb" caption="app/models/account_statuses_filter.rb" >}}

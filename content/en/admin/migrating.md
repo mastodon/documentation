@@ -34,7 +34,7 @@ This guide was written with Ubuntu Server in mind; your mileage may vary for oth
 At a high level, you’ll need to copy over the following:
 
 * The `~/live/public/system` directory, which contains user-uploaded images and videos (if using S3, you don’t need this)
-* The Postgres database (using [pg\_dump](https://www.postgresql.org/docs/9.1/static/backup-dump.html))
+* The Postgres database (using [pg_dump](https://www.postgresql.org/docs/9.1/static/backup-dump.html))
 * The `~/live/.env.production` file, which contains server config and secrets
 
 Less crucially, you’ll probably also want to copy the following for convenience:
@@ -45,7 +45,7 @@ Less crucially, you’ll probably also want to copy the following for convenienc
 
 ### Dump and load Postgres {#dump-and-load-postgres}
 
-Instead of running `mastodon:setup`, we’re going to create an empty Postgres database using the `template0` database (which is useful when restoring a Postgres dump, [as described in the pg\_dump documentation](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)).
+Instead of running `mastodon:setup`, we’re going to create an empty Postgres database using the `template0` database (which is useful when restoring a Postgres dump, [as described in the pg_dump documentation](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)).
 
 Run this as the `mastodon` user on your old system:
 

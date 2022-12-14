@@ -21,7 +21,7 @@ aliases: [
 ## View profile directory {#get}
 
 ```http
-GET https://mastodon.example/api/v1/directory HTTP/1.1
+GET /api/v1/directory HTTP/1.1
 ```
 
 List accounts visible in the directory.
@@ -36,10 +36,10 @@ List accounts visible in the directory.
 ##### Query parameters
 
 offset
-: Number. How many accounts to skip before returning results. Default 0.
+: Number. Skip the first n results.
 
 limit
-: Number. How many accounts to load. Default 40.
+: Number. How many accounts to load. Defaults to 40 accounts. Max 80 accounts.
 
 order
 : String. Use `active` to sort by most recently posted statuses (default) or `new` to sort by most recently created profiles.

@@ -14,10 +14,6 @@ aliases: [
 ]
 ---
 
-{{<hint style="warning">}}
-This page is under construction.
-{{</hint>}}
-
 ## Server-side (v2) methods {#v2}
 
 Since Mastodon 3.6, filters can contain multiple keywords and are matched server-side. Clients apply the filter action based on [the status's `filtered` attribute]({{< relref "entities/Status#filtered" >}}).
@@ -26,120 +22,990 @@ Since Mastodon 3.6, filters can contain multiple keywords and are matched server
 
 ### View all filters {#get}
 
-<!--
-TODO:
--->
-
 ```http
-GET https://mastodon.example/api/v2/filters HTTP/1.1
+GET /api/v2/filters HTTP/1.1
+```
+
+Obtain a list of all filter groups for the current user.
+
+**Returns:** Array of [Filter]({{< relref "entities/Filter" >}})\
+**OAuth:** User token + `read:filters`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
+[
+  {
+    "id": "20060",
+    "title": "Remove Twitter crossposts from public timeline",
+    "context": [
+      "public"
+    ],
+    "expires_at": null,
+    "filter_action": "hide",
+    "keywords": [
+        {
+          "id": "1311",
+          "keyword": "from birdsite",
+          "whole_word": true
+        },
+        {
+          "id": "1324",
+          "keyword": "@twitter.com",
+          "whole_word": false
+        },
+        {
+          "id": "1325",
+          "keyword": "https://t.co/",
+          "whole_word": false
+        }
+    ],
+    "statuses": []
+  },
+  // ...
+]
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
 ```
 
 ---
 
 ### View a specific filter {#get-one}
 
-<!--
-TODO:
--->
-
 ```http
-GET https://mastodon.example/api/v2/filters/:id HTTP/1.1
+GET /api/v2/filters/:id HTTP/1.1
+```
+
+Obtain a single filter group owned by the current user.
+
+**Returns:** [Filter]({{< relref "entities/Filter" >}})\
+**OAuth:** User token + `read:filters`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the SOMETHING in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
+{
+  "id": "20060",
+  "title": "Remove Twitter crossposts from public timeline",
+  "context": [
+    "public"
+  ],
+  "expires_at": null,
+  "filter_action": "hide",
+  "keywords": [
+    {
+      "id": "1311",
+      "keyword": "from birdsite",
+      "whole_word": true
+    },
+    {
+      "id": "1324",
+      "keyword": "@twitter.com",
+      "whole_word": false
+    },
+    {
+      "id": "1325",
+      "keyword": "https://t.co/",
+      "whole_word": false
+    }
+  ],
+  "statuses": []
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Filter is not owned by you or does not exist
+
+```json
+{
+  "error": "Record not found"
+}
 ```
 
 ---
 
 ### Create a filter {#create}
 
-<!--
-TODO:
+```http
+POST /api/v2/filters HTTP/1.1
+```
+
+Create a filter group with the given parameters.
+
+**Returns:** [Filter]({{< relref "entities/Filter" >}})\
+**OAuth:** User token + `write:filters`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+title
+: {{<required>}} String. The name of the filter group.
+
+context[]
+: {{<required>}} Array of String. Where the filter should be applied. Specify at least one of `home`, `notifications`, `public`, `thread`, `account`.
+
+filter_action
+: String. The policy to be applied when the filter is matched. Specify `warn` or `hide`.
+
+expires_in
+: Integer. How many seconds from now should the filter expire?
+
+keywords_attributes[][keyword]
+: String. A keyword to be added to the newly-created filter group.
+
+keywords_attributes[][whole_word]
+: String. Whether the keyword should consider word boundaries.
+
+<!-- TODO: Remove when https://github.com/mastodon/mastodon/issues/21727 is fixed
+keywords_attributes[][id]
+: String. Will cause a 404 error if provided.
+
+keywords_attributes[][_destroy]
+: Boolean. Will cause the keyword to not be attached if provided.
 -->
 
-```http
-POST https://mastodon.example/api/v2/filters HTTP/1.1
+#### Response
+
+##### 200: OK
+
+Sample of a Filter created by the call:
+
+```text
+POST https://mastodon.example/api/v2/filters
+?title=test
+&context[]=public
+&keywords_attributes[][keyword]=foo
+&keywords_attributes[][whole_word]=false
+&keywords_attributes[][keyword]=bar
+&keywords_attributes[][whole_word]=true
+```
+
+```json
+{
+  "id": "25933",
+  "title": "test",
+  "context": [
+    "public"
+  ],
+  "expires_at": null,
+  "filter_action": "warn",
+  "keywords": [
+    {
+      "id": "34978",
+      "keyword": "foo",
+      "whole_word": false
+    },
+    {
+      "id": "34979",
+      "keyword": "bar",
+      "whole_word": true
+    }
+  ],
+  "statuses": []
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Filter keyword ID was specified
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+##### 422: Unprocessable entity
+
+```json
+{
+  "error": "Validation failed: Title can't be blank, Context can't be blank, Context None or invalid context supplied"
+}
 ```
 
 ---
 
 ### Update a filter {#update}
 
-<!--
-TODO:
--->
-
 ```http
-PUT https://mastodon.example/api/v2/filters/:id HTTP/1.1
+PUT /api/v2/filters/:id HTTP/1.1
+```
+
+Update a filter group with the given parameters.
+
+**Returns:** [Filter]({{< relref "entities/Filter" >}})\
+**OAuth:** User token + `write:filters`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Filter in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+title
+: String. The name of the filter group.
+
+context[]
+: Array of String. Where the filter should be applied. Specify at least one of `home`, `notifications`, `public`, `thread`, `account`.
+
+filter_action
+: String. The policy to be applied when the filter is matched. Specify `warn` or `hide`.
+
+expires_in
+: Integer. How many seconds from now should the filter expire?
+
+keywords_attributes[][keyword]
+: String. A keyword to be added to the newly-created filter group.
+
+keywords_attributes[][whole_word]
+: String. Whether the keyword should consider word boundaries.
+
+keywords_attributes[][id]
+: String. Provide the ID of an existing keyword to modify it, instead of creating a new keyword.
+
+keywords_attributes[][_destroy]
+: Boolean. If true, will remove the keyword with the given ID.
+
+#### Response
+##### 200: OK
+
+Sample call:
+
+```
+PUT /api/v2/filters/25933
+?keywords_attributes[][id]=34978
+&keywords_attributes[][_destroy]=true
+&keywords_attributes[][id]=34979
+&keywords_attributes[][keyword]=baz
+```
+
+This will remove keyword 34978 ("foo") and will replace keyword 34979 ("bar") with a new keyword ("baz")
+
+```json
+{
+  "id": "25933",
+  "title": "test",
+  "context": [
+    "public"
+  ],
+  "expires_at": null,
+  "filter_action": "warn",
+  "keywords": [
+    {
+      "id": "34979",
+      "keyword": "baz",
+      "whole_word": true
+    }
+  ],
+  "statuses": []
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Filter is not owned by you or does not exist. Alternatively, `keywords_attributes[][id]` was provided, there is no keyword with given id within this Filter.
+
+```json
+{
+  "error": "Record not found"
+}
 ```
 
 ---
 
 ### Delete a filter {#delete}
 
-<!--
-TODO:
--->
-
 ```http
-DELETE https://mastodon.example/api/v2/filters/:id HTTP/1.1
+DELETE /api/v2/filters/:id HTTP/1.1
+```
+
+Delete a filter group with the given id.
+
+**Returns:** empty object\
+**OAuth:** User token + `write:filters`\
+**Version history:**\
+4.0.0 - added
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Filter in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Filter successfully deleted
+
+```json
+{}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Filter is not owned by you or does not exist
+
+```json
+{
+  "error": "Record not found"
+}
 ```
 
 ---
 
 ### View keywords added to a filter {#keywords-get}
 
-<!--
-TODO:
--->
-
 ```http
-GET https://mastodon.example/api/v2/filters/:id/keywords HTTP/1.1
+GET /api/v2/filters/:filter_id/keywords HTTP/1.1
 ```
 
----
+List all keywords attached to the current filter group.
 
-### View a single keyword within a filter {#keywords-get-one}
+**Returns:** Array of [FilterKeyword]({{< relref "entities/FilterKeyword" >}})\
+**OAuth:** User token + `read:filters`\
+**Version history:**\
+4.0.0 - added
 
-<!--
-TODO:
--->
+#### Request
 
-```http
-GET https://mastodon.example/api/v2/filters/:filter_id/keywords/:id HTTP/1.1
+##### Path parameters
+
+:filter_id
+: {{<required>}} String. The ID of the Filter in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
+[
+  {
+    "id": "34979",
+    "keyword": "baz",
+    "whole_word": true
+  },
+  // ...
+]
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Filter is not owned by you, or does not exist
+
+```json
+{
+  "error": "Record not found"
+}
 ```
 
 ---
 
 ### Add a keyword to a filter {#keywords-create}
 
-<!--
-TODO:
--->
+```http
+POST /api/v2/filters/:filter_id/keywords HTTP/1.1
+```
+
+Add the given keyword to the specified filter group
+
+**Returns:** [FilterKeyword]({{< relref "entities/FilterKeyword" >}})\
+**OAuth:** User token + `write:filters`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:filter_id
+: {{<required>}} String. The ID of the Filter in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+keyword
+: {{<required>}} String. The keyword to be added to the filter group.
+
+whole_word
+: Boolean. Whether the keyword should consider word boundaries.
+
+#### Response
+##### 200: OK
+
+```json
+{
+  "id": "35583",
+  "keyword": "some",
+  "whole_word": false
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Filter is not owned by you, or does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+##### 422: Unprocessable entity
+
+No keyword was provided
+
+```json
+{
+  "error": "Validation failed: Keyword can't be blank"
+}
+```
+
+---
+
+### View a single keyword {#keywords-get-one}
 
 ```http
-POST https://mastodon.example/api/v2/filters/:filter_id/keywords HTTP/1.1
+GET /api/v2/filters/keywords/:id HTTP/1.1
+```
+
+Get one filter keyword by the given id.
+
+**Returns:** [FilterKeyword]({{< relref "entities/FilterKeyword" >}})\
+**OAuth:** User token + `read:filters`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the FilterKeyword in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
+{
+  "id": "34979",
+  "keyword": "baz",
+  "whole_word": true
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Filter is not owned by you, or the filter or filter keyword does not exist
+
+```json
+{
+  "error": "Record not found"
+}
 ```
 
 ---
 
 ### Edit a keyword within a filter {#keywords-update}
 
-<!--
-TODO:
--->
-
 ```http
-PUT https://mastodon.example/api/v2/filters/keywords/:id HTTP/1.1
+PUT /api/v2/filters/keywords/:id HTTP/1.1
+```
+
+Update the given filter keyword.
+
+**Returns:** [FilterKeyword]({{< relref "entities/FilterKeyword" >}})\
+**OAuth:** User token + `write:filters`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the FilterKeyword in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+keyword
+: {{<required>}} String. The keyword to be added to the filter group.
+
+whole_word
+: Boolean. Whether the keyword should consider word boundaries.
+
+#### Response
+##### 200: OK
+
+The keyword "some" was updated to the keyword "other"
+
+```json
+{
+  "id": "35583",
+  "keyword": "other",
+  "whole_word": false
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+FilterKeyword is not owned by you, or does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+##### 422: Unprocessable entity
+
+No keyword was provided
+
+```json
+{
+  "error": "Validation failed: Keyword can't be blank"
+}
 ```
 
 ---
 
-### Remove keywords from a filter {#keywords-get}
-
-<!--
-TODO:
--->
+### Remove keywords from a filter {#keywords-delete}
 
 ```http
-DELETE https://mastodon.example/api/v2/filters/keywords/:id HTTP/1.1
+DELETE /api/v2/filters/keywords/:id HTTP/1.1
+```
+
+Deletes the given filter keyword.
+
+**Returns:** empty object\
+**OAuth:** User token + `write:filters`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the FilterKeyword in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+FilterKeyword was deleted successfully
+
+```json
+{}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+FilterKeyword is not owned by you or does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+### View all status filters {#statuses-get}
+
+```http
+GET /api/v2/filters/:filter_id/statuses HTTP/1.1
+```
+
+Obtain a list of all status filters within this filter group.
+
+**Returns:** Array of [FilterStatus]({{< relref "entities/FilterStatus" >}})\
+**OAuth:** User token + `read:filters`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:filter_id
+: {{<required>}} String. The ID of the Filter in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
+[
+  {
+    "id": "897",
+    "status_id": "109416512469928632"
+  },
+  // ...
+]
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Filter is not owned by you or does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+### Add a status to a filter group {#statuses-add}
+
+```http
+POST /api/v2/filters/:filter_id/statuses HTTP/1.1
+```
+
+Add a status filter to the current filter group.
+
+**Returns:** [FilterStatus]({{< relref "entities/FilterStatus" >}})\
+**OAuth:** User token + `write:filters`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:filter_id
+: {{<required>}} String. The ID of the Filter in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+FilterStatus created successfully within the current Filter
+
+```json
+{
+  "id": "897",
+  "status_id": "109416512469928632"
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Filter is not owned by you or does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+### View a single status filter {#statuses-get-one}
+
+```http
+GET /api/v2/filters/statuses/:id HTTP/1.1
+```
+
+Obtain a single status filter.
+
+**Returns:** [FilterStatus]({{< relref "entities/FilterStatus" >}})\
+**OAuth:** User token + `read:filters`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the FilterStatus in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
+{
+  "id": "897",
+  "status_id": "109416512469928632"
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+FilterStatus is not owned by you or does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+### Remove a status from a filter group {#statuses-remove}
+
+```http
+DELETE /api/v2/filters/statuses/:id HTTP/1.1
+```
+
+Add a status filter to the current filter group.
+
+**Returns:** [FilterStatus]({{< relref "entities/FilterStatus" >}})\
+**OAuth:** User token + `write:filters`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the FilterStatus in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+FilterStatus deleted successfully
+
+```json
+{}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+FilterStatus is not owned by you or does not exist
+
+```json
+{
+  "error": "Record not found"
+}
 ```
 
 ---
@@ -153,7 +1019,7 @@ Prior to Mastodon 3.6, matching filters was done client-size and filters could o
 ### View your filters {#get-v1}
 
 ```http
-GET https://mastodon.example/api/v1/filters HTTP/1.1
+GET /api/v1/filters HTTP/1.1
 ```
 
 **Returns:** List of [V1::Filter]({{< relref "entities/V1_Filter" >}})\
@@ -218,7 +1084,7 @@ Invalid or missing Authorization header.
 ### View a single filter {#get-one-v1}
 
 ```http
-GET https://mastodon.example/api/v1/filters/:id HTTP/1.1
+GET /api/v1/filters/:id HTTP/1.1
 ```
 
 **Returns:** [V1::Filter]({{< relref "entities/V1_Filter" >}})\
@@ -283,7 +1149,7 @@ Filter ID does not exist, or is not owned by you
 ### Create a filter {#create-v1}
 
 ```http
-POST https://mastodon.example/api/v1/filters HTTP/1.1
+POST /api/v1/filters HTTP/1.1
 ```
 
 **Returns:** [V1::Filter]({{< relref "entities/V1_Filter" >}})\
@@ -370,7 +1236,7 @@ If context is not provided properly:
 ### Update a filter {#update-v1}
 
 ```http
-PUT https://mastodon.example/api/v1/filters/:id HTTP/1.1
+PUT /api/v1/filters/:id HTTP/1.1
 ```
 
 Replaces a filter's parameters in-place.
@@ -475,7 +1341,7 @@ If context is not provided properly:
 ### Remove a filter {#delete-v1}
 
 ```http
-DELETE https://mastodon.example/api/v1/filters/:id HTTP/1.1
+DELETE /api/v1/filters/:id HTTP/1.1
 ```
 
 **Returns:** empty object\

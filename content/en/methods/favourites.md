@@ -21,7 +21,7 @@ aliases: [
 ## View favourited statuses {#get}
 
 ```http
-GET https://mastodon.example/api/v1/favourites HTTP/1.1
+GET /api/v1/favourites HTTP/1.1
 ```
 
 Statuses the user has favourited.
@@ -51,7 +51,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
 
 #### Response
 ##### 200: OK
@@ -117,7 +117,7 @@ An example call with limit=2.
 Because Favourite IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link: <https://mastodon.social/api/v1/favourites?limit=2&max_id=23716836>; rel="next", <https://mastodon.social/api/v1/favourites?limit=2&min_id=23716978>; rel="prev"
+Link: <https://mastodon.example/api/v1/favourites?limit=2&max_id=23716836>; rel="next", <https://mastodon.example/api/v1/favourites?limit=2&min_id=23716978>; rel="prev"
 ```
 
 ##### 401: Unauthorized

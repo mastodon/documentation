@@ -16,10 +16,6 @@ aliases: [
 ]
 ---
 
-{{< hint style="danger" >}}
-This page is under construction.
-{{< /hint >}}
-
 ## Example
 
 ```json

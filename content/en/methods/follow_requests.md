@@ -21,7 +21,7 @@ aliases: [
 ## View pending follow requests {#get}
 
 ```http
-GET https://mastodon.example/api/v1/follow_requests HTTP/1.1
+GET /api/v1/follow_requests HTTP/1.1
 ```
 
 **Returns:** Array of [Account]({{< relref "entities/account" >}})\
@@ -45,11 +45,8 @@ max_id
 since_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
-min_id
-: **Internal parameter.** Use HTTP `Link` header for pagination.
-
 limit
-: Integer. Maximum number of results to return. Defaults to 40. Paginate using the HTTP Link header.
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
 
 #### Response
 ##### 200: OK
@@ -78,7 +75,7 @@ Sample call for Accounts that are requesting a follow, with limit=2
 Because FollowRequest IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link: <https://mastodon.social/api/v1/follow_requests?limit=2&max_id=7163058>; rel="next", <https://mastodon.social/api/v1/follow_requests?limit=2&since_id=7275607>; rel="prev"
+Link: <https://mastodon.example/api/v1/follow_requests?limit=2&max_id=7163058>; rel="next", <https://mastodon.example/api/v1/follow_requests?limit=2&since_id=7275607>; rel="prev"
 ```
 
 ##### 401: Unauthorized
@@ -96,7 +93,7 @@ Invalid or missing Authorization header.
 ## Accept follow request {#accept}
 
 ```http
-POST https://mastodon.example/api/v1/follow_requests/:account_id/authorize HTTP/1.1
+POST /api/v1/follow_requests/:account_id/authorize HTTP/1.1
 ```
 
 **Returns:** [Relationship]({{< relref "entities/relationship" >}})\
@@ -163,7 +160,7 @@ No pending follow request from that account ID
 ## Reject follow request {#reject}
 
 ```http
-POST https://mastodon.example/api/v1/follow_requests/:account_id/reject HTTP/1.1
+POST /api/v1/follow_requests/:account_id/reject HTTP/1.1
 ```
 
 **Returns:** [Relationship]({{< relref "entities/relationship" >}})\

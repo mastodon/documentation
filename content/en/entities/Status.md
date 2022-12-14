@@ -188,7 +188,7 @@ aliases: [
 **Description:** The website associated with the application that posted this status.\
 **Type:** {{<nullable>}} String (URL) or null\
 **Version history:**\
-0.9.9 - added
+0.9.9 - added\
 3.5.1 - this property is now nullable
 
 ### `mentions` {#mentions}

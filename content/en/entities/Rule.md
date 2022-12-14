@@ -21,7 +21,7 @@ aliases: [
 }
 ```
 
-## Base attributes
+## Attributes
 
 ### `id` {#name}
 

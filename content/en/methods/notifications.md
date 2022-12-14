@@ -20,7 +20,7 @@ aliases: [
 ## Get all notifications {#get}
 
 ```http
-GET https://mastodon.example/api/v1/notifications HTTP/1.1
+GET /api/v1/notifications HTTP/1.1
 ```
 
 Notifications concerning the user. This API returns Link headers containing links to the next/previous page. However, the links can also be constructed dynamically using query params and `id` values.
@@ -33,7 +33,7 @@ Types to filter include:
 - `follow_request` = Someone requested to follow you
 - `favourite` = Someone favourited one of your statuses
 - `poll` = A poll you have voted in or created has ended
-- `update` = A status you interacted with has been edited
+- `update` = A status you boosted with has been edited
 - `admin.sign_up` = Someone signed up (optionally sent to admins)
 - `admin.report` = A new report has been filed
 
@@ -67,7 +67,7 @@ min_id
 : String. Return results immediately newer than this ID
 
 limit
-: Integer. Maximum number of results to return. Default: 20.
+: Integer. Maximum number of results to return. Defaults to 15 notifications. Max 30 notifications.
 
 types[]
 : Array of String. Types to include in the result.
@@ -92,7 +92,7 @@ Authorization: Bearer xxx
 The response body contains one page of notifications. You can use the HTTP Link header for further pagination.
 
 ```http
-Link: <https://mastodon.social/api/v1/notifications?max_id=34975535>; rel="next", <https://mastodon.social/api/v1/notifications?min_id=34975861>;
+Link: <https://mastodon.example/api/v1/notifications?max_id=34975535>; rel="next", <https://mastodon.example/api/v1/notifications?min_id=34975861>;
 ```
 
 ```json
@@ -175,7 +175,7 @@ Invalid or missing Authorization header.
 ## Get a single notification {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/notification/:id HTTP/1.1
+GET /api/v1/notification/:id HTTP/1.1
 ```
 
 View information about a notification with a given ID.
@@ -257,7 +257,7 @@ Invalid or missing Authorization header.
 ## Dismiss all notifications {#clear}
 
 ```http
-POST https://mastodon.example/api/v1/notifications/clear HTTP/1.1
+POST /api/v1/notifications/clear HTTP/1.1
 ```
 
 Clear all notifications from the server.
@@ -298,7 +298,7 @@ Invalid or missing Authorization header.
 ## Dismiss a single notification {#dismiss}
 
 ```http
-POST https://mastodon.example/api/v1/notifications/:id/dismiss HTTP/1.1
+POST /api/v1/notifications/:id/dismiss HTTP/1.1
 ```
 
 Dismiss a single notification from the server.
@@ -345,7 +345,7 @@ Invalid or missing Authorization header.
 ## (REMOVED) Dismiss a single notification {#dismiss-deprecated}
 
 ```http
-POST https://mastodon.example/api/v1/notifications/dismiss HTTP/1.1
+POST /api/v1/notifications/dismiss HTTP/1.1
 ```
 
 Dismiss a single notification from the server.

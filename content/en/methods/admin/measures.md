@@ -19,7 +19,7 @@ aliases: [
 ## Get measurable data {#get}
 
 ```http
-POST https://mastodon.example/api/v1/admin/measures HTTP/1.1
+POST /api/v1/admin/measures HTTP/1.1
 ```
 
 Obtain statistical measures for your server.

@@ -26,7 +26,7 @@ Identity proofs have been deprecated in 3.5.0 and newer. Previously, the only pr
 ## (REMOVED) View identity proofs {#get}
 
 ```http
-GET https://mastodon.example/api/proofs HTTP/1.1
+GET /api/proofs HTTP/1.1
 ```
 
 **Returns:** custom response defined by provider\

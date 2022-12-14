@@ -20,7 +20,7 @@ aliases: [
 ## Get domain blocks {#get}
 
 ```http
-GET https://mastodon.example/api/v1/domain_blocks HTTP/1.1
+GET /api/v1/domain_blocks HTTP/1.1
 ```
 
 View domains the user has blocked.
@@ -49,7 +49,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 100 domain blocks. Max 200 domain blocks.
 
 #### Response
 ##### 200: OK
@@ -63,7 +63,7 @@ Sample call with limit=2.
 Because AccountDomainBlock IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link: <https://mastodon.social/api/v1/domain_blocks?limit=2&max_id=16194>; rel="next", <https://mastodon.social/api/v1/domain_blocks?limit=2&since_id=16337>; rel="prev"
+Link: <https://mastodon.example/api/v1/domain_blocks?limit=2&max_id=16194>; rel="next", <https://mastodon.example/api/v1/domain_blocks?limit=2&since_id=16337>; rel="prev"
 ```
 
 ##### 401: Unauthorized
@@ -81,7 +81,7 @@ Invalid or missing Authorization header.
 ## Block a domain {#block}
 
 ```http
-POST https://mastodon.example/api/v1/domain_blocks HTTP/1.1
+POST /api/v1/domain_blocks HTTP/1.1
 ```
 
 Block a domain to:
@@ -149,7 +149,7 @@ If `domain` contains spaces, the request will fail.
 ## Unblock a domain {#unblock}
 
 ```http
-DELETE https://mastodon.example/api/v1/domain_blocks HTTP/1.1
+DELETE /api/v1/domain_blocks HTTP/1.1
 ```
 
 Remove a domain block, if it exists in the user's array of blocked domains.

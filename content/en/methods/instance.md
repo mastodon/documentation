@@ -20,7 +20,7 @@ aliases: [
 ## View server information {#v2}
 
 ```http
-GET https://mastodon.example/api/v2/instance
+GET /api/v2/instance
 ```
 
 Obtain general information about the server.
@@ -188,7 +188,7 @@ Obtain general information about the server.
 ## List of connected domains {#peers}
 
 ```http
-GET https://mastodon.example/api/v1/instance/peers HTTP/1.1
+GET /api/v1/instance/peers HTTP/1.1
 ```
 
 Domains that this instance is aware of.
@@ -229,7 +229,7 @@ If the instance is in whitelist mode and the Authorization header is missing or 
 ## Weekly activity {#activity}
 
 ```http
-GET https://mastodon.example/api/v1/instance/activity HTTP/1.1
+GET /api/v1/instance/activity HTTP/1.1
 ```
 
 Instance activity over the last 3 months, binned weekly.
@@ -357,7 +357,7 @@ If the instance is in whitelist mode and the Authorization header is missing or 
 
 
 ```http
-GET https://mastodon.example/api/v1/instance/rules HTTP/1.1
+GET /api/v1/instance/rules HTTP/1.1
 ```
 
 Rules that the users of this service should follow.
@@ -404,7 +404,7 @@ Rules that the users of this service should follow.
 ## View moderated servers {#domain_blocks}
 
 ```http
-GET https://mastodon.example/api/v1/instance/domain_block HTTP/1.1
+GET /api/v1/instance/domain_blocks HTTP/1.1
 ```
 
 Obtain a list of domains that have been blocked.
@@ -466,7 +466,7 @@ The admin has chosen to show domain blocks to no one. The response body is empty
 ## View extended description {#extended_description}
 
 ```http
-GET https://mastodon.example/api/v1/example HTTP/1.1
+GET /api/v1/example HTTP/1.1
 ```
 
 Obtain an extended description of this server
@@ -491,7 +491,7 @@ Obtain an extended description of this server
 ## (DEPRECATED) View server information (V1) {#v1}
 
 ```http
-GET https://mastodon.example/api/v1/instance HTTP/1.1
+GET /api/v1/instance HTTP/1.1
 ```
 
 Obtain general information about the server.

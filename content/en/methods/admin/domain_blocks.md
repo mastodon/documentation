@@ -16,14 +16,10 @@ aliases: [
 #TableOfContents ul ul ul {display: none}
 </style>
 
-{{< hint style="danger" >}}
-This page is under construction.
-{{< /hint >}}
-
 ## List all blocked domains {#get}
 
 ```http
-GET https://mastodon.example/api/v1/admin/domain_blocks HTTP/1.1
+GET /api/v1/admin/domain_blocks HTTP/1.1
 ```
 
 Show information about all blocked domains.
@@ -43,8 +39,17 @@ Authorization
 
 ##### Query parameters
 
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
 limit
-: Integer. Maximum number of results to return. Defaults to 100.
+: Integer. Maximum number of results to return. Defaults to 100 blocks. Max 200 blocks.
 
 #### Response
 
@@ -67,6 +72,12 @@ limit
 ]
 ```
 
+Because DomainBlock IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <http://mastodon.example/api/v1/admin/domain_blocks?limit=2&max_id=2>; rel="next", <http://mastodon.example/api/v1/admin/domain_blocks?limit=2&since_id=1>; rel="prev"
+```
+
 ##### 403: Forbidden
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
@@ -82,7 +93,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Get a single blocked domain {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/admin/domain_blocks/:id HTTP/1.1
+GET /api/v1/admin/domain_blocks/:id HTTP/1.1
 ```
 Show information about a single blocked domain.
 
@@ -144,7 +155,7 @@ DomainBlock with the given ID does not exist
 ## Block a domain from federating {#create}
 
 ```http
-POST https://mastodon.example/api/v1/admin/domain_blocks HTTP/1.1
+POST /api/v1/admin/domain_blocks HTTP/1.1
 ```
 
 Add a domain to the list of domains blocked from federating.
@@ -229,7 +240,7 @@ The domain parameter was not provided
 ## Update a domain block {#update}
 
 ```http
-PUT https://mastodon.example/api/v1/admin/domain_blocks/:id HTTP/1.1
+PUT /api/v1/admin/domain_blocks/:id HTTP/1.1
 ```
 
 Change parameters for an existing domain block.
@@ -302,7 +313,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ```
 
 ##### 500: Server error
-<!-- TODO: remove when fixed -->
+<!-- TODO: remove when https://github.com/mastodon/mastodon/issues/21775 is fixed -->
 Invalid severity
 
 ---
@@ -310,7 +321,7 @@ Invalid severity
 ## Remove a domain block {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/admin/domain_blocks/:id HTTP/1.1
+DELETE /api/v1/admin/domain_blocks/:id HTTP/1.1
 ```
 
 Lift a block against a domain.

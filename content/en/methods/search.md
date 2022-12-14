@@ -20,7 +20,7 @@ aliases: [
 ## Perform a search {#v2}
 
 ```http
-GET https://mastodon.example/api/v2/search HTTP/1.1
+GET /api/v2/search HTTP/1.1
 ```
 
 **Returns:** [Search]({{< relref "entities/Search" >}})\
@@ -66,10 +66,10 @@ min_id
 : String. Return results immediately newer than this ID.
 
 limit
-: Integer. Maximum number of results to return, per type. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return, per type. Defaults to 20 results per category. Max 40 results per category.
 
 offset
-: Integer. Offset in search results, used for pagination. Defaults to 0.
+: Integer. Skip the first n results.
 
 #### Response
 ##### 200: OK
@@ -155,7 +155,7 @@ Invalid or missing Authorization header.
 ## (REMOVED) Search results (v1) {#v1}
 
 ```http
-GET https://mastodon.example/api/v1/search HTTP/1.1
+GET /api/v1/search HTTP/1.1
 ```
 
 **Returns:** [Search]({{< relref "entities/Search" >}}), but `hashtags` is an array of strings instead of an array of Tag.\
@@ -195,7 +195,7 @@ min_id
 : String. Return results immediately newer than this ID.
 
 limit
-: Integer. Maximum number of results to return, per type. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return, per type. Defaults to 20 results per category. Max 40 results per category.
 
 offset
 : Integer. Offset in search results, used for pagination. Defaults to 0.

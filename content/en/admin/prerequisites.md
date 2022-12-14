@@ -88,7 +88,7 @@ Edit `/etc/iptables/rules.v4` and put this inside:
 #  Allow ping
 -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
 
-# Allow destination unreachable messages, espacally code 4 (fragmentation required) is required or PMTUD breaks
+# Allow destination unreachable messages, especially code 4 (fragmentation required) is required or PMTUD breaks
 -A INPUT -p icmp -m icmp --icmp-type 3 -j ACCEPT
 
 #  Log iptables denied calls
@@ -141,7 +141,7 @@ If your server is also reachable over IPv6, edit `/etc/iptables/rules.v6` and ad
 
 COMMIT
 ```
-Simmilar to the IPv4 rules, you can load it manually like this:
+Similar to the IPv4 rules, you can load it manually like this:
 ```bash
 ip6tables-restore < /etc/iptables/rules.v6
 ```

@@ -21,7 +21,7 @@ aliases: [
 ## View your featured tags {#get}
 
 ```http
-GET https://mastodon.example/api/v1/featured_tags HTTP/1.1
+GET /api/v1/featured_tags HTTP/1.1
 ```
 
 List all hashtags featured on your profile.
@@ -67,7 +67,7 @@ Invalid or missing Authorization header.
 ## Feature a tag {#feature}
 
 ```http
-POST https://mastodon.example/api/v1/featured_tags HTTP/1.1
+POST /api/v1/featured_tags HTTP/1.1
 ```
 
 Promote a hashtag on your profile.
@@ -128,7 +128,7 @@ If `name` is not a valid hashtag, e.g. contains illegal characters or only numbe
 ## Unfeature a tag {unfeature}
 
 ```http
-DELETE https://mastodon.example/api/v1/featured_tags/:id HTTP/1.1
+DELETE /api/v1/featured_tags/:id HTTP/1.1
 ```
 
 Stop promoting a hashtag on your profile.
@@ -184,7 +184,7 @@ FeaturedTag is not owned by you or does not exist
 ## View suggested tags to feature {#suggestions}
 
 ```http
-GET https://mastodon.example/api/v1/featured_tags/suggestions HTTP/1.1
+GET /api/v1/featured_tags/suggestions HTTP/1.1
 ```
 
 Shows up to 10 recently-used tags.

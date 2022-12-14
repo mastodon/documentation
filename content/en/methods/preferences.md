@@ -21,7 +21,7 @@ aliases: [
 ## View user preferences {#get}
 
 ```http
-GET https://mastodon.example/api/v1/preferences HTTP/1.1
+GET /api/v1/preferences HTTP/1.1
 ```
 
 Preferences defined by the user in their account settings.

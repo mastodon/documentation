@@ -21,7 +21,7 @@ aliases: [
 ## View muted accounts {#get}
 
 ```http
-GET https://mastodon.example/api/v1/mutes HTTP/1.1
+GET /api/v1/mutes HTTP/1.1
 ```
 
 Accounts the user has muted.
@@ -46,11 +46,8 @@ max_id
 since_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
-min_id
-: **Internal parameter.** Use HTTP `Link` header for pagination.
-
 limit
-: Integer. Maximum number of results to return. Defaults to 40.
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
 
 #### Response
 ##### 200: OK
@@ -79,7 +76,7 @@ Sample response with limit=2.
 Because Mute IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link: <https://mastodon.social/api/v1/mutes?limit=2&max_id=317646>; rel="next", <https://mastodon.social/api/v1/mutes?limit=2&since_id=317647>; rel="prev"
+Link: <https://mastodon.example/api/v1/mutes?limit=2&max_id=317646>; rel="next", <https://mastodon.example/api/v1/mutes?limit=2&since_id=317647>; rel="prev"
 ```
 
 ##### 401: Unauthorized

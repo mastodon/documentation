@@ -21,7 +21,7 @@ aliases: [
 ## Authorize a user {#authorize}
 
 ```http
-GET https://mastodon.example/oauth/authorize HTTP/1.1
+GET /oauth/authorize HTTP/1.1
 ```
 
 Displays an authorization form to the user. If approved, it will create and return an authorization code, then redirect to the desired `redirect_uri`, or show the authorization code if `urn:ietf:wg:oauth:2.0:oob` was requested. The authorization code can be used while requesting a token to obtain access to user-level methods.
@@ -79,7 +79,7 @@ If the authorization code is incorrect or has been used already, the request wil
 ## Obtain a token {#token}
 
 ```http
-POST https://mastodon.example/oauth/token HTTP/1.1
+POST /oauth/token HTTP/1.1
 ```
 
 Obtain an access token, to be used during API calls that are not public.
@@ -100,6 +100,9 @@ code
 
 client_id
 : {{<required>}} String. The client ID, obtained during app registration.
+
+client_secret
+: {{<required>}} String. The client secret, obtained durign app registration.
 
 redirect_uri
 : {{<required>}} String. Set a URI to redirect the user to. If this parameter is set to urn:ietf:wg:oauth:2.0:oob then the token will be shown instead. Must match one of the `redirect_uris` declared during app registration.
@@ -148,7 +151,7 @@ If client_id and client_secret do not match or are invalid, the request will fai
 ## Revoke a token {#revoke}
 
 ```http
-POST https://mastodon.example/oauth/revoke HTTP/1.1
+POST /oauth/revoke HTTP/1.1
 ```
 
 Revoke an access token to make it no longer valid for use.
@@ -165,7 +168,7 @@ client_id
 : {{<required>}} String. The client ID, obtained during app registration.
 
 client_secret
-: {{<required>}} String. The client secret, obtained durign app registration.
+: {{<required>}} String. The client secret, obtained during app registration.
 
 token
 : {{<required>}} String. The previously obtained token, to be invalidated.

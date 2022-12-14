@@ -7,7 +7,7 @@ menu:
     parent: admin-optional
 ---
 
-Mastodon can be served through Tor as an onion service. This will give you a \*.onion address that can only be used while connected to the Tor network.
+Mastodon can be served through Tor as an onion service. This will give you a `*.onion` address that can only be used while connected to the Tor network.
 
 ## Installing Tor {#install}
 

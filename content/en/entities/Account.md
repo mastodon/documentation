@@ -208,10 +208,17 @@ aliases: [
 **Version history:**\
 3.1.0 - added
 
+### `noindex` {{%optional%}} {#noindex}
+
+**Description:** Whether the local user has opted out of being indexed by search engines.\
+**Type:** {{<nullable>}} Boolean\
+**Version history:**\
+4.0.0 - added
+
 ### `moved` {{%optional%}} {#moved}
 
 **Description:** Indicates that the profile is currently inactive and that its user has moved to a new account.\
-**Type:** {{<nullable>}} [Account]({{< relref "entities/Account" >}}), or null if the profile is supended.\
+**Type:** {{<nullable>}} [Account]({{< relref "entities/Account" >}}), or null if the profile is suspended.\
 **Version history:**\
 2.1.0 - added
 
@@ -224,7 +231,7 @@ aliases: [
 
 ### `limited` {{%optional%}} {#limited}
 
-**Description:** An extra attribute returned only when an account is silenced. If true, indicates that the account should be hidden behing a warning screen.\
+**Description:** An extra attribute returned only when an account is silenced. If true, indicates that the account should be hidden behind a warning screen.\
 **Type:** Boolean\
 **Version history:**\
 3.5.3 - added
@@ -234,7 +241,7 @@ aliases: [
 **Description:** When the account was created.\
 **Type:** String (ISO 8601 Datetime)\
 **Version history:**\
-0.1.0 - added
+0.1.0 - added\
 3.4.0 - now resolves to midnight instead of an exact time
 
 ### `last_status_at` {#last_status_at}

@@ -5,12 +5,8 @@ menu:
   docs:
     parent: entities
 aliases: [
-  "/entities/history",
-  "/entities/History",
   "/entities/tag",
   "/entities/Tag",
-  "/api/entities/history",
-  "/api/entities/History",
   "/api/entities/tag",
   "/api/entities/Tag",
 ]
@@ -67,7 +63,7 @@ aliases: [
 
 ### `name` {#name}
 
-**Description:** The value of the hashtag after the \# sign.\
+**Description:** The value of the hashtag after the # sign.\
 **Type:** String\
 **Version history:**\
 0.9.0 - added
@@ -114,19 +110,96 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
+## Admin::Tag attributes {#admin}
+
+```json
+{
+  "name": "caturday",
+  "url": "https://mastodon.example/tags/caturday",
+  "history": [
+    {
+      "day": "1669507200",
+      "accounts": "53",
+      "uses": "56"
+    },
+    {
+      "day": "1669420800",
+      "accounts": "142",
+      "uses": "171"
+    },
+    {
+      "day": "1669334400",
+      "accounts": "11",
+      "uses": "11"
+    },
+    {
+      "day": "1669248000",
+      "accounts": "8",
+      "uses": "9"
+    },
+    {
+      "day": "1669161600",
+      "accounts": "8",
+      "uses": "20"
+    },
+    {
+      "day": "1669075200",
+      "accounts": "11",
+      "uses": "11"
+    },
+    {
+      "day": "1668988800",
+      "accounts": "17",
+      "uses": "22"
+    }
+  ],
+  "id": "802",
+  "trendable": true,
+  "usable": true,
+  "requires_review": false
+}
+```
+
+### `id` {#id}
+
+**Description:** The ID of the Tag in the database.\
+**Type:** String (cast from integer, but not guaranteed to be a number)\
+**Version history:**\
+3.5.0 - added
+
+### `trendable` {#trendable}
+
+**Description:** Whether the hashtag has been approved to trend.\
+**Type:** Boolean\
+**Version history:**\
+3.5.0 - added
+
+### `usable` {#usable}
+
+**Description:** Whether the hashtag has not been disabled from auto-linking.\
+**Type:** Boolean\
+**Version history:**\
+3.5.0 - added
+
+### `requires_review` {#requires_review}
+
+**Description:** Whether the hashtag has not been reviewed yet to approve or deny its trending.\
+**Type:** Boolean\
+**Version history:**\
+3.5.0 - added
+
 ## See also
 
 {{< page-relref ref="entities/Search#tags" caption="Search (`tags` attribute)" >}}
 
 {{< page-relref ref="methods/tags" caption="tags API methods" >}}
 
-<!--
-TODO: This one may be replaced with FeaturedTag
-https://github.com/mastodon/mastodon/pull/19221
--->
 {{< page-relref ref="methods/featured_tags#suggestions" caption="GET /api/v1/featured_tags/suggestions" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/tag_serializer.rb" caption="app/serializers/rest/tag_serializer.rb" >}}
 
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/tag_serializer.rb" caption="app/serializers/rest/admin/tag_serializer.rb" >}}
 
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/models/tag.rb" caption="app/models/tag.rb" >}}
 
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/models/trends/history.rb" caption="app/models/trends/history.rb" >}}

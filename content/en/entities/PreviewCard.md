@@ -185,9 +185,98 @@ aliases: [
 **Version history:**\
 3.2.0 - added
 
+## Trends::Link entity attributes {#trends-link}
+
+```json
+{
+  "url": "https://www.nbcnews.com/specials/plan-your-vote-2022-elections/index.html",
+  "title": "Plan Your Vote: 2022 Elections",
+  "description": "Everything you need to know about the voting rules where you live, including registration, mail-in voting, changes since 2020, and more.",
+  "type": "link",
+  "author_name": "NBC News",
+  "author_url": "",
+  "provider_name": "NBC News",
+  "provider_url": "",
+  "html": "",
+  "width": 400,
+  "height": 225,
+  "image": "https://files.mastodon.social/cache/preview_cards/images/045/027/478/original/0783d5e91a14fd49.jpeg",
+  "embed_url": "",
+  "blurhash": "UcQmF#ay~qofj[WBj[j[~qof9Fayofofayay",
+  "history": [
+    {
+      "day": "1661817600",
+      "accounts": "7",
+      "uses": "7"
+    },
+    {
+      "day": "1661731200",
+      "accounts": "23",
+      "uses": "23"
+    },
+    {
+      "day": "1661644800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1661558400",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1661472000",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1661385600",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1661299200",
+      "accounts": "0",
+      "uses": "0"
+    }
+  ]
+}
+```
+
+### `history` {#history}
+
+**Description:** Usage statistics for given days (typically the past week).\
+**Type:** Array of Hash\
+**Version history:**\
+3.5.0 - added
+
+#### `history[][day]` {#history-day}
+
+**Description:** UNIX timestamp on midnight of the given day.\
+**Type:** String (UNIX timestamp)\
+**Version history:**\
+3.5.0 - added
+
+#### `history[][accounts]` {#history-accounts}
+
+**Description:** The counted accounts using the link within that day.\
+**Type:** String (cast from an integer)\
+**Version history:**\
+3.5.0 - added
+
+#### `history[][uses]` {#history-uses}
+
+**Description:** The counted statuses using the link within that day.\
+**Type:** String (cast from an integer)\
+**Version history:**\
+3.5.0 - added
+
 ## See also
 
 {{< page-relref ref="entities/Status#card" caption="Status (`card` attribute)" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/preview_card_serializer.rb" caption="app/serializers/rest/preview_card_serializer.rb" >}}
 
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/trends/link_serializer.rb" caption="app/serializers/rest/trends/link_serializer.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/models/trends/links.rb" caption="app/models/trends/links.rb" >}}

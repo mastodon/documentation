@@ -33,7 +33,7 @@ Mastodon natively supports the [Web Push API](https://developer.mozilla.org/en-U
 ## Subscribe to push notifications {#create}
 
 ```http
-POST https://mastodon.example/api/v1/push/subscription HTTP/1.1
+POST /api/v1/push/subscription HTTP/1.1
 ```
 
 Add a Web Push API subscription to receive notifications. Each access token can have one push subscription. If you create a new subscription, the old subscription is deleted.
@@ -65,23 +65,26 @@ subscription[keys][p256dh]
 subscription[keys][auth]
 : {{<required>}} String. Auth secret. Base64 encoded string of 16 bytes of random data.
 
-data[alerts][follow]
-: Boolean. Receive follow notifications? Defaults to false.
+data[alerts][mention]
+: Boolean. Receive mention notifications? Defaults to false.
 
-data[alerts][favourite]
-: Boolean. Receive favourite notifications? Defaults to false.
+data[alerts][status]
+: Boolean. Receive new subscribed account notifications? Defaults to false.
 
 data[alerts][reblog]
 : Boolean. Receive reblog notifications? Defaults to false.
 
-data[alerts][mention]
-: Boolean. Receive mention notifications? Defaults to false.
+data[alerts][follow]
+: Boolean. Receive follow notifications? Defaults to false.
+
+data[alerts][follow_request]
+: Boolean. Receive follow request notifications? Defaults to false.
+
+data[alerts][favourite]
+: Boolean. Receive favourite notifications? Defaults to false.
 
 data[alerts][poll]
 : Boolean. Receive poll notifications? Defaults to false.
-
-data[alerts][status]
-: Boolean. Receive new subscribed account notifications? Defaults to false.
 
 data[alerts][update]
 : Boolean. Receive status edited notifications? Defaults to false.
@@ -130,7 +133,7 @@ Invalid or missing Authorization header.
 ## Get current subscription {#get}
 
 ```http
-GET https://mastodon.example/api/v1/push/subscription HTTP/1.1
+GET /api/v1/push/subscription HTTP/1.1
 ```
 
 View the PushSubscription currently associated with this access token.
@@ -189,7 +192,7 @@ A PushSubscription does not exist for this token.
 ## Change types of notifications {#update}
 
 ```http
-PUT https://mastodon.example/api/v1/push/subscription HTTP/1.1
+PUT /api/v1/push/subscription HTTP/1.1
 ```
 
 Updates the current push subscription. Only the data part can be updated. To change fundamentals, a new subscription must be created instead.
@@ -212,23 +215,26 @@ Authorization
 
 ##### Form data parameters
 
-data[alerts][follow]
-: Boolean. Receive follow notifications? Defaults to false.
+data[alerts][mention]
+: Boolean. Receive mention notifications? Defaults to false.
 
-data[alerts][favourite]
-: Boolean. Receive favourite notifications? Defaults to false.
+data[alerts][status]
+: Boolean. Receive new subscribed account notifications? Defaults to false.
 
 data[alerts][reblog]
 : Boolean. Receive reblog notifications? Defaults to false.
 
-data[alerts][mention]
-: Boolean. Receive mention notifications? Defaults to false.
+data[alerts][follow]
+: Boolean. Receive follow notifications? Defaults to false.
+
+data[alerts][follow_request]
+: Boolean. Receive follow request notifications? Defaults to false.
+
+data[alerts][favourite]
+: Boolean. Receive favourite notifications? Defaults to false.
 
 data[alerts][poll]
 : Boolean. Receive poll notifications? Defaults to false.
-
-data[alerts][status]
-: Boolean. Receive new subscribed account notifications? Defaults to false.
 
 data[alerts][update]
 : Boolean. Receive status edited notifications? Defaults to false.
@@ -287,7 +293,7 @@ No existing PushSubscription for this token
 ## Remove current subscription {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/push/subscription HTTP/1.1
+DELETE /api/v1/push/subscription HTTP/1.1
 ```
 
 Removes the current Web Push API subscription.

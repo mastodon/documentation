@@ -29,7 +29,7 @@ Redirecting your account disables posting from that account and displays a "prof
 
 {{< figure src="/assets/account-move.jpg" caption="Profile move form" >}}
 
-Moving your account is the same as redirecting your account, but it will also irreversibly force everyone to unfollow your current account and follow your new account, if their software supports the Move activity. Your posts will not be moved, due to technical limitations. There is also a very heavy cooldown period in which you cannot migrate again, so be very careful before using this option!
+Moving your account is the same as redirecting your account, but it will also irreversibly force everyone to unfollow your current account and follow your new account, if their software supports the Move activity. Your posts will not be moved, due to technical limitations. There is also a 30 day cooldown period in which you cannot migrate again, so be very careful before using this option!
 
 ### Account aliases {#aliases}
 

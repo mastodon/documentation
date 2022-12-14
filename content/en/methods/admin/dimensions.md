@@ -19,7 +19,7 @@ aliases: [
 ## Get dimensional data {#get}
 
 ```http
-POST https://mastodon.example/api/v1/admin/dimensions HTTP/1.1
+POST /api/v1/admin/dimensions HTTP/1.1
 ```
 
 Obtain information about popularity of certain accounts, servers, languages, etc.

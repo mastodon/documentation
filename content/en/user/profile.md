@@ -19,7 +19,7 @@ Your display name is shown to other users before your address. You can set a dis
 
 ### Bio {#bio}
 
-Your bio is a short description of yourself that is displayed as a note on your profile. You can set a bio of up to 500 characters by default.
+Your bio is a short description of yourself that is displayed as a note on your profile. You can set a bio of up to 500 characters by default. All links are counted as 23 characters, no matter how long they actually are, so there is no need to use a link shortener to save characters. In fact, using a link shortener is actively discouraged.
 
 ### Avatar {#avatar}
 
@@ -78,9 +78,14 @@ If you put an HTTPS link in your profile metadata, Mastodon checks if that link 
 ```
 
 More precisely, Mastodon will validate the link under the following conditions:
+- It is not within an `iframe` (note that some "block-based" CMS software may wrap block elements within iframes)
 - Since 4.0: the hostname does not change after IDN normalization
 - it starts with HTTPS
 - the resolved page contains at least one `a` or `link` tag with a `rel="me"`
 - the `href` attribute on one of those elements is equal to the URL for your Mastodon profile
 
 Alternatively, validation will occur if the resolved page's *first* link has an `href` value that redirects to your Mastodon profile's URL (such as through a link shortener).
+
+{{< hint style="info" >}}
+Make sure to save your profile *after* adding the rel-me link to your web page! The verification process is triggered when you save your profile, and may take some time before completing. If you have added the rel-me link and verification is not working, then try deleting the link, saving, re-adding the link, and saving again.
+{{< /hint >}}

@@ -23,7 +23,7 @@ aliases: [
 ## View all conversations {#get}
 
 ```http
-GET https://mastodon.example/api/v1/conversations HTTP/1.1
+GET /api/v1/conversations HTTP/1.1
 ```
 
 **Returns:** Array of [Conversation]({{< relref "entities/conversation" >}})\
@@ -51,7 +51,7 @@ min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 20. Max 40.
+: Integer. Maximum number of results to return. Defaults to 20 conversations. Max 40 conversations.
 
 #### Response
 
@@ -105,7 +105,7 @@ Truncated sample results of an API call with limit=2
 Because AccountConversation IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
-Link: <https://mastodon.social/api/v1/conversations?limit=2&max_id=108835003356700379>; rel="next", <https://mastodon.social/api/v1/conversations?limit=2&min_id=108888782724768580>; rel="prev"
+Link: <https://mastodon.example/api/v1/conversations?limit=2&max_id=108835003356700379>; rel="next", <https://mastodon.example/api/v1/conversations?limit=2&min_id=108888782724768580>; rel="prev"
 ```
 
 ##### 401: Unauthorized
@@ -123,7 +123,7 @@ Invalid or missing Authorization header.
 ## Remove a conversation {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/conversations/:id HTTP/1.1
+DELETE /api/v1/conversations/:id HTTP/1.1
 ```
 
 Removes a conversation from your list of conversations.
@@ -177,7 +177,7 @@ The conversation does not exist, or is not owned by you.
 ## Mark a conversation as read {#read}
 
 ```http
-POST https://mastodon.example/api/v1/conversations/:id/read HTTP/1.1
+POST /api/v1/conversations/:id/read HTTP/1.1
 ```
 
 **Returns:** [Conversation]({{< relref "entities/conversation" >}})\

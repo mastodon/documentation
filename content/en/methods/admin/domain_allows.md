@@ -19,7 +19,7 @@ aliases: [
 ## List all allowed domains {#get}
 
 ```http
-GET https://mastodon.example/api/v1/admin/domain_allows HTTP/1.1
+GET /api/v1/admin/domain_allows HTTP/1.1
 ```
 
 Show information about all allowed domains.
@@ -39,8 +39,17 @@ Authorization
 
 ##### Query parameters
 
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
 limit
-: Integer. Maximum number of results to return. Defaults to 100.
+: Integer. Maximum number of results to return. Defaults to 100 allows. Max 200 allows.
 
 #### Response
 
@@ -61,6 +70,12 @@ limit
 ]
 ```
 
+Because DomainAllow IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <http://mastodon.example/api/v1/admin/domain_allows?limit=2&max_id=2>; rel="next", <http://mastodon.example/api/v1/admin/domain_allows?limit=2&since_id=1>; rel="prev"
+```
+
 ##### 403: Forbidden
 
 Authorized user is not allowed to perform this action, or invalid or missing Authorization header
@@ -76,7 +91,7 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 ## Get a single allowed domain {#get-one}
 
 ```http
-GET https://mastodon.example/api/v1/admin/domain_allows/:id HTTP/1.1
+GET /api/v1/admin/domain_allows/:id HTTP/1.1
 ```
 Show information about a single allowed domain.
 
@@ -132,7 +147,7 @@ DomainAllow with the given ID does not exist
 ## Allow a domain to federate {#create}
 
 ```http
-POST https://mastodon.example/api/v1/admin/domain_allows HTTP/1.1
+POST /api/v1/admin/domain_allows HTTP/1.1
 ```
 
 Add a domain to the list of domains allowed to federate, to be used when the instance is in allow-list federation mode.
@@ -193,7 +208,7 @@ The domain parameter was not provided or was invalid
 ## Delete an allowed domain {#delete}
 
 ```http
-DELETE https://mastodon.example/api/v1/admin/domain_allows/:id HTTP/1.1
+DELETE /api/v1/admin/domain_allows/:id HTTP/1.1
 ```
 
 Delete a domain from the allowed domains list.

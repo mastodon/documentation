@@ -92,13 +92,15 @@ Truncated sample search for q=cats limit=2
 
 **Description:** Accounts which match the given query\
 **Type:** Array of [Account]({{< relref "entities/Account" >}})\
-**Version history:** Added in x.x.x
+**Version history:**\
+1.1.0 - added
 
 ### `statuses` {#statuses}
 
 **Description:** Statuses which match the given query\
 **Type:** Array of [Status]({{< relref "entities/Status" >}})\
-**Version history:** Added in x.x.x
+**Version history:**\
+1.1.0 - added
 
 ### `hashtags` {#hashtags}
 
@@ -106,7 +108,7 @@ Truncated sample search for q=cats limit=2
 **Type:** Array of [Tag]({{< relref "entities/Tag" >}})\
 **Version history:**\
 1.1.0 - added\
-2.4.1 - v1 deprecated because it returns Array of String. v2 added which returns Array of Tag.\
+2.4.1 - v1/search deprecated because it returns Array of String. v2/search added which returns Array of Tag.\
 3.0.0 - v1 removed
 
 ## See also
