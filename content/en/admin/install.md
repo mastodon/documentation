@@ -146,7 +146,7 @@ git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 
 #### Installing the last dependencies {#installing-the-last-dependencies}
 
-Now to install Ruby and JavaScript dependencies:
+Now to install Ruby and JavaScript dependencies (change to subdir 'live' if you are not in it already):
 
 ```bash
 bundle config deployment 'true'
