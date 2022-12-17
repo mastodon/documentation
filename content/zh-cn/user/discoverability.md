@@ -11,25 +11,25 @@ menu:
 
 ### 精选话题标签 {#featured-tags}
 
-{{< figure src="/assets/image%20%2858%29.png" caption="精选话题标签会显示该标签最后使用日期和总使用量" >}}
+{{< figure src="assets/image%20%2858%29.png" caption="精选话题标签会显示该标签最后使用日期和总使用量" >}}
 
 你可以选择展示你经常使用的某些话题标签。进入 设置 &gt; 个人资料 &gt; 精选的话题标签 来管理你目前正在使用的精选话题标签。一旦被精选，你的个人资料上就会显示一个指向该话题标签的链接，其中包括上次在嘟文中使用该话题标签的日期，以及使用该话题标签的嘟文总数。
 
 ### 推荐用户 {#featured-profiles}
 
-{{< figure src="/assets/image%20%2833%29.png" caption="图为四个被随机展示出来的推荐用户列表" >}}
+{{< figure src="assets/image%20%2833%29.png" caption="图为四个被随机展示出来的推荐用户列表" >}}
 
 你可以选择在个人资料中推荐你所关注的人。进入你所关注的人的个人资料页，打开下拉菜单，点击“在个人资料中推荐该用户”。当你推荐某用户时时，一个指向该用户个人资料页的链接将会出现在你个人资料页“你的推荐”栏目下。“你的推荐”栏目一次最多展示4个推荐用户，每次加载页面时，这四个推荐用户将会从你所有的推荐用户中随机选出。
 
 ## 置顶嘟文 {#pinned}
 
-{{< figure src="/assets/image%20%2837%29.png" caption="一篇来自mastodon.social/@gargron的置顶嘟文" >}}
+{{< figure src="assets/image%20%2837%29.png" caption="一篇来自mastodon.social/@gargron的置顶嘟文" >}}
 
 你可以选择在你的个人档案的顶部最多置顶5个自己的公开嘟文。进入嘟文下拉菜单，然后点击“在个人资料页面置顶”。置顶后，它将出现在你的嘟文选项卡的顶部，在所有其他按时间顺序排列的嘟文的之前。
 
 ## 用户资料目录 {#directory}
 
-{{< figure src="/assets/image%20%2831%29.png" caption="mastodon.social上的用户资料目录" >}}
+{{< figure src="assets/image%20%2831%29.png" caption="mastodon.social上的用户资料目录" >}}
 
 用户资料目录显示了所有选择在目录中显示的帐户，可以用来快速找到你可能感兴趣的用户资料。
 
