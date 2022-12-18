@@ -1,6 +1,6 @@
 ---
 title: Admin::CanonicalEmailBlock
-description: Represents a canonical email block (hashed).
+summary: Represents a canonical email block (hashed).
 menu:
   docs:
     parent: entities

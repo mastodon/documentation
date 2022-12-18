@@ -1,6 +1,6 @@
 ---
 title: Installing from source
-description: Instructional guide on creating your own Mastodon-powered website.
+summary: Instructional guide on creating your own Mastodon-powered website.
 menu:
   docs:
     weight: 20

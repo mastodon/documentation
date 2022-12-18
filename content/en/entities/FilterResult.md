@@ -1,6 +1,6 @@
 ---
 title: FilterResult
-description: Represents a filter whose keywords matched a given status.
+summary: Represents a filter whose keywords matched a given status.
 menu:
   docs:
     parent: entities

@@ -1,9 +1,0 @@
-{{ define "main" }}
-
-<ul id="posts">
-  {{ range .Paginator.Pages.ByWeight }}
-    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-  {{ end }}
-</ul>
-
-{{ end }}

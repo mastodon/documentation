@@ -1,6 +1,6 @@
 ---
 title: Rate limits
-description: Defining how often you can call the REST API
+summary: Defining how often you can call the REST API
 menu:
   docs:
     weight: 30

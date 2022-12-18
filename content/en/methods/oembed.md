@@ -1,6 +1,6 @@
 ---
 title: oembed API methods
-description: For generating OEmbed previews.
+summary: For generating OEmbed previews.
 menu:
   docs:
     weight: 110

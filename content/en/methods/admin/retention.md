@@ -1,6 +1,6 @@
 ---
 title: retention API methods
-description: Show retention data over time.
+summary: Show retention data over time.
 menu:
   docs:
     name: retention

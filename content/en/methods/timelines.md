@@ -1,6 +1,6 @@
 ---
 title: timelines API methods
-description: Read and view timelines of statuses.
+summary: Read and view timelines of statuses.
 menu:
   docs:
     weight: 40

@@ -1,6 +1,6 @@
 ---
 title: Preferences
-description: Represents a user's preferences.
+summary: Represents a user's preferences.
 menu:
   docs:
     parent: entities

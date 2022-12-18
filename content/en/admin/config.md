@@ -1,6 +1,6 @@
 ---
 title: Configuring your environment
-description: Setting environment variables for your Mastodon installation.
+summary: Setting environment variables for your Mastodon installation.
 menu:
   docs:
     weight: 30

@@ -1,6 +1,6 @@
 ---
 title: V1::Instance
-description: Represents the software instance of Mastodon running on this domain.
+summary: Represents the software instance of Mastodon running on this domain.
 menu:
   docs:
     parent: entities

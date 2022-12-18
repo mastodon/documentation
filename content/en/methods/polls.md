@@ -1,6 +1,6 @@
 ---
 title: polls API methods
-description: >-
+summary: >-
   View and vote on polls attached to statuses. To discover poll ID, you will
   need to GET a Status first and then check for a `poll` property.
 menu:

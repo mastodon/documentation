@@ -1,6 +1,6 @@
 ---
 title: push API methods
-description: >-
+summary: >-
   Subscribe to and receive push notifications when a server-side notification is
   received, via the Web Push API
 menu:

@@ -1,6 +1,6 @@
 ---
 title: WebPushSubscription
-description: Represents a subscription to the push streaming server.
+summary: Represents a subscription to the push streaming server.
 menu:
   docs:
     parent: entities

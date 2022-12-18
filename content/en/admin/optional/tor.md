@@ -1,6 +1,6 @@
 ---
 title: Hidden services
-description: Serving Mastodon through TOR hidden services.
+summary: Serving Mastodon through TOR hidden services.
 menu:
   docs:
     weight: 20

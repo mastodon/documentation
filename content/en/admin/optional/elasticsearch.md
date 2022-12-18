@@ -1,6 +1,6 @@
 ---
 title: Full-text search
-description: Setting up Elasticsearch to search for statuses authored, favourited, or mentioned in.
+summary: Setting up Elasticsearch to search for statuses authored, favourited, or mentioned in.
 menu:
   docs:
     weight: 10

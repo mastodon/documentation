@@ -1,5 +1,0 @@
-<div class="hint hint-{{ with .Get "style" }}{{.}}{{ else }}info{{ end }}">
-  <div class="hint-icon"><i class="fa fa-{{ if (eq (.Get "style") "warning") }}exclamation-circle{{ end }}{{ if (eq (.Get "style") "success") }}check-circle{{ end }}{{ if (eq (.Get "style") "info") }}info-circle{{ end }}{{ if (eq (.Get "style") "danger") }}exclamation-triangle{{ end }}"></i></div>
-
-  {{ .Inner | markdownify }}
-</div>

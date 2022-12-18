@@ -1,6 +1,6 @@
 ---
 title: Setting up your profile
-description: Get started with your new account.
+summary: Get started with your new account.
 menu:
   docs:
     weight: 20

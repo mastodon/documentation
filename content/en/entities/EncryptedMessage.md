@@ -1,6 +1,6 @@
 ---
 title: EncryptedMessage
-description: Represents an encrypted message.
+summary: Represents an encrypted message.
 menu:
   docs:
     parent: entities

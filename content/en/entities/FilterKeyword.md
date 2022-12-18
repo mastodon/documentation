@@ -1,6 +1,6 @@
 ---
 title: FilterKeyword
-description: Represents a keyword that, if matched, should cause the filter action to be taken.
+summary: Represents a keyword that, if matched, should cause the filter action to be taken.
 menu:
   docs:
     parent: entities

@@ -1,6 +1,6 @@
 ---
 title: Security
-description: Public key cryptography and supported signature schemes over HTTP and JSON-LD.
+summary: Public key cryptography and supported signature schemes over HTTP and JSON-LD.
 menu:
   docs:
     weight: 30

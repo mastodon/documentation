@@ -1,6 +1,6 @@
 ---
 title: Bug bounties and responsible disclosure
-description: What to do if you found a serious bug
+summary: What to do if you found a serious bug
 menu:
   docs:
     weight: 9999

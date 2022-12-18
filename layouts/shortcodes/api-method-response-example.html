@@ -1,5 +1,0 @@
-<div class="api-method-response-example">
-  <h5>
-    <span class="api-method-response-example-indicator{{ if (gt (.Get "httpCode") 399) }} api-method-response-example-indicator-error{{ end }}"></span>
-    {{ .Get "httpCode" }}: {{ index .Site.Data.HttpCodes (.Get "httpCode" | string) }}
-  </h5>

@@ -1,6 +1,6 @@
 ---
 title: domain_allows API methods
-description: Allow certain domains to federate.
+summary: Allow certain domains to federate.
 menu:
   docs:
     name: domain_allows

@@ -1,6 +1,6 @@
 ---
 title: ScheduledStatus
-description: Represents a status that will be published at a future scheduled date.
+summary: Represents a status that will be published at a future scheduled date.
 menu:
   docs:
     parent: entities

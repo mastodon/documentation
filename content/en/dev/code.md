@@ -1,6 +1,6 @@
 ---
 title: Code structure
-description: Where to find certain parts of the codebase.
+summary: Where to find certain parts of the codebase.
 menu:
   docs:
     weight: 30

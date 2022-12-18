@@ -1,6 +1,6 @@
 ---
 title: Rule
-description: Represents a rule that server users should follow.
+summary: Represents a rule that server users should follow.
 menu:
   docs:
     parent: entities

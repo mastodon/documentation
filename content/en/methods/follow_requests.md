@@ -1,6 +1,6 @@
 ---
 title: follow_requests API methods
-description: View and manage follow requests.
+summary: View and manage follow requests.
 menu:
   docs:
     weight: 80

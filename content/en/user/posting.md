@@ -1,6 +1,6 @@
 ---
 title: Posting to your profile
-description: Sharing your thoughts has never been more convenient.
+summary: Sharing your thoughts has never been more convenient.
 menu:
   docs:
     weight: 30

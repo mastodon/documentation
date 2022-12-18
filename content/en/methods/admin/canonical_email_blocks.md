@@ -1,6 +1,6 @@
 ---
 title: canonical_email_blocks API methods
-description: Block certain email addresses by their hash.
+summary: Block certain email addresses by their hash.
 menu:
   docs:
     name: canonical_email_blocks

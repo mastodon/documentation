@@ -1,6 +1,6 @@
 ---
 title: Account
-description: Represents a user of Mastodon and their associated profile.
+summary: Represents a user of Mastodon and their associated profile.
 menu:
   docs:
     parent: entities

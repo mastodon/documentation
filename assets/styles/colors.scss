@@ -1,0 +1,57 @@
+@use "sass:color";
+
+@mixin light {
+	--link-color: #6364FF;
+	--link-visited: #6364FF;
+
+	--primary-accent: rgb(0, 123, 255);
+	--primary-accent-transparent: rgba(0, 123, 255,0.25);
+	--primary-accent-text: #fff;
+
+	--ui-background: #fff;
+	--ui-text: #111;
+	--ui-text-muted: #666;
+	--ui-text-bold: #000;
+
+	--ui-overlay: #ddd;
+	--ui-overlay-text: var(--ui-text);
+
+	--ui-border: #ddd;
+}
+
+@mixin dark {
+	--link-color: #858AFA;
+	--link-visited: #858AFA;
+
+	--primary-accent: rgb(99 100 255);
+	--primary-accent-transparent: #573acc7f;
+	--primary-accent-text: #fff;
+
+	--ui-background: rgb(21 1 24);
+	--ui-text: #ddd;
+	--ui-text-muted: #999;
+	--ui-text-bold: #fff;
+
+	--ui-overlay: #212121;
+	--ui-overlay-text: #fff;
+
+	--ui-border: rgba(203,213,225,.1);
+}
+
+:root {
+	@include light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		@include dark;
+	}
+}
+
+body.dark-mode {
+	@include dark;
+}
+
+body.light-mode {
+	@include light;
+}

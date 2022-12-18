@@ -1,6 +1,6 @@
 ---
 title: followed_tags API methods
-description: View your followed hashtags.
+summary: View your followed hashtags.
 menu:
   docs:
     weight: 120

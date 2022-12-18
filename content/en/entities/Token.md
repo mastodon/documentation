@@ -1,6 +1,6 @@
 ---
 title: Token
-description: Represents an OAuth token used for authenticating with the API and performing actions.
+summary: Represents an OAuth token used for authenticating with the API and performing actions.
 menu:
   docs:
     parent: entities

@@ -1,6 +1,6 @@
 ---
 title: dimensions API methods
-description: Obtain qualitative metrics about the server.
+summary: Obtain qualitative metrics about the server.
 menu:
   docs:
     name: dimensions

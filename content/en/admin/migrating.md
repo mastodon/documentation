@@ -1,6 +1,6 @@
 ---
 title: Migrating to a new machine
-description: Copying your Mastodon installation to a new server without losing anything.
+summary: Copying your Mastodon installation to a new server without losing anything.
 menu:
   docs:
     weight: 90

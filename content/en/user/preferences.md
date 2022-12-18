@@ -1,6 +1,6 @@
 ---
 title: Set your preferences
-description: Customize things just the way you like them.
+summary: Customize things just the way you like them.
 menu:
   docs:
     weight: 70

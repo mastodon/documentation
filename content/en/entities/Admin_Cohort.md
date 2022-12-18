@@ -1,6 +1,6 @@
 ---
 title: Admin::Cohort
-description: Represents a retention metric.
+summary: Represents a retention metric.
 menu:
   docs:
     parent: entities

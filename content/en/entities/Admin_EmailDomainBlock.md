@@ -1,6 +1,6 @@
 ---
 title: Admin::EmailDomainBlock
-description: Represents an email domain that cannot be used to sign up.
+summary: Represents an email domain that cannot be used to sign up.
 menu:
   docs:
     parent: entities

@@ -1,6 +1,6 @@
 ---
 title: custom_emojis API methods
-description: >-
+summary: >-
   Each site can define and upload its own custom emoji to be attached to
   profiles or statuses.
 menu:

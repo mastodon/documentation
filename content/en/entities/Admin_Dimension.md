@@ -1,6 +1,6 @@
 ---
 title: Admin::Dimension
-description: Represents qualitative data about the server.
+summary: Represents qualitative data about the server.
 menu:
   docs:
     parent: entities

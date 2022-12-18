@@ -1,6 +1,6 @@
 ---
 title: OAuth
-description: An open standard for token-based authentication and authorization on the Internet
+summary: An open standard for token-based authentication and authorization on the Internet
 menu:
   docs:
     weight: 50

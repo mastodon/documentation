@@ -1,6 +1,6 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-description: 
+summary: 
 menu:
   docs:
     parent: entities

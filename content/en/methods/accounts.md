@@ -1,6 +1,6 @@
 ---
 title: accounts API methods
-description: Methods concerning accounts and profiles.
+summary: Methods concerning accounts and profiles.
 menu:
   docs:
     weight: 20
