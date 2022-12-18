@@ -1,6 +1,6 @@
 ---
 title: MediaAttachment
-description: Represents a file or media attachment that can be added to a status.
+summary: Represents a file or media attachment that can be added to a status.
 menu:
   docs:
     parent: entities

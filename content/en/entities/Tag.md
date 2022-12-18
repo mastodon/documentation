@@ -1,6 +1,6 @@
 ---
 title: Tag
-description: Represents a hashtag used within the content of a status.
+summary: Represents a hashtag used within the content of a status.
 menu:
   docs:
     parent: entities

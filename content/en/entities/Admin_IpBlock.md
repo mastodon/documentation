@@ -1,6 +1,6 @@
 ---
 title: Admin::IpBlock
-description: Represents an IP address range that cannot be used to sign up.
+summary: Represents an IP address range that cannot be used to sign up.
 menu:
   docs:
     parent: entities

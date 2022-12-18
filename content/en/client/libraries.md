@@ -1,6 +1,6 @@
 ---
 title: Libraries and implementations
-description: Code, libraries and SDKs for the Mastodon API in a range of programming languages.
+summary: Interface with the Mastodon API in the programming language of your choice.
 menu:
   docs:
     weight: 60

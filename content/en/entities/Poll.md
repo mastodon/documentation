@@ -1,6 +1,6 @@
 ---
 title: Poll
-description: Represents a poll attached to a status.
+summary: Represents a poll attached to a status.
 menu:
   docs:
     parent: entities

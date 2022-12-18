@@ -1,6 +1,6 @@
 ---
 title: DomainBlock
-description: Represents a domain that is blocked by the instance.
+summary: Represents a domain that is blocked by the instance.
 menu:
   docs:
     parent: entities

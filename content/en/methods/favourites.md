@@ -1,6 +1,6 @@
 ---
 title: favourites API methods
-description: View your favourites. See also statuses/:id/{favourite,unfavourite}
+summary: View your favourites. See also statuses/:id/{favourite,unfavourite}
 menu:
   docs:
     weight: 20

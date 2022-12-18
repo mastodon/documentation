@@ -1,6 +1,6 @@
 ---
 title: Reaction
-description: Represents an emoji reaction to an Announcement.
+summary: Represents an emoji reaction to an Announcement.
 menu:
   docs:
     parent: entities

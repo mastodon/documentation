@@ -1,6 +1,6 @@
 ---
 title: Relationship
-description: Represents the relationship between accounts, such as following / blocking / muting / etc.
+summary: Represents the relationship between accounts, such as following / blocking / muting / etc.
 menu:
   docs:
     parent: entities

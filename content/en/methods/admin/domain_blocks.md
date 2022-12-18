@@ -1,6 +1,6 @@
 ---
 title: admin/domain_blocks API methods
-description: Disallow certain domains to federate.
+summary: Disallow certain domains to federate.
 menu:
   docs:
     name: domain_blocks

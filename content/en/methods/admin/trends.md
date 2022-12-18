@@ -1,6 +1,6 @@
 ---
 title: admin/trends API methods
-description: TODO
+summary: TODO
 menu:
   docs:
     name: trends

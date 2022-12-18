@@ -1,6 +1,6 @@
 ---
 title: ExtendedDescription
-description: Represents an extended description for the instance, to be shown on its about page.
+summary: Represents an extended description for the instance, to be shown on its about page.
 menu:
   docs:
     parent: entities

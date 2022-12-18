@@ -1,6 +1,6 @@
 ---
 title: Notification
-description: Represents a notification of an event relevant to the user.
+summary: Represents a notification of an event relevant to the user.
 menu:
   docs:
     parent: entities

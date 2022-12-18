@@ -1,6 +1,6 @@
 ---
 title: Moving or leaving accounts
-description: Take your information and do what you want with it.
+summary: Take your information and do what you want with it.
 menu:
   docs:
     weight: 100

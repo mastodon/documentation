@@ -1,6 +1,6 @@
 ---
 title: IdentityProof
-description: Represents a proof from an external identity provider.
+summary: Represents a proof from an external identity provider.
 menu:
   docs:
     parent: entities

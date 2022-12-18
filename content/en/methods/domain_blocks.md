@@ -1,6 +1,6 @@
 ---
 title: domain_blocks API methods
-description: Manage a user's blocked domains.
+summary: Manage a user's blocked domains.
 menu:
   docs:
     weight: 50

@@ -1,6 +1,6 @@
 ---
 title: PreviewCard
-description: Represents a rich preview card that is generated using OpenGraph tags from a URL.
+summary: Represents a rich preview card that is generated using OpenGraph tags from a URL.
 menu:
   docs:
     parent: entities

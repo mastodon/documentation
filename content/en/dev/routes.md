@@ -1,6 +1,6 @@
 ---
 title: Routes
-description: How HTTP methods map to controllers and actions.
+summary: How HTTP methods map to controllers and actions.
 menu:
   docs:
     weight: 40

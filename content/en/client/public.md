@@ -1,6 +1,6 @@
 ---
 title: Playing with public data
-description: Familiarizing yourself with endpoints and entities.
+summary: Familiarizing yourself with endpoints and entities.
 menu:
   docs:
     weight: 20

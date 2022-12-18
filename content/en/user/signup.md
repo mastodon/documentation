@@ -1,6 +1,6 @@
 ---
 title: Signing up for an account
-description: Find your perfect community.
+summary: Find your perfect community.
 menu:
   docs:
     weight: 10

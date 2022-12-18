@@ -1,6 +1,6 @@
 ---
 title: admin/accounts API methods
-description: Perform moderation actions with accounts.
+summary: Perform moderation actions with accounts.
 menu:
   docs:
     name: accounts

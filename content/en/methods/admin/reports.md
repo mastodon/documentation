@@ -1,6 +1,6 @@
 ---
 title: admin/reports API methods
-description: Perform moderation actions with reports.
+summary: Perform moderation actions with reports.
 menu:
   docs:
     name: reports

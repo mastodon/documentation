@@ -1,6 +1,6 @@
 ---
 title: FeaturedTag
-description: Represents a hashtag that is featured on a profile.
+summary: Represents a hashtag that is featured on a profile.
 menu:
   docs:
     parent: entities

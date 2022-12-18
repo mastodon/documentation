@@ -1,6 +1,6 @@
 ---
 title: trends API methods
-description: View hashtags that are currently being used more frequently than usual.
+summary: View hashtags that are currently being used more frequently than usual.
 menu:
   docs:
     weight: 10
