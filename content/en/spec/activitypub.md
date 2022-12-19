@@ -218,7 +218,7 @@ published
 
 ## HTML sanitization {#sanitization}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/sanitize_config.rb" caption="app/lib/sanitize_config.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/sanitize_ext/sanitize_config.rb" caption="lib/sanitize_ext/sanitize_config.rb" >}}
 
  Mastodon sanitizes incoming HTML in order to not break assumptions for API client developers. Supported elements include `<p>`, `<span>`, `<br>`, and `<a>`. Unsupported elements will be converted to `<p>`.The sanitizer will keep classes if they begin with microformats prefixes or are semantic classes:
 
