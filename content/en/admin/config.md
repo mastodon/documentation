@@ -240,6 +240,10 @@ This variable cannot be defined in dotenv (`.env`) files as it's used before the
 
 {{< page-ref page="admin/scaling" >}}
 
+#### `SIDEKIQ_CONCURRENCY`
+
+Added in 4.1. Specific to Sidekiq, this variable determines how many different processes Sidekiq forks into. Defaults to `5`.
+
 #### `WEB_CONCURRENCY`
 
 Specific to Puma, this variable determines how many different processes Puma forks into. Defaults to `2`.
