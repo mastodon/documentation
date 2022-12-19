@@ -1,9 +1,9 @@
 ---
 title: Dealing with unwanted content
 summary: Control what you see, for a more comfortable social media experience.
+weight: 50
 menu:
   docs:
-    weight: 50
     parent: user
 ---
 

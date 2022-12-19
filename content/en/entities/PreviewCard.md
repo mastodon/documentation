@@ -187,7 +187,7 @@ aliases: [
 
 ## Trends::Link entity attributes {#trends-link}
 
-```json
+```json{linenos=false,hl_lines=["16-52"]}
 {
   "url": "https://www.nbcnews.com/specials/plan-your-vote-2022-elections/index.html",
   "title": "Plan Your Vote: 2022 Elections",

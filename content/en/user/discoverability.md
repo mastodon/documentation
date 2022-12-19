@@ -1,9 +1,9 @@
 ---
 title: Promoting yourself and others
 summary: Give visibility to hashtags, profiles, and posts.
+weight: 60
 menu:
   docs:
-    weight: 60
     parent: user
 ---
 

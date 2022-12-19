@@ -1,9 +1,9 @@
 ---
 title: Using Mastodon externally
 summary: You can browse and interact on Mastodon from external apps or websites.
+weight: 90
 menu:
   docs:
-    weight: 90
     parent: user
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: Posting to your profile
 summary: Sharing your thoughts has never been more convenient.
+weight: 30
 menu:
   docs:
-    weight: 30
     parent: user
 ---
 

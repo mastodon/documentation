@@ -112,7 +112,7 @@ aliases: [
 
 ## Admin::Tag attributes {#admin}
 
-```json
+```json{linenos=false,hl_lines=["41-44"]}
 {
   "name": "caturday",
   "url": "https://mastodon.example/tags/caturday",

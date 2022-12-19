@@ -1,9 +1,9 @@
 ---
 title: Setting up your profile
 summary: Get started with your new account.
+weight: 20
 menu:
   docs:
-    weight: 20
     parent: user
 ---
 
@@ -33,8 +33,7 @@ Your header is a banner image shown at the top of your profile, as well as in pr
 
 You can set certain flags on your profile to let others know how you use Mastodon.
 
-{{< figure src="assets/bot-flag.jpg" caption="Overview of a profile with the Bot flag set." >}}
-
+{{< figure src="/assets/bot-flag.jpg" caption="An unmonitored account using the Bot flag" >}}
 
 ### Locked account {#locked}
 
