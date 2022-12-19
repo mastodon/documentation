@@ -1,9 +1,9 @@
 ---
 title: Running your own server
-description:
+summary: Build a home for yourself that you manage for yourself
+weight: 9999
 menu:
   docs:
-    weight: 9999
     parent: user
 ---
 

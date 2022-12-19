@@ -1,9 +1,9 @@
 ---
 title: Set your preferences
 summary: Customize things just the way you like them.
+weight: 70
 menu:
   docs:
-    weight: 70
     parent: user
 ---
 

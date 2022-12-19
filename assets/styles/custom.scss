@@ -1,9 +1,17 @@
 @import "colors";
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@font-face {
+	font-family: 'Manrope';
+	src: url('/fonts/Manrope.ttf');
+}
 
 html {
 	font-family: Manrope,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji
+}
+
+$sidebar-width: 22rem;
+:root {
+	--sidebar-width: #{$sidebar-width};
 }
 
 /* make the masthead logo line up with the sidebar */
@@ -60,3 +68,5 @@ html {
 		color: var(--ui-text);
 	}
 }
+
+/* custom components */

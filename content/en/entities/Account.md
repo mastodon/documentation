@@ -275,7 +275,7 @@ aliases: [
 
 ## CredentialAccount entity attributes {#CredentialAccount}
 
-```json
+```json{linenos=false,hl_lines=["9-37"]}
 {
   "id": "14715",
   "username": "trwnh",
@@ -440,10 +440,10 @@ aliases: [
 
 ## See also
 
-{{< page-relref ref="methods/accounts" caption="accounts API methods" >}}
+{{< page-ref ref="methods/accounts" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/account_serializer.rb" caption="app/serializers/rest/account_serializer.rb" >}}
+{{< source-ref url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/account_serializer.rb" name="AccountSerializer" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/credential_account_serializer.rb" caption="app/serializers/rest/credential_account_serializer.rb" >}}
+{{< source-ref url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/credential_account_serializer.rb" name="CredentialAccountSerializer" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/muted_account_serializer.rb" caption="app/serializers/rest/muted_account_serializer.rb" >}}
+{{< source-ref url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/muted_account_serializer.rb" name="MutedAccountSerializer" >}}

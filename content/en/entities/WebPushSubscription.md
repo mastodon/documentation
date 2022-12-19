@@ -140,7 +140,7 @@ aliases: [
 
 ## See also
 
-{{< page-relref ref="methods/push" caption="push API methods" >}}
+{{< page-ref ref="methods/push#create" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/web_push_subscription_serializer.rb" caption="app/serializers/rest/web_push_subscription_serializer.rb" >}}
 

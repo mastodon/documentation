@@ -1,9 +1,9 @@
 ---
 title: Signing up for an account
 summary: Find your perfect community.
+weight: 10
 menu:
   docs:
-    weight: 10
     parent: user
 ---
 
