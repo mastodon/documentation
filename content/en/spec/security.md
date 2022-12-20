@@ -51,13 +51,15 @@ Date: 18 Dec 2019 10:08:46 GMT
 Accept: application/ld+json; profile="http://www.w3.org/ns/activitystreams"
 ```
 
-The signature string is constructed using the values of the HTTP headers defined in `headers`, joined by newlines. Typically, you will want to include the request target, as well as the host and the date. Mastodon assumes `Date:` header if none are provided. For the above GET request, to generate a `Signature:` with `headers="(request-target) host date"` we would generate the following string:
+The signature string is constructed using the values of the HTTP headers defined in `headers`, joined by newlines. Typically, you will want to include the request target, as well as the host and the date. Mastodon assumes `Date:` header if none are provided. The date header must be formatted according to RFC2616 (e.g., a date string ending in `UTC` will not work; it must always be formatted with `GMT`). For the above GET request, to generate a `Signature:` with `headers="(request-target) host date"` we would generate the following string:
 
 ```text
 (request-target): get /users/username/outbox
 host: mastodon.example
 date: 18 Dec 2019 10:08:46 GMT
 ```
+
+Each line but the last is terminated by a newline (`\n`) character. The final newline must be omitted in the signed data or signature verification will fail.
 
 Note that we don't care about the `Accept:` header because we won't be specifying it in `headers`.
 
@@ -75,25 +77,27 @@ This request is functionally equivalent to saying that `https://my-example.com/a
 
 #### Signing POST requests and the Digest header {#digest}
 
-When making a POST request to Mastodon, you must calculate the RSA-SHA256 digest hash of your request's body and include this hash within the `Digest:` header. The `Digest:` header must also be included within the `headers` parameter of the `Signature:` header. For example:
+When making a POST request to Mastodon, you must calculate the RSA-SHA256 digest hash of your request's body and include this hash within the `Digest:` header. The `Digest:` header must also be included within the `headers` parameter of the `Signature:` header, and the data in the `Digest:` header must be preceded with the algorithm name (e.g., "sha-256="). The digest must be base64 encoded.
 
 ```http
 POST /users/username/inbox HTTP/1.1
 HOST: mastodon.example
-Date: 18 Dec 2019 10:08:46 GMT
-Digest: e37e179c75071a291f90a5fd4f848da87b491f1282f7bb8509ef2115b81ee0f4
+Date: Tue, 20 Dec 2022 22:02:48 GMT
+Digest: sha-256=NTUwY2QzZTk4MzBhNTM1OGE0OTI5MmQ4MDkyNDRjYzg2OGVlMjZiMzU1YzgxMmQ0NTY0NjZkYmI4YzYxODZjMCAgLQo=
 Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date digest",signature="Y2FiYW...IxNGRiZDk4ZA=="
 Content-Type: application/ld+json; profile="http://www.w3.org/ns/activitystreams"
 
 {
-  "@context": "https://www.w3.org/ns/activitystreams",
-  "actor": "https://example.com/actor",
-  "type": "Create",
-  "object": {
-    "type": "Note",
-    "content": "Hello!"
-  }
-  "to": "https://mastodon.example/users/username"
+  "@context":"https://www.w3.org/ns/activitystreams",
+  "type":"Note",
+  "to":["https://mastodon.example/users/username"],
+  "tag":[{ 
+    "type":"Mention",
+    "name":"@username@mastodon.example",
+    "href":"https://mastodon.example/users/username"
+  }],
+  "attributedTo":"https://example.com/actor",
+  "content":"Hello, world."
 }
 ```
 
@@ -106,8 +110,8 @@ Consider the following request:
 ```http
 POST /users/username/inbox HTTP/1.1
 Host: mastodon.example
-Date: 18 Dec 2019 10:08:46 GMT
-Digest: e37e179c75071a291f90a5fd4f848da87b491f1282f7bb8509ef2115b81ee0f4
+Date: Tue, 20 Dec 2022 22:02:48 GMT
+Digest: sha-256=NTUwY2QzZTk4MzBhNTM1OGE0OTI5MmQ4MDkyNDRjYzg2OGVlMjZiMzU1YzgxMmQ0NTY0NjZkYmI4YzYxODZjMCAgLQo=
 Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date digest",signature="Y2FiYW...IxNGRiZDk4ZA=="
 Content-Type: application/ld+json; profile="http://www.w3.org/ns/activitystreams"
 
