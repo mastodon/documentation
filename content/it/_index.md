@@ -45,65 +45,65 @@ Il fediverso non ha il suo brand, quindi potresti sentire più volte sentire “
 
 ### Scelta del provider dei servizi e della policy {#choice}
 
-Because Mastodon is just software that can be used to power any website, potential users of Mastodon have the option of choosing a service provider from already-existing Mastodon websites, or to create their own Mastodon website if they wish. The Mastodon project maintains a list of recommended service providers at [joinmastodon.org](https://joinmastodon.org), sortable by category and/or language. Some websites may have moderation policies that go beyond this, such as requiring the use of certain tags on potentially sensitive content, and some websites may have more relaxed moderation policies, but websites listed in the picker all agree to adopt the [Mastodon Server Covenant](https://joinmastodon.org/covenant), meaning that they pledge to actively moderate against hate speech, to take daily backups, to have at least one emergency admin, and to provide at least 3 months advance notice in case of shutdown.
+Poiché Mastodon è solo un software che può essere utilizzato per alimentare qualsiasi sito Web, i potenziali utenti di Mastodon hanno la possibilità di scegliere un fornitore di servizi dai siti Web Mastodon già esistenti o di creare il proprio sito Web Mastodon, se lo desiderano. Il progetto Mastodon mantiene un elenco di fornitori di servizi consigliati su [joinmastodon.org](https://joinmastodon.org), ordinabili per categoria e/o lingua. Alcuni siti Web potrebbero avere politiche di moderazione molto restrittivi, come richiedere l'uso di determinati tag su contenuti potenzialmente sensibili, e alcuni siti Web potrebbero avere politiche di moderazione più flessibili, ma i siti Web elencati nel selettore accettano tutti di adottare il [Mastodon Server Covenant] (https://joinmastodon.org/covenant), il che significa che si impegnano a moderare attivamente contro l'incitamento all'odio, a fare backup giornalieri, ad avere almeno un amministratore di emergenza e a fornire almeno 3 mesi di preavviso in caso di chiusura.
 
-> Maintaining communities that feel safe for all of its members is not easy. Mastodon provides a lot of foundational framework and tools for doing it, and shifts the power to effect change from one commercial entity to the communities themselves.
+> Mantenere comunità sicure per tutti i suoi membri non è facile. Mastodon fornisce molte strutture e strumenti di base per farlo e sposta il potere di effettuare il cambiamento da un'entità commerciale alle comunità stesse.
 >
-> -- Eugen Rochko, Jul 6 2018, ["Cage the Mastodon"](https://blog.joinmastodon.org/2018/07/cage-the-mastodon/)
+> -- Eugen Rochko, 6 luglio 2018, ["Cage the Mastodon"](https://blog.joinmastodon.org/2018/07/cage-the-mastodon/)
 
-> A centralized social media platform has a hierarchical structure where rules and their enforcement, as well as the development and direction of the platform, are decided by the CEO [...] A decentralized network deliberately relinquishes control of the platform owner, by essentially not having one.
+> Una piattaforma di social media centralizzata ha una struttura gerarchica in cui le regole e la loro applicazione, così come lo sviluppo e la direzione della piattaforma, sono decise dal CEO [...] Una rete decentralizzata rinuncia deliberatamente al controllo del proprietario della piattaforma, sostanzialmente non averne uno.
 >
-> -- Eugen Rochko, Dec 30 2018, ["Why does decentralization matter?"](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
+> -- Eugen Rochko, 30 dicembre 2018, ["Perché il decentramento è importante?"](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
 
-### Funding and monetization {#monetization}
+### Finanziamenti e monetizzazione {#monetization}
 
-Mastodon websites are operated by different people or organizations completely independently. Mastodon does not implement any monetization strategies in the software.
+I siti Web Mastodon sono gestiti da diverse persone o organizzazioni in modo completamente indipendente. Mastodon non implementa alcuna strategia di monetizzazione nel software.
 
-Some server operators choose to offer paid accounts, some server operators are companies who can utilize their existing infrastructure, some server operators rely on crowdfunding from their users via Patreon and similar services, and some server operators are just paying out-of-pocket for a personal server for themselves and maybe some friends. So if you want to support the server hosting your account, check if it offers a way to donate.
+Alcuni operatori di server scelgono di offrire account a pagamento, alcuni operatori di server sono aziende che possono utilizzare la loro infrastruttura esistente, alcuni operatori di server si affidano al crowdfunding dei propri utenti tramite Patreon e servizi simili e alcuni operatori di server stanno solo pagando di tasca propria per un server personale per se stessi e forse per alcuni amici. Quindi, se vuoi supportare il server che ospita il tuo account, controlla se offre un modo per donare.
 
-Mastodon development is likewise crowdfunded via [Patreon](https://patreon.com/mastodon) and via [OpenCollective](https://opencollective.com/mastodon). **No venture capital is involved.**
+Anche lo sviluppo di Mastodon è finanziato tramite crowdfunding tramite [Patreon](https://patreon.com/mastodon) e tramite [OpenCollective](https://opencollective.com/mastodon). **Non è coinvolto alcun capitale di rischio.**
 
-> In my opinion, “instant, public, global messaging and conversation” should, in fact, be _global_. Distributed between independent organizations and actors who can self-govern. A public utility, without incentives to exploit the conversations for profit.
+> A mio parere, "messaggi e conversazioni istantanee, pubbliche e globali" dovrebbero, in effetti, essere _globali_. Distribuito tra organizzazioni indipendenti e attori che possono autogovernarsi. Di pubblica utilità, senza incentivi a sfruttare le conversazioni a scopo di lucro.
 >
-> -- Eugen Rochko, Mar 3 2018, ["Twitter is not a public utility"](https://blog.joinmastodon.org/2018/03/twitter-is-not-a-public-utility/)
+> -- Eugen Rochko, 3 marzo 2018, ["Twitter non è di pubblica utilità"](https://blog.joinmastodon.org/2018/03/twitter-is-not-a-public-utility/)
 
-### Interoperability between different software {#interoperability}
+### Interoperabilità tra diversi software {#interoperability}
 
-In practical terms: Imagine if you could follow an Instagram user from your Twitter account and comment on their photos without leaving your account. If Twitter and Instagram were federated services that used the same protocol, that would be possible. With a Mastodon account, **you can communicate with any other compatible website,** _**even if it is not running on Mastodon**_. All that is necessary is that the software support the same subset of the ActivityPub protocol that allows for creating and interacting with status updates. To find out more about the technical specifications required to interoperate with Mastodon, see [ActivityPub](spec/activitypub), [WebFinger](spec/webfinger), and [Security](spec/security). To read more about what ActivityPub allows us to do, see [Why ActivityPub is the future](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/).
+In termini pratici: immagina di poter seguire un utente Instagram dal tuo account Twitter e commentare le sue foto senza lasciare il tuo account. Se Twitter e Instagram fossero servizi federati che utilizzano lo stesso protocollo, ciò sarebbe possibile. Con un account Mastodon, **puoi comunicare con qualsiasi altro sito web compatibile,** _**anche se non è in esecuzione su Mastodon**_. Tutto ciò che è necessario è che il software supporti lo stesso sottoinsieme del protocollo ActivityPub che consente di creare e interagire con gli aggiornamenti di stato. Per saperne di più sulle specifiche tecniche necessarie per interagire con Mastodon, vedere [ActivityPub](spec/activitypub), [WebFinger](spec/webfinger) e [Security](spec/security). Per saperne di più su ciò che ActivityPub ci permette di fare, vedi [Perché ActivityPub è il futuro](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/).
 
-> All of these platforms are different and they focus on different needs. And yet, the foundation is all the same: people subscribing to receive posts from other people. And so, they are all compatible.
+> Tutte queste piattaforme sono diverse e si concentrano su esigenze diverse. Eppure, la base è sempre la stessa: persone che si iscrivono per ricevere post da altre persone. E così, sono tutti compatibili.
 >
-> -- Eugen Rochko, Jun 27 2018, ["Why ActivityPub is the future"](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/)
+> -- Eugen Rochko, 27 giugno 2018, ["Perché ActivityPub è il futuro"](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/)
 
-### Free/libre software {#libre}
+### Software libero/libero {#libre}
 
-Unlike proprietary services, **anyone has the complete freedom to run, examine, inspect, copy, modify, distribute, and reuse the Mastodon source code, provided they guarantee the same freedoms for any derivative work.** Just like how users of Mastodon can choose their service provider, you as an individual are free to contribute features to Mastodon or publish a modified version of Mastodon that includes different features. These modified versions, also known as software forks, are required to also uphold the same freedoms as the original Mastodon project. For example, [glitch-soc](https://glitch-soc.github.io/docs/) is a software distribution that adds various experimental features. Many individual forks exist as well, perhaps themed slightly differently or including small modifications to the codebase. Because Mastodon is libre software that respects your freedom, personalizations like this are not only allowed but encouraged.
+A differenza dei servizi proprietari, **chiunque ha la completa libertà di eseguire, esaminare, ispezionare, copiare, modificare, distribuire e riutilizzare il codice sorgente di Mastodon, a condizione che garantiscano le stesse libertà per qualsiasi lavoro derivato.** Proprio come fanno gli utenti di Mastodon puoi scegliere il loro fornitore di servizi, tu come individuo sei libero di contribuire con funzionalità a Mastodon o pubblicare una versione modificata di Mastodon che include funzionalità diverse. Queste versioni modificate, note anche come software fork, sono necessarie per mantenere le stesse libertà del progetto Mastodon originale. Ad esempio, [glitch-soc](https://glitch-soc.github.io/docs/) è una distribuzione software che aggiunge varie funzionalità sperimentali.
+Esistono anche molti fork individuali, forse con un tema leggermente diverso o che includono piccole modifiche alla base di codice. Poiché Mastodon è un software gratuito che rispetta la tua libertà, personalizzazioni come questa non sono solo consentite ma incoraggiate.
 
-> The ultimate power is in giving people the ability to create their own spaces, their own communities, to modify the software as they see fit, but without sacrificing the ability of people from different communities to interact with each other.
+> Il potere ultimo sta nel dare alle persone la possibilità di creare i propri spazi, le proprie comunità, di modificare il software come meglio credono, ma senza sacrificare la capacità di persone di comunità diverse di interagire tra loro.
 >
-> -- Eugen Rochko, Feb 20 2017, ["The power to build communities: A response to Mark Zuckerberg"](https://blog.joinmastodon.org/2017/02/the-power-to-build-communities/)
+> -- Eugen Rochko, 20 febbraio 2017, ["Il potere di costruire comunità: una risposta a Mark Zuckerberg"](https://blog.joinmastodon.org/2017/02/the-power-to-build-communities/ )
 
-> Decentralization is biodiversity of the digital world, the hallmark of a healthy ecosystem. A decentralized network like the fediverse allows different user interfaces, different software, different forms of government to co-exist and cooperate.
+> Il decentramento è la biodiversità del mondo digitale, segno distintivo di un ecosistema sano. Una rete decentralizzata come fediverse consente la coesistenza e la cooperazione di diverse interfacce utente, diversi software, diverse forme di governo.
 >
-> -- Eugen Rochko, Dec 30 2018, ["Why does decentralization matter?"](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
+> -- Eugen Rochko, 30 dicembre 2018, ["Perché il decentramento è importante?"](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
 
-## Choose your path {#next-steps}
+## Scegli il tuo percorso {#next-steps}
 
-Learn how to use Mastodon:
+Scopri come usare Mastodonte:
 
-{{< page-ref page="user/signup" >}}
+{{< page-ref page="utente/signup" >}}
 
-Learn how to install Mastodon:
+Scopri come installare Mastodon:
 
-{{< page-ref page="admin/prerequisites" >}}
+{{< page-ref page="admin/prerequisiti" >}}
 
-Learn how to write an app for Mastodon:
+Scopri come scrivere un'app per Mastodon:
 
 {{< page-ref page="client/intro" >}}
 
-Learn about the Mastodon backend and how to contribute:
+Ulteriori informazioni sul backend Mastodon e su come contribuire:
 
 {{< page-ref page="dev/overview" >}}
-
 
 
