@@ -34,21 +34,24 @@ Here is what you need:
 
   **How to get**: Amazon S3, Exoscale, Wasabi, Google Cloud, anything that exposes either an S3-compatible or OpenStack Swift-compatible API. Comes with a monthly cost based on the amount of files stored as well as how often they are accessed.
 
-There exist a number of **dedicated Mastodon hosting providers** that take care of many if not all of the above requirements, that you can choose if you're interested in someone else taking care of all the technical stuff. Usually you still need to buy your own domain name though. Some of such providers are:
+There exist a number of **dedicated Mastodon hosting providers** that take care of many if not all of the above requirements, that you can choose if you're interested in someone else taking care of all the technical stuff. In most cases, you may still need to buy your own domain name. Mileage varies across providers. Some of such providers are:
 
-{{< caption-link url="https://masto.host" caption="Masto.host" >}}
+**Note: Many providers have limitations related to either locations or availability. Check with each individual provider for details.**
 
 {{< caption-link url="https://hostdon.jp" caption="Hostdon" >}}
 
-{{< caption-link url="https://app.spacebear.ee/mastodon" caption="Spacebear" >}}
-
-{{< caption-link url="https://ossrox.org" caption="Ossrox" >}}
-
-{{< caption-link url="https://weingaertner-it.de" caption="Weingärtner IT" >}}
-
-{{< caption-link url="https://fedi.monster/" caption="Fedi.monster" >}}
-
 {{< caption-link url="https://cloudplane.org" caption="Cloudplane" >}}
+
+{{< caption-link url="https://ossrox.org" caption="Ossrox (registrations only available to EU)" >}}
+
+{{< caption-link url="https://weingaertner-it.de" caption="Weingärtner IT (registrations only available to EU)" >}}
+
+{{< caption-link url="https://masto.host" caption="Masto.host (registrations paused as of 12/2022)" >}}
+
+{{< caption-link url="https://fedi.monster/" caption="Fedi.monster (registrations paused as of 12/2022)" >}}
+
+{{< caption-link url="https://app.spacebear.ee/mastodon" caption="Spacebear (registrations paused as of 12/2022)" >}}
+
 
 Managed hosting solutions are great for those who do not have experience or desire to install and maintain software. However, being in charge of all components on your own hardware gives greater control over scaling, performance and customization.
 
