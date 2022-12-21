@@ -174,7 +174,7 @@ Undo
 ### Properties used
 
 preferredUsername
-: Used for Webfinger lookup. Must be unique on the domain, and must correspond to a Webfinger `acct:` URI. 
+: Used for Webfinger lookup. Must be unique on the domain, and must correspond to a Webfinger `acct:` URI.
 
 name
 : Used as profile display name.
@@ -420,7 +420,7 @@ Mastodon supports setting a focal point on uploaded images, so that wherever tha
 }
 ```
 
-{{< figure src="/assets/focal-points.jpg" caption="A demonstration of various focal points and their coordinates." >}}
+{{< figure src="assets/focal-points.jpg" caption="A demonstration of various focal points and their coordinates." >}}
 
 The focal point of (-0.55, 0.43) in the example above corresponds to a point 55% to the left of center and 43% above center. This focal point should remain visible within the cropped thumbnail, if any cropping is done.
 

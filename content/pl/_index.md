@@ -22,7 +22,7 @@ Tak jak blogowaniem nazwiemy publikowanie aktualności na stronie, **mikroblogow
 
 Serwer Mastodona może funkcjonować samodzielnie. Tak jak na tradycyjnej stronie, ludzie mogą się zarejestrować, publikować tam wiadomości i rozmawiać z innymi. W przeciwieństwie do tradycyjnej strony, serwery Mastodona wzajemnie komunikują się ze sobą, pozwalając swoim użytkownikom na wzajemną komunikację – tak, jak mając konto na Gmailu, możesz napisać mail do kogoś na Outlooku, Fastmail, Protonmail czy serwerze dowolnego dostawcy, tak długo, jak znasz jego e-mail, **możesz wspomnieć lub napisać wiadomość do użytkownika dowolnego serwera, jeśli znasz jego adres**.
 
-{{< figure src="/assets/network-models.jpg" caption="Od lewej do prawej: Scentralizowana, Sfederowana, Dystrybuowana" >}}
+{{< figure src="assets/network-models.jpg" caption="Od lewej do prawej: Scentralizowana, Sfederowana, Dystrybuowana" >}}
 
 
 
@@ -104,6 +104,3 @@ Naucz się tworzyć aplikacje dla Mastodona:
 Naucz się o back-endzie Mastodona i dowiedz się jak wnieść swój wkład:
 
 {{< page-ref page="dev/overview" >}}
-
-
-
