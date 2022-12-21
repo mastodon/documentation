@@ -50,7 +50,8 @@ menu:
 
 ## Java {#java}
 
-* [mastodon4j](https://github.com/sys1yagi/mastodon4j)
+* [mastodon4j](https://github.com/andregasser/mastodon4j)
+* [mastodon4j](https://github.com/sys1yagi/mastodon4j) (unmaintained)
 
 ## JavaScript {#javascript}
 
