@@ -2,3 +2,4 @@ public/
 static/.sass-cache
 resources/
 .hugo_build.lock
+.vercel
