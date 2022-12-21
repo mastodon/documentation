@@ -92,11 +92,11 @@ Esistono anche molti fork individuali, forse con un tema leggermente diverso o c
 
 Scopri come usare Mastodonte:
 
-{{< page-ref page="utente/signup" >}}
+{{< page-ref page="user/signup" >}}
 
 Scopri come installare Mastodon:
 
-{{< page-ref page="admin/prerequisiti" >}}
+{{< page-ref page="admin/prerequisites" >}}
 
 Scopri come scrivere un'app per Mastodon:
 
