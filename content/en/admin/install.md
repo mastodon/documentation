@@ -192,6 +192,11 @@ ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 
 Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with your own domain name, and make any other adjustments you might need.
 
+Confirm the user nginx runs as (likely `www-data`) can access the files created under `~mastodon/live/public`. The command will try to access the directory:
+```bash
+sudo -u www-data ls /home/mastodon/live/public/
+```
+
 Reload nginx for the changes to take effect:
 
 
