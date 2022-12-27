@@ -634,7 +634,10 @@ Defaults to `1.1`
 
 #### `IP_RETENTION_PERIOD`
 
-Defaults to `31536000` (1 year)
+This controls how long (in seconds) the server stores the IP addresses of people connecting to the server. The shorter this period the better it is for people’s privacy.
+
+Defaults to `172800` (2 days)
+
 
 #### `SESSION_RETENTION_PERIOD`
 
