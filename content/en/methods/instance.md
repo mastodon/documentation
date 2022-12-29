@@ -466,7 +466,7 @@ The admin has chosen to show domain blocks to no one. The response body is empty
 ## View extended description {#extended_description}
 
 ```http
-GET /api/v1/example HTTP/1.1
+GET /api/v1/instance/extended_description HTTP/1.1
 ```
 
 Obtain an extended description of this server
