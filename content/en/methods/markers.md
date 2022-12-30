@@ -44,7 +44,7 @@ timeline[]
 #### Response
 ##### 200: OK
 
-timeline[] = ["home", "notifications"]
+A request with `?timeline[]=home&timeline[]=notifications`
 
 ```json
 {
