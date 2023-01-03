@@ -356,7 +356,7 @@ If set to `true`, Mastodon will use ElasticSearch for its search functions.
 
 #### `ES_HOST`
 
-Host of the ElasticSearch server. Defaults to `localhost`
+Host of the ElasticSearch server. Defaults to `localhost`. If using TLS, prepend the hostname with `https://`. For example: `https://myelastic.tld`.
 
 #### `ES_PORT`
 
