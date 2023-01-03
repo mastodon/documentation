@@ -690,7 +690,7 @@ Scans for files that do not belong to existing media attachments, and remove the
 
 ### `tootctl media refresh` {#media-refresh}
 
-Refetch remote media attachments from other servers. You must specify the source of media attachments with either `--status`, `--account`, or `--domain`. If an attachment already exists in the database, it will not be overwritten unless you use `--force`.  
+Refetch remote media attachments from other servers. You must specify the source of media attachments with either `--status`, `--account`, `--domain`, or `--days`. If an attachment already exists in the database, it will not be overwritten unless you use `--force`.  
 
 `--account ACCT`
 : String `username@domain` handle of the account
