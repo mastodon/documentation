@@ -30,6 +30,7 @@ menu:
 ## Common Lisp {#common-lisp}
 
 * [tooter](https://github.com/Shinmera/tooter)
+* [mastodon-cl](https://github.com/compufox/mastodon-cl)
 
 ## Dart
 
