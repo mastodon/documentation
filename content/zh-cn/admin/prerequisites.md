@@ -6,13 +6,17 @@ menu:
     parent: admin
 ---
 
-如果你正在设置一台全新的机器，推荐你首要完成安全设置。以下内容假定你运行 **Ubuntu 18.04**：
+如果你正在设置一台全新的机器，推荐你首要完成安全设置。以下内容假定你运行 **Ubuntu 20.04**：
 
 ## 禁止密码登录SSH（仅允许密钥登录）
 
 首先，请确保你实际上是通过密钥而不是通过密码登录到服务器的，否则这将使你无法登录。许多托管服务提供商支持上传公钥，并自动为新机器设置基于密钥的root登录。
 
-编辑 `/etc/ssh/sshd_config` 并找到 `PasswordAuthentication`。确保它已被去除注释并被设为 `no`。如果你做了任何改动，请重启 sshd。
+编辑 `/etc/ssh/sshd_config` 并找到 `PasswordAuthentication`。确保它已被去除注释并被设为 `no`。如果你做了任何改动，请重启 sshd：
+
+```bash
+systemctl restart ssh.service
+```
 
 ## 更新系统
 
@@ -21,6 +25,12 @@ apt update && apt upgrade -y
 ```
 
 ## 安装 fail2ban 以阻止重复登录尝试
+
+首先，安装 fail2ban:
+
+```bash
+apt install fail2ban
+```
 
 编辑 `/etc/fail2ban/jail.local` 并添加以下内容：
 
@@ -94,4 +104,46 @@ iptables-persistent 将在机器启动时自动加载配置。但是由于我们
 iptables-restore < /etc/iptables/rules.v4
 ```
 
-{{< translation-status-zh-cn raw_title="Preparing your machine" raw_link="/admin/prerequisites/" last_tranlation_time="2020-05-04" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}
+如果您的服务器可通过 IPv6 访问，请编辑 `/etc/iptables/rules.v6` 并添加以下内容：
+
+```text
+*filter
+
+#  Allow all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0
+-A INPUT -i lo -j ACCEPT
+-A INPUT ! -i lo -d ::1/128 -j REJECT
+
+#  Accept all established inbound connections
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+#  Allow all outbound traffic - you can modify this to only allow certain traffic
+-A OUTPUT -j ACCEPT
+
+#  Allow HTTP and HTTPS connections from anywhere (the normal ports for websites and SSL).
+-A INPUT -p tcp --dport 80 -j ACCEPT
+-A INPUT -p tcp --dport 443 -j ACCEPT
+
+#  Allow SSH connections
+#  The -dport number should be the same port number you set in sshd_config
+-A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT
+
+#  Allow ping
+-A INPUT -p icmpv6 -j ACCEPT
+
+#  Log iptables denied calls
+-A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
+
+#  Reject all other inbound - default deny unless explicitly allowed policy
+-A INPUT -j REJECT
+-A FORWARD -j REJECT
+
+COMMIT
+```
+
+像 IPv4 规则一样，您可以手动加载规则：
+
+```bash
+ip6tables-restore < /etc/iptables/rules.v6
+```
+
+{{< translation-status-zh-cn raw_title="Preparing your machine" raw_link="/admin/prerequisites/" last_tranlation_time="2023-01-14" raw_commit="17a5e151a591d4df852bf9c8049db212b4a2649b">}}
