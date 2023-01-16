@@ -33,7 +33,7 @@ Flag
 : Transformed into a report to the moderation team.
 
 Update
-: Refresh vote count on polls. As of Mastodon 3.5.0: edit statuses.
+: Refresh vote count on polls. As of Mastodon 3.5.0, can be used to edit statuses when the `updated` timestamp is present.
 
 Undo
 : Undo a previous Like or Announce.
@@ -81,6 +81,9 @@ url
 
 attributedTo
 : Used to determine the profile which authored the status
+
+updated
+: Used to display the "last edited at" timestamp in the UI to indicate to the user that a status has been edited. Required before an Update activity will be processed. To prevent against race conditions, Mastodon will only process Update payloads with an `updated` timestamp greater than the currently known last `updated` time.
 
 to/cc
 : Used to determine audience and visibility of a status.
