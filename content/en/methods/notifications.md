@@ -175,7 +175,7 @@ Invalid or missing Authorization header.
 ## Get a single notification {#get-one}
 
 ```http
-GET /api/v1/notification/:id HTTP/1.1
+GET /api/v1/notifications/:id HTTP/1.1
 ```
 
 View information about a notification with a given ID.
