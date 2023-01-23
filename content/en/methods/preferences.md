@@ -31,6 +31,8 @@ Preferences defined by the user in their account settings.
 **Version history:**\
 2.8.0 - added
 
+{{< page-relref ref="methods/accounts#update_credentials" caption="Update user preferences using /api/v1/accounts/update_credentials" >}}
+
 #### Request
 
 ##### Headers

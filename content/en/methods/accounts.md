@@ -315,6 +315,8 @@ Update the user's display and preferences.
 2.4.0 - added `source[privacy,sensitive]` parameters\
 2.7.0 - added `discoverable` parameter
 
+{{< page-relref ref="methods/preferences#get" caption="Read preferences using /api/v1/preferences" >}}
+
 #### Request
 
 ##### Headers
