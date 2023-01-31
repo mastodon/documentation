@@ -641,13 +641,22 @@ Fix corrupted database indexes that may have been caused due to changing collati
 
 ### `tootctl media remove` {#media-remove}
 
-Remove locally cached copies of media attachments from other servers.
+Removes locally cached copies of media attachments, avatars or profile headers from other servers. By default, only media attachments are removed.
 
 `--days N`
 : How old media attachments have to be before they are removed. Defaults to 7.
 
 `--concurrency N`
 : The number of workers to use for this task. Defaults to N=5.
+
+`--prune-profiles`
+: Only removes avatars and headers.
+
+`--remove-headers`
+: Only removes headers.
+
+`--include-follows`
+: If specified along with --prune-profiles or --remove-headers, all non-local profiles will be pruned irrespective of follow status.
 
 `--verbose`
 : Print additional information while task is processing.
@@ -658,6 +667,7 @@ Remove locally cached copies of media attachments from other servers.
 **Version history:**\
 2.5.0 - added\
 2.6.2 - show freed disk space
+4.1.0 - added --prune-profiles, --remove-headers, and --include-follows.
 
 
 ---
