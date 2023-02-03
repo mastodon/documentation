@@ -81,6 +81,8 @@ exec bash
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 ```
 
+Restart your shell or open a new terminal tab so that the changes take effect. Otherwise you may get a `rbenv: no such command 'install'` error.
+
 Once this is done, we can install the correct Ruby version:
 
 ```bash
