@@ -73,7 +73,7 @@ Returned from `GET /api/v1/scheduled_statuses`:
 
 ### `scheduled_at` {#scheduled_at}
 
-**Description:** ID of the status in the database.\
+**Description:** When the status is scheduled to be posted.\
 **Type:** String (ISO 8601 Datetime)\
 **Version history:**\
 2.7.0 - added
