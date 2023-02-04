@@ -31,7 +31,7 @@ menu:
 
 * [tooter](https://github.com/Shinmera/tooter)
 
-## Dart
+## Dart / Flutter
 
 * [mastodon_api](https://pub.dev/packages/mastodon_api)
 
