@@ -1,6 +1,6 @@
 ---
 title: 从源中安装
-description: 创建你自己的 Mastodon 站点的教学指献。
+description: 创建你自己的 Mastodon 站点的教学指南。
 menu:
   docs:
     weight: 20
