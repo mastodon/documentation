@@ -34,6 +34,7 @@ menu:
 ## Dart / Flutter
 
 * [mastodon_api](https://pub.dev/packages/mastodon_api)
+* [mastodon_oauth2](https://pub.dev/packages/mastodon_oauth2)
 
 ## Elixir {#elixir}
 
