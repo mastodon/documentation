@@ -1394,7 +1394,7 @@ Edit a given status to change its text, sensitivity, media attachments, or poll.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the Status in the database.
 
 ##### Headers
 

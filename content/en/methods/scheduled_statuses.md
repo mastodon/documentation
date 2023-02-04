@@ -172,7 +172,7 @@ PUT /api/v1/scheduled_statuses/:id HTTP/1.1
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the ScheduledStatus in the database.
 
 ##### Headers
 
@@ -253,7 +253,7 @@ DELETE /api/v1/scheduled_statuses/:id HTTP/1.1
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the ScheduledStatus in the database.
 
 ##### Headers
 
