@@ -33,7 +33,7 @@ menu:
 
 ## Dart
 
-* [mastodon](https://pub.dev/packages/mastodon)
+* [mastodon_api](https://pub.dev/packages/mastodon_api)
 
 ## Elixir {#elixir}
 
@@ -109,4 +109,3 @@ menu:
 ## Swift {#swift}
 
 * [MastodonKit](https://github.com/ornithocoder/MastodonKit)
-
