@@ -32,7 +32,7 @@ aliases: [
 
 ### `status_id` {#keyword}
 
-**Description:** The ID of the filtered Status in the database.\
+**Description:** The ID of the Status that will be filtered.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
 4.0.0 - added
