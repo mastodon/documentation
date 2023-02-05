@@ -151,7 +151,11 @@ Returned from `GET /api/v1/scheduled_statuses`:
 #### `params[visibility]` {#params-visibility}
 
 **Description:** The language that will be used for the status.\
-**Type:** {{<nullable>}} String (ISO 639-1 two-letter language code)\
+**Type:** String (Enumerable oneOf)\
+`public` = Visible to everyone, shown in public timelines.\
+`unlisted` = Visible to public, but not included in public timelines.\
+`private` = Visible to followers only, and to any mentioned users.\
+`direct` = Visible only to mentioned users.\
 **Version history:**\
 2.7.0 - added
 
