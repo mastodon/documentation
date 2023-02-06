@@ -71,5 +71,39 @@ This way, we have translated `@Gargron@mastodon.social` to `https://mastodon.soc
 ```
 {{< /code >}}
 
-Note in the above example that `social.example` does not use the same URI structure as Mastodon. Thus, we cannot guess the actor `id` given only the username and domain. However, if `social.example` supports WebFinger, then we can get this `id` by requesting `https://social.example/.well-known/webfinger?resource=acct:username@social.example`and parsing the response for a link with the `application/activity+json` type.
+Note in the above example that `social.example` does not use the same URI structure as Mastodon. Thus, we cannot guess the actor `id` given only the username and domain. However, if `social.example` supports WebFinger, then we can get this `id` by requesting `https://social.example/.well-known/webfinger?resource=acct:username@social.example`and parsing the response for a link with the `application/ld+json; profile="https://www.w3.org/ns/activitystreams"` or `application/activity+json` type. This link should also have the link relation `rel="self"`.
 
+## Mastodon's requirements for WebFinger
+
+When given an account in the form `username@domain` or `@username@domain`, Mastodon will do the following:
+
+- Construct an `acct:` URI using that username and domain
+- Make a WebFinger request for that `resource`
+
+Using that WebFinger response, Mastodon will check the following:
+
+- The `subject` is present
+- The `links` array contains a link with `rel` of `self` and `type` of either `application/ld+json; profile="https://www.w3.org/ns/activitystreams"` or `application/activity+json`
+  - The `href` for this link resolves to an ActivityPub actor
+
+Using that ActivityPub actor representation (which may be provided directly, without the initial WebFinger request), Mastodon will do the following:
+
+- Take `preferredUsername` and the hostname of the actor's server
+- Construct an `acct:` URI using that username and domain
+- Make a Webfinger request for that `resource`
+
+If the `subject` matches the `resource`, then the process stops here. Otherwise, if the `subject` contains a different canonical account URI, then Mastodon will perform an additional Webfinger request for that canonical account URI in order to ensure that this new `resource` links to the same ActivityPub actor with the same criteria being checked.
+
+In other words, the following cases are valid:
+
+- Asking `example.com` for the resource `acct:alice@example.com` yields a link to an actor on the domain `example.com` with a `preferredUsername` of `alice`, and the `subject` matches the requested resource `acct:alice@example.com`
+- Asking `example.com` for the resource `acct:alice@example.com` yields a link to an actor on the domain `ap.example.com` with a `preferredUsername` of `alice`
+  - ...then, asking `ap.example.com` for the resource `acct:alice@ap.example.com` yields a `subject` of `acct:alice@example.com` and a link to the same actor
+
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/services/activitypub/fetch_remote_actor_service.rb" caption="app/services/activitypub/fetch_remote_actor_service.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/services/resolve_account_service.rb" caption="app/services/resolve_account_service.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/webfinger.rb" caption="app/lib/webfinger.rb" >}}
