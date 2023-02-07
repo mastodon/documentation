@@ -4,6 +4,10 @@ description:
 menu:
   docs:
     parent: methods
+aliases: [
+  "/api/methods/SOMETHING",
+  "/api/methods/something",
+]
 ---
 
 ## What the method does {#anchor}

@@ -127,6 +127,9 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 `--role ROLE`
 : Define the existing account's custom role by providing the `name` of that [Role]({{< relref "entities/Role" >}}). Default roles include `Owner`, `Admin`, and `Moderator` (case-sensitive).
 
+`--remove-role`
+: Removes the current role from the user.
+
 `--email EMAIL`
 : Update the user's email address to `EMAIL`.
 
@@ -154,7 +157,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 **Version history:**\
 2.6.0 - added\
 3.1.2 - added `--reset-password`\
-4.0.0 - `--role` no longer takes hard-coded `user`, `moderator`, or `admin` roles. Specify the name of the custom Role instead (case-sensitive).
+4.0.0 - `--role` no longer takes hard-coded `user`, `moderator`, or `admin` roles. Specify the name of the custom Role instead (case-sensitive). Remove the current role with `--remove-role`.
 
 
 ---

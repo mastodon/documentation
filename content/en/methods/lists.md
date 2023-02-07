@@ -459,7 +459,7 @@ Add accounts to the given list. Note that the user must be following these accou
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the List in the database.
 
 ##### Headers
 
@@ -528,7 +528,7 @@ Remove accounts from the given list.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the List in the database.
 
 ##### Headers
 
@@ -561,7 +561,7 @@ Invalid or missing Authorization header.
 
 ##### 404: Not found
 
-SOMETHING is not owned by you or does not exist
+List is not owned by you or does not exist
 
 ```json
 {

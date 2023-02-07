@@ -43,7 +43,7 @@ Add a Web Push API subscription to receive notifications. Each access token can 
 **Version history:**\
 2.4.0 - added\
 3.3.0 - added `data[alerts][status]`\
-3.4.0 - added `policy`\
+3.4.0 - added `data[policy]`\
 3.5.0 - added `data[alerts][update]` and `data[alerts][admin.sign_up]`\
 4.0.0 - added `data[alerts][admin.report]`
 
@@ -95,7 +95,7 @@ data[alerts][admin.sign_up]
 data[alerts][admin.report]
 : Boolean. Receive new report notifications? Defaults to false. Must have a role with the appropriate permissions.
 
-policy
+data[policy]
 : String. Specify whether to receive push notifications from `all`, `followed`, `follower`, or `none` users.
 
 #### Response
