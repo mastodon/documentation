@@ -81,6 +81,12 @@ exec bash
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 ```
 
+We need to install the ruby-build plugin. since the ``rbenv install`` command does not ship with rbenv out-of-the-box.
+
+```bash
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+```
+
 Once this is done, we can install the correct Ruby version:
 
 ```bash
