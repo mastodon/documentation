@@ -254,6 +254,67 @@ Redis is used widely throughout the application, but some uses are more importan
 
 As far as configuring the Redis database goes, basically you can get rid of background saving to disk, since it doesn’t matter if the data gets lost on restart and you can save some disk I/O on that. You can also add a maximum memory limit and a key eviction policy, for that, see this guide: [Using Redis as an LRU cache](https://redis.io/topics/lru-cache)
 
+## Seperate Redis for sidekiq {#redis-sidekiq}
+
+Redis is used in sidekiq to keep track of it's locks and queue. Although in general the performance gain is not that big, some instances may benefit from having a seperate redis instance for sidekiq.
+
+In the environment file, you can specify `SIDEKIQ_REDIS_URL` or individual parts like `SIDEKIQ_REDIS_HOST`, `SIDEKIQ_REDIS_PORT` etc. Unspecified parts fallback to the same values as without the sidekiq prefix.
+
+Creating a seperate redis instance for sidekiq is relatively simple:
+
+Start by making a copy of the default redis systemd service:
+```bash
+cp /etc/systemd/system/redis.service /etc/systemd/system/redis-sidekiq.service
+```
+
+In the `redis-sidekiq.service` file, change the following values:
+```bash
+ExecStart=/usr/bin/redis-server /etc/redis/redis-sidekiq.conf --supervised systemd --daemonize no
+PIDFile=/run/redis/redis-server-sidekiq.pid
+ReadWritePaths=-/var/lib/redis-sidekiq
+Alias=redis-sidekiq.service
+```
+
+Make a copy of the redis configuration file for the new sidekiq redis instance
+
+```bash
+cp /etc/redis/redis.conf /etc/redis/redis-sidekiq.conf
+```
+
+In this `redis-sidekiq.conf` file, change the following values:
+```bash
+port 6479
+pidfile /var/run/redis/redis-server-sidekiq.pid
+logfile /var/log/redis/redis-server-sidekiq.log
+dir /var/lib/redis-sidekiq
+```
+
+Before we start the new redis instance, lets make it's data directory:
+
+```bash
+mkdir /var/lib/redis-sidekiq
+chown redis /var/lib/redis-sidekiq
+```
+
+Start the new redis instance:
+
+```bash
+systemctl enable --now redis-sidekiq
+```
+
+Update your enviroment, add the following line:
+
+```bash
+SIDEKIQ_REDIS_URL=redis://127.0.0.1:6479/
+```
+
+Restart mastodon to use the new redis instance, make sure to restart both web and sidekiq. Otherwise one of them is still working from the wrong instance:
+
+```bash
+systemctl restart mastodon-web.service
+systemctl restart redis-sidekiq.service
+```
+
 ## Read-replicas {#read-replicas}
 
 To reduce the load on your Postgresql server, you may wish to setup hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
