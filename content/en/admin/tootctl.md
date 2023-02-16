@@ -22,7 +22,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## Base CLI
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/cli.rb" caption="lib/cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/cli.rb" caption="lib/cli.rb" >}}
 
 
 ---
@@ -61,7 +61,7 @@ Show the version of the currently running Mastodon instance.
 
 ## Accounts CLI {#accounts}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/accounts_cli.rb" caption="lib/mastodon/accounts_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/accounts_cli.rb" caption="lib/mastodon/accounts_cli.rb" >}}
 
 
 ---
@@ -345,7 +345,7 @@ Approve new registrations when instance is in approval mode.
 
 ## Cache CLI {#cache}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/cache_cli.rb" caption="lib/mastodon/cache_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cache_cli.rb" caption="lib/mastodon/cache_cli.rb" >}}
 
 
 ---
@@ -384,7 +384,7 @@ Update hard-cached counters of TYPE by counting referenced records from scratch.
 
 ## Domains CLI {#domains}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/domains_cli.rb" caption="lib/mastodon/domains_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/domains_cli.rb" caption="lib/mastodon/domains_cli.rb" >}}
 
 
 ---
@@ -450,7 +450,7 @@ Crawl the known fediverse by using Mastodon REST API endpoints that expose all k
 
 ## Email domain blocks CLI {#email-domain-blocks}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/email_domain_blocks_cli.rb" caption="lib/mastodon/email_domain_blocks_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/email_domain_blocks_cli.rb" caption="lib/mastodon/email_domain_blocks_cli.rb" >}}
 
 
 ---
@@ -500,7 +500,7 @@ Remove entries from the e-mail domain blocklist.
 
 ## Emoji CLI {#emoji}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/emoji_cli.rb" caption="lib/mastodon/emoji_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/emoji_cli.rb" caption="lib/mastodon/emoji_cli.rb" >}}
 
 
 ---
@@ -572,7 +572,7 @@ Remove all custom emoji.
 
 ## Feeds CLI {#feeds}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/feeds_cli.rb" caption="lib/mastodon/feeds_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/feeds_cli.rb" caption="lib/mastodon/feeds_cli.rb" >}}
 
 
 ---
@@ -617,7 +617,7 @@ Remove all home and list feeds from Redis.
 
 ## Maintenance CLI {#maintenance}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/maintenance_cli.rb" caption="lib/mastodon/maintenance_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/maintenance_cli.rb" caption="lib/mastodon/maintenance_cli.rb" >}}
 
 
 ---
@@ -636,7 +636,7 @@ Fix corrupted database indexes that may have been caused due to changing collati
 
 ## Media CLI {#media}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/media_cli.rb" caption="lib/mastodon/media_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/media_cli.rb" caption="lib/mastodon/media_cli.rb" >}}
 
 
 ---
@@ -748,7 +748,7 @@ Prompts for a media URL, then looks up the status where the media is displayed.
 
 ## Preview Cards CLI {#preview_cards}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/preview_cards_cli.rb" caption="lib/mastodon/preview_cards_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/preview_cards_cli.rb" caption="lib/mastodon/preview_cards_cli.rb" >}}
 
 
 ---
@@ -782,7 +782,7 @@ Remove local thumbnails for preview cards.
 
 ## Search CLI {#search}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/search_cli.rb" caption="lib/mastodon/search_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/search_cli.rb" caption="lib/mastodon/search_cli.rb" >}}
 
 
 ---
@@ -813,7 +813,7 @@ Create or update an ElasticSearch index and populate it. If ElasticSearch is emp
 
 ## Settings CLI {#settings}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/settings_cli.rb" caption="lib/mastodon/settings_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/settings_cli.rb" caption="lib/mastodon/settings_cli.rb" >}}
 
 
 ---
@@ -857,7 +857,7 @@ Set registration to require approval.
 
 ## Statuses CLI {#statuses}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/statuses_cli.rb" caption="lib/mastodon/statuses_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/statuses_cli.rb" caption="lib/mastodon/statuses_cli.rb" >}}
 
 
 ---
@@ -886,7 +886,7 @@ This is a computationally heavy procedure that creates extra database indices be
 
 ## Upgrade CLI {#upgrade}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/upgrade_cli.rb" caption="lib/mastodon/upgrade_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/upgrade_cli.rb" caption="lib/mastodon/upgrade_cli.rb" >}}
 
 
 ---

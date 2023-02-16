@@ -13,7 +13,7 @@ Sample payloads will be added at a future date.
 
 ## Status federation {#status}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/activitypub/activity.rb" caption="app/lib/activitypub/activity.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/activitypub/activity.rb" caption="app/lib/activitypub/activity.rb" >}}
 
 ### Supported activities for statuses
 
@@ -237,7 +237,7 @@ published
 
 ## JSON-LD Namespacing {#namespaces}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/activitypub/adapter.rb" caption="app/lib/activitypub/adapter.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/activitypub/adapter.rb" caption="app/lib/activitypub/adapter.rb" >}}
 
 ### Mastodon extensions (`toot:`) {#toot}
 
