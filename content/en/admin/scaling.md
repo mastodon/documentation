@@ -259,7 +259,7 @@ As far as configuring the Redis database goes, basically you can get rid of back
 To reduce the load on your Postgresql server, you may wish to setup hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
 
 * The streaming API server does not issue writes at all, so you can connect it straight to the replica. But it’s not querying the database very often anyway so the impact of this is little.
-* Use the Makara driver in the web and sidekiq processes, so that writes go to the master database, while reads go to the replica. Let’s talk about that.
+* Use the Makara driver in the web and sidekiq processes, so that writes go to the primary database, while reads go to the replica. Let’s talk about that.
 
 You will have to edit the `config/database.yml` file and replace the `production` section as follows:
 
@@ -279,7 +279,7 @@ production:
         url: postgresql://db_user:db_password@db_host:db_port/db_name
 ```
 
-Make sure the URLs point to wherever your PostgreSQL servers are. You can add multiple replicas. You could have a locally installed pgBouncer with configuration to connect to two different servers based on database name, e.g. “mastodon” going to master, “mastodon_replica” going to the replica, so in the file above both URLs would point to the local pgBouncer with the same user, password, host and port, but different database name. There are many possibilities how this could be setup! For more information on Makara, [see their documentation](https://github.com/taskrabbit/makara#databaseyml).
+Make sure the URLs point to wherever your PostgreSQL servers are. You can add multiple replicas. You could have a locally installed pgBouncer with configuration to connect to two different servers based on database name, e.g. “mastodon” going to the primary, “mastodon_replica” going to the replica, so in the file above both URLs would point to the local pgBouncer with the same user, password, host and port, but different database name. There are many possibilities how this could be setup! For more information on Makara, [see their documentation](https://github.com/taskrabbit/makara#databaseyml).
 
 {{< hint style="warning" >}}
 Sidekiq cannot reliably use read-replicas because even the tiniest replication lag leads to failing jobs due to queued up records not being found.
