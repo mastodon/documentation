@@ -92,7 +92,7 @@ If you and the blocked user are on the same server, the blocked user will not be
 
 ### Hiding an entire server {#block-domain}
 
-![]({{relURL "assets/block-domain.png" }})
+{{< figure src="assets/block-domain.png" caption="The block domain dialog reminds that usually muting a few users is preferable" >}}
 
 If you block an entire server:
 
