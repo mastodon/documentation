@@ -192,6 +192,19 @@ ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 
 Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with your own domain name, and make any other adjustments you might need.
 
+and replace commented out SSL with following 2 lines till we get own SSL from `certbot`, so Nginx will temporarily use a self-signed TLS certificate. We will obtain a valid Let’s Encrypt certificate later.
+
+- Replace:
+```
+# ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+# ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+```
+with
+
+```
+ssl_certificate /etc/ssl/certs/ssl-cert-snakeoil.pem;
+ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+```
 Reload nginx for the changes to take effect:
 
 
