@@ -63,15 +63,6 @@ In the development environment, Mastodon will use PostgreSQL as the currently si
 ```sh
 sudo -u postgres createuser $USER --createdb
 ```
-
-{{<hint style="info">}}
-If the above fails, you may have to run the following to initialize PostgreSQL:
-
-```sh
-sudo postgresql-setup --initdb
-```
-{{</hint>}}
-
 Finally, run:
 
 ```sh
@@ -79,7 +70,6 @@ RAILS_ENV=development bundle exec rails db:setup
 ```
 
 This creates the databases `mastodon_development` and `mastodon_test`, loads the schema into them, and inserts seed data defined in `db/seeds/` into `mastodon_development`.
-
 
 ### Running {#running}
 
