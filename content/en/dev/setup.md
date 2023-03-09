@@ -49,10 +49,17 @@ You can follow the [pre-requisites instructions from the production guide]({{<re
 Run the following commands in the project directory:
 
 ```sh
-bundle config set --local path vendor/bundle
 bundle install
 yarn
 ```
+
+{{<hint style="info">}}
+If you would like to avoid installing the gems globally, and are not using something like [RVM gemsets](https://rvm.io/gemsets/basics), you may want to configure the bundle path:
+
+```
+bundle config set --local path vendor/bundle
+```
+{{</hint>}}
 
 {{<hint style="info">}}
 On some operating systems, such as Debian and Fedora, `yarn` has been renamed to `yarnpkg`. On these systems, run `yarnpkg` instead of `yarn`.
