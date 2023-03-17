@@ -26,7 +26,7 @@ Announce
 : Transformed into a boost on a status
 
 Update
-: Refresh vote count on polls. As of Mastodon 3.5.0: edit statuses.
+: Refresh vote count on polls. As of Mastodon 3.5.0: edit statuses when the `updated` timestamp is present.
 
 Undo
 : Undo a previous Like or Announce.
@@ -56,7 +56,35 @@ The transformer uses `content` if available, or `name` if not, in order to gener
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/sanitize_ext/sanitize_config.rb" caption="lib/sanitize_ext/sanitize_config.rb" >}}
 
- Mastodon sanitizes incoming HTML in order to not break assumptions for API client developers. Supported elements include `<p>`, `<span>`, `<br>`, and `<a>`. Unsupported elements will be converted to `<p>`.The sanitizer will keep classes if they begin with microformats prefixes or are semantic classes:
+Mastodon sanitizes incoming HTML in order to not break assumptions for API client developers. Supported elements will be kept as-is, and unsupported elements will be converted or removed. Supported attributes will be kept, and all other attributes will be stripped. The following elements and attributes are supported:
+ 
+- `<p>`
+- `<span>` (`class`)
+- `<br>`
+- `<a>` (`href`, `rel`, `class`)
+- lists will be converted to `<p>`, and list items will be separated with `<br>`
+
+Since Mastodon v4.2, the following elements and attributes are supported:
+
+- `<p>`
+- `<span>` (`class`)
+- `<br>`
+- `<a>` (`href`, `rel`, `class`)
+- `<del>`
+- `<pre>`
+- `<code>`
+- `<em>`
+- `<strong>`
+- `<b>`
+- `<i>`
+- `<u>`
+- `<ul>`
+- `<ol>` (`start`, `reversed`)
+- `<li>` (`value`)
+- `<blockquote>`
+- headings will be converted to `<strong>` and then wrapped in `<p>`
+ 
+The sanitizer will keep classes if they begin with microformats prefixes or are semantic classes:
 
 - h-*
 - p-*
@@ -67,6 +95,20 @@ The transformer uses `content` if available, or `name` if not, in order to gener
 - hashtag
 - ellipsis
 - invisible
+
+Links will be kept if the protocol is supported, and converted to text otherwise. The following link protocols are supported:
+
+- http
+- https
+- dat
+- dweb
+- ipfs
+- ipns
+- ssb
+- gopher
+- xmpp
+- magnet
+- gemini
 
 ### Properties used
 
@@ -170,18 +212,18 @@ Undo
 : Undo a previous Follow, Accept Follow, or Block.
 
 Block
-: Signal to a remote server that they should hide your profile from that user. Not guaranteed.
+: Signal to a remote server that they should hide your profile from that user. Not guaranteed. See [Remote blocking](#Block) for more information.
 
 Flag
-: Report a user to their moderation team.
+: Report a user to their moderation team. See the [Reports](#Flag) extension for more information.
 
 Move
-: Migrate followers from one account to another. Requires `alsoKnownAs` to be set in both directions.
+: Migrate followers from one account to another. Requires `alsoKnownAs` to be set on the new account pointing to the old account.
 
 ### Properties used
 
 preferredUsername
-: Used for Webfinger lookup. Must be unique on the domain, and must correspond to a Webfinger `acct:` URI. 
+: Used for Webfinger lookup. Must be unique on the domain, and must correspond to a Webfinger `acct:` URI.
 
 name
 : Used as profile display name.
@@ -326,7 +368,7 @@ To report profiles and/or posts on remote servers, Mastodon will send a `Flag` a
 
 ### Account migration (`Move`) {#Move}
 
-Mastodon uses the Move activity to signal that an account has migrated to a different account. For the migration to be considered valid, Mastodon checks that the old account has defined an alias pointing to the new account (via the `as:alsoKnownAs` extension property).
+Mastodon uses the Move activity to signal that an account has migrated to a different account. For the migration to be considered valid, Mastodon checks that the new account has defined an alias pointing to the old account (via the `alsoKnownAs` property).
 
 ```json
 {
