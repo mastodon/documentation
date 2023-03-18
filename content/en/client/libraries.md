@@ -109,4 +109,5 @@ menu:
 ## Swift {#swift}
 
 * [MastodonKit](https://github.com/ornithocoder/MastodonKit)
+* [TootSDK](https://github.com/TootSDK/TootSDK)
 
