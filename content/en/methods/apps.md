@@ -84,7 +84,7 @@ GET /api/v1/apps/verify_credentials HTTP/1.1
 Confirm that the app's OAuth2 credentials work.
 
 **Returns:** [Application]({{< relref "entities/application" >}}), but without `client_id` or `client_secret`\
-**OAuth level:** App token\
+**OAuth level:** App token + `read`\
 **Version history:**\
 2.0.0 - added\
 2.7.2 - now returns `vapid_key`
@@ -94,7 +94,7 @@ Confirm that the app's OAuth2 credentials work.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <app token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
