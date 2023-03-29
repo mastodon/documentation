@@ -278,9 +278,10 @@ aliases: [
 ### `language` {#language}
 
 **Description:** Primary language of this status.\
-**Type:** {{<nullable>}} String (ISO 639 Part 1 two-letter language code) or null\
+**Type:** {{<nullable>}} String (well-formed BCP 47 language tag, but parts other than language subtag may be discarded) or null\
 **Version history:**\
 1.4.0 - added
+4.1.0 - accept BCP 47
 
 ### `text` {#text}
 

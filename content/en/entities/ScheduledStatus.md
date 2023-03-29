@@ -169,9 +169,10 @@ Returned from `GET /api/v1/scheduled_statuses`:
 #### `params[language]` {#params-language}
 
 **Description:** The language that will be used for the status.\
-**Type:** {{<nullable>}} String (ISO 639-1 two-letter language code)\
+**Type:** {{<nullable>}} String (well-formed BCP 47 language tag, but parts other than language subtag may be discarded)\
 **Version history:**\
 2.7.0 - added
+4.1.0 - accept BCP 47
 
 #### `params[application_id]` {#params-application_id}
 

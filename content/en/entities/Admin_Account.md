@@ -131,9 +131,10 @@ aliases: [
 ### `locale` {#locale}
 
 **Description:** The locale of the account.\
-**Type:** String (ISO 639 Part 1 two-letter language code)\
+**Type:** String (well-formed BCP 47 language tag, but parts other than language subtag may be discarded)\
 **Version history:**\
 2.9.1 - added
+4.1.0 - accept BCP 47
 
 ### `invite_request` {#invite_request}
 
