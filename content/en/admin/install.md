@@ -84,8 +84,9 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 Once this is done, we can install the correct Ruby version:
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.2.1
-rbenv global 3.2.1
+mastodon_ruby_version=$(cat ~/live/.ruby-version) && echo "$mastodon_ruby_version"
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install "$mastodon_ruby_version"
+rbenv global "$mastodon_ruby_version"
 ```
 
 We’ll also need to install bundler:
