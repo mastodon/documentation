@@ -38,7 +38,7 @@ Application secrets are the easiest to backup, since they never change. You only
 
 ## Backing up PostgreSQL {#postgresql}
 
-PostgreSQL is at risk of data corruption from power cuts, hard disk drive failure, and botched schema migrations. For that reason, occassionally making a backup with `pg_dump` or `pg_dumpall` is recommended.
+PostgreSQL is at risk of data corruption from power cuts, hard disk drive failure, and botched schema migrations. For that reason, occasionally making a backup with `pg_dump` or `pg_dumpall` is recommended.
 
 For high-availability setups, it is possible to use hot streaming replication to have a second PostgreSQL server with always up-to-date data, ready to be switched over to if the other server goes down.
 

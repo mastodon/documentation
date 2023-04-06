@@ -23,7 +23,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 基础命令
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/cli.rb" caption="lib/cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/cli.rb" caption="lib/cli.rb" >}}
 
 ### `tootctl self-destruct` {#self-destruct}
 
@@ -51,7 +51,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 帐户相关命令 {#accounts}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/accounts_cli.rb" caption="lib/mastodon/accounts\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/accounts_cli.rb" caption="lib/mastodon/accounts_cli.rb" >}}
 
 ### `tootctl accounts rotate` {#accounts-rotate}
 
@@ -208,7 +208,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 缓存相关命令 {#cache}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/cache_cli.rb" caption="lib/mastodon/cache\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cache_cli.rb" caption="lib/mastodon/cache_cli.rb" >}}
 
 ### `tootctl cache clear` {#cache-clear}
 
@@ -232,7 +232,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 域名相关命令 {#domains}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/domains_cli.rb" caption="lib/mastodon/domains\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/domains_cli.rb" caption="lib/mastodon/domains_cli.rb" >}}
 
 ### `tootctl domains purge` {#domains-purge}
 
@@ -269,7 +269,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## Emoji相关命令 {#emoji}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/emoji_cli.rb" caption="lib/mastodon/emoji\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/emoji_cli.rb" caption="lib/mastodon/emoji_cli.rb" >}}
 
 ### `tootctl emoji import` {#emoji-import}
 
@@ -301,7 +301,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 时间流（Feeds）相关命令 {#feeds}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/feeds_cli.rb" caption="lib/mastodon/feeds\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/feeds_cli.rb" caption="lib/mastodon/feeds_cli.rb" >}}
 
 ### `tootctl feeds build` {#feeds-build}
 
@@ -327,7 +327,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 媒体相关命令 {#media}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/media_cli.rb" caption="lib/mastodon/media\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/media_cli.rb" caption="lib/mastodon/media_cli.rb" >}}
 
 ### `tootctl media remove` {#media-remove}
 
@@ -390,7 +390,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 预览卡片（Preview Cards）相关命令 {#preview_cards}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/preview_cards_cli.rb" caption="lib/mastodon/preview\_cards\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/preview_cards_cli.rb" caption="lib/mastodon/preview_cards_cli.rb" >}}
 
 ### `tootctl preview_cards remove` {#preview_cards-remove}
 
@@ -409,7 +409,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 搜索相关命令 {#search}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/search_cli.rb" caption="lib/mastodon/search\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/search_cli.rb" caption="lib/mastodon/search_cli.rb" >}}
 
 ### `tootctl search deploy` {#search-deploy}
 
@@ -425,7 +425,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 站点设定相关命令 {#settings}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/settings_cli.rb" caption="lib/mastodon/settings\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/settings_cli.rb" caption="lib/mastodon/settings_cli.rb" >}}
 
 ### `tootctl settings registrations open` {#settings-registrations-open}
 
@@ -443,7 +443,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 嘟文相关命令 {#statuses}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/statuses_cli.rb" caption="lib/mastodon/statuses\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/statuses_cli.rb" caption="lib/mastodon/statuses_cli.rb" >}}
 
 ### `tootctl statuses remove` {#statuses-remove}
 

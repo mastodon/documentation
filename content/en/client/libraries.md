@@ -7,11 +7,11 @@ menu:
     parent: client
 ---
 
-## Apex \(Salesforce\) {#apex-salesforce}
+## Apex (Salesforce) {#apex-salesforce}
 
 * [apex-mastodon](https://github.com/tzmfreedom/apex-mastodon)
 
-## C\# \(.NET Standard\) {#c-net-standard}
+## C# (.NET Standard) {#c-net-standard}
 
 * [Mastodot](https://github.com/yamachu/Mastodot)
 * [Mastonet](https://github.com/glacasa/Mastonet)
@@ -33,7 +33,7 @@ menu:
 
 ## Dart
 
-* [mastodon_dart](https://pub.dev/packages/mastodon_dart)
+* [mastodon](https://pub.dev/packages/mastodon)
 
 ## Elixir {#elixir}
 
@@ -57,11 +57,11 @@ menu:
 * [masto.js](https://github.com/neet/masto.js)
 * [libodonjs](https://github.com/Zatnosk/libodonjs)
 
-## JavaScript \(Browser\) {#javascript-browser}
+## JavaScript (Browser) {#javascript-browser}
 
 * [mastodon.js](https://github.com/Kirschn/mastodon.js)
 
-## JavaScript \(Node.js\) {#javascript-node-js}
+## JavaScript (Node.js) {#javascript-node-js}
 
 * [node-mastodon](https://github.com/jessicahayley/node-mastodon)
 * [mastodon-api](https://github.com/vanita5/mastodon-api)
@@ -78,7 +78,6 @@ menu:
 * [Phediverse Mastodon REST Client](https://github.com/phediverse/mastodon-rest)
 * [TootoPHP](https://framagit.org/MaxKoder/TootoPHP)
 * [oauth2-mastodon](https://github.com/lrf141/oauth2-mastodon)
-* [Mastodon Wordpress API](https://github.com/L1am0/mastodon_wordpress_api)
 
 ## Python {#python}
 
@@ -90,7 +89,7 @@ menu:
 
 ## Ruby {#ruby}
 
-* [mastodon-api](https://github.com/tootsuite/mastodon-api)
+* [mastodon-api](https://github.com/mastodon/mastodon-api)
 
 ## Rust {#rust}
 

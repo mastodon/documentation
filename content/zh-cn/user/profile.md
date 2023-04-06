@@ -9,7 +9,7 @@ menu:
 
 ## 你的外观 {#appearance}
 
-{{< figure src="/assets/image%20%2829%29.png" caption="用户资料卡会显示你的用户名、头像和横幅图片" >}}
+{{< figure src="assets/image%20%2829%29.png" caption="用户资料卡会显示你的用户名、头像和横幅图片" >}}
 
 你可以在 设置 &gt; 配置文件 &gt; 外观 页面中配置你的个人资料显示外观。
 
@@ -33,7 +33,7 @@ menu:
 
 你可以在你的资料上设置特定的标志，让别人知道你会如何使用Mastodon。
 
-![](/assets/image%20%281%29.png)
+![]({{ relUrl "/assets/image%20%281%29.png" }})
 
 ### 保护你的帐户（锁嘟） {#locked}
 

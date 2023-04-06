@@ -7,7 +7,7 @@ menu:
     parent: admin-optional
 ---
 
-Mastodon supports full-text search when Elasticsearch is available. Mastodon’s full-text search allows logged in users to find results from their own toots, their favourites, and their mentions. It deliberately does not allow searching for arbitrary strings in the entire database.
+Mastodon supports full-text search when Elasticsearch is available. Mastodon’s full-text search allows logged in users to find results from their own statuses, their mentions, their favourites, and their bookmarks. It deliberately does not allow searching for arbitrary strings in the entire database.
 
 ## Installing Elasticsearch {#install}
 

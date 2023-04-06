@@ -25,7 +25,7 @@ Mastodon allows website administrators to set one of three different signup mode
 
 #### Open signup {#open}
 
-Some websites may allow you to register immediately -- simply fill out the registration with your username, email address, and password, and you can start using your account.
+Some websites may allow you to register immediately -- just fill out the registration with your username, email address, and password, and you can start using your account.
 
 #### Server invites {#invite}
 

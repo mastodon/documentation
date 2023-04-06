@@ -10,10 +10,10 @@ menu:
 ## Pre-requisites {#pre-requisites}
 
 * A machine running **Ubuntu 20.04** or **Debian 11** that you have root access to
-* A **domain name** \(or a subdomain\) for the Mastodon server, e.g. `example.com`
+* A **domain name** (or a subdomain) for the Mastodon server, e.g. `example.com`
 * An e-mail delivery service or other **SMTP server**
 
-You will be running the commands as root. If you aren’t already root, switch to root:
+You will be running the commands as root. If you aren’t already root, switch to root: `sudo su -`
 
 ### System repositories {#system-repositories}
 
@@ -53,7 +53,7 @@ apt install -y \
 
 ```bash
 corepack enable
-yarn set version stable
+yarn set version classic
 ```
 
 ### Installing Ruby {#installing-ruby}
@@ -84,8 +84,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 Once this is done, we can install the correct Ruby version:
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.0.3
-rbenv global 3.0.3
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.0.4
+rbenv global 3.0.4
 ```
 
 We’ll also need to install bundler:
@@ -104,9 +104,9 @@ exit
 
 ### Setting up PostgreSQL {#setting-up-postgresql}
 
-#### Performance configuration \(optional\) {#performance-configuration-optional}
+#### Performance configuration (optional) {#performance-configuration-optional}
 
-For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/14/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
+For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/15/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
 
 #### Creating a user {#creating-a-user}
 
@@ -140,7 +140,7 @@ su - mastodon
 Use git to download the latest stable release of Mastodon:
 
 ```bash
-git clone https://github.com/tootsuite/mastodon.git live && cd live
+git clone https://github.com/mastodon/mastodon.git live && cd live
 git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 ```
 
@@ -173,7 +173,7 @@ This will:
 * Run asset precompilation
 * Create the database schema
 
-The configuration file is saved as `.env.production`. You can review and edit it to your liking. Refer to the [documentation on configuration.]({{< relref "config.md" >}})
+The configuration file is saved as `.env.production`. You can review and edit it to your liking. Refer to the [documentation on configuration.]({{< relref "config" >}})
 
 You’re done with the mastodon user for now, so switch back to root:
 
@@ -193,6 +193,11 @@ ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with your own domain name, and make any other adjustments you might need.
 
 Reload nginx for the changes to take effect:
+
+
+```bash
+systemctl reload nginx
+```
 
 ### Acquiring a SSL certificate {#acquiring-a-ssl-certificate}
 

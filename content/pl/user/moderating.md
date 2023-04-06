@@ -11,11 +11,11 @@ menu:
 
 Możliwe jest filtrowanie wpisów według określonych słów kluczowych lub fraz, aby były automatycznie ukrywane.
 
-{{< figure src="/assets/filter-list.jpg" caption="Przykład aktywnych filtrów dla różnych słów kluczowych w różnych kontekstach." >}}
+{{< figure src="assets/filter-list.jpg" caption="Przykład aktywnych filtrów dla różnych słów kluczowych w różnych kontekstach." >}}
 
 Aby utworzyć i zarządzać filtrami, odwiedź Preferencje &gt; Filtry. Przycisk „Dodaj nowy filtr” pozwoli na utworzenie nowego filtru, a istniejące filtry mogą zostać edytowane lub usunięte. Istniejące filtry są podsumowane w tabeli.
 
-{{< figure src="/assets/filter-edit.jpg" caption="Filtry mogą mieć datę wyczerpania, określone konteksty, usuwanie po stronie serwera lub używać granic słów." >}}
+{{< figure src="assets/filter-edit.jpg" caption="Filtry mogą mieć datę wyczerpania, określone konteksty, usuwanie po stronie serwera lub używać granic słów." >}}
 
 Filtry mają następujące opcje:
 
@@ -25,7 +25,7 @@ To ciąg znaków, który jest sprawdzany. Słowo kluczowe będzie wyszukiwane w 
 
 ### Wygasanie po czasie {#filter-expire}
 
-Opcjonalnie możesz zastosować filtr tylko na określony okres. Wygasłe filtry nie są automatycznie usuwane, ale mogą być włączone ponownie, ustawiając nową datę wygaśnięcia \(lub wyłączając wygasanie\).
+Opcjonalnie możesz zastosować filtr tylko na określony okres. Wygasłe filtry nie są automatycznie usuwane, ale mogą być włączone ponownie, ustawiając nową datę wygaśnięcia (lub wyłączając wygasanie).
 
 ### Kontekst filtrów {#filter-context}
 
@@ -45,7 +45,7 @@ Filtry zwykle są stosowane we wpisach zawierających wskazane znaki, niezależn
 
 ## Działania po stronie użytkownika {#blocking-and-muting}
 
-{{< figure src="/assets/profile-dropdown.jpg" caption="Menu wyboru profilu oferuje różnorodne działania." >}}
+{{< figure src="assets/profile-dropdown.jpg" caption="Menu wyboru profilu oferuje różnorodne działania." >}}
 
 ### Ukrywanie udostępnień {#hide-boosts}
 
@@ -53,7 +53,7 @@ Jeżeli ukryjesz czyjeś udostępnienia, nie zobaczysz ich udostępnień na stro
 
 ### Wyciszanie {#mute}
 
-{{< figure src="/assets/muted.jpg" caption="Przykład wyciszonych kont." >}}
+{{< figure src="assets/muted.jpg" caption="Przykład wyciszonych kont." >}}
 
 Przy wyciszeniu możesz zadecydować czy wyciszysz powiadomienia od tej osoby. Wyciszenie bez wyciszania powiadomień sprawi, że:
 
@@ -70,7 +70,7 @@ Użytkownik nie może się dowiedzieć, że został wyciszony.
 
 ### Blokowanie {#block}
 
-{{< figure src="/assets/blocked.jpg" caption="Przykład zablokowanych kont." >}}
+{{< figure src="assets/blocked.jpg" caption="Przykład zablokowanych kont." >}}
 
 Blokowanie ukrywa użytkownika z Twojego widoku:
 
@@ -91,7 +91,7 @@ Jeżeli jesteś na tym samym serwerze, na którym jest zablokowana osoba, ta oso
 
 ### Ukrywanie całego serwera {#block-domain}
 
-![](/assets/block-domain.png)
+![]({{ relUrl "/assets/block-domain.png" }})
 
 Jeżeli zablokujesz cały serwer:
 
@@ -102,7 +102,6 @@ Jeżeli zablokujesz cały serwer:
 
 ## Zgłaszanie nieodpowiedniej treści moderatorom {#report}
 
-{{< figure src="/assets/report-modal.jpg" caption="Okno zgłaszania pozwalające na wybór przykładowych wpisów, dodanie notatki czy przekierowanie zgłoszeń." >}}
+{{< figure src="assets/report-modal.jpg" caption="Okno zgłaszania pozwalające na wybór przykładowych wpisów, dodanie notatki czy przekierowanie zgłoszeń." >}}
 
-Jeżeli zobaczysz wpis lub użytkownika naruszającego zasady Twojego serwera, możesz zgłosić użytkownika moderatorom swojego serwera. Wybranie opcji „Zgłoś” otworzy okno zgłaszania. Tam możesz \(jest to wskazane\) dodać notatkę, w której napiszesz, dlaczego zgłaszasz to konto. Możesz załączyć nieodpowiednie wpisy dla dodatkowego kontekstu zgłoszenia, a jeżeli naruszają one zasady zdalnego serwera, możesz przekierować zgłoszenie również do jego moderatorów.
-
+Jeżeli zobaczysz wpis lub użytkownika naruszającego zasady Twojego serwera, możesz zgłosić użytkownika moderatorom swojego serwera. Wybranie opcji „Zgłoś” otworzy okno zgłaszania. Tam możesz (jest to wskazane) dodać notatkę, w której napiszesz, dlaczego zgłaszasz to konto. Możesz załączyć nieodpowiednie wpisy dla dodatkowego kontekstu zgłoszenia, a jeżeli naruszają one zasady zdalnego serwera, możesz przekierować zgłoszenie również do jego moderatorów.

@@ -9,15 +9,15 @@ menu:
 
 ## 浏览公共时间轴 {#timelines}
 
-{{< figure src="/assets/image%20%2830%29.png" caption="公共时间轴上的嘟文" >}}
+{{< figure src="assets/image%20%2830%29.png" caption="公共时间轴上的嘟文" >}}
 
 为了让你发现潜在的有趣内容，Mastodon提供了一种浏览所有公共嘟文的方法。当然，所有Mastodon服务器之间并不会全局共享嘟文，因此无法同时浏览*所有*公共嘟文。当你浏览**跨站公共时间轴**时，你将看到你所在的服务器所知道的所有公共嘟文。你的服务器可以通过多种方式发现嘟文，但其中大部分是来自你服务器上的其他用户关注的人。
 
-这里有一种方法筛选跨站时间轴，以仅查看由你所在服务器发出的公共嘟文：**本站时间轴**。请注意这里的本地\(local\)仅是指服务器，而不是地理位置。
+这里有一种方法筛选跨站时间轴，以仅查看由你所在服务器发出的公共嘟文：**本站时间轴**。请注意这里的本地(local)仅是指服务器，而不是地理位置。
 
 ## 与其他人的嘟文互动 {#actions}
 
-{{< figure src="/assets/image%20%2821%29.png" caption="可以通过单击时间轴中的嘟文来加载扩展视图" >}}
+{{< figure src="assets/image%20%2821%29.png" caption="可以通过单击时间轴中的嘟文来加载扩展视图" >}}
 
 你可以直接从时间轴对嘟文执行快速操作，或者你可以单击一条嘟文加载扩展视图，显示额外信息，包括：完整的时间戳、交互计数和嘟文回复（如果有的话）。在每一条嘟文上，你可以执行以下操作:
 
@@ -29,7 +29,7 @@ menu:
 
 ## 通知 {#notifications}
 
-{{< figure src="/assets/image%20%2850%29.png" caption="通知栏" >}}
+{{< figure src="assets/image%20%2850%29.png" caption="通知栏" >}}
 
 当其他人与你或你的嘟文交互时，你将根据事件的类型收到通知消息。在通知栏里，你可以查看所有通知消息，或过滤特定类型的通知消息：
 
@@ -41,7 +41,7 @@ menu:
 
 ## 关注用户 {#follow}
 
-![](/assets/image%20%2811%29.png)
+![]({{ relUrl "/assets/image%20%2811%29.png" }})
 
 只要你在应用程序界面（例如：Web界面、手机APP）中遇到的用户，只需要点击“关注”，该用户是否在你所在的服务器上并不会带来用户体验上的差异。
 
@@ -51,15 +51,15 @@ menu:
 
 ## 搜索 {#search}
 
-{{< figure src="/assets/image%20%2819%29.png" caption="搜索功能可以从侧栏中访问" >}}
+{{< figure src="assets/image%20%2819%29.png" caption="搜索功能可以从侧栏中访问" >}}
 
 Mastodon的基本搜索允许登录用户查找包含特定话题标签的嘟文，如果他们知道URL或地址的话，可以直接加载用户或嘟文。搜索某个关键词将显示包括该关键词的用户以及话题标签。
 
-{{< figure src="/assets/image%20%2839%29.png" caption="直接通过URL加载嘟文" >}}
+{{< figure src="assets/image%20%2839%29.png" caption="直接通过URL加载嘟文" >}}
 
-{{< figure src="/assets/image%20%2823%29.png" caption="搜索“cats”时返回包含“cats”的帐户" >}}
+{{< figure src="assets/image%20%2823%29.png" caption="搜索“cats”时返回包含“cats”的帐户" >}}
 
-{{< figure src="/assets/image%20%2827%29.png" caption="搜索“cats”时返回话题标签" >}}
+{{< figure src="assets/image%20%2827%29.png" caption="搜索“cats”时返回话题标签" >}}
 
 管理员可以选择安装全文搜索功能。Mastodon的全文搜索允许登录用户从他们自己的嘟文、他们喜欢的嘟文、他们的书签和他们被提及的嘟文中查找相应结果。为了减少人们通过搜索争议相关关键词来找人撕逼的滥用行为，Mastodon有意禁用了在全数据库搜索任意关键词的功能。
 
@@ -73,20 +73,20 @@ Mastodon的基本搜索允许登录用户查找包含特定话题标签的嘟文
 
 ## 私信 {#direct}
 
-{{< figure src="/assets/image%20%2812%29.png" caption="私信对话列表" >}}
+{{< figure src="assets/image%20%2812%29.png" caption="私信对话列表" >}}
 
 在Mastodon中，私信就是选择了“私信”可见范围的嘟文。在私信对话中，后续的嘟文可以设置不同的可见范围。私信列中展示了一个包含所有私信对话的列表。点击某个对话将加载相关的嘟文。
 
-{{< figure src="/assets/image%20%2857%29.png" caption="私信对话" >}}
+{{< figure src="assets/image%20%2857%29.png" caption="私信对话" >}}
 
 ## 列表时间轴 {#lists}
 
 列表是主页时间轴的子集。你可以创建一个列表，给它起一个名称，并将你所关注的用户添加到该列表中。
 
-![](/assets/image%20%2828%29.png)
+![]({{ relUrl "/assets/image%20%2828%29.png" }})
 
 打开一个列表将加载该列表的时间轴。列表时间轴只包含该列表成员的嘟文，以及对你或对其他列表成员的回复。
 
-{{< figure src="/assets/image%20%285%29.png" caption="一个列表时间轴" >}}
+{{< figure src="assets/image%20%285%29.png" caption="一个列表时间轴" >}}
 
 {{< translation-status-zh-cn raw_title="Using the network features" raw_link="/user/network/" last_tranlation_time="2020-05-03" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}

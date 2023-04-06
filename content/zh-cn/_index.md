@@ -22,7 +22,7 @@ menu:
 
 Mastodon站点可以独立运作。和传统网站一样，人们可以在上面注册、发布消息、上传图片、互相聊天。但与传统网站*不同*的是，Mastodon网站之间可以互动，让跨站用户互相交流，就好像只要你知道他们的电子邮件地址，你就可以从你的Gmail帐户发送电子邮件给使用Outlook、Fastmail、Protonmail或任何其他电子邮件供应商的用户。在Mastodon里，**你可以对任何人在任何网站上的地址进行“@”或私信**。
 
-{{< figure src="/assets/image%20%289%29.png" caption="上图从左到右依次为：集中式、联邦式、分布式" >}}
+{{< figure src="assets/image%20%289%29.png" caption="上图从左到右依次为：集中式、联邦式、分布式" >}}
 
 ## ActivityPub是什么？ {#fediverse}
 
@@ -49,7 +49,7 @@ Mastodon使用一种标准化的、开放的协议来实现站点之间的互动
 >
 > -- Eugen Rochko, Jul 6 2018, [《将Mastodon关到笼子里去》](https://blog.joinmastodon.org/2018/07/cage-the-mastodon/)
 
-> 一个中心化的社交媒体平台有一个等级结构，在这个结构中平台的规则及其实施，以及平台的发展方向都是由CEO决定的\[……\] 一个去中心化的网络有意放弃了对平台所有权的控制，从本质上来讲是没有平台所有者的。
+> 一个中心化的社交媒体平台有一个等级结构，在这个结构中平台的规则及其实施，以及平台的发展方向都是由CEO决定的[……] 一个去中心化的网络有意放弃了对平台所有权的控制，从本质上来讲是没有平台所有者的。
 >
 > -- Eugen Rochko, Dec 30 2018, [《为什么去中心化很重要？》](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
 
@@ -89,18 +89,18 @@ Mastodon的开发同样是通过[Patreon](https://patreon.com/mastodon)和[OpenC
 
 学习如何使用Mastodon：
 
-{{< page-ref page="user/signup.md" >}}
+{{< page-ref page="user/signup" >}}
 
 学习如何安装Mastodon：
 
-{{< page-ref page="admin/prerequisites.md" >}}
+{{< page-ref page="admin/prerequisites" >}}
 
 学习如何为Mastodon编写应用程序：
 
-{{< page-ref page="client/intro.md" >}}
+{{< page-ref page="client/intro" >}}
 
 了解Mastodon后端以及如何向Mastodon项目做贡献：
 
-{{< page-ref page="dev/overview.md" >}}
+{{< page-ref page="dev/overview" >}}
 
 {{< translation-status-zh-cn raw_title="What is Mastodon?" raw_link="/" last_tranlation_time="2020-05-02" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}
