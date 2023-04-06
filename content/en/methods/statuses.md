@@ -630,7 +630,7 @@ limit
 #### Response
 ##### 200: OK
 
-A list of statuses that boosted the status
+A list of accounts that boosted the status
 
 ```json
 [
