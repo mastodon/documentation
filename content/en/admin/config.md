@@ -360,21 +360,21 @@ Defaults to value of `REDIS_NAMESPACE`.
 
 #### `SIDEKIQ_REDIS_URL`
 
-### ElasticSearch {#elasticsearch}
+### Elasticsearch {#elasticsearch}
 
 {{< page-ref page="admin/optional/elasticsearch" >}}
 
 #### `ES_ENABLED`
 
-If set to `true`, Mastodon will use ElasticSearch for its search functions.
+If set to `true`, Mastodon will use Elasticsearch for its search functions.
 
 #### `ES_HOST`
 
-Host of the ElasticSearch server. Defaults to `localhost`
+Host of the Elasticsearch server. Defaults to `localhost`
 
 #### `ES_PORT`
 
-Port of the ElasticSearch server. Defaults to `9200`
+Port of the Elasticsearch server. Defaults to `9200`
 
 #### `ES_USER`
 
@@ -386,7 +386,7 @@ Used for optionally authenticating with ElasticSearch
 
 #### `ES_PREFIX`
 
-Useful if the ElasticSearch server is shared between multiple projects or different Mastodon servers. Defaults to value of `REDIS_NAMESPACE`.
+Useful if the Elasticsearch server is shared between multiple projects or different Mastodon servers. Defaults to value of `REDIS_NAMESPACE`.
 
 ### StatsD {#statsd}
 

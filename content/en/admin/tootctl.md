@@ -790,7 +790,7 @@ Remove local thumbnails for preview cards.
 
 ### `tootctl search deploy` {#search-deploy}
 
-Create or update an ElasticSearch index and populate it. If ElasticSearch is empty, this command will create the necessary indices and then import data from the database into those indices. This command will also upgrade indices if the underlying schema has been changed since the last run.
+Create or update an Elasticsearch index and populate it. If Elasticsearch is empty, this command will create the necessary indices and then import data from the database into those indices. This command will also upgrade indices if the underlying schema has been changed since the last run.
 
 `--batch-size`
 : Defaults to 1000. A lower batch size can make ElasticSearch process records more quickly.
