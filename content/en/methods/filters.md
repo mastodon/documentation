@@ -206,7 +206,7 @@ keywords_attributes[][keyword]
 : String. A keyword to be added to the newly-created filter group.
 
 keywords_attributes[][whole_word]
-: String. Whether the keyword should consider word boundaries.
+: Boolean. Whether the keyword should consider word boundaries.
 
 <!-- TODO: Remove when https://github.com/mastodon/mastodon/issues/21727 is fixed
 keywords_attributes[][id]
@@ -330,7 +330,7 @@ keywords_attributes[][keyword]
 : String. A keyword to be added to the newly-created filter group.
 
 keywords_attributes[][whole_word]
-: String. Whether the keyword should consider word boundaries.
+: Boolean. Whether the keyword should consider word boundaries.
 
 keywords_attributes[][id]
 : String. Provide the ID of an existing keyword to modify it, instead of creating a new keyword.
