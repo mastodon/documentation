@@ -528,7 +528,7 @@ Exports custom emoji to `export.tar.gz` at PATH.
 
 ### `tootctl emoji import` {#emoji-import}
 
-Imports custom emoji from a .tar.gz archive at a given path. The archive should contain PNG or GIF files no larger than 50KB, and the shortcode will be set equal to the filename minus the extension, with optional prefixes and/or suffixes.
+Imports custom emoji from a .tar.gz archive at a given path. The archive should contain PNG or GIF files no larger than 50KB, and the shortcode will be set equal to the filename minus the extension, with optional prefixes and/or suffixes. File names must be alphanumerical only, otherwise the import will fail.
 
 `PATH`
 : Path to create a .tar.gz archive containing pictures. {{<required>}}
