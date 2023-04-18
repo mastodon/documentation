@@ -192,6 +192,13 @@ ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 
 Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with your own domain name, and make any other adjustments you might need.
 
+Ensure nginx has access to the mastodon folder:
+
+```bash
+chmod o+x /home/mastodon
+```
+
+
 Reload nginx for the changes to take effect:
 
 
