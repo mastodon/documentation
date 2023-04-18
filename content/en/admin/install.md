@@ -224,6 +224,10 @@ If you deviated from the defaults at any point, check that the username and path
 ```sh
 $EDITOR /etc/systemd/system/mastodon-*.service
 ```
+Make sure the /home/mastodon/live folder is accessible by the nginx user
+
+```sh
+chmod 775 /home/mastodon ```
 
 Finally, start and enable the new systemd services:
 
