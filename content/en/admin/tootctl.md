@@ -331,7 +331,7 @@ Approve new registrations when instance is in approval mode.
 : Local username.
 
 `--number N`
-: Approve the N most recent registrations.
+: Approve the N earliest pending registrations.
 
 `--all`
 : Approve all pending registrations.
