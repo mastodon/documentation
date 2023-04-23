@@ -10,24 +10,80 @@ aliases: [
 ]
 ---
 
-## Example
+## Examples
+
+Translation of status with content warning and media
 
 ```json
 {
-  "content": "<p>Hola mundo</p>",
-  "detected_source_language": "en",
+  "content": "<p>Hello world</p>",
+  "spoiler_text": "Greatings ahead",
+  "media_attachments": [
+    {
+      "id": 22345792,
+      "description": "Status author waving at the camera"
+    }
+  ],
+  "poll": null,
+  "detected_source_language": "es",
   "provider": "DeepL.com"
 }
 ```
+
+Translation of status with poll:
+```json
+{
+  "content": "<p>Should I stay or should I go?</p>",
+  "spoiler_text": "",
+  "media_attachments": [],
+  "poll": [
+    {
+      "id": 34858,
+      "options": [
+        {
+          "title": "Stay" 
+        },
+        {
+          "title": "Go"
+        }
+      ]
+    }
+  ],
+  "detected_source_language": "ja",
+  "provider": "DeepL.com"
+}
+```
+
 
 ## Attributes
 
 ### `content` {#content}
 
-**Description:** The translated text of the status.\
+**Description:** HTML-encoded translated content of the status.\
 **Type:** String (HTML)\
 **Version history:**\
 4.0.0 - added
+
+### `spoiler_warning` {#spoiler_warning}
+
+**Description:** The translated spoiler warning of the status.\
+**Type:** String\
+**Version history:**\
+4.2.0 - added
+
+### `poll` {#poll}
+
+**Description:** The translated poll options of the status.\
+**Type:** Array\
+**Version history:**\
+4.2.0 - added
+
+### `media_attachments` {#media_attachments}
+
+**Description:** The translated media descriptions of the status.\
+**Type:** Array\
+**Version history:**\
+4.2.0 - added
 
 ### `detected_source_language` {#detected_source_language}
 
