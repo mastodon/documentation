@@ -88,6 +88,8 @@ In development mode, Mastodon will use a gem called [Letter Opener](https://gith
 
 In order to work with emails, you'll need Sidekiq, Redis and PostgreSQL running, and then emails can be viewed by visiting: `http://localhost:3000/letter_opener/`
 
+If you're developing in docker, you'll need to set the `REMOTE_DEV=true` environment variable.
+
 ## Useful commands for testing {#testing}
 
 `rspec`
