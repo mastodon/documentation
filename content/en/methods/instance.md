@@ -25,7 +25,7 @@ GET /api/v2/instance
 
 Obtain general information about the server.
 
-**Returns:** [V1::Instance]({{< relref "entities/instance" >}})\
+**Returns:** [Instance]({{< relref "entities/Instance" >}})\
 **OAuth:** Public\
 **Version history:**\
 4.0.0 - added
@@ -496,7 +496,7 @@ GET /api/v1/instance HTTP/1.1
 
 Obtain general information about the server.
 
-**Returns:** [V1::Instance]({{< relref "entities/instance" >}})\
+**Returns:** [V1::Instance]({{< relref "entities/V1_Instance" >}})\
 **OAuth:** Public\
 **Version history:**\
 1.1.0 - added\
