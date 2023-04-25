@@ -93,6 +93,8 @@ menu:
 
 ## Rust {#rust}
 
+* [mastodon-async](https://crates.io/crates/mastodon-async) - A type-safe, async wrapper around the client API for Mastodon
+* [megalodon](https://crates.io/crates/megalodon) - Mastodon and Pleroma API client library for Rust. 
 * [mammut](https://github.com/Aaronepower/mammut) (unmaintained)
 * [elefren](https://github.com/DeeUnderscore/elefren) (unmaintained)
 
