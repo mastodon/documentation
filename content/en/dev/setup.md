@@ -82,6 +82,14 @@ foreman start
 
 This will start processes defined in `Procfile.dev`, which will give you: A Rails server, a Webpack server, a streaming API server, and Sidekiq. Of course, you can run any of those things stand-alone depending on your needs.
 
+## Working with emails in development
+
+In development mode, Mastodon will use a gem called [Letter Opener](https://github.com/ryanb/letter_opener) for "sending" emails, which allows you to debug emails in your browser, without actually having to send emails via an SMTP server.
+
+In order to work with emails, you'll need Sidekiq, Redis and PostgreSQL running, and then emails can be viewed by visiting: `http://localhost:3000/letter_opener/`
+
+If you're developing in docker, you'll need to set the `REMOTE_DEV=true` environment variable.
+
 ## Useful commands for testing {#testing}
 
 `rspec`
