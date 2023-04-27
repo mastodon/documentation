@@ -59,14 +59,14 @@ systemctl reload mastodon-web
 The `reload` operation is a zero-downtime restart, also called "phased restart". As such, Mastodon upgrades usually do not require any advance notice to users about planned downtime. In rare cases, you can use the `restart` operation instead, but there will be a (short) felt interruption of service for your users.
 {{< /hint >}}
 
-Rarely, the **streaming API** server is also updated and requires a restart:
+The **streaming API** server is also updated and requires a restart, doing so will result in all connected clients being disconnected, which can increase load on your server:
 
 ```bash
 systemctl restart mastodon-streaming
 ```
 
 {{< hint style="danger" >}}
-The streaming API server is updated very rarely, and in most releases, does *not* require a restart. Restarting the streaming API leads to an increased load on your server as disconnected clients attempt to reconnect or poll the REST API instead, so avoid it whenever you can.
+Restarting the streaming API leads to an increased load on your server as disconnected clients attempt to reconnect or poll the REST API instead, so avoid it whenever you can.
 {{< /hint >}}
 
 {{< hint style="success" >}}
