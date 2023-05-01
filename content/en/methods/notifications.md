@@ -68,7 +68,7 @@ min_id
 : String. Return results immediately newer than this ID
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40 notifications. Max notifications 80.
+: Integer. Maximum number of results to return. Defaults to 40 notifications. Max 80 notifications.
 
 types[]
 : Array of String. Types to include in the result.
