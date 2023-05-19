@@ -442,7 +442,7 @@ Set to `auto` (default), `always`, or `never`.
 
 ## File storage {#files}
 
-### CDN {cdn}
+### CDN {#cdn}
 
 #### `CDN_HOST`
 
