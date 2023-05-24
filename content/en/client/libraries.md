@@ -54,14 +54,16 @@ menu:
 
 ## JavaScript {#javascript}
 
+### General {#javascript-general}
+
 * [masto.js](https://github.com/neet/masto.js)
 * [libodonjs](https://github.com/Zatnosk/libodonjs)
 
-## JavaScript (Browser) {#javascript-browser}
+### Browser {#javascript-browser}
 
 * [mastodon.js](https://github.com/Kirschn/mastodon.js)
 
-## JavaScript (Node.js) {#javascript-node-js}
+### Node.js {#javascript-node-js}
 
 * [node-mastodon](https://github.com/jessicahayley/node-mastodon)
 * [mastodon-api](https://github.com/vanita5/mastodon-api)
