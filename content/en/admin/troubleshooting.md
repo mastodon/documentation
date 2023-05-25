@@ -30,3 +30,28 @@ Check that you are specifying the correct environment with `RAILS_ENV=production
 ## **I encountered a compilation error while executing `RAILS_ENV=production bundle exec rails assets:precompile`, but no more information is given. How to fix it?**
 
 Usually it's because your server ran out of memory while compiling assets. Use a swapfile or increase the swap space to increase the memory capacity. Run `RAILS_ENV=production bundle exec rake tmp:cache:clear` to clear cache, then execute `RAILS_ENV=production bundle exec rails assets:precompile` to compile again. Make sure you clear the cache after a compilation error, or it will show "Everything's OK" but leave the assets unchanged.
+
+## **I am setting up Mastodon in a Docker environment, but the container will not start and throws the error `relation "accounts" does not exist`. What am I doing wrong?**
+
+The Mastodon Docker container does not initialize the database by default.
+
+If you are using Docker Compose, you can adjust the `web` container in your `docker-compose.yml` like follows ([thanks to GitHub user thomasmarkiewicz](https://github.com/mastodon/mastodon/issues/14670#issuecomment-734423954)):
+
+```
+  web:
+    image: tootsuite/mastodon
+    restart: always
+    env_file: .env.production
+    #command: bash -c "rm -f /mastodon/tmp/pids/server.pid; bundle exec rails s -p 3000" # <== Comment out this line
+    command: bash -c "while :; do echo 'Hit CTRL+C'; sleep 1; done" # <== Add this line
+    ...
+```
+
+This will start the container, but it will not actually do anything.
+Open a shell in the container with `docker exec -it [container ID] sh` and execute the following command:
+
+```sh
+RAILS_ENV=production bundle exec rake db:setup
+```
+
+This will initialize the database schema. You can now exit out of this shell, revert the change to your Docker Compose file above, and restart the service.
