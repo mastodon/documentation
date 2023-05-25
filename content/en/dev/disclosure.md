@@ -7,7 +7,7 @@ menu:
     parent: dev
 ---
 
-If you believe you've identified a security vulnerability in Mastodon (a bug that allows something to happen that shouldn't be possible), you should send the report to **hello@joinmastodon.org**. We will gladly reward such reports in proportion to the severity of the issue through our OpenCollective fund.
+If you believe you've identified a security vulnerability in Mastodon (a bug that allows something to happen that shouldn't be possible), you should send the report to **security@joinmastodon.org**. We will gladly reward such reports in proportion to the severity of the issue through our OpenCollective fund.
 
 You should *not* report such issues on GitHub or in other public spaces to give us time to publish a fix for the issue without exposing Mastodon's users to increased risk.
 
