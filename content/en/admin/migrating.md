@@ -55,6 +55,10 @@ Less crucially, you’ll probably also want to copy the following for convenienc
 
 ### Dump and load PostgreSQL {#dump-and-load-postgresql}
 
+{{< hint style="info" >}}
+Before you start, note that both `pg_dump` and `pg_restore` can take a long time. (As in, hours for a ~15GB backup file.) You may want to [temporarily tune Postgres's performance](https://stackoverflow.com/a/2095283) just for dumping/restoring.
+{{< /hint >}}
+
 Instead of running `mastodon:setup`, we’re going to create an empty PostgreSQL database using the `template0` database (which is useful when restoring a PostgreSQL dump, [as described in the pg_dump documentation](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)).  
 
 If you are using a password for your PostgreSQL user, you may want to configure the `mastodon` user on your new system to use the same password as your old system for convenience:
@@ -83,8 +87,9 @@ Then import it (replace # in -j# with the number of CPUs in your system to impro
 pg_restore -Fc -j# -U mastodon -n public --no-owner --role=mastodon \
   -d mastodon_production backup.dump
 ```
-
-(Note that if the username is not `mastodon` on the new server, you should change the `-U` AND `--role` values above. It’s okay if the username is different between the two servers.)
+{{< hint style="info" >}}
+Note that if the username is not `mastodon` on the new server, you should change the `-U` AND `--role` values above. It’s okay if the username is different between the two servers.
+{{< /hint >}}
 
 ### Copy files {#copy-files}
 
@@ -113,6 +118,12 @@ rsync -avz /var/lib/redis/ root@example.com:/var/lib/redis
 ```
 
 Optionally, you may copy over the nginx, systemd, and PgBouncer config files, or rewrite them from scratch.
+
+### Certbot
+
+Copying your Nginx config files will not be sufficient to re-run letsencrypt.
+
+Instead, copy the certificate files referenced by `ssl_certificate` and `ssl_certificate_key` (in `/etc/nginx/sites-available/mastodon`) to the new machine and update the path in the new machine's nginx config. Don't use letsencrypt's own `live` folder for this, or else letsencrypt will complain when you try to re-generate the certificate. Just use any temporary directory for this, since re-running letsencrypt will overwrite the config anyway.
 
 ### During migration {#during-migration}
 
@@ -150,4 +161,3 @@ RAILS_ENV=production ./bin/tootctl search deploy
 ```
 
 You can check [whatsmydns.net](https://whatsmydns.net/) to see the progress of DNS propagation. To jumpstart the process, you can always edit your own `/etc/hosts` file to point to your new server so you can start playing around with it early.
-
