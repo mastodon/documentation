@@ -3,7 +3,7 @@ title: admin/trends API methods
 description: TODO
 menu:
   docs:
-    name: admin/trends
+    name: trends
     parent: methods-admin
     identifier: methods-admin-trends
 aliases: [
