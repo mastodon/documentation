@@ -1,6 +1,6 @@
 ---
 title: Setting up your new instance
-description: Things to do after installing Mastodon
+summary: Things to do after installing Mastodon
 menu:
   docs:
     weight: 50

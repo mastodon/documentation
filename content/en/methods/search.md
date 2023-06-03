@@ -1,6 +1,6 @@
 ---
 title: search API methods
-description: Search for content in accounts, statuses and hashtags.
+summary: Search for content in accounts, statuses and hashtags.
 menu:
   docs:
     weight: 60

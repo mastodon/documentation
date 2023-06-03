@@ -1,9 +1,9 @@
 ---
 title: More settings
-description: Invite new users, sort through your contacts, and secure your account.
+summary: Invite new users, sort through your contacts, and secure your account.
+weight: 80
 menu:
   docs:
-    weight: 80
     parent: user
 ---
 

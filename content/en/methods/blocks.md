@@ -1,6 +1,6 @@
 ---
 title: blocks API methods
-description: View your blocks. See also accounts/:id/{block,unblock}
+summary: View your blocks. See also accounts/:id/{block,unblock}
 menu:
   docs:
     weight: 40

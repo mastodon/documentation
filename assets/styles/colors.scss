@@ -1,0 +1,65 @@
+$color-1706b3: hsl(292, 92%, 5%);
+$color-2f0c7a: hsl(259, 82%, 26%);
+$color-563acc: hsl(252, 59%, 51%);
+$color-6364ff: hsl(240, 100%, 69%);
+$color-858afa: hsl(237, 92%, 75%);
+
+@mixin light {
+	--link-color: #6364FF;
+	--link-visited: #6364FF;
+
+	--primary-accent: hsl(240, 100%, 69%);
+	--primary-accent-transparent: hsla(240, 100%, 69%, 20%);
+	--primary-accent-text: #fff;
+
+	--ui-background: #fff;
+	--ui-text: #111;
+	--ui-text-muted: #666;
+	--ui-text-bold: #000;
+
+	--ui-overlay: #ddd;
+	--ui-overlay-text: var(--ui-text);
+
+	--ui-border: #ddd;
+
+	--ui-error: hsl(0, 80%, 50%);
+}
+
+@mixin dark {
+	--link-color: #858AFA;
+	--link-visited: #858AFA;
+
+	--primary-accent: hsl(252, 59%, 51%);
+	--primary-accent-transparent: hsl(252, 59%, 51%, 20%);
+	--primary-accent-text: #fff;
+
+	--ui-background: hsl(292, 32%, 5%);
+	--ui-text: #ddd;
+	--ui-text-muted: #999;
+	--ui-text-bold: #fff;
+
+	--ui-overlay: hsl(292, 18%, 15%);
+	--ui-overlay-text: #fff;
+
+	--ui-border: rgba(203,213,225,.1);
+
+	--ui-error: hsl(0, 80%, 50%);
+}
+
+:root {
+	@include light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		@include dark;
+	}
+}
+
+body.dark-mode {
+	@include dark;
+}
+
+body.light-mode {
+	@include light;
+}

@@ -1,6 +1,6 @@
 ---
 title: tags API methods
-description: View information about or follow/unfollow hashtags.
+summary: View information about or follow/unfollow hashtags.
 menu:
   docs:
     weight: 120

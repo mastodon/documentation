@@ -1,6 +1,6 @@
 ---
 title: instance API methods
-description: Discover information about a Mastodon website.
+summary: Discover information about a Mastodon website.
 menu:
   docs:
     weight: 70

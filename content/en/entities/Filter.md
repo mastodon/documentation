@@ -1,6 +1,6 @@
 ---
 title: Filter
-description: Represents a user-defined filter for determining which statuses should not be shown to the user.
+summary: Represents a user-defined filter for determining which statuses should not be shown to the user.
 menu:
   docs:
     parent: entities

@@ -1,6 +1,6 @@
 ---
 title: CustomEmoji
-description: Represents a custom emoji.
+summary: Represents a custom emoji.
 menu:
   docs:
     parent: entities

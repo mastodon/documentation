@@ -1,6 +1,6 @@
 ---
 title: suggestions API methods
-description: >-
+summary: >-
   Server-generated suggestions on who to follow, based on previous positive
   interactions.
 menu:

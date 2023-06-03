@@ -1,6 +1,6 @@
 ---
 title: Admin::Measure
-description: Represents quantitative data about the server.
+summary: Represents quantitative data about the server.
 menu:
   docs:
     parent: entities

@@ -1,6 +1,6 @@
 ---
 title: Admin::DomainAllow
-description: Represents a domain allowed to federate.
+summary: Represents a domain allowed to federate.
 menu:
   docs:
     parent: entities

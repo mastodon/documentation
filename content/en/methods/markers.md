@@ -1,6 +1,6 @@
 ---
 title: markers API methods
-description: Save and restore your position in timelines.
+summary: Save and restore your position in timelines.
 menu:
   docs:
     weight: 30

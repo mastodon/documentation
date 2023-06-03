@@ -1,6 +1,6 @@
 ---
 title: oauth API methods
-description: Generate and manage OAuth tokens.
+summary: Generate and manage OAuth tokens.
 menu:
   docs:
     weight: 10

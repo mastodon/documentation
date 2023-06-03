@@ -1,6 +1,6 @@
 ---
 title: Bearcaps
-description: A URI scheme combining URLs with a Bearer token needed to access them.
+summary: A URI scheme combining URLs with a Bearer token needed to access them.
 menu:
   docs:
     weight: 60

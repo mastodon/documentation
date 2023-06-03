@@ -1,6 +1,6 @@
 ---
 title: Setting up a dev environment
-description: Instructions on how to start developing for Mastodon.
+summary: Instructions on how to start developing for Mastodon.
 menu:
   docs:
     weight: 20

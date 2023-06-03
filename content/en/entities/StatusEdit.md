@@ -1,6 +1,6 @@
 ---
 title: StatusEdit
-description: Represents a revision of a status that has been edited.
+summary: Represents a revision of a status that has been edited.
 menu:
   docs:
     parent: entities

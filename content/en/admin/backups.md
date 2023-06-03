@@ -1,6 +1,6 @@
 ---
 title: Backing up your server
-description: Setting up regular backups (optional, but not really)
+summary: Setting up regular backups (optional, but not really)
 menu:
   docs:
     weight: 80

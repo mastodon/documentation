@@ -1,7 +1,0 @@
-{{- $page := .Site.GetPage (.Get "page") -}}
-{{- with $page -}}
-<a href="{{ .RelPermalink }}" class="page-ref">
-  <div class="page-ref-icon"><i class="fa fa-arrow-right"></i></div>
-  {{ .Title }}
-</a>
-{{- end -}}

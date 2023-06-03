@@ -1,6 +1,6 @@
 ---
 title: Admin::Report
-description: Admin-level information about a filed report.
+summary: Admin-level information about a filed report.
 menu:
   docs:
     parent: entities

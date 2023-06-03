@@ -1,6 +1,6 @@
 ---
 title: Error
-description: Represents an error message.
+summary: Represents an error message.
 menu:
   docs:
     parent: entities

@@ -1,6 +1,6 @@
 ---
 title: List
-description: Represents a list of some users that the authenticated user follows.
+summary: Represents a list of some users that the authenticated user follows.
 menu:
   docs:
     parent: entities

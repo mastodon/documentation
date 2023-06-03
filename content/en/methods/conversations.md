@@ -1,6 +1,6 @@
 ---
 title: conversations API methods
-description: >-
+summary: >-
   Direct conversations with other participants. (Currently, just threads
   containing a post with "direct" visibility.)
 menu:

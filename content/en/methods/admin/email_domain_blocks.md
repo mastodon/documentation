@@ -1,6 +1,6 @@
 ---
 title: email_domain_blocks API methods
-description: Disallow certain email domains from signing up.
+summary: Disallow certain email domains from signing up.
 menu:
   docs:
     name: email_domain_blocks

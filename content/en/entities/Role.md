@@ -1,6 +1,6 @@
 ---
 title: Role
-description: Represents a custom user role that grants permissions.
+summary: Represents a custom user role that grants permissions.
 menu:
   docs:
     parent: entities

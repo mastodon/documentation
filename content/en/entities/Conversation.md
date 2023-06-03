@@ -1,6 +1,6 @@
 ---
 title: Conversation
-description: Represents a conversation with "direct message" visibility.
+summary: Represents a conversation with "direct message" visibility.
 menu:
   docs:
     parent: entities

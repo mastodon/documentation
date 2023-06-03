@@ -1,6 +1,6 @@
 ---
 title: Marker
-description: Represents the last read position within a user's timelines.
+summary: Represents the last read position within a user's timelines.
 menu:
   docs:
     parent: entities

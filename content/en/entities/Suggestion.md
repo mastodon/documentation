@@ -1,6 +1,6 @@
 ---
 title: Suggestion
-description: Represents a suggested account to follow and an associated reason for the suggestion.
+summary: Represents a suggested account to follow and an associated reason for the suggestion.
 menu:
   docs:
     parent: entities

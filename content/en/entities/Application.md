@@ -1,6 +1,6 @@
 ---
 title: Application
-description: Represents an application that interfaces with the REST API to access accounts or post statuses.
+summary: Represents an application that interfaces with the REST API to access accounts or post statuses.
 menu:
   docs:
     parent: entities

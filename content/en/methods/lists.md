@@ -1,6 +1,6 @@
 ---
 title: lists API methods
-description: >-
+summary: >-
   View and manage lists. See also: /api/v1/timelines/list/id for loading a list
   timeline.
 menu:

@@ -1,6 +1,6 @@
 ---
 title: Database index corruption
-description: How to recover from database index corruption.
+summary: How to recover from database index corruption.
 menu:
   docs:
     weight: 10

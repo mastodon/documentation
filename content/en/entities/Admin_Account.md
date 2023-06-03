@@ -1,6 +1,6 @@
 ---
 title: Admin::Account
-description: Admin-level information about a given account.
+summary: Admin-level information about a given account.
 menu:
   docs:
     parent: entities

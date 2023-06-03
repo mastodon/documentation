@@ -1,6 +1,6 @@
 ---
 title: bookmarks API methods
-description: View your bookmarks. See also statuses/:id/{bookmark,unbookmark}
+summary: View your bookmarks. See also statuses/:id/{bookmark,unbookmark}
 menu:
   docs:
     weight: 10

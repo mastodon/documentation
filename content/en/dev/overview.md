@@ -1,6 +1,6 @@
 ---
 title: Technical overview
-description: A description of Mastodon's architecture.
+summary: A description of Mastodon's architecture.
 menu:
   docs:
     weight: 10

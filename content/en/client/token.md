@@ -1,6 +1,6 @@
 ---
 title: Obtaining client app access
-description: Getting accustomed to the basics of authentication and authorization.
+summary: Getting accustomed to the basics of authentication and authorization.
 menu:
   docs:
     weight: 30

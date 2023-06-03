@@ -1,6 +1,6 @@
 ---
 title: WebFinger
-description: Translate `user@domain` mentions to actor profile URIs.
+summary: Translate `user@domain` mentions to actor profile URIs.
 menu:
   docs:
     weight: 20

@@ -1,6 +1,6 @@
 ---
 title: preferences API methods
-description: Preferred common behaviors to be shared across clients.
+summary: Preferred common behaviors to be shared across clients.
 menu:
   docs:
     weight: 110

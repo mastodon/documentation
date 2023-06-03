@@ -1,6 +1,6 @@
 ---
 title: proofs API methods
-description: For use by identity providers.
+summary: For use by identity providers.
 menu:
   docs:
     weight: 100

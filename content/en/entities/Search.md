@@ -1,6 +1,6 @@
 ---
 title: Search
-description: Represents the results of a search.
+summary: Represents the results of a search.
 menu:
   docs:
     parent: entities

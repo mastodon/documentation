@@ -1,9 +1,9 @@
 ---
 title: Using the network features
-description: Follow and talk to anyone from any server.
+summary: Follow and talk to anyone from any server.
+weight: 40
 menu:
   docs:
-    weight: 40
     parent: user
 ---
 

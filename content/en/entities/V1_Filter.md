@@ -1,6 +1,6 @@
 ---
 title: V1::Filter
-description: Represents a user-defined filter for determining which statuses should not be shown to the user. Contains a single keyword or phrase.
+summary: Represents a user-defined filter for determining which statuses should not be shown to the user. Contains a single keyword or phrase.
 menu:
   docs:
     parent: entities

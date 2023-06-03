@@ -1,6 +1,6 @@
 ---
 title: apps API methods
-description: Register client applications that can be used to obtain OAuth tokens.
+summary: Register client applications that can be used to obtain OAuth tokens.
 menu:
   docs:
     weight: 10

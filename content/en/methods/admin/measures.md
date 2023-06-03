@@ -1,6 +1,6 @@
 ---
 title: measures API methods
-description: Obtain quantitative metrics about the server.
+summary: Obtain quantitative metrics about the server.
 menu:
   docs:
     name: measures

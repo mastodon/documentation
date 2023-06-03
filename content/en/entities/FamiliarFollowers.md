@@ -1,6 +1,6 @@
 ---
 title: FamiliarFollowers
-description: Represents a subset of your follows who also follow some other user.
+summary: Represents a subset of your follows who also follow some other user.
 menu:
   docs:
     parent: entities

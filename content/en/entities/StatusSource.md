@@ -1,6 +1,6 @@
 ---
 title: StatusSource
-description: Represents a status's source as plain text.
+summary: Represents a status's source as plain text.
 menu:
   docs:
     parent: entities

@@ -1,6 +1,6 @@
 ---
 title: Moderation actions
-description: Actions that can be taken against unwanted users or domains.
+summary: Actions that can be taken against unwanted users or domains.
 menu:
   docs:
     weight: 110

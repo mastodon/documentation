@@ -1,6 +1,6 @@
 ---
 title: streaming API methods
-description: >-
+summary: >-
   Subscribe to server-sent events for real-time updates via a long-lived HTTP
   connection or via WebSocket.
 menu:
