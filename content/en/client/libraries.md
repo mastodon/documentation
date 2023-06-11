@@ -29,6 +29,7 @@ Remember to check how recently the library was updated, and whether it includes 
 
 ## Common Lisp {#common-lisp}
 
+* [mastodon-cl](https://github.com/compufox/mastodon-cl)
 * [tooter](https://github.com/Shinmera/tooter)
 
 ## Crystal {#crystal}
@@ -38,6 +39,7 @@ Remember to check how recently the library was updated, and whether it includes 
 ## Dart
 
 * [mastodon-api](https://github.com/mastodon-dart/mastodon-api)
+* [mastodon-oauth](https://github.com/mastodon-dart/mastodon-oauth2)
 * [mastodon](https://github.com/mykdavies/Mastodon)
 * [dartodon](https://github.com/darkcl/dartodon)
 
