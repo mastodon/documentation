@@ -75,13 +75,13 @@ This request is functionally equivalent to saying that `https://my-example.com/a
 
 #### Signing POST requests and the Digest header {#digest}
 
-When making a POST request to Mastodon, you must calculate the RSA-SHA256 digest hash of your request's body and include this hash within the `Digest:` header. The `Digest:` header must also be included within the `headers` parameter of the `Signature:` header. For example:
+When making a POST request to Mastodon, you must calculate the RSA-SHA256 digest hash of your request's body and include this hash (in base64 encoding) within the `Digest:` header. The `Digest:` header must also be included within the `headers` parameter of the `Signature:` header. For example:
 
 ```http
 POST /users/username/inbox HTTP/1.1
 HOST: mastodon.example
 Date: 18 Dec 2019 10:08:46 GMT
-Digest: e37e179c75071a291f90a5fd4f848da87b491f1282f7bb8509ef2115b81ee0f4
+Digest: sha-256=hcK0GZB1BM4R0eenYrj9clYBuyXs/lemt5iWRYmIX0A=
 Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date digest",signature="Y2FiYW...IxNGRiZDk4ZA=="
 Content-Type: application/ld+json; profile="http://www.w3.org/ns/activitystreams"
 
@@ -92,7 +92,7 @@ Content-Type: application/ld+json; profile="http://www.w3.org/ns/activitystreams
   "object": {
     "type": "Note",
     "content": "Hello!"
-  }
+  },
   "to": "https://mastodon.example/users/username"
 }
 ```
