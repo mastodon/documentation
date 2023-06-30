@@ -2290,6 +2290,100 @@ Token does not have an authorized user
 }
 ```
 
+## Delete profile pictures
+
+```http
+DELETE /api/v1/accounts/pictures/:picture HTTP/1.1
+```
+
+**Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
+**OAuth**: User token + `write:accounts`\
+**Version history:**\
+x.y.z - added
+
+Deletes the avatar or header picture associated with the user's profile.
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Path parameters
+
+:picture
+: {{<required>}} String. The type of picture to be deleted. Valid options are `avatar` and `header`.
+
+#### Response
+
+##### 200: OK
+
+The picture was successfully deleted from the user's profile. If there were no picture associated with the profile, the response will still indicate a successful deletion.
+
+```json
+{
+	"id": "110357222516183152",
+	"username": "rob",
+	"acct": "rob",
+	"display_name": "",
+	"locked": false,
+	"bot": false,
+	"discoverable": false,
+	"group": false,
+	"created_at": "2023-05-12T00:00:00.000Z",
+	"note": "",
+	"url": "http://localhost:3000/@rob",
+	"avatar": "http://localhost:3000/avatars/original/missing.png",
+	"avatar_static": "http://localhost:3000/avatars/original/missing.png",
+	"header": "http://localhost:3000/headers/original/missing.png",
+	"header_static": "http://localhost:3000/headers/original/missing.png",
+	"followers_count": 15,
+	"following_count": 2,
+	"statuses_count": 10,
+	"last_status_at": "2023-06-26",
+	"noindex": false,
+	"source": {
+		"privacy": "public",
+		"sensitive": false,
+		"language": null,
+		"note": "",
+		"fields": [],
+		"follow_requests_count": 0
+	},
+	"emojis": [],
+	"roles": [],
+	"fields": [],
+	"role": {
+		"id": "-99",
+		"name": "",
+		"permissions": "65536",
+		"color": "",
+		"highlighted": false
+	}
+}
+```
+
+### 400: Bad request
+
+The provided `:picture` parameter's value is invalid.
+
+```json
+{
+	"error": "Picture must be either \"avatar\" or \"header\""
+}
+```
+
+### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+	"error": "The access token is invalid"
+}
+```
+
 ---
 
 ## See also
