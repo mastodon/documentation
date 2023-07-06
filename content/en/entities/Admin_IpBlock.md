@@ -80,4 +80,4 @@ aliases: [
 
 {{< page-relref page="methods/admin/ip_blocks" caption="admin/ip_blocks API methods" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/ip_blocks_serializer.rb" caption="app/serializers/rest/admin/ip_blocks_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/ip_block_serializer.rb" caption="app/serializers/rest/admin/ip_block_serializer.rb" >}}

@@ -53,4 +53,4 @@ aliases: [
 
 {{< page-relref page="methods/admin/domain_allows" caption="admin/domain_allows API methods" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/domain_allows_serializer.rb" caption="app/serializers/rest/admin/domain_allows_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/domain_allow_serializer.rb" caption="app/serializers/rest/admin/domain_allow_serializer.rb" >}}
