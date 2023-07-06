@@ -22,7 +22,7 @@ menu:
 
 Mastodon站点可以独立运作。和传统网站一样，人们可以在上面注册、发布消息、上传图片、互相聊天。但与传统网站*不同*的是，Mastodon网站之间可以互动，让跨站用户互相交流，就好像只要你知道他们的电子邮件地址，你就可以从你的Gmail帐户发送电子邮件给使用Outlook、Fastmail、Protonmail或任何其他电子邮件供应商的用户。在Mastodon里，**你可以对任何人在任何网站上的地址进行“@”或私信**。
 
-{{< figure src="assets/image%20%289%29.png" caption="上图从左到右依次为：集中式、联邦式、分布式" >}}
+{{< figure src="assets/network-models.jpg" caption="上图从左到右依次为：集中式、联邦式、分布式" >}}
 
 ## ActivityPub是什么？ {#fediverse}
 
