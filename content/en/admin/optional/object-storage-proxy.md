@@ -63,6 +63,8 @@ server {
     add_header Cache-Control public;
     add_header 'Access-Control-Allow-Origin' '*';
     add_header X-Cache-Status $upstream_cache_status;
+    add_header X-Content-Type-Options nosniff;
+    add_header Content-Security-Policy "default-src 'none'; form-action 'none'";
   }
 }
 ```
