@@ -67,7 +67,7 @@ Mastodon的开发同样是通过[Patreon](https://patreon.com/mastodon)和[OpenC
 
 ### 跨平台互联 {#interoperability}
 
-实际上：你能否想象一下从你的推特帐户关注一个Instagram用户并在不离开你的帐户的情况下评论他们的照片。如果推特和Instagram是使用同样协议的联邦服务，那么这将是可能的。通过一个Mastodon帐户，**你可以与其他相兼容的网站通迅，** _**即使它并没有运行Mastodon**_。这些网站只需要它们的软件支持ActivityPub协议的相同子集，该协议子集允许创建消息和通过消息进行交互。想了解更多与Mastodon交互所需的技术规范，请参阅[ActivityPub](spec/activitypub)、[WebFinger](spec/webfinger)和[Security](spec/security)。想了解更多关于ActivityPub的用处，请参阅[《为什么ActivityPub是未来》](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/)。
+实际上：你能否想象一下从你的推特帐户关注一个Instagram用户并在不离开你的帐户的情况下评论他们的照片。如果推特和Instagram是使用同样协议的联邦服务，那么这将是可能的。通过一个Mastodon帐户，**你可以与其他相兼容的网站通迅，** _**即使它运行的不是 Mastodon**_。这些网站只需要它们的软件支持ActivityPub协议的相同子集，该协议子集允许创建消息和通过消息进行交互。想了解更多与Mastodon交互所需的技术规范，请参阅[ActivityPub](spec/activitypub)、[WebFinger](spec/webfinger)和[Security](spec/security)。想了解更多关于ActivityPub的用处，请参阅[《为什么ActivityPub是未来》](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/)。
 
 > 所有这些平台都是不同的，它们关注不同的需求。然而，它们的基石都是相同的：一些人订阅接收其他人的帖子。因此，它们都是相互兼容的。
 >
