@@ -290,7 +290,7 @@ To reduce the load on your Postgresql server, you may wish to setup hot streamin
 Read replicas are currently not supported for the Sidekiq processes, and using them will lead to failing jobs and data loss.
 {{< /hint >}}
 
-You will have to edit the `config/database.yml` file and replace the `production` section as follows:
+You will have to use a separate `config/database.yml` file for the web processes and edit it to replace the `production` section as follows:
 
 ```yaml
 production:
