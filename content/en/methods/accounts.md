@@ -767,7 +767,7 @@ exclude_reblogs
 : Boolean. Filter out boosts from the response.
 
 pinned
-: Boolean. Filter for pinned statuses only.
+: Boolean. Filter for pinned statuses only. Defaults to false, which excludes pinned statuses.
 
 tagged
 : String. Filter for statuses using a specific hashtag.
