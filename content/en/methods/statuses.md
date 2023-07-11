@@ -455,9 +455,10 @@ GET /api/v1/statuses/:id/context HTTP/1.1
 View statuses above and below this status in the thread.
 
 **Returns:** [Context]({{< relref "entities/context" >}})\
-**OAuth:** Public for public statuses. User token + `read:statuses` for private statuses.\
+**OAuth:** Public for public statuses limited to 40 ancestors and 60 descendants with a maximum depth of 20. User token + `read:statuses` for up to 4,096 ancestors, 4,096 descendants, unlimited depth, and private statuses.\
 **Version history:**\
 0.0.0 - added
+4.0.0 - limit unauthenticated requests
 
 #### Request
 
