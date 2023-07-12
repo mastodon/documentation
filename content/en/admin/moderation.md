@@ -41,7 +41,7 @@ If the account is reinstated within the 30 day period, all data is once again ac
 
 Once the data has been deleted, whether that is after the 30 day period, or if an admin has force deleted it, the account can still be un-suspended. However, the account will have no data (statuses, profile information, avatar or header image) associated with it.
 
-For remote accounts, suspending will make them unfollow any local account. Those relationships are not restored in case the remote account is un-supended, even within the 30-day time window.
+For remote accounts, suspending will make them unfollow any local account. Those relationships are not restored in case the remote account is un-suspended, even within the 30-day time window.
 
 ## Moderating entire websites {#server-wide-moderation}
 
