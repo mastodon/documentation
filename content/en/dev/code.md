@@ -7,11 +7,11 @@ menu:
     parent: dev
 ---
 
-### Code structure {#structure}
+## Code structure {#structure}
 
 The following overview should not be seen as complete or authoritative, but as a rough guidance to help you find your way in the application.
 
-#### Ruby {#ruby}
+### Ruby {#ruby}
 
 `app/controllers`
 : Code that binds business logic to templates
@@ -43,7 +43,7 @@ The following overview should not be seen as complete or authoritative, but as a
 `spec`
 : Automated test suite
 
-#### JavaScript {#javascript}
+### JavaScript {#javascript}
 
 `app/javascript/mastodon`
 : Code for the frontend React.js application
@@ -51,7 +51,7 @@ The following overview should not be seen as complete or authoritative, but as a
 `app/javascript/packs`
 : Code for non-React.js pages
 
-#### CSS and other assets {#assets}
+### CSS and other assets {#assets}
 
 `app/javascript/images`
 : Images
@@ -59,7 +59,7 @@ The following overview should not be seen as complete or authoritative, but as a
 `app/javascript/styles`
 : Code that turns into CSS via Sass
 
-#### Localizations {#localizations}
+### Localizations {#localizations}
 
 `config/locales`
 : Server-side localizations in the YML format
