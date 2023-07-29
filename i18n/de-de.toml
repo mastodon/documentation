@@ -1,0 +1,68 @@
+[improvePage]
+other = "Verbessere diese Seite"
+
+[lastUpdated]
+other = "Zuletzt aktualisiert"
+
+[lastUpdatedDateFormat]
+other = "{{ .Format \"2. January, 2006\" }}"
+
+[joinTitle]
+other = "Nimm an der Social-Media-Revolution teil"
+
+[joinText]
+other = "Mastodon ist eine freie, dezentrale Plattform mit über drei Millionen Mitgliedern"
+
+[joinAction]
+other = "Tritt Mastodon jetzt bei!"
+
+[merch]
+other = "Merch"
+
+[shirtsAndStickers]
+other = "T-Shirts und Sticker"
+
+[joinMastodon]
+other = "Mastodon beitreten"
+
+[blog]
+other = "Blog"
+
+[viewSource]
+other = "Quellcode ansehen"
+
+[imprint]
+other = "Imprint"
+
+[formDataParameters]
+other = "Formulardaten-Parameter"
+
+[headers]
+other = "Header"
+
+[required]
+other = "benötigt"
+
+[optional]
+other = "optional"
+
+[nullable]
+other = "nullable"
+
+[pathParameters]
+other = "Pfad-Parameter"
+
+[queryParameters]
+other = "Abfragen-Parameter"
+
+[request]
+other = "Anfrage"
+
+[response]
+other = "Antwort"
+
+[otherTranslations]
+other = "Auch verfügbar in:"
+
+[sponsoredBy]
+other = "Unterstützt durch:"
