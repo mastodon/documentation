@@ -1,6 +1,6 @@
 ---
 title: Roles
-description: Roles submenu, accessible from the admin dashboard
+description: Management of roles from the admin dashboard.
 menu:
   docs:
     parent: admin
@@ -91,7 +91,7 @@ Duplicate role names can exist. They are discerned in the database by their `id`
 
 ![](/assets/admin-roles-edit-ui.png)
 
-An individual role can be edited by selecting *Edit* in the role list. [Input fields](#add-role-input-fields) can be changed and saved, just as they can when creating a new role. The role can also be deleted using this form.
+An individual role can be edited by selecting *Edit* in the role list. [Input fields](#add-role-input-fields) can be changed and saved, just as they can when creating a new role. The role can also be deleted using this form. 
 
 ![](/assets/admin-roles-edit-role-ui.png)
 
