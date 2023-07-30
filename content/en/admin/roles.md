@@ -11,26 +11,26 @@ When the database is seeded, roles are derived from the values present in  [`~/c
 
 {{< page-ref page="entities/Role" >}}
 
-The resultant roles are `Owner`, `Admin`, and `Moderator`.
+The resultant [default roles](#default-roles) are `Owner`, `Admin`, and `Moderator`.
 
-A role and its attributes can be created using the *Add role* button present on the `/admin/roles` page.
+A role and its attributes can be created using [Add role](#add-role), present on the *Roles* (`/admin/roles`) page.
 
 ![](/assets/admin-roles-ui.png)
 
-An existing role can be changed using the [edit role](#edit-role) feature.
+An existing role's attributes can be changed using the [edit role](#edit-role) feature.
 
 ## Default roles {#default-roles}
 ### Base role (*Default permissions*) {#default-base-role}
 
 Affects all users, including users without an assigned role.
 
-The only permission flag that can be altered for this role is **Invite Users**. Enabling this permission will allow all users to invite other users to the server.
+The only permission flag that can be altered for this role is **Invite Users**. Enabling this permission allows all users to send invitations.
 
 The base role has a priority of `0`, and this value cannot be altered.
 
 ### Owner {#default-owner-role}
 
-A role that is assigned the **Administrator** permission flag, bypassing all permissions.
+A role that is assigned the **Administrator** permission flag, bypassing all permissions. Users with the owner role have every [permission flag](/entities/Role/#permission-flags) enabled.
 
 The role's *Name*, *Badge color*, and *Display badge* attributes can be changed. No permissions can be edited / revoked from this role.
 
@@ -61,7 +61,7 @@ The moderator role has a priority of `10`.
 
 ## Add Role {#add-role}
 
-The `admin/roles/new` page allows for the creation of a custom Role.
+The `admin/roles/new` page allows for the creation of a custom role.
 
 ![](/assets/admin-roles-new-ui.png)
 
@@ -91,7 +91,7 @@ Duplicate role names can exist. They are discerned in the database by their `id`
 
 ![](/assets/admin-roles-edit-ui.png)
 
-An individual role can be edited by selecting *Edit* in the role list. [Input fields](#add-role-input-fields) can be changed and saved, just as they can when creating a new role. The role can also be deleted using this form. 
+An existing role and its attributes can be edited using *Edit* in the role list. [Input fields](#add-role-input-fields) can be changed and saved, just as they can when creating a new role. The role can also be deleted using this form. 
 
 ![](/assets/admin-roles-edit-role-ui.png)
 
