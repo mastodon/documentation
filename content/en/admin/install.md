@@ -9,7 +9,7 @@ menu:
 
 ## Pre-requisites {#pre-requisites}
 
-* A machine running **Ubuntu 20.04** or **Debian 11** that you have root access to
+* A machine running **Ubuntu 22.04** or **Debian 11** that you have root access to
 * A **domain name** (or a subdomain) for the Mastodon server, e.g. `example.com`
 * An e-mail delivery service or other **SMTP server**
 
@@ -26,7 +26,7 @@ apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
 #### Node.js {#node-js}
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_16.x | bash -
+curl -sL https://deb.nodesource.com/setup_18.x | bash -
 ```
 
 #### PostgreSQL {#postgresql}
@@ -38,15 +38,17 @@ echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.o
 
 ### System packages {#system-packages}
 
+Please ensure there are no package variations from what you might already have install, such as `nginx-extras` vs `nginx` or postgresql versions
+
 ```bash
 apt update
 apt install -y \
-  imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core \
-  g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf \
-  bison build-essential libssl-dev libyaml-dev libreadline6-dev \
-  zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
-  nginx redis-server redis-tools postgresql postgresql-contrib \
-  certbot python3-certbot-nginx libidn11-dev libicu-dev libjemalloc-dev
+  libidn11-dev libicu-dev libjemalloc-dev libpq-dev libxml2-dev \
+  libxslt1-dev file git-core g++ libprotobuf-dev protobuf-compiler \
+  pkg-config nodejs gcc autoconf bison build-essential libssl-dev \
+  libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev \
+  libffi-dev libgdbm-dev nginx redis-server redis-tools postgresql \
+  postgresql-contrib imagemagick ffmpeg certbot python3-certbot-nginx 
 ```
 
 #### Yarn {#yarn}
