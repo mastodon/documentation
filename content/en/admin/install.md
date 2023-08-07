@@ -155,6 +155,7 @@ bundle config deployment 'true'
 bundle config without 'development test'
 bundle install -j$(getconf _NPROCESSORS_ONLN)
 yarn install --pure-lockfile
+npx update-browserslist-db@latest
 ```
 
 {{< hint style="info" >}}
