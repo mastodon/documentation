@@ -155,7 +155,6 @@ bundle config deployment 'true'
 bundle config without 'development test'
 bundle install -j$(getconf _NPROCESSORS_ONLN)
 yarn install --pure-lockfile
-npx update-browserslist-db@latest
 ```
 
 {{< hint style="info" >}}
@@ -167,6 +166,7 @@ The two `bundle config` commands are only needed the first time you're installin
 Run the interactive setup wizard:
 
 ```bash
+npx update-browserslist-db@latest
 RAILS_ENV=production bundle exec rake mastodon:setup
 ```
 
