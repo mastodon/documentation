@@ -94,6 +94,11 @@ GET /api/v1/admin/canonical_email_blocks/:id HTTP/1.1
 
 #### Request
 
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Admin::CanonicalEmailBlock in the database.
+
 ##### Headers
 
 Authorization
@@ -261,6 +266,11 @@ DELETE /api/v1/admin/canonical_email_blocks/:id HTTP/1.1
 4.0.0 - added
 
 #### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Admin::CanonicalEmailBlock in the database.
 
 ##### Headers
 
