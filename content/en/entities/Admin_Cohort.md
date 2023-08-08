@@ -77,7 +77,7 @@ Daily retention data for the week between 2022-09-08 and 2022-09-14, given that 
 			"value": "1"
 		}
 	]
-},
+}
 ```
 
 ## Attributes
