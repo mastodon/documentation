@@ -107,7 +107,7 @@ Remember to check how recently the library was updated, and whether it includes 
 * [mastodon-api-php-oauth](https://github.com/yks118/Mastodon-api-php-oauth)
 * [mastodon-api-php](https://github.com/colorfield/mastodon-api-php)
 * [Mastodon API for Laravel](https://github.com/kawax/laravel-mastodon-api)
-* [Mastodon for Drupal](https://github.com/colorfield/mastodon)
+* [Mastodon for Drupal](https://www.drupal.org/project/mastodon)
 * [Mastodon for Socialite](https://github.com/kawax/socialite-mastodon)
 
 ## PowerShell {#powershell}
