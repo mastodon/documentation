@@ -100,6 +100,7 @@ Remember to check how recently the library was updated, and whether it includes 
 
 ## PHP {#php}
 
+* [mastodon-api-client](https://github.com/vazaha-nl/mastodon-api-client)
 * [Phediverse Mastodon REST Client](https://github.com/phediverse/mastodon-rest)
 * [TootoPHP](https://framagit.org/MaxKoder/TootoPHP)
 * [oauth2-mastodon](https://github.com/lrf141/oauth2-mastodon)
