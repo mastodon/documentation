@@ -54,9 +54,73 @@ Edit `.env.production` to add the following variables:
 ES_ENABLED=true
 ES_HOST=localhost
 ES_PORT=9200
+ES_PRESET= # single_node_cluster, small_cluster or large_cluster
+ES_USER=
+ES_PASS=
 ```
 
+### Choosing the correct preset
+
+The value for `ES_PRESET` depends on the size of your Elasticsearch and will be used to set the number of shards and replica for your indices to the best value for your setup:
+- `single_node_cluster` if you only have one node in your Elasticsearch cluster. Indices will be configured without any replica
+- `small_cluster` if you have less than 6 nodes in your cluster. Indices will be configured with 1 replica
+- `large_cluster` if you have 6 or more nodes in your cluster. Indices will be configured with more shards than with the `small_cluster` setting, to allow them to be distributed over more nodes
+
 If you have multiple Mastodon servers on the same machine, and you are planning to use the same Elasticsearch installation for all of them, make sure that all of them have unique `REDIS_NAMESPACE` in their configurations, to differentiate the indices. If you need to override the prefix of the Elasticsearch indices, you can set `ES_PREFIX` directly.
+
+### Security
+
+By default, Elasticsearch does not handle any authentication and every request is made with full admin permission. We strongly advise you to configure Elasticsearch security features on your cluster.
+
+To configure it, please refer [to the official documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html). It will guide you through:
+- Enabling the security features (`xpack.security.enabled: true`)
+- Creating password for build-in users
+
+Once done, you can create a custom role for Mastodon to connect.
+
+For example (please adapt this snippet to use your Elastic admin password):
+
+```sh
+curl -X POST -u elastic:admin_password "localhost:9200/_security/role/mastodon_full_access?pretty" -H 'Content-Type: application/json' -d'
+{
+  "cluster": ["monitor"],
+  "indices": [{
+    "names": ["*"],
+    "privileges": ["read", "monitor", "write", "manage" ]
+  }]
+}
+'
+```
+
+[Elasticsearch documentation for role creation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-api-put-role.html)
+
+Once the role is created, you can create a user for the Mastodon server to use, and assign it the role.
+
+For example (please adapt this snippet to use your Elastic admin password, and customize your new user `mastodon` user password):
+
+```sh
+curl -X POST -u elastic:admin_password "localhost:9200/_security/user/mastodon?pretty" -H 'Content-Type: application/json' -d'
+{
+  "password" : "l0ng-r4nd0m-p@ssw0rd",
+  "roles" : [ "mastodon_full_access",  ]
+}
+'
+```
+
+[Elasticsearch documentation for user creation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-api-put-user.html)
+
+Once this is done, you need to configure Mastodon to use the credentials for your newly created user.
+
+In `.env.production`, adjust your configuration:
+
+```bash
+ES_USER=mastodon
+ES_PASS=l0ng-r4nd0m-p@ssw0rd
+```
+
+You are all set, and your Elasticsearch server should be much more secure!
+
+### Populate the indices
 
 After saving the new configuration, restart Mastodon processes for it to take effect:
 
@@ -151,4 +215,3 @@ diff --git a/app/chewy/tags_index.rb b/app/chewy/tags_index.rb
 
        edge_ngram: {
 ```
-
