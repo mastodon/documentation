@@ -2290,10 +2290,10 @@ Token does not have an authorized user
 }
 ```
 
-## Delete profile pictures
+## Delete profile images
 
 ```http
-DELETE /api/v1/accounts/pictures/:picture HTTP/1.1
+DELETE /api/v1/profile/:image HTTP/1.1
 ```
 
 **Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
@@ -2301,7 +2301,7 @@ DELETE /api/v1/accounts/pictures/:picture HTTP/1.1
 **Version history:**\
 x.y.z - added
 
-Deletes the avatar or header picture associated with the user's profile.
+Deletes the avatar or header image associated with the user's profile.
 
 #### Request
 
@@ -2312,14 +2312,14 @@ Authorization
 
 ##### Path parameters
 
-:picture
-: {{<required>}} String. The type of picture to be deleted. Valid options are `avatar` and `header`.
+:image
+: {{<required>}} String. The type of image to be deleted. Valid options are `avatar` and `header`.
 
 #### Response
 
 ##### 200: OK
 
-The picture was successfully deleted from the user's profile. If there were no picture associated with the profile, the response will still indicate a successful deletion.
+The image was successfully deleted from the user's profile. If there were no image associated with the profile, the response will still indicate a successful deletion.
 
 ```json
 {
@@ -2366,11 +2366,11 @@ The picture was successfully deleted from the user's profile. If there were no p
 
 ### 400: Bad request
 
-The provided `:picture` parameter's value is invalid.
+The provided `:image` parameter's value is invalid.
 
 ```json
 {
-	"error": "Picture must be either \"avatar\" or \"header\""
+	"error": "Image must be either 'avatar' or 'header'"
 }
 ```
 
