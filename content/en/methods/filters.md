@@ -16,7 +16,7 @@ aliases: [
 
 ## Server-side (v2) methods {#v2}
 
-Since Mastodon 3.6, filters can contain multiple keywords and are matched server-side. Clients apply the filter action based on [the status's `filtered` attribute]({{< relref "entities/Status#filtered" >}}).
+Since Mastodon 4.0, filters can contain multiple keywords and are matched server-side. Clients apply the filter action based on [the status's `filtered` attribute]({{< relref "entities/Status#filtered" >}}).
 
 ---
 
@@ -106,7 +106,7 @@ Obtain a single filter group owned by the current user.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the Filter in the database.
 
 ##### Headers
 
@@ -206,7 +206,7 @@ keywords_attributes[][keyword]
 : String. A keyword to be added to the newly-created filter group.
 
 keywords_attributes[][whole_word]
-: String. Whether the keyword should consider word boundaries.
+: Boolean. Whether the keyword should consider word boundaries.
 
 <!-- TODO: Remove when https://github.com/mastodon/mastodon/issues/21727 is fixed
 keywords_attributes[][id]
@@ -330,7 +330,7 @@ keywords_attributes[][keyword]
 : String. A keyword to be added to the newly-created filter group.
 
 keywords_attributes[][whole_word]
-: String. Whether the keyword should consider word boundaries.
+: Boolean. Whether the keyword should consider word boundaries.
 
 keywords_attributes[][id]
 : String. Provide the ID of an existing keyword to modify it, instead of creating a new keyword.
@@ -1012,7 +1012,7 @@ FilterStatus is not owned by you or does not exist
 
 ## Client-side (v1) methods {#v1}
 
-Prior to Mastodon 3.6, matching filters was done client-size and filters could only contain one phrase to filter against.
+Prior to Mastodon 4.0, matching filters was done client-size and filters could only contain one phrase to filter against.
 
 ---
 
@@ -1355,7 +1355,7 @@ DELETE /api/v1/filters/:id HTTP/1.1
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the Filter in the database.
 
 ##### Headers
 

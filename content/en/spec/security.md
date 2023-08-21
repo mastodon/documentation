@@ -9,7 +9,7 @@ menu:
 
 ## HTTP Signatures {#http}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/request.rb" caption="app/lib/request.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/request.rb" caption="app/lib/request.rb" >}}
 
 [HTTP Signatures](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures) is a specification for signing HTTP messages by using a `Signature:` header with your HTTP request. Mastodon requires the use of HTTP Signatures in order to validate that any activity received was authored by the actor generating it. When secure mode is enabled, all GET requests require HTTP signatures as well.
 
@@ -75,13 +75,13 @@ This request is functionally equivalent to saying that `https://my-example.com/a
 
 #### Signing POST requests and the Digest header {#digest}
 
-When making a POST request to Mastodon, you must calculate the RSA-SHA256 digest hash of your request's body and include this hash within the `Digest:` header. The `Digest:` header must also be included within the `headers` parameter of the `Signature:` header. For example:
+When making a POST request to Mastodon, you must calculate the RSA-SHA256 digest hash of your request's body and include this hash (in base64 encoding) within the `Digest:` header. The `Digest:` header must also be included within the `headers` parameter of the `Signature:` header. For example:
 
 ```http
 POST /users/username/inbox HTTP/1.1
 HOST: mastodon.example
 Date: 18 Dec 2019 10:08:46 GMT
-Digest: e37e179c75071a291f90a5fd4f848da87b491f1282f7bb8509ef2115b81ee0f4
+Digest: sha-256=hcK0GZB1BM4R0eenYrj9clYBuyXs/lemt5iWRYmIX0A=
 Signature: keyId="https://my-example.com/actor#main-key",headers="(request-target) host date digest",signature="Y2FiYW...IxNGRiZDk4ZA=="
 Content-Type: application/ld+json; profile="http://www.w3.org/ns/activitystreams"
 
@@ -92,14 +92,14 @@ Content-Type: application/ld+json; profile="http://www.w3.org/ns/activitystreams
   "object": {
     "type": "Note",
     "content": "Hello!"
-  }
+  },
   "to": "https://mastodon.example/users/username"
 }
 ```
 
 ### Verifying HTTP signatures {#http-verify}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/controllers/concerns/signature_verification.rb" caption="app/controllers/concerns/signature_verification.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/concerns/signature_verification.rb" caption="app/controllers/concerns/signature_verification.rb" >}}
 
 Consider the following request:
 
@@ -133,7 +133,7 @@ Mastodon verifies the signature using the following algorithm:
 
 ## Linked Data Signatures {#ld}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/activitypub/linked_data_signature.rb" caption="app/lib/activitypub/linked_data_signature.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/activitypub/linked_data_signature.rb" caption="app/lib/activitypub/linked_data_signature.rb" >}}
 
 {{< hint style="warning" >}}
 Mastodon's current implementation of LD Signatures is outdated due to a change in the JSON-LD `@context` between the drafting stage and finalization stage of the specification. Mastodon expects a `type` of `RsaSignature2017` while later drafts instead define `RsaSignature2018` via the namespace `https://w3id.org/security/v2`. Furthermore, the LD Signatures specification as a whole has been superseded by the [Verifiable Credential Data Integrity 1.0](https://w3c.github.io/vc-data-integrity/) specification, which is largely incompatible with the earlier LD Signature spec. For this reason, it is not advised to implement support for LD Signatures.

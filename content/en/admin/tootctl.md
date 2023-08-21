@@ -22,7 +22,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## Base CLI
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/cli.rb" caption="lib/cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/base.rb" caption="lib/mastodon/cli/base.rb" >}}
 
 
 ---
@@ -61,7 +61,7 @@ Show the version of the currently running Mastodon instance.
 
 ## Accounts CLI {#accounts}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/accounts_cli.rb" caption="lib/mastodon/accounts_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/accounts.rb" caption="lib/mastodon/cli/accounts.rb" >}}
 
 
 ---
@@ -127,6 +127,9 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 `--role ROLE`
 : Define the existing account's custom role by providing the `name` of that [Role]({{< relref "entities/Role" >}}). Default roles include `Owner`, `Admin`, and `Moderator` (case-sensitive).
 
+`--remove-role`
+: Removes the current role from the user.
+
 `--email EMAIL`
 : Update the user's email address to `EMAIL`.
 
@@ -154,7 +157,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 **Version history:**\
 2.6.0 - added\
 3.1.2 - added `--reset-password`\
-4.0.0 - `--role` no longer takes hard-coded `user`, `moderator`, or `admin` roles. Specify the name of the custom Role instead (case-sensitive).
+4.0.0 - `--role` no longer takes hard-coded `user`, `moderator`, or `admin` roles. Specify the name of the custom Role instead (case-sensitive). Remove the current role with `--remove-role`.
 
 
 ---
@@ -328,7 +331,7 @@ Approve new registrations when instance is in approval mode.
 : Local username.
 
 `--number N`
-: Approve the N most recent registrations.
+: Approve the N earliest pending registrations.
 
 `--all`
 : Approve all pending registrations.
@@ -342,7 +345,7 @@ Approve new registrations when instance is in approval mode.
 
 ## Cache CLI {#cache}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/cache_cli.rb" caption="lib/mastodon/cache_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/cache.rb" caption="lib/mastodon/cli/cache.rb" >}}
 
 
 ---
@@ -381,7 +384,7 @@ Update hard-cached counters of TYPE by counting referenced records from scratch.
 
 ## Domains CLI {#domains}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/domains_cli.rb" caption="lib/mastodon/domains_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/domains.rb" caption="lib/mastodon/cli/domains.rb" >}}
 
 
 ---
@@ -447,7 +450,7 @@ Crawl the known fediverse by using Mastodon REST API endpoints that expose all k
 
 ## Email domain blocks CLI {#email-domain-blocks}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/email_domain_blocks_cli.rb" caption="lib/mastodon/email_domain_blocks_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/email_domain_blocks.rb" caption="lib/mastodon/cli/email_domain_blocks.rb" >}}
 
 
 ---
@@ -497,7 +500,7 @@ Remove entries from the e-mail domain blocklist.
 
 ## Emoji CLI {#emoji}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/emoji_cli.rb" caption="lib/mastodon/emoji_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/emoji.rb" caption="lib/mastodon/cli/emoji.rb" >}}
 
 
 ---
@@ -569,7 +572,7 @@ Remove all custom emoji.
 
 ## Feeds CLI {#feeds}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/feeds_cli.rb" caption="lib/mastodon/feeds_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/feeds.rb" caption="lib/mastodon/cli/feeds.rb" >}}
 
 
 ---
@@ -614,7 +617,7 @@ Remove all home and list feeds from Redis.
 
 ## Maintenance CLI {#maintenance}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/maintenance_cli.rb" caption="lib/mastodon/maintenance_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/maintenance.rb" caption="lib/mastodon/cli/maintenance.rb" >}}
 
 
 ---
@@ -633,7 +636,7 @@ Fix corrupted database indexes that may have been caused due to changing collati
 
 ## Media CLI {#media}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/media_cli.rb" caption="lib/mastodon/media_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/media.rb" caption="lib/mastodon/cli/media.rb" >}}
 
 
 ---
@@ -641,13 +644,22 @@ Fix corrupted database indexes that may have been caused due to changing collati
 
 ### `tootctl media remove` {#media-remove}
 
-Remove locally cached copies of media attachments from other servers.
+Removes locally cached copies of media attachments, avatars or profile headers from other servers. By default, only media attachments are removed.
 
 `--days N`
-: How old media attachments have to be before they are removed. Defaults to 7.
+: How old media attachments have to be before they are removed. In case of avatars and headers, how old the last webfinger request and update to the user has to be before they are removed. Defaults to 7.
 
 `--concurrency N`
 : The number of workers to use for this task. Defaults to N=5.
+
+`--prune-profiles`
+: Instead of media attachments, remove locally cached copies of avatars and headers from other servers. Cannot be combined with `--remove-headers`.
+
+`--remove-headers`
+: Instead of media attachments, remove locally cached copies of headers from other servers. Cannot be combined with `--prune-profiles`.
+
+`--include-follows`
+: Override the default behavior of `--prune-profiles` and `--remove-headers` to remove locally cached copies of avatars (and headers) from other servers, irrespective of follow status (by default, they are only removed from accounts that are not followed by or following anyone locally). Can only be used with `--prune-profiles` or `--remove-headers`.
 
 `--verbose`
 : Print additional information while task is processing.
@@ -658,6 +670,7 @@ Remove locally cached copies of media attachments from other servers.
 **Version history:**\
 2.5.0 - added\
 2.6.2 - show freed disk space
+4.1.0 - added --prune-profiles, --remove-headers, and --include-follows.
 
 
 ---
@@ -745,7 +758,7 @@ Prompts for a media URL, then looks up the status where the media is displayed.
 
 ## Preview Cards CLI {#preview_cards}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/preview_cards_cli.rb" caption="lib/mastodon/preview_cards_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/preview_cards.rb" caption="lib/mastodon/cli/preview_cards.rb" >}}
 
 
 ---
@@ -779,7 +792,7 @@ Remove local thumbnails for preview cards.
 
 ## Search CLI {#search}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/search_cli.rb" caption="lib/mastodon/search_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/search.rb" caption="lib/mastodon/cli/search.rb" >}}
 
 
 ---
@@ -787,7 +800,7 @@ Remove local thumbnails for preview cards.
 
 ### `tootctl search deploy` {#search-deploy}
 
-Create or update an ElasticSearch index and populate it. If ElasticSearch is empty, this command will create the necessary indices and then import data from the database into those indices. This command will also upgrade indices if the underlying schema has been changed since the last run.
+Create or update an Elasticsearch index and populate it. If Elasticsearch is empty, this command will create the necessary indices and then import data from the database into those indices. This command will also upgrade indices if the underlying schema has been changed since the last run.
 
 `--batch-size`
 : Defaults to 1000. A lower batch size can make ElasticSearch process records more quickly.
@@ -810,7 +823,7 @@ Create or update an ElasticSearch index and populate it. If ElasticSearch is emp
 
 ## Settings CLI {#settings}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/settings_cli.rb" caption="lib/mastodon/settings_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/settings.rb" caption="lib/mastodon/cli/settings.rb" >}}
 
 
 ---
@@ -854,7 +867,7 @@ Set registration to require approval.
 
 ## Statuses CLI {#statuses}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/statuses_cli.rb" caption="lib/mastodon/statuses_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/statuses.rb" caption="lib/mastodon/cli/statuses.rb" >}}
 
 
 ---
@@ -883,7 +896,7 @@ This is a computationally heavy procedure that creates extra database indices be
 
 ## Upgrade CLI {#upgrade}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/lib/mastodon/upgrade_cli.rb" caption="lib/mastodon/upgrade_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/upgrade.rb" caption="lib/mastodon/cli/upgrade.rb" >}}
 
 
 ---

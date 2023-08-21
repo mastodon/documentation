@@ -7,7 +7,7 @@ menu:
     parent: dev
 ---
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/config/routes.rb" caption="config/routes.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/config/routes.rb" caption="config/routes.rb" >}}
 
 ## Explanation of routes {#routes}
 

@@ -66,4 +66,4 @@ aliases: [
 
 {{< page-relref ref="entities/Status#application" caption="Status (`application` attribute)" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/application_serializer.rb" caption="app/serializers/rest/application_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/application_serializer.rb" caption="app/serializers/rest/application_serializer.rb" >}}

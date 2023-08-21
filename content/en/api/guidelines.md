@@ -123,12 +123,12 @@ If `whole_word` is true, the client app should do the following:
 
 Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_manager.rb` in the Mastodon source code for more details.
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/javascript/mastodon/selectors/index.js" caption="app/javascript/mastodon/selectors/index.js" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/javascript/mastodon/selectors/index.js" caption="app/javascript/mastodon/selectors/index.js" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/feed_manager.rb" caption="app/lib/feed_manager.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/feed_manager.rb" caption="app/lib/feed_manager.rb" >}}
 
 ## Focal points for cropping media thumbnails {#focal-points}
 
 Server-side preview images are never cropped, to support a variety of apps and user interfaces. Therefore, the cropping must be done by those apps. To crop intelligently, focal points can be used to ensure a certain section of the image is always within the cropped viewport. See this [guide on how focal points are defined](https://github.com/jonom/jquery-focuspoint#1-calculate-your-images-focus-point). In summary, floating points range from -1.0 to 1.0, left-to-right or bottom-to-top. (0,0) is the center of the image. (0.5, 0.5) would be in the center of the upper-right quadrant. (-0.5, -0.5) would be in the center of the lower-left quadrant. For reference, thumbnails in the Mastodon frontend are most commonly 16:9.
 
-{{< figure src="/assets/focal-points.jpg" caption="A demonstration of various focal points and their coordinates." >}}
+{{< figure src="assets/focal-points.jpg" caption="A demonstration of various focal points and their coordinates." >}}

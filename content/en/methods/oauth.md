@@ -102,7 +102,7 @@ client_id
 : {{<required>}} String. The client ID, obtained during app registration.
 
 client_secret
-: {{<required>}} String. The client secret, obtained durign app registration.
+: {{<required>}} String. The client secret, obtained during app registration.
 
 redirect_uri
 : {{<required>}} String. Set a URI to redirect the user to. If this parameter is set to urn:ietf:wg:oauth:2.0:oob then the token will be shown instead. Must match one of the `redirect_uris` declared during app registration.

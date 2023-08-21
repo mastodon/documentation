@@ -22,7 +22,7 @@ Similar to how blogging is the act of publishing updates to a website, **microbl
 
 A Mastodon website can operate alone. Just like a traditional website, people sign up on it, post messages, upload pictures and talk to each other. _Unlike_ a traditional website, Mastodon websites can interoperate, letting their users communicate with each other; just like you can send an email from your Gmail account to someone from Outlook, Fastmail, Protonmail, or any other email provider, as long as you know their email address, **you can mention or message anyone on any website using their address**.
 
-{{< figure src="/assets/network-models.jpg" caption="From left to right: Centralized, Federated, Distributed" >}}
+{{< figure src="assets/network-models.jpg" caption="From left to right: Centralized, Federated, Distributed" >}}
 
 
 
@@ -104,6 +104,3 @@ Learn how to write an app for Mastodon:
 Learn about the Mastodon backend and how to contribute:
 
 {{< page-ref page="dev/overview" >}}
-
-
-

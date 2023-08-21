@@ -455,9 +455,10 @@ GET /api/v1/statuses/:id/context HTTP/1.1
 View statuses above and below this status in the thread.
 
 **Returns:** [Context]({{< relref "entities/context" >}})\
-**OAuth:** Public for public statuses. User token + `read:statuses` for private statuses.\
+**OAuth:** Public for public statuses limited to 40 ancestors and 60 descendants with a maximum depth of 20. User token + `read:statuses` for up to 4,096 ancestors, 4,096 descendants, unlimited depth, and private statuses.\
 **Version history:**\
 0.0.0 - added
+4.0.0 - limit unauthenticated requests
 
 #### Request
 
@@ -523,6 +524,71 @@ Status is private or does not exist
 
 ---
 
+## Translate a status {#translate}
+
+```http
+POST /api/v1/statuses/:id/translate HTTP/1.1
+```
+
+Translate the status content into some language.
+
+**Returns:** [Translation]({{< relref "entities/translation" >}})\
+**OAuth:** App token + `read:statuses`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Form data parameters
+
+lang
+: String (ISO 639 language code). The status content will be translated into this language. Defaults to the user's current locale.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Translating the first "Hello world" post from mastodon.social into Spanish
+
+```json
+{
+  "content": "<p>Hola mundo</p>",
+  "detected_source_language": "en",
+  "provider": "DeepL.com"
+}
+```
+
+##### 404: Not found
+
+Status is private or does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+##### 503: Service unavailable
+
+The translation request failed
+
+```json
+{
+  "error": "Service Unavailable"
+}
+```
+
+---
+
 ## See who boosted a status {#reblogged_by}
 
 ```http
@@ -565,7 +631,7 @@ limit
 #### Response
 ##### 200: OK
 
-A list of statuses that boosted the status
+A list of accounts that boosted the status
 
 ```json
 [
@@ -1394,7 +1460,7 @@ Edit a given status to change its text, sensitivity, media attachments, or poll.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the Status in the database.
 
 ##### Headers
 
