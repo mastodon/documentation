@@ -387,36 +387,32 @@ Comma-separated specific addresses/subnets allowed in outgoing HTTP queries.
 
 ## E-mail {#email}
 
-The e-mail configuration is based on the *action_mailer* application of the framework *Ruby on Rails* on which is built Mastodon. You can see complete documentation about the underneath mechanismes [here](https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration). The client uses SMTP or derived ones : StartTLS + SMTP or SMTPS (SMTP over TLS).
+E-mail configuration is based on the *action_mailer* component of the *Ruby on Rails* framework that Mastodon is built on. Complete documentation on action_mailer is available [here](https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration). The client uses SMTP or derivatives: StartTLS + SMTP or SMTPS (SMTP over TLS).
 
 ### Basic configuration {#basic}
 
-* `SMTP_SERVER` : Specify the server to use. By example `sub.domain.tld`.
-* `SMTP_PORT` : By default, the value is `25` (usual port for SMTP). If StartTLS detected, it may be switched on the port 587.
-* `SMTP_DOMAIN` : Only if you need to specify an HELO domain. Will be set to the `SMTP_SERVER` domain by default.
-* `SMTP_FROM_ADDRESS` : To specify a sender address. 
-* `SMTP_DELIVERY_METHOD` : By default `smtp`. It can be `sendmail` either. See the ROR documentation for more details.
+* `SMTP_SERVER`: Specify the server to use. For example `sub.domain.tld`.
+* `SMTP_PORT`: By default, the value is `25` (usual port for SMTP). If StartTLS is detected, it may be switched to port 587.
+* `SMTP_DOMAIN`: Only required if a HELO domain is needed. Will be set to the `SMTP_SERVER` domain by default.
+* `SMTP_FROM_ADDRESS`: Specify a sender address. 
+* `SMTP_DELIVERY_METHOD`: By default, the value is `smtp` (can also be `sendmail`).
+  
+### Authentication for the SMTP server {#smtpauthentication}
 
-### Authentication for the smtp server {#smtpauthentication}
-
-About how to process if your SMTP server requires authentication.
-
-* `SMTP_LOGIN` : Login of the user to which the client will connect.
-* `SMTP_PASSWORD` :  Password of this user.
-* `SMTP_AUTH_METHOD` : It can be `plain` (by default, password is transmitted in the clear), `login` (password will be base64 encoded) or `cram_md5`.
-
-Through secured connections, it doesn't matter whether the authentication method is `plain` because it wont be plain thanks to the secured connections. 
+* `SMTP_LOGIN`: Login for the SMTP user.
+* `SMTP_PASSWORD`:  Password for the SMTP user.
+* `SMTP_AUTH_METHOD`: Either `plain` (default; password is transmitted in the clear), `login` (password will be base64 encoded) or `cram_md5`.
 
 ### Secured SMTP
-By default, StartTLS will be tried to connect to the specified SMTP server.
+By default, a StartTLS connection will be attempted to the specified SMTP server.
 
-* `SMTP_ENABLE_STARTTLS_AUTO` : By default `true`.
-* `SMTP_CA_FILE` : It can be specified, but on many distros (debian based) will be `/etc/ssl/certs/ca-certificates.crt`. Look for the specifications of your distro.
-* `SMTP_OPENSSL_VERIFY_MODE` : `none` or `peer`. When using TLS, it may be usefull for accepting connections with a self-signed certificate. 
-* `SMTP_TLS` : `true` or `false` (`false` by default)
-* `SMTP_SSL` : `true` or `false` (`false` by default)
+* `SMTP_ENABLE_STARTTLS_AUTO`: Default `true`.
+* `SMTP_CA_FILE`: A value may be specified, but on many Linux distros (e.g. Debian-based) this will be `/etc/ssl/certs/ca-certificates.crt`. 
+* `SMTP_OPENSSL_VERIFY_MODE`: `none` or `peer`. When using TLS, it may be useful to accept connections with a self-signed certificate. 
+* `SMTP_TLS`: `true` or `false` (default `false`)
+* `SMTP_SSL`: `true` or `false` (default `false`)
 
-Be carefull that `TLSv1.3` and `TLSv1.2` are the single SSL/TLS protocols which are considered as safe today. 
+Note that `TLSv1.3` and `TLSv1.2` are the only SSL/TLS protocols currently considered to be secure. 
 
 ## File storage {#cdn}
 
