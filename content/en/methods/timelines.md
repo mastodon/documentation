@@ -231,7 +231,7 @@ Hashtag does not exist
 GET /api/v1/timelines/home HTTP/1.1
 ```
 
-View statuses from followed users.
+View statuses from followed users and hashtags.
 
 **Returns:** Array of [Status]({{<relref "entities/status">}})\
 **OAuth:** User + `read:statuses`\
