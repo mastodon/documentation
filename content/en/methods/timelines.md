@@ -239,6 +239,7 @@ View statuses from followed users and hashtags.
 0.0.0 - added\
 2.6.0 - add `min_id`\
 3.3.0 - both `min_id` and `max_id` can be used at the same time now
+4.0.0 - as users can now follow hashtags, statuses from non-followed users may appear in the timeline
 
 #### Request
 
