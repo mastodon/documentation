@@ -703,7 +703,7 @@ Scans for files that do not belong to existing media attachments, and remove the
 
 ### `tootctl media refresh` {#media-refresh}
 
-Refetch remote media attachments from other servers. You must specify the source of media attachments with either `--status`, `--account`, or `--domain`. If an attachment already exists in the database, it will not be overwritten unless you use `--force`.
+Refetch remote media attachments from other servers. You must specify the source of media attachments with either `--status`, `--account`, `--domain`, or `--days`. If an attachment already exists in the database, it will not be overwritten unless you use `--force`.  
 
 `--account ACCT`
 : String `username@domain` handle of the account
@@ -714,6 +714,9 @@ Refetch remote media attachments from other servers. You must specify the source
 `--status ID`
 : Local numeric ID of the status in the database.
 
+`--days N`
+: The number of days to limit this task to.
+  
 `--concurrency N`
 : The number of workers to use for this task. Defaults to 5.
 
@@ -728,7 +731,8 @@ Refetch remote media attachments from other servers. You must specify the source
 
 **Version history:**\
 3.0.0 - added\
-3.0.1 - add `--force` and skip already downloaded attachments by default
+3.0.1 - add `--force` and skip already downloaded attachments by default\
+4.0.0 - add `--days`
 
 
 ---
