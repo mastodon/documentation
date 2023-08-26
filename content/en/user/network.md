@@ -84,6 +84,10 @@ The following operators are supported:
 
 In Mastodon, direct messages are just posts that have the "direct" visibility selected. Visibility can be selected per-post, which allows changing the privacy level later in a thread. The direct messages column currently shows a list of all conversations containing a direct post. Clicking on a conversation will load the associated thread.
 
+{{< hint style="danger" >}}
+Please note that Mastodon currently **does not support end-to-end encryption** for direct messages. This means that any direct messages you send may not be fully protected from outside views. End-to-end encryption is planned, but not yet implemented into Mastodon.
+{{< /hint >}}
+
 {{< figure src="assets/dm-thread.jpg" caption="A direct message in a thread." >}}
 
 ## List timelines {#lists}
