@@ -26,7 +26,8 @@ apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
 #### Node.js {#node-js}
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_16.x | bash -
+curl -sL https://deb.nodesource.com/setup_lts.x | bash -
+apt install -y nodejs build-essential gcc g++ make
 ```
 
 #### PostgreSQL {#postgresql}
