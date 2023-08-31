@@ -383,11 +383,11 @@ Port of the Elasticsearch server. Defaults to `9200`
 
 #### `ES_USER`
 
-Used for optionally authenticating with ElasticSearch
+Used for optionally authenticating with Elasticsearch
 
 #### `ES_PASS`
 
-Used for optionally authenticating with ElasticSearch
+Used for optionally authenticating with Elasticsearch
 
 #### `ES_PREFIX`
 
