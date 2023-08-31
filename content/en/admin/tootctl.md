@@ -807,7 +807,7 @@ Remove local thumbnails for preview cards.
 Create or update an Elasticsearch index and populate it. If Elasticsearch is empty, this command will create the necessary indices and then import data from the database into those indices. This command will also upgrade indices if the underlying schema has been changed since the last run.
 
 `--batch-size`
-: Defaults to 1000. A lower batch size can make ElasticSearch process records more quickly.
+: Defaults to 100. A higher batch size can make Elasticsearch process records more quickly, with less load on the PostgreSQL database, but can increase memory pressure on the Elasticsearch nodes during indexing.
 
 `--only INDEX`
 : Specify an index name [`accounts`, `tags`, `statuses`] to create or update only that index.
