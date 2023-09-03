@@ -62,7 +62,7 @@ First, install iptables-persistent. During installation it will ask you if you w
 apt install -y iptables-persistent
 ```
 
-Edit `/etc/iptables/rules.v4` and put this inside:
+Edit `/etc/iptables/rules.v4` and put this inside: (There must to be a new line after COMMIT, or it will get an error message ```Bad argument `COMMIT'``` at next step.)
 
 ```text
 *filter
@@ -99,6 +99,7 @@ Edit `/etc/iptables/rules.v4` and put this inside:
 -A FORWARD -j REJECT
 
 COMMIT
+
 ```
 
 With iptables-persistent, that configuration will be loaded at boot time. But since we are not rebooting right now, we need to load it manually for the first time:
@@ -140,6 +141,7 @@ If your server is also reachable over IPv6, edit `/etc/iptables/rules.v6` and ad
 -A FORWARD -j REJECT
 
 COMMIT
+
 ```
 Similar to the IPv4 rules, you can load it manually like this:
 ```bash
