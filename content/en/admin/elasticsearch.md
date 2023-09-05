@@ -1,15 +1,29 @@
 ---
-title: Full-text search
-description: Setting up Elasticsearch to search for statuses authored, favourited, or mentioned in.
+title: Configuring full-text search
+description: Setting up Elasticsearch to search for statuses (authored, favourited, or mentioned), public indexable status, and accounts
 menu:
   docs:
-    weight: 10
-    parent: admin-optional
+    weight: 40
+    parent: admin
 ---
 
-Mastodon supports full-text search when Elasticsearch is available. Mastodon’s full-text search allows logged in users to find results from their own statuses, their mentions, their favourites, and their bookmarks. It deliberately does not allow searching for arbitrary strings in the entire database.
+Mastodon supports full-text search when Elasticsearch is available. It is strongly recommended to configure this feature.
+
+Mastodon’s full-text search allows logged in users to find results from:
+- public statuses from account that opted into appearing in search results
+- their own statuses
+- their mentions
+- their favourites
+- their bookmarks
+- accounts (display name, usernames and bios)
+
+It deliberately does not allow searching for arbitrary strings in the entire database.
 
 ## Installing Elasticsearch {#install}
+
+{{< hint style="info" >}}
+Mastodon is tested with ElasticSearch version 7. It should support OpenSearch, as well as ElectisSearch versions 6 and 8, but those setups are not officially supported.
+{{< /hint >}}
 
 Elasticsearch requires a Java runtime. If you don’t have Java already installed, do it now. Assuming you are logged in as `root`:
 
@@ -33,10 +47,6 @@ apt install elasticsearch
 
 {{< hint style="warning" >}}
 **Security warning:** By default, Elasticsearch is supposed to bind to localhost only, i.e. be inaccessible from the outside network. You can check which address Elasticsearch binds to by looking at `network.host` within `/etc/elasticsearch/elasticsearch.yml`. Consider that anyone who can access Elasticsearch can access and modify any data within it, as there is no authentication layer. So it’s really important that the access is secured. Having a firewall that only exposes the 22, 80 and 443 ports is advisable, as outlined in the [main installation instructions](../../prerequisites/#install-a-firewall-and-only-whitelist-ssh-http-and-https-ports). If you have a multi-host setup, you must know how to secure internal traffic.
-{{< /hint >}}
-
-{{< hint style="danger" >}}
-**Security warning:** Elasticsearch versions between `2.0` and `2.14.1` are affected by an [exploit](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) in the `log4j` library. If affected, please refer to the [temporary mitigation](https://github.com/elastic/elasticsearch/issues/81618#issuecomment-991000240) from the Elasticsearch issue tracker.
 {{< /hint >}}
 
 To start Elasticsearch:
@@ -74,7 +84,7 @@ By default, Elasticsearch does not handle any authentication and every request i
 
 To configure it, please refer [to the official documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html). It will guide you through:
 - Enabling the security features (`xpack.security.enabled: true`)
-- Creating password for build-in users
+- Creating password for built-in users
 
 Once done, you can create a custom role for Mastodon to connect.
 
@@ -86,7 +96,7 @@ curl -X POST -u elastic:admin_password "localhost:9200/_security/role/mastodon_f
   "cluster": ["monitor"],
   "indices": [{
     "names": ["*"],
-    "privileges": ["read", "monitor", "write", "manage" ]
+    "privileges": ["read", "monitor", "write", "manage"]
   }]
 }
 '
@@ -102,7 +112,7 @@ For example (please adapt this snippet to use your Elastic admin password, and c
 curl -X POST -u elastic:admin_password "localhost:9200/_security/user/mastodon?pretty" -H 'Content-Type: application/json' -d'
 {
   "password" : "l0ng-r4nd0m-p@ssw0rd",
-  "roles" : [ "mastodon_full_access",  ]
+  "roles" : ["mastodon_full_access"]
 }
 '
 ```

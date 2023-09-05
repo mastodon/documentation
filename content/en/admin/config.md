@@ -367,11 +367,22 @@ Defaults to value of `REDIS_NAMESPACE`.
 
 ### Elasticsearch {#elasticsearch}
 
-{{< page-ref page="admin/optional/elasticsearch" >}}
+{{< page-ref page="admin/elasticsearch" >}}
 
 #### `ES_ENABLED`
 
 If set to `true`, Mastodon will use Elasticsearch for its search functions.
+
+#### `ES_PRESET`
+
+It controls the ElasticSearch indices configuration (number of shards and replica).
+
+Possible values are:
+- `single_node_cluster` (default)
+- `small_cluster`
+- `large_cluster`
+
+See the [ElasticSearch setup page for details on each setting](../elasticsearch#choosing-the-correct-preset).
 
 #### `ES_HOST`
 
