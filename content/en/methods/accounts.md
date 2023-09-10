@@ -1951,7 +1951,7 @@ Authorization
 ##### Query parameters
 
 id[]
-: Array. Check relationships for the provided account IDs.
+: Array of String. Check relationships for the provided account IDs.
 
 #### Response
 ##### 200: OK
