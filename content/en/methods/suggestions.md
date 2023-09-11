@@ -89,7 +89,7 @@ DELETE /api/v1/suggestions/:account_id HTTP/1.1
 
 Remove an account from follow suggestions.
 
-**Returns:** n/a\
+**Returns:** Empty\
 **OAuth:** User token + `read`\
 **Version history:**\
 2.4.3 - added
