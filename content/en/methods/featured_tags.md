@@ -133,7 +133,7 @@ DELETE /api/v1/featured_tags/:id HTTP/1.1
 
 Stop promoting a hashtag on your profile.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
 3.0.0 - added

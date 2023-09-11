@@ -90,7 +90,7 @@ Block a domain to:
 - remove all followers from it
 - prevent following new users from it (but does not remove existing follows)
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:blocks` or `follow`\
 **Version:**\
 1.4.0 - added
@@ -154,7 +154,7 @@ DELETE /api/v1/domain_blocks HTTP/1.1
 
 Remove a domain block, if it exists in the user's array of blocked domains.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:blocks` or `follow`\
 **Version history:**\
 1.4.0 - added

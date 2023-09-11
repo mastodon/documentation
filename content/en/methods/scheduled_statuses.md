@@ -243,7 +243,7 @@ ScheduledStatus is not owned by you or does not exist
 DELETE /api/v1/scheduled_statuses/:id HTTP/1.1
 ```
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
 2.7.0 - added
