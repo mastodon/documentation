@@ -546,6 +546,15 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 #### `OMNIAUTH_ONLY`
 
+#### `ONE_CLICK_SSO_LOGIN`
+Enables the `Login or Register` button.
+Useful for instances where all authentication takes place using a single
+external provider (CAS, SAML or OIDC).
+
+Enabling this will prevent caching for anonymous sessions.
+And, when using OIDC discovery, the identity provider has to be available
+before Mastodon starts.
+
 ### LDAP {#ldap}
 
 #### `LDAP_ENABLED`
