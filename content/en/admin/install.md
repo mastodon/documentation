@@ -20,13 +20,24 @@ You will be running the commands as root. If you aren’t already root, switch t
 Make sure curl, wget, gnupg, apt-transport-https, lsb-release and ca-certificates is installed first:
 
 ```bash
+apt update
 apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
 ```
 
 #### Node.js {#node-js}
 
+Download and import the Nodesource GPG key
+
 ```bash
-curl -sL https://deb.nodesource.com/setup_16.x | bash -
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+```
+
+Create deb repository
+
+```bash
+NODE_MAJOR=20
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 ```
 
 #### PostgreSQL {#postgresql}
@@ -219,7 +230,7 @@ Copy the systemd service templates from the Mastodon directory:
 cp /home/mastodon/live/dist/mastodon-*.service /etc/systemd/system/
 ```
 
-If you deviated from the defaults at any point, check that the username and paths are correct: 
+If you deviated from the defaults at any point, check that the username and paths are correct:
 
 ```sh
 $EDITOR /etc/systemd/system/mastodon-*.service
