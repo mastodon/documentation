@@ -378,6 +378,7 @@ If set to `true`, Mastodon will use Elasticsearch for its search functions.
 It controls the ElasticSearch indices configuration (number of shards and replica).
 
 Possible values are:
+
 - `single_node_cluster` (default)
 - `small_cluster`
 - `large_cluster`
@@ -415,6 +416,10 @@ Example value: `localhost:8125`
 #### `STATSD_NAMESPACE`
 
 If set, all StatsD keys will be prefixed with this. Defaults to `Mastodon.production` when `RAILS_ENV` is `production`, `Mastodon.development` when it's `development`, etc.
+
+#### `STATSD_SIDEKIQ`
+
+If set to `true`, Mastodon will log some Sidekiq metrics into StatsD. Defaults to `false`.
 
 ### SMTP email delivery {#smtp}
 
