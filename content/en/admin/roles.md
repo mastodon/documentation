@@ -7,7 +7,7 @@ menu:
 ---
 
 # Roles {#roles}
-When the database is seeded, roles are derived from the values present in  [`~/config/roles.yml`](https://github.com/mastodon/mastodon/blob/main/config/roles.yml).
+When the database is seeded, roles are derived from the values present in [`~/config/roles.yml`](https://github.com/mastodon/mastodon/blob/main/config/roles.yml).
 
 {{< page-ref page="entities/Role" >}}
 
@@ -67,7 +67,7 @@ The `admin/roles/new` page allows for the creation of a custom role.
 
 ### Input Fields {#add-role-input-fields}
 
-{{< page-relref ref="entities/Role#name"  caption="Name">}}
+{{< page-relref ref="entities/Role#name" caption="Name">}}
 
 Duplicate role names can exist. They are discerned in the database by their `id`, which cannot be set from the web interface.
 
@@ -82,9 +82,9 @@ Duplicate role names can exist. They are discerned in the database by their `id`
 
 > "Higher role decides conflict resolution in certain situations. Certain actions can only be performed on roles with a lower priority."
 
-{{< page-relref ref="entities/Role#highlighted"  caption="Display role as badge on user profiles">}}
+{{< page-relref ref="entities/Role#highlighted" caption="Display role as badge on user profiles">}}
 
-{{< page-relref ref="entities/Role#permissions"  caption="Permissions">}}
+{{< page-relref ref="entities/Role#permissions" caption="Permissions">}}
 
 
 ## Edit role {#edit-role}
