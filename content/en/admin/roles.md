@@ -7,7 +7,7 @@ menu:
 ---
 
 # Roles {#roles}
-When the database is seeded, roles are derived from the values present in  [`~/config/roles.yml`](https://github.com/mastodon/mastodon/blob/main/config/roles.yml). 
+When the database is seeded, roles are derived from the values present in  [`~/config/roles.yml`](https://github.com/mastodon/mastodon/blob/main/config/roles.yml).
 
 {{< page-ref page="entities/Role" >}}
 
@@ -38,7 +38,7 @@ The owner role has the highest [priority](#role-priority) of any role (`1000`). 
 
 ### Admin {#default-admin-role}
 
-A role that is assigned all **Moderation** and **Administration** permission flags. 
+A role that is assigned all **Moderation** and **Administration** permission flags.
 
 The **DevOps** permission flag for this role is disabled, but can be enabled by an **Owner** (or a custom role with a higher priority value).
 
@@ -76,7 +76,7 @@ Duplicate role names can exist. They are discerned in the database by their `id`
 ### Priority {#role-priority}
 
 - Defaults to `0`
-	- Cannot be > `999` 
+	- Cannot be > `999`
 	- Can be any negative integer value
 - Two roles can have the same priority value
 
@@ -91,8 +91,8 @@ Duplicate role names can exist. They are discerned in the database by their `id`
 
 ![](/assets/admin-roles-edit-ui.png)
 
-An existing role and its attributes can be edited using *Edit* in the role list. [Input fields](#add-role-input-fields) can be changed and saved, just as they can when creating a new role. The role can also be deleted using this form. 
+An existing role and its attributes can be edited using *Edit* in the role list. [Input fields](#add-role-input-fields) can be changed and saved, just as they can when creating a new role. The role can also be deleted using this form.
 
 ![](/assets/admin-roles-edit-role-ui.png)
 
-A logged in user with permission to **Manage Roles** will always be able to see every role, but cannot modify roles that exceed or are equal to their assigned role's [priority](#role-priority). 
+A logged in user with permission to **Manage Roles** will always be able to see every role, but cannot modify roles that exceed or are equal to their assigned role's [priority](#role-priority).
