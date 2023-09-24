@@ -21,7 +21,7 @@ aliases: [
 	"color": "#ff3838",
 	"permissions": 1048575,
 	"highlighted": true
-},
+}
 ```
 
 ## Attributes

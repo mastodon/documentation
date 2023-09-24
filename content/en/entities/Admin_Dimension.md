@@ -165,7 +165,7 @@ Show dimensional data about how much space is used by each software in your serv
 			"human_value": "0 Bytes"
 		}
 	]
-},
+}
 ```
 
 ### `software_versions` {#software_versions}
