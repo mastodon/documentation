@@ -50,12 +50,14 @@ Use `id` as a parameter for related API calls.
   {
     "id": "12249",
     "title": "Friends",
-    "replies_policy": "followed"
+    "replies_policy": "followed",
+    "exclusive": false
   },
   {
     "id": "13585",
     "title": "test",
-    "replies_policy": "list"
+    "replies_policy": "list",
+    "exclusive": true
   }
 ]
 ```
@@ -106,7 +108,8 @@ The list 12249 exists and is owned by you
 {
   "id": "12249",
   "title": "Friends",
-  "replies_policy": "followed"
+  "replies_policy": "followed",
+  "exclusive": false
 }
 ```
 
@@ -144,7 +147,8 @@ Create a new list.
 **OAuth:** User token + `write:lists`\
 **Version history:**\
 2.1.0 - added\
-3.3.0 - added `replies_policy`
+3.3.0 - added `replies_policy`\
+4.2.0 - added `exclusive`
 
 #### Request
 ##### Headers
@@ -159,6 +163,9 @@ title
 
 replies_policy
 : String. One of `followed`, `list`, or `none`. Defaults to `list`.
+
+exclusive
+: Boolean. Whether members of this list need to get removed from the “Home” feed
 
 #### Response
 ##### 200: OK
