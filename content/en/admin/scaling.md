@@ -192,9 +192,21 @@ listen_port = 6432
 
 Put `md5` as the `auth_type` (assuming you’re using the md5 format in `userlist.txt`):
 
+```ini
+auth_type = md5
+```
+
 Make sure the `pgbouncer` user is an admin:
 
+```ini
+admin_users = pgbouncer
+```
+
 **This next part is very important!** The default pooling mode is session-based, but for Mastodon we want transaction-based. In other words, a Postgres connection is created when a transaction is created and dropped when the transaction is done. So you’ll want to change the `pool_mode` from `session` to `transaction`:
+
+```ini
+pool_mode = transaction
+```
 
 Next up, `max_client_conn` defines how many connections PgBouncer itself will accept, and `default_pool_size` puts a limit on how many Postgres connections will be opened under the hood. (In PgHero the number of connections reported will correspond to `default_pool_size` because it has no knowledge of PgBouncer.)
 
