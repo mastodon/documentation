@@ -141,7 +141,7 @@ Use git to download the latest stable release of Mastodon:
 
 ```bash
 git clone https://github.com/mastodon/mastodon.git live && cd live
-git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
+git checkout $(git tag -l | grep '^v[0-9.]*$' | sort -V | tail -n 1)
 ```
 
 #### Installing the last dependencies {#installing-the-last-dependencies}
