@@ -67,8 +67,8 @@ ES_ENABLED=true
 ES_HOST=localhost
 ES_PORT=9200
 ES_PRESET= # single_node_cluster, small_cluster or large_cluster
-ES_USER=
-ES_PASS=
+# ES_USER=
+# ES_PASS=
 ```
 
 ### Choosing the correct preset
