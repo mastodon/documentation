@@ -26,7 +26,11 @@ apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
 #### Node.js {#node-js}
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_16.x | bash -
+curl -sL https://deb.nodesource.com/setup_lts.x | bash -
+apt install -y nodejs build-essential gcc g++ make
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+apt-get update && sudo apt-get install yarn
 ```
 
 #### PostgreSQL {#postgresql}
