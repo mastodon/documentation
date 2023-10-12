@@ -48,7 +48,7 @@ aliases: [
   "followers_count": 547,
   "following_count": 404,
   "statuses_count": 28468,
-  "last_status_at": "2019-11-17T00:02:23.693Z",
+  "last_status_at": "2019-11-17",
   "emojis": [
     {
       "shortcode": "ms_rainbow_flag",
