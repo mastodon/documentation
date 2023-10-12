@@ -730,7 +730,8 @@ Statuses posted to the given account.
 2.6.0 - add `min_id`\
 2.7.0 - add `exclude_reblogs` and allow unauthed use\
 2.8.0 - add `tagged` parameter\
-3.3.0 - both `min_id` and `max_id` can be used at the same time now
+3.3.0 - both `min_id` and `max_id` can be used at the same time now\
+4.2.1 - add `exclude_sensitive`
 
 #### Request
 ##### Path parameters
@@ -765,6 +766,9 @@ exclude_replies
 
 exclude_reblogs
 : Boolean. Filter out boosts from the response.
+
+exclude_sensitive
+: Boolean. Filter out statuses that have sensitive content.
 
 pinned
 : Boolean. Filter for pinned statuses only. Defaults to false, which includes all statuses. Pinned statuses do not receive special priority in the order of the returned results.
