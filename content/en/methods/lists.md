@@ -176,7 +176,8 @@ A sample list was created with a `title` of "test".
 {
   "id": "13585",
   "title": "test",
-  "replies_policy": "list"
+  "replies_policy": "list",
+  "exclusive": false
 }
 ```
 
@@ -245,6 +246,9 @@ title
 replies_policy
 : String. One of `followed`, `list`, or `none`. Defaults to `list`.
 
+exclusive
+: Boolean. Whether members of this list need to get removed from the “Home” feed
+
 #### Response
 ##### 200: OK
 
@@ -254,7 +258,8 @@ The `title` of list 13585 was successfully updated to "testing"
 {
   "id": "13585",
   "title": "test",
-  "replies_policy": "list"
+  "replies_policy": "list",
+  "exclusive": false
 }
 ```
 
