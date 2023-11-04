@@ -26,7 +26,11 @@ apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
 #### Node.js {#node-js}
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_16.x | bash -
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+NODE_MAJOR=16
+apt-get update
+apt-get install nodejs -y
 ```
 
 #### PostgreSQL {#postgresql}
