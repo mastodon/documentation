@@ -1940,7 +1940,8 @@ Find out whether a given account is followed, blocked, muted, etc.
 **Returns:** Array of [Relationship]({{< relref "entities/Relationship">}})\
 **OAuth:** User token + `read:follows`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+4.3.0 - added `with_suspended` parameter
 
 #### Request
 ##### Headers
@@ -1952,6 +1953,9 @@ Authorization
 
 id[]
 : Array. Check relationships for the provided account IDs.
+
+with_suspended
+: Boolean. Whether relationships should be returned for suspended users, defaults to false.
 
 #### Response
 ##### 200: OK
