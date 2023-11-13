@@ -36,17 +36,9 @@ The streaming API handles long-lived HTTP and WebSockets connections, through wh
 - `PORT` controls the port the streaming server will listen on, by default 4000. The `BIND` and `SOCKET` environment variables are also able to be used.
 - Additionally the shared [database](/admin/config#postgresql) and [redis](/admin/config#redis) environment variables are used.
 
-The streaming API can be use a different subdomain if you want to by setting `STREAMING_API_BASE_URL`, this allows you to have one load balancer for streaming and one for web/API requests.
+The streaming API can be use a different subdomain if you want to by setting `STREAMING_API_BASE_URL`, this allows you to have one load balancer for streaming and one for web/API requests. However, this also requires applications to correctly request the streaming URL from the [instance endpoint](/methods/instance/#v2), instead of assuming that it's hosted on the same host as the Web API.
 
-{{< hint style="warning" >}}
-Previous versions of Mastodon had a `STREAMING_CLUSTER_NUM` environment variable that made the streaming server use clustering, which started mulitple processes (workers) and used node.js to load balance them.
-
-This interacted with the other settings in ways which made capacity planning difficult, especially when it comes to database connections and CPU resources. By default the streaming server would consume resources on all available CPUs which could cause contention with other software running on that server. Another common issue was that misconfiguring the `STREAMING_CLUSTER_NUM` would exhaust your database connections by opening up a connection pool per cluster worker process, so a `STREAMING_CLUSTER_NUM` of `5` and `DB_POOL` of `10` would potentially consume 50 database connections.
-
-Now a single streaming server process will only use at maximum `DB_POOL` PostgreSQL connections, and scaling is handled by running more instances of the streaming server.
-{{< /hint >}}
-
-One process can handle a reasonably high number of connections and throughput, but if you find that a single streaming server process isn't handling your instance's load, you can run multiple processes by varying the `PORT` number of each, and then using nginx to load balance traffic to each of those instances.
+One process of the streaming server can handle a reasonably high number of connections and throughput, but if you find that a single process isn't handling your instance's load, you can run multiple processes by varying the `PORT` number of each, and then using nginx to load balance traffic to each of those instances. For example, a community of about 50,000 accounts with 10,000-20,000 monthly active accounts, you'll typically have an average concurrent load of about 800-1200 streaming connections.
 
 {{< hint style="info" >}}
 The more streaming server processes that you run, the more database connections will be consumed on PostgreSQL, so you'll likely want to use PgBouncer, as documented below.
@@ -62,6 +54,24 @@ upstream streaming {
     server 127.0.0.1:4002 fail_timeout=0;
 }
 ```
+
+If you're using the distributed systemd files, then you can start up multiple streaming servers with the following commands:
+
+```
+$ sudo systemctl start mastodon-streaming@4000.service
+$ sudo systemctl start mastodon-streaming@4001.service
+$ sudo systemctl start mastodon-streaming@4002.service
+```
+
+By default, `sudo systemctl start mastodon-streaming` just starts one process on port 4000, equivalent to just `sudo systemctl start mastodon-streaming@4000.service`.
+
+{{< hint style="warning" >}}
+Previous versions of Mastodon had a `STREAMING_CLUSTER_NUM` environment variable that made the streaming server use clustering, which started mulitple workers processes and used node.js to load balance them.
+
+This interacted with the other settings in ways which made capacity planning difficult, especially when it comes to database connections and CPU resources. By default the streaming server would consume resources on all available CPUs which could cause contention with other software running on that server. Another common issue was that misconfiguring the `STREAMING_CLUSTER_NUM` would exhaust your database connections by opening up a connection pool per cluster worker process, so a `STREAMING_CLUSTER_NUM` of `5` and `DB_POOL` of `10` would potentially consume 50 database connections.
+
+Now a single streaming server process will only use at maximum `DB_POOL` PostgreSQL connections, and scaling is handled by running more instances of the streaming server.
+{{< /hint >}}
 
 ### Background processing (Sidekiq) {#sidekiq}
 
