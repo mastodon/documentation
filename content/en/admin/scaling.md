@@ -40,6 +40,13 @@ The streaming API can be use a different subdomain if you want to by setting `ST
 
 One process of the streaming server can handle a reasonably high number of connections and throughput, but if you find that a single process isn't handling your instance's load, you can run multiple processes by varying the `PORT` number of each, and then using nginx to load balance traffic to each of those instances. For example, a community of about 50,000 accounts with 10,000-20,000 monthly active accounts, you'll typically have an average concurrent load of about 800-1200 streaming connections.
 
+The streaming server also exposes a [Prometheus](https://prometheus.io/) endpoint on `/metrics` with a lot of metrics to help you understand the current load on your mastodon streaming server, some key metrics are:
+
+* `mastodon_streaming_connected_clients`: This is the number of connected clients, tagged by client type (websocket or eventsource)
+* `mastodon_streaming_connected_channels`: This is the number of "channels" that are currently subscribed (note that this is much higher than connected clients due to how our internal "system" channels currently work)
+* `mastodon_streaming_messages_sent_total`: This is the total number of messages sent to clients since last restart.
+* `mastodon_streaming_redis_messages_received_total`: This is the number of messages received from Redis pubsub, and intended to complement [monitoring Redis directly](https://sysdig.com/blog/redis-prometheus/).
+
 {{< hint style="info" >}}
 The more streaming server processes that you run, the more database connections will be consumed on PostgreSQL, so you'll likely want to use PgBouncer, as documented below.
 {{< /hint >}}
