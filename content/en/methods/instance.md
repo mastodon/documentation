@@ -61,6 +61,9 @@ Obtain general information about the server.
     "urls": {
       "streaming": "wss://mastodon.social"
     },
+    "vapid": {
+      "public_key": "BCkMmVdKDnKYwzVCDC99Iuc9GvId-x7-kKtuHnLgfF98ENiZp_aj-UNthbCdI70DqN1zUVis-x0Wrot2sBagkMc="
+    },
     "accounts": {
       "max_featured_tags": 10
     },
