@@ -39,13 +39,6 @@ aliases: [
 0.9.9 - added\
 3.5.1 - this property is now nullable
 
-### `vapid_key` {#vapid_key}
-
-**Description:** Used for Push Streaming API. Returned with [POST /api/v1/apps]({{< relref "methods/apps#create" >}}). Equivalent to [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}})\
-**Type:** String\
-**Version history:**\
-2.8.0 - added
-
 ### `client_id` {{%optional%}} {#client_id}
 
 **Description:** Client ID key, to be used for obtaining OAuth tokens\
@@ -59,6 +52,16 @@ aliases: [
 **Type:** String\
 **Version history:**\
 0.9.9 - added
+
+## Deprecated attributes
+
+### `vapid_key` {#vapid_key}
+
+**Description:** Used for Push Streaming API. Returned with [POST /api/v1/apps]({{< relref "methods/apps#create" >}}). Equivalent to [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}}) and [Instance#vapid_public_key]({{< relref "entities/Instance#vapid_public_key" >}})\
+**Type:** String\
+**Version history:**\
+2.8.0 - added
+4.3.0 - deprecated pending removal
 
 ## See also
 
