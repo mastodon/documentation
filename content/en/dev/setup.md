@@ -65,7 +65,7 @@ You can now create the databases `mastodon_development` and `mastodon_test`, loa
 rails db:setup
 ```
 
-You can now launch `http://localhost:3000` in your browser and log in with the default admin user (`admin@localhost:3000` / `mastodonadmin`).
+You can now launch `http://localhost:3000` in your browser and log in with the default admin user (`admin@localhost` / `mastodonadmin`).
 
 {{<hint style="warning">}}
 By default, Mastodon will run on port 3000. If you configure a different port for it, the generated admin account will use that number as well.
