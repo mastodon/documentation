@@ -9,27 +9,31 @@ menu:
 
 ## 前提条件 {#pre-requisites}
 
-* 一台你有root访问权限的运行 **Ubuntu 18.04** 的机器
-* 一个用于Mastodon站点的**域名**（或一个子域名），例如：`example.com`
+* 一台你有root访问权限的运行 **Ubuntu 20.04** 或 **Debian 11** 的机器
+* 一个可用于Mastodon站点的**域名**（或一个子域名），例如：`example.com`
 * 一个电子邮件发送服务提供商，或其他**SMTP服务器**
 
 你需要使用root用户运行命令。如果你现在不是root用户，请切换至root用户：
 
 ### 软件仓库 {#system-repositories}
 
-首先确保已经安装curl：
+首先安装curl、wget、gnupg、apt-transport-https、lsb-release 和 ca-certificates
+
+```bash
+apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
+```
 
 #### Node.js {#node-js}
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_12.x | bash -
+curl -sL https://deb.nodesource.com/setup_16.x | bash -
 ```
 
-#### Yarn {#yarn}
+#### PostgreSQL {#postgresql}
 
 ```bash
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+wget -O /usr/share/keyrings/postgresql.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/postgresql.list
 ```
 
 ### 软件包 {#system-packages}
@@ -40,9 +44,16 @@ apt install -y \
   imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core \
   g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
-  zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev \
+  zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
   nginx redis-server redis-tools postgresql postgresql-contrib \
-  certbot python-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
+  certbot python3-certbot-nginx libidn11-dev libicu-dev libjemalloc-dev
+```
+
+#### Yarn {#yarn}
+
+```bash
+corepack enable
+yarn set version classic
 ```
 
 ### 安装 Ruby {#installing-ruby}
@@ -73,8 +84,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 上述操作完成，我们便可以安装正确的 Ruby 版本：
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.6
-rbenv global 2.6.6
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.2.2
+rbenv global 3.2.2
 ```
 
 我们同样需要安装 bundler：
@@ -181,17 +192,33 @@ ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 
 编辑 `/etc/nginx/sites-available/mastodon`，替换 `example.com` 为你自己的域名，你可以根据自己的需求做出其它的一些调整。
 
-重载 nginx 以使变更生效：
+重载 nginx 以使变更生效:
+
+> 你需要先使得域名能够访问你的服务器才能够获取 Let's Encrypt 的证书
+> 当然你也可以选择通过 DNS 记录验证获取 Let's Encrypt 证书或你已有证书可以先将 Nginx 配置中 SSL 路径配置好后再重启
+
+```bash
+systemctl reload nginx
+```
 
 ### 获取SSL证书 {#acquiring-a-ssl-certificate}
+
 
 我们将使用 Let’s Encrypt 获取一个免费的SSL证书：
 
 ```bash
-certbot --nginx -d example.com
+certbot certonly --nginx -d example.com
 ```
 
-这个命令将获取一个证书，自动更新 `/etc/nginx/sites-available/mastodon` 以使用新证书并重载nginx以使变更生效。
+这个命令将获取一个证书，自动下载至 `/etc/letsencrypt/live/example.com/`
+
+而后取消开头为 `ssl_certificate` 和 `ssl_certificate_key` 的注释，参数中填写你获取的证书地址
+
+重载 nginx 以使变更生效：
+
+```bash
+systemctl reload nginx
+```
 
 现在你应该能够通过浏览器访问你的域名，然后看到一只大象锤击电脑屏幕的错误页面。这是因为我们还没有启动Mastodon进程。
 
