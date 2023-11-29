@@ -23,7 +23,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 基础命令
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/cli.rb" caption="lib/cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/base.rb" caption="lib/mastodon/cli/base.rb" >}}
 
 ### `tootctl self-destruct` {#self-destruct}
 
@@ -51,7 +51,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 帐户相关命令 {#accounts}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/accounts_cli.rb" caption="lib/mastodon/accounts\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/accounts.rb" caption="lib/mastodon/cli/accounts.rb" >}}
 
 ### `tootctl accounts rotate` {#accounts-rotate}
 
@@ -80,6 +80,7 @@ RAILS_ENV=production bin/tootctl help
 | `--role ROLE`   | 设定新用户的身份为 `user`, `moderator` 或 `admin`。默认为 `user`。 |
 | `--reattach`    | 重用已被删除帐户的旧用户名。 |
 | `--force`       | 强制删除使用此用户名（USERNAME）的现有帐户，然后重新的新帐户代替（刚刚删除的）该帐户。 |
+| `--skip-sign-in-token` | 强制跳过该用户登录时的邮件验证码（目前这是不可逆操作）。 |
 
 ### `tootctl accounts modify` {#accounts-modify}
 
@@ -98,6 +99,8 @@ RAILS_ENV=production bin/tootctl help
 | `--enable` | 允许 USERNAME 帐户登录，如果该帐户目前被禁止登录。 |
 | `--approve` | 审核通过该帐户，如果你的实例为审核制。 |
 | `--disable_2fa` | 移除额外认证因素，允许只用密码登录。 |
+| `--reset-password` | 重置此用户的密码，将用一个随机生成的字符串作为临时密码。 |
+| `--skip-sign-in-token` | 强制跳过该用户登录时的邮件验证码（目前这是不可逆操作）。 |
 
 ### `tootctl accounts delete` {#accounts-delete}
 
@@ -205,7 +208,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 缓存相关命令 {#cache}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/cache_cli.rb" caption="lib/mastodon/cache\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/cache.rb" caption="lib/mastodon/cli/cache.rb" >}}
 
 ### `tootctl cache clear` {#cache-clear}
 
@@ -229,7 +232,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 域名相关命令 {#domains}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/domains_cli.rb" caption="lib/mastodon/domains\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/domains.rb" caption="lib/mastodon/cli/domains.rb" >}}
 
 ### `tootctl domains purge` {#domains-purge}
 
@@ -266,7 +269,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## Emoji相关命令 {#emoji}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/emoji_cli.rb" caption="lib/mastodon/emoji\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/emoji.rb" caption="lib/mastodon/cli/emoji.rb" >}}
 
 ### `tootctl emoji import` {#emoji-import}
 
@@ -298,7 +301,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 时间流（Feeds）相关命令 {#feeds}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/feeds_cli.rb" caption="lib/mastodon/feeds\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/feeds.rb" caption="lib/mastodon/cli/feeds.rb" >}}
 
 ### `tootctl feeds build` {#feeds-build}
 
@@ -324,7 +327,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 媒体相关命令 {#media}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/media_cli.rb" caption="lib/mastodon/media\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/media.rb" caption="lib/mastodon/cli/media.rb" >}}
 
 ### `tootctl media remove` {#media-remove}
 
@@ -387,7 +390,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 预览卡片（Preview Cards）相关命令 {#preview_cards}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/preview_cards_cli.rb" caption="lib/mastodon/preview\_cards\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/preview_cards.rb" caption="lib/mastodon/cli/preview_cards.rb" >}}
 
 ### `tootctl preview_cards remove` {#preview_cards-remove}
 
@@ -406,11 +409,11 @@ RAILS_ENV=production bin/tootctl help
 
 ## 搜索相关命令 {#search}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/search_cli.rb" caption="lib/mastodon/search\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/search.rb" caption="lib/mastodon/cli/search.rb" >}}
 
 ### `tootctl search deploy` {#search-deploy}
 
-创建或更新ElasticSearch索引并进行填充。 如果ElasticSearch为空，此命令将创建必要的索引，然后将数据从数据库导入到这些索引中。如果自上次运行以来索引结构已更改，此命令还将升级索引。
+创建或更新Elasticsearch索引并进行填充。 如果Elasticsearch为空，此命令将创建必要的索引，然后将数据从数据库导入到这些索引中。如果自上次运行以来索引结构已更改，此命令还将升级索引。
 
 **版本历史：**
 * 2.8.0 - 被加入
@@ -422,7 +425,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 站点设定相关命令 {#settings}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/settings_cli.rb" caption="lib/mastodon/settings\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/settings.rb" caption="lib/mastodon/cli/settings.rb" >}}
 
 ### `tootctl settings registrations open` {#settings-registrations-open}
 
@@ -440,7 +443,7 @@ RAILS_ENV=production bin/tootctl help
 
 ## 嘟文相关命令 {#statuses}
 
-{{< caption-link url="https://github.com/tootsuite/mastodon/blob/master/lib/mastodon/statuses_cli.rb" caption="lib/mastodon/statuses\_cli.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/statuses.rb" caption="lib/mastodon/cli/statuses.rb" >}}
 
 ### `tootctl statuses remove` {#statuses-remove}
 

@@ -7,7 +7,7 @@ menu:
     parent: admin-optional
 ---
 
-可以通过TOR的匿名服务来访问Mastodon。这将给你一个只能通过 TOR 网络连接的 \*.onion 地址。
+可以通过TOR的匿名服务来访问Mastodon。这将给你一个只能通过 TOR 网络连接的 *.onion 地址。
 
 ## 安装 Tor {#install}
 

@@ -1,44 +1,51 @@
 ---
-title: oembed
+title: oembed API methods
 description: For generating OEmbed previews.
 menu:
   docs:
     weight: 110
+    name: oembed
     parent: methods
+    identifier: methods-oembed
+aliases: [
+  "/methods/oembed",
+  "/api/methods/oembed",
+]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/oembed" title="OEmbed as JSON" >}}
-{{< api-method-description >}}
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
+
+## Get OEmbed info as JSON {#get}
+
+```http
+GET /api/oembed HTTP/1.1
+```
 
 **Returns:** OEmbed metadata\
 **OAuth:** Public\
 **Version history:**\
 1.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="url" type="string" required=true >}}
-URL of a status
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="maxwidth" type="number" required=false >}}
-width of the iframe. Defaults to 400
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="maxheight" type="number" required=false >}}
-height of the iframe. Defaults to null
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Query parameters
+
+url
+: {{<required>}} String. URL of a status.
+
+maxwidth
+: Number. Width of the iframe. Defaults to 400
+
+maxheight
+: Number. Height of the iframe. Defaults to null
+
+#### Response
+##### 200: OK
 
 Represents OEmbed "rich" preview, with associated iframe and metadata.
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "type": "rich",
   "version": "1.0",
@@ -53,22 +60,19 @@ Represents OEmbed "rich" preview, with associated iframe and metadata.
   "height": null
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status not found
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Status not found for given URL
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/oembed_controller.rb" caption="app/controllers/api/oembed_controller.rb" >}}

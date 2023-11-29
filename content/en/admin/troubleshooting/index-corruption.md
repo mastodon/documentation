@@ -11,7 +11,7 @@ A somewhat common configuration issue can lead to index corruption throughout th
 
 ## Locale data and collation {#explanation}
 
-Textual values in the database, such as usernames, or toot identifiers, are compared using so-called collation rules defining how characters are ordered and how to change their case.
+Textual values in the database, such as usernames, or status identifiers, are compared using so-called collation rules defining how characters are ordered and how to change their case.
 When setting up a database, Mastodon will use the database server's default locale settings, including the default collation rules, which often is defined by the operating system's settings.
 
 Unfortunately, in late 2018, a `glibc` update changed the collation rules for many locales, which means databases using an affected locale would now order textual values differently.
@@ -23,6 +23,10 @@ More information: https://wiki.postgresql.org/wiki/Locale_data_changes https://p
 
 If your database is not using `C` or `POSIX` for its collation setting (which you can check with `SELECT datcollate FROM pg_database WHERE datname = current_database();`),
 your indexes might be inconsistent, if you ever ran with a version of glibc prior to 2.28 and did not immediately reindex your databases after updating to glibc 2.28 or newer.
+
+{{< hint style="info" >}}
+You may have found this page because of **PgHero** warnings about "Duplicate Indexes". While such warnings can sometimes be indicative of an issue in deploying or updating Mastodon, **they are not related to database index corruption and not indicative of any functional issue with your database**.
+{{< /hint >}}
 
 You can check whether your indexes are consistent using [PostgreSQL's `amcheck` module](https://www.postgresql.org/docs/10/amcheck.html): as the database server's super user, connect to your Mastodon database and issue the following (this may take a while):
 
@@ -79,14 +83,28 @@ Unless you take action, if you are affected, your database could get more and mo
 
 Mastodon 3.2.2 and later come with a semi-interactive script to fix those corruptions as best as possible. If you're on an earlier version, update to 3.2.2 first. It is possible that running the database migrations to 3.2.2 will fail because of those very corruptions, but the database should then be brought to a state that the maintenance tool bundled with Mastodon 3.2.2 can then recover from.
 
-Before attempting to fix your database, stop Mastodon and make a backup of your database. Then, with Mastodon still stopped, run the maintenance script:
+Before attempting to fix your database, **stop Mastodon and make a backup of your database**. Then, with **Mastodon still stopped**, run the maintenance script:
 
 ```
 RAILS_ENV=production tootctl maintenance fix-duplicates
 ```
 
-The tool will walk through the database to find duplicate and fix them. In some cases, those operations are destructive. In the most destructive cases, you will be asked to chose which record to keep. In all cases, walking through the whole database in search of duplicates is an extremely long operation. Mastodon **has** to be stopped during the whole process to prevent additional duplicates from occuring.
+The script will walk through the database to automatically find duplicates and fix them. In some cases, those operations are destructive. In the most destructive cases, you will be asked to choose which record to keep and which records to discard. In all cases, walking through the whole database in search of duplicates is an extremely long operation.
+
+{{< hint style="warning" >}}
+In some cases, duplicate records may have unreconcilable conflicts (such as two different local users sharing the same username). In these cases, the deduplication operation may be **partially destructive** and you will be asked which records to keep unchanged and which records will be changed.
+This script is therefore semi-interactive. In all cases, walking through the whole database in search of duplicates is an extremely long operation.
+{{< /hint >}}
+
+{{< hint style="danger" >}}
+**Because the maintenance script will temporarily remove indexes, Mastodon has to be completely stopped during the whole process to prevent additional duplicates from occurring.**
+{{< /hint >}}
 
 ## Avoiding the issue
 
 To avoid the issue, reindex your database immediately after any libc update.
+The
+[SQL command `REINDEX`](https://www.postgresql.org/docs/current/sql-reindex.html) 
+or the
+[`reindexdb` command-line tool](https://www.postgresql.org/docs/current/app-reindexdb.html)
+may be useful for this.

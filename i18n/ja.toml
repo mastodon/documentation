@@ -46,6 +46,9 @@ other = "必須"
 [optional]
 other = "選択"
 
+[nullable]
+other = "nullable"
+
 [pathParameters]
 other = "パスパラメーター"
 

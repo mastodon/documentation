@@ -6,8 +6,6 @@ menu:
     weight: -99
 ---
 
-{{< youtube id="IPSbNdBmWKE" caption="Wideo wprowadzające, wyjaśniające podstawowe koncepcje Mastodona z użyciem ładnych animacji" >}}
-
 ## Czym jest mikroblog? {#microblogging}
 
 Tak jak blogowaniem nazwiemy publikowanie aktualności na stronie, **mikroblogowanie** to publikowanie mniejszych aktualności na strumieniu aktualności na własnym profilu. Możesz publikować wpisy tekstowe, dodatkowo umieszczając media takie jak zdjęcia, dźwięk, filmy czy ankiety. Mastodon pozwala na obserwowanie znajomych i poznawanie nowych.
@@ -24,7 +22,7 @@ Tak jak blogowaniem nazwiemy publikowanie aktualności na stronie, **mikroblogow
 
 Serwer Mastodona może funkcjonować samodzielnie. Tak jak na tradycyjnej stronie, ludzie mogą się zarejestrować, publikować tam wiadomości i rozmawiać z innymi. W przeciwieństwie do tradycyjnej strony, serwery Mastodona wzajemnie komunikują się ze sobą, pozwalając swoim użytkownikom na wzajemną komunikację – tak, jak mając konto na Gmailu, możesz napisać mail do kogoś na Outlooku, Fastmail, Protonmail czy serwerze dowolnego dostawcy, tak długo, jak znasz jego e-mail, **możesz wspomnieć lub napisać wiadomość do użytkownika dowolnego serwera, jeśli znasz jego adres**.
 
-{{< figure src="/assets/network-models.jpg" caption="Od lewej do prawej: Scentralizowana, Sfederowana, Dystrybuowana" >}}
+{{< figure src="assets/network-models.jpg" caption="Od lewej do prawej: Scentralizowana, Sfederowana, Dystrybuowana" >}}
 
 
 
@@ -32,7 +30,7 @@ Serwer Mastodona może funkcjonować samodzielnie. Tak jak na tradycyjnej stroni
 
 Mastodon używa standaryzowanego, otwartego protokołu, aby implementować federację. Nazywa się on **ActivityPub**. Dowolne oprogramowanie, które również implementuje ActivityPub, może komunikować się z Mastodonem, tak jak serwery Mastodona komunikują się między sobą.
 
-**Fediwersum** \(„sfederowane uniwersum”, z ang. „fediverse”\) to nazwa dla wszystkich stron mogących komunikować się wzajemnie w Internecie z użyciem ActivityPub. Zaliczają się do tego wszystkie serwery Mastodona, ale też inne implementacje:
+**Fediwersum** („sfederowane uniwersum”, z ang. „fediverse”) to nazwa dla wszystkich stron mogących komunikować się wzajemnie w Internecie z użyciem ActivityPub. Zaliczają się do tego wszystkie serwery Mastodona, ale też inne implementacje:
 
 * Pleroma, modularny silnik mikroblogowy,
 * Pixelfed, sfederowana platforma do udostępniania zdjęć, pozwalająca na tworzenie i dzielenie się i przeglądanie wpisów multimedialnych,
@@ -53,7 +51,7 @@ Ponieważ Mastodon jest po prostu oprogramowaniem, o które może opierać się 
 >
 > -- Eugen Rochko, 6 lipca 2018, [„Cage the Mastodon”](https://blog.joinmastodon.org/2018/07/cage-the-mastodon/)
 
-> Scentralizowana platforma społecznościowa ma hierarchiczną strukturę, gdzie jej zasady i ich wymuszanie, jak i rozwój oraz kierunek rozwoju platformy są decyzją jej CEO \[...\] Zdecentralizowana sieć jest pozbawiona możliwości kontroli przez właściciela platormy, dzięki temu, że tego właściciela nie ma.
+> Scentralizowana platforma społecznościowa ma hierarchiczną strukturę, gdzie jej zasady i ich wymuszanie, jak i rozwój oraz kierunek rozwoju platformy są decyzją jej CEO [...] Zdecentralizowana sieć jest pozbawiona możliwości kontroli przez właściciela platormy, dzięki temu, że tego właściciela nie ma.
 >
 > -- Eugen Rochko, 30 grudnia 2018, [„Dlaczego decentralizacja ma znaczenie?”](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/)
 
@@ -93,19 +91,16 @@ W przeciwieństwie do własnościowych usług, **każdy może dowolnie uruchamia
 
 Naucz się korzystać z Mastodona:
 
-{{< page-ref page="user/signup.md" >}}
+{{< page-ref page="user/signup" >}}
 
 Naucz się instalować Mastodona:
 
-{{< page-ref page="admin/prerequisites.md" >}}
+{{< page-ref page="admin/prerequisites" >}}
 
 Naucz się tworzyć aplikacje dla Mastodona:
 
-{{< page-ref page="client/intro.md" >}}
+{{< page-ref page="client/intro" >}}
 
 Naucz się o back-endzie Mastodona i dowiedz się jak wnieść swój wkład:
 
-{{< page-ref page="dev/overview.md" >}}
-
-
-
+{{< page-ref page="dev/overview" >}}

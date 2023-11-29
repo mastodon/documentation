@@ -7,3 +7,8 @@ menu:
     identifier: admin-optional
 ---
 
+Mastodon offers a few optional features that can be used if needed.
+
+- [Object storage](./object-storage/)
+- [Hidden services](./tor/)
+- [Single Sign On](./sso/)

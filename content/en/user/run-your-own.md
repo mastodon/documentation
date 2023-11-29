@@ -27,7 +27,7 @@ Here is what you need:
 - A **VPS**. Something that will run the Mastodon code that will always be connected to the internet.
 
   **How to get**: DigitalOcean, Hetzner, Exoscale, Scaleway, any of the infinite number of hosting providers. Comes with a monthly or yearly cost that varies depending on hardware specifications.
-- An **e-mail provider**. Mastodon needs to send confirmation links and various notifications through e-mail, and hosting your own SMTP server, while possible, is much more difficult to do reliably than to simply use a third-party provider.
+- An **e-mail provider**. Mastodon needs to send confirmation links and various notifications through e-mail, and hosting your own SMTP server, while possible, is much more difficult to do reliably than to use a third-party provider.
 
   **How to get**: Mailgun, SparkPost, Postmark, Sendgrid, any of the infinite number of e-mail hosting providers that expose a SMTP API. Comes with a monthly cost based on volume of e-mails sent.
 - Optional: **Object storage provider**. Mastodon can save files that you and your users upload on the hard disk drive of the VPS it runs on, however, the hard disk drive is usually not infinite and difficult to upgrade later. An object storage provider gives you practically infinite metered file storage.
@@ -42,6 +42,16 @@ There exist a number of **dedicated Mastodon hosting providers** that take care 
 
 {{< caption-link url="https://app.spacebear.ee/mastodon" caption="Spacebear" >}}
 
+{{< caption-link url="https://ossrox.org" caption="Ossrox" >}}
+
+{{< caption-link url="https://weingaertner-it.de" caption="Weingärtner IT" >}}
+
+{{< caption-link url="https://fedi.monster/" caption="Fedi.monster" >}}
+
+{{< caption-link url="https://cloudplane.org" caption="Cloudplane" >}}
+
+{{< caption-link url="https://ungleich.ch/u/products/mastodon-hosting/" caption="ungleich.ch" >}}
+
 Managed hosting solutions are great for those who do not have experience or desire to install and maintain software. However, being in charge of all components on your own hardware gives greater control over scaling, performance and customization.
 
 We provide a **DigitalOcean 1-Click Install Image** that you can put on a DigitalOcean droplet of your choosing which essentially gives you everything you would otherwise have after following our installation instructions through an interactive setup wizard.
@@ -52,4 +62,4 @@ That however does assume a single-machine setup. Mastodon scales quite well hori
 
 If you're interested in installing everything on your own, proceed here:
 
-{{< page-ref page="admin/prerequisites.md" >}}
+{{< page-ref page="admin/prerequisites" >}}

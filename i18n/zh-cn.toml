@@ -46,6 +46,9 @@ other = "必需的"
 [optional]
 other = "可选的"
 
+[nullable]
+other = "nullable"
+
 [pathParameters]
 other = "路径参数"
 
