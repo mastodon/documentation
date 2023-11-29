@@ -456,6 +456,33 @@ Set to `auto` (default), `always`, or `never`.
 
 #### `SMTP_SSL`
 
+E-mail configuration is based on the *action_mailer* component of the *Ruby on Rails* framework that Mastodon is built on. Complete documentation on action_mailer is available [here](https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration). The client uses SMTP or derivatives: StartTLS + SMTP or SMTPS (SMTP over TLS).
+
+### Basic configuration {#basic}
+
+* `SMTP_SERVER`: Specify the server to use. For example `sub.domain.tld`.
+* `SMTP_PORT`: By default, the value is `25` (usual port for SMTP). If StartTLS is detected, it may be switched to port 587.
+* `SMTP_DOMAIN`: Only required if a HELO domain is needed. Will be set to the `SMTP_SERVER` domain by default.
+* `SMTP_FROM_ADDRESS`: Specify a sender address. 
+* `SMTP_DELIVERY_METHOD`: By default, the value is `smtp` (can also be `sendmail`).
+  
+### Authentication for the SMTP server {#smtpauthentication}
+
+* `SMTP_LOGIN`: Login for the SMTP user.
+* `SMTP_PASSWORD`:  Password for the SMTP user.
+* `SMTP_AUTH_METHOD`: Either `plain` (default; password is transmitted in the clear), `login` (password will be base64 encoded) or `cram_md5`.
+
+### Secured SMTP
+By default, a StartTLS connection will be attempted to the specified SMTP server.
+
+* `SMTP_ENABLE_STARTTLS_AUTO`: Default `true`.
+* `SMTP_CA_FILE`: A value may be specified, but on many Linux distros (e.g. Debian-based) this will be `/etc/ssl/certs/ca-certificates.crt`. 
+* `SMTP_OPENSSL_VERIFY_MODE`: `none` or `peer`. When using TLS, it may be useful to accept connections with a self-signed certificate. 
+* `SMTP_TLS`: `true` or `false` (default `false`)
+* `SMTP_SSL`: `true` or `false` (default `false`)
+
+Note that `TLSv1.3` and `TLSv1.2` are the only SSL/TLS protocols currently considered to be secure. 
+
 ## File storage {#files}
 
 ### CDN {#cdn}
@@ -793,4 +820,4 @@ Defaults to `512`.
 
 #### `GITHUB_API_TOKEN`
 
-Used in a rake task for generating AUTHORS.md from Github commit history.
+Used in a rake task for generating AUTHORS.md from GitHub commit history.
