@@ -34,7 +34,7 @@ And navigate to the Mastodon root directory:
 cd /home/mastodon/live
 ```
 
-Download the releases’s code, assuming that the version is called `v3.1.2`:
+Download the release’s code, assuming that the version is called `v3.1.2`:
 
 ```bash
 git fetch --tags
@@ -69,7 +69,7 @@ systemctl reload mastodon-web
 The `reload` operation is a zero-downtime restart, also called "phased restart". As such, Mastodon upgrades usually do not require any advance notice to users about planned downtime. In rare cases, you can use the `restart` operation instead, but there will be a (short) felt interruption of service for your users.
 {{< /hint >}}
 
-The **streaming API** server is also updated and requires a restart, doing so will result in all connected clients being disconnected, which can increase load on your server:
+The **streaming API** server is also updated and requires a restart, doing so will result in all connected clients being disconnected, which can increase the load on your server:
 
 ```bash
 systemctl restart mastodon-streaming

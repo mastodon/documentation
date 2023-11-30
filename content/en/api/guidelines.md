@@ -9,7 +9,7 @@ menu:
 
 ## Login {#login}
 
-**The user must be able to login to any Mastodon server from the app**. This means you must ask for the server's domain and use the app registrations API to dynamically obtain OAuth2 credentials.
+**The user must be able to log in to any Mastodon server from the app**. This means you must ask for the server's domain and use the app registrations API to dynamically obtain OAuth2 credentials.
 
 {{< page-ref page="client/authorized" >}}
 
@@ -19,11 +19,11 @@ menu:
 
 ## Usernames {#username}
 
-**Decentralization must be transparent to the user**. It should be possible to see that a given user is from another server, for example, by displaying their `acct` somewhere. Note that `acct` is equal to `username` for local users, and equal to `username@domain` for remote users.
+**Decentralization must be transparent to the user**. It should be possible to see that a given user is from another server, for example, by displaying their `acct` somewhere. Note that `acct` is equal to `username` for local users and equal to `username@domain` for remote users.
 
 ## Handling and sorting IDs {#id}
 
-Vanilla Mastodon entity IDs are generated as integers and cast to string. However, this does not mean that IDs _are_ integers, nor should they be cast to integer! Doing so can lead to broken client apps due to integer overflow, so **always treat IDs as strings.**
+Vanilla Mastodon entity IDs are generated as integers and cast to string. However, this does not mean that IDs _are_ integers, nor should they be cast to integers! Doing so can lead to broken client apps due to integer overflow, so **always treat IDs as strings.**
 
 With that said, because IDs are string representations of numbers, they can still be sorted chronologically very easily by doing the following:
 
@@ -48,11 +48,11 @@ min_id
 
 For example, we might fetch `https://mastodon.example/api/v1/accounts/1/statuses` with certain parameters, and we will get the following results in the following cases:
 
-- Setting `?max_id=1` will return no statuses, since there are no statuses with an ID earlier than `1`.
-- Setting `?since_id=1` will return the latest statuses, since there have been many statuses since `1`.
+- Setting `?max_id=1` will return no statuses since there are no statuses with an ID earlier than `1`.
+- Setting `?since_id=1` will return the latest statuses since there have been many statuses since `1`.
 - Setting `?min_id=1` will return the oldest statuses, as `min_id` sets the cursor.
 
-Some API methods operate on entity IDs that are not publicly exposed in the API response, and are only known to the backend and the database. (This is usually the case for entities that reference other entities, such as Follow entities which reference Accounts, or Favourite entities which reference Statuses, etc.)
+Some API methods operate on entity IDs that are not publicly exposed in the API response and are only known to the backend and the database. (This is usually the case for entities that reference other entities, such as Follow entities which reference Accounts, or Favourite entities which reference Statuses, etc.)
 
 To get around this, Mastodon may return links to a "prev" and "next" page. These links are made available via the HTTP `Link` header on the response. Consider the following fictitious API call:
 
@@ -91,7 +91,7 @@ Plain text is not available for content from remote servers, and plain text synt
 
 ### Mentions, hashtags, and custom emoji {#tags}
 
-Mentions and hashtags are `<a>` tags. Custom emoji remain in their plain text shortcode form. To give those entities their semantic meaning and add special handling, such as opening a mentioned profile within your app instead of as a web page, metadata is included with the [Status]({{< relref "entities/Status" >}}), which can be matched to a particular tag.
+Mentions and hashtags are `<a>` tags. Custom emojis remain in their plain text shortcode form. To give those entities their semantic meaning and add special handling, such as opening a mentioned profile within your app instead of as a web page, metadata is included with the [Status]({{< relref "entities/Status" >}}), which can be matched to a particular tag.
 
 {{< page-relref ref="entities/Status" caption="Status entity" >}}
 
@@ -103,7 +103,7 @@ Mentions and hashtags are `<a>` tags. Custom emoji remain in their plain text sh
 
 ### Link shortening {#links}
 
-Links in Mastodon are not shortened using URL shorteners, and the usage of URL shorteners is heavily discouraged. URLs in text always count for 23 characters, and are intended to be shortened visually. For that purpose, a link is marked up like this:
+Links in Mastodon are not shortened using URL shorteners, and the usage of URL shorteners is heavily discouraged. URLs in text always count for 23 characters and are intended to be shortened visually. For that purpose, a link is marked up like this:
 
 ```html
 <a href="https://example.com/page/that/is/very/long">
@@ -113,7 +113,7 @@ Links in Mastodon are not shortened using URL shorteners, and the usage of URL s
 </a>
 ```
 
-The spans with the `invisible` class can be hidden. The middle span is intended to remain visible. It may have no class if the URL is not very long; otherwise it will have an `ellipsis` class. No ellipsis (`…`) character is inserted in the markup; instead, you are expected to insert it yourself if you need it in your app.
+The spans with the `invisible` class can be hidden. The middle span is intended to remain visible. It may have no class if the URL is not very long; otherwise, it will have an `ellipsis` class. No ellipsis (`…`) character is inserted in the markup; instead, you are expected to insert it yourself if you need it in your app.
 
 ## Filters {#filters}
 
@@ -121,7 +121,7 @@ The spans with the `invisible` class can be hidden. The middle span is intended 
 
 If a filter applies to a Status, a corresponding FilterResult will be included in the `filtered` attribute. Clients should check this attribute for any matches and use them to apply the intended filter action.
 
-However, client implementations may still want to perform their own rule matching client-side, as this would allow retroactively apply filter changes without re-fetching posts from the server. When doing so, they should take care to not ignore `filtered` entries for which there are other attributes than `keyword_matches`, so as to handle extensions of the filtering system (e.g. `status_matches`).
+However, client implementations may still want to perform their own rule matching client-side, as this would allow retroactively applying filter changes without re-fetching posts from the server. When doing so, they should take care to not ignore `filtered` entries for which there are other attributes than `keyword_matches`, so as to handle extensions of the filtering system (e.g. `status_matches`).
 
 Matched filters need to be filtered based on context (`home`, `notifications`, `public`, `thread` or `profile`) and expiration date.
 
@@ -138,8 +138,8 @@ Expired filters are not deleted by the server. They should no longer be applied,
 If `whole_word` is true, the client app should do the following:
 
 * Define ‘word constituent characters’ for your app. In the official implementation, it’s `[A-Za-z0-9_]` in JavaScript, and `[[:word:]]` in Ruby. Ruby uses the POSIX character class (Letter | Mark | Decimal_Number | Connector_Punctuation).
-* If the phrase starts with a word character, and if the previous character before matched range is a word character, its matched range should be treated to not match.
-* If the phrase ends with a word character, and if the next character after matched range is a word character, its matched range should be treated to not match.
+* If the phrase starts with a word character, and if the previous character before the matched range is a word character, its matched range should be treated to not match.
+* If the phrase ends with a word character, and if the next character after the matched range is a word character, its matched range should be treated to not match.
 
 Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_manager.rb` in the Mastodon source code for more details.
 
@@ -149,6 +149,6 @@ Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_mana
 
 ## Focal points for cropping media thumbnails {#focal-points}
 
-Server-side preview images are never cropped, to support a variety of apps and user interfaces. Therefore, the cropping must be done by those apps. To crop intelligently, focal points can be used to ensure a certain section of the image is always within the cropped viewport. See this [guide on how focal points are defined](https://github.com/jonom/jquery-focuspoint#1-calculate-your-images-focus-point). In summary, floating points range from -1.0 to 1.0, left-to-right or bottom-to-top. (0,0) is the center of the image. (0.5, 0.5) would be in the center of the upper-right quadrant. (-0.5, -0.5) would be in the center of the lower-left quadrant. For reference, thumbnails in the Mastodon frontend are most commonly 16:9.
+Server-side preview images are never cropped, to support a variety of apps and user interfaces. Therefore, the cropping must be done by those apps. To crop intelligently, focal points can be used to ensure a certain section of the image is always within the cropped viewport. See this [guide on how focal points are defined](https://github.com/jonom/jquery-focuspoint#1-calculate-your-images-focus-point). In summary, floating points range from -1.0 to 1.0, left-to-right or bottom-to-top. (0,0) is the center of the image. (0.5, 0.5) would be in the center of the upper-right quadrant. (-0.5, -0.5) would be in the center of the lower-left quadrant. For reference, thumbnails in the Mastodon front end are most commonly 16:9.
 
 {{< figure src="assets/focal-points.jpg" caption="A demonstration of various focal points and their coordinates." >}}

@@ -58,7 +58,7 @@ We can do similarly for hashtags by calling [GET /api/v1/timelines/tag/:hashtag]
 curl https://mastodon.example/api/v1/timelines/tag/cats?limit=2
 ```
 
-We should once again see 2 statuses have been returned in a JSON array of [Status]({{< relref "entities/status" >}}) entities. We can parse the JSON by array, then by object. If we were using Python, our code might look something like this:
+We should once again see that 2 statuses have been returned in a JSON array of [Status]({{< relref "entities/status" >}}) entities. We can parse the JSON by array, then by object. If we were using Python, our code might look something like this:
 
 ```python
 import requests
@@ -71,7 +71,7 @@ print(statuses[0]["content"]) # this prints the status text
 ```
 
 {{< hint style="info" >}}
-Parsing JSON and using it in your program is outside of the scope of this tutorial, as it will be different depending on your choice of programming language and on the design of your program. Look for other tutorials on how to work with JSON in your programming language of choice.
+Parsing JSON and using it in your program is outside of the scope of this tutorial, as it will be different depending on your choice of programming language and the design of your program. Look for other tutorials on how to work with JSON in your programming language of choice.
 {{< /hint >}}
 
 {{< hint style="info" >}}

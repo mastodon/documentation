@@ -9,7 +9,7 @@ menu:
 
 ## An introduction to REST {#rest}
 
-Mastodon provides access to its data over a REST API. REST stands for REpresentational State Transfer, but for our purposes, just think of it as sending and receiving information about various resources based on the request. The Mastodon REST API uses HTTP for its requests, and JSON for its payloads.
+Mastodon provides access to its data over a REST API. REST stands for REpresentational State Transfer, but for our purposes, just think of it as sending and receiving information about various resources based on the request. The Mastodon REST API uses HTTP for its requests and JSON for its payloads.
 
 ## Understanding HTTP requests and responses {#http}
 
@@ -64,7 +64,7 @@ curl -X POST \
 
 ### JSON {#json}
 
-*JavaScript Object Notation* as defined in ECMA-404. Quick one page overview: https://www.json.org/
+*JavaScript Object Notation* as defined in ECMA-404. Quick one-page overview: https://www.json.org/
 
 Similar to sending form data, but with an additional header to specify that the data is in JSON format. To send a JSON request with cURL, specify the JSON content type with a header, then send the JSON data as form data:
 
