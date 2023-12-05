@@ -11,7 +11,7 @@ Mastodon is a Ruby on Rails application with a React.js front-end.  It follows s
 
 The best way of working with Mastodon in a development environment is installing all the dependencies on your system, rather than using Docker or Vagrant. You need Ruby, Node.js, PostgreSQL and Redis, which is a pretty standard set of dependencies for Rails applications.
 
-Tutorials for installing these dependencies can be found on the “Installing from source” page in the Running Mastodon section of the documentation. Please keep in mind that root access to a machine running Ubuntu 18.04 is required. After following the installation guide in the Running Mastodon section, see the “Setting up a dev environment” page for further instructions on how to configure your environment for development.
+Tutorials for installing these dependencies can be found on the “Installing from source” page in the Running Mastodon section of the documentation. After following the installation guide in the Running Mastodon section, see the “Setting up a dev environment” page for further instructions on how to configure your environment for development.
 
 ### Environments {#environments}
 

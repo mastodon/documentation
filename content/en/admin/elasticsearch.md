@@ -152,7 +152,7 @@ RAILS_ENV=production bin/tootctl search deploy
 ## Search optimization for other languages
 ### Chinese search optimization {#chinese-search-optimization}
 
-The default analyzer of Elasticsearch is the standard analyzer, which may not be the best, especially for Chinese. To improve the search experience, you can install a language-specific analyzer. Before creating the indices in Elasticsearch, install the following Elasticsearch extensions:
+The standard analyzer is the default for Elasticsearch, but for some languages like Chinese it may not be the optimal choice. To enhance the search experience, consider installing a language-specific analyzer. Before creating indices in Elasticsearch, be sure to install the following extensions:
 
 - [elasticsearch-analysis-ik](https://github.com/medcl/elasticsearch-analysis-ik)
 - [elasticsearch-analysis-stconvert](https://github.com/medcl/elasticsearch-analysis-stconvert)

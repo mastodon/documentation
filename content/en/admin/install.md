@@ -58,7 +58,7 @@ yarn set version classic
 
 ### Installing Ruby {#installing-ruby}
 
-We will be using rbenv to manage Ruby versions because it’s easier to get the right versions and to update once a newer release comes out. rbenv must be installed for a single Linux user, therefore, first, we must create the user Mastodon will be running as:
+We will use rbenv to manage Ruby versions as it simplifies obtaining the correct versions and updating them when new releases are available. Since rbenv needs to be installed for an individual Linux user, we must first create the user account under which Mastodon will run:
 
 ```bash
 adduser --disabled-login mastodon

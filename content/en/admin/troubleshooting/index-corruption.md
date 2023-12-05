@@ -25,7 +25,7 @@ If your database is not using `C` or `POSIX` for its collation setting (which yo
 your indexes might be inconsistent if you ever ran with a version of glibc prior to 2.28 and did not immediately reindex your databases after updating to glibc 2.28 or newer.
 
 {{< hint style="info" >}}
-You may have found this page because of **PgHero** warnings about "Duplicate Indexes". While such warnings can sometimes be indicative of an issue in deploying or updating Mastodon, **they are not related to database index corruption and are not indicative of any functional issue with your database**.
+You may have found this page because of PgHero warnings about "Duplicate Indexes". While such warnings can sometimes be indicative of an issue in deploying or updating Mastodon, **they are not related to database index corruption and are not indicative of any functional issue with your database**.
 {{< /hint >}}
 
 You can check whether your indexes are consistent using [PostgreSQL's `amcheck` module](https://www.postgresql.org/docs/10/amcheck.html): as the database server's super user, connect to your Mastodon database and issue the following (this may take a while):

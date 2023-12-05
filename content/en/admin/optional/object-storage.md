@@ -46,7 +46,7 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 {{</ hint >}}
 
 {{< hint style="danger" >}}
-In any case, your S3 bucket must be configured so that -- ACL configuration notwithstanding -- all objects are publicly readable but neither writable nor listable, while Mastodon itself can write to it. The configuration should be similar for all S3 providers, but common ones have been highlighted below.
+Regardless of the ACL configuration, your S3 bucket must be set up to ensure that all objects are publicly readable but not writable or listable. At the same time, Mastodon itself should have write access to the bucket. This configuration is generally consistent across all S3 providers, and common ones are highlighted below.
 {{</ hint >}}
 
 ### MinIO

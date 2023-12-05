@@ -22,7 +22,7 @@ Things that need to be backed up in order of importance:
 
 There are two failure types that people in general may guard for: The failure of the hardware, such as data corruption on the disk; and human and software error, such as wrongful deletion of a particular piece of data. In this documentation, only the former type is considered.
 
-A lost PostgreSQL database is completely game over. Mastodon stores all the most important data in the PostgreSQL database. If the database disappears, all the accounts, posts and followers on your server will disappear with it.
+Mastodon stores all the most important data in the PostgreSQL database. The loss of the PostgreSQL database will result in the complete failure of the server, including all the accounts, their posts and followers.
 
 If you lose application secrets, some functions of Mastodon will stop working for your users, they will be logged out, two-factor authentication will become unavailable, and Web Push API subscriptions will stop working.
 
