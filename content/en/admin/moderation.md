@@ -99,20 +99,13 @@ The X-Hub-Signature header adopted from the WebSub spec can be optionally used t
 
 Events currently supported:
 
-* report.created
+* account.approved
 * account.created
-* report.resolved
-* report.sensitive
-* report.deleted
-* account.warn
-* account.freeze
-* account.forcesensitive
-* account.limit
-* account.suspend
-* account.memoriam
-* instance.silenced
-* instance.suspend
-* announcements.enabled
+* account.updated
+* report.created
+* report.updated
+* status.created
+* status.updated
 
 
 
