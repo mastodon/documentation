@@ -299,7 +299,7 @@ If the `replies_policy` is not understood:
 DELETE /api/v1/lists/:id HTTP/1.1
 ```
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:lists`\
 **Version history:**\
 2.1.0 - added
@@ -461,7 +461,7 @@ POST /api/v1/lists/:id/accounts HTTP/1.1
 
 Add accounts to the given list. Note that the user must be following these accounts.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:lists`\
 **Version history:**\
 2.1.0 - added
@@ -530,7 +530,7 @@ DELETE /api/v1/lists/:id/accounts HTTP/1.1
 
 Remove accounts from the given list.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:lists`\
 **Version history:**\
 2.1.0 - added

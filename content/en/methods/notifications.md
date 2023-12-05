@@ -262,7 +262,7 @@ POST /api/v1/notifications/clear HTTP/1.1
 
 Clear all notifications from the server.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:notifications`\
 **Version history:**\
 0.0.0 - added
@@ -303,7 +303,7 @@ POST /api/v1/notifications/:id/dismiss HTTP/1.1
 
 Dismiss a single notification from the server.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:notifications`\
 **Version history:**\
 1.3.0 - added
@@ -350,7 +350,7 @@ POST /api/v1/notifications/dismiss HTTP/1.1
 
 Dismiss a single notification from the server.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:notifications`\
 **Version history**:\
 0.0.0 - available\
