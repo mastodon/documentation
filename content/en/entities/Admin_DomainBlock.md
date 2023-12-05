@@ -104,4 +104,4 @@ aliases: [
 
 {{< page-relref page="methods/admin/domain_blocks" caption="admin/domain_blocks API methods" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/domain_blocks_serializer.rb" caption="app/serializers/rest/admin/domain_blocks_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/domain_block_serializer.rb" caption="app/serializers/rest/admin/domain_block_serializer.rb" >}}
