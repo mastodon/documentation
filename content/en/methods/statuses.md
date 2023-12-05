@@ -1480,7 +1480,7 @@ media_ids[]
 : Array of String. Include Attachment IDs to be attached as media. If provided, `status` becomes optional, and `poll` cannot be used.
 
 media_attributes[][]
-: Array of Array of String. Each array includes id, description, and focus.
+: Array of String. Each array includes id, description, and focus.
 
 poll[options][]
 : Array of String. Possible answers to the poll. If provided, `media_ids` cannot be used, and `poll[expires_in]` must be provided.
