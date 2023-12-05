@@ -387,7 +387,7 @@ See the [ElasticSearch setup page for details on each setting](../elasticsearch#
 
 #### `ES_HOST`
 
-Host of the Elasticsearch server. Defaults to `localhost`
+Host of the Elasticsearch server. Defaults to `localhost`. If using TLS, prepend the hostname with `https://`. For example: `https://elastic.example.com`.
 
 #### `ES_PORT`
 
@@ -830,3 +830,4 @@ Defaults to `512`.
 #### `GITHUB_API_TOKEN`
 
 Used in a rake task for generating AUTHORS.md from GitHub commit history.
+
