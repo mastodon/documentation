@@ -39,14 +39,14 @@ Authorization
 
 ##### Query parameters
 
-max_id 
-: String. Return results older than ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than ID.
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
@@ -172,7 +172,7 @@ PUT /api/v1/scheduled_statuses/:id HTTP/1.1
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the ScheduledStatus in the database.
 
 ##### Headers
 
@@ -253,7 +253,7 @@ DELETE /api/v1/scheduled_statuses/:id HTTP/1.1
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the ScheduledStatus in the database.
 
 ##### Headers
 

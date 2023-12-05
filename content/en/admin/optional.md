@@ -9,6 +9,6 @@ menu:
 
 Mastodon offers a few optional features that can be used if needed.
 
-- [Full-text search](./elasticsearch/)
+- [Object storage](./object-storage/)
 - [Hidden services](./tor/)
 - [Single Sign On](./sso/)

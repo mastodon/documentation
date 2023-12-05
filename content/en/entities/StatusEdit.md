@@ -78,7 +78,7 @@ aliases: [
 ### `account` {#account}
 
 **Description:** The account that published this revision.\
-**Type:** Account\
+**Type:** [Account]({{<relref "entities/Account">}})\
 **Version history:**\
 3.5.0 - added
 

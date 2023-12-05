@@ -41,6 +41,8 @@ If the account is reinstated within the 30 day period, all data is once again ac
 
 Once the data has been deleted, whether that is after the 30 day period, or if an admin has force deleted it, the account can still be un-suspended. However, the account will have no data (statuses, profile information, avatar or header image) associated with it.
 
+For remote accounts, suspending will make them unfollow any local account. Those relationships are not restored in case the remote account is un-suspended, even within the 30-day time window.
+
 ## Moderating entire websites {#server-wide-moderation}
 
 Because individually moderating a large volume of users from a misbehaving server can be exhausting, it is possible to pre-emptively moderate against all users from that particular server using a so-called **domain block**, which comes with several different levels of severity.
@@ -56,6 +58,8 @@ Equivalent to [limiting](#limit-user) all past and future accounts from the serv
 ### Suspend {#suspend-server}
 
 Equivalent to [suspending](#suspend-user) all past and future accounts from the server. No content from the server will be stored locally except for usernames.
+
+Suspending a server will remove all existing follow relationships between local accounts and accounts on the suspended server. They will not be restored in case the remote server is un-suspended later.
 
 ## Spam-fighting measures {#spam-fighting-measures}
 

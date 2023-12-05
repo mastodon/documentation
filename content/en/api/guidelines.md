@@ -32,7 +32,27 @@ With that said, because IDs are string representations of numbers, they can stil
 
 ## Paginating through API responses {#pagination}
 
-Many API methods allow you to paginate for more information, using parameters such as `limit`, `max_id`, `min_id`, and `since_id`. However, some of these API methods operate on entity IDs that are not publicly exposed in the API response, and are only known to the backend and the database. (This is usually the case for entities that reference other entities, such as Follow entities which reference Accounts, or Favourite entities which reference Statuses, etc.)
+Many API methods allow you to paginate for more information, using parameters such as `limit`, `max_id`, `min_id`, and `since_id`.
+
+limit
+: The maximum number of results to return. Usually, there is a default limit and a maximum limit; these will vary according to the API method.
+
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+
+since_id
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+
+min_id
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward. (Available since v2.6.0.)
+
+For example, we might fetch `https://mastodon.example/api/v1/accounts/1/statuses` with certain parameters, and we will get the following results in the following cases:
+
+- Setting `?max_id=1` will return no statuses, since there are no statuses with an ID earlier than `1`.
+- Setting `?since_id=1` will return the latest statuses, since there have been many statuses since `1`.
+- Setting `?min_id=1` will return the oldest statuses, as `min_id` sets the cursor.
+
+Some API methods operate on entity IDs that are not publicly exposed in the API response, and are only known to the backend and the database. (This is usually the case for entities that reference other entities, such as Follow entities which reference Accounts, or Favourite entities which reference Statuses, etc.)
 
 To get around this, Mastodon may return links to a "prev" and "next" page. These links are made available via the HTTP `Link` header on the response. Consider the following fictitious API call:
 
@@ -40,7 +60,7 @@ To get around this, Mastodon may return links to a "prev" and "next" page. These
 GET https://mastodon.example/api/v1/endpoint HTTP/1.1
 Authorization: Bearer token
 
-Link: <https://mastodon.example/api/v1/endpoint?max_id=7163058>; rel="next", <https://mastodon.example/api/v1/endpoint?since_id=7275607>; rel="prev"
+Link: <https://mastodon.example/api/v1/endpoint?max_id=7163058>; rel="next", <https://mastodon.example/api/v1/endpoint?min_id=7275607>; rel="prev"
 [
   {
     // some Entity
@@ -123,9 +143,9 @@ If `whole_word` is true, the client app should do the following:
 
 Please check `app/javascript/mastodon/selectors/index.js` and `app/lib/feed_manager.rb` in the Mastodon source code for more details.
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/javascript/mastodon/selectors/index.js" caption="app/javascript/mastodon/selectors/index.js" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/javascript/mastodon/selectors/index.js" caption="app/javascript/mastodon/selectors/index.js" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/lib/feed_manager.rb" caption="app/lib/feed_manager.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/feed_manager.rb" caption="app/lib/feed_manager.rb" >}}
 
 ## Focal points for cropping media thumbnails {#focal-points}
 

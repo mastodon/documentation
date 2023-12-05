@@ -170,7 +170,7 @@ aliases: [
 
 {{< page-relref page="methods/admin/reports" caption="admin/reports API methods">}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/admin/report_serializer.rb" caption="app/serializers/rest/admin/report_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/report_serializer.rb" caption="app/serializers/rest/admin/report_serializer.rb" >}}
 
 
 

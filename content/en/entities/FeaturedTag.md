@@ -50,7 +50,7 @@ aliases: [
 ### `statuses_count` {#statuses_count}
 
 **Description:** The number of authored statuses containing this hashtag.\
-**Type:** Number\
+**Type:** Integer\
 **Version history:**\
 3.0.0 - added
 

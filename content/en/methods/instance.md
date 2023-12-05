@@ -25,7 +25,7 @@ GET /api/v2/instance
 
 Obtain general information about the server.
 
-**Returns:** [V1::Instance]({{< relref "entities/instance" >}})\
+**Returns:** [Instance]({{< relref "entities/Instance" >}})\
 **OAuth:** Public\
 **Version history:**\
 4.0.0 - added
@@ -60,6 +60,9 @@ Obtain general information about the server.
   "configuration": {
     "urls": {
       "streaming": "wss://mastodon.social"
+    },
+    "vapid": {
+      "public_key": "BCkMmVdKDnKYwzVCDC99Iuc9GvId-x7-kKtuHnLgfF98ENiZp_aj-UNthbCdI70DqN1zUVis-x0Wrot2sBagkMc="
     },
     "accounts": {
       "max_featured_tags": 10
@@ -466,7 +469,7 @@ The admin has chosen to show domain blocks to no one. The response body is empty
 ## View extended description {#extended_description}
 
 ```http
-GET /api/v1/example HTTP/1.1
+GET /api/v1/instance/extended_description HTTP/1.1
 ```
 
 Obtain an extended description of this server
@@ -496,7 +499,7 @@ GET /api/v1/instance HTTP/1.1
 
 Obtain general information about the server.
 
-**Returns:** [V1::Instance]({{< relref "entities/instance" >}})\
+**Returns:** [V1::Instance]({{< relref "entities/V1_Instance" >}})\
 **OAuth:** Public\
 **Version history:**\
 1.1.0 - added\

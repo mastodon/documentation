@@ -109,14 +109,14 @@ aliases: [
 
 ### `status_ids` {#status_ids}
 
-**Description:** The domain name of the instance.\
+**Description:** IDs of statuses that have been attached to this report for additional context.\
 **Type:** {{<nullable>}} Array of String (cast from integer), or null\
 **Version history:**\
 4.0.0 - added
 
 ### `rule_ids` {#rule_ids}
 
-**Description:** The domain name of the instance.\
+**Description:** IDs of the rules that have been cited as a violation by this report.\
 **Type:** {{<nullable>}} Array of String (cast from integer), or null\
 **Version history:**\
 4.0.0 - added

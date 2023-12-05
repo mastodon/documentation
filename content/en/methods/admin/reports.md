@@ -505,7 +505,7 @@ Reopen a currently closed report, if it is closed.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the Report in the database.
 
 ##### Headers
 

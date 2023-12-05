@@ -30,3 +30,11 @@ Check that you are specifying the correct environment with `RAILS_ENV=production
 ## **I encountered a compilation error while executing `RAILS_ENV=production bundle exec rails assets:precompile`, but no more information is given. How to fix it?**
 
 Usually it's because your server ran out of memory while compiling assets. Use a swapfile or increase the swap space to increase the memory capacity. Run `RAILS_ENV=production bundle exec rake tmp:cache:clear` to clear cache, then execute `RAILS_ENV=production bundle exec rails assets:precompile` to compile again. Make sure you clear the cache after a compilation error, or it will show "Everything's OK" but leave the assets unchanged.
+
+## **I am getting this error: `Read-only file system @ dir_s_mkdir`. Why?**
+
+By default, Mastodon makes use of [systemd's sandboxing capabilities](https://www.freedesktop.org/software/systemd/man/systemd.exec.html#Sandboxing) in a way that disallows writing outside of `/home/mastodon`. If Mastodon is installed elsewhere, you may need to allow `mastodon-sidekiq` and `mastodon-web` to write to a custom directory:
+1. Add parameter `ReadWritePaths` to files `/etc/systemd/system/mastodon-sidekiq.service` and `/etc/systemd/system/mastodon-web.service`. Example - `ReadWritePaths=/example/mastodon/live`.
+2. run `systemctl stop mastodon-sidekiq mastodon-web`
+3. run `systemctl daemon-reload`
+4. run `systemctl start mastodon-sidekiq mastodon-web`

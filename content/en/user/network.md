@@ -44,7 +44,7 @@ When unread notifications are present, a checkmark will appear in the column hea
 
 ## Following profiles {#follow}
 
-![]({{ relUrl "/assets/profile.jpg" }})
+{{< figure src="assets/profile.jpg" caption="Overview of a profile." >}}
 
 As long as you encounter a person within your app’s user interface, e.g. the web interface on your home server, or your mobile app, you can just click “follow” and you won’t notice a difference if that person is on your server or not.
 
@@ -54,7 +54,7 @@ If you are visiting a public page on another Mastodon site, see [Using Mastodon 
 
 ## Enabling notifications {#bell}
 
-![]({{ relUrl "/assets/bell.jpg" }})
+{{< figure src="assets/bell.jpg" caption="An example of a profile that you are following." >}}
 
 If you are following someone, you also have the option to receive a notification every time they post. To opt into this functionality, click the bell icon.
 
@@ -90,7 +90,8 @@ In Mastodon, direct messages are just posts that have the "direct" visibility se
 
 Lists are subsets of your home timeline. You can create a list, give it a name, and add users that you follow to that list.
 
-![]({{ relUrl "/assets/lists.jpg" }})
+{{< figure src="assets/lists.jpg" caption="A list of lists" >}}
+
 
 Opening a list will load that list's timeline. List timelines contain only posts by members of that list, as well as replies to you or to other members of the list. This can be changed to show replies to all people you follow, or to no one.
 
