@@ -71,7 +71,7 @@ ES_PRESET= # single_node_cluster, small_cluster or large_cluster
 # ES_PASS=
 ```
 
-_Note_: If using TLS, prepend the hostname with `https://`. For example: `https://myelastic.tld`.
+_Note_: If using TLS, prepend the hostname with `https://`. For example: `https://elastic.example.com`.
 
 ### Choosing the correct preset
 
