@@ -1952,7 +1952,7 @@ Authorization
 ##### Query parameters
 
 id[]
-: Array. Check relationships for the provided account IDs.
+: Array of String. Check relationships for the provided account IDs.
 
 with_suspended
 : Boolean. Whether relationships should be returned for suspended users, defaults to false.
