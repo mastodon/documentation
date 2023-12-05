@@ -387,7 +387,7 @@ See the [ElasticSearch setup page for details on each setting](../elasticsearch#
 
 #### `ES_HOST`
 
-Host of the ElasticSearch server. Defaults to `localhost`. If using TLS, prepend the hostname with `https://`. For example: `https://myelastic.tld`.
+Host of the Elasticsearch server. Defaults to `localhost`. If using TLS, prepend the hostname with `https://`. For example: `https://elastic.example.com`.
 
 #### `ES_PORT`
 
