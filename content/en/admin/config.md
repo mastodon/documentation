@@ -315,7 +315,7 @@ How many database connections to pool in the process. This value should cover ev
 
 #### `DB_SSLMODE`
 
-Postgres's [SSL mode](https://www.postgresql.org/docs/10/libpq-ssl.html). Defaults to `prefer`.
+PostgreSQL [SSL mode](https://www.postgresql.org/docs/10/libpq-ssl.html). Defaults to `prefer`.
 
 #### `DATABASE_URL`
 

@@ -127,9 +127,9 @@ As a solution, it is possible to start different Sidekiq processes for the queue
 
 ### Why you might need PgBouncer {#pgbouncer-why}
 
-If you start running out of available Postgres connections (the default is 100) then you may find PgBouncer to be a good solution. This document describes some common gotchas as well as good configuration defaults for Mastodon.
+If you start running out of available PostgreSQL connections (the default is 100) then you may find PgBouncer to be a good solution. This document describes some common gotchas as well as good configuration defaults for Mastodon.
 
-Note that you can check “PgHero” in the administration view to see how many Postgres connections are currently being used. Typically Mastodon uses as many connections as there are threads both in Puma, Sidekiq and the streaming API combined.
+Note that you can check “PgHero” in the administration view to see how many PostgreSQL connections are currently being used. Typically Mastodon uses as many connections as there are threads both in Puma, Sidekiq and the streaming API combined.
 
 ### Installing PgBouncer {#pgbouncer-install}
 
@@ -143,7 +143,7 @@ sudo apt install pgbouncer
 
 #### Setting a password {#pgbouncer-password}
 
-First off, if your `mastodon` user in Postgres is set up without a password, you will need to set a password.
+First off, if your `mastodon` user in PostgreSQL is set up without a password, you will need to set a password.
 
 Here’s how you might reset the password:
 
@@ -193,7 +193,7 @@ In both cases the password is just `password`.
 
 Edit `/etc/pgbouncer/pgbouncer.ini`
 
-Add a line under `[databases]` listing the Postgres databases you want to connect to. Here we’ll just have PgBouncer use the same username/password and database name to connect to the underlying Postgres database:
+Add a line under `[databases]` listing the PostgreSQL databases you want to connect to. Here we’ll just have PgBouncer use the same username/password and database name to connect to the underlying PostgreSQL database:
 
 ```text
 [databases]
@@ -219,13 +219,13 @@ Make sure the `pgbouncer` user is an admin:
 admin_users = pgbouncer
 ```
 
-**This next part is very important!** The default pooling mode is session-based, but for Mastodon we want transaction-based. In other words, a Postgres connection is created when a transaction is created and dropped when the transaction is done. So you’ll want to change the `pool_mode` from `session` to `transaction`:
+**This next part is very important!** The default pooling mode is session-based, but for Mastodon we want transaction-based. In other words, a PostgreSQL connection is created when a transaction is created and dropped when the transaction is done. So you’ll want to change the `pool_mode` from `session` to `transaction`:
 
 ```ini
 pool_mode = transaction
 ```
 
-Next up, `max_client_conn` defines how many connections PgBouncer itself will accept, and `default_pool_size` puts a limit on how many Postgres connections will be opened under the hood. (In PgHero the number of connections reported will correspond to `default_pool_size` because it has no knowledge of PgBouncer.)
+Next up, `max_client_conn` defines how many connections PgBouncer itself will accept, and `default_pool_size` puts a limit on how many PostgreSQL connections will be opened under the hood. (In PgHero the number of connections reported will correspond to `default_pool_size` because it has no knowledge of PgBouncer.)
 
 The defaults are fine to start, and you can always increase them later:
 
@@ -242,7 +242,7 @@ sudo systemctl reload pgbouncer
 
 #### Debugging that it all works {#pgbouncer-debug}
 
-You should be able to connect to PgBouncer just like you would with Postgres:
+You should be able to connect to PgBouncer just like you would with PostgreSQL:
 
 ```bash
 psql -p 6432 -U mastodon mastodon_production
@@ -266,7 +266,7 @@ PREPARED_STATEMENTS=false
 
 Since we’re using transaction-based pooling, we can’t use prepared statements.
 
-Next up, configure Mastodon to use port 6432 (PgBouncer) instead of 5432 (Postgres) and you should be good to go:
+Next up, configure Mastodon to use port 6432 (PgBouncer) instead of 5432 (PostgreSQL) and you should be good to go:
 
 ```bash
 DB_HOST=localhost

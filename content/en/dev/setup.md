@@ -53,7 +53,7 @@ bundle install
 yarn install
 ```
 
-In the development environment, Mastodon will use PostgreSQL as the currently signed-in Linux user using the `ident` method. Ensure that you have created a Postgres user and database for your current signed-in user:
+In the development environment, Mastodon will use PostgreSQL as the currently signed-in Linux user using the `ident` method. Ensure that you have created a PostgreSQL user and database for your current signed-in user:
 
 ```sh
 sudo -u postgres createuser $YOUR_USERNAME_HERE --createdb
