@@ -1,3 +1,4 @@
+
 ---
 title: statuses API methods
 description: Publish, interact, and view information about statuses.
@@ -1478,6 +1479,9 @@ language
 media_ids[]
 : Array of String. Include Attachment IDs to be attached as media. If provided, `status` becomes optional, and `poll` cannot be used.
 
+media_attributes[][]
+: Array of String. Each array includes id, description, and focus.
+
 poll[options][]
 : Array of String. Possible answers to the poll. If provided, `media_ids` cannot be used, and `poll[expires_in]` must be provided.
 
@@ -1852,3 +1856,4 @@ Status does not exist or is private.
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/reblogs_controller.rb" caption="app/controllers/api/v1/statuses/reblogs_controller.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/sources_controller.rb" caption="app/controllers/api/v1/statuses/sources_controller.rb" >}}
+
