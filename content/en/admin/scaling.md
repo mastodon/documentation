@@ -123,7 +123,7 @@ As a solution, it is possible to start different Sidekiq processes for the queue
 
 **Make sure you only have one `scheduler` queue running!!**
 
-## Transaction pooling with pgBouncer {#pgbouncer}
+## Transaction pooling with PgBouncer {#pgbouncer}
 
 ### Why you might need PgBouncer {#pgbouncer-why}
 
@@ -234,7 +234,7 @@ max_client_conn = 100
 default_pool_size = 20
 ```
 
-Don’t forget to reload or restart pgbouncer after making your changes:
+Don’t forget to reload or restart PgBouncer after making your changes:
 
 ```bash
 sudo systemctl reload pgbouncer
@@ -277,7 +277,7 @@ DB_PORT=6432
 ```
 
 {{< hint style="warning" >}}
-You cannot use pgBouncer to perform `db:migrate` tasks. But this is easy to work around. If your postgres and pgbouncer are on the same host, it can be as simple as defining `DB_PORT=5432` together with `RAILS_ENV=production` when calling the task, for example: `RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate` (you can specify `DB_HOST` too if it’s different, etc)
+You cannot use PgBouncer to perform `db:migrate` tasks. But this is easy to work around. If your PostgreSQL and PgBouncer are on the same host, it can be as simple as defining `DB_PORT=5432` together with `RAILS_ENV=production` when calling the task, for example: `RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate` (you can specify `DB_HOST` too if it’s different, etc)
 {{< /hint >}}
 
 #### Administering PgBouncer {#pgbouncer-admin}
@@ -337,7 +337,7 @@ production:
         url: postgresql://db_user:db_password@db_host:db_port/db_name
 ```
 
-Make sure the URLs point to wherever your PostgreSQL servers are. You can add multiple replicas. You could have a locally installed pgBouncer with configuration to connect to two different servers based on database name, e.g. “mastodon” going to the primary, “mastodon_replica” going to the replica, so in the file above both URLs would point to the local pgBouncer with the same user, password, host and port, but different database name. There are many possibilities how this could be setup! For more information on Makara, [see their documentation](https://github.com/taskrabbit/makara#databaseyml).
+Make sure the URLs point to wherever your PostgreSQL servers are. You can add multiple replicas. You could have a locally installed PgBouncer with configuration to connect to two different servers based on database name, e.g. “mastodon” going to the primary, “mastodon_replica” going to the replica, so in the file above both URLs would point to the local PgBouncer with the same user, password, host and port, but different database name. There are many possibilities how this could be setup! For more information on Makara, [see their documentation](https://github.com/taskrabbit/makara#databaseyml).
 
 {{< hint style="warning" >}}
 Make sure the sidekiq processes run with the stock `config/database.yml` to avoid failing jobs and data loss!

@@ -41,7 +41,7 @@ Less crucially, you’ll probably also want to copy the following for convenienc
 
 * The nginx config (under `/etc/nginx/sites-available/default`)
 * The systemd config files (`/etc/systemd/system/mastodon-*.service`), which may contain your server tweaks and customizations
-* The pgbouncer configuration under `/etc/pgbouncer` (if you’re using it)
+* The PgBouncer configuration under `/etc/pgbouncer` (if you’re using it)
 
 ### Dump and load PostgreSQL {#dump-and-load-postgresql}
 
@@ -80,7 +80,7 @@ You’ll want to re-run this if any of the files on the old server change.
 
 You should also copy over the `.env.production` file, which contains secrets.
 
-Optionally, you may copy over the nginx, systemd, and pgbouncer config files, or rewrite them from scratch.
+Optionally, you may copy over the nginx, systemd, and PgBouncer config files, or rewrite them from scratch.
 
 ### During migration {#during-migration}
 
