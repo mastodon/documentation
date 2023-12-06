@@ -1,103 +1,108 @@
 ---
-title: statuses
-description: 'Publish, interact, and view information about statuses.'
+title: statuses API methods
+description: Publish, interact, and view information about statuses.
 menu:
   docs:
     weight: 30
+    name: statuses
     parent: methods
     identifier: methods-statuses
+aliases: [
+  "/methods/statuses",
+  "/api/methods/statuses",
+]
 ---
 
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/statuses" title="Publish new status" >}}
-{{< api-method-description >}}
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
-Post a new status.
+## Post a new status {#create}
 
-**Returns:** Status. When `scheduled_at` is present, ScheduledStatus is returned instead.\
+```http
+POST /api/v1/statuses HTTP/1.1
+```
+
+Publish a status with the given parameters.
+
+**Returns:** [Status]({{<relref "entities/status">}}). When `scheduled_at` is present, [ScheduledStatus]({{<relref "entities/scheduledstatus">}}) is returned instead.\
 **OAuth:** User + `write:statuses`\
 **Version history:**\
 0.0.0 - added\
 2.7.0 - `scheduled_at` added\
 2.8.0 - `poll` added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Idempotency-Key" type="string" required=false >}}
-Prevent duplicate submissions of the same status. Idempotency keys are stored for up to 1 hour, and can be any arbitrary string. Consider using a hash or UUID generated client-side.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="status" type="string" required=true >}}
-Text content of the status. If `media_ids` is provided, this becomes optional. Attaching a `poll` is optional while `status` is provided.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="media_ids\[\]" type="array" required=true >}}
-Array of Attachment ids to be attached as media. If provided, `status` becomes optional, and `poll` cannot be used.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="poll\[options\]\[\]" type="array" required=true >}}
-Array of possible answers. If provided, `media_ids` cannot be used, and `poll[expires_in]` must be provided.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="poll\[expires_in\]" type="number" required=true >}}
-Duration the poll should be open, in seconds. If provided, `media_ids` cannot be used, and `poll[options]` must be provided.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="poll\[multiple\]" type="boolean" required=false >}}
-Allow multiple choices?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="poll\[hide_totals\]" type="boolean" required=false >}}
-Hide vote counts until the poll ends?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="in_reply_to_id" type="string" required=false >}}
-ID of the status being replied to, if status is a reply
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="sensitive" type="boolean" required=false >}}
-Mark status and attached media as sensitive?
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="spoiler_text" type="string" required=false >}}
-Text to be shown as a warning or subject before the actual content. Statuses are generally collapsed behind this field.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="visibility" type="string" required=false >}}
-Visibility of the posted status. Enumerable oneOf public, unlisted, private, direct.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="scheduled_at" type="string" required=false >}}
-ISO 8601 Datetime at which to schedule a status. Providing this paramter will cause ScheduledStatus to be returned instead of Status. Must be at least 5 minutes in the future.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="language" type="string" required=false >}}
-ISO 639 language code for this status.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
 
-Status will be posted with chosen parameters. If scheduled_at is provided, then a ScheduledStatus will be returned instead.
-{{< endapi-method-response-example-description >}}
+##### Headers
 
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
-{{< tabs >}}
-{{< tab title="status" >}}
-```javascript
+Idempotency-Key
+: Provide this header with any arbitrary string to prevent duplicate submissions of the same status. Consider using a hash or UUID generated client-side. Idempotency keys are stored for up to 1 hour.
+
+##### Form data parameters
+
+status
+: {{<required>}} String. The text content of the status. If `media_ids` is provided, this becomes optional. Attaching a `poll` is optional while `status` is provided.
+
+media_ids[]
+: {{<required>}} Array of String. Include Attachment IDs to be attached as media. If provided, `status` becomes optional, and `poll` cannot be used.
+
+poll[options][]
+: {{<required>}} Array of String. Possible answers to the poll. If provided, `media_ids` cannot be used, and `poll[expires_in]` must be provided.
+
+poll[expires_in]
+: {{<required>}} Integer. Duration that the poll should be open, in seconds. If provided, `media_ids` cannot be used, and `poll[options]` must be provided.
+
+poll[multiple]
+: Boolean. Allow multiple choices? Defaults to false.
+
+poll[hide_totals]
+: Boolean. Hide vote counts until the poll ends? Defaults to false.
+
+in_reply_to_id
+: String. ID of the status being replied to, if status is a reply.
+
+sensitive
+: Boolean. Mark status and attached media as sensitive? Defaults to false.
+
+spoiler_text
+: String. Text to be shown as a warning or subject before the actual content. Statuses are generally collapsed behind this field.
+
+visibility
+: String. Sets the visibility of the posted status to `public`, `unlisted`, `private`, `direct`.
+
+language
+: String. ISO 639 language code for this status.
+
+scheduled_at
+: String. ISO 8601 Datetime at which to schedule a status. Providing this parameter will cause ScheduledStatus to be returned instead of Status. Must be at least 5 minutes in the future.
+
+#### Response
+##### 200: OK
+
+Status will be posted with chosen parameters:
+
+```json
 {
   "id": "103254962155278888",
   "created_at": "2019-12-05T11:34:47.196Z",
-  ...
+  // ...
   "content": "<p>test content</p>",
-  ...
+  // ...
   "application": {
     "name": "test app",
     "website": null
   },
-  ...
+  // ...
 }
 ```
-{{< endtab >}}
 
-{{< tab title="scheduled_at ScheduledStatus" >}}
-```javascript
+If scheduled_at is provided, then a ScheduledStatus will be returned instead:
+
+```json
 {
   "id": "3221",
   "scheduled_at": "2019-12-05T12:33:01.000Z",
@@ -116,44 +121,57 @@ Status will be posted with chosen parameters. If scheduled_at is provided, then 
   "media_attachments": []
 }
 ```
-{{< endtab >}}
-{{< endtabs >}}
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/statuses/:id" title="View specific status" >}}
-{{< api-method-description >}}
 
-View information about a status.
+##### 401: Unauthorized
 
-**Returns:** Status\
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 422: Unprocessable entity
+
+```json
+{
+  "error": "Validation failed: Text can't be blank"
+}
+```
+
+---
+
+## View a single status {#get}
+
+```http
+GET /api/v1/statuses/:id HTTP/1.1
+```
+
+Obtain information about a status.
+
+**Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** Public for public statuses, user token + `read:statuses` for private statuses\
 **Version history:**\
 0.0.0 - added\
 2.7.0 - public statuses no longer require token
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of a status in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=false >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
 
-```javascript
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
 {
   "id": "1",
   "created_at": "2016-03-16T14:44:31.580Z",
@@ -215,72 +233,63 @@ Bearer &lt;user token&gt;
   "poll": null
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-instance is in whitelist mode
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Instance is in authorized-fetch mode.
 
-```javascript
+```json
 {
   "error": "This API requires an authenticated user"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status does not exist, is deleted, or is private.
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="delete" host="https://mastodon.example" path="/api/v1/statuses/:id" title="Delete status" >}}
-{{< api-method-description >}}
+
+---
+
+## Delete a status {#delete}
+
+```http
+DELETE /api/v1/statuses/:id HTTP/1.1
+```
 
 Delete one of your own statuses.
 
-**Returns:** Status with source `text` and `media_attachments` or `poll`\
+**Returns:** [Status]({{< relref "entities/status" >}}) with source `text` and `poll` or `media_attachments`\
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
 0.0.0 - added\
 2.9.0 - return source properties, for use with delete and redraft
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of a status in the database. Must be owned by authenticated account.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
 
-Note the special properties `text` and `media_attachments` or `poll` which may be used to repost the status, e.g. in case of delete-and-redraft functionality. With POST /api/v1/statuses, use `text` as the value for `status` parameter, `media_attachments[n]["id"]` for the `media_ids` array parameter, and `poll` properties with the corresponding parameters \(e.g. `poll[multiple]` and `poll[options]`, with a new `poll[expires_in]` and `poll[hide_totals]` per user input.
-{{< endapi-method-response-example-description >}}
+##### Path parameters
 
+:id
+: {{<required>}} String. The ID of the Status in the database.
 
-{{< tabs >}}
-{{< tab title="with media" >}}
-```javascript
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Note the special properties `text` and `poll` or `media_attachments` which may be used to repost the status, e.g. in case of delete-and-redraft functionality. With [POST /api/v1/statuses](#create), use `text` as the value for `status` parameter, `media_attachments[n]["id"]` for the `media_ids` array parameter, and `poll` properties with the corresponding parameters (e.g. `poll[multiple]` and `poll[options]`, with a new `poll[expires_in]` and `poll[hide_totals]` per user input.
+
+Example of deleting a media post:
+
+```json
 {
   "id": "103254193998341330",
   "created_at": "2019-12-05T08:19:26.052Z",
@@ -311,7 +320,7 @@ Note the special properties `text` and `media_attachments` or `poll` which may b
     "username": "trwnh",
     "acct": "trwnh",
     "display_name": "infinite love ⴳ",
-    ...
+    // ...
   },
   "media_attachments": [
     {
@@ -350,10 +359,10 @@ Note the special properties `text` and `media_attachments` or `poll` which may b
   "poll": null
 }
 ```
-{{< endtab >}}
 
-{{< tab title="with poll" >}}
-```javascript
+Example of deleting a poll:
+
+```json
 {
   "id": "103254222827484720",
   "created_at": "2019-12-05T08:26:45.958Z",
@@ -384,7 +393,7 @@ Note the special properties `text` and `media_attachments` or `poll` which may b
     "username": "trwnh",
     "acct": "trwnh",
     "display_name": "infinite love ⴳ",
-    ...
+    // ...
   },
   "media_attachments": [],
   "mentions": [],
@@ -414,69 +423,59 @@ Note the special properties `text` and `media_attachments` or `poll` which may b
   }
 }
 ```
-{{< endtab >}}
-{{< endtabs >}}
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status already deleted, does not exist, or is not owned by you
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Status is not owned by you or does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/statuses/:id/context" title="Parent and child statuses" >}}
-{{< api-method-description >}}
+
+---
+
+## Get parent and child statuses in context {#context}
+
+```http
+GET /api/v1/statuses/:id/context HTTP/1.1
+```
 
 View statuses above and below this status in the thread.
 
-**Returns:** Context\
-**OAuth:** Public for public statuses. User token + `read:statuses` for private statuses.\
+**Returns:** [Context]({{< relref "entities/context" >}})\
+**OAuth:** Public for public statuses limited to 40 ancestors and 60 descendants with a maximum depth of 20. User token + `read:statuses` for up to 4,096 ancestors, 4,096 descendants, unlimited depth, and private statuses.\
 **Version history:**\
 0.0.0 - added
+4.0.0 - limit unauthenticated requests
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of a status in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=false >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
 
-```javascript
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
 {
   "ancestors": [
     {
@@ -484,21 +483,21 @@ Bearer &lt;user token&gt;
       "created_at": "2019-11-23T19:44:00.124Z",
       "in_reply_to_id": null,
       "in_reply_to_account_id": null,
-      ...
+      // ...
     },
     {
       "id": "103188971072973252",
       "created_at": "2019-11-23T19:52:23.398Z",
       "in_reply_to_id": "103188938570975982",
       "in_reply_to_account_id": "634458",
-      ...
+      // ...
     },
     {
       "id": "103188982235527758",
       "created_at": "2019-11-23T19:55:08.208Z",
       "in_reply_to_id": "103188971072973252",
       "in_reply_to_account_id": "14715",
-      ...
+      // ...
     }
   ],
   "descendants": [
@@ -507,964 +506,1302 @@ Bearer &lt;user token&gt;
       "created_at": "2019-11-23T20:06:36.011Z",
       "in_reply_to_id": "103189005915505698",
       "in_reply_to_account_id": "634458",
-      ...
+      // ...
     }
   ]
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status does not exist, is deleted, or is private
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Status is private or does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/statuses/:id/reblogged_by" title="Boosted by" >}}
-{{< api-method-description >}}
+
+---
+
+## Translate a status {#translate}
+
+```http
+POST /api/v1/statuses/:id/translate HTTP/1.1
+```
+
+Translate the status content into some language.
+
+**Returns:** [Translation]({{< relref "entities/translation" >}})\
+**OAuth:** App token + `read:statuses`\
+**Version history:**\
+4.0.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Form data parameters
+
+lang
+: String (ISO 639 language code). The status content will be translated into this language. Defaults to the user's current locale.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Translating the first "Hello world" post from mastodon.social into Spanish
+
+```json
+{
+  "content": "<p>Hola mundo</p>",
+  "detected_source_language": "en",
+  "provider": "DeepL.com"
+}
+```
+
+##### 404: Not found
+
+Status is private or does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+##### 503: Service unavailable
+
+The translation request failed
+
+```json
+{
+  "error": "Service Unavailable"
+}
+```
+
+---
+
+## See who boosted a status {#reblogged_by}
+
+```http
+GET /api/v1/statuses/:id/reblogged_by HTTP/1.1
+```
 
 View who boosted a given status.
 
-**Returns:** Array of Account\
-**OAuth:** Public
+**Returns:** Array of [Account]({{< relref "entities/account" >}})\
+**OAuth:** Public for public statuses. User token + `read:statuses` for private statuses.
 **Version history:**\
 0.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of a status in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
 
-```javascript
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
+
+#### Response
+##### 200: OK
+
+A list of accounts that boosted the status
+
+```json
 [
   {
     "id": "711345",
     "username": "Norman_Doors",
     "acct": "Norman_Doors@witches.live",
-    ...
+    // ...
   },
-  ...
+  // ...
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status does not exist, is deleted, or is private.
-{{< endapi-method-response-example-description >}}
+Because reblogged Status IDs are generally not known ahead of time, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
+```http
+Link: <https://mastodon.example/api/v1/statuses/109404970108594430/reblogged_by?limit=2&max_id=109406336446186031>; rel="next", <https://mastodon.example/api/v1/statuses/109404970108594430/reblogged_by?limit=2&since_id=109408462939099398>; rel="prev"
+```
 
-```javascript
+##### 404: Not found
+
+Status does not exist or is private
+
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/statuses/:id/favourited_by" title="Favourited by" >}}
-{{< api-method-description >}}
+
+---
+
+## See who favourited a status {#favourited_by}
+
+```http
+GET /api/v1/statuses/:id/favourited_by HTTP/1.1
+```
 
 View who favourited a given status.
 
-**Returns:** Array of Account\
-**OAuth:** Public\
+**Returns:** Array of [Account]({{< relref "entities/account" >}})\
+**OAuth:** Public for public statuses. User token + `read:statuses` for private statuses.\
 **Version history:**\
 0.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of a status in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
 
-```javascript
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
+
+#### Response
+##### 200: OK
+
+A list of accounts who favourited the status
+
+```json
 [
   {
     "id": "828600",
     "username": "fructose_dealer",
     "acct": "fructose_dealer@radical.town",
-    ...
+    // ...
   },
-  ...
+  // ...
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status does not exist, is deleted, or is private
-{{< endapi-method-response-example-description >}}
+Because Favourite IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
+```http
+Link: <https://mastodon.example/api/v1/statuses/109419880690343548/favourited_by?limit=1&max_id=53286827>; rel="next", <https://mastodon.example/api/v1/statuses/109419880690343548/favourited_by?limit=1&since_id=53286827>; rel="prev"
+```
 
-```javascript
+##### 404: Not found
+
+Status does not exist or is private
+
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/statuses/:id/favourite" title="Favourite" >}}
-{{< api-method-description >}}
+
+---
+
+## Favourite a status {#favourite}
+
+```http
+POST /api/v1/statuses/:id/favourite HTTP/1.1
+```
 
 Add a status to your favourites list.
 
-**Returns:** Status\
+**Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `write:favourites`\
 **Version history:**\
 0.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of a status in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 Status favourited or was already favourited
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": true,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 401: Unauthorized
 
-```javascript
+Invalid or missing Authorization header.
+
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status does not exist, is deleted, or is private
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Status does not exist or is private
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/statuses/:id/unfavourite" title="Undo favourite" >}}
-{{< api-method-description >}}
+
+---
+
+## Undo favourite of a status {#unfavourite}
+
+```http
+POST /api/v1/statuses/:id/unfavourite HTTP/1.1
+```
 
 Remove a status from your favourites list.
 
-**Returns:** Status\
+**Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `write:favourites`\
 **Version history:**\
 0.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of a status in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 Status unfavourited or was already not favourited
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status does not exist, is deleted, or is private
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Status does not exist or is private
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/statuses/:id/reblog" title="Boost" >}}
-{{< api-method-description >}}
 
-Reshare a status.
+---
 
-**Returns:** Status\
+## Boost a status {#boost}
+
+```http
+POST /api/v1/statuses/:id/reblog HTTP/1.1
+```
+
+Reshare a status on your own profile.
+
+**Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
 0.0.0 - added\
 2.8.0 - add `visibility` parameter
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of a status in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="visibility" type="string" required=false >}}
-any visibility except limited or direct \(i.e. public, unlisted, private\). Defaults to public. Currently unused in UI.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+visibility
+: String. Any visibility except `limited` or `direct` (i.e. `public`, `unlisted`, `private`). Defaults to public. Currently unused in UI.
+
+#### Response
+##### 200: OK
 
 Status has been reblogged. Note that the top-level id has changed. The id of the boosted status is now inside the `reblog` property. The top-level id is the id of the reblog itself. Also note that reblogs cannot be pinned.
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "103254401326800919",
   "created_at": "2019-12-05T09:12:09.625Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": true,
   "muted": false,
   "bookmarked": false,
-  ...
+  // ...
   "reblog": {
     "id": "99734435964706331",
     "created_at": "2018-03-23T17:38:40.700Z",
-    ...
+    // ...
     "favourited": false,
     "reblogged": true,
     "muted": false,
     "bookmarked": false,
     "pinned": false,
-    ...
+    // ...
   },
-  ...
+  // ...
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status does not exist, is deleted, or is private
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Status does not exist or is private
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/statuses/:id/unreblog" title="Undo boost" >}}
-{{< api-method-description >}}
+
+---
+
+## Undo boost of a status {#unreblog}
+
+```http
+POST /api/v1/statuses/:id/unreblog HTTP/1.1
+```
 
 Undo a reshare of a status.
 
-**Returns:** Status\
+**Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
 0.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of a status in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
 
-Status no longer reblogged
-{{< endapi-method-response-example-description >}}
+##### Path parameters
 
+:id
+: {{<required>}} String. The ID of the Status in the database.
 
-```javascript
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Status unboosted or was already not boosted
+
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status deleted, does not exist, or no reblog exists
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Status does not exist or is private
 
-```javascript
+```json
 {
- "error":  "Record not found"
+  "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/statuses/:id/bookmark" title="Bookmark" >}}
-{{< api-method-description >}}
+
+---
+
+## Bookmark a status {#bookmark}
+
+```http
+POST /api/v1/statuses/:id/bookmark HTTP/1.1
+```
 
 Privately bookmark a status.
 
-**Returns:** Status\
+**Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `write:bookmarks`\
 **Version history:**\
 3.1.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the status in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
 
-Status bookmarked
-{{< endapi-method-response-example-description >}}
+##### Path parameters
 
+:id
+: {{<required>}} String. The ID of the Status in the database.
 
-```javascript
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Status bookmarked or was already bookmarked
+
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": true,
   "pinned": false,
-  ...
+  // ...
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+---
 
-```javascript
-{
-  "error": "Record not found"
-}
+## Undo bookmark of a status {#unbookmark}
+
+```http
+POST /api/v1/statuses/:id/unbookmark HTTP/1.1
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/statuses/:id/unbookmark" title="Undo bookmark" >}}
-{{< api-method-description >}}
 
 Remove a status from your private bookmarks.
 
-**Returns:** Status\
+**Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `write:bookmarks`\
 **Version history:**\
 3.1.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name="id" type="string" required=true >}}
-ID of the status in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
 
-```javascript
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Status was unbookmarked or was already not bookmarked
+
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status does not exist, is deleted, is private, or was already not bookmarked
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/statuses/:id/mute" title="Mute conversation" >}}
-{{< api-method-description >}}
+
+---
+
+## Mute a conversation {#mute}
+
+```http
+POST /api/v1/statuses/:id/mute HTTP/1.1
+```
 
 Do not receive notifications for the thread that this status is part of. Must be a thread in which you are a participant.
 
-**Returns:** Status\
+**Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `write:mutes`\
 **Version history:**\
 1.4.2 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of a status in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 Status's conversation muted, or was already muted
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": true,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 404: Not found
 
-```javascript
+Status does not exist or is private.
+
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/statuses/:id/unmute" title="Unmute conversation" >}}
-{{< api-method-description >}}
+
+---
+
+## Unmute a conversation {#unmute}
+
+```http
+POST /api/v1/statuses/:id/unmute HTTP/1.1
+```
 
 Start receiving notifications again for the thread that this status is part of.
 
-**Returns:** Status\
+**Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `write:mutes`\
 **Version history:**\
 1.4.2 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of a status in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 Status's conversation unmuted, or was already unmuted
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 404: Not found
 
-```javascript
+Status does not exist or is private.
+
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/statuses/:id/pin" title="Pin to profile" >}}
-{{< api-method-description >}}
+
+---
+
+## Pin status to profile {#pin}
+
+```http
+POST /api/v1/statuses/:id/pin HTTP/1.1
+```
 
 Feature one of your own public statuses at the top of your profile.
 
-**Returns:** Status\
+**Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
-1.6.0 - added
+1.6.0 - added\
+3.5.0 - you can now pin private posts
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of a status in the database. The status should be public and authored by the authorized account.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The local ID of the Status in the database. The status should be authored by the authorized account.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 Status pinned. Note the status is not a reblog and its authoring account is your own.
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": true,
-  ...
+  // ...
   "reblog": null,
-  ...
+  // ...
   "account": {
     "id": "14715",
     "username": "trwnh",
     "acct": "trwnh",
-    ...
+    // ...
   },
-  ...
+  // ...
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status does not exist, is deleted, or you are not authorized to see it.
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
 
-Status is not owned by you, or is not public. You cannot pin one of your private statuses because private statuses cannot be fetched from remote sites, and must be delivered.
-{{< endapi-method-response-example-description >}}
+##### 422: Unprocessable entity
 
+Status is not owned by you:
 
-{{< tabs >}}
-{{< tab title="Not yours" >}}
-```javascript
+```json
 {
-  "error": "Validation failed: Someone else's toot cannot be pinned"
+  "error": "Validation failed: Someone else's post cannot be pinned"
 }
 ```
-{{< endtab >}}
 
-{{< tab title="Private" >}}
-```javascript
+Prior to 3.5.0, you could not pin one of your private statuses because private statuses could not be fetched from remote sites, and must have been delivered. (3.5.0 added a mechanism to fetch statuses on behalf of an account.)
+
+```json
 {
   "error": "Validation failed: Non-public toot cannot be pinned"
 }
 ```
-{{< endtab >}}
-{{< endtabs >}}
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/statuses/:id/unpin" title="Unpin to profile" >}}
-{{< api-method-description >}}
+
+---
+
+## Unpin status from profile {#unpin}
+
+```http
+POST /api/v1/statuses/:id/unpin HTTP/1.1
+```
 
 Unfeature a status from the top of your profile.
 
-**Returns:** Status\
+**Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
 1.6.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of a status in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The local ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 Status unpinned, or was already not pinned
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "99734435964706331",
   "created_at": "2018-03-23T17:38:40.700Z",
-  ...
+  // ...
   "favourited": false,
   "reblogged": false,
   "muted": false,
   "bookmarked": false,
   "pinned": false,
-  ...
+  // ...
   "reblog": null,
-  ...
+  // ...
   "account": {
     "id": "14715",
     "username": "trwnh",
     "acct": "trwnh",
-    ...
+    // ...
   },
-  ...
+  // ...
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status does not exist, is deleted, or is private
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
-## Deprecated methods
+## Edit a status {#edit}
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/statuses/:id/card" title="Preview card" >}}
-{{< api-method-description >}}
+```http
+PUT /api/v1/statuses/:id HTTP/1.1
+```
 
-**Returns:** Card\
-**OAuth:** Public\
+Edit a given status to change its text, sensitivity, media attachments, or poll. Note that editing a poll's options will reset the votes.
+
+**Returns:** [Status]({{< relref "entities/status" >}})\
+**OAuth:** User token + `write:statuses`\
+**Version history:**\
+3.5.0 - added\
+4.0.0 - add `language`
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+status
+: String. The plain text content of the status.
+
+spoiler_text
+: String. The plain text subject or content warning of the status.
+
+sensitive
+: Boolean. Whether the status should be marked as sensitive.
+
+language
+: String. ISO 639 language code for the status.
+
+media_ids[]
+: Array of String. Include Attachment IDs to be attached as media. If provided, `status` becomes optional, and `poll` cannot be used.
+
+poll[options][]
+: Array of String. Possible answers to the poll. If provided, `media_ids` cannot be used, and `poll[expires_in]` must be provided.
+
+poll[expires_in]
+: Integer. Duration that the poll should be open, in seconds. If provided, `media_ids` cannot be used, and `poll[options]` must be provided.
+
+poll[multiple]
+: Boolean. Allow multiple choices? Defaults to false.
+
+poll[hide_totals]
+: Boolean. Hide vote counts until the poll ends? Defaults to false.
+
+#### Response
+##### 200: OK
+
+Status has been successfully edited.
+
+```json
+{
+  "id": "108942703571991143",
+  "created_at": "2022-09-04T23:22:13.704Z",
+  "in_reply_to_id": null,
+  "in_reply_to_account_id": null,
+  "sensitive": false,
+  "spoiler_text": "",
+  "visibility": "public",
+  "language": "en",
+  "uri": "https://mastodon.social/users/trwnh/statuses/108942703571991143",
+  "url": "https://mastodon.social/@trwnh/108942703571991143",
+  "replies_count": 3,
+  "reblogs_count": 1,
+  "favourites_count": 6,
+  "edited_at": "2022-09-05T00:33:20.309Z",
+  "favourited": false,
+  "reblogged": false,
+  "muted": false,
+  "bookmarked": false,
+  "pinned": false,
+  "content": "<p>this is a status that has been edited multiple times to change the text, add a poll, and change poll options.</p>",
+  "filtered": [],
+  "reblog": null,
+  "application": {
+    "name": "SubwayTooter",
+    "website": null
+  },
+  "account": {
+    "id": "14715",
+    "username": "trwnh",
+    "acct": "trwnh",
+    "display_name": "infinite love ⴳ",
+    // ...
+  },
+  "media_attachments": [],
+  "mentions": [],
+  "tags": [],
+  "emojis": [],
+  "card": null,
+  "poll": null
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Status does not exist, is private, or is not owned by you.
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+##### 422: Unprocessable entity
+
+```json
+{
+  "error": "Validation failed: Text can't be blank"
+}
+```
+
+---
+
+## View edit history of a status {#history}
+
+```http
+GET /api/v1/statuses/:id/history HTTP/1.1
+```
+
+Get all known versions of a status, including the initial and current states.
+
+**Returns:** Array of [StatusEdit]({{< relref "entities/statusedit" >}})\
+**OAuth:** Public for public statuses, user token + `read:statuses` for private statuses\
+**Version history:**\
+3.5.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The local ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
+[
+  {
+    "content": "<p>this is a status that will be edited</p>",
+    "spoiler_text": "",
+    "sensitive": false,
+    "created_at": "2022-09-04T23:22:13.704Z",
+    "account": {
+      "id": "14715",
+      "username": "trwnh",
+      "acct": "trwnh",
+      "display_name": "infinite love ⴳ",
+      // ...
+    },
+    "media_attachments": [],
+    "emojis": []
+  },
+  {
+    "content": "<p>this is a status that has been edited</p>",
+    "spoiler_text": "",
+    "sensitive": false,
+    "created_at": "2022-09-04T23:22:42.555Z",
+    "account": {
+      "id": "14715",
+      "username": "trwnh",
+      "acct": "trwnh",
+      "display_name": "infinite love ⴳ",
+      // ...
+    },
+    "media_attachments": [],
+    "emojis": []
+  },
+  {
+    "content": "<p>this is a status that has been edited twice</p>",
+    "spoiler_text": "",
+    "sensitive": false,
+    "created_at": "2022-09-04T23:22:55.956Z",
+    "account": {
+      "id": "14715",
+      "username": "trwnh",
+      "acct": "trwnh",
+      "display_name": "infinite love ⴳ",
+      // ...
+    },
+    "media_attachments": [],
+    "emojis": []
+  },
+  {
+    "content": "<p>this is a status that has been edited three times. this time a poll has been added.</p>",
+    "spoiler_text": "",
+    "sensitive": false,
+    "created_at": "2022-09-05T00:01:48.160Z",
+    "poll": {
+      "options": [
+        {
+          "title": "cool"
+        },
+        {
+          "title": "uncool"
+        },
+        {
+          "title": "spiderman"
+        }
+      ]
+    },
+    "account": {
+      "id": "14715",
+      "username": "trwnh",
+      "acct": "trwnh",
+      "display_name": "infinite love ⴳ",
+      // ...
+    },
+    "media_attachments": [],
+    "emojis": []
+  },
+  {
+    "content": "<p>this is a status that has been edited three times. this time a poll has been added.</p>",
+    "spoiler_text": "",
+    "sensitive": false,
+    "created_at": "2022-09-05T00:03:32.480Z",
+    "poll": {
+      "options": [
+        {
+          "title": "cool"
+        },
+        {
+          "title": "uncool"
+        },
+        {
+          "title": "spiderman (this option has been changed)"
+        }
+      ]
+    },
+    "account": {
+      "id": "14715",
+      "username": "trwnh",
+      "acct": "trwnh",
+      "display_name": "infinite love ⴳ",
+      // ...
+    },
+    "media_attachments": [],
+    "emojis": []
+  }
+]
+```
+
+##### 404: Not found
+
+Status does not exist or is private.
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+## View status source {#source}
+
+```http
+GET /api/v1/statuses/:id/source HTTP/1.1
+```
+
+Obtain the source properties for a status so that it can be edited.
+
+**Returns:** [StatusSource]({{< relref "entities/statussource" >}})\
+**OAuth:** App token + `read:statuses`\
+**Version history:**\
+3.5.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The local ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
+{
+  "id": "108942703571991143",
+  "text": "this is a status that will be edited",
+  "spoiler_text": ""
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Status does not exist or is private.
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+## (DEPRECATED) Fetch preview card {#card}
+
+```http
+GET /api/v1/statuses/:id/card HTTP/1.1
+```
+
+**Returns:** [PreviewCard]({{< relref "entities/PreviewCard" >}})\
+**OAuth:** Public for public statuses, user token + `read:statuses` for private statuses\
 **Version history:**\
 0.0.0 - added\
 2.6.0 - deprecated in favor of card property inlined on Status entity\
 3.0.0 - removed
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the status in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
 
-```javascript
+:id
+: {{<required>}} String. The local ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
 {
   "url": "https://www.youtube.com/watch?v=OMv_EPMED8Y",
   "title": "♪ Brand New Friend (Christmas Song!)",
@@ -1481,22 +1818,37 @@ ID of the status in the database
   "embed_url": ""
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Status does not exist, is deleted, or is private
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Status does not exist or is private.
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses_controller.rb" caption="app/controllers/api/v1/statuses_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/bookmarks_controller.rb" caption="app/controllers/api/v1/statuses/bookmarks_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/favourited_by_accounts_controller.rb" caption="app/controllers/api/v1/statuses/favourited_by_accounts_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/favourites_controller.rb" caption="app/controllers/api/v1/statuses/favourites_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/histories_controller.rb" caption="app/controllers/api/v1/statuses/histories_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/mutes_controller.rb" caption="app/controllers/api/v1/statuses/mutes_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/pins_controller.rb" caption="app/controllers/api/v1/statuses/pins_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/reblogged_by_accounts_controller.rb" caption="app/controllers/api/v1/statuses/reblogged_by_accounts_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/reblogs_controller.rb" caption="app/controllers/api/v1/statuses/reblogs_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/sources_controller.rb" caption="app/controllers/api/v1/statuses/sources_controller.rb" >}}

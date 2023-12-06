@@ -1,0 +1,4 @@
+<a href="{{ relref . (.Get "ref") }}" class="page-ref">
+  <div class="page-ref-icon"><i class="fa fa-arrow-right"></i></div>
+  {{ .Get "caption" | markdownify }}
+</a>

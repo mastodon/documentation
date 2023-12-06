@@ -52,4 +52,4 @@ menu:
 
 もしMastodonをインストールすることに興味がある場合は、次の手順に進んでください。
 
-{{< page-ref page="admin/prerequisites.md" >}}
+{{< page-ref page="admin/prerequisites" >}}

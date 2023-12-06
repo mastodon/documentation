@@ -11,11 +11,11 @@ menu:
 
 你可以过滤特定关键字和短语的嘟文，自动隐藏它们。
 
-{{< figure src="/assets/image%20%2848%29.png" caption="含有不同内容不同关键词的已激活的过滤器" >}}
+{{< figure src="assets/image%20%2848%29.png" caption="含有不同内容不同关键词的已激活的过滤器" >}}
 
 要创建或管理过滤器，请转到设置 &gt; 过滤器。点击“添加新的过滤器”按钮，你可以创建、编辑或删除过滤器。你现有的过滤器将汇总在一个表格中。
 
-{{< figure src="/assets/image%20%2814%29.png" caption="可以为筛选器设置到期日期、过滤位置、是否服务器端删除而非隐藏、是否过滤整个词条" >}}
+{{< figure src="assets/image%20%2814%29.png" caption="可以为筛选器设置到期日期、过滤位置、是否服务器端删除而非隐藏、是否过滤整个词条" >}}
 
 过滤器有以下设置：
 
@@ -46,7 +46,7 @@ menu:
 
 ## 用户级操作 {#blocking-and-muting}
 
-{{< figure src="/assets/image%20%2824%29.png" caption="用户下拉菜单提供了多种操作" >}}
+{{< figure src="assets/image%20%2824%29.png" caption="用户下拉菜单提供了多种操作" >}}
 
 ### 隐藏转嘟 {#hide-boosts}
 
@@ -54,7 +54,7 @@ menu:
 
 ### 隐藏 {#mute}
 
-{{< figure src="/assets/image%20%2852%29.png" caption="图为被隐藏的帐户" >}}
+{{< figure src="assets/image%20%2852%29.png" caption="图为被隐藏的帐户" >}}
 
 隐藏某一账号时，你可以选择是否将其通知一并隐藏。隐藏用户，而不隐藏通知时，会将该账号从用户界面中隐藏：
 
@@ -69,7 +69,7 @@ menu:
 
 ### 屏蔽 {#block}
 
-{{< figure src="/assets/image%20%2836%29.png" caption="图为被屏蔽的帐户" >}}
+{{< figure src="assets/image%20%2836%29.png" caption="图为被屏蔽的帐户" >}}
 
 屏蔽会将账号从用户界面中隐藏。
 
@@ -90,7 +90,7 @@ menu:
 
 ### 屏蔽整个域名 {#hide-domain}
 
-![](/assets/image%20%2861%29.png)
+![]({{ relUrl "/assets/image%20%2861%29.png" }})
 
 如果你屏蔽了整个域名：
 
@@ -101,7 +101,7 @@ menu:
 
 ## 向管理员报告有问题的内容 {#report}
 
-{{< figure src="/assets/image%20%283%29.png" caption="报告模块允许选择被报告嘟文、添加注释和是否转发报告" >}}
+{{< figure src="assets/image%20%283%29.png" caption="报告模块允许选择被报告嘟文、添加注释和是否转发报告" >}}
 
 如果你看到有违反站点规则的嘟文或用户，你可以向站点管理员报告该用户。点击用户下拉菜单或嘟文的下拉菜单上的“举报”选项将打开报告模块。在这里，你可以（并且应该）添加一个关于你为什么要举报这个帐号的注释。你可以附加某些有问题的嘟文，以了解你为什么要报告该账号，如果他们的行为违反了他们所在Mastodon站点的规则，你还可以选择将报告转发至他们所在Mastodon站点的管理员。
 

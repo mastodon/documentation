@@ -1,41 +1,54 @@
 ---
-title: proofs
+title: proofs API methods
 description: For use by identity providers.
 menu:
   docs:
     weight: 100
+    name: proofs
     parent: methods
+    identifier: methods-proofs
+aliases: [
+  "/methods/proofs",
+  "/api/methods/proofs",
+  "/methods/accounts/proofs",
+]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/proofs" title="View identity proof" >}}
-{{< api-method-description >}}
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
+
+{{< hint style="danger" >}}
+**Deprecated**\
+Identity proofs have been deprecated in 3.5.0 and newer. Previously, the only proof provider was Keybase, but development on Keybase has stalled entirely since it was acquired by Zoom.
+{{< /hint >}}
+
+## (REMOVED) View identity proofs {#get}
+
+```http
+GET /api/proofs HTTP/1.1
+```
 
 **Returns:** custom response defined by provider\
 **OAuth:** Public\
 **Version history:**\
 2.8.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="provider" type="string" required=false >}}
-The identity provider to be looked up. Currently only supports `keybase` \(case-sensitive\)
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="username" type="string" required=false >}}
-The username on the selected identity provider
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Query parameters
 
-`gargron` on `keybase`
-{{< endapi-method-response-example-description >}}
+provider
+: String. The identity provider to be looked up. Currently only supports `keybase` (case-sensitive).
 
+username
+: String. The username on the selected identity provider.
 
-```javascript
+#### Response
+##### 200: OK
+
+Looking up the `username` "gargron" via the "keybase" `provider`
+
+```json
 {
   "avatar": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
   "signatures": [
@@ -46,22 +59,19 @@ The username on the selected identity provider
   ]
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
+
+##### 404: Not found
 
 No identity proof found for `username` on `provider`
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/pull/17045" caption="Remove Keybase integration (#17045)" >}}

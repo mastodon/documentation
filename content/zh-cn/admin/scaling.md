@@ -11,11 +11,11 @@ menu:
 
 Mastodon有三种进程：
 
-* Web \(Puma\)
+* Web (Puma)
 * Streaming API
-* 后台进程 \(Sidekiq\)
+* 后台进程 (Sidekiq)
 
-### Web \(Puma\) {#web}
+### Web (Puma) {#web}
 
 web进程处理绝大多数应用的短HTTP请求。以下环境变量可以控制它：
 
@@ -37,7 +37,7 @@ streaming API处理长HTTP连接与WebSockets连接，通过这些连接用户�
 
 一个进程可以处理相当数量的连接。 如果您愿意，streaming API可以托管在其他子域上，例如：避免nginx代理连接开销。
 
-### 后台进程 \(Sidekiq\) {#sidekiq}
+### 后台进程 (Sidekiq) {#sidekiq}
 
 Mastodon许多任务都分配给后台进程，以确保HTTP请求快速响应，并防止HTTP请求中止影响到这些任务的执行。Sidekiq是单个进程，具有可配置的线程数。
 
@@ -101,7 +101,7 @@ sudo apt install pgbouncer
 #### 设置密码 {#pgbouncer-password}
 
 首先，如果你的Postgres中`mastodon`帐户没有设置密码的话，你需要设置一个密码。
-First off, if your `mastodon` user in Postgres is set up wthout a password, you will need to set a password.
+First off, if your `mastodon` user in Postgres is set up without a password, you will need to set a password.
 
 下面是如何重置密码：
 
@@ -259,7 +259,7 @@ Redis被广泛使用于应用，但是某些用途比其他用途更重要。主
 为了减轻你的Postgresql服务器负担，你可以使用热流复制（hot streaming replication）（只读副本（read replica））。有关示例，请参见[该指南](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby)。你可以给以下Mastodon用途使用副本（replica）：
 
 * streaming API 服务器无需写入，因此你可以将其直接使用副本（replica）。但由于 streaming API 服务器不经常查询数据库，这样的优化影响很小。
-* 使用 Makara 驱动 web 与 sidekiq 进程，这样可以实现从主（master）数据库写，从副本（replica）读。让我们开始吧。
+* 使用 Makara 驱动 web 与 sidekiq 进程，这样可以实现从主（primary）数据库写，从副本（replica）读。让我们开始吧。
 
 编辑 `config/database.yml` 文件，将 `production` 替换为如下内容：
 
@@ -279,7 +279,7 @@ production:
         url: postgresql://db_user:db_password@db_host:db_port/db_name
 ```
 
-确保URL指向PostgreSQL服务器所在位置。你可以添加多个副本（replica）。你可以本地安装一个pgBouncer，该pgBouncer可被配置为根据数据库名称连接两个不同服务器，例如：“mastodon”连接主服务器，“mastodon\_replica”连接副本服务器，这样上面文件中的两个URL可以使用同样用户名、密码、主机、端口，不同数据库名称。可能的设置有很多！有关Makara的更多信息，请参阅[其文档](https://github.com/taskrabbit/makara#databaseyml)。
+确保URL指向PostgreSQL服务器所在位置。你可以添加多个副本（replica）。你可以本地安装一个pgBouncer，该pgBouncer可被配置为根据数据库名称连接两个不同服务器，例如：“mastodon”连接主服务器，“mastodon_replica”连接副本服务器，这样上面文件中的两个URL可以使用同样用户名、密码、主机、端口，不同数据库名称。可能的设置有很多！有关Makara的更多信息，请参阅[其文档](https://github.com/taskrabbit/makara#databaseyml)。
 
 {{< hint style="warning" >}}
 Sidekiq无法可靠的使用只读副本（read-replicas），因为即使是最微小的复制延迟也会导致查询不到相关纪录所致的任务失败。

@@ -1,45 +1,54 @@
 ---
-title: announcements
+title: announcements API methods
 description: For announcements set by administration.
 menu:
   docs:
     weight: 90
-    parent: methods
+    name: announcements
+    parent: methods-instance
+    identifier: methods-announcements
+aliases: [
+  "/methods/announcements",
+  "/api/methods/announcements",
+  "/methods/instance/announcements",
+]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/announcements" title="View all announcements" >}}
-{{< api-method-description >}}
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
+
+## View all announcements {#get}
+
+```http
+GET /api/v1/announcements HTTP/1.1
+```
 
 See all currently active announcements set by admins.
 
-**Returns:** Array of Announcement\
+**Returns:** Array of [Announcement]({{< relref "entities/announcement">}})\
 **OAuth:** User token\
 **Version history:**\
 3.1.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="with_dismissed" type="boolean" required=false >}}
-If true, response will include announcements dismissed by the user. Defaults to false.
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+with_dismissed
+: Boolean. If true, response will include announcements dismissed by the user. Defaults to false.
+
+#### Response
+##### 200: OK
 
 Currently active announcements
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 [
   {
     "id": "8",
@@ -85,14 +94,24 @@ Currently active announcements
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+##### 401: Unauthorized
 
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/announcements/:id/dismiss" title="Dismiss an announcement" >}}
-{{< api-method-description >}}
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Dismiss an announcement {#dismiss}
+
+```http
+POST /api/v1/announcements/:id/dismiss HTTP/1.1
+```
 
 Allows a user to mark the announcement as read.
 
@@ -101,37 +120,51 @@ Allows a user to mark the announcement as read.
 **Version history:**\
 3.1.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of an announcement in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
 
-```javascript
+:id
+: {{<required>}} String. The ID of the Announcement in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+```json
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+##### 401: Unauthorized
 
-{{< api-method method="put" host="https://mastodon.example" path="/api/v1/announcements/:id/reactions/:name" title="Add reaction" >}}
-{{< api-method-description >}}
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Announcement with given ID does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+## Add a reaction to an announcement {#put-reactions}
+
+```http
+PUT /api/v1/announcements/:id/reactions/:name HTTP/1.1
+```
 
 React to an announcement with an emoji.
 
@@ -140,48 +173,63 @@ React to an announcement with an emoji.
 **Version history:**\
 3.1.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of an announcement in the database.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name=":name" type="string" required=true >}}
-Unicode emoji, or shortcode of custom emoji
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
 
-```javascript
+:id
+: {{<required>}} String. The ID of the Announcement in the database.
+
+:name
+: {{<required>}} String. Unicode emoji, or the shortcode of a custom emoji.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 401: Unauthorized
 
-```javascript
-{"error":"Validation failed: Name is not a recognized emoji"}
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
-{{< api-method method="delete" host="https://mastodon.example" path="/api/v1/announcements/:id/reactions/:name" title="Remove reaction" >}}
-{{< api-method-description >}}
+##### 404: Not found
+
+Announcement with given ID does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+##### 422: Unprocessable entity
+
+```json
+{
+  "error": "Validation failed: Name is not a recognized emoji"
+}
+```
+
+---
+
+## Remove a reaction from an announcement {#delete-reactions}
+
+```http
+DELETE /api/v1/announcements/:id/reactions/:name HTTP/1.1
+```
 
 Undo a react emoji to an announcement.
 
@@ -190,42 +238,60 @@ Undo a react emoji to an announcement.
 **Version history:**\
 3.1.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-Local ID of an announcement in the database.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name=":name" type="string" required=true >}}
-Unicode emoji, or shortcode of custom emoji
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Path parameters
 
-```javascript
+:id
+: {{<required>}} String. The ID of the Announcement in the database.
+
+:name
+: {{<required>}} String. Unicode emoji, or the shortcode of a custom emoji.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 401: Unauthorized
 
-```javascript
-{"error":"Validation failed: Name is not a recognized emoji"}
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
+
+##### 404: Not found
+
+Announcement with given ID does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+##### 422: Unprocessable entity
+
+```json
+{
+  "error": "Validation failed: Name is not a recognized emoji"
+}
+```
+
+---
+
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/announcements_controller.rb" caption="app/controllers/api/v1/announcements_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/announcements/reactions_controller.rb" caption="app/controllers/api/v1/announcements/reactions_controller.rb" >}}

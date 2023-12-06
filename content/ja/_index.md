@@ -6,8 +6,6 @@ menu:
     weight: -99
 ---
 
-{{< youtube id="IPSbNdBmWKE" caption="視覚的なアニメーションを通して基本的なMastodonの概念を説明している紹介動画" >}}
-
 ## マイクロブログとは？ {#microblogging}
 
 ブログを行うことは、ウェブサイトにおいて記事を更新して掲載する行為と言えます。それと似ていて、**マイクロブログ**を行うことは、自分に関して刻一刻と変化する小さな情報を更新して掲載する行為と言えるでしょう。あなたはテキストの投稿を掲載できます。さらに画像や音声、動画、投票を添付することもできます。Mastodonでは、友達をフォローしたり、新しい友達を見つけたりできるでしょう。
@@ -24,7 +22,7 @@ menu:
 
 Mastodonのウェブサイトは単独で運用できます。従来のウェブサイトとまるっきり同じように、人々は、Mastodonのウェブサイトの一つに登録してメッセージを投稿したり写真をアップロードしたりすることで互いにおしゃべりします。そして従来のウェブサイトとは*異なり*、Mastodonのウェブサイトは相互運用できるため、それぞれのMastodonの間でユーザーは相互に通信できます。つまり、あなたのGmailにあるアカウントからOutlookやFastmail、Protonmail、またはその他のメールプロバイダーにあるアカウントの誰かに、その宛先の電子メールアドレスを知ってさえいれば電子メールを送信できるように、**そういったアドレスを使ってあなたはどのウェブサイトにいるどんなユーザーに対してもメンションやメッセージを送ることができるのです**。
 
-{{< figure src="/assets/image%20%289%29.png" caption="中央型（左）、連合型（中央）、分散型（右）" >}}
+{{< figure src="assets/image%20%289%29.png" caption="中央型（左）、連合型（中央）、分散型（右）" >}}
 
 ## ActivityPubとは？ {#fediverse}
 
@@ -95,19 +93,19 @@ Mastodonとの相互運用に必要な技術仕様ついて、詳しくは[Activ
 
 Mastodonの使い方を知る：
 
-{{< page-ref page="user/signup.md" >}}
+{{< page-ref page="user/signup" >}}
 
 Mastodonのインストール方法を学ぶ：
 
-{{< page-ref page="admin/prerequisites.md" >}}
+{{< page-ref page="admin/prerequisites" >}}
 
 Mastodonのアプリを作り方を学ぶ：
 
-{{< page-ref page="client/intro.md" >}}
+{{< page-ref page="client/intro" >}}
 
 Mastodonのバックエンドと貢献方法について知る：
 
-{{< page-ref page="dev/overview.md" >}}
+{{< page-ref page="dev/overview" >}}
 
 {{< hint style="info" >}}
 **［翻訳状態］** 日本語版は、英語版の「What is Mastodon?」（Mastodonとは？）と「Using Mastodon」（Masotodonを使う）が訳されている状態です（2020年9月27日）。他の項目や最新の情報については、[英語版](../)を参照してください。

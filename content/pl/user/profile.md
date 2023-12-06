@@ -9,7 +9,7 @@ menu:
 
 ## Wygląd Twojego profilu {#appearance}
 
-{{< figure src="/assets/profile-cards.jpg" caption="Karta profilu składająca się z nazwy wyświetlanej, awataru i nagłówka" >}}
+{{< figure src="assets/profile-cards.jpg" caption="Karta profilu składająca się z nazwy wyświetlanej, awataru i nagłówka" >}}
 
 Możesz zmienić to, jak Twój profil wygląda u innych, kierując się do: Preferencje &gt; Profil &gt; Wygląd.
 
@@ -33,7 +33,7 @@ Twój nagłówek to baner wyświetlany na górze Twojego profilu, jak i na karta
 
 Możesz oflagować swoje konto, aby poinformować innych, w jaki sposób korzystasz z Mastodona.
 
-![](/assets/bot-flag.jpg)
+![]({{ relUrl "/assets/bot-flag.jpg" }})
 
 ### Konto zablokowane {#locked}
 
@@ -74,4 +74,3 @@ Mastodon sprawdza, czy odnośnik zawiera atrybut `rel="me"`. Tak samo, Mastodon 
 {{< hint style="info" >}}
 Ponieważ możesz hostować Mastodona na własnym serwerze, nie istnieje lepszy sposób na potwierdzenie swojej tożsamości niż hostowanie Mastodona na własnej domenie, której inni już ufają.
 {{< /hint >}}
-

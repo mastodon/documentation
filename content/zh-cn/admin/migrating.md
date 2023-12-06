@@ -15,7 +15,7 @@ menu:
 
 ## 基本步骤 {#basic-steps}
 
-1. 依照[产品指南]({{< relref "install.md" >}})安装新的Mastodon服务器（切记，不要运行 `mastodon:setup`）。
+1. 依照[产品指南]({{< relref "install" >}})安装新的Mastodon服务器（切记，不要运行 `mastodon:setup`）。
 2. 停止旧服务器上的Mastodon（`systemctl stop 'mastodon-*.service'`）。
 3. 依照如下指示，导出并导入Postgres数据库。
 4. 依照如下指示，复制 `system/` 目录下文件。（注意：如果你使用S3存储，你可以跳过此步）。
@@ -34,7 +34,7 @@ menu:
 你必须需要复制如下内容：
 
 * `~/live/public/system`目录，里面包含了用户上传的图片与视频（如果使用S3，可跳过此步）
-* Postgres数据库（使用[pg\_dump](https://www.postgresql.org/docs/9.1/static/backup-dump.html)）
+* Postgres数据库（使用[pg_dump](https://www.postgresql.org/docs/9.1/static/backup-dump.html)）
 * `~/live/.env.production`文件，里面包含了服务器配置与密钥
 
 不太重要的部分，为了方便起见，你也可以复制如下内容：
@@ -45,7 +45,7 @@ menu:
 
 ### 导出并导入Postgres数据库 {#dump-and-load-postgres}
 
-不要运行`mastodon:setup`，而是创建一个名为`template0`的空白Postgres数据库（当导入Postgres导出文件时，这是很有用的，参见[pg\_dump文档](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)）。
+不要运行`mastodon:setup`，而是创建一个名为`template0`的空白Postgres数据库（当导入Postgres导出文件时，这是很有用的，参见[pg_dump文档](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)）。
 
 在你的旧系统，使用`mastodon`用户运行如下命令：
 

@@ -9,7 +9,7 @@ menu:
 
 ## **I see an error page that says something went wrong. How do I find out what’s wrong?**
 
-All error messages with stack traces are written to the system log. When using systemd, the logs of each systemd service can be browsed with `journalctl -u mastodon-web` \(substitute with the correct service name\). When using Docker, it’s similar: `docker logs mastodon_web_1` \(substitute with the correct container name\).
+All error messages with stack traces are written to the system log. When using systemd, the logs of each systemd service can be browsed with `journalctl -u mastodon-web` (substitute with the correct service name). When using Docker, it’s similar: `docker logs mastodon_web_1` (substitute with the correct container name).
 
 Specific details of server-side errors are _never_ displayed to the public, as they can reveal what your setup looks like internally and give attackers clues how to get in, or how to abuse the system more efficiently.
 
@@ -30,3 +30,11 @@ Check that you are specifying the correct environment with `RAILS_ENV=production
 ## **I encountered a compilation error while executing `RAILS_ENV=production bundle exec rails assets:precompile`, but no more information is given. How to fix it?**
 
 Usually it's because your server ran out of memory while compiling assets. Use a swapfile or increase the swap space to increase the memory capacity. Run `RAILS_ENV=production bundle exec rake tmp:cache:clear` to clear cache, then execute `RAILS_ENV=production bundle exec rails assets:precompile` to compile again. Make sure you clear the cache after a compilation error, or it will show "Everything's OK" but leave the assets unchanged.
+
+## **I am getting this error: `Read-only file system @ dir_s_mkdir`. Why?**
+
+By default, Mastodon makes use of [systemd's sandboxing capabilities](https://www.freedesktop.org/software/systemd/man/systemd.exec.html#Sandboxing) in a way that disallows writing outside of `/home/mastodon`. If Mastodon is installed elsewhere, you may need to allow `mastodon-sidekiq` and `mastodon-web` to write to a custom directory:
+1. Add parameter `ReadWritePaths` to files `/etc/systemd/system/mastodon-sidekiq.service` and `/etc/systemd/system/mastodon-web.service`. Example - `ReadWritePaths=/example/mastodon/live`.
+2. run `systemctl stop mastodon-sidekiq mastodon-web`
+3. run `systemctl daemon-reload`
+4. run `systemctl start mastodon-sidekiq mastodon-web`

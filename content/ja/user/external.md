@@ -9,11 +9,11 @@ menu:
 
 ## 別のMastodonサイト上での遠隔操作 {#interact}
 
-{{< figure src="/assets/image%20%2863%29.png" caption="Mastodonサイトにおける公開投稿のパーマリンクの例" >}}
+{{< figure src="assets/image%20%2863%29.png" caption="Mastodonサイトにおける公開投稿のパーマリンクの例" >}}
 
 Mastodonが動いている別のサイトを閲覧しているときに操作ボタンをクリックすると、あなたの所属するサイトにリダイレクトするダイアログが読み込まれます。
 
-{{< figure src="/assets/image%20%288%29.png" caption="トゥートに返信するための遠隔操作のダイアログ" >}}
+{{< figure src="assets/image%20%288%29.png" caption="トゥートに返信するための遠隔操作のダイアログ" >}}
 
 ## クライアントアプリでのログイン {#apps}
 

@@ -1,66 +1,101 @@
 ---
-title: notifications
+title: notifications API methods
 description: Receive notifications for activity on your account or statuses.
 menu:
   docs:
     weight: 50
+    name: notifications
     parent: methods
     identifier: methods-notifications
+aliases: [
+  "/methods/notifications",
+  "/api/methods/notifications",
+]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/notifications" title="Get all notifications" >}}
-{{< api-method-description >}}
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
+
+## Get all notifications {#get}
+
+```http
+GET /api/v1/notifications HTTP/1.1
+```
 
 Notifications concerning the user. This API returns Link headers containing links to the next/previous page. However, the links can also be constructed dynamically using query params and `id` values.
 
-**Returns:** Array of Notification\
+Types to filter include:
+- `mention` = Someone mentioned you in their status
+- `status` = Someone you enabled notifications for has posted a status
+- `reblog` = Someone boosted one of your statuses
+- `follow` = Someone followed you
+- `follow_request` = Someone requested to follow you
+- `favourite` = Someone favourited one of your statuses
+- `poll` = A poll you have voted in or created has ended
+- `update` = A status you boosted with has been edited
+- `admin.sign_up` = Someone signed up (optionally sent to admins)
+- `admin.report` = A new report has been filed
+
+**Returns:** Array of [Notification]({{< relref "entities/Notification" >}})\
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
 0.0.0 - added\
-2.6.0 - add `min_id`\
-2.9.0 - add `account_id`\
-3.1.0 - add `follow_request` type
+2.6.0 - added `min_id`\
+2.9.0 - added `account_id`\
+3.1.0 - added `follow_request` type\
+3.3.0 - added `status` type; both `min_id` and `max_id` can be used at the same time now\
+3.5.0 - added `types`; add `update` and `admin.sign_up` types\
+4.0.0 - added `admin.report` type
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="max_id" type="string" required=false >}}
-Return results older than this ID
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="since_id" type="string" required=false >}}
-Return results newer than this ID
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="min_id" type="string" required=false >}}
-Return results immediately newer than this ID
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="limit" type="string" required=false >}}
-Maximum number of results to return \(default 20\)
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="exclude_types" type="array" required=false >}}
-Array of types to exclude \(`follow`, `favourite`, `reblog`, `mention`, `poll`, `follow_request`\)
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="account_id" type="string" required=false >}}
-Return only notifications received from this account
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
 
-Sample call with limit=2. Use the Link header for pagination
-{{< endapi-method-response-example-description >}}
+##### Headers
 
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
-```javascript
-Link: <https://mastodon.social/api/v1/notifications?max_id=34975535>; rel="next", <https://mastodon.social/api/v1/notifications?min_id=34975861>;
+##### Query parameters
 
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+
+since_id
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+
+min_id
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 15 notifications. Max 30 notifications.
+
+types[]
+: Array of String. Types to include in the result.
+
+exclude_types[]
+: Array of String. Types to exclude from the results.
+
+account_id
+: String. Return only notifications received from the specified account.
+
+#### Response
+
+Sample call with limit=2.
+
+```http
+GET https://mastodon.social/api/v1/notifications?limit=2 HTTP/1.1
+Authorization: Bearer xxx
+```
+
+##### 200: OK
+
+The response body contains one page of notifications. You can use the HTTP Link header for further pagination.
+
+```http
+Link: <https://mastodon.example/api/v1/notifications?max_id=34975535>; rel="next", <https://mastodon.example/api/v1/notifications?min_id=34975861>;
+```
+
+```json
 [
   {
     "id": "34975861",
@@ -70,23 +105,23 @@ Link: <https://mastodon.social/api/v1/notifications?max_id=34975535>; rel="next"
       "id": "971724",
       "username": "zsc",
       "acct": "zsc",
-      ...
+      // ...
     },
     "status": {
       "id": "103186126728896492",
       "created_at": "2019-11-23T07:49:01.940Z",
       "in_reply_to_id": "103186038209478945",
       "in_reply_to_account_id": "14715",
-      ...
+      // ...
       "content": "<p><span class=\"h-card\"><a href=\"https://mastodon.social/@trwnh\" class=\"u-url mention\">@<span>trwnh</span></a></span> sup!</p>",
-      ...
+      // ...
       "account": {
         "id": "971724",
         "username": "zsc",
         "acct": "zsc",
-        ...
+        // ...
       },
-      ...
+      // ...
       "mentions": [
         {
           "id": "14715",
@@ -95,7 +130,7 @@ Link: <https://mastodon.social/api/v1/notifications?max_id=34975535>; rel="next"
           "acct": "trwnh"
         }
       ],
-      ...
+      // ...
     }
   },
   {
@@ -106,74 +141,69 @@ Link: <https://mastodon.social/api/v1/notifications?max_id=34975535>; rel="next"
       "id": "297420",
       "username": "haskal",
       "acct": "haskal@cybre.space",
-      ...
+      // ...
     },
     "status": {
       "id": "103186046267791694",
       "created_at": "2019-11-23T07:28:34.210Z",
       "in_reply_to_id": "103186044372624124",
       "in_reply_to_account_id": "297420",
-      ...
+      // ...
       "account": {
         "id": "14715",
         "username": "trwnh",
         "acct": "trwnh",
-        ...
+        // ...
       }
     }
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/notifications/:id" title="Get a single notification" >}}
-{{< api-method-description >}}
+
+---
+
+## Get a single notification {#get-one}
+
+```http
+GET /api/v1/notifications/:id HTTP/1.1
+```
 
 View information about a notification with a given ID.
 
-**Returns:** Notification\
+**Returns:** [Notification]({{< relref "entities/Notification" >}})\
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
 0.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the notification in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Notification in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
 
 A single Notification
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "34975861",
   "type": "mention",
@@ -182,23 +212,23 @@ A single Notification
     "id": "971724",
     "username": "zsc",
     "acct": "zsc",
-    ...
+    // ...
   },
   "status": {
     "id": "103186126728896492",
     "created_at": "2019-11-23T07:49:01.940Z",
     "in_reply_to_id": "103186038209478945",
     "in_reply_to_account_id": "14715",
-    ...
+    // ...
     "content": "<p><span class=\"h-card\"><a href=\"https://mastodon.social/@trwnh\" class=\"u-url mention\">@<span>trwnh</span></a></span> sup!</p>",
-    ...
+    // ...
     "account": {
       "id": "971724",
       "username": "zsc",
       "acct": "zsc",
-      ...
+      // ...
     },
-    ...
+    // ...
     "mentions": [
       {
         "id": "14715",
@@ -207,178 +237,161 @@ A single Notification
         "acct": "trwnh"
       }
     ],
-    ...
+    // ...
   }
-},
+}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/notifications/clear" title="Dismiss all notifications" >}}
-{{< api-method-description >}}
+
+---
+
+## Dismiss all notifications {#clear}
+
+```http
+POST /api/v1/notifications/clear HTTP/1.1
+```
 
 Clear all notifications from the server.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:notifications`\
 **Version history:**\
 0.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Headers
 
-Notifications successfully cleared
-{{< endapi-method-response-example-description >}}
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
+#### Response
 
-```javascript
+##### 200: OK
+
+Notifications successfully cleared.
+
+```json
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/notifications/:id/dismiss" title="Dismiss a single notification" >}}
-{{< api-method-description >}}
 
-Clear a single notification from the server.
+---
 
-**Returns:** empty object\
+## Dismiss a single notification {#dismiss}
+
+```http
+POST /api/v1/notifications/:id/dismiss HTTP/1.1
+```
+
+Dismiss a single notification from the server.
+
+**Returns:** Empty\
 **OAuth:** User token + `write:notifications`\
 **Version history:**\
 1.3.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-ID of the notification to be cleared
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Notification in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
 
 Notification with given ID successfully dismissed
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/notifications/dismiss" title="\(DEPRECATED\) Dismiss a single notification" >}}
-{{< api-method-description >}}
 
-Delete a single notification from the server.
+---
 
-**Returns:** empty object\
+## (REMOVED) Dismiss a single notification {#dismiss-deprecated}
+
+```http
+POST /api/v1/notifications/dismiss HTTP/1.1
+```
+
+Dismiss a single notification from the server.
+
+**Returns:** Empty\
 **OAuth:** User token + `write:notifications`\
 **Version history**:\
 0.0.0 - available\
+1.3.0 - deprecated in favor of [notifications/:id/dismiss](#dismiss)
 3.0.0 - removed
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="id" type="string" required=true >}}
-ID of the notification to be cleared, passed as a parameter
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+id
+: {{<required>}} String. The ID of the notification in the database.
+
+#### Response
+
+##### 200: OK
 
 Notification with given ID successfully dismissed
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {}
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< page-relref ref="methods/push" caption="push API methods" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/notifications_controller.rb" caption="app/controllers/api/v1/notifications_controller.rb" >}}

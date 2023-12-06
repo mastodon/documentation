@@ -1,17 +1,29 @@
 ---
-title: timelines
+title: timelines API methods
 description: Read and view timelines of statuses.
 menu:
   docs:
     weight: 40
+    name: timelines
     parent: methods
     identifier: methods-timelines
+aliases: [
+  "/methods/timelines",
+  "/api/methods/timelines",
+]
 ---
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/timelines/public" title="Public timeline" >}}
-{{< api-method-description >}}
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
-**Returns:** Array of Status\
+## View public timeline {#public}
+
+```http
+GET /api/v1/timelines/public HTTP/1.1
+```
+
+**Returns:** Array of [Status]({{<relref "entities/status">}})\
 **OAuth:** Public. Requires app token + `read:statuses` if the instance has disabled public preview.\
 **Version history:**\
 0.0.0 - added\
@@ -21,140 +33,155 @@ menu:
 3.1.4 - added `remote`\
 3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="local" type="boolean" required=false >}}
-Show only local statuses? Defaults to false.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="remote" type="boolean" required=false >}}
-Show only remote statuses? Defaults to false.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="only_media" type="boolean" required=false >}}
-Show only statuses with media attached? Defaults to false.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="max_id" type="string" required=false >}}
-Return results older than this id
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="since_id" type="string" required=false >}}
-Return results newer than this id
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="min_id" type="string" required=false >}}
-Return results immediately newer than this id
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="limit" type="integer" required=false >}}
-Maximum number of results to return. Defaults to 20.
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+local
+: Boolean. Show only local statuses? Defaults to false.
+
+remote
+: Boolean. Show only remote statuses? Defaults to false.
+
+only_media
+: Boolean. Show only statuses with media attached? Defaults to false.
+
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+
+since_id
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+
+min_id
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+
+#### Response
+##### 200: OK
 
 Sample API call with limit=2
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 [
   {
     "id": "103206804533200177",
     "created_at": "2019-11-26T23:27:31.000Z",
-    ...
+    // ...
     "visibility": "public",
-    ...
+    // ...
   },
   {
     "id": "103206804086086361",
     "created_at": "2019-11-26T23:27:32.000Z",
-    ...
+    // ...
     "visibility": "public",
-    ...
+    // ...
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/timelines/tag/:hashtag" title="Hashtag timeline" >}}
-{{< api-method-description >}}
+
+---
+
+## View hashtag timeline {#tag}
+
+```http
+GET /api/v1/timelines/tag/:hashtag HTTP/1.1
+```
 
 View public statuses containing the given hashtag.
 
-**Returns:** Array of Status\
+**Returns:** Array of [Status]({{<relref "entities/status">}})\
 **OAuth:** Public. Requires app token + `read:statuses` if the instance has disabled public preview.\
 **Version history:**\
 0.0.0 - added\
 2.3.0 - added `only_media`\
 2.6.0 - add `min_id`\
+2.7.0 - add `any[]`, `all[]`, `none[]` for additional tags\
 3.0.0 - auth is required if public preview is disabled\
-3.3.0 - both `min_id` and `max_id` can be used at the same time now
+3.3.0 - both `min_id` and `max_id` can be used at the same time now. add `remote`
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":hashtag" type="string" required=true >}}
-Content of a \#hashtag, not including \# symbol.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="local" type="boolean" required=false >}}
-If true, return only local statuses. Defaults to false.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="only_media" type="boolean" required=false >}}
-If true, return only statuses with media attachments. Defaults to false.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="max_id" type="string" required=false >}}
-Return results older than this ID.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="since_id" type="string" required=false >}}
-Return results newer than this ID.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="min_id" type="string" required=false >}}
-Return results immediately newer than this ID.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="limit" type="integer" required=false >}}
-Maximum number of results to return. Defaults to 20.
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
 
-Sample timeline for the hashtag \#cats and limit=2
-{{< endapi-method-response-example-description >}}
+##### Path parameters
 
+:hashtag
+: {{<required>}} String. The name of the hashtag (not including the # symbol).
 
-```javascript
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+any[]
+: Array of String. Return statuses that contain any of these additional tags.
+
+all[]
+: Array of String. Return statuses that contain all of these additional tags.
+
+none[]
+: Array of String. Return statuses that contain none of these additional tags.
+
+local
+: Boolean. Return only local statuses? Defaults to false.
+
+remote
+: Boolean. Return only remote statuses? Defaults to false.
+
+only_media
+: Boolean. Return only statuses with media attachments? Defaults to false.
+
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+
+since_id
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+
+min_id
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+
+#### Response
+##### 200: OK
+
+Sample timeline for the hashtag #cats and limit=2
+
+```json
 [
   {
     "id": "103206185588894565",
     "created_at": "2019-11-26T20:50:15.866Z",
-    ...
+    // ...
     "visibility": "public",
-    ...
+    // ...
     "content": "<p><a href=\"https://mastodon.social/tags/cats\" class=\"mention hashtag\" rel=\"tag\">#<span>cats</span></a></p>",
-    ...
+    // ...
     "tags": [
       {
         "name": "cats",
         "url": "https://mastodon.social/tags/cats"
       }
     ],
-    ...
+    // ...
   },
   {
     "id": "103203659567597966",
     "created_at": "2019-11-26T10:07:49.000Z",
-    ...
+    // ...
     "visibility": "public",
-    ...
+    // ...
     "content": "<p>Caught on the hop. 😺 </p><p><a href=\"https://chaos.social/tags/Qualit%C3%A4tskatzen\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>Qualitätskatzen</span></a> <a href=\"https://chaos.social/tags/cats\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>cats</span></a> <a href=\"https://chaos.social/tags/mastocats\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>mastocats</span></a> <a href=\"https://chaos.social/tags/catsofmastodon\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>catsofmastodon</span></a> <a href=\"https://chaos.social/tags/Greece\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>Greece</span></a> <a href=\"https://chaos.social/tags/Agistri\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>Agistri</span></a><br>(photo: <span class=\"h-card\"><a href=\"https://chaos.social/@kernpanik\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>kernpanik</span></a></span> | license: CC BY-NC-SA 4.0)</p>",
-    ...
+    // ...
     "tags": [
       {
         "name": "qualitätskatzen",
@@ -181,238 +208,245 @@ Sample timeline for the hashtag \#cats and limit=2
         "url": "https://mastodon.social/tags/agistri"
       }
     ],
-    ...
+    // ...
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/timelines/home" title="Home timeline" >}}
-{{< api-method-description >}}
 
-View statuses from followed users.
+##### 404: Not found
 
-**Returns:** Array of Status\
+Hashtag does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+## View home timeline {#home}
+
+```http
+GET /api/v1/timelines/home HTTP/1.1
+```
+
+View statuses from followed users and hashtags.
+
+**Returns:** Array of [Status]({{<relref "entities/status">}})\
 **OAuth:** User + `read:statuses`\
 **Version history:**\
 0.0.0 - added\
 2.6.0 - add `min_id`\
 3.3.0 - both `min_id` and `max_id` can be used at the same time now
+4.0.0 - as users can now follow hashtags, statuses from non-followed users may appear in the timeline
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="max_id" type="string" required=false >}}
-Return results older than id
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="since_id" type="string" required=false >}}
-Return results newer than id
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="min_id" type="string" required=false >}}
-Return results immediately newer than id
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="limit" type="string" required=false >}}
-Maximum number of results to return. Defaults to 20.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="local" type="boolean" required=false >}}
-Return only local statuses?
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+
+since_id
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+
+min_id
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+
+#### Response
+##### 200: OK
 
 Statuses in your home timeline will be returned
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 [
   {
     "id": "103206791453397862",
     "created_at": "2019-11-26T23:24:13.113Z",
-    ...
+    // ...
   },
-  ...
+  // ...
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=206 >}}
-{{< api-method-response-example-description >}}
+
+##### 206: Partial content
 
 Home feed is regenerating
-{{< endapi-method-response-example-description >}}
 
-
+```text
 ```
 
-```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header.
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/timelines/list/:list_id" title="List timeline" >}}
-{{< api-method-description >}}
+
+---
+
+## View list timeline {#list}
+
+```http
+GET /api/v1/timelines/list/:list_id HTTP/1.1
+```
 
 View statuses in the given list timeline.
 
-**Returns:** Array of Status\
+**Returns:** Array of [Status]({{<relref "entities/status">}})\
 **OAuth:** User token + `read:lists`\
 **Version history:**\
 2.1.0 - added\
 2.6.0 - add `min_id`\
 3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":list_id" type="string" required=true >}}
-Local ID of the list in the database.
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="max_id" type="string" required=false >}}
-Return results older than this ID.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="since_id" type="string" required=false >}}
-Return results newer than this ID.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="min_id" type="string" required=false >}}
-Return results immediately newer than this ID.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="limit" type="integer" required=false >}}
-Maximum number of results to return. Defaults to 20.Return results older than this ID.
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Path parameters
+
+:list_id
+: {{<required>}} String. Local ID of the List in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+
+since_id
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+
+min_id
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+
+#### Response
+##### 200: OK
 
 Statuses in this list will be returned.
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 [
   {
     "id": "103206791453397862",
     "created_at": "2019-11-26T23:24:13.113Z",
-    ...
+    // ...
   },
-  ...
+  // ...
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 401: Unauthorized
 
-```javascript
+Invalid or missing Authorization header.
+
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="" path="/api/v1/timelines/direct" title="\[DEPRECATED\] Direct timeline" >}}
-{{< api-method-description >}}
+
+##### 404: Not found
+
+List is not owned by you or does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+## (DEPRECATED) View direct timeline {#direct}
+
+```http
+GET /api/v1/timelines/direct HTTP/1.1
+```
 
 View statuses with a "direct" privacy, from your account or in your notifications.
 
-**Returns:** Array of Status\
+**Returns:** Array of [Status]({{<relref "entities/status">}})\
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
 x.x.x - added\
-2.6.0 - add `min_id`. deprecated in favor of conversations\
+2.6.0 - add `min_id`. deprecated in favor of [Conversations API]({{<relref "methods/conversations">}})\
 3.0.0 - removed
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="limit" type="string" required=false >}}
-Maximum number of results to return. Defaults to 20.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="max_id" type="string" required=false >}}
-Return results older than ID
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="since_id" type="string" required=false >}}
-Return results newer than ID
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="min_id" type="string" required=false >}}
-Return results immediately newer than ID
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Headers
 
-Statuses with direct visibility, authored by you or mentioning you. Statuses are not grouped by conversation, but are simply returned in chronological order.
-{{< endapi-method-response-example-description >}}
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
+##### Query parameters
 
-```javascript
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+
+since_id
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+
+min_id
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+
+#### Response
+##### 200: OK
+
+Statuses with direct visibility, authored by you or mentioning you. Statuses are not grouped by conversation, but are returned in chronological order.
+
+```json
 [
   {
     "id": "103206185588894565",
     "created_at": "2019-11-26T20:50:15.866Z",
-    ...
+    // ...
     "visibility": "direct",
-    ...
+    // ...
   },
-  ...
+  // ...
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 401: Unauthorized
 
-```javascript
+Invalid or missing Authorization header.
+
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/timelines/home_controller.rb" caption="app/controllers/api/v1/timelines/home_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/timelines/list_controller.rb" caption="app/controllers/api/v1/timelines/list_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/timelines/public_controller.rb" caption="app/controllers/api/v1/timelines/public_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/timelines/tag_controller.rb" caption="app/controllers/api/v1/timelines/tag_controller.rb" >}}

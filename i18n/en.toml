@@ -46,6 +46,9 @@ other = "required"
 [optional]
 other = "optional"
 
+[nullable]
+other = "nullable"
+
 [pathParameters]
 other = "Path Parameters"
 

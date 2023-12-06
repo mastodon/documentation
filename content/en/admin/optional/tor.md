@@ -1,13 +1,13 @@
 ---
-title: Hidden services
-description: Serving Mastodon through Tor hidden services.
+title: Onion services
+description: Serving Mastodon through Tor onion services.
 menu:
   docs:
     weight: 20
     parent: admin-optional
 ---
 
-Mastodon can be served through Tor as an onion service. This will give you a \*.onion address that can only be used while connected to the Tor network.
+Mastodon can be served through Tor as an onion service. This will give you a `*.onion` address that can only be used while connected to the Tor network.
 
 ## Installing Tor {#install}
 
@@ -36,7 +36,7 @@ apt install tor deb.torproject.org-keyring
 Edit the file at `/etc/tor/torrc` and add the following configuration.
 
 ```text
-HiddenServiceDir /var/lib/tor/hidden_service/
+HiddenServiceDir /var/lib/tor/onion_service/
 HiddenServiceVersion 3
 HiddenServicePort 80 127.0.0.1:80
 ```
@@ -47,7 +47,7 @@ Restart Tor.
 sudo service tor restart
 ```
 
-Your can now find your Tor hostname in `/var/lib/tor/hidden_service/hostname`.
+You can now find your Tor hostname in `/var/lib/tor/hidden_service/hostname`.
 
 ## Move your Mastodon configuration {#nginx}
 
@@ -136,7 +136,7 @@ server {
 }
 ```
 
-Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/hidden_service/hostname`.
+Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/onion_service/hostname`.
 
 Note that the onion hostname has been prefixed with “mastodon.”. Your Tor address acts a wildcard domain. All subdomains will be routed through, and you can configure Nginx to respond to any subdomain you wish. If you do not wish to host any other services on your Tor address you can omit the subdomain, or choose a different subdomain.
 

@@ -11,11 +11,11 @@ menu:
 
 It is possible to filter statuses for specific keywords and phrases so that they can be hidden automatically.
 
-{{< figure src="/assets/filter-list.jpg" caption="A sample of active filters for various keywords in different contexts." >}}
+{{< figure src="assets/filter-list.jpg" caption="A sample of active filters for various keywords in different contexts." >}}
 
 To create or manage your filters, go to Settings &gt; Filters. The "Add new filter" button will let you create a new filter, and existing filters can be edited or deleted. Your existing filters will be summarized in a table.
 
-{{< figure src="/assets/filter-edit.jpg" caption="Filters can have an expiry date, specific contexts, server-side drop, and use word boundaries." >}}
+{{< figure src="assets/filter-edit.jpg" caption="Filters can have an expiry date, specific contexts, server-side drop, and use word boundaries." >}}
 
 Filters have the following settings:
 
@@ -25,7 +25,7 @@ This is the string that will be matched. The keyword will be searched for in any
 
 ### Expire after {#filter-expire}
 
-Optionally only apply the filter for a limited amount of time. Expired filters are not automatically deleted, but can be reactivated by setting a new expiry date \(or changing it back to "never" expire\).
+Optionally only apply the filter for a limited amount of time. Expired filters are not automatically deleted, but can be reactivated by setting a new expiry date (or changing it back to "never" expire).
 
 ### Filter contexts {#filter-context}
 
@@ -46,7 +46,7 @@ Filters normally apply to any status that contains the included characters, rega
 
 ## User-level actions {#blocking-and-muting}
 
-{{< figure src="/assets/profile-dropdown.jpg" caption="The profile dropdown menu offers various actions." >}}
+{{< figure src="assets/profile-dropdown.jpg" caption="The profile dropdown menu offers various actions." >}}
 
 ### Hiding boosts {#hide-boosts}
 
@@ -54,7 +54,7 @@ If you hide boosts from someone, you won’t see their boosts in your home feed.
 
 ### Muting {#mute}
 
-{{< figure src="/assets/muted.jpg" caption="Sample of muted accounts." >}}
+{{< figure src="assets/muted.jpg" caption="Sample of muted accounts." >}}
 
 When muting, you have the option to mute notifications from them or not. Muting without muting notifications hides the user from your view:
 
@@ -71,7 +71,7 @@ The user has no way of knowing they have been muted.
 
 ### Blocking {#block}
 
-{{< figure src="/assets/blocked.jpg" caption="Sample of blocked accounts." >}}
+{{< figure src="assets/blocked.jpg" caption="Sample of blocked accounts." >}}
 
 Blocking hides a user from your view:
 
@@ -92,7 +92,7 @@ If you and the blocked user are on the same server, the blocked user will not be
 
 ### Hiding an entire server {#block-domain}
 
-![](/assets/block-domain.png)
+{{< figure src="assets/block-domain.png" caption="Sample of blocking an entire domain." >}}
 
 If you block an entire server:
 
@@ -103,6 +103,6 @@ If you block an entire server:
 
 ## Reporting problematic content to moderators {#report}
 
-{{< figure src="/assets/report-modal.jpg" caption="The report modal allows selecting example statuses, adding a note, and forwarding reports." >}}
+{{< figure src="assets/report-modal.jpg" caption="The report modal allows selecting example statuses, adding a note, and forwarding reports." >}}
 
-If you see a status or user that is violating the rules of your website, you can report that user to your site's moderators. Clicking the "report" option on the user dropdown or status dropdown will open the report modal. Here, you can \(and should\) add a note about why you are reporting this account. You can attach certain problematic statuses for additional context on why you are reporting the account, and if their conduct is violating the rules of the remote website, you can also choose to forward the report to their site's moderators.
+If you see a status or user that is violating the rules of your website, you can report that user to your site's moderators. Clicking the "report" option on the user dropdown or status dropdown will open the report modal. Here, you can (and should) add a note about why you are reporting this account. You can attach certain problematic statuses for additional context on why you are reporting the account, and if their conduct is violating the rules of the remote website, you can also choose to forward the report to their site's moderators.

@@ -13,13 +13,13 @@ menu:
 
 Mastodon默认为深色主题，但可以选择浅色或高对比度主题。
 
-{{< figure src="/assets/image%20%2834%29.png" caption="Mastodon浅色主题" >}}
+{{< figure src="assets/image%20%2834%29.png" caption="Mastodon浅色主题" >}}
 
 ### 选择你的布局 {#layout}
 
 Mastodon默认为简单的单列布局，左侧有一个撰写框，右侧有一个列切换器。你可以选择启用高级网页界面，该界面允许你同时查看和固定多个列。
 
-{{< figure src="/assets/image%20%2832%29.png" caption="高级 web 界面" >}}
+{{< figure src="assets/image%20%2832%29.png" caption="高级 web 界面" >}}
 
 在这两个界面中，当有新的嘟文时，更新会自动加载。你可以启用“慢速模式”在栏目顶部显示一个横幅，显示新嘟文数量，只有当你点击横幅时，时间轴才会在点击后更新。
 
@@ -41,7 +41,7 @@ Mastodon默认为简单的单列布局，左侧有一个撰写框，右侧有一
 
 隐藏和未加载的媒体使用由BlurHash算法提供的彩色渐变，它使用图像的颜色，但模糊了细节。这些渐变可以被禁用。
 
-{{< figure src="/assets/image%20%286%29.png" caption="Blurhash缩略图示例" >}}
+{{< figure src="assets/image%20%286%29.png" caption="Blurhash缩略图示例" >}}
 
 带有内容警告的嘟文默认是折叠的，但你可以选择总是展开警告嘟文，以便显示完整的嘟文。
 
@@ -71,7 +71,7 @@ Mastodon默认为简单的单列布局，左侧有一个撰写框，右侧有一
 
 你可以选择`隐藏你的社交网络`，这将使你关注的人和关注你的人仅你自己可见。
 
-{{< figure src="/assets/image%20%284%29.png" caption="选择隐藏社交网络后的个人资料" >}}
+{{< figure src="assets/image%20%284%29.png" caption="选择隐藏社交网络后的个人资料" >}}
 
 如果你想看到被多次转嘟的嘟文重新插入到你时间流的最上方，你可以禁用`在时间轴中合并转嘟`。
 

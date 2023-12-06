@@ -14,7 +14,7 @@ menu:
 在通过浏览器完成帐户注册后，你需要使用命令行给你新创建的帐户以管理员特权。假设你帐户的用户名为`alice`：
 
 ```bash
-RAILS_ENV=production bin/tootctl accounts modify alice --role admin
+RAILS_ENV=production bin/tootctl accounts modify alice --role Owner
 ```
 
 ### 通过命令行 {#admin-cli}
@@ -26,7 +26,7 @@ RAILS_ENV=production bin/tootctl accounts create \
   alice \
   --email alice@example.com \
   --confirmed \
-  --role admin
+  --role Owner
 ```
 
 一个随机密码将会显示在终端上。

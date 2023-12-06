@@ -1,105 +1,180 @@
 ---
-title: accounts
-description: Methods concerning user accounts and related information.
+title: accounts API methods
+description: Methods concerning accounts and profiles.
 menu:
   docs:
     weight: 20
+    name: accounts
     parent: methods
     identifier: methods-accounts
+aliases: [
+  "/methods/accounts",
+  "/api/methods/accounts"
+]
 ---
 
-## Account credentials
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
 
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts" title="Register an account" >}}
-{{< api-method-description >}}
+## Register an account {#create}
+
+```http
+POST /api/v1/accounts HTTP/1.1
+```
 
 Creates a user and account records. Returns an account access token for the app that initiated the request. The app should save this token for later, and should wait for the user to confirm their account by clicking a link in their email inbox.
 
-**Returns:** Token\
+**Returns:** [Token]({{< relref "entities/token" >}})\
 **OAuth:** App token + `write:accounts`\
 **Version history:**\
 2.7.0 - added\
-3.0.0 - added `reason` parameter
+3.0.0 - added `reason` parameter\
+3.4.0 - added `details` to failure response
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;app token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="username" type="string" required=true >}}
-The desired username for the account
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="email" type="string" required=true >}}
-The email address to be used for login
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="password" type="string" required=true >}}
-The password to be used for login
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="agreement" type="boolean" required=true >}}
-Whether the user agrees to the local rules, terms, and policies. These should be presented to the user in order to allow them to consent before setting this parameter to TRUE.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="locale" type="string" required=true >}}
-The language of the confirmation email that will be sent
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="reason" type="string" required=false >}}
-Text that will be reviewed by moderators if registrations require manual approval.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
 
+##### Headers
 
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+username
+: {{<required>}} String. The desired username for the account
+
+email
+: {{<required>}} String. The email address to be used for login
+
+password
+: {{<required>}} String. The password to be used for login
+
+agreement
+: {{<required>}} Boolean. Whether the user agrees to the local rules, terms, and policies. These should be presented to the user in order to allow them to consent before setting this parameter to TRUE.
+
+locale
+: {{<required>}} String. The language of the confirmation email that will be sent.
+
+reason
+: String. If registrations require manual approval, this text will be reviewed by moderators.
+
+#### Response
+
+##### 200: OK
+
+```json
 ```
 
-```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
-
+```json
+{
+  "error": "The access token is invalid"
+}
 ```
 
+##### 422: Unprocessable entity
+
+The `details` parameter contains all detected errors. Its structure is a Hash with the key being the erroneous parameter, and its value being an array of all errors found.
+
+Example error response:
+
+```json
+{
+  "error": "Validation failed: Password can't be blank, Username must contain only letters, numbers and underscores, Agreement must be accepted",
+  "details": {
+    "password": [
+      {
+        "error": "ERR_BLANK",
+        "description": "can't be blank"
+      }
+    ],
+    "username": [
+      {
+        "error": "ERR_INVALID",
+        "description": "must contain only letters, numbers and underscores"
+      }
+    ],
+    "agreement": [
+      {
+        "error": "ERR_ACCEPTED",
+        "description": "must be accepted"
+      }
+    ]
+  }
+}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/verify_credentials" title="Verify account credentials" >}}
-{{< api-method-description >}}
+
+You may expect the following errors:
+
+ERR_BLOCKED
+: When e-mail provider is not allowed
+
+ERR_UNREACHABLE
+: When e-mail address does not resolve to any IP via DNS (MX, A, AAAA)
+
+ERR_TAKEN
+: When username or e-mail are already taken
+
+ERR_RESERVED
+: When a username is reserved, e.g. "webmaster" or "admin"
+
+ERR_ACCEPTED
+: When agreement has not been accepted
+
+ERR_BLANK
+: When a required attribute is blank
+
+ERR_INVALID
+: When an attribute is malformed, e.g. wrong characters or invalid e-mail address
+
+ERR_TOO_LONG
+: When an attribute is over the character limit
+
+ERR_TOO_SHORT
+: When an attribute is under the character requirement
+
+ERR_INCLUSION
+: When an attribute is not one of the allowed values, e.g. unsupported locale
+
+##### 429: Rate limited
+
+```json
+{
+  "error": "Too many requests"
+}
+```
+
+---
+
+## Verify account credentials {#verify_credentials}
+
+```http
+GET /api/v1/accounts/verify_credentials HTTP/1.1
+```
 
 Test to make sure that the user token works.
 
-**Returns:** the user's own Account with Source\
+**Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
 **OAuth**: User token + `read:accounts`\
 **Version history:**\
 0.0.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
 
 Note the extra `source` property, which is not visible on accounts other than your own. Also note that plain-text is used within `source` and HTML is used for their corresponding properties such as `note` and `fields`.
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "14715",
   "username": "trwnh",
@@ -179,62 +254,60 @@ Note the extra `source` property, which is not visible on accounts other than yo
   ]
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
+
+##### 401: Unauthorized
 
 Your credential verification will fail if the token is invalid or incorrect.
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=403 >}}
-{{< api-method-response-example-description >}}
+
+##### 403: Forbidden
 
 Your user account is currently disabled, missing a confirmed email address, or pending approval.
-{{< endapi-method-response-example-description >}}
 
-
-{{< tabs >}}
-{{< tab title="disabled" >}}
-```javascript
+```json
 {
   "error": "Your login is currently disabled"
 }
 ```
-{{< endtab >}}
 
-{{< tab title="unconfirmed" >}}
-```javascript
+```json
 {
   "error": "Your login is missing a confirmed e-mail address"
 }
 ```
-{{< endtab >}}
 
-{{< tab title="unapproved" >}}
-```javascript
+```json
 {
   "error": "Your login is currently pending approval"
 }
 ```
-{{< endtab >}}
-{{< endtabs >}}
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="patch" host="https://mastodon.example" path="/api/v1/accounts/update_credentials" title="Update account credentials" >}}
-{{< api-method-description >}}
+
+##### 422: Unprocessable entity
+
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
+## Update account credentials {#update_credentials}
+
+```http
+PATCH /api/v1/accounts/update_credentials HTTP/1.1
+```
 
 Update the user's display and preferences.
 
-**Returns:** the user's own Account with Source\
+**Returns:** the user's own [Account]({{< relref "entities/Account">}}) with [`source`]({{< relref "entities/Account#source">}}) attribute\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
 1.1.1 - added\
@@ -242,59 +315,115 @@ Update the user's display and preferences.
 2.4.0 - added `source[privacy,sensitive]` parameters\
 2.7.0 - added `discoverable` parameter
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="discoverable" type="string" required=false >}}
-Whether the account should be shown in the profile directory.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="bot" type="boolean" required=false >}}
-Whether the account has a bot flag.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="display_name" type="string" required=false >}}
-The display name to use for the profile.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="note" type="string" required=false >}}
-The account bio.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="avatar" type="string" required=false >}}
-Avatar image encoded using multipart/form-data
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="header" type="string" required=false >}}
-Header image encoded using multipart/form-data
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="locked" type="boolean" required=false >}}
-Whether manual approval of follow requests is required.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="source\[privacy\]" type="string" required=false >}}
-Default post privacy for authored statuses.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="source\[sensitive\]" type="boolean" required=false >}}
-Whether to mark authored statuses as sensitive by default.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="source\[language\]" type="string" required=false >}}
-Default language to use for authored statuses. \(ISO 6391\)
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="fields_attributes" type="array" required=false >}}
-Profile metadata `name` and `value`. \(By default, max 4 fields and 255 characters per property/value\)
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+display_name
+: String. The display name to use for the profile. 
+
+note
+: String. The account bio.
+
+avatar
+: Avatar image encoded using `multipart/form-data`
+
+header
+: Header image encoded using `multipart/form-data`
+
+locked
+: Boolean. Whether manual approval of follow requests is required.
+
+bot
+: Boolean. Whether the account has a bot flag.
+
+discoverable
+: Boolean. Whether the account should be shown in the profile directory.
+
+fields_attributes
+: Hash. The profile fields to be set. Inside this hash, the key is an integer cast to a string (although the exact integer does not matter), and the value is another hash including `name` and `value`. By default, max 4 fields.
+
+fields_attributes[:index][name]
+: String. The name of the profile field. By default, max 255 characters.
+
+fields_attributes[:index][value]
+: String. The value of the profile field. By default, max 255 characters.
+
+source[privacy]
+: String. Default post privacy for authored statuses. Can be `public`, `unlisted`, or `private`.
+
+source[sensitive]
+: Boolean. Whether to mark authored statuses as sensitive by default.
+
+source[language]
+: String. Default language to use for authored statuses (ISO 6391)
+
+#### Response
+
+##### 200: OK
+
+To update account fields, you will need to construct your hash like so for example:
+
+```json
+{
+  "fields_attributes": {
+    "0": {
+      "name": "Website",
+      "value": "https://trwnh.com"
+    },
+    "1": {
+      "name": "Sponsor",
+      "value": "https://liberapay.com/at"
+    },
+    // ...
+  }
+}
+```
+
+As query parameters, your request may look something like this:
+
+```http
+PATCH https://mastodon.example/api/v1/accounts/update_credentials
+?fields_attributes[0][name]=Website
+&fields_attributes[0][value]=https://trwnh.com
+&fields_attributes[1][name]=Sponsor
+&fields_attributes[1][value]=https://liberapay.com/at
+&...
+```
+
+Note that the integer index does not actually matter -- fields will be populated by the order in which they are provided. For example:
+
+```json
+{
+  "fields_attributes": {
+    "420": {
+      "name": "1st",
+      "value": "field"
+    },
+    "69": {
+      "name": "2nd",
+      "value": "field"
+    },
+    "1312": {
+      "name": "3rd",
+      "value": "field"
+    },
+    "-99999999999999999999999999999999": {
+      "name": "4th",
+      "value": "field"
+    },
+  }
+}
+```
 
 You should use accounts/verify_credentials to first obtain plaintext representations from within the `source` parameter, then allow the user to edit these plaintext representations before submitting them through this API. The server will generate the corresponding HTML.
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "14715",
   "username": "trwnh",
@@ -374,57 +503,61 @@ You should use accounts/verify_credentials to first obtain plaintext representat
   ]
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 401: Unauthorized
 
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+##### 422: Unprocessable entity
 
-## Retrieve information
+Token does not have an authorized user
 
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/:id" title="Account" >}}
-{{< api-method-description >}}
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
+## Get account {#get}
+
+```http
+GET /api/v1/accounts/:id HTTP/1.1
+```
 
 View information about a profile.
 
-**Returns:** Account\
+**Returns:** [Account]({{< relref "entities/Account">}})\
 **OAuth:** Public\
 **Version history:**\
 0.0.0 - added\
 2.4.0 - returns 410 if account is suspended\
 3.3.0 - returns an Account with `suspended: true` instead of 410
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Path parameters
 
-Account record will be returned. Note that `acct` of local users does not include the domain name.
-{{< endapi-method-response-example-description >}}
+:id
+: {{<required>}} String. The ID of the Account in the database.
 
+##### Headers
 
-{{< tabs >}}
-{{< tab title="Local user" >}}
-```javascript
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+The Account record will be returned. Note that `acct` of local users does not include the domain name.
+
+###### Local user
+
+```json
 {
   "id": "1",
   "username": "Gargron",
@@ -458,10 +591,10 @@ Account record will be returned. Note that `acct` of local users does not includ
   ]
 }
 ```
-{{< endtab >}}
 
-{{< tab title="Remote user" >}}
-```javascript
+###### Remote user
+
+```json
 {
   "id": "23634",
   "username": "noiob",
@@ -524,10 +657,10 @@ Account record will be returned. Note that `acct` of local users does not includ
   ]
 }
 ```
-{{< endtab >}}
 
-{{< tab title="Suspended user" >}}
-```javascript
+###### Suspended user
+
+```json
 {
   "id": "14",
   "username": "stigatle",
@@ -553,463 +686,384 @@ Account record will be returned. Note that `acct` of local users does not includ
   "fields": []
 }
 ```
-{{< endtab >}}
 
-{{< endtabs >}}
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
+##### 401: Unauthorized
 
 If the instance is in whitelist mode and the Authorization header is missing or invalid
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "This API requires an authenticated user"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
+
+##### 404: Not found
 
 Account does not exist
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=410 >}}
-{{< api-method-response-example-description >}}
 
-Account is suspended
-{{< endapi-method-response-example-description >}}
+##### 410: Gone
 
+Account is suspended (since 2.4.0 and until 3.3.0)
 
-```markup
+---
 
+## Get account's statuses {#statuses}
+
+```http
+GET /api/v1/accounts/:id/statuses HTTP/1.1
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/:id/statuses" title="Statuses" >}}
-{{< api-method-description >}}
 
 Statuses posted to the given account.
 
-**Returns:** Array of Status\
-**OAuth:** Public \(for public statuses only\), or user token + `read:statuses` \(for private statuses the user is authorized to see\)\
+**Returns:** Array of [Status]({{< relref "entities/status">}})\
+**OAuth:** Public (for public statuses only), or user token + `read:statuses` (for private statuses the user is authorized to see)\
 **Version history:**\
 0.0.0 - added\
+1.4.2 - add `only_media` and `exclude_replies`\
+1.6.0 - add `pinned`\
 2.6.0 - add `min_id`\
 2.7.0 - add `exclude_reblogs` and allow unauthed use\
-2.8.0 - add `tagged` parameter
+2.8.0 - add `tagged` parameter\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=false >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
+##### Path parameters
 
+:id
+: {{<required>}} String. The ID of the Account in the database.
 
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+
+since_id
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+
+min_id
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+
+only_media
+: Boolean. Filter out statuses without attachments.
+
+exclude_replies
+: Boolean. Filter out statuses in reply to a different account.
+
+exclude_reblogs
+: Boolean. Filter out boosts from the response.
+
+pinned
+: Boolean. Filter for pinned statuses only. Defaults to false, which includes all statuses. Pinned statuses do not receive special priority in the order of the returned results.
+
+tagged
+: String. Filter for statuses using a specific hashtag.
+
+#### Response
+##### 200: OK
+
+```json
+[
+  {
+    "id": "108880211901672326",
+    "created_at": "2022-08-24T22:29:46.493Z",
+    "in_reply_to_id": "108880209317577809",
+    "in_reply_to_account_id": "103641",
+    "sensitive": false,
+    // ...
+  },
+  // ...
+]
 ```
 
-```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
+##### 401: Unauthorized
 
-Instance is in whitelist mode or running a version of Mastodon older than 2.7.0, and the Authorization header is invalid or missing
-{{< endapi-method-response-example-description >}}
+If the instance is in whitelist mode and the Authorization header is missing or invalid
 
+Sample response for whitelist mode:
 
-{{< tabs >}}
-{{< tab title="whitelist" >}}
-```javascript
+```json
 {
   "error": "This API requires an authenticated user"
 }
 ```
-{{< endtab >}}
 
-{{< tab title="pre-2.7.0" >}}
-```javascript
+Sample response before 2.7.0:
+
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endtab >}}
-{{< endtabs >}}
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Account is deleted or does not exist
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Account does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=410 >}}
-{{< api-method-response-example-description >}}
 
-Account is suspended
-{{< endapi-method-response-example-description >}}
+##### 410: Gone
 
+Account is suspended (since 2.4.0 and until 3.3.0)
 
+---
+
+## Get account's followers {#followers}
+
+```http
+GET /api/v1/accounts/:id/followers HTTP/1.1
 ```
-
-```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/:id/followers" title="Followers" >}}
-{{< api-method-description >}}
 
 Accounts which follow the given account, if network is not hidden by the account owner.
 
-**Returns:** Array of Account\
-**OAuth:** App token + `read:accounts`\
+**Returns:** Array of [Account]({{< relref "entities/Account">}})\
+**OAuth:** Public\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now\
+4.0.0 - no longer requires an app token + `read:accounts`
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;app token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="max_id" type="string" required=false >}}
-**Internal parameter.** Use HTTP `Link` header for pagination.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="since_id" type="string" required=false >}}
-**Internal parameter.** Use HTTP `Link` header for pagination.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="limit" type="number" required=false >}}
-Maximum number of results to return. Defaults to 40.
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Path parameters
 
-Sample output with limit=2. Because the ID of follow relationships is not generally used or provided with any API calls, an HTTP `Link` header is used instead to indicate next and previous pages. You will have to parse this header yourself to extract the paging URLs.
-{{< endapi-method-response-example-description >}}
+:id
+: {{<required>}} String. The ID of the Account in the database.
 
+##### Headers
 
-```javascript
-Link: <https://mastodon.social/api/v1/accounts/14715/followers?limit=2&max_id=7486869>; rel="next", <https://mastodon.social/api/v1/accounts/14715/followers?limit=2&since_id=7489740>; rel="prev"
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
+##### Query parameters
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
+
+#### Response
+##### 200: OK
+
+Sample output with limit=2.
+
+```json
 [
   {
     "id": "1020382",
     "username": "atul13061987",
     "acct": "atul13061987",
     "display_name": "",
-    "locked": false,
-    "bot": false,
-    "created_at": "2019-12-04T07:17:02.745Z",
-    "note": "<p></p>",
-    "url": "https://mastodon.social/@atul13061987",
-    "avatar": "https://mastodon.social/avatars/original/missing.png",
-    "avatar_static": "https://mastodon.social/avatars/original/missing.png",
-    "header": "https://mastodon.social/headers/original/missing.png",
-    "header_static": "https://mastodon.social/headers/original/missing.png",
-    "followers_count": 0,
-    "following_count": 2,
-    "statuses_count": 0,
-    "last_status_at": null,
-    "emojis": [],
-    "fields": []
+    // ...
   },
   {
     "id": "1020381",
     "username": "linuxliner",
     "acct": "linuxliner",
     "display_name": "",
-    "locked": false,
-    "bot": false,
-    "created_at": "2019-12-04T07:15:56.426Z",
-    "note": "<p></p>",
-    "url": "https://mastodon.social/@linuxliner",
-    "avatar": "https://mastodon.social/avatars/original/missing.png",
-    "avatar_static": "https://mastodon.social/avatars/original/missing.png",
-    "header": "https://mastodon.social/headers/original/missing.png",
-    "header_static": "https://mastodon.social/headers/original/missing.png",
-    "followers_count": 0,
-    "following_count": 2,
-    "statuses_count": 0,
-    "last_status_at": null,
-    "emojis": [],
-    "fields": []
+    // ...
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
+
+Because Follow IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.example/api/v1/accounts/14715/followers?limit=2&max_id=7486869>; rel="next", <https://mastodon.example/api/v1/accounts/14715/followers?limit=2&since_id=7489740>; rel="prev"
+```
+
+##### 401: Unauthorized
 
 Invalid or missing Authorization header, or instance is in whitelist mode and your token is not authorized with a user
-{{< endapi-method-response-example-description >}}
 
+Sample response for whitelist mode:
 
-{{< tabs >}}
-{{< tab title="header" >}}
-```javascript
-{
-  "error": "The access token is invalid"
-}
-```
-{{< endtab >}}
-
-{{< tab title="whitelist" >}}
-```javascript
+```json
 {
   "error": "This API requires an authenticated user"
 }
 ```
-{{< endtab >}}
-{{< endtabs >}}
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Account is deleted or does not exist
-{{< endapi-method-response-example-description >}}
+Sample response with missing header or invalid token:
 
+```json
+{
+  "error": "The access token is invalid"
+}
+```
 
-```javascript
+##### 404: Not found
+
+Account does not exist
+
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=410 >}}
-{{< api-method-response-example-description >}}
 
-Account is suspended
-{{< endapi-method-response-example-description >}}
+##### 410: Gone
 
+Account is suspended (since 2.4.0 and until 3.3.0)
 
+---
+
+## Get account's following {#following}
+
+```http
+GET /api/v1/accounts/:id/following HTTP/1.1
 ```
-
-```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/:id/following" title="Following" >}}
-{{< api-method-description >}}
 
 Accounts which the given account is following, if network is not hidden by the account owner.
 
-**Returns:** Array of Account\
-**OAuth:** App token + `read:accounts`\
+**Returns:** Array of [Account]({{< relref "entities/Account">}})\
+**OAuth:** Public\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.3.0 - both `min_id` and `max_id` can be used at the same time now\
+4.0.0 - no longer requires an app token + `read:accounts`
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;app token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="max_id" type="string" required=false >}}
-**Internal parameter.** Use HTTP `Link` header for pagination.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="since_id" type="string" required=false >}}
-**Internal parameter.** Use HTTP `Link` header for pagination.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="limit" type="number" required=false >}}
-Maximum number of results to return. Defaults to 40.
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Path parameters
 
-Sample output with limit=2. Because the ID of follow relationships is not generally used or provided with any API calls, an HTTP `Link` header is used instead to indicate next and previous pages. You will have to parse this header yourself to extract the paging URLs.
-{{< endapi-method-response-example-description >}}
+:id
+: {{<required>}} String. The ID of the Account in the database.
 
+##### Headers
 
-```javascript
-Link: <https://mastodon.social/api/v1/accounts/1/followers?limit=2&max_id=7628164>; rel="next", <https://mastodon.social/api/v1/accounts/1/followers?limit=2&since_id=7628165>; rel="prev"
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
+##### Query parameters
+
+max_id 
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+min_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
+
+#### Response
+##### 200: OK
+
+Sample output with limit=2.
+
+```json
 [
   {
     "id": "963410",
     "username": "gautambhatia",
     "acct": "gautambhatia",
     "display_name": "Gautam Bhatia",
-    "locked": false,
-    "bot": false,
-    "created_at": "2019-11-07T13:06:57.442Z",
-    "note": "<p>SF reader, editor, and writer.</p>",
-    "url": "https://mastodon.social/@gautambhatia",
-    "avatar": "https://files.mastodon.social/accounts/avatars/000/963/410/original/d8e0fd5cefcf9687.jpg",
-    "avatar_static": "https://files.mastodon.social/accounts/avatars/000/963/410/original/d8e0fd5cefcf9687.jpg",
-    "header": "https://mastodon.social/headers/original/missing.png",
-    "header_static": "https://mastodon.social/headers/original/missing.png",
-    "followers_count": 1900,
-    "following_count": 52,
-    "statuses_count": 183,
-    "last_status_at": "2019-12-02T17:52:39.463Z",
-    "emojis": [],
-    "fields": []
+    // ...
   },
   {
     "id": "1007400",
     "username": "seafrog",
     "acct": "seafrog@glitterkitten.co.uk",
     "display_name": "🐓🦃 Heck Partridge 🤠 🦆",
-    "locked": false,
-    "bot": false,
-    "created_at": "2019-11-19T18:46:49.977Z",
-    "note": "<p>hi im elise!! this is scribblefrog's new account</p><p>she/her, 27</p>",
-    "url": "https://glitterkitten.co.uk/@seafrog",
-    "avatar": "https://files.mastodon.social/accounts/avatars/001/007/400/original/306cd22c1b118693.png",
-    "avatar_static": "https://files.mastodon.social/accounts/avatars/001/007/400/original/306cd22c1b118693.png",
-    "header": "https://files.mastodon.social/accounts/headers/001/007/400/original/fd9728559f7265f5.jpeg",
-    "header_static": "https://files.mastodon.social/accounts/headers/001/007/400/original/fd9728559f7265f5.jpeg",
-    "followers_count": 168,
-    "following_count": 223,
-    "statuses_count": 944,
-    "last_status_at": "2019-12-04T00:44:08.603Z",
-    "emojis": [],
-    "fields": [
-      {
-        "name": "gotdamb",
-        "value": "frog",
-        "verified_at": null
-      },
-      {
-        "name": "whomst lov",
-        "value": "the oceane",
-        "verified_at": null
-      }
-    ]
-  }
+    // ...
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+Because Follow IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
-{{< tabs >}}
-{{< tab title="header" >}}
-```javascript
-{
-  "error": "The access token is invalid"
-}
+```http
+Link: <https://mastodon.example/api/v1/accounts/1/followers?limit=2&max_id=7628164>; rel="next", <https://mastodon.example/api/v1/accounts/1/followers?limit=2&since_id=7628165>; rel="prev"
 ```
-{{< endtab >}}
 
-{{< tab title="whitelist" >}}
-```
+##### 401: Unauthorized
+
+Invalid or missing Authorization header, or instance is in whitelist mode and your token is not authorized with a user
+
+Sample response for whitelist mode:
+
+```json
 {
   "error": "This API requires an authenticated user"
 }
 ```
-{{< endtab >}}
-{{< endtabs >}}
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Account is deleted or does not exist
-{{< endapi-method-response-example-description >}}
+Sample response with missing header or invalid token:
 
+```json
+{
+  "error": "The access token is invalid"
+}
+```
 
-```javascript
+##### 404: Not found
+
+Account does not exist
+
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=410 >}}
-{{< api-method-response-example-description >}}
 
-Account is suspended
-{{< endapi-method-response-example-description >}}
+##### 410: Gone
 
+Account is suspended (since 2.4.0 and until 3.3.0)
 
+---
+
+## Get account's featured tags {#featured_tags}
+
+```http
+GET /api/v1/accounts/:id/featured_tags HTTP/1.1
 ```
-
-```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/:id/featured_tags" title="Featured tags" >}}
-{{< api-method-description >}}
 
 Tags featured by this account.
 
-**Returns:** Array of FeaturedTag\
-**OAuth:** User token + `read:accounts`\
+**Returns:** Array of [FeaturedTag]({{< relref "entities/featuredtag">}})\
+**OAuth:** Public\
 **Version history:**\
 3.3.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
+#### Request
+##### Path parameters
 
+:id
+: {{<required>}} String. The ID of the Account in the database.
 
-```javascript
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+```json
 [
   {
     "id": "627",
@@ -1019,59 +1073,39 @@ Bearer &lt;user token&gt;
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+---
 
+## Get lists containing this account {#lists}
 
-```javascript
-{
-  "error": "The access token is invalid"
-}
+```http
+GET /api/v1/accounts/:id/lists HTTP/1.1
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/:id/lists" title="Lists containing this account" >}}
-{{< api-method-description >}}
 
 User lists that you have added this account to.
 
-**Returns:** Array of List\
+**Returns:** Array of [List]({{< relref "entities/list">}})\
 **OAuth:** User token + `read:lists`\
 **Version history:**\
 2.1.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 If the account is part of any lists, those entities will be returned. If the account is not part of any of your lists, then an empty array will be returned.
-{{< endapi-method-response-example-description >}}
 
-
-{{< tabs >}}
-{{< tab title="part of lists" >}}
-```javascript
+```json
 [
   {
     "id": "13694",
@@ -1079,174 +1113,101 @@ If the account is part of any lists, those entities will be returned. If the acc
   }
 ]
 ```
-{{< endtab >}}
 
-{{< tab title="not in any lists" >}}
-```javascript
+```json
 []
 ```
-{{< endtab >}}
-{{< endtabs >}}
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
 
-Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
+##### 401: Unauthorized
 
+Invalid or missing Authorization header, or instance is in whitelist mode and your token is not authorized with a user
 
-```javascript
+Sample response for whitelist mode:
+
+```json
+{
+  "error": "This API requires an authenticated user"
+}
+```
+
+Sample response with missing header or invalid token:
+
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
 
-Account with given id does not exist or is deleted
-{{< endapi-method-response-example-description >}}
+##### 404: Not found
 
+Account does not exist
 
-```javascript
+```json
 {
   "error": "Record not found"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=410 >}}
-{{< api-method-response-example-description >}}
 
-Account with given id is suspended
-{{< endapi-method-response-example-description >}}
+##### 410: Gone
 
+Account is suspended (since 2.4.0 and until 3.3.0)
 
-```
+##### 422: Unprocessable entity
 
-```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/:id/identity_proofs" title="Identity proofs" >}}
-{{< api-method-description >}}
+Token does not have an authorized user
 
-**Returns:** Array of IdentityProof\
-**OAuth:** User token\
-**Version history:**\
-2.8.0 - added
-
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
-
-
-```javascript
-[
-  {
-    "provider": "Keybase",
-    "provider_username": "gargron",
-    "updated_at": "2019-07-21T20:14:39.596Z",
-    "proof_url": "https://keybase.io/gargron/sigchain#5cfc20c7018f2beefb42a68836da59a792e55daa4d118498c9b1898de7e845690f",
-    "profile_url": "https://keybase.io/gargron"
-  }
-]
-```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=404 >}}
-{{< api-method-response-example-description >}}
-
-Account with given id is deleted or does not exist
-{{< endapi-method-response-example-description >}}
-
-
-```javascript
-{
-  "error": "Record not found"
-}
-```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=410 >}}
-{{< api-method-response-example-description >}}
-
-Account with given id is suspended
-{{< endapi-method-response-example-description >}}
-
-
-```
-
-```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
-
-
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
-## Perform actions on an account
+## Follow account {#follow}
 
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/follow" title="Follow" >}}
-{{< api-method-description >}}
+```http
+POST /api/v1/accounts/:id/follow HTTP/1.1
+```
 
 Follow the given account. Can also be used to update whether to show reblogs or enable notifications.
 
-**Returns:** Relationship\
-**OAuth:** User token + `write:follows` or `follow`\
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
+**OAuth:** User token + `write:follows`\
 **Version history:**\
 0.0.0 - added\
-3.3.0 - added `notify`
+3.3.0 - added `notify`\
+3.5.0 - deprecated `follow` scope. now additionally accepts `write`\
+4.0.0 - added `languages`
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="reblogs" type="boolean" required=false >}}
-Receive this account's reblogs in home timeline? Defaults to true.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="notify" type="boolean" required=false >}}
-Receive notifications when this account posts a status? Defaults to false.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+reblogs
+: Boolean. Receive this account's reblogs in home timeline? Defaults to true.
+
+notify
+: Boolean. Receive notifications when this account posts a status? Defaults to false.
+
+languages
+: Array of String (ISO 639-1 language two-letter code). Filter received statuses for these languages. If not provided, you will receive this account's posts in all languages.
+
+#### Response
+##### 200: OK
 
 Successfully followed, or account was already followed
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "3",
   "following": true,
@@ -1262,56 +1223,60 @@ Successfully followed, or account was already followed
   "endorsed": false
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=403 >}}
-{{< api-method-response-example-description >}}
+
+##### 403: Forbidden
 
 Trying to follow someone that you block or that blocks you
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "This action is not allowed"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/unfollow" title="Unfollow" >}}
-{{< api-method-description >}}
+
+##### 422: Unprocessable entity
+
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
+## Unfollow account {#unfollow}
+
+```http
+POST /api/v1/accounts/:id/unfollow HTTP/1.1
+```
 
 Unfollow the given account.
 
-**Returns:** Relationship\
-**OAuth:** User token + `write:follows` or `follow`\
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
+**OAuth:** User token + `write:follows`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 Successfully unfollowed, or account was already not followed
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "3",
   "following": false,
@@ -1327,56 +1292,128 @@ Successfully unfollowed, or account was already not followed
   "endorsed": false
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
+
+##### 401: Unauthorized
 
 Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/block" title="Block" >}}
-{{< api-method-description >}}
 
-Block the given account. Clients should filter statuses from this account if received \(e.g. due to a boost in the Home timeline\)
+##### 422: Unprocessable entity
 
-**Returns:** Relationship\
-**OAuth:** User token + `write:blocks` or `follow`\
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
+## Remove account from followers {#remove_from_followers}
+
+```http
+POST /api/v1/accounts/:id/remove_from_followers HTTP/1.1
+```
+
+Remove the given account from your followers.
+
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
+**OAuth:** User token + `write:follows`\
 **Version history:**\
-0.0.0 - added
+3.5.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Successfully removed from followers, or account was already not following you
+
+```json
+{
+  "id": "3",
+  "following": false,
+  "showing_reblogs": false,
+  "notifying": false,
+  "followed_by": false,
+  "blocking": false,
+  "blocked_by": false,
+  "muting": false,
+  "muting_notifications": false,
+  "requested": false,
+  "domain_blocking": false,
+  "endorsed": false
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 422: Unprocessable entity
+
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
+## Block account {#block}
+
+```http
+POST /api/v1/accounts/:id/block HTTP/1.1
+```
+
+Block the given account. Clients should filter statuses from this account if received (e.g. due to a boost in the Home timeline)
+
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
+**OAuth:** User token + `write:blocks`\
+**Version history:**\
+0.0.0 - added\
+3.5.0 - deprecated `follow` scope. now additionally accepts `write`
+
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 Successfully blocked, or account was already blocked
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "3",
   "following": false,
@@ -1392,56 +1429,60 @@ Successfully blocked, or account was already blocked
   "endorsed": false
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
+
+##### 401: Unauthorized
 
 Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/unblock" title="Unblock" >}}
-{{< api-method-description >}}
+
+##### 422: Unprocessable entity
+
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
+## Unblock account {#unblock}
+
+```http
+POST /api/v1/accounts/:id/unblock HTTP/1.1
+```
 
 Unblock the given account.
 
-**Returns:** Relationship\
-**OAuth:** User token + `write:blocks` or `follow`\
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
+**OAuth:** User token + `write:blocks`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 Successfully unblocked, or account was already not blocked
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "3",
   "following": false,
@@ -1457,64 +1498,69 @@ Successfully unblocked, or account was already not blocked
   "endorsed": false
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
+
+##### 401: Unauthorized
 
 Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/mute" title="Mute" >}}
-{{< api-method-description >}}
 
-Mute the given account. Clients should filter statuses and notifications from this account, if received \(e.g. due to a boost in the Home timeline\).
+##### 422: Unprocessable entity
 
-**Returns:** Relationship\
-**OAuth:** User token + `write:mutes` or `follow`\
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
+## Mute account {#mute}
+
+```http
+POST /api/v1/accounts/:id/mute HTTP/1.1
+```
+
+Mute the given account. Clients should filter statuses and notifications from this account, if received (e.g. due to a boost in the Home timeline).
+
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
+**OAuth:** User token + `write:mutes`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.3.0 - added `duration`\
+3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="notifications" type="boolean" required=false >}}
-Mute notifications in addition to statuses? Defaults to true.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="duration" type="number" required=false >}}
-How long the mute should last, in seconds. Defaults to 0 (indefinite).
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+notifications
+: Boolean. Mute notifications in addition to statuses? Defaults to true.
+
+duration
+: Number. How long the mute should last, in seconds. Defaults to 0 (indefinite).
+
+#### Response
+##### 200: OK
 
 Successfully muted, or account was already muted. Note that you can call this API method again with notifications=false to update the relationship so that only statuses are muted.
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "3",
   "following": false,
@@ -1530,56 +1576,60 @@ Successfully muted, or account was already muted. Note that you can call this AP
   "endorsed": false
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
+
+##### 401: Unauthorized
 
 Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/unmute" title="Unmute" >}}
-{{< api-method-description >}}
+
+##### 422: Unprocessable entity
+
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
+## Unmute account {#unmute}
+
+```http
+POST /api/v1/accounts/:id/unmute HTTP/1.1
+```
 
 Unmute the given account.
 
-**Returns:** Relationship\
-**OAuth:** User token + `write:mutes` or `follow`\
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
+**OAuth:** User token + `write:mutes`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 Successfully unmuted, or account was already unmuted
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "3",
   "following": false,
@@ -1595,56 +1645,60 @@ Successfully unmuted, or account was already unmuted
   "endorsed": false
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
+
+##### 401: Unauthorized
 
 Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/pin" title="Feature on profile" >}}
-{{< api-method-description >}}
 
-Add the given account to the user's featured profiles. \(Featured profiles are currently shown on the user's own public profile.\)
+##### 422: Unprocessable entity
 
-**Returns:** Relationship\
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
+## Feature account on your profile {#pin}
+
+```http
+POST /api/v1/accounts/:id/pin HTTP/1.1
+```
+
+Add the given account to the user's featured profiles. (Featured profiles are currently shown on the user's own public profile.)
+
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
-2.5.0 - added
+2.5.0 - added\
+4.0.0 - calling this method is now idempotent
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Path parameters
 
-Successfully endorsed.
-{{< endapi-method-response-example-description >}}
+:id
+: {{<required>}} String. The ID of the Account in the database.
 
+##### Headers
 
-```javascript
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Successfully endorsed, or was already endorsing.
+
+```json
 {
   "id": "1",
   "following": true,
@@ -1660,93 +1714,89 @@ Successfully endorsed.
   "endorsed": true
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
+
+##### 401: Unauthorized
 
 Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=403 >}}
-{{< api-method-response-example-description >}}
 
-Token is not authorized with a valid user or is missing a required scope
-{{< endapi-method-response-example-description >}}
+##### 403: Forbidden
 
+Token is missing a required scope
 
-```javascript
+```json
 {
   "error": "This action is outside the authorized scopes"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
+
+##### 422: Unprocessable entity
 
 You are not following this account
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "Validation failed: You must be already following the person you want to endorse"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=500 >}}
-{{< api-method-response-example-description >}}
 
-Account already endorsed
-{{< endapi-method-response-example-description >}}
+Alternatively, the token is not authorized with a user
 
-
+```json
+{
+  "error": "This method requires an authenticated user"
+}
 ```
 
+Alternatively (prior to 4.0), the account may already be endorsed
+
+```json
+{
+  "error": "Duplicate record"
+}
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/unpin" title="Unfeature on profile" >}}
-{{< api-method-description >}}
+
+##### 500: Server error
+
+Can sometimes be returned if the account already endorsed.
+
+---
+
+## Unfeature account from profile {#unpin}
+
+```http
+POST /api/v1/accounts/:id/unpin HTTP/1.1
+```
 
 Remove the given account from the user's featured profiles.
 
-**Returns:** Relationship\
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
 **OAuth:** User + `write:accounts`\
 **Version history:**\
 2.5.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
 
 Successfully unendorsed, or account was already not endorsed
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "id": "1",
   "following": true,
@@ -1762,68 +1812,64 @@ Successfully unendorsed, or account was already not endorsed
   "endorsed": false
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 401: Unauthorized
 
-```javascript
+Invalid or missing Authorization header
+
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 422: Unprocessable entity
 
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
 ```
 
+---
+
+## Set private note on profile {#note}
+
+```http
+POST /api/v1/accounts/:id/note HTTP/1.1
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="post" host="https://mastodon.example" path="/api/v1/accounts/:id/note" title="User note" >}}
-{{< api-method-description >}}
 
 Sets a private note on a user.
 
-**Returns:** Relationship\
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
 **OAuth:** User + `write:accounts`\
 **Version history:**\
 3.2.0 - added
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-path-parameters >}}
-{{< api-method-parameter name=":id" type="string" required=true >}}
-The id of the account in the database
-{{< endapi-method-parameter >}}
-{{< endapi-method-path-parameters >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-form-data-parameters >}}
-{{< api-method-parameter name="comment" type="string" required=false >}}
-The comment to be set on that user. Provide an empty string or leave out this parameter to clear the currently set note.
-{{< endapi-method-parameter >}}
-{{< endapi-method-form-data-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Path parameters
 
-Successfully updated user note
-{{< endapi-method-response-example-description >}}
+:id
+: {{<required>}} String. The ID of the Account in the database.
 
+##### Headers
 
-```javascript
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+comment
+: String. The comment to be set on that user. Provide an empty string or leave out this parameter to clear the currently set note.
+
+#### Response
+##### 200: OK
+
+Successfully updated profile note
+
+```json
 {
   "id": "1",
   "following": true,
@@ -1840,67 +1886,83 @@ Successfully updated user note
   "note": "this is a comment"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+Successfully removed profile note
 
-```javascript
+```json
+{
+  "id": "1",
+  "following": true,
+  "showing_reblogs": true,
+  "notifying": false,
+  "followed_by": true,
+  "blocking": false,
+  "blocked_by": false,
+  "muting": false,
+  "muting_notifications": false,
+  "requested": false,
+  "domain_blocking": false,
+  "endorsed": false,
+  "note": ""
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header
+
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
-{{< endapi-method-response-example-description >}}
 
+##### 422: Unprocessable entity
 
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
 ```
 
+---
+
+## Check relationships to other accounts {#relationships}
+
+```http
+GET /api/v1/accounts/relationships HTTP/1.1
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-
-
-## General account actions
-
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/relationships" title="Check relationships to other accounts" >}}
-{{< api-method-description >}}
 
 Find out whether a given account is followed, blocked, muted, etc.
 
-**Returns:** Array of Relationship\
+**Returns:** Array of [Relationship]({{< relref "entities/Relationship">}})\
 **OAuth:** User token + `read:follows`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+4.3.0 - added `with_suspended` parameter
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="id\[\]" type="array" required=true >}}
-Array of account IDs to check
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Headers
 
-Sample call with id\[\]=1&id\[\]=2
-{{< endapi-method-response-example-description >}}
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
+##### Query parameters
 
-```javascript
+id[]
+: Array of String. Check relationships for the provided account IDs.
+
+with_suspended
+: Boolean. Whether relationships should be returned for suspended users, defaults to false.
+
+#### Response
+##### 200: OK
+
+Sample call with `id[]=1&id[]=2`
+
+```json
 [
   {
     "id": "1",
@@ -1932,119 +1994,336 @@ Sample call with id\[\]=1&id\[\]=2
   }
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=401 >}}
-{{< api-method-response-example-description >}}
+
+##### 401: Unauthorized
 
 Invalid or missing Authorization header
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "The access token is invalid"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=422 >}}
-{{< api-method-response-example-description >}}
+
+##### 422: Unprocessable entity
 
 Token does not have an authorized user
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "This method requires an authenticated user"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
-{{< api-method method="get" host="https://mastodon.example" path="/api/v1/accounts/search" title="Search for matching accounts" >}}
-{{< api-method-description >}}
+
+---
+
+## Find familiar followers {#familiar_followers}
+
+```http
+GET /api/v1/accounts/familiar_followers HTTP/1.1
+```
+
+Obtain a list of all accounts that follow a given account, filtered for accounts you follow.
+
+**Returns:** Array of [FamiliarFollowers]({{< relref "entities/FamiliarFollowers">}})\
+**OAuth:** User token + `read:follows`\
+**Version history:**\
+3.5.0 - added
+
+#### Request
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+id[]
+: Array of String. Find familiar followers for the provided account IDs.
+
+#### Response
+##### 200: OK
+
+Sample call with `id[]=1&id[]=2`
+
+```json
+[
+  {
+    "id":"1",
+    "accounts":[
+      {
+        "id":"1087990",
+        "username":"moss",
+        "acct":"moss@goblin.camp",
+        // ...
+      },
+      {
+        "id":"1092723",
+        "username":"vivianrose",
+        "acct":"vivianrose",
+        // ...
+      },
+      // ...
+    ]
+  },
+  {
+    "id":"2",
+    "accounts":[]
+  }
+]
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 422: Unprocessable entity
+
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
+## Search for matching accounts {#search}
+
+```http
+GET /api/v1/accounts/search HTTP/1.1
+```
 
 Search for matching accounts by username or display name.
 
-**Returns:** Array of Account\
+**Returns:** Array of [Account]({{< relref "entities/Account">}})\
 **OAuth:** User token + `read:accounts`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+2.8.0 - add `limit`, `offset` and `following`
 
-{{< endapi-method-description >}}
-{{< api-method-spec >}}
-{{< api-method-request >}}
-{{< api-method-headers >}}
-{{< api-method-parameter name="Authorization" type="string" required=true >}}
-Bearer &lt;user token&gt;
-{{< endapi-method-parameter >}}
-{{< endapi-method-headers >}}
-{{< api-method-query-parameters >}}
-{{< api-method-parameter name="q" type="string" required=true >}}
-What to search for
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="limit" type="number" required=false >}}
-Maximum number of results. Defaults to 40.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="resolve" type="string" required=false >}}
-Attempt WebFinger lookup. Defaults to false. Use this when `q` is an exact address.
-{{< endapi-method-parameter >}}
-{{< api-method-parameter name="following" type="string" required=false >}}
-Only who the user is following. Defaults to false.
-{{< endapi-method-parameter >}}
-{{< endapi-method-query-parameters >}}
-{{< endapi-method-request >}}
-{{< api-method-response >}}
-{{< api-method-response-example httpCode=200 >}}
-{{< api-method-response-example-description >}}
+#### Request
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+q
+: {{<required>}} String. Search query for accounts.
+
+limit
+: Integer. Maximum number of results. Defaults to 40 accounts. Max 80 accounts.
+
+offset
+: Integer. Skip the first n results.
+
+resolve
+: Boolean. Attempt WebFinger lookup. Defaults to false. Use this when `q` is an exact address.
+
+following
+: Boolean. Limit the search to users you are following. Defaults to false.
+
+#### Response
+##### 200: OK
 
 Accounts matching "trwnh" in username or display name
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 [
   {
     "id": "14715",
     "username": "trwnh",
     "acct": "trwnh",
     "display_name": "infinite love ⴳ",
-    ...
+    // ...
   },
   {
     "id": "418714",
     "username": "trwnh",
     "acct": "trwnh@pixelfed.social",
     "display_name": "Abdullah Tarawneh",
-    ...
+    // ...
   },
   {
     "id": "419674",
     "username": "trwnh",
     "acct": "trwnh@write.as",
     "display_name": "trwnh",
-    ...
+    // ...
   },
-  ...
+  // ...
 ]
 ```
-{{< endapi-method-response-example >}}
-{{< api-method-response-example httpCode=503 >}}
-{{< api-method-response-example-description >}}
+
+##### 503: Service Unavailable
 
 resolve=true, but the domain part of the user@domain address is not a currently live website
-{{< endapi-method-response-example-description >}}
 
-
-```javascript
+```json
 {
   "error": "Remote data could not be fetched"
 }
 ```
-{{< endapi-method-response-example >}}
-{{< endapi-method-response >}}
-{{< endapi-method-spec >}}
-{{< endapi-method >}}
 
+---
 
+## Lookup account ID from Webfinger address {#lookup}
+
+```http
+GET /api/v1/accounts/lookup HTTP/1.1
+```
+
+Quickly lookup a username to see if it is available, skipping WebFinger resolution.
+
+**Returns:** [Account]({{< relref "entities/Account">}})\
+**OAuth:** Public\
+**Version history:**\
+3.4.0 - added
+
+#### Request
+##### Query parameters
+
+acct
+: {{<required>}} String. The username or Webfinger address to lookup.
+
+#### Response
+##### 200: OK
+
+Sample call with `?acct=trwnh`
+
+```json
+{
+  "id": "14715",
+  "username": "trwnh",
+  "acct": "trwnh",
+  "display_name": "infinite love ⴳ",
+  "locked": false,
+  // ...
+}
+```
+
+Sample call with `?acct=trwnh@pixelfed.social`
+
+```json
+{
+  "id": "418714",
+  "username": "trwnh",
+  "acct": "trwnh@pixelfed.social",
+  "display_name": "Abdullah Tarawneh",
+  "locked": false,
+  // ...
+}
+```
+
+##### 404: Not found
+
+Username or address does not map to an account
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+## (DEPRECATED) Identity proofs {#identity_proofs}
+
+```http
+GET /api/v1/accounts/:id/identity_proofs HTTP/1.1
+```
+
+**Returns:** Array of [IdentityProof]({{< relref "entities/identityproof">}})\
+**OAuth:** User token\
+**Version history:**\
+2.8.0 - added\
+3.5.0 - deprecated. now returns an empty array.
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+#### Response
+##### 200: OK
+
+```json
+[
+  {
+    "provider": "Keybase",
+    "provider_username": "gargron",
+    "updated_at": "2019-07-21T20:14:39.596Z",
+    "proof_url": "https://keybase.io/gargron/sigchain#5cfc20c7018f2beefb42a68836da59a792e55daa4d118498c9b1898de7e845690f",
+    "profile_url": "https://keybase.io/gargron"
+  }
+]
+```
+
+##### 404: Not found
+
+Account does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+##### 410: Gone
+
+Account is suspended (since 2.4.0 and until 3.3.0)
+
+##### 422: Unprocessable entity
+
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
+## See also
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts_controller.rb" caption="app/controllers/api/v1/accounts_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/credentials_controller.rb" caption="app/controllers/api/v1/accounts/credentials_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/familiar_followers_controller.rb" caption="app/controllers/api/v1/accounts/familiar_followers_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/featured_tags_controller.rb" caption="app/controllers/api/v1/accounts/featured_tags_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/follower_accounts_controller.rb" caption="app/controllers/api/v1/accounts/follower_accounts_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/following_accounts_controller.rb" caption="app/controllers/api/v1/accounts/following_accounts_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/identity_proofs_controller.rb" caption="app/controllers/api/v1/accounts/identity_proofs_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/lists_controller.rb" caption="app/controllers/api/v1/accounts/lists_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/lookup_controller.rb" caption="app/controllers/api/v1/accounts/lookup_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/notes_controller.rb" caption="app/controllers/api/v1/accounts/notes_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/pins_controller.rb" caption="app/controllers/api/v1/accounts/pins_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/relationships_controller.rb" caption="app/controllers/api/v1/accounts/relationships_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/search_controller.rb" caption="app/controllers/api/v1/accounts/search_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/accounts/statuses_controller.rb" caption="app/controllers/api/v1/accounts/statuses_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/models/account_statuses_filter.rb" caption="app/models/account_statuses_filter.rb" >}}

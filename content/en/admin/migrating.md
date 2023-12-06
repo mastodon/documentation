@@ -15,10 +15,10 @@ This guide was written with Ubuntu Server in mind; your mileage may vary for oth
 
 ## Basic steps {#basic-steps}
 
-1. Set up a new Mastodon server using the [Production Guide]({{< relref "install.md" >}}) \(however, don’t run `mastodon:setup`\).
-2. Stop Mastodon on the old server \(e.g. `systemctl stop 'mastodon-*.service'`\).
+1. Set up a new Mastodon server using the [Production Guide]({{< relref "install" >}}) (however, don’t run `mastodon:setup`).
+2. Stop Mastodon on the old server (e.g. `systemctl stop 'mastodon-*.service'`).
 3. Dump and load the Postgres database using the instructions below.
-4. Copy the `system/` files using the instructions below. \(Note: if you’re using S3, you can skip this step.\)
+4. Copy the `system/` files using the instructions below. (Note: if you’re using S3, you can skip this step.)
 5. Copy the `.env.production` file.
 6. Run `RAILS_ENV=production bundle exec rails assets:precompile` to compile Mastodon
 7. Run `RAILS_ENV=production ./bin/tootctl feeds build` to rebuild the home timelines for each user.
@@ -33,19 +33,19 @@ This guide was written with Ubuntu Server in mind; your mileage may vary for oth
 
 At a high level, you’ll need to copy over the following:
 
-* The `~/live/public/system` directory, which contains user-uploaded images and videos \(if using S3, you don’t need this\)
-* The Postgres database \(using [pg\_dump](https://www.postgresql.org/docs/9.1/static/backup-dump.html)\)
+* The `~/live/public/system` directory, which contains user-uploaded images and videos (if using S3, you don’t need this)
+* The Postgres database (using [pg_dump](https://www.postgresql.org/docs/9.1/static/backup-dump.html))
 * The `~/live/.env.production` file, which contains server config and secrets
 
 Less crucially, you’ll probably also want to copy the following for convenience:
 
-* The nginx config \(under `/etc/nginx/sites-available/default`\)
-* The systemd config files \(`/etc/systemd/system/mastodon-*.service`\), which may contain your server tweaks and customizations
-* The pgbouncer configuration under `/etc/pgbouncer` \(if you’re using it\)
+* The nginx config (under `/etc/nginx/sites-available/default`)
+* The systemd config files (`/etc/systemd/system/mastodon-*.service`), which may contain your server tweaks and customizations
+* The pgbouncer configuration under `/etc/pgbouncer` (if you’re using it)
 
 ### Dump and load Postgres {#dump-and-load-postgres}
 
-Instead of running `mastodon:setup`, we’re going to create an empty Postgres database using the `template0` database \(which is useful when restoring a Postgres dump, [as described in the pg\_dump documentation](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)\).
+Instead of running `mastodon:setup`, we’re going to create an empty Postgres database using the `template0` database (which is useful when restoring a Postgres dump, [as described in the pg_dump documentation](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)).
 
 Run this as the `mastodon` user on your old system:
 
@@ -66,7 +66,7 @@ pg_restore -Fc -U mastodon -n public --no-owner --role=mastodon \
   -d mastodon_production backup.dump
 ```
 
-\(Note that if the username is not `mastodon` on the new server, you should change the `-U` AND `--role` values above. It’s okay if the username is different between the two servers.\)
+(Note that if the username is not `mastodon` on the new server, you should change the `-U` AND `--role` values above. It’s okay if the username is different between the two servers.)
 
 ### Copy files {#copy-files}
 
@@ -86,7 +86,7 @@ Optionally, you may copy over the nginx, systemd, and pgbouncer config files, or
 
 You can edit the `~/live/public/500.html` page on the old machine if you want to show a nice error message to let existing users know that a migration is in progress.
 
-You’ll probably also want to set the DNS TTL to something small \(30-60 minutes\) about a day in advance, so that DNS can propagate quickly once you point it to the new IP address.
+You’ll probably also want to set the DNS TTL to something small (30-60 minutes) about a day in advance, so that DNS can propagate quickly once you point it to the new IP address.
 
 ### After migrating {#after-migrating}
 

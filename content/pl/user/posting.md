@@ -7,7 +7,7 @@ menu:
     parent: user
 ---
 
-{{< figure src="/assets/compose-with-cw.jpg" caption="Tworzenie wpisów z włączonym CW" >}}
+{{< figure src="assets/compose-with-cw.jpg" caption="Tworzenie wpisów z włączonym CW" >}}
 
 ## Tekst {#text}
 
@@ -15,25 +15,25 @@ Główna treść każdego wpisu może zostać utworzona z użyciem pola tekstowe
 
 ### Odnośniki {#links}
 
-{{< figure src="/assets/compose-links.jpg" caption="Odnośniki muszą zaczynać się od http\(s\):// i są liczone jako 23 znaki niezależnie od ich długości." >}}
+{{< figure src="assets/compose-links.jpg" caption="Odnośniki muszą zaczynać się od http(s):// i są liczone jako 23 znaki niezależnie od ich długości." >}}
 
 Jeżeli uwzględnisz w swoim wpisie odnośniki, muszą one zaczynać się od `http://` lub `https://`. Wszystkie odnośniki są traktowane, jakby miały 23 znaki, niezależnie od ich rzeczywistej długości, więc nie musisz korzystać z usług skracania odnośników. Właściwie to odradzamy korzystanie z nich.
 
 ### Wspominanie {#mentions}
 
-{{< figure src="/assets/compose-mentions.jpg" caption="Sugerowane wspomnienia dla lokalnych i zdalnych użytkowników." >}}
+{{< figure src="assets/compose-mentions.jpg" caption="Sugerowane wspomnienia dla lokalnych i zdalnych użytkowników." >}}
 
 Możesz wspominać użytkowników, wprowadzając ich pełny adres, np. `@alicja@example.com`. Zauważ, że każde użycie `@słowo` zostanie zainterpretowane jako wspomnienie lokalnego użytkownika o nazwie `słowo`, jeżeli taki użytkownik istnieje. Tylko część zawierająca nazwę użytkownika będzie liczona do limitu długości wpisu – długość domeny nie jest liczona.
 
 ### Hashtagi {#hashtags}
 
-{{< figure src="/assets/compose-hashtags.jpg" caption="Hashtagi są sugerowane według częstości używania ich." >}}
+{{< figure src="assets/compose-hashtags.jpg" caption="Hashtagi są sugerowane według częstości używania ich." >}}
 
 Możesz używać `#hashtag`ów, aby Twoje wpisy były widoczne dla wszystkich, którzy wyszukują tego hashtagu. Hashtagi mogą zawierać tylko litery, cyfry i podkreślniki, ale nie mogą składać się z samych cyfr.
 
 ### Niestandardowe emoji {#emoji}
 
-{{< figure src="/assets/compose-custom-emoji.jpg" caption="Tablica niestandardowych emoji dostępnych na ekranie wyboru." >}}
+{{< figure src="assets/compose-custom-emoji.jpg" caption="Tablica niestandardowych emoji dostępnych na ekranie wyboru." >}}
 
 Każdy serwer może oferować zestaw niestandardowych emoji, z których możesz korzystać jak na Discordzie. Możesz korzystać z nich, wpisując ich shortcode, np. `:thounking:` lub klikając na ikonę emoji w ekranie tworzenia wpisu i wybierając w kategorii „Niestandardowe”. Możesz też przeglądać i wyszukiwać standardowe emoji unicode.
 
@@ -43,24 +43,24 @@ Możesz załączyć do wpisu pliki lub ankietę.
 
 ### Pliki {#media}
 
-{{< figure src="/assets/compose-media-attachment.jpg" caption="Miniaturka dla załączonych mediów, z możliwością usunięcia, edycji lub oznaczenia zawartości jako wrażliwą." >}}
+{{< figure src="assets/compose-media-attachment.jpg" caption="Miniaturka dla załączonych mediów, z możliwością usunięcia, edycji lub oznaczenia zawartości jako wrażliwą." >}}
 
 Naciśnij ikonę spinacza, aby dodać plik do wpisu. Możesz załączyć:
 
-* **Zdjęcia** \(PNG, JPG, GIF\) **do 8MB**. Zdjęcia zostaną zmniejszone do 1.6 megapikseli \(wystarczająco na obraz 1280x1280\). Możesz załączyć maksymalnie 4 zdjęcia.
-  * **Animowane GIF-y** są konwertowane do plików MP4 bez dźwięku jak na Imgur/Gfycat \(**GIFV**\). Możesz też wysłać plik MP4 lub WebM bez dźwięku, zostaną one obsłużone w ten sam sposób.
-* **Filmy** \(MP4, M4V, MOV, WebM\) **do 40MB**. Filmy zostaną transkodowane do H.264 MP4 o maksymalnej przepustowości 1300kbps i liczby 60 klatek na sekundę.
-* **Dźwięk** \(MP3, OGG, WAV, FLAC, OPUS, AAC, M4A, 3GP\) **do 40MB**. Dźwięk zostanie transkodowany do MP3 z użyciem V2 VBR \(około 192kbps\).
+* **Zdjęcia** (PNG, JPG, GIF) **do 8MB**. Zdjęcia zostaną zmniejszone do 1.6 megapikseli (wystarczająco na obraz 1280x1280). Możesz załączyć maksymalnie 4 zdjęcia.
+  * **Animowane GIF-y** są konwertowane do plików MP4 bez dźwięku jak na Imgur/Gfycat (**GIFV**). Możesz też wysłać plik MP4 lub WebM bez dźwięku, zostaną one obsłużone w ten sam sposób.
+* **Filmy** (MP4, M4V, MOV, WebM) **do 40MB**. Filmy zostaną transkodowane do H.264 MP4 o maksymalnej przepustowości 1300kbps i liczby 60 klatek na sekundę.
+* **Dźwięk** (MP3, OGG, WAV, FLAC, OPUS, AAC, M4A, 3GP) **do 40MB**. Dźwięk zostanie transkodowany do MP3 z użyciem V2 VBR (około 192kbps).
 
 #### Edytowanie mediów {#edit}
 
-{{< figure src="/assets/edit-media.jpg" caption="Edytuj media, aby dodać opis zawartości lub wybrać punkt skupienia dla miniaturki podglądu." >}}
+{{< figure src="assets/edit-media.jpg" caption="Edytuj media, aby dodać opis zawartości lub wybrać punkt skupienia dla miniaturki podglądu." >}}
 
 Po kliknięciu „Edytuj” na miniaturze załącznika, możesz załadować okno, które pozwoli na dodanie opisu mediów lub wybranie punktu skupienia. Choć jest to nieobowiązkowe, dobrze jest dodawać opis, który krótko opisze, co przedstawiane jest na mediach. Te opisy będą widoczne, gdy nie uda się załadować mediów z jakiegoś powodu, lub gdy ktoś korzysta z czytnika zawartości ekranu, lub innej technologii wspomagającej. Ustawienie punktu skupienia jest również nieobowiązkowe, ale sprawi, że miniaturka wygląda lepiej, jeżeli zdjęcie nie jest wyświetlane w proporcji 16:9.
 
 ### Ankiety {#polls}
 
-{{< figure src="/assets/compose-polls.jpg" caption="Ankieta z dwoma opcjami, wygasająca po jednym dniu" >}}
+{{< figure src="assets/compose-polls.jpg" caption="Ankieta z dwoma opcjami, wygasająca po jednym dniu" >}}
 
 Naciśnij na ikonę wykresu, aby załączyć ankietę do wpisu.
 
@@ -104,7 +104,7 @@ Bardziej ograniczona opcja doręczania.
 * Tylko Ty możesz udostępnić ten wpis.
 
 {{< hint style="warning" >}}
-Aby publikowanie prywatnych wpisów \(tylko dla obserwujących\) miało sens, musisz **zablokować swoje konto** – w przeciwnym razie każdy może zaobserwować Cię, aby przeglądać Twoje starsze wpisy.
+Aby publikowanie prywatnych wpisów (tylko dla obserwujących) miało sens, musisz **zablokować swoje konto** – w przeciwnym razie każdy może zaobserwować Cię, aby przeglądać Twoje starsze wpisy.
 {{< /hint >}}
 
 {{< hint style="danger" >}}
@@ -126,9 +126,8 @@ Wyślij wpis wyłącznie wspomnianym użytkownikom.
 
 ## Ostrzeżenia o zawartości (CW) i zawartość wrażliwa {#cw}
 
-{{< figure src="/assets/status-cw.jpg" caption="Wpis z CW oznaczony jako zawierający zawartość wrażliwą." >}}
+{{< figure src="assets/status-cw.jpg" caption="Wpis z CW oznaczony jako zawierający zawartość wrażliwą." >}}
 
 Jedną z funkcji obecnych na Mastodonie, których możesz nie zobaczyć na innych platformach społecznościowych, jest możliwość załączenia ostrzeżenia o zawartości do Twoich wpisów. Kiedy obecne jest ostrzeżenie o zawartości, zawartość wpisu jest domyślnie zwinięta, a widoczny jest tylko tekst ostrzeżenia, tak jak linia tematu wiadomości e-mail, i przycisk „zobacz więcej”. Może to zostać wykorzystane do podania podsumowania lub tytułu wpisu, lub podania skrótu poprzedniego wpisu z wątku.
 
 Jeżeli załączone są media, pokaże się przy nich przełącznik pozwalający „oznaczyć zawartość multimedialną jako wrażliwą”. To domyślnie ukryje media za rozmytą miniaturką. Dodanie CW do wpisu automatycznie oznacza również media jako wrażliwe.
-

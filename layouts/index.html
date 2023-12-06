@@ -11,7 +11,7 @@
     {{ .Content }}
 
     <p style="color: #687590;">
-      {{ i18n "lastUpdated" }} {{ i18n "lastUpdatedDateFormat"  .Lastmod }}{{ with .File }} · <a href='https://github.com/tootsuite/documentation/tree/master/content/{{ .Lang }}/{{ .Path }}' style="color: #687590;">{{ i18n "improvePage" }}{{ end }}</a>
+      {{ i18n "lastUpdated" }} {{ i18n "lastUpdatedDateFormat"  .Lastmod }}{{ with .File }} · <a href='https://github.com/mastodon/documentation/tree/master/content/{{ .Lang }}/{{ .Path }}' style="color: #687590;">{{ i18n "improvePage" }}{{ end }}</a>
 
       {{ if .IsTranslated }}
         <br />
@@ -19,7 +19,7 @@
         {{ i18n "otherTranslations" }}
 
         {{ range .Translations }}
-          <a href="{{ .Permalink }}" style="color: #687590;" hreflang="{{ .Lang }}">{{ .Language.LanguageName }}</a>
+          <a href="{{ .RelPermalink }}" style="color: #687590;" hreflang="{{ .Lang }}">{{ .Language.LanguageName }}</a>
         {{ end }}
       {{ end }}
     </p>

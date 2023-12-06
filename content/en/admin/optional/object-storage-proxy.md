@@ -37,7 +37,7 @@ server {
     }
 
     resolver 8.8.8.8;
-    proxy_set_header Host YOUR_S3_HOSTNAME;
+    proxy_set_header Host YOUR_BUCKET_NAME.YOUR_S3_HOSTNAME;
     proxy_set_header Connection '';
     proxy_set_header Authorization '';
     proxy_hide_header Set-Cookie;
@@ -63,6 +63,8 @@ server {
     add_header Cache-Control public;
     add_header 'Access-Control-Allow-Origin' '*';
     add_header X-Cache-Status $upstream_cache_status;
+    add_header X-Content-Type-Options nosniff;
+    add_header Content-Security-Policy "default-src 'none'; form-action 'none'";
   }
 }
 ```

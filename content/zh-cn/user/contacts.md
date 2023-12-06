@@ -9,13 +9,13 @@ menu:
 
 ## 生成邀请链接 {#invites}
 
-{{< figure src="/assets/image%20%2862%29.png" caption="从你的帐户设置中邀请别人加入本站" >}}
+{{< figure src="assets/image%20%2862%29.png" caption="从你的帐户设置中邀请别人加入本站" >}}
 
 邀请链接可以被生成并与其他人分享，有些服务器需要邀请才能注册账号。在生成邀请链接时，你可以设置最多使用次数，以限制某个链接的使用次数，或者限制链接的可使用时间。邀请链接可以在任何时候停用。
 
 ## 关注管理 {#relationships}
 
-{{< figure src="/assets/image%20%2849%29.png" caption="所有与你互相关注并且没有启用迁移功能的用户，按最后一次活动时间排序" >}}
+{{< figure src="assets/image%20%2849%29.png" caption="所有与你互相关注并且没有启用迁移功能的用户，按最后一次活动时间排序" >}}
 
 在设置中有关注管理器，你可以根据不同的标准，对和你有关的用户进行筛选和排序。
 
@@ -35,7 +35,7 @@ menu:
 
 ### Keybase身份验证 {#keybase}
 
-{{< figure src="/assets/image%20%2860%29.png" caption="个人资料上的身份验证" >}}
+{{< figure src="assets/image%20%2860%29.png" caption="个人资料上的身份验证" >}}
 
 首先，注册Keybase并生成或上传一个GPG公钥到你的Keybase帐户。接下来，进入“证明更多身份（prove more identities）”。找到你的实例，如果没有，请联系Keybase寻求帮助。选择你的Mastodon域名，输入你的用户名。你可以通过使用你的Mastodon账号进行授权，并发布验证消息，来验证你的身份。一旦你这样做了，身份验证就会建立，你的个人资料将会显示Keybase的身份验证。
 

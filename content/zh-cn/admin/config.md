@@ -92,7 +92,7 @@ Mastodon使用环境变量作为其的配置。
 * `CACHE_REDIS_URL`
 * `CACHE_REDIS_NAMESPACE`
 
-### ElasticSearch {#elasticsearch}
+### Elasticsearch {#elasticsearch}
 
 * `ES_ENABLED`
 * `ES_HOST`

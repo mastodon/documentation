@@ -55,6 +55,6 @@ menu:
 
 如果你有兴趣自己安装一切，请点击这里：
 
-{{< page-ref page="admin/prerequisites.md" >}}
+{{< page-ref page="admin/prerequisites" >}}
 
 {{< translation-status-zh-cn raw_title="Running your own server" raw_link="/user/run-your-own/" last_tranlation_time="2020-05-03" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}

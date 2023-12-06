@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700|Roboto+Mono:400');
 @import 'fontawesome.scss';
+@import 'roboto.scss';
+@import 'roboto-mono.scss';
 
 $white:    #fff   ; // color5
 $lightest: #d9e1e8; // color2
@@ -444,6 +445,26 @@ main {
     padding: 0;
   }
 
+  dl {
+    color: $lightest;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: normal;
+    margin-bottom: 26px;
+    hyphens: auto;
+    dt {
+      font-weight: 700;
+      background: lighten($darkest, 8%);
+      padding: 2px 16px;
+      max-width: max-content;
+      margin-bottom: 4px;
+    }
+    dd {
+      margin-left: 16px;
+      margin-bottom: 16px;
+    }
+  }
+
   .mastodon-embed,
   iframe {
     width: 100%;
@@ -807,5 +828,16 @@ main {
 
   .logo-grid a {
     padding: 20px;
+  }
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+
+  &__anchor-link {
+    display: inline-flex;
+    align-content: center;
+    margin-left: 0.25em;
   }
 }

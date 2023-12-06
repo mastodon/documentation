@@ -7,9 +7,11 @@ menu:
     parent: admin
 ---
 
-## Individual moderation {#individual-moderation}
+## Moderating individual users {#individual-moderation}
 
 Moderation in Mastodon is always applied locally, i.e. as seen from the particular server. An admin or moderator on one server cannot affect a user on another server, they can only affect the local copy on their own server.
+
+As of v3.5.0, all default user moderation decisions will notify the affected user by email. The user can access an appeal page, where they can submit one appeal within 20 days of the decision. Moderators can approve or reject the appeal.
 
 ### Sensitive {#sensitive-user}
 
@@ -27,19 +29,21 @@ When the user's account is un-frozen, normal functionality resumes.
 
 ### Limit {#limit-user}
 
-A limited account is hidden to all other users on that instance, except for its followers. All of the content is still there, and it can still be found via search, mentions, and following, but the content is invisible publicly.
+Previously known as "silencing". A limited account is hidden to all other users on that instance, except for its followers. All of the content is still there, and it can still be found via search, mentions, and following, but the content is invisible publicly.
 
-At this moment, limit does not affect federation. A locally limited account is _not_ limited automatically on other servers. Account limitations are reversible.
+At this moment, limit does not affect federation. A locally limited account is *not* limited automatically on other servers. Account limitations are reversible.
 
 ### Suspend {#suspend-user}
 
 A Mastodon suspension means the account is effectively deleted. The account no longer appears in search, the profile page is gone, all of the posts, uploads, followers, and all other data is removed publicly. However, all the data is available in the admin back-end for a period of 30 days from suspension. This is to give the user an opportunity to work with instance admins to resolve any potential issues and have the account re-instated.
 
-If the account is reinstated within the 30 day period, all data is once again accessible publicly without any adverse affects. If the 30 day period lapses, **all** that user's data is purged from the instance. Admins also have the option to immediately delete the user's account data at any point during the 30 days.
+If the account is reinstated within the 30 day period, all data is once again accessible publicly without any adverse effects. If the 30 day period lapses, **all** that user's data is purged from the instance. Admins also have the option to immediately delete the user's account data at any point during the 30 days.
 
-Once the data has been deleted, whether than be after the 30 day period, or if an admin has force deleted it, the account can still be un-suspended. However, the account will have no data (toots, profile information, avatar or header image) associated with it.
+Once the data has been deleted, whether that is after the 30 day period, or if an admin has force deleted it, the account can still be un-suspended. However, the account will have no data (statuses, profile information, avatar or header image) associated with it.
 
-## Server-wide moderation {#server-wide-moderation}
+For remote accounts, suspending will make them unfollow any local account. Those relationships are not restored in case the remote account is un-suspended, even within the 30-day time window.
+
+## Moderating entire websites {#server-wide-moderation}
 
 Because individually moderating a large volume of users from a misbehaving server can be exhausting, it is possible to pre-emptively moderate against all users from that particular server using a so-called **domain block**, which comes with several different levels of severity.
 
@@ -47,13 +51,15 @@ Because individually moderating a large volume of users from a misbehaving serve
 
 With this option active, no files from the server will be processed locally. That includes avatars, headers, emojis and media attachments.
 
-### Silence {#silence-server}
+### Limit {#limit-server}
 
-Applies a silence to all past and future accounts from the server.
+Equivalent to [limiting](#limit-user) all past and future accounts from the server. Previously known as "silencing".
 
 ### Suspend {#suspend-server}
 
-Applies a suspension to all past and future accounts from the server. No content from the server will be stored locally except for usernames.
+Equivalent to [suspending](#suspend-user) all past and future accounts from the server. No content from the server will be stored locally except for usernames.
+
+Suspending a server will remove all existing follow relationships between local accounts and accounts on the suspended server. They will not be restored in case the remote server is un-suspended later.
 
 ## Spam-fighting measures {#spam-fighting-measures}
 

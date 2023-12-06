@@ -14,8 +14,12 @@ menu:
 After signing up in the browser, you will need to use the command line to give your newly created account admin privileges. Assuming your username is `alice`:
 
 ```bash
-RAILS_ENV=production bin/tootctl accounts modify alice --role admin
+RAILS_ENV=production bin/tootctl accounts modify alice --role Owner
 ```
+
+{{<hint style="warning">}}
+Prior to Mastodon 4.0, roles were hardcoded to be one of `user`, `moderator`, or `admin`. Since Mastodon 4.0, there is a customizable role system, with default roles created for `Moderator`, `Admin`, and `Owner`. Names of custom roles are case-sensitive.
+{{</hint>}}
 
 ### From the command line {#admin-cli}
 
@@ -26,14 +30,14 @@ RAILS_ENV=production bin/tootctl accounts create \
   alice \
   --email alice@example.com \
   --confirmed \
-  --role admin
+  --role Owner
 ```
 
 A randomly generated password will be shown in the terminal.
 
 ## Filling in server information {#info}
 
-After logging in, navigate to the **Site settings** page. While there are no technical requirements for filling in this information, it is considered crucial for operating a server for humans.
+After logging in, navigate to the **Site settings** page (under **Preferences** -> **Administration**). While there are no technical requirements for filling in this information, it is considered crucial for operating a server for humans.
 
 | Setting | Meaning |
 | :--- | :--- |
@@ -42,7 +46,7 @@ After logging in, navigate to the **Site settings** page. While there are no tec
 | Instance description | Why did you start this server? Who is it for? What makes it different? |
 | Custom extended information | You can put all sorts of information in here but a **code of conduct** is recommended |
 
-After you fill these in, simply hit “Save changes”.
+After you fill these in, click “Save changes”.
 
 ## Running periodic cleanup tasks {#cleanup}
 
