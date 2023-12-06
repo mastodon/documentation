@@ -113,7 +113,7 @@ As JSON, hashes are formatted like so:
 {
   "source": {
     "privacy": "public",
-    "language", "en"
+    "language": "en"
   }
 }
 ```
