@@ -1,6 +1,6 @@
 ---
-title: 从源中安装
-description: 创建你自己的Mastodon站点的教学指献。
+title: 从源代码中安装
+description: 创建你自己的 Mastodon 站点的教学指献。
 menu:
   docs:
     weight: 20
@@ -9,27 +9,31 @@ menu:
 
 ## 前提条件 {#pre-requisites}
 
-* 一台你有root访问权限的运行 **Ubuntu 18.04** 的机器
+* 一台你有root访问权限的，运行 **Ubuntu 20.04** 或 **Debian 11** 的机器
 * 一个用于Mastodon站点的**域名**（或一个子域名），例如：`example.com`
 * 一个电子邮件发送服务提供商，或其他**SMTP服务器**
 
-你需要使用root用户运行命令。如果你现在不是root用户，请切换至root用户：
+你需要使用root用户运行命令。如果你现在不是root用户，请切换至root用户：``sudo su - ``
 
 ### 软件仓库 {#system-repositories}
 
-首先确保已经安装curl：
+首先确保已经安装curl, wget, gnupg, apt-transport-https, lsb-release 和 ca-certificates
+
+```
+apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
+```
 
 #### Node.js {#node-js}
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_12.x | bash -
+curl -sL https://deb.nodesource.com/setup_16.x | bash -
 ```
 
-#### Yarn {#yarn}
+#### PostgreSQL {#postgresql}
 
 ```bash
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+wget -O /usr/share/keyrings/postgresql.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/postgresql.list
 ```
 
 ### 软件包 {#system-packages}
@@ -40,9 +44,16 @@ apt install -y \
   imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core \
   g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
-  zlib1g-dev libncurses5-dev libffi-dev libgdbm5 libgdbm-dev \
+  zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
   nginx redis-server redis-tools postgresql postgresql-contrib \
-  certbot python-certbot-nginx yarn libidn11-dev libicu-dev libjemalloc-dev
+  certbot python3-certbot-nginx libidn11-dev libicu-dev libjemalloc-dev
+```
+
+#### Yarn {#yarn}
+
+```bash
+corepack enable
+yarn set version classic
 ```
 
 ### 安装 Ruby {#installing-ruby}
@@ -53,7 +64,7 @@ apt install -y \
 adduser --disabled-login mastodon
 ```
 
-切换到mastodon用户：
+切换到 mastodon 用户：
 
 ```bash
 su - mastodon
@@ -63,7 +74,6 @@ su - mastodon
 
 ```bash
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-cd ~/.rbenv && src/configure && make -C src
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 exec bash
@@ -73,8 +83,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 上述操作完成，我们便可以安装正确的 Ruby 版本：
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.6
-rbenv global 2.6.6
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.2.2
+rbenv global 3.2.2
 ```
 
 我们同样需要安装 bundler：
@@ -130,7 +140,7 @@ su - mastodon
 
 ```bash
 git clone https://github.com/mastodon/mastodon.git live && cd live
-git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
+git checkout $(git tag -l | grep '^v[0-9.]*$' | sort -V | tail -n 1)
 ```
 
 #### 安装依赖 {#installing-the-last-dependencies}
@@ -170,6 +180,16 @@ RAILS_ENV=production bundle exec rake mastodon:setup
 exit
 ```
 
+### Acquiring a SSL certificate {#acquiring-a-ssl-certificate}
+
+使用 Let’s Encrypt 获取免费的 SSL 证书:
+
+```bash
+certbot certonly --nginx -d example.com
+```
+
+这将获取证书，并保存到  `/etc/letsencrypt/live/example.com/` 。
+
 ### 配置 nginx {#setting-up-nginx}
 
 从Mastodon目录复制配置文件模版到nginx：
@@ -181,17 +201,13 @@ ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 
 编辑 `/etc/nginx/sites-available/mastodon`，替换 `example.com` 为你自己的域名，你可以根据自己的需求做出其它的一些调整。
 
+取消注释  `ssl_certificate` 和 `ssl_certificate_key` 开头的行 , 将路径改为对应的域名
+
 重载 nginx 以使变更生效：
 
-### 获取SSL证书 {#acquiring-a-ssl-certificate}
-
-我们将使用 Let’s Encrypt 获取一个免费的SSL证书：
-
 ```bash
-certbot --nginx -d example.com
+systemctl reload nginx
 ```
-
-这个命令将获取一个证书，自动更新 `/etc/nginx/sites-available/mastodon` 以使用新证书并重载nginx以使变更生效。
 
 现在你应该能够通过浏览器访问你的域名，然后看到一只大象锤击电脑屏幕的错误页面。这是因为我们还没有启动Mastodon进程。
 
@@ -203,19 +219,19 @@ certbot --nginx -d example.com
 cp /home/mastodon/live/dist/mastodon-*.service /etc/systemd/system/
 ```
 
-然后修改以下文件，以保证用户名与路径是正确的：
+如果在任何时候偏离了默认值，请检查用户名和路径是否正确：
 
-* `/etc/systemd/system/mastodon-web.service`
-* `/etc/systemd/system/mastodon-sidekiq.service`
-* `/etc/systemd/system/mastodon-streaming.service`
-
-最后，启动新systemd服务并将该服务设为开机自动激活：
-
-```bash
-systemctl daemon-reload
-systemctl start mastodon-web mastodon-sidekiq mastodon-streaming
-systemctl enable mastodon-*
+```sh
+$EDITOR /etc/systemd/system/mastodon-*.service
 ```
+
+最后，启动并启用新的 systemd 服务:
+
+```sh
+systemctl daemon-reload
+systemctl enable --now mastodon-web mastodon-sidekiq mastodon-streaming
+```
+
 
 他们将在开机启动时自动开始运行。
 
