@@ -3,7 +3,7 @@ title: admin/reports API methods
 description: Perform moderation actions with reports.
 menu:
   docs:
-    name: admin/reports
+    name: reports
     parent: methods-admin
     identifier: methods-admin-reports
 aliases: [
