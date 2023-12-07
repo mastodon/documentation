@@ -20,21 +20,21 @@ Things that need to be backed up in order of importance:
 
 ## Failure modes {#failure}
 
-There are two failure types that people in general may guard for: The failure of the hardware, such as data corruption on the disk; and human and software error, such as wrongful deletion of particular piece of data. In this documentation, only the former type is considered.
+There are two failure types that people in general may guard for: The failure of the hardware, such as data corruption on the disk; and human and software error, such as wrongful deletion of a particular piece of data. In this documentation, only the former type is considered.
 
-A lost PostgreSQL database is complete game over. Mastodon stores all the most important data in the PostgreSQL database. If the database disappears, all the accounts, posts and followers on your server will disappear with it.
+Mastodon stores all the most important data in the PostgreSQL database. The loss of the PostgreSQL database will result in the complete failure of the server, including all the accounts, their posts and followers.
 
-If you lose application secrets, some functions of Mastodon will stop working for your users, they will be logged out, two-factor authentication will become unavailable, Web Push API subscriptions will stop working.
+If you lose application secrets, some functions of Mastodon will stop working for your users, they will be logged out, two-factor authentication will become unavailable, and Web Push API subscriptions will stop working.
 
 If you lose user-uploaded files, you will lose avatars, headers, and media attachments, but Mastodon _will_ work moving forward.
 
-Losing the Redis database is almost harmless: The only irrecoverable data will be the contents of the Sidekiq queues and scheduled retries of previously failed jobs. The home and list feeds are stored in Redis, but can be regenerated with tootctl.
+Losing the Redis database is almost harmless: The only irrecoverable data will be the contents of the Sidekiq queues and scheduled retries of previously failed jobs. The home and list feeds are stored in Redis but can be regenerated with tootctl.
 
 The best backups are so-called off-site backups, i.e. ones that are not stored on the same machine as Mastodon itself. If the server you are hosted on goes on fire and the hard disk drive explodes, backups stored on that same hard drive won’t be of much use.
 
 ## Backing up application secrets {#env}
 
-Application secrets are the easiest to backup, since they never change. You only need to store `.env.production` somewhere safe.
+Application secrets are the easiest to back up since they never change. You only need to store `.env.production` somewhere safe.
 
 ## Backing up PostgreSQL {#postgresql}
 

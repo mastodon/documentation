@@ -22,7 +22,7 @@ The web process serves short-lived HTTP requests for most of the application. Th
 - `WEB_CONCURRENCY` controls the number of worker processes
 - `MAX_THREADS` controls the number of threads per process
 
-Threads share the memory of their parent process. Different processes allocate their own memory, though they share some memory via copy-on-write. A larger number of threads maxes out your CPU first, a larger number of processes maxes out your RAM first.
+Threads share the memory of their parent process. Different processes allocate their own memory, though they share some memory via copy-on-write. A larger number of threads maxes out your CPU first, and a larger number of processes maxes out your RAM first.
 
 These values affect how many HTTP requests can be served at the same time.
 
@@ -34,9 +34,9 @@ The streaming API handles long-lived HTTP and WebSockets connections, through wh
 
 - `STREAMING_API_BASE_URL` controls the base URL of the streaming API
 - `PORT` controls the port the streaming server will listen on, by default 4000. The `BIND` and `SOCKET` environment variables are also able to be used.
-- Additionally the shared [database](/admin/config#postgresql) and [redis](/admin/config#redis) environment variables are used.
+- Additionally, the shared [database](/admin/config#postgresql) and [redis](/admin/config#redis) environment variables are used.
 
-The streaming API can be use a different subdomain if you want to by setting `STREAMING_API_BASE_URL`, this allows you to have one load balancer for streaming and one for web/API requests. However, this also requires applications to correctly request the streaming URL from the [instance endpoint](/methods/instance/#v2), instead of assuming that it's hosted on the same host as the Web API.
+The streaming API can use a different subdomain if you want to by setting `STREAMING_API_BASE_URL`. This allows you to have one load balancer for streaming and one for web/API requests. However, this also requires applications to correctly request the streaming URL from the [instance endpoint](/methods/instance/#v2), instead of assuming that it's hosted on the same host as the Web API.
 
 One process of the streaming server can handle a reasonably high number of connections and throughput, but if you find that a single process isn't handling your instance's load, you can run multiple processes by varying the `PORT` number of each, and then using nginx to load balance traffic to each of those instances. For example, a community of about 50,000 accounts with 10,000-20,000 monthly active accounts, you'll typically have an average concurrent load of about 800-1200 streaming connections.
 
@@ -88,13 +88,13 @@ Many tasks in Mastodon are delegated to background processing to ensure the HTTP
 
 While the amount of threads in the web process affects the responsiveness of the Mastodon instance to the end-user, the amount of threads allocated to background processing affects how quickly posts can be delivered from the author to anyone else, how soon e-mails are sent out, etc.
 
-The amount of threads is not controlled by an environment variable in this case, but a command line argument in the invocation of Sidekiq, e.g.:
+The number of threads is not regulated by an environment variable, but rather through a command line argument when invoking Sidekiq, as shown in the following example:
 
 ```bash
 bundle exec sidekiq -c 15
 ```
 
-Would start the sidekiq process with 15 threads. Please mind that each threads needs to be able to connect to the database, which means that the database pool needs to be large enough to support all the threads. The database pool size is controlled with the `DB_POOL` environment variable and must be at least the same as the number of threads.
+This would initiate the Sidekiq process with 15 threads. It's important to note that each thread requires a database connection, necessitating a sufficiently large database pool. The size of this pool is managed by the DB_POOL environment variable, which should be set to a value at least equal to the number of threads.
 
 #### Queues {#sidekiq-queues}
 
@@ -117,7 +117,7 @@ bundle exec sidekiq -q default
 
 To run just the `default` queue.
 
-The way Sidekiq works with queues, it first checks for tasks from the first queue, and if there are none, checks the next queue. This means, if the first queue is overfilled, the other queues will lag behind.
+Sidekiq processes queues by first checking for tasks in the first queue, and if it finds none, it then checks the subsequent queue. Consequently, if the first queue is overfilled, tasks in the other queues may experience delays.
 
 As a solution, it is possible to start different Sidekiq processes for the queues to ensure truly parallel execution, by e.g. creating multiple systemd services for Sidekiq with different arguments.
 
@@ -129,7 +129,7 @@ As a solution, it is possible to start different Sidekiq processes for the queue
 
 If you start running out of available Postgres connections (the default is 100) then you may find PgBouncer to be a good solution. This document describes some common gotchas as well as good configuration defaults for Mastodon.
 
-Note that you can check “PgHero” in the administration view to see how many Postgres connections are currently being used. Typically Mastodon uses as many connections as there are threads both in Puma, Sidekiq and the streaming API combined.
+User roles with `DevOps` permissions in Mastodon can monitor the current usage of Postgres connections through the PgHero link in the Administration view. Generally, the number of connections open is equal to the total threads in Puma, Sidekiq, and the streaming API combined.
 
 ### Installing PgBouncer {#pgbouncer-install}
 
@@ -187,7 +187,7 @@ You’ll also want to create a `pgbouncer` admin user to log in to the PgBouncer
 "pgbouncer" "md5a45753afaca0db833a6f7c7b2864b9d9"
 ```
 
-In both cases the password is just `password`.
+In both cases, the password is just `password`.
 
 #### Configuring pgbouncer.ini {#pgbouncer-ini}
 
@@ -200,7 +200,7 @@ Add a line under `[databases]` listing the Postgres databases you want to connec
 mastodon_production = host=127.0.0.1 port=5432 dbname=mastodon_production user=mastodon password=password
 ```
 
-The `listen_addr` and `listen_port` tells PgBouncer which address/port to accept connections. The defaults are fine:
+The `listen_addr` and `listen_port` tell PgBouncer which address/port to accept connections. The defaults are fine:
 
 ```text
 listen_addr = 127.0.0.1
@@ -219,7 +219,7 @@ Make sure the `pgbouncer` user is an admin:
 admin_users = pgbouncer
 ```
 
-**This next part is very important!** The default pooling mode is session-based, but for Mastodon we want transaction-based. In other words, a Postgres connection is created when a transaction is created and dropped when the transaction is done. So you’ll want to change the `pool_mode` from `session` to `transaction`:
+Mastodon requires a different pooling mode than the default session-based one. Specifically, it needs a transaction-based pooling mode. This means that a Postgres connection is established at the start of a transaction and terminated upon its completion. Therefore, it's essential to change the `pool_mode` setting from `session` to `transaction`:
 
 ```ini
 pool_mode = transaction
@@ -248,7 +248,7 @@ You should be able to connect to PgBouncer just like you would with Postgres:
 psql -p 6432 -U mastodon mastodon_production
 ```
 
-And then use your password to log in.
+Then use your password to log in.
 
 You can also check the PgBouncer logs like so:
 
@@ -306,7 +306,11 @@ Then use `\q` to quit.
 
 Redis is used widely throughout the application, but some uses are more important than others. Home feeds, list feeds, and Sidekiq queues as well as the streaming API are backed by Redis and that’s important data you wouldn’t want to lose (even though the loss can be survived, unlike the loss of the PostgreSQL database - never lose that!). However, Redis is also used for volatile cache. If you are at a stage of scaling up where you are worried about whether your Redis can handle everything, you can use a different Redis database for the cache. In the environment, you can specify `CACHE_REDIS_URL` or individual parts like `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT` etc. Unspecified parts fallback to the same values as without the cache prefix.
 
-As far as configuring the Redis database goes, basically you can get rid of background saving to disk, since it doesn’t matter if the data gets lost on restart and you can save some disk I/O on that. You can also add a maximum memory limit and a key eviction policy, for that, see this guide: [Using Redis as an LRU cache](https://redis.io/topics/lru-cache)
+Additionally, Redis is used for volatile caching. If you're scaling up and concerned about Redis's capacity to handle the load, you can allocate a separate Redis database specifically for caching. To do this, set `CACHE_REDIS_URL` in the environment, or define individual components such as `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT`, etc. 
+
+Unspecified components will default to their values without the cache prefix.
+
+When configuring the Redis database for caching, it's possible to disable background saving to disk, as data loss on restart is not critical in this context, and this can save some disk I/O. Additionally, consider setting a maximum memory limit and implementing a key eviction policy. For more details on these configurations, refer to this guide:[Using Redis as an LRU cache](https://redis.io/topics/lru-cache)
 
 ## Seperate Redis for Sidekiq {#redis-sidekiq}
 
@@ -371,7 +375,7 @@ systemctl restart redis-sidekiq.service
 
 ## Read-replicas {#read-replicas}
 
-To reduce the load on your Postgresql server, you may wish to setup hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
+To reduce the load on your PostgreSQL server, you may wish to set up hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
 
 * The streaming API server does not issue writes at all, so you can connect it straight to the replica (it is not querying the database very often anyway, so the impact of this is small).
 * Use the Makara driver in the web and Sidekiq processes, so that writes go to the master database, while reads go to the replica. Let’s talk about that.
@@ -398,7 +402,7 @@ production:
         url: postgresql://db_user:db_password@db_host:db_port/db_name
 ```
 
-Make sure the URLs point to wherever your PostgreSQL servers are. You can add multiple replicas. You could have a locally installed pgBouncer with configuration to connect to two different servers based on database name, e.g. “mastodon” going to the primary, “mastodon_replica” going to the replica, so in the file above both URLs would point to the local pgBouncer with the same user, password, host and port, but different database name. There are many possibilities how this could be setup! For more information on Makara, [see their documentation](https://github.com/taskrabbit/makara#databaseyml).
+Make sure the URLs point to wherever your PostgreSQL servers are. You can add multiple replicas. You could have a locally installed pgBouncer with a configuration to connect to two different servers based on the database name, e.g. “mastodon” going to the primary, “mastodon_replica” going to the replica, so in the file above both URLs would point to the local pgBouncer with the same user, password, host and port, but different database name. There are many possibilities how this could be set up! For more information on Makara, [see their documentation](https://github.com/taskrabbit/makara#databaseyml).
 
 {{< hint style="warning" >}}
 Make sure the sidekiq processes run with the stock `config/database.yml` to avoid failing jobs and data loss!

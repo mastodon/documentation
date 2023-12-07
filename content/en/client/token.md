@@ -11,7 +11,7 @@ menu:
 
 Up until this point, we've been working with publicly available information, but not all information is public. Some information requires permission before viewing it, in order to audit who is requesting that information (and to potentially revoke or deny access).
 
-This is where [OAuth]({{< relref "spec/oauth" >}}) comes in. OAuth is a mechanism for generating access tokens which can be used to _authenticate (verify)_ that a request is coming from a specific client, and ensure that the requested action is _authorized (allowed)_ by the server's access control policies.
+This is where [OAuth]({{< relref "spec/oauth" >}}) comes in. OAuth is a mechanism for generating access tokens that can be used to _authenticate (verify)_ that a request is coming from a specific client, and ensure that the requested action is _authorized (allowed)_ by the server's access control policies.
 
 ## Creating our application {#app}
 
@@ -31,7 +31,7 @@ In the above example, we specify the client name and website, which will be show
 * `redirect_uris` has been set to the "out of band" token generation, which means that any generated tokens will have to be copied and pasted manually. The parameter is called `redirect_uris` because it is possible to define more than one redirect URI, but when generating the token, we will need to provide a URI that is included within this list.
 * `scopes` allow us to define what permissions we can request later. However, the requested scope later can be a subset of these registered scopes. See [OAuth Scopes]({{< relref "api/oauth-scopes" >}}) for more information.
 
-We should see an Application entity returned, but for now we only care about client_id and client_secret. These values will be used to generate access tokens, so they should be cached for later use. See [POST /api/v1/apps]({{< relref "methods/apps#create" >}}) for more details on registering applications.
+We should see an Application entity returned, but for now, we only care about client_id and client_secret. These values will be used to generate access tokens, so they should be cached for later use. See [POST /api/v1/apps]({{< relref "methods/apps#create" >}}) for more details on registering applications.
 
 ## Example authentication code flow {#flow}
 
