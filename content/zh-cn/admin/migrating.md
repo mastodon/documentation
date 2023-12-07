@@ -41,9 +41,9 @@ menu:
 
 * nginx配置文件（位于`/etc/nginx/sites-available/default`）
 * systemd配置文件（`/etc/systemd/system/mastodon-*.service`），里面可能包括一些你服务器的调优与个性化
-* pgbouncer配置文件，位于 `/etc/pgbouncer` （如果你使用pgbouncer的话）
+* PgBouncer配置文件，位于 `/etc/pgbouncer` （如果你使用PgBouncer的话）
 
-### 导出并导入Postgres数据库 {#dump-and-load-postgres}
+### 导出并导入PostgreSQL数据库 {#dump-and-load-postgresql}
 
 不要运行`mastodon:setup`，而是创建一个名为`template0`的空白Postgres数据库（当导入Postgres导出文件时，这是很有用的，参见[pg_dump文档](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)）。
 
