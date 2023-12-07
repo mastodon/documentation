@@ -548,6 +548,14 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 #### `S3_FORCE_SINGLE_REQUEST`
 
+#### `S3_BATCH_DELETE_LIMIT`
+
+The official [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html) can handle deleting 1,000 objects in one batch job, but some providers may have issues handling this many in one request, or offer lower limits. Defaults to `1000`.
+
+#### `S3_BATCH_DELETE_RETRY`
+
+During batch delete operations, S3 providers may perodically fail or timeout while processing deletion requests. Mastodon will backoff and retry the request up to the maximum number of times. Defaults to `3`.
+
 ### Swift {#swift}
 
 #### `SWIFT_ENABLED`
