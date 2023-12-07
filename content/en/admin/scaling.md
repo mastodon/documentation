@@ -304,16 +304,77 @@ Then use `\q` to quit.
 
 ## Separate Redis for cache {#redis}
 
-Redis is used widely throughout the application, but some uses are more important than others. Home feeds, list feeds, and Sidekiq queues as well as the streaming API are backed by Redis and that’s important data you wouldn’t want to lose (even though the loss can be survived, unlike the loss of the PostgreSQL database - never lose that!). However, Redis is also used for volatile cache. If you are at a stage of scaling up where you are worried if your Redis can handle everything, you can use a different Redis database for the cache. In the environment, you can specify `CACHE_REDIS_URL` or individual parts like `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT` etc. Unspecified parts fallback to the same values as without the cache prefix.
+Redis is used widely throughout the application, but some uses are more important than others. Home feeds, list feeds, and Sidekiq queues as well as the streaming API are backed by Redis and that’s important data you wouldn’t want to lose (even though the loss can be survived, unlike the loss of the PostgreSQL database - never lose that!). However, Redis is also used for volatile cache. If you are at a stage of scaling up where you are worried about whether your Redis can handle everything, you can use a different Redis database for the cache. In the environment, you can specify `CACHE_REDIS_URL` or individual parts like `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT` etc. Unspecified parts fallback to the same values as without the cache prefix.
 
 As far as configuring the Redis database goes, basically you can get rid of background saving to disk, since it doesn’t matter if the data gets lost on restart and you can save some disk I/O on that. You can also add a maximum memory limit and a key eviction policy, for that, see this guide: [Using Redis as an LRU cache](https://redis.io/topics/lru-cache)
+
+## Seperate Redis for Sidekiq {#redis-sidekiq}
+
+Redis is used in Sidekiq to keep track of its locks and queue. Although in general the performance gain is not that big, some instances may benefit from having a seperate Redis instance for Sidekiq.
+
+In the environment file, you can specify `SIDEKIQ_REDIS_URL` or individual parts like `SIDEKIQ_REDIS_HOST`, `SIDEKIQ_REDIS_PORT` etc. Unspecified parts fallback to the same values as without the `SIDEKIQ_` prefix.
+
+Creating a seperate Redis instance for Sidekiq is relatively simple:
+
+Start by making a copy of the default redis systemd service:
+```bash
+cp /etc/systemd/system/redis.service /etc/systemd/system/redis-sidekiq.service
+```
+
+In the `redis-sidekiq.service` file, change the following values:
+```bash
+ExecStart=/usr/bin/redis-server /etc/redis/redis-sidekiq.conf --supervised systemd --daemonize no
+PIDFile=/run/redis/redis-server-sidekiq.pid
+ReadWritePaths=-/var/lib/redis-sidekiq
+Alias=redis-sidekiq.service
+```
+
+Make a copy of the Redis configuration file for the new Sidekiq Redis instance
+
+```bash
+cp /etc/redis/redis.conf /etc/redis/redis-sidekiq.conf
+```
+
+In this `redis-sidekiq.conf` file, change the following values:
+```bash
+port 6479
+pidfile /var/run/redis/redis-server-sidekiq.pid
+logfile /var/log/redis/redis-server-sidekiq.log
+dir /var/lib/redis-sidekiq
+```
+
+Before starting the new Redis instance, create a data directory:
+
+```bash
+mkdir /var/lib/redis-sidekiq
+chown redis /var/lib/redis-sidekiq
+```
+
+Start the new Redis instance:
+
+```bash
+systemctl enable --now redis-sidekiq
+```
+
+Update your environment, add the following line:
+
+```bash
+SIDEKIQ_REDIS_URL=redis://127.0.0.1:6479/
+```
+
+Restart Mastodon to use the new Redis instance, make sure to restart both web and Sidekiq (otherwise, one of them will still be working from the wrong instance):
+
+```bash
+systemctl restart mastodon-web.service
+systemctl restart redis-sidekiq.service
+```
 
 ## Read-replicas {#read-replicas}
 
 To reduce the load on your Postgresql server, you may wish to setup hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
 
-- The streaming API server does not issue writes at all, so you can connect it straight to the replica. But it’s not querying the database very often anyway so the impact of this is little.
-- Use the Makara driver in the web processes, so that writes go to the primary database, while reads go to the replica. Let’s talk about that.
+* The streaming API server does not issue writes at all, so you can connect it straight to the replica (it is not querying the database very often anyway, so the impact of this is small).
+* Use the Makara driver in the web and Sidekiq processes, so that writes go to the master database, while reads go to the replica. Let’s talk about that.
 
 {{< hint style="warning" >}}
 Read replicas are currently not supported for the Sidekiq processes, and using them will lead to failing jobs and data loss.
