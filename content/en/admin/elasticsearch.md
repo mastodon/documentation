@@ -71,6 +71,8 @@ ES_PRESET= # single_node_cluster, small_cluster or large_cluster
 # ES_PASS=
 ```
 
+_Note_: If using TLS, prepend the hostname with `https://`. For example: `https://elastic.example.com`.
+
 ### Choosing the correct preset
 
 The value for `ES_PRESET` depends on the size of your Elasticsearch and will be used to set the number of shards and replicas for your indices to the best value for your setup:

@@ -36,17 +36,16 @@ The streaming API handles long-lived HTTP and WebSockets connections, through wh
 - `PORT` controls the port the streaming server will listen on, by default 4000. The `BIND` and `SOCKET` environment variables are also able to be used.
 - Additionally, the shared [database](/admin/config#postgresql) and [redis](/admin/config#redis) environment variables are used.
 
-The streaming API can use a different subdomain if you want to by setting `STREAMING_API_BASE_URL`, this allows you to have one load balancer for streaming and one for web/API requests.
+The streaming API can use a different subdomain if you want to by setting `STREAMING_API_BASE_URL`. This allows you to have one load balancer for streaming and one for web/API requests. However, this also requires applications to correctly request the streaming URL from the [instance endpoint](/methods/instance/#v2), instead of assuming that it's hosted on the same host as the Web API.
 
-{{< hint style="warning" >}}
-Previous versions of Mastodon had a `STREAMING_CLUSTER_NUM` environment variable that made the streaming server use clustering, which started multiple processes (workers) and used node.js to load balance them.
+One process of the streaming server can handle a reasonably high number of connections and throughput, but if you find that a single process isn't handling your instance's load, you can run multiple processes by varying the `PORT` number of each, and then using nginx to load balance traffic to each of those instances. For example, a community of about 50,000 accounts with 10,000-20,000 monthly active accounts, you'll typically have an average concurrent load of about 800-1200 streaming connections.
 
-This interacted with the other settings in ways that made capacity planning difficult, especially when it came to database connections and CPU resources. By default, the streaming server would consume resources on all available CPUs which could cause contention with other software running on that server. Another common issue was that misconfiguring the `STREAMING_CLUSTER_NUM` would exhaust your database connections by opening up a connection pool per cluster worker process, so a `STREAMING_CLUSTER_NUM` of `5` and `DB_POOL` of `10` would potentially consume 50 database connections.
+The streaming server also exposes a [Prometheus](https://prometheus.io/) endpoint on `/metrics` with a lot of metrics to help you understand the current load on your mastodon streaming server, some key metrics are:
 
-Now a single streaming server process will only use at maximum `DB_POOL` PostgreSQL connections, and scaling is handled by running more instances of the streaming server.
-{{< /hint >}}
-
-One process can handle a reasonably high number of connections and throughput, but if you find that a single streaming server process isn't handling your instance's load, you can run multiple processes by varying the `PORT` number of each and then using nginx to load balance traffic to each of those instances.
+* `mastodon_streaming_connected_clients`: This is the number of connected clients, tagged by client type (websocket or eventsource)
+* `mastodon_streaming_connected_channels`: This is the number of "channels" that are currently subscribed (note that this is much higher than connected clients due to how our internal "system" channels currently work)
+* `mastodon_streaming_messages_sent_total`: This is the total number of messages sent to clients since last restart.
+* `mastodon_streaming_redis_messages_received_total`: This is the number of messages received from Redis pubsub, and intended to complement [monitoring Redis directly](https://sysdig.com/blog/redis-prometheus/).
 
 {{< hint style="info" >}}
 The more streaming server processes that you run, the more database connections will be consumed on PostgreSQL, so you'll likely want to use PgBouncer, as documented below.
@@ -62,6 +61,24 @@ upstream streaming {
     server 127.0.0.1:4002 fail_timeout=0;
 }
 ```
+
+If you're using the distributed systemd files, then you can start up multiple streaming servers with the following commands:
+
+```
+$ sudo systemctl start mastodon-streaming@4000.service
+$ sudo systemctl start mastodon-streaming@4001.service
+$ sudo systemctl start mastodon-streaming@4002.service
+```
+
+By default, `sudo systemctl start mastodon-streaming` starts just one process on port 4000, equivalent to running `sudo systemctl start mastodon-streaming@4000.service`.
+
+{{< hint style="warning" >}}
+Previous versions of Mastodon had a `STREAMING_CLUSTER_NUM` environment variable that made the streaming server use clustering, which started mulitple workers processes and used node.js to load balance them.
+
+This interacted with the other settings in ways which made capacity planning difficult, especially when it comes to database connections and CPU resources. By default the streaming server would consume resources on all available CPUs which could cause contention with other software running on that server. Another common issue was that misconfiguring the `STREAMING_CLUSTER_NUM` would exhaust your database connections by opening up a connection pool per cluster worker process, so a `STREAMING_CLUSTER_NUM` of `5` and `DB_POOL` of `10` would potentially consume 50 database connections.
+
+Now a single streaming server process will only use at maximum `DB_POOL` PostgreSQL connections, and scaling is handled by running more instances of the streaming server.
+{{< /hint >}}
 
 ### Background processing (Sidekiq) {#sidekiq}
 
@@ -287,7 +304,7 @@ Then use `\q` to quit.
 
 ## Separate Redis for cache {#redis}
 
-Redis plays a vital role in Mastodon, but some uses are more critical than others. Key features like home feeds, list feeds, Sidekiq queues, and the streaming API rely on Redis for important data storage, which you should strive to protect, though its loss is less catastrophic compared to losing the PostgreSQL database. 
+Redis is used widely throughout the application, but some uses are more important than others. Home feeds, list feeds, and Sidekiq queues as well as the streaming API are backed by Redis and that’s important data you wouldn’t want to lose (even though the loss can be survived, unlike the loss of the PostgreSQL database - never lose that!). However, Redis is also used for volatile cache. If you are at a stage of scaling up where you are worried about whether your Redis can handle everything, you can use a different Redis database for the cache. In the environment, you can specify `CACHE_REDIS_URL` or individual parts like `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT` etc. Unspecified parts fallback to the same values as without the cache prefix.
 
 Additionally, Redis is used for volatile caching. If you're scaling up and concerned about Redis's capacity to handle the load, you can allocate a separate Redis database specifically for caching. To do this, set `CACHE_REDIS_URL` in the environment, or define individual components such as `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT`, etc. 
 
@@ -295,12 +312,73 @@ Unspecified components will default to their values without the cache prefix.
 
 When configuring the Redis database for caching, it's possible to disable background saving to disk, as data loss on restart is not critical in this context, and this can save some disk I/O. Additionally, consider setting a maximum memory limit and implementing a key eviction policy. For more details on these configurations, refer to this guide:[Using Redis as an LRU cache](https://redis.io/topics/lru-cache)
 
+## Seperate Redis for Sidekiq {#redis-sidekiq}
+
+Redis is used in Sidekiq to keep track of its locks and queue. Although in general the performance gain is not that big, some instances may benefit from having a seperate Redis instance for Sidekiq.
+
+In the environment file, you can specify `SIDEKIQ_REDIS_URL` or individual parts like `SIDEKIQ_REDIS_HOST`, `SIDEKIQ_REDIS_PORT` etc. Unspecified parts fallback to the same values as without the `SIDEKIQ_` prefix.
+
+Creating a seperate Redis instance for Sidekiq is relatively simple:
+
+Start by making a copy of the default redis systemd service:
+```bash
+cp /etc/systemd/system/redis.service /etc/systemd/system/redis-sidekiq.service
+```
+
+In the `redis-sidekiq.service` file, change the following values:
+```bash
+ExecStart=/usr/bin/redis-server /etc/redis/redis-sidekiq.conf --supervised systemd --daemonize no
+PIDFile=/run/redis/redis-server-sidekiq.pid
+ReadWritePaths=-/var/lib/redis-sidekiq
+Alias=redis-sidekiq.service
+```
+
+Make a copy of the Redis configuration file for the new Sidekiq Redis instance
+
+```bash
+cp /etc/redis/redis.conf /etc/redis/redis-sidekiq.conf
+```
+
+In this `redis-sidekiq.conf` file, change the following values:
+```bash
+port 6479
+pidfile /var/run/redis/redis-server-sidekiq.pid
+logfile /var/log/redis/redis-server-sidekiq.log
+dir /var/lib/redis-sidekiq
+```
+
+Before starting the new Redis instance, create a data directory:
+
+```bash
+mkdir /var/lib/redis-sidekiq
+chown redis /var/lib/redis-sidekiq
+```
+
+Start the new Redis instance:
+
+```bash
+systemctl enable --now redis-sidekiq
+```
+
+Update your environment, add the following line:
+
+```bash
+SIDEKIQ_REDIS_URL=redis://127.0.0.1:6479/
+```
+
+Restart Mastodon to use the new Redis instance, make sure to restart both web and Sidekiq (otherwise, one of them will still be working from the wrong instance):
+
+```bash
+systemctl restart mastodon-web.service
+systemctl restart redis-sidekiq.service
+```
+
 ## Read-replicas {#read-replicas}
 
 To reduce the load on your PostgreSQL server, you may wish to set up hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
 
-- The streaming API server does not issue writes at all, so you can connect it straight to the replica. But it’s not querying the database very often anyway so the impact of this is little.
-- Use the Makara driver in the web processes, so that writes go to the primary database, while reads go to the replica. Let’s talk about that.
+* The streaming API server does not issue writes at all, so you can connect it straight to the replica (it is not querying the database very often anyway, so the impact of this is small).
+* Use the Makara driver in the web and Sidekiq processes, so that writes go to the master database, while reads go to the replica. Let’s talk about that.
 
 {{< hint style="warning" >}}
 Read replicas are currently not supported for the Sidekiq processes, and using them will lead to failing jobs and data loss.

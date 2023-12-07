@@ -669,7 +669,7 @@ Removes locally cached copies of media attachments, avatars or profile headers f
 
 **Version history:**\
 2.5.0 - added\
-2.6.2 - show freed disk space
+2.6.2 - show freed disk space\
 4.1.0 - added --prune-profiles, --remove-headers, and --include-follows.
 
 

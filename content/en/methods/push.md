@@ -298,7 +298,7 @@ DELETE /api/v1/push/subscription HTTP/1.1
 
 Removes the current Web Push API subscription.
 
-**Returns:** none\
+**Returns:** Empty\
 **OAuth:** User token + `push`\
 **Version history:**\
 2.4.0 - added

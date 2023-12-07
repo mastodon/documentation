@@ -387,7 +387,7 @@ See the [Elasticsearch setup page for details on each setting](../elasticsearch#
 
 #### `ES_HOST`
 
-Host of the Elasticsearch server. Defaults to `localhost`
+Host of the Elasticsearch server. Defaults to `localhost`. If using TLS, prepend the hostname with `https://`. For example: `https://elastic.example.com`.
 
 #### `ES_PORT`
 
@@ -577,6 +577,15 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 ### OmniAuth
 
 #### `OMNIAUTH_ONLY`
+
+#### `ONE_CLICK_SSO_LOGIN`
+Enables the `Login or Register` button.
+Useful for instances where all authentication takes place using a single
+external provider (CAS, SAML or OIDC).
+
+Enabling this will prevent caching for anonymous sessions.
+And, when using OIDC discovery, the identity provider has to be available
+before Mastodon starts.
 
 ### LDAP {#ldap}
 
@@ -821,3 +830,4 @@ Defaults to `512`.
 #### `GITHUB_API_TOKEN`
 
 Used in a rake task for generating AUTHORS.md from GitHub commit history.
+

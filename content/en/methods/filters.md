@@ -403,7 +403,7 @@ DELETE /api/v2/filters/:id HTTP/1.1
 
 Delete a filter group with the given id.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:filters`\
 **Version history:**\
 4.0.0 - added
@@ -730,7 +730,7 @@ DELETE /api/v2/filters/keywords/:id HTTP/1.1
 
 Deletes the given filter keyword.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:filters`\
 **Version history:**\
 4.0.0 - added
@@ -862,6 +862,11 @@ Add a status filter to the current filter group.
 
 Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+status_id
+: {{<required>}} String. The status ID to be added to the filter group.
 
 #### Response
 ##### 200: OK
@@ -1344,7 +1349,7 @@ If context is not provided properly:
 DELETE /api/v1/filters/:id HTTP/1.1
 ```
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:filters`\
 **Version history:**\
 2.4.3 - added\
