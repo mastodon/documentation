@@ -32,7 +32,7 @@ RAILS_ENV=production bin/tootctl help
 
 Erase this server from the federation by broadcasting account Delete activities to all known other servers. This allows a "clean exit" from running a Mastodon server, as it leaves next to no cache behind on other servers. This command is always interactive and requires confirmation twice.
 
-No local data is actually deleted, because emptying the database or deleting the entire VPS is faster. If you run this command then continue to operate the instance anyway, then there will be a state mismatch that might lead to glitches and issues with federation.
+No local data is actually deleted because emptying the database or deleting the entire VPS is faster. If you run this command and then continue to operate the instance anyway, then there will be a state mismatch that might lead to glitches and issues with federation.
 
 {{< hint style="danger" >}}
 **Make sure you know exactly what you are doing before running this command.** This operation is NOT reversible, and it can take a long time. The server will be in a BROKEN STATE after this command finishes. A running Sidekiq process is required, so do not shut down the server until the queues are fully cleared.
@@ -86,7 +86,7 @@ Generate and broadcast new RSA keys, as part of security maintenance.
 
 ### `tootctl accounts create` {#accounts-create}
 
-Create a new user account with given `USERNAME` and provided `--email`.
+Create a new user account with the given `USERNAME` and provided `--email`.
 
 `USERNAME`
 : Local username for the new account. {{<required>}}
@@ -146,7 +146,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 : Approve `USERNAME`'s account, if you are/were in approval mode.
 
 `--disable-2fa`
-: Remove additional factors and allow login with password.
+: Remove additional factors and allow login with a password.
 
 `--reset-password`
 : Resets the password of the given account.
@@ -165,7 +165,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 
 ### `tootctl accounts delete` {#accounts-delete}
 
-Delete a user account with given USERNAME.
+Delete a user account with the given USERNAME.
 
 `USERNAME`
 : Local username for the new account. {{<required>}}
@@ -179,7 +179,7 @@ Delete a user account with given USERNAME.
 
 ### `tootctl accounts backup` {#accounts-backup}
 
-Request a backup for a user account with given USERNAME. The backup will be created in Sidekiq asynchronously, and the user will receive an email with a link to it once it's done.
+Request a backup for a user account with the given USERNAME. The backup will be created in Sidekiq asynchronously, and the user will receive an email with a link to it once it's done.
 
 `USERNAME`
 : Local username for the new account. {{<required>}}
@@ -207,7 +207,7 @@ Remove remote accounts that no longer exist. Queries every single remote account
 **Version history:**\
 2.6.0 - added\
 2.8.0 - add `--dry-run`\
-3.5.0 - add ability to pass specific domains
+3.5.0 - add the ability to pass specific domains
 
 
 ---
@@ -230,7 +230,7 @@ Refetch remote user data and files for one or multiple accounts.
 : The number of workers to use for this task. Defaults to N=5.
 
 `--verbose`
-: Print additional information while task is processing.
+: Print additional information while a task is processing.
 
 `--dry-run`
 : Print expected results only, without performing any actions.
@@ -557,7 +557,7 @@ Imports custom emoji from a .tar.gz archive at a given path. The archive should 
 
 ### `tootctl emoji purge` {#emoji-purge}
 
-Remove all custom emoji.
+Remove all custom emojis.
 
 `--remote-only`
 : If provided, remove only from remote domains.
@@ -669,7 +669,7 @@ Removes locally cached copies of media attachments, avatars or profile headers f
 
 **Version history:**\
 2.5.0 - added\
-2.6.2 - show freed disk space
+2.6.2 - show freed disk space\
 4.1.0 - added --prune-profiles, --remove-headers, and --include-follows.
 
 

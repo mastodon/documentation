@@ -11,8 +11,8 @@ menu:
 
 Mastodon supports full-text search when Elasticsearch is available. It is strongly recommended to configure this feature.
 
-Mastodon’s full-text search allows logged in users to find results from:
-- public statuses from account that opted into appearing in search results
+Mastodon’s full-text search allows logged-in users to find results from:
+- public statuses from accounts that opted into appearing in search results
 - their own statuses
 - their mentions
 - their favourites
@@ -75,7 +75,7 @@ _Note_: If using TLS, prepend the hostname with `https://`. For example: `https:
 
 ### Choosing the correct preset
 
-The value for `ES_PRESET` depends on the size of your Elasticsearch and will be used to set the number of shards and replica for your indices to the best value for your setup:
+The value for `ES_PRESET` depends on the size of your Elasticsearch and will be used to set the number of shards and replicas for your indices to the best value for your setup:
 - `single_node_cluster` if you only have one node in your Elasticsearch cluster. Indices will be configured without any replica
 - `small_cluster` if you have less than 6 nodes in your cluster. Indices will be configured with 1 replica
 - `large_cluster` if you have 6 or more nodes in your cluster. Indices will be configured with more shards than with the `small_cluster` setting, to allow them to be distributed over more nodes
@@ -88,7 +88,7 @@ By default, Elasticsearch does not handle any authentication and every request i
 
 To configure it, please refer [to the official documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-minimal-setup.html). It will guide you through:
 - Enabling the security features (`xpack.security.enabled: true`)
-- Creating password for built-in users
+- Creating passwords for built-in users
 
 Once done, you can create a custom role for Mastodon to connect.
 
@@ -154,7 +154,7 @@ RAILS_ENV=production bin/tootctl search deploy
 ## Search optimization for other languages
 ### Chinese search optimization {#chinese-search-optimization}
 
-The default analyzer of the Elasticsearch is the standard analyzer, which may not be the best especially for Chinese. To improve search experience, you can install a language specific analyzer. Before creating the indices in Elasticsearch, install the following Elasticsearch extensions:
+The standard analyzer is the default for Elasticsearch, but for some languages like Chinese it may not be the optimal choice. To enhance the search experience, consider installing a language-specific analyzer. Before creating indices in Elasticsearch, be sure to install the following extensions:
 
 - [elasticsearch-analysis-ik](https://github.com/medcl/elasticsearch-analysis-ik)
 - [elasticsearch-analysis-stconvert](https://github.com/medcl/elasticsearch-analysis-stconvert)

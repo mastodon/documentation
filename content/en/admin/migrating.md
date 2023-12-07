@@ -7,7 +7,7 @@ menu:
     parent: admin
 ---
 
-Sometimes, for various reasons, you may want to migrate your Mastodon instance from one server to another. Fortunately this is not too difficult of a process, although it may result in some downtime.
+Sometimes, for various reasons, you may want to migrate your Mastodon instance from one server to another. Fortunately, this is not too difficult of a process, although it may result in some downtime.
 
 {{< hint style="info" >}}
 This guide was written with Ubuntu Server in mind; your mileage may vary for other setups.
@@ -24,7 +24,7 @@ This guide was written with Ubuntu Server in mind; your mileage may vary for oth
 7. Run `RAILS_ENV=production ./bin/tootctl feeds build` to rebuild the home timelines for each user.
 8. Start Mastodon on the new server.
 9. Update your DNS settings to point to the new server.
-10. Update or copy your Nginx configuration, re-run LetsEncrypt as necessary.
+10. Update or copy your Nginx configuration, and re-run LetsEncrypt as necessary.
 11. Enjoy your new server!
 
 ## Detailed steps {#detailed-steps}

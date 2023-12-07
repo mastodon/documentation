@@ -27,7 +27,7 @@ The web server must be configured to serve those files but not allow listing the
 
 ## S3-compatible object storage backends {#S3}
 
-Mastodon can use S3-compatible object storage backends. ACL support is recommended as it allows Mastodon to quickly make the content of temporarily suspended users unavailable, or marginally improve security of private data.
+Mastodon can use S3-compatible object storage backends. ACL support is recommended as it allows Mastodon to quickly make the content of temporarily suspended users unavailable, or marginally improve the security of private data.
 
 On Mastodon's end, you need to configure the following environment variables:
 - `S3_ENABLED=true`
@@ -37,7 +37,7 @@ On Mastodon's end, you need to configure the following environment variables:
 - `S3_REGION`
 - `S3_HOSTNAME` (optional if you use Amazon AWS)
 - `S3_PERMISSION` (optional, if you use a provider that does not support ACLs or want to use custom ACLs)
-- `S3_FORCE_SINGLE_REQUEST=true` (optional, if you run in trouble processing large files)
+- `S3_FORCE_SINGLE_REQUEST=true` (optional, if you run into trouble processing large files)
 
 {{< page-ref page="admin/optional/object-storage-proxy.md" >}}
 
@@ -46,16 +46,16 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 {{</ hint >}}
 
 {{< hint style="danger" >}}
-In any case, your S3 bucket must be configured so that -- ACL configuration nonwithstanding -- all objects are publicly readable but neither writable or listable, while Mastodon itself can write to it. The configuration should be similar for all S3 providers, but common ones have been highlighted below.
+Regardless of the ACL configuration, your S3 bucket must be set up to ensure that all objects are publicly readable but not writable or listable. At the same time, Mastodon itself should have write access to the bucket. This configuration is generally consistent across all S3 providers, and common ones are highlighted below.
 {{</ hint >}}
 
 ### MinIO
 
-MinIO is an open source implementation of an S3 object provider. This section does not cover how to install it, but how to configure a bucket for use in Mastodon.
+MinIO is an open-source implementation of an S3 object provider. This section does not cover how to install it, but how to configure a bucket for use in Mastodon.
 
 You need to set a policy for anonymous access that allows read-only access to objects contained by the bucket without allowing listing them.
 
-To do this, you need to set a custom policy (replace `mastodata` by the actual name of your S3 bucket):
+To do this, you need to set a custom policy (replace `mastodata` with the actual name of your S3 bucket):
 ```json
 {
    "Version": "2012-10-17",
@@ -72,7 +72,7 @@ To do this, you need to set a custom policy (replace `mastodata` by the actual n
 }
 ```
 
-Mastodon itself needs to be able to write to the bucket, so either use your admin MinIO account (discouraged) or an account specific to Mastodon (recommended) with the following policy attached (replace `mastodata` by the actual name of your S3 bucket):
+Mastodon itself needs to be able to write to the bucket, so either use your admin MinIO account (discouraged) or an account specific to Mastodon (recommended) with the following policy attached (replace `mastodata` with the actual name of your S3 bucket):
 ```json
 {
     "Version": "2012-10-17",
@@ -93,7 +93,7 @@ You can set those policies from the MinIO Console (web-based user interface) or 
 Connect to the MinIO Console web interface and create a new bucket (or navigate to your existing bucket):
 ![](/assets/object-storage/minio-bucket.png)
 
-Then, configure the “Access Policy” to a custom one that allows read access (`s3:GetObject`) without write access or ability to list objects (see above):
+Then, configure the “Access Policy” to a custom one that allows read access (`s3:GetObject`) without write access or the ability to list objects (see above):
 ![](/assets/object-storage/minio-access-policy.png)
 
 {{< hint style="info" >}}
@@ -108,7 +108,7 @@ Finally, create a new `mastodon` user with the `mastodon-readwrite` policy:
 
 #### Using the command-line utility
 
-The same can be achieved using the [MinIO Client](https://min.io/docs/minio/linux/reference/minio-mc.html) command-line utility (can be called `mc` or `mcli` depending on where it is installed from).
+The same can be achieved using the [MinIO Client](https://min.io/docs/minio/linux/reference/minio-mc.html) command-line utility (which can be called `mc` or `mcli` depending on where it is installed from).
 
 Create a new bucket:
 `mc mb myminio/mastodata`
@@ -183,7 +183,7 @@ In your DigitalOcean Spaces Bucket, make sure that “File Listing” is “Rest
 
 ### Scaleway
 
-If you want to use Scaleway Object Storage, we strongly recommend you to create a Scaleway project dedicaced to your Mastodon instance assets and to use a custom IAM policy.
+If you want to use Scaleway Object Storage, we strongly recommend you create a Scaleway project dedicated to your Mastodon instance assets and use a custom IAM policy.
 
 First, create a new Scaleway project, in which you create your object storage bucket. You need to set your bucket visibility to "Private" to not allow objects to be listed.
 
@@ -191,7 +191,7 @@ First, create a new Scaleway project, in which you create your object storage bu
 
 Now that your bucket is created, you need to create API keys to be used in your Mastodon instance configuration.
 
-Head to the IAM settings (in your organisation menu, top right of the screen), and create a new IAM policy (eg `mastodon-media-access`)
+Head to the IAM settings (in your organization menu, top right of the screen), and create a new IAM policy (eg `mastodon-media-access`)
 
 ![](/assets/object-storage/scaleway-policy.jpg)
 
@@ -199,7 +199,7 @@ This policy needs to have one rule, allowing it to read, write and delete object
 
 ![](/assets/object-storage/scaleway-policy-rules.jpg)
 
-Then head to the IAM Applications page, and a create a new one (eg `my-mastodon-instance`) and select the policy you created above.
+Then head to the IAM Applications page, and create a new one (eg `my-mastodon-instance`) and select the policy you created above.
 
 Finally, click on the application you just created, then "API Keys", and create a new API key to use in your instance configuration. You should use the "Yes, set up preferred Project" option and select the project you created above as the default project for this key.
 
@@ -225,7 +225,7 @@ Cloudflare R2 does not support ACLs, so Mastodon needs to be instructed not to t
 Without support for ACLs, media files from temporarily-suspended users will remain accessible.
 {{< /hint >}}
 
-To get credentials for use in Mastodon, selecte “Manage R2 API Tokens” and create a new API token with “Edit” permissions.
+To get credentials for use in Mastodon, select “Manage R2 API Tokens” and create a new API token with “Edit” permissions.
 
 {{< hint style="warning" >}}
 This section is currently under construction.
