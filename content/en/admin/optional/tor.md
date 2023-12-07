@@ -136,7 +136,7 @@ server {
 }
 ```
 
-Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/onion_service/hostname`.
+Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/hidden_service/hostname`.
 
 Note that the onion hostname has been prefixed with “mastodon.”. Your Tor address acts a wildcard domain. All subdomains will be routed through, and you can configure Nginx to respond to any subdomain you wish. If you do not wish to host any other services on your Tor address you can omit the subdomain, or choose a different subdomain.
 
