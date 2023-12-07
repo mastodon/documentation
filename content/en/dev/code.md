@@ -70,5 +70,4 @@ The following overview should not be seen as complete or authoritative, but as a
 All locale files are normalized to ensure consistent formatting and key order, which minimizes changesets in version control.
 
 - Run `bundle exec i18n-tasks normalize` to normalize server-side translations
-- Run `yarn run manage:translations` to normalize client-side translations
-
+- Run `yarn run i18n:extract` to extract and normalize client-side translations into `en.json`

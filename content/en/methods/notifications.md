@@ -57,14 +57,14 @@ Authorization
 
 ##### Query parameters
 
-max_id 
-: String. Return results older than this ID
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than this ID
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than this ID
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 15 notifications. Max 30 notifications.
@@ -262,7 +262,7 @@ POST /api/v1/notifications/clear HTTP/1.1
 
 Clear all notifications from the server.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:notifications`\
 **Version history:**\
 0.0.0 - added
@@ -303,7 +303,7 @@ POST /api/v1/notifications/:id/dismiss HTTP/1.1
 
 Dismiss a single notification from the server.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:notifications`\
 **Version history:**\
 1.3.0 - added
@@ -350,7 +350,7 @@ POST /api/v1/notifications/dismiss HTTP/1.1
 
 Dismiss a single notification from the server.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:notifications`\
 **Version history**:\
 0.0.0 - available\

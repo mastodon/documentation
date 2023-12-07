@@ -83,14 +83,14 @@ ip
 staff
 : Boolean. Filter for staff accounts?
 
-max_id 
-: String. Return results older than ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than ID.
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 100 accounts. Max 200 accounts.
@@ -233,14 +233,14 @@ email
 ip
 : String. Lookup users with this IP address.
 
-max_id 
-: String. Return results older than ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than ID.
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 100 accounts. Max 200 accounts.
@@ -686,7 +686,7 @@ POST /api/v1/admin/accounts/:id/action HTTP/1.1
 
 Perform an action against an account and log this action in the moderation history. Also resolves any open reports against this account.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `admin:write:accounts`\
 **Permissions:** Manage Users, Manage Reports\
 **Version history:**\

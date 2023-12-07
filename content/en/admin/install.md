@@ -74,7 +74,6 @@ And proceed to install rbenv and rbenv-build:
 
 ```bash
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-cd ~/.rbenv && src/configure && make -C src
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 exec bash
@@ -84,8 +83,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 Once this is done, we can install the correct Ruby version:
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.0.4
-rbenv global 3.0.4
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.2.2
+rbenv global 3.2.2
 ```
 
 We’ll also need to install bundler:
@@ -106,7 +105,7 @@ exit
 
 #### Performance configuration (optional) {#performance-configuration-optional}
 
-For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/15/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
+For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/16/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
 
 #### Creating a user {#creating-a-user}
 
@@ -141,7 +140,7 @@ Use git to download the latest stable release of Mastodon:
 
 ```bash
 git clone https://github.com/mastodon/mastodon.git live && cd live
-git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
+git checkout $(git tag -l | grep '^v[0-9.]*$' | sort -V | tail -n 1)
 ```
 
 #### Installing the last dependencies {#installing-the-last-dependencies}
@@ -181,6 +180,16 @@ You’re done with the mastodon user for now, so switch back to root:
 exit
 ```
 
+### Acquiring a SSL certificate {#acquiring-a-ssl-certificate}
+
+We’ll use Let’s Encrypt to get a free SSL certificate:
+
+```bash
+certbot certonly --nginx -d example.com
+```
+
+This will obtain the certificate, and save it in the directory `/etc/letsencrypt/live/example.com/`.
+
 ### Setting up nginx {#setting-up-nginx}
 
 Copy the configuration template for nginx from the Mastodon directory:
@@ -192,22 +201,13 @@ ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 
 Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with your own domain name, and make any other adjustments you might need.
 
-Reload nginx for the changes to take effect:
+Un-comment the lines starting with `ssl_certificate` and `ssl_certificate_key`, updating the path with the correct domain name.
 
+Reload nginx for the changes to take effect:
 
 ```bash
 systemctl reload nginx
 ```
-
-### Acquiring a SSL certificate {#acquiring-a-ssl-certificate}
-
-We’ll use Let’s Encrypt to get a free SSL certificate:
-
-```bash
-certbot --nginx -d example.com
-```
-
-This will obtain the certificate, automatically update `/etc/nginx/sites-available/mastodon` to use the new certificate, and reload nginx for the changes to take effect.
 
 At this point you should be able to visit your domain in the browser and see the elephant hitting the computer screen error page. This is because we haven’t started the Mastodon process yet.
 

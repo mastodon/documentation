@@ -156,7 +156,7 @@ POST /oauth/revoke HTTP/1.1
 
 Revoke an access token to make it no longer valid for use.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** Public\
 **Version history:**\
 x.x.x - added

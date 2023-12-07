@@ -29,8 +29,7 @@ Accounts that the user is currently featuring on their profile.
 **Returns:** Array of [Account]({{< relref "entities/account" >}})\
 **OAuth:** User token + `read:accounts`\
 **Version history:**\
-2.5.0 - added\
-3.3.0 - both `min_id` and `max_id` can be used at the same time now
+2.5.0 - added
 
 #### Request
 

@@ -109,7 +109,7 @@ With our OAuth token for the authorized user, we can now perform any action as t
 * See [/api/v2/search]({{< relref "methods/search#v2" >}}) for querying resources.
 * See [/api/v1/suggestions]({{< relref "methods/suggestions" >}}) for suggested accounts to follow.
 
-### Use safety features {#safety}
+### User safety features {#safety}
 
 * See [/api/v1/filters]({{< relref "methods/filters" >}}) for managing filtered keywords.
 * See [/api/v1/domain_blocks]({{< relref "methods/domain_blocks" >}}) for managing blocked domains.

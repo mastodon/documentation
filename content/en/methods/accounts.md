@@ -745,14 +745,14 @@ Authorization
 
 ##### Query parameters
 
-max_id 
-: String. Return results older than this ID
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than this ID
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than this ID
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
@@ -767,7 +767,7 @@ exclude_reblogs
 : Boolean. Filter out boosts from the response.
 
 pinned
-: Boolean. Filter for pinned statuses only.
+: Boolean. Filter for pinned statuses only. Defaults to false, which includes all statuses. Pinned statuses do not receive special priority in the order of the returned results.
 
 tagged
 : String. Filter for statuses using a specific hashtag.
@@ -1940,7 +1940,8 @@ Find out whether a given account is followed, blocked, muted, etc.
 **Returns:** Array of [Relationship]({{< relref "entities/Relationship">}})\
 **OAuth:** User token + `read:follows`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+4.3.0 - added `with_suspended` parameter
 
 #### Request
 ##### Headers
@@ -1951,7 +1952,10 @@ Authorization
 ##### Query parameters
 
 id[]
-: Array. Check relationships for the provided account IDs.
+: Array of String. Check relationships for the provided account IDs.
+
+with_suspended
+: Boolean. Whether relationships should be returned for suspended users, defaults to false.
 
 #### Response
 ##### 200: OK

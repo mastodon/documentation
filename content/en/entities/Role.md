@@ -19,12 +19,9 @@ aliases: [
 	"id": 3,
 	"name": "Owner",
 	"color": "#ff3838",
-	"position": 1000,
-	"permissions": 1,
-	"highlighted": true,
-	"created_at": "2022-09-08T22:48:07.983Z",
-	"updated_at": "2022-09-08T22:48:07.983Z"
-},
+	"permissions": 1048575,
+	"highlighted": true
+}
 ```
 
 ## Attributes
@@ -50,13 +47,6 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
-### `position` {#position}
-
-**Description:** An index for the role's position. The higher the position, the more priority the role has over other roles.\
-**Type:** Integer\
-**Version history:**\
-4.0.0 - added
-
 ### `permissions` {#permissions}
 
 **Description:** A bitmask that represents the sum of all permissions granted to the role.\
@@ -68,20 +58,6 @@ aliases: [
 
 **Description:** Whether the role is publicly visible as a badge on user profiles.\
 **Type:** Boolean\
-**Version history:**\
-4.0.0 - added
-
-### `created_at` {#created_at}
-
-**Description:** The date that the role was created.\
-**Type:** String (ISO 8601 Datetime)\
-**Version history:**\
-4.0.0 - added
-
-### `updated_at` {#created_at}
-
-**Description:** The date that the role was updated.\
-**Type:** String (ISO 8601 Datetime)\
 **Version history:**\
 4.0.0 - added
 
