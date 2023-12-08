@@ -491,6 +491,36 @@ Obtain an extended description of this server
 
 ---
 
+## View translation languages {#translation_languages}
+
+```http
+GET /api/v1/instance/translation_languages HTTP/1.1
+```
+
+Translation language pairs supported by the translation engine used by the server.
+
+**Returns:** Object with source language codes as keys and arrays of target language codes as values.\
+**OAuth:** Public\
+**Version history:**\
+4.2.0 - added
+
+#### Response
+##### 200: OK
+
+All source and target language pairs supported by the server.
+
+In the following sample response showing support for translating a status written in English (`en`) into German (`de`) or Spanish (`es`). The source language code `und` indicates that the server supports auto-detection the language of statuses with an empty `language` attribute and translating these into either British English (`en-GB`), German or Spanish.
+
+```json
+{
+  "en": ["de", "es"],
+  // [...]
+  "und": ["en-GB", "de", "es"]
+}
+```
+
+---
+
 ## (DEPRECATED) View server information (V1) {#v1}
 
 ```http
