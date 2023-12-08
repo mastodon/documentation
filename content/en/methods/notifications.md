@@ -46,7 +46,8 @@ Types to filter include:
 3.1.0 - added `follow_request` type\
 3.3.0 - added `status` type; both `min_id` and `max_id` can be used at the same time now\
 3.5.0 - added `types`; add `update` and `admin.sign_up` types\
-4.0.0 - added `admin.report` type
+4.0.0 - added `admin.report` type\
+4.1.0 - notification limit changed from 15 (max 30) to 40 (max 80)
 
 #### Request
 
@@ -67,7 +68,7 @@ min_id
 : String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 15 notifications. Max 30 notifications.
+: Integer. Maximum number of results to return. Defaults to 40 notifications. Max 80 notifications.
 
 types[]
 : Array of String. Types to include in the result.
