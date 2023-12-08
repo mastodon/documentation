@@ -69,7 +69,7 @@ To determine the permissions available to a certain role, convert the `permissio
 : **Administrator**. Users with this permission bypass all permissions.
 
 0x2
-: **Devops**. Allows users to access Sidekiq and pgHero dashboards.
+: **Devops**. Allows users to access Sidekiq and PgHero dashboards.
 
 0x4
 : **View Audit Log**. Allows users to see history of admin actions.
