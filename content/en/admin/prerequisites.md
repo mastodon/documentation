@@ -45,6 +45,7 @@ port = 22
 
 [sshd-ddos]
 enabled = true
+filter = sshd
 port = 22
 ```
 
