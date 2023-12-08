@@ -81,6 +81,8 @@ Edit `/etc/iptables/rules.v4` and put this inside:
 #  Allow HTTP and HTTPS connections from anywhere (the normal ports for websites and SSL).
 -A INPUT -p tcp --dport 80 -j ACCEPT
 -A INPUT -p tcp --dport 443 -j ACCEPT
+#  (optional) Allow HTTP/3 connections from anywhere.
+-A INPUT -p udp --dport 443 -j ACCEPT
 
 #  Allow SSH connections
 #  The -dport number should be the same port number you set in sshd_config
@@ -125,6 +127,8 @@ If your server is also reachable over IPv6, edit `/etc/iptables/rules.v6` and ad
 #  Allow HTTP and HTTPS connections from anywhere (the normal ports for websites and SSL).
 -A INPUT -p tcp --dport 80 -j ACCEPT
 -A INPUT -p tcp --dport 443 -j ACCEPT
+#  (optional) Allow HTTP/3 connections from anywhere.
+-A INPUT -p udp --dport 443 -j ACCEPT
 
 #  Allow SSH connections
 #  The -dport number should be the same port number you set in sshd_config
