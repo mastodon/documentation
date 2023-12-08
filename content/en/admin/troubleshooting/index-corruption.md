@@ -86,7 +86,7 @@ Mastodon 3.2.2 and later come with a semi-interactive script to fix those corrup
 Before attempting to fix your database, **stop Mastodon and make a backup of your database**. Then, with **Mastodon still stopped**, run the maintenance script:
 
 ```
-RAILS_ENV=production tootctl maintenance fix-duplicates
+RAILS_ENV=production bin/tootctl maintenance fix-duplicates
 ```
 
 The script will walk through the database to automatically find duplicates and fix them. In some cases, those operations are destructive. In the most destructive cases, you will be asked to choose which record to keep and which records to discard. In all cases, walking through the whole database in search of duplicates is an extremely long operation.
