@@ -39,11 +39,15 @@ At a high level, you’ll need to copy over the following:
 
 Less crucially, you’ll probably also want to copy the following for convenience:
 
-* The nginx config (under `/etc/nginx/sites-available/default`)
+* The nginx config (under `/etc/nginx/sites-available/`)
 * The systemd config files (`/etc/systemd/system/mastodon-*.service`), which may contain your server tweaks and customizations
 * The pgbouncer configuration under `/etc/pgbouncer` (if you’re using it)
 
 ### Dump and load Postgres {#dump-and-load-postgres}
+
+{{< hint style="info" >}}
+Before you start, note that both `pg_dump` and `pg_restore` can take a long time. (As in, hours for a ~15GB backup file.) You may want to [temporarily tune Postgres's performance](https://stackoverflow.com/a/2095283) just for dumping/restoring. 
+{{< /hint >}}
 
 Instead of running `mastodon:setup`, we’re going to create an empty Postgres database using the `template0` database (which is useful when restoring a Postgres dump, [as described in the pg_dump documentation](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)).
 
@@ -65,8 +69,9 @@ Then import it:
 pg_restore -Fc -U mastodon -n public --no-owner --role=mastodon \
   -d mastodon_production backup.dump
 ```
-
-(Note that if the username is not `mastodon` on the new server, you should change the `-U` AND `--role` values above. It’s okay if the username is different between the two servers.)
+{{< hint style="info" >}}
+Note that if the username is not `mastodon` on the new server, you should change the `-U` AND `--role` values above. It’s okay if the username is different between the two servers.
+{{< /hint >}}
 
 ### Copy files {#copy-files}
 
@@ -81,6 +86,14 @@ You’ll want to re-run this if any of the files on the old server change.
 You should also copy over the `.env.production` file, which contains secrets.
 
 Optionally, you may copy over the nginx, systemd, and pgbouncer config files, or rewrite them from scratch.
+
+### Certbot
+
+Copying your Nginx config files will not be sufficient to re-run letsencrypt. You'll need to copy the certificate files referenced by `ssl_certificate` and `ssl_certificate_key` (in `/etc/nginx/sites-available/mastodon`) to the new machine and update the path in the new machine's nginx config. (Don't use letsencrypt's own `live` folder for this, or else letsencrypt will complain when you try to re-generate the certificate. Just use any temporary directory for this, since re-running letsencrypt will overwrite the config anyway.)
+
+### Migrate Redis (optional)
+
+As mentioned in the [Backup Guide]({{< relref "backups" >}}), losing the Redis database is almost harmless. But if you want to migrate Redis data, you can shut down both Redis services, copy the `/var/lib/redis/dump.rdb` to the new machine (ensuring the permissions and ownership are correct), and then restart Redis.
 
 ### During migration {#during-migration}
 
