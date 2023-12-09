@@ -225,7 +225,7 @@ cp /home/mastodon/live/dist/mastodon-*.service /etc/systemd/system/
 $EDITOR /etc/systemd/system/mastodon-*.service
 ```
 
-最后，启动并启用新的 systemd 服务:
+最后，启动新的 systemd 服务并将 mastodon 的服务设为开机自动激活：
 
 ```sh
 systemctl daemon-reload
