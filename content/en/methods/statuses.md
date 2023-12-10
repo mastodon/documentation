@@ -558,12 +558,45 @@ Authorization
 #### Response
 ##### 200: OK
 
-Translating the first "Hello world" post from mastodon.social into Spanish
+Translating a status in Spanish with content warning and media into English
 
 ```json
 {
-  "content": "<p>Hola mundo</p>",
-  "detected_source_language": "en",
+  "content": "<p>Hello world</p>",
+  "spoiler_text": "Greatings ahead",
+  "media_attachments": [
+    {
+      "id": 22345792,
+      "description": "Status author waving at the camera"
+    }
+  ],
+  "poll": null,
+  "detected_source_language": "es",
+  "provider": "DeepL.com"
+}
+```
+
+Translating a status with poll into English
+
+```json
+{
+  "content": "<p>Should I stay or should I go?</p>",
+  "spoiler_text": null,
+  "media_attachments": [],
+  "poll": [
+    {
+      "id": 34858,
+      "options": [
+        {
+          "title": "Stay" 
+        },
+        {
+          "title": "Go"
+        }
+      ]
+    }
+  ],
+  "detected_source_language": "ja",
   "provider": "DeepL.com"
 }
 ```
