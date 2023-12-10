@@ -4,8 +4,9 @@
 
 <ul>
   {{ $currentPage := . }}
+  <button class="toggle-button"><strong>+</strong><span>Expand All</span></button>
   {{ range .Site.Menus.docs.ByWeight }}
-    <li>
+    <li class="{{ if .Page }}collapsed stay-collapsed{{ end }}">
       {{ if .Page }}
         <a href="{{ .URL }}" class="{{ if $currentPage.IsMenuCurrent "docs" . }}active{{ end }}">{{ .Name }}</a>
       {{ else }}
@@ -13,7 +14,7 @@
       {{ end }}
 
       {{ if .HasChildren }}
-        <ul class="sub-menu">
+        <ul class="sub-menu" id="sidebar-{{ anchorize .Name }}">
           {{ range .Children }}
             <li>
               <a href="{{ .URL }}" class="{{ if $currentPage.IsMenuCurrent "docs" . }}active{{ end }}">{{ .Name }}</a>

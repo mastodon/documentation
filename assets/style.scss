@@ -77,7 +77,7 @@ table {
   border-spacing: 0;
 }
 
-a {
+a:not(:focus-visible) {
   outline: 0;
 }
 
@@ -125,6 +125,10 @@ body {
     margin-top: 12px;
     margin-bottom: 52px;
 
+    :root.js & {
+      margin-bottom: 42px;
+    }
+
     img {
       height: 38px;
     }
@@ -138,8 +142,51 @@ body {
     }
   }
 
+  .toggle-button {
+    -webkit-appearance: none;
+    appearance: none;
+    background: lighten($darkest, 4%);
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px 4px;
+    margin: 0;
+    font: inherit;
+    cursor: pointer;
+    color: inherit;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+
+    strong {
+      font-size: 1.3em;
+      line-height: 0;
+      margin-right: 0.5em;
+      margin-bottom: 0.1em;
+    }
+
+    &:hover,
+    &:focus {
+      background: lighten($darkest, 8%);
+    }
+    &:active {
+      background: lighten($darkest, 12%);
+    }
+
+    :root:not(.js) & {
+      display: none;
+    }
+  }
+
   & > ul > li {
     margin-bottom: 26px;
+
+    &.collapsed {
+      & > .sub-title::before {
+        transform: rotate(-90deg);
+      }
+      margin-bottom: 10px;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -151,6 +198,21 @@ body {
     padding: 10px;
     font-weight: 500;
     text-transform: uppercase;
+
+    :root.js & {
+      -webkit-user-select: none;
+      user-select: none;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-right: 10px;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 10 10"><path fill="%239baec8" d="M5 10L0 0h10z"/></svg>') no-repeat;
+      }
+    }
   }
 
   & > ul a {
@@ -161,11 +223,11 @@ body {
     padding: 10px;
   }
 
-  .sub-menu {
-    a.active {
-      color: $vibrant;
-    }
+  a.active {
+    color: $vibrant;
+  }
 
+  .sub-menu {
     &.collapsed {
       display: none;
     }
