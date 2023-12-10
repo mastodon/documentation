@@ -19,8 +19,8 @@ Each response from Mastodon’s web server carries a header with a unique reques
 
 By default your logs will show `info` level logging. To see more debugging messages, you can your `.env.production` file to increase the level, for the relevant service:
 
-- Web/Sidekiq: Set the value of `RAILS_LOG_LEVEL` to `debug` and then restart the service that you're attempting to troubleshoot.
-- Streaming: Set the value of `LOG_LEVEL` to `silly` and then restart the service that you're attempting to troubleshoot.
+- **Web/Sidekiq:** Set the value of `RAILS_LOG_LEVEL` to `debug` and then restart the service that you're attempting to troubleshoot.
+- **Streaming:** Set the value of `LOG_LEVEL` to `silly` and then restart the service that you're attempting to troubleshoot.
 
 More information on other logging levels for these option can be found on the [Configuring your environment](https://docs.joinmastodon.org/admin/config) page.
 
