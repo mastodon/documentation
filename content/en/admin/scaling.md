@@ -123,13 +123,13 @@ As a solution, it is possible to start different Sidekiq processes for the queue
 
 **Make sure you only have one `scheduler` queue running!!**
 
-## Transaction pooling with pgBouncer {#pgbouncer}
+## Transaction pooling with PgBouncer {#pgbouncer}
 
 ### Why you might need PgBouncer {#pgbouncer-why}
 
-If you start running out of available Postgres connections (the default is 100) then you may find PgBouncer to be a good solution. This document describes some common gotchas as well as good configuration defaults for Mastodon.
+If you start running out of available PostgreSQL connections (the default is 100) then you may find PgBouncer to be a good solution. This document describes some common gotchas as well as good configuration defaults for Mastodon.
 
-User roles with `DevOps` permissions in Mastodon can monitor the current usage of Postgres connections through the PgHero link in the Administration view. Generally, the number of connections open is equal to the total threads in Puma, Sidekiq, and the streaming API combined.
+User roles with `DevOps` permissions in Mastodon can monitor the current usage of PostgreSQL connections through the PgHero link in the Administration view. Generally, the number of connections open is equal to the total threads in Puma, Sidekiq, and the streaming API combined.
 
 ### Installing PgBouncer {#pgbouncer-install}
 
@@ -143,7 +143,7 @@ sudo apt install pgbouncer
 
 #### Setting a password {#pgbouncer-password}
 
-First off, if your `mastodon` user in Postgres is set up without a password, you will need to set a password.
+First off, if your `mastodon` user in PostgreSQL is set up without a password, you will need to set a password.
 
 Here’s how you might reset the password:
 
@@ -193,7 +193,7 @@ In both cases, the password is just `password`.
 
 Edit `/etc/pgbouncer/pgbouncer.ini`
 
-Add a line under `[databases]` listing the Postgres databases you want to connect to. Here we’ll just have PgBouncer use the same username/password and database name to connect to the underlying Postgres database:
+Add a line under `[databases]` listing the PostgreSQL databases you want to connect to. Here we’ll just have PgBouncer use the same username/password and database name to connect to the underlying PostgreSQL database:
 
 ```text
 [databases]
@@ -219,13 +219,13 @@ Make sure the `pgbouncer` user is an admin:
 admin_users = pgbouncer
 ```
 
-Mastodon requires a different pooling mode than the default session-based one. Specifically, it needs a transaction-based pooling mode. This means that a Postgres connection is established at the start of a transaction and terminated upon its completion. Therefore, it's essential to change the `pool_mode` setting from `session` to `transaction`:
+Mastodon requires a different pooling mode than the default session-based one. Specifically, it needs a transaction-based pooling mode. This means that a PostgreSQL connection is established at the start of a transaction and terminated upon its completion. Therefore, it's essential to change the `pool_mode` setting from `session` to `transaction`:
 
 ```ini
 pool_mode = transaction
 ```
 
-Next up, `max_client_conn` defines how many connections PgBouncer itself will accept, and `default_pool_size` puts a limit on how many Postgres connections will be opened under the hood. (In PgHero the number of connections reported will correspond to `default_pool_size` because it has no knowledge of PgBouncer.)
+Next up, `max_client_conn` defines how many connections PgBouncer itself will accept, and `default_pool_size` puts a limit on how many PostgreSQL connections will be opened under the hood. (In PgHero the number of connections reported will correspond to `default_pool_size` because it has no knowledge of PgBouncer.)
 
 The defaults are fine to start, and you can always increase them later:
 
@@ -234,7 +234,7 @@ max_client_conn = 100
 default_pool_size = 20
 ```
 
-Don’t forget to reload or restart pgbouncer after making your changes:
+Don’t forget to reload or restart PgBouncer after making your changes:
 
 ```bash
 sudo systemctl reload pgbouncer
@@ -242,7 +242,7 @@ sudo systemctl reload pgbouncer
 
 #### Debugging that it all works {#pgbouncer-debug}
 
-You should be able to connect to PgBouncer just like you would with Postgres:
+You should be able to connect to PgBouncer just like you would with PostgreSQL:
 
 ```bash
 psql -p 6432 -U mastodon mastodon_production
@@ -266,7 +266,7 @@ PREPARED_STATEMENTS=false
 
 Since we’re using transaction-based pooling, we can’t use prepared statements.
 
-Next up, configure Mastodon to use port 6432 (PgBouncer) instead of 5432 (Postgres) and you should be good to go:
+Next up, configure Mastodon to use port 6432 (PgBouncer) instead of 5432 (PostgreSQL) and you should be good to go:
 
 ```bash
 DB_HOST=localhost
@@ -277,7 +277,7 @@ DB_PORT=6432
 ```
 
 {{< hint style="warning" >}}
-You cannot use pgBouncer to perform `db:migrate` tasks. But this is easy to work around. If your postgres and pgbouncer are on the same host, it can be as simple as defining `DB_PORT=5432` together with `RAILS_ENV=production` when calling the task, for example: `RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate` (you can specify `DB_HOST` too if it’s different, etc)
+You cannot use PgBouncer to perform `db:migrate` tasks. But this is easy to work around. If your PostgreSQL and PgBouncer are on the same host, it can be as simple as defining `DB_PORT=5432` together with `RAILS_ENV=production` when calling the task, for example: `RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate` (you can specify `DB_HOST` too if it’s different, etc)
 {{< /hint >}}
 
 #### Administering PgBouncer {#pgbouncer-admin}
@@ -402,7 +402,7 @@ production:
         url: postgresql://db_user:db_password@db_host:db_port/db_name
 ```
 
-Make sure the URLs point to wherever your PostgreSQL servers are. You can add multiple replicas. You could have a locally installed pgBouncer with a configuration to connect to two different servers based on the database name, e.g. “mastodon” going to the primary, “mastodon_replica” going to the replica, so in the file above both URLs would point to the local pgBouncer with the same user, password, host and port, but different database name. There are many possibilities how this could be set up! For more information on Makara, [see their documentation](https://github.com/taskrabbit/makara#databaseyml).
+Make sure the URLs point to wherever your PostgreSQL servers are. You can add multiple replicas. You could have a locally installed PgBouncer with a configuration to connect to two different servers based on the database name, e.g. “mastodon” going to the primary, “mastodon_replica” going to the replica, so in the file above both URLs would point to the local PgBouncer with the same user, password, host and port, but different database name. There are many possibilities how this could be set up! For more information on Makara, [see their documentation](https://github.com/taskrabbit/makara#databaseyml).
 
 {{< hint style="warning" >}}
 Make sure the sidekiq processes run with the stock `config/database.yml` to avoid failing jobs and data loss!

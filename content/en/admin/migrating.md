@@ -17,7 +17,7 @@ This guide was written with Ubuntu Server in mind; your mileage may vary for oth
 
 1. Set up a new Mastodon server using the [Production Guide]({{< relref "install" >}}) (however, don’t run `mastodon:setup`).
 2. Stop Mastodon on the old server (e.g. `systemctl stop 'mastodon-*.service'`).
-3. Dump and load the Postgres database using the instructions below.
+3. Dump and load the PostgreSQL database using the instructions below.
 4. Copy the `system/` files using the instructions below. (Note: if you’re using S3, you can skip this step.)
 5. Copy the `.env.production` file.
 6. Run `RAILS_ENV=production bundle exec rails assets:precompile` to compile Mastodon
@@ -34,18 +34,18 @@ This guide was written with Ubuntu Server in mind; your mileage may vary for oth
 At a high level, you’ll need to copy over the following:
 
 * The `~/live/public/system` directory, which contains user-uploaded images and videos (if using S3, you don’t need this)
-* The Postgres database (using [pg_dump](https://www.postgresql.org/docs/9.1/static/backup-dump.html))
+* The PostgreSQL database (using [pg_dump](https://www.postgresql.org/docs/9.1/static/backup-dump.html))
 * The `~/live/.env.production` file, which contains server config and secrets
 
 Less crucially, you’ll probably also want to copy the following for convenience:
 
 * The nginx config (under `/etc/nginx/sites-available/default`)
 * The systemd config files (`/etc/systemd/system/mastodon-*.service`), which may contain your server tweaks and customizations
-* The pgbouncer configuration under `/etc/pgbouncer` (if you’re using it)
+* The PgBouncer configuration under `/etc/pgbouncer` (if you’re using it)
 
-### Dump and load Postgres {#dump-and-load-postgres}
+### Dump and load PostgreSQL {#dump-and-load-postgresql}
 
-Instead of running `mastodon:setup`, we’re going to create an empty Postgres database using the `template0` database (which is useful when restoring a Postgres dump, [as described in the pg_dump documentation](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)).
+Instead of running `mastodon:setup`, we’re going to create an empty PostgreSQL database using the `template0` database (which is useful when restoring a PostgreSQL dump, [as described in the pg_dump documentation](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)).
 
 Run this as the `mastodon` user on your old system:
 
@@ -80,7 +80,7 @@ You’ll want to re-run this if any of the files on the old server change.
 
 You should also copy over the `.env.production` file, which contains secrets.
 
-Optionally, you may copy over the nginx, systemd, and pgbouncer config files, or rewrite them from scratch.
+Optionally, you may copy over the nginx, systemd, and PgBouncer config files, or rewrite them from scratch.
 
 ### During migration {#during-migration}
 

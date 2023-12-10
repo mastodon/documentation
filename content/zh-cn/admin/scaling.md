@@ -101,7 +101,7 @@ sudo apt install pgbouncer
 #### 设置密码 {#pgbouncer-password}
 
 首先，如果你的Postgres中`mastodon`帐户没有设置密码的话，你需要设置一个密码。
-First off, if your `mastodon` user in Postgres is set up without a password, you will need to set a password.
+First off, if your `mastodon` user in PostgreSQL is set up without a password, you will need to set a password.
 
 下面是如何重置密码：
 
@@ -212,7 +212,7 @@ PREPARED_STATEMENTS=false
 
 因为我们使用基于事务（transaction-based）的连接池，我们不能使用参数化查询（prepared statement）。
 
-接下来，配置Mastodon使用6432端口（PgBouncer）而不是5432端口（Postgres）就可以了：
+接下来，配置Mastodon使用6432端口（PgBouncer）而不是5432端口（PostgreSQL）就可以了：
 
 ```bash
 DB_HOST=localhost
