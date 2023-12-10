@@ -17,11 +17,14 @@ Each response from Mastodon’s web server carries a header with a unique reques
 
 ## **I'm not seeing much in my logs. How do I enable additional logging/debugging information?**
 
-By default your logs will show `info` level logging. To see all debugging messages, modify the setting `RAILS_LOG_LEVEL` in your your `.env.production` file and set the logging level to `debug` and then restart the service that you're attempting to troubleshoot.
+By default your logs will show `info` level logging. To see more debugging messages, you can your `.env.production` file to increase the level, for the relevant service:
 
-More information on other logging levels for this option can be found on the [Configuring your environment](https://docs.joinmastodon.org/admin/config/#rails_log_level) page.
+- Web/Sidekiq: Set the value of `RAILS_LOG_LEVEL` to `debug` and then restart the service that you're attempting to troubleshoot.
+- Streaming: Set the value of `LOG_LEVEL` to `silly` and then restart the service that you're attempting to troubleshoot.
 
-The `debug` level can be very verbose and you should take care to change the log level back to a lower level once you have completed your troubleshooting.
+More information on other logging levels for these option can be found on the [Configuring your environment](https://docs.joinmastodon.org/admin/config) page.
+
+The `debug` or `silly` levels can be very verbose and you should take care to change the log level back to a lower level, once you have completed your troubleshooting.
 
 ## **After an upgrade to a newer version, some pages look weird, like they have unstyled elements. Why?**
 
