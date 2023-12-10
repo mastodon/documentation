@@ -15,6 +15,17 @@ Specific details of server-side errors are _never_ displayed to the public, as t
 
 Each response from Mastodon’s web server carries a header with a unique request ID, which is also reflected in the logs. By inspecting the headers of the error page, you can easily find the corresponding stack trace in the log.
 
+## **I'm not seeing much in my logs. How do I enable additional logging/debugging information?**
+
+By default your logs will show `info` level logging. To see more debugging messages, you can your `.env.production` file to increase the level, for the relevant service:
+
+- **Web/Sidekiq:** Set the value of `RAILS_LOG_LEVEL` to `debug` and then restart the service that you're attempting to troubleshoot.
+- **Streaming:** Set the value of `LOG_LEVEL` to `silly` and then restart the service that you're attempting to troubleshoot.
+
+More information on other logging levels for these option can be found on the [Configuring your environment](https://docs.joinmastodon.org/admin/config) page.
+
+The `debug` or `silly` levels can be very verbose and you should take care to change the log level back to a lower level, once you have completed your troubleshooting.
+
 ## **After an upgrade to a newer version, some pages look weird, like they have unstyled elements. Why?**
 
 Check that you have run `RAILS_ENV=production bin/rails assets:precompile` after the upgrade, and restarted Mastodon’s web process, because it looks like it’s serving outdated stylesheets and scripts. It’s also possible that the precompilation fails due to a lack of RAM, as webpack is unfortunately extremely memory-hungry. If that is the case, make sure you have some swap space assigned. Alternatively, it’s possible to precompile the assets on a different machine, then copy over the `public/packs` directory.
