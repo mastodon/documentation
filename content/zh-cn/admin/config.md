@@ -148,6 +148,8 @@ Mastodon使用环境变量作为其的配置。
 * `S3_HOSTNAME`
 * `S3_ENDPOINT`
 * `S3_SIGNATURE_VERSION`
+* `S3_BATCH_DELETE_LIMIT`
+* `S3_BATCH_DELETE_RETRY`
 
 ### Swift {#swift}
 
