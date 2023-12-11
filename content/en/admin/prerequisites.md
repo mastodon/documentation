@@ -42,11 +42,7 @@ sendername = Fail2Ban
 [sshd]
 enabled = true
 port = 22
-
-[sshd-ddos]
-enabled = true
-filter = sshd
-port = 22
+mode = aggressive
 ```
 
 Finally, restart fail2ban:
