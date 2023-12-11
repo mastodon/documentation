@@ -460,16 +460,16 @@ Set to `auto` (default), `always`, or `never`.
 
 #### `SMTP_SSL`
 
-E-mail configuration is based on the *action_mailer* component of the *Ruby on Rails* framework that Mastodon is built on. Complete documentation on action_mailer is available [here](https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration). The client uses SMTP or derivatives: StartTLS + SMTP or SMTPS (SMTP over TLS).
+Email configuration is based on the *action_mailer* component of the *Ruby on Rails* framework that Mastodon is built on. Complete documentation on action_mailer is available [here](https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration). The client uses SMTP or derivatives: StartTLS + SMTP or SMTPS (SMTP over TLS).
 
 ### Basic configuration {#basic}
 
 * `SMTP_SERVER`: Specify the server to use. For example `sub.domain.tld`.
 * `SMTP_PORT`: By default, the value is `25` (the usual port for SMTP). If StartTLS is detected, it may be switched to port 587.
 * `SMTP_DOMAIN`: Only required if a HELO domain is needed. Will be set to the `SMTP_SERVER` domain by default.
-* `SMTP_FROM_ADDRESS`: Specify a sender address. 
+* `SMTP_FROM_ADDRESS`: Specify a sender address.
 * `SMTP_DELIVERY_METHOD`: By default, the value is `smtp` (can also be `sendmail`).
-  
+
 ### Authentication for the SMTP server {#smtpauthentication}
 
 * `SMTP_LOGIN`: Login for the SMTP user.
@@ -480,12 +480,12 @@ E-mail configuration is based on the *action_mailer* component of the *Ruby on R
 By default, a StartTLS connection will be attempted to the specified SMTP server.
 
 * `SMTP_ENABLE_STARTTLS_AUTO`: Default `true`.
-* `SMTP_CA_FILE`: A value may be specified, but on many Linux distros (e.g. Debian-based) this will be `/etc/ssl/certs/ca-certificates.crt`. 
-* `SMTP_OPENSSL_VERIFY_MODE`: `none` or `peer`. When using TLS, it may be useful to accept connections with a self-signed certificate. 
+* `SMTP_CA_FILE`: A value may be specified, but on many Linux distros (e.g. Debian-based) this will be `/etc/ssl/certs/ca-certificates.crt`.
+* `SMTP_OPENSSL_VERIFY_MODE`: `none` or `peer`. When using TLS, it may be useful to accept connections with a self-signed certificate.
 * `SMTP_TLS`: `true` or `false` (default `false`)
 * `SMTP_SSL`: `true` or `false` (default `false`)
 
-Note that `TLSv1.3` and `TLSv1.2` are the only SSL/TLS protocols currently considered to be secure. 
+Note that `TLSv1.3` and `TLSv1.2` are the only SSL/TLS protocols currently considered to be secure.
 
 ## File storage {#files}
 
@@ -741,14 +741,14 @@ before Mastodon starts.
 
 #### `EMAIL_DOMAIN_ALLOWLIST`
 
-If set, registrations will not be possible with any e-mails **except** those from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
+If set, registrations will not be possible with any emails **except** those from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
 
 #### `EMAIL_DOMAIN_DENYLIST`
 
-If set, registrations will not be possible with any e-mails from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
+If set, registrations will not be possible with any emails from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
 
 {{< hint style="warning" >}}
-This option is deprecated. You can dynamically block e-mail domains from the admin interface or the `tootctl` command-line interface.
+This option is deprecated. You can dynamically block email domains from the admin interface or the `tootctl` command-line interface.
 {{</ hint >}}
 
 ### Sessions

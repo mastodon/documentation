@@ -42,7 +42,7 @@ After logging in, navigate to the **Site settings** page (under **Preferences** 
 | Setting | Meaning |
 | :--- | :--- |
 | Contact username | Your username so people know who owns the server |
-| Business e-mail | An e-mail address so people locked out of their accounts, or people without accounts, can contact you |
+| Business email | An email address so people locked out of their accounts, or people without accounts, can contact you |
 | Instance description | Why did you start this server? Who is it for? What makes it different? |
 | Custom extended information | You can put all sorts of information in here but a **code of conduct** is recommended |
 

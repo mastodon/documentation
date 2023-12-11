@@ -27,7 +27,7 @@ Możesz wybrać które osoby chcesz przestać obserwować lub usunąć z obserwu
 
 ## Ustawienia konta {#account}
 
-Z ustawień konta możesz zmienić swój adres e-mail, ustawić nowe hasło, unieważnić aktywne sesje lub uwierzytelnione aplikacje czy włączyć uwierzytelnianie dwuetapowe.
+Z ustawień konta możesz zmienić swój adres email, ustawić nowe hasło, unieważnić aktywne sesje lub uwierzytelnione aplikacje czy włączyć uwierzytelnianie dwuetapowe.
 
 ## Dowody tożsamości {#proofs}
 
