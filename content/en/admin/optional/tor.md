@@ -85,9 +85,11 @@ server {
 
 ## Serve Tor over HTTP {#http}
 
-While it may be tempting to serve your Tor version of Mastodon over HTTPS it is not a good idea for most people. See [this](https://blog.torproject.org/facebook-hidden-services-and-https-certs) blog post from the Tor Project about why HTTPS certificates do not add value. Since you cannot get an SSL cert for an onion domain, you will also experience certificate errors when trying to use your Mastodon instance. A Tor developer has more recently spelled out the reasons why serving a Tor service over HTTPS is not beneficial for most use cases [here](https://matt.traudt.xyz/posts/2017-12-02-dont-https-your-onions/).
+This section assumes that you want to expose your instance on both Tor and the public Internet *simultaneously*.
 
-The solution is to serve your Mastodon instance over HTTP, but only for Tor. This can be added by prepending an additional configuration to your Nginx configuration.
+While it may be tempting to serve your Tor version of Mastodon over HTTPS, it isn't always ideal. This option is mostly useful for large companies that can produce their own certificates with their own company information. There is no Certificate Authority (CA) that provides them [for free](https://community.torproject.org/onion-services/advanced/https/), and there is also [a blog post from the Tor Project](https://blog.torproject.org/facebook-hidden-services-and-https-certs) that explains why HTTPS certificates are not really beneficial for security. On the other hand, Mastodon uses a lot of redirects to the HTTPS version of your site, where the presence of a validated certificate may make it easier for your users to use your instance on Tor without having to manually remove the `https://` prefix in URLs.
+
+In this section, we will go over how to serve your Mastodon instance over HTTP, but for Tor **only**. This can be added by prepending an additional configuration to your existing Nginx configuration.
 
 ```nginx
 server {
@@ -138,6 +140,7 @@ service nginx restart
 
 ## Gotchas {#gotchas}
 
-There are a few things you will need to understand. Certain redirects will push your users to HTTPS. They will have to manually replace the URL with HTTP to continue.
+There are a few things you will need to understand.
 
-Various resources, such as images, will still be offered through your regular non-Tor domain. How much of a problem this is will depend on your users' level of caution.
+- As mentioned earlier, certain URLs in the Mastodon frontend will force your users to a HTTPS URL. They will have to manually replace the URL with HTTP to continue.
+- Various resources, such as images, will **still** be offered through your regular clearnet domain. This could possibly be a problem, depending on how cautious your users want, try or need to be.
