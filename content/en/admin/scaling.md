@@ -373,6 +373,11 @@ systemctl restart mastodon-web.service
 systemctl restart redis-sidekiq.service
 ```
 
+
+## Redis Sentinel for High Availability {#redis-sentinel}
+
+As mentioned, Redis is a critical part of a Mastodon instance's operation. By default, your deployment will use a single Redis instance, or multiple if you've setup a cache. However if that instance goes down it can bring the entire Mastodon instance down as well. To alleviate this, Redis Sentinel can be used to track your Redis instances and automatically direct clients to a new primary if one goes down. You can specify `REDIS_SENTINEL`, which is either a DNS name that resolves to the IPs of your Redis Sentinel instances (e.g a Kubernetes service) or a comma-delimited list of the IP:Port combinations directly, that Mastodon can talk with to determine the current master Redis node. By default Sentinel will set an instance as down and select a new master after a minute of the current master being unreachable, but this can be configured based on your setup.
+
 ## Read-replicas {#read-replicas}
 
 To reduce the load on your PostgreSQL server, you may wish to set up hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
