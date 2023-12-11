@@ -60,7 +60,9 @@ We provide a **DigitalOcean 1-Click Install Image** that you can put on a Digita
 
 {{< caption-link url="https://marketplace.digitalocean.com/apps/mastodon" caption="Mastodon 1-Click Install Image on DigitalOcean" >}}
 
-The 1-Click Install does assume a single-machine setup. Mastodon scales quite well horizontally. If your needs outgrow the capacity of a single machine, Mastodon can be divided into multiple app servers, background workers, multiple Redis backends, PostgreSQL replicas -- but the 1-click Install won't cut it.
+The 1-Click Install will deploy as a single-machine setup that can be scaled by adding CPU, memory or disk capacity to your Droplet.
+
+If the needs of your deployment outgrow those abilities, you can reconfigure to load balance across multiple app servers, use dedicated servers for background workers, or use external databases servers -- but these options are outside of the scope of the initial 1-Click Install.
 
 If you're interested in installing, configuring and managing everything on your own, proceed here:
 
