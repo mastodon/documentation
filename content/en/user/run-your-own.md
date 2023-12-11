@@ -16,7 +16,7 @@ There are a number of benefits to running your own Mastodon instance, including:
 - You can either limit sign-ups to be the only one on the server and run it like personal (micro)blog; maintain an invite-only community for family or friends; or, run a server anyone can sign up on - it's up to you!
 
 {{< hint style="warning" >}}
-Please bear mind that providing a public internet service involves moderation work and community management. This kind of work becomes more complicated the larger your server grows.
+Please bear in mind that providing a public internet service involves moderation work and community management. This kind of work becomes more complicated the larger your server grows.
 {{< /hint >}}
 
 ## So you want to run your own Mastodon server
