@@ -199,7 +199,17 @@ cp /home/mastodon/live/dist/nginx.conf /etc/nginx/sites-available/mastodon
 ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 ```
 
-Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with your own domain name, and make any other adjustments you might need.
+Then edit `/etc/nginx/sites-available/mastodon` to 
+
+1. Replace `example.com` with your own domain name
+2. Uncomment the `ssl_certificate` and `ssl_certificate_key` lines and replace the two lines with (ignore this step if you are bringing your own certificate)
+
+```
+ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;
+ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+```
+
+3. Make any other adjustments you might need.
 
 Un-comment the lines starting with `ssl_certificate` and `ssl_certificate_key`, updating the path with the correct domain name.
 
