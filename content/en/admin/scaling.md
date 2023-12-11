@@ -163,7 +163,7 @@ Then `\q` to quit.
 
 Edit `/etc/pgbouncer/userlist.txt`
 
-As long as you specify a user/password in pgbouncer.ini later, the values in `userlist.txt` do _not_ have to correspond to real PostgreSQL roles. You can arbitrarily define users and passwords, but you can reuse the “real” credentials for simplicity’s sake. Add the `mastodon` user to the `userlist.txt`:
+As long as you specify a user/password in `pgbouncer.ini` later, the values in `userlist.txt` do _not_ have to correspond to real PostgreSQL roles. You can arbitrarily define users and passwords, but you can reuse the “real” credentials for simplicity’s sake. Add the `mastodon` user to the `userlist.txt`:
 
 ```text
 "mastodon" "md5d75bb2be2d7086c6148944261a00f605"
