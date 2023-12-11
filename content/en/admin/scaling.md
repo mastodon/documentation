@@ -98,16 +98,25 @@ This would initiate the Sidekiq process with 15 threads. It is important to note
 
 #### Queues {#sidekiq-queues}
 
-Sidekiq uses different queues for tasks of varying importance, where importance is defined by how much it would impact the user experience of your server’s local users if the queue wasn’t working, in order of descending importance:
+Sidekiq uses different queues for tasks of varying importance, where importance is defined by how much it would impact the user experience of your server’s local users if the queue wasn’t working. The queues are listed here, in order of descending importance:
 
-| Queue       | Significance                                                                                                                         |
-| :---------- | :----------------------------------------------------------------------------------------------------------------------------------- |
-| `default`   | All tasks that affect local users.                                                                                                    |
-| `push`      | Delivery of payloads to other servers.                                                                                                |
-| `mailers`   | Delivery of e-mails.                                                                                                                  |
-| `pull`      | Lower priority tasks such as handling imports, backups, resolving threads, deleting users, forwarding replies.                        |
-| `scheduler` | Handling cron jobs such as refreshing trending hashtags and cleaning up logs.                                                               |
-| `ingress`   | Incoming remote activities. Lower priority than the default queue, so that local users still see their posts when the server is under load. |
+`default`
+: All tasks that affect local users.
+
+`push`
+: Delivery of payloads to other servers.
+
+`mailers`
+: Delivery of e-mails.
+
+`pull`
+: Lower priority tasks, such as handling imports, backups, resolving threads, deleting users, forwarding replies.
+
+`scheduler`
+: Handling cron jobs, such as refreshing trending hashtags and cleaning up logs.
+
+`ingress`
+: Incoming remote activities. Lower priority than the default queue, so that local users still see their posts when the server is under load.
 
 The default queues and their priorities are stored in [config/sidekiq.yml](https://github.com/mastodon/mastodon/blob/main/config/sidekiq.yml), but can be overridden by the command-line invocation of Sidekiq, e.g.:
 
