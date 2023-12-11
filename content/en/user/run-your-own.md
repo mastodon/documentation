@@ -25,14 +25,14 @@ Here is what you need:
 
 - A **domain name**. This is how you and others will access your server and how you and your users will be identified on the network.
 
-  **How to get**: Namecheap, Gandi, Hover, or any of the large number of domain name registrars. A domain comes with an annual cost, that varies depending on the choice of domain name.
-- A **VPS** (Virtual Private Server). Something that will run the Mastodon code, that will always be connected to the internet.
+  **How to get**: Namecheap, Gandi, Hover, or one of the many existing domain name registrars. A domain comes with an annual cost, which varies depending on the choice of domain name.
+- A **VPS** (Virtual Private Server). Something that will run the Mastodon code, which should always be connected to the internet.
 
-  **How to get**: DigitalOcean, Hetzner, Exoscale, Scaleway, any of the large number of hosting providers. A VPS comes with a monthly or annual cost that varies depending on hardware specifications.
-- An **e-mail provider**. Mastodon needs to send confirmation links and various notifications through e-mail, and hosting your own SMTP server, while possible, is much more difficult to do reliably than to use a third-party provider.
+  **How to get**: DigitalOcean, Hetzner, Exoscale, Scaleway, or one of the many existing hosting providers. A VPS comes with a monthly or annual cost that varies depending on hardware specifications.
+- An **email provider**. Mastodon needs to send confirmation links and various notifications through email, and hosting your own SMTP server, while possible, is much more difficult to do reliably than to use a third-party provider.
 
-  **How to get**: Mailgun, SparkPost, Postmark, Sendgrid, any of the large number of e-mail hosting providers that expose a SMTP API. An email provider comes with a monthly or annual cost, usually based on volume of e-mails sent.
-- (optionally) an **Object storage provider**. Mastodon can save files that you and your users upload on the hard disk drive of the VPS it runs on; however, the hard disk drive is usually not infinite, and can be difficult to upgrade later. An object storage provider gives you practically infinite metered file storage.
+  **How to get**: Mailgun, SparkPost, Postmark, Sendgrid, or any email hosting provider that exposes an SMTP API. An email provider comes with a monthly or annual cost, usually based on the volume of emails sent.
+- An **Object Storage provider** (optional). Mastodon can save files that you and your users upload on the storage of the VPS it runs on; however, the storage is often limited in space, and it can be difficult to upgrade later. An object storage provider gives a way to store files separately from your VPS, which is useful if your VPS has a small storage limit.
 
   **How to get**: Amazon S3, Exoscale, Wasabi, Google Cloud, anything that exposes either an S3-compatible or OpenStack Swift-compatible API. An object storage provider comes with a monthly cost based on the number and size of files stored, as well as how often they are accessed.
 
@@ -62,8 +62,8 @@ We provide a **DigitalOcean 1-Click Install Image** that you can put on a Digita
 
 The 1-Click Install will deploy as a single-machine setup that can be scaled by adding CPU, memory or disk capacity to your Droplet.
 
-If the needs of your deployment outgrow those abilities, you can reconfigure to load balance across multiple app servers, use dedicated servers for background workers, or use external databases servers -- but these options are outside of the scope of the initial 1-Click Install.
+If the needs of your deployment outgrow those abilities, you can reconfigure to load balance across multiple app servers, use dedicated servers for background workers, or use external databases servers - but these options are outside of the scope of the initial 1-Click Install.
 
-If you're interested in installing, configuring and managing everything on your own, proceed here:
+If you're interested in installing, configuring, and managing everything on your own, proceed here:
 
 {{< page-ref page="admin/prerequisites" >}}
