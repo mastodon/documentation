@@ -197,6 +197,7 @@ Copy the configuration template for nginx from the Mastodon directory:
 ```bash
 cp /home/mastodon/live/dist/nginx.conf /etc/nginx/sites-available/mastodon
 ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
+rm /etc/nginx/sites-enabled/default
 ```
 
 Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with your own domain name, and make any other adjustments you might need.
