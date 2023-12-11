@@ -407,3 +407,20 @@ Make sure the URLs point to wherever your PostgreSQL servers are. You can add mu
 {{< hint style="warning" >}}
 Make sure the sidekiq processes run with the stock `config/database.yml` to avoid failing jobs and data loss!
 {{< /hint >}}
+
+## Using a web load balancer
+
+Cloud providers like DigitalOcean, AWS, Hetzner, etc., offer virtual load balancing solutions that distribute network traffic across multiple servers, but provide a single public IP address.
+
+Scaling your deployment to provision multiple web/Puma servers behind one of these virtual load balancers can help provide more consistent performance by reducing the risk that a single server may become overwhelmed by user traffic, and decrease downtime when performing maintenance or upgrades. You should consult your provider documentation on how to setup and configure a load balancer, but consider that you need to configure your load balancer to monitor the health of the backend web/Puma nodes, otherwise you may send traffic to a service that is not responsive.
+
+The following endpoints are available to monitor for this purpose:
+
+- **Web/Puma:** `/health`
+- **Streaming API:** `/api/v1/streaming/health`
+
+These endpoints should both return an HTTP status code of 200, and the text `OK` as a result.
+
+{{< hint style="info" >}}
+You can also use these endpoints for health checks with a third-party monitoring/alerting utility.
+{{< /hint >}}
