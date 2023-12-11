@@ -367,7 +367,7 @@ Defaults to value of `REDIS_NAMESPACE`.
 
 #### `REDIS_SENTINEL`
 
-Either a single DNS name that resolves one or more A records for [Redis Sentinel](https://redis.io/docs/management/sentinel/), or a comma-deliminated list of Redis Sentinel instance IP:PORTs.
+Either a single DNS name that resolves one or more A records for [Redis Sentinel](https://redis.io/docs/management/sentinel/), or a comma-delimited list of Redis Sentinel instance IP:PORTs.
 
 #### `REDIS_SENTINEL_MASTER`
 
@@ -379,7 +379,7 @@ If using the DNS name approach for `REDIS_SIDEKIQ_SENTINEL`, defines the port to
 
 #### `CACHE_REDIS_SENTINEL`
 
-Either a single DNS name that resolves one or more A records for [Redis Sentinel](https://redis.io/docs/management/sentinel/), or a comma-deliminated list of Redis Sentinel instance IP:PORTs.
+Either a single DNS name that resolves one or more A records for [Redis Sentinel](https://redis.io/docs/management/sentinel/), or a comma-delimited list of Redis Sentinel instance IP:PORTs.
 
 #### `CACHE_REDIS_SENTINEL_MASTER`
 
@@ -391,7 +391,7 @@ If using the DNS name approach for `CACHE_REDIS_SENTINEL`, defines the port to u
 
 #### `SIDEKIQ_REDIS_SENTINEL`
 
-Either a single DNS name that resolves one or more A records for [Redis Sentinel](https://redis.io/docs/management/sentinel/), or a comma-deliminated list of Redis Sentinel instance IP:PORTs.
+Either a single DNS name that resolves one or more A records for [Redis Sentinel](https://redis.io/docs/management/sentinel/), or a comma-delimited list of Redis Sentinel instance IP:PORTs.
 
 #### `SIDEKIQ_REDIS_SENTINEL_MASTER`
 
