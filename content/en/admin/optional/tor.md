@@ -11,21 +11,21 @@ Mastodon can be served through Tor as an onion service. This will give you a `*.
 
 ## Installing Tor {#install}
 
-First Tor’s Debian archive needs to be added to apt.
+Firstly, Tor’s Debian archive needs to be added to apt.
 
 ```text
-deb https://deb.torproject.org/torproject.org stretch main
-deb-src https://deb.torproject.org/torproject.org stretch main
+deb https://deb.torproject.org/torproject.org bullseye main
+deb-src https://deb.torproject.org/torproject.org bullseye main
 ```
 
-Next add the gpg key.
+Next, add the GPG key.
 
 ```bash
 curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
 gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | apt-key add -
 ```
 
-Finally install the required packages.
+Finally, install the required packages.
 
 ```bash
 apt install tor deb.torproject.org-keyring
@@ -41,13 +41,13 @@ HiddenServiceVersion 3
 HiddenServicePort 80 127.0.0.1:80
 ```
 
-Restart tor.
+Restart Tor.
 
 ```bash
 sudo service tor restart
 ```
 
-Your tor hostname can now be found at `/var/lib/tor/onion_service/hostname`.
+Your Tor hostname can now be found at `/var/lib/tor/onion_service/hostname`.
 
 ## Move your Mastodon configuration {#nginx}
 
@@ -99,11 +99,11 @@ server {
 }
 ```
 
-## Serve Tor over http {#http}
+## Serve Tor over HTTP {#http}
 
-While it may be tempting to serve your Tor version of Mastodon over https it is not a good idea for most people. See [this](https://blog.torproject.org/facebook-hidden-services-and-https-certs) blog post from the Tor Project about why https certificates do not add value. Since you cannot get an SSL cert for an onion domain, you will also be plagued with certificate errors when trying to use your Mastodon instance. A Tor developer has more recently spelled out the reasons why serving a Tor service over https is not beneficial for most use cases [here](https://matt.traudt.xyz/posts/2017-12-02-dont-https-your-onions/).
+While it may be tempting to serve your Tor version of Mastodon over HTTPS it is not a good idea for most people. See [this](https://blog.torproject.org/facebook-hidden-services-and-https-certs) blog post from the Tor Project about why HTTPS certificates do not add value. Since you cannot get an SSL cert for an onion domain, you will also experience certificate errors when trying to use your Mastodon instance. A Tor developer has more recently spelled out the reasons why serving a Tor service over HTTPS is not beneficial for most use cases [here](https://matt.traudt.xyz/posts/2017-12-02-dont-https-your-onions/).
 
-The solution is to serve your Mastodon instance over http, but only for Tor. This can be added by prepending an additional configuration to your Nginx configuration.
+The solution is to serve your Mastodon instance over HTTP, but only for Tor. This can be added by prepending an additional configuration to your Nginx configuration.
 
 ```nginx
 server {
@@ -134,11 +134,17 @@ server {
 }
 ```
 
+Also update `.env.production`:
+
+```text
+ALTERNATE_DOMAINS=mastodon.qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7.onion
+```
+
 Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/onion_service/hostname`.
 
-Note that the onion hostname has been prefixed with “mastodon.”. Your Tor address acts as a wildcard domain. All subdomains will be routed through, and you can configure Nginx to respond to any subdomain you wish. If you do not wish to host any other services on your tor address you can omit the subdomain, or choose a different subdomain.
+Note that the onion hostname has been prefixed with “mastodon.”. Your Tor address acts as a wildcard domain. All subdomains will be routed through this, and you can configure Nginx to respond to any subdomain you wish. If you do not wish to host any other services on your Tor address you can omit the subdomain, or choose a different subdomain.
 
-Here you can see the payoff of moving your mastodon configurations to a different file. Without this, all of your configurations would have to be copied to both places. Any change to your configuration would have to be made in both places.
+Here you can see the payoff of moving your Mastodon configurations to a different file. Without this, all of your configurations would have to be copied to both places. Any change to your configuration would have to be made in both places.
 
 Restart your web server.
 
@@ -148,7 +154,6 @@ service nginx restart
 
 ## Gotchas {#gotchas}
 
-There are a few things you will need to be aware of. Certain redirects will push your users to https. They will have to manually replace the URL with http to continue.
+There are a few things you will need to understand. Certain redirects will push your users to HTTPS. They will have to manually replace the URL with HTTP to continue.
 
-Various resources, such as images, will still be offered through your regular non-Tor domain. How much of a problem this is will depend greatly on your user’s level of caution.
-
+Various resources, such as images, will still be offered through your regular non-Tor domain. How much of a problem this is will depend on your users' level of caution.
