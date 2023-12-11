@@ -11,25 +11,7 @@ Mastodon can be served through Tor as an onion service. This will give you a `*.
 
 ## Installing Tor {#install}
 
-Firstly, Tor’s Debian archive needs to be added to apt.
-
-```text
-deb https://deb.torproject.org/torproject.org bullseye main
-deb-src https://deb.torproject.org/torproject.org bullseye main
-```
-
-Next, add the GPG key.
-
-```bash
-curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
-gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | apt-key add -
-```
-
-Finally, install the required packages.
-
-```bash
-apt install tor deb.torproject.org-keyring
-```
+See the instructions provided by the Tor Project [here](https://support.torproject.org/apt/tor-deb-repo/).
 
 ## Configure Tor {#configure}
 
@@ -37,7 +19,8 @@ Edit the file at `/etc/tor/torrc` and add the following configuration.
 
 ```text
 HiddenServiceDir /var/lib/tor/onion_service/
-HiddenServiceVersion 3
+HiddenServiceSingleHopMode 1
+HiddenServiceNonAnonymousMode 1
 HiddenServicePort 80 127.0.0.1:80
 ```
 
@@ -53,10 +36,11 @@ Your Tor hostname can now be found at `/var/lib/tor/onion_service/hostname`.
 
 We will need to tell Nginx about your Mastodon configuration twice. To keep things [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) we need to move the Mastodon configuration into its own file that can be referenced.
 
-Create a new file at `/etc/nginx/snippets/mastodon.conf`. Put all of your Mastodon configuration parameters in this file with the exception of the `listen`, `server_name`, `include` and all of the SSL options. Your new file may look something like this.
+Create a new file at `/etc/nginx/snippets/mastodon.conf`. Put all of your Mastodon configuration parameters in this file with the exception of the `listen`, `server_name`, `include` and all of the SSL options. Include an `Onion-Location` header to let supporting browsers know that this service is also accessible from Tor. Your new file may look something like this.
 
 ```nginx
 add_header Referrer-Policy "same-origin";
+add_header Onion-Location mastodon.qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7.onion$request_uri;
 
 keepalive_timeout    70;
 sendfile             on;
@@ -79,7 +63,7 @@ Your Nginx configuration file will be left looking something like this.
 ```nginx
 server {
   listen 80;
-  server_name mastodon.myhosting.com;
+  server_name mastodon.example.com;
   return 301 https://$server_name$request_uri;
 }
 
@@ -91,11 +75,11 @@ map $http_upgrade $connection_upgrade {
 server {
   listen 443 ssl http2;
   list [::]:443 ssl http2;
-  server_name mastodon.myhosting.com;
+  server_name mastodon.example.com;
   include /etc/nginx/snippets/mastodon.conf;
 
-  ssl_certificate /etc/letsencrypt/live/mastodon.myhosting.com/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/mastodon.myhosting.com/privkey.pem;
+  ssl_certificate /etc/letsencrypt/live/mastodon.example.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/mastodon.example.com/privkey.pem;
 }
 ```
 
@@ -114,7 +98,7 @@ server {
 
 server {
   listen 80;
-  server_name mastodon.myhosting.com;
+  server_name mastodon.example.com;
   return 301 https://$server_name$request_uri;
 }
 
@@ -126,11 +110,11 @@ map $http_upgrade $connection_upgrade {
 server {
   listen 443 ssl http2;
   list [::]:443 ssl http2;
-  server_name mastodon.myhosting.com;
+  server_name mastodon.example.com;
   include /etc/nginx/snippets/mastodon.conf;
 
-  ssl_certificate /etc/letsencrypt/live/mastodon.myhosting.com/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/mastodon.myhosting.com/privkey.pem;
+  ssl_certificate /etc/letsencrypt/live/mastodon.example.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/mastodon.example.com/privkey.pem;
 }
 ```
 
@@ -140,7 +124,7 @@ Also update `.env.production`:
 ALTERNATE_DOMAINS=mastodon.qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7.onion
 ```
 
-Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/onion_service/hostname`.
+Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/onion_service/hostname`. This should also be reflected in the `Onion-Location` header in the snippets file.
 
 Note that the onion hostname has been prefixed with “mastodon.”. Your Tor address acts as a wildcard domain. All subdomains will be routed through this, and you can configure Nginx to respond to any subdomain you wish. If you do not wish to host any other services on your Tor address you can omit the subdomain, or choose a different subdomain.
 
