@@ -39,7 +39,7 @@ At a high level, you’ll need to copy over the following:
 
 Less crucially, you’ll probably also want to copy the following for convenience:
 
-* The nginx config (under `/etc/nginx/sites-available/default`)
+* The nginx config (under `/etc/nginx/sites-available/mastodon`)
 * The systemd config files (`/etc/systemd/system/mastodon-*.service`), which may contain your server tweaks and customizations
 * The PgBouncer configuration under `/etc/pgbouncer` (if you’re using it)
 
