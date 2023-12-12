@@ -369,42 +369,6 @@ Defaults to the value of `REDIS_NAMESPACE`.
 
 #### `SIDEKIQ_REDIS_URL`
 
-#### `REDIS_SENTINEL`
-
-Either a single DNS name that resolves one or more A records for [Redis Sentinel](https://redis.io/docs/management/sentinel/), or a comma-delimited list of Redis Sentinel instance IP:PORTs.
-
-#### `REDIS_SENTINEL_MASTER`
-
-The name of the Redis Sentinel master to connect to, defaults to `mymaster`.
-
-#### `REDIS_SENTINEL_PORT`
-
-If using the DNS name approach for `REDIS_SIDEKIQ_SENTINEL`, defines the port to use to connect to the instances resolved. Defaults to `26379`.
-
-#### `CACHE_REDIS_SENTINEL`
-
-Either a single DNS name that resolves one or more A records for [Redis Sentinel](https://redis.io/docs/management/sentinel/), or a comma-delimited list of Redis Sentinel instance IP:PORTs.
-
-#### `CACHE_REDIS_SENTINEL_MASTER`
-
-The name of the Redis Sentinel master to connect to, defaults to `mymaster`.
-
-#### `CACHE_REDIS_SENTINEL_PORT`
-
-If using the DNS name approach for `CACHE_REDIS_SENTINEL`, defines the port to use to connect to the instances resolved. Defaults to `26379`.
-
-#### `SIDEKIQ_REDIS_SENTINEL`
-
-Either a single DNS name that resolves one or more A records for [Redis Sentinel](https://redis.io/docs/management/sentinel/), or a comma-delimited list of Redis Sentinel instance IP:PORTs.
-
-#### `SIDEKIQ_REDIS_SENTINEL_MASTER`
-
-The name of the Redis Sentinel master to connect to, defaults to `mymaster`.
-
-#### `SIDEKIQ_REDIS_SENTINEL_PORT`
-
-If using the DNS name approach for `SIDEKIQ_REDIS_SENTINEL`, defines the port to use to connect to the instances resolved. Defaults to `26379`.
-
 ### Elasticsearch {#elasticsearch}
 
 {{< page-ref page="admin/elasticsearch" >}}
