@@ -1,13 +1,13 @@
 ---
 title: 匿名服务
-description: 通过TOR的匿名服务来访问Mastodon。
+description: 通过Tor的匿名服务来访问Mastodon。
 menu:
   docs:
     weight: 20
     parent: admin-optional
 ---
 
-可以通过TOR的匿名服务来访问Mastodon。这将给你一个只能通过 TOR 网络连接的 *.onion 地址。
+可以通过Tor的匿名服务来访问Mastodon。这将给你一个只能通过 Tor 网络连接的 \*.onion 地址。
 
 ## 安装 Tor {#install}
 
@@ -41,13 +41,13 @@ HiddenServiceVersion 3
 HiddenServicePort 80 127.0.0.1:80
 ```
 
-重启 tor。
+重启 Tor。
 
 ```bash
 sudo service tor restart
 ```
 
-现在，你的tor域名可以在 `/var/lib/tor/hidden_service/hostname` 找到。
+现在，你的Tor域名可以在 `/var/lib/tor/onion_service/hostname` 找到。
 
 ## 移动你的Mastodon配置 {#nginx}
 
@@ -77,7 +77,7 @@ error_log /var/log/nginx/mastodon_error.log warn;
 ```text
 server {
   listen 80;
-  server_name mastodon.myhosting.com;
+  server_name mastodon.example.com;
   return 301 https://$server_name$request_uri;
 }
 
@@ -89,11 +89,11 @@ map $http_upgrade $connection_upgrade {
 server {
   listen 443 ssl http2;
   list [::]:443 ssl http2;
-  server_name mastodon.myhosting.com;
+  server_name mastodon.example.com;
   include /etc/nginx/snippets/mastodon.conf;
 
-  ssl_certificate /etc/letsencrypt/live/mastodon.myhosting.com/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/mastodon.myhosting.com/privkey.pem;
+  ssl_certificate /etc/letsencrypt/live/mastodon.example.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/mastodon.example.com/privkey.pem;
 }
 ```
 
@@ -112,7 +112,7 @@ server {
 
 server {
   listen 80;
-  server_name mastodon.myhosting.com;
+  server_name mastodon.example.com;
   return 301 https://$server_name$request_uri;
 }
 
@@ -124,11 +124,11 @@ map $http_upgrade $connection_upgrade {
 server {
   listen 443 ssl http2;
   list [::]:443 ssl http2;
-  server_name mastodon.myhosting.com;
+  server_name mastodon.example.com;
   include /etc/nginx/snippets/mastodon.conf;
 
-  ssl_certificate /etc/letsencrypt/live/mastodon.myhosting.com/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/mastodon.myhosting.com/privkey.pem;
+  ssl_certificate /etc/letsencrypt/live/mastodon.example.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/mastodon.example.com/privkey.pem;
 }
 ```
 
@@ -150,4 +150,4 @@ service nginx restart
 
 许多的资源，诸如图片，将仍然从常规非Tor域名加载。问题的严重性很大程度上取决于用户的谨慎程度。
 
-{{< translation-status-zh-cn raw_title="Hidden services" raw_link="/admin/optional/tor/" last_tranlation_time="2020-05-04" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}
+{{< translation-status-zh-cn raw_title="Onion services" raw_link="/admin/optional/tor/" last_tranlation_time="2020-05-04" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}
