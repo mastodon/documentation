@@ -1,3 +1,4 @@
+
 ---
 title: statuses API methods
 description: Publish, interact, and view information about statuses.
@@ -557,12 +558,45 @@ Authorization
 #### Response
 ##### 200: OK
 
-Translating the first "Hello world" post from mastodon.social into Spanish
+Translating a status in Spanish with content warning and media into English
 
 ```json
 {
-  "content": "<p>Hola mundo</p>",
-  "detected_source_language": "en",
+  "content": "<p>Hello world</p>",
+  "spoiler_text": "Greatings ahead",
+  "media_attachments": [
+    {
+      "id": 22345792,
+      "description": "Status author waving at the camera"
+    }
+  ],
+  "poll": null,
+  "detected_source_language": "es",
+  "provider": "DeepL.com"
+}
+```
+
+Translating a status with poll into English
+
+```json
+{
+  "content": "<p>Should I stay or should I go?</p>",
+  "spoiler_text": null,
+  "media_attachments": [],
+  "poll": [
+    {
+      "id": 34858,
+      "options": [
+        {
+          "title": "Stay" 
+        },
+        {
+          "title": "Go"
+        }
+      ]
+    }
+  ],
+  "detected_source_language": "ja",
   "provider": "DeepL.com"
 }
 ```
@@ -1478,6 +1512,9 @@ language
 media_ids[]
 : Array of String. Include Attachment IDs to be attached as media. If provided, `status` becomes optional, and `poll` cannot be used.
 
+media_attributes[][]
+: Array of String. Each array includes id, description, and focus.
+
 poll[options][]
 : Array of String. Possible answers to the poll. If provided, `media_ids` cannot be used, and `poll[expires_in]` must be provided.
 
@@ -1852,3 +1889,4 @@ Status does not exist or is private.
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/reblogs_controller.rb" caption="app/controllers/api/v1/statuses/reblogs_controller.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/sources_controller.rb" caption="app/controllers/api/v1/statuses/sources_controller.rb" >}}
+

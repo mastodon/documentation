@@ -36,8 +36,9 @@ Remember to check how recently the library was updated, and whether it includes 
 
 * [mastodon-api-crystal](https://github.com/renatolond/mastodon-api-crystal)
 
-## Dart
+## Dart {#dart}
 
+* [mastodon_dart](https://pub.dev/packages/mastodon_dart)
 * [mastodon-api](https://github.com/mastodon-dart/mastodon-api)
 * [mastodon-oauth](https://github.com/mastodon-dart/mastodon-oauth2)
 * [mastodon](https://github.com/mykdavies/Mastodon)

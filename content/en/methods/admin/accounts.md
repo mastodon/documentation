@@ -3,7 +3,7 @@ title: admin/accounts API methods
 description: Perform moderation actions with accounts.
 menu:
   docs:
-    name: admin/accounts
+    name: accounts
     parent: methods-admin
     identifier: methods-admin-accounts
 aliases: [

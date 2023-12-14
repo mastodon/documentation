@@ -9,7 +9,7 @@ menu:
 
 Mastodon uses environment variables as its configuration.
 
-For convenience, it can read them from a flat file called `.env.production` in the Mastodon directory (called a "dotenv" file), but they can always be overridden by a specific process. For example, systemd service files can read environment variables from an `EnvironmentFile` or from inline definitions with `Environment`, so you can have different configuration parameters for specific services. They can also be specified when calling Mastodon from the command line.
+For convenience, it can read them from a flat file called `.env.production` in the Mastodon directory (called a "dotenv" file), but they can always be overridden by a specific process. For example, systemd service files can read environment variables from an `EnvironmentFile` or inline definitions with `Environment`, so you can have different configuration parameters for specific services. They can also be specified when calling Mastodon from the command line.
 
 ## Basic {#basic}
 
@@ -21,11 +21,11 @@ This is the unique identifier of your server in the network. It cannot be safely
 
 #### `WEB_DOMAIN`
 
-`WEB_DOMAIN` is an optional environment variable allowing to install Mastodon on one domain, while having the users' handles on a different domain, e.g. addressing users as `@alice@example.com` but accessing Mastodon on `mastodon.example.com`. This may be useful if your domain name is already used for a different website but you still want to use it as a Mastodon identifier because it looks better or shorter.
+`WEB_DOMAIN` is an optional environment variable allowing the installation of Mastodon on one domain, while having the users' handles on a different domain, e.g. addressing users as `@alice@example.com` but accessing Mastodon on `mastodon.example.com`. This may be useful if your domain name is already used for a different website but you still want to use it as a Mastodon identifier because it looks better or shorter.
 
-As with `LOCAL_DOMAIN`, `WEB_DOMAIN` cannot be safely changed once set, as this will confuse remote servers that knew of your previous settings and may break communication with them or make it unreliable. As the issues lie with remote servers' understanding of your accounts, re-installing Mastodon from scratch will not fix the issue. Therefore, please be extremely cautious when setting up `LOCAL_DOMAIN` and `WEB_DOMAIN`.
+As with `LOCAL_DOMAIN`, `WEB_DOMAIN` cannot be safely changed once set, as this will confuse remote servers that know of your previous settings and may break communication with them or make it unreliable. As the issues lie with remote servers' understanding of your accounts, re-installing Mastodon from scratch will not fix the issue. Therefore, please be extremely cautious when setting up `LOCAL_DOMAIN` and `WEB_DOMAIN`.
 
-To install Mastodon on `mastodon.example.com` in such a way it can serve `@alice@example.com`, set `LOCAL_DOMAIN` to `example.com` and `WEB_DOMAIN` to `mastodon.example.com`. This also requires additional configuration on the server hosting `example.com` to redirect or proxy requests to `https://example.com/.well-known/webfinger` to `https://mastodon.example.com/.well-known/webfinger`. For instance, with nginx, the configuration could look like the following:
+To install Mastodon on `mastodon.example.com` in such a way it can serve `@alice@example.com`, set `LOCAL_DOMAIN` to `example.com` and `WEB_DOMAIN` to `mastodon.example.com`. This also requires additional configuration on the server hosting `example.com` to redirect requests from `https://example.com/.well-known/webfinger` to `https://mastodon.example.com/.well-known/webfinger`. For instance, with nginx, the configuration could look like the following:
 
 ```
 location /.well-known/webfinger {
@@ -40,7 +40,7 @@ If you have multiple domains pointed at your Mastodon server, this setting will 
 
 #### `ALLOWED_PRIVATE_ADDRESSES`
 
-Comma-separated specific addresses/subnets allowed in outgoing HTTP queries.
+Comma-separated specific addresses/subnets are allowed in outgoing HTTP queries.
 
 #### `AUTHORIZED_FETCH`
 
@@ -48,12 +48,12 @@ Also called "secure mode". When set to `true`, the following changes occur:
 
 - Mastodon will stop generating linked-data signatures for public posts, which prevents them from being re-distributed efficiently but without precise control. Since a linked-data object with a signature is entirely self-contained, it can be passed around without making extra requests to the server where it originates.
 - Mastodon will require HTTP signature authentication on ActivityPub representations of public posts and profiles, which are normally available without any authentication. Profiles will only return barebones technical information when no authentication is supplied.
-- Prior to v4.0.0: Mastodon will require any REST/streaming API access to have a user context (i.e. having gone through an OAuth authorization screen with an active user), when normally some API endpoints are available without any authentication.
+- Prior to v4.0.0: Mastodon will require any REST/streaming API access to have a user context (i.e. having gone through an OAuth authorization screen with an active user) when normally some API endpoints are available without any authentication.
 
 As a result, through the authentication mechanism and avoiding re-distribution mechanisms that do not have your server in the loop, it becomes possible to enforce who can and cannot retrieve even public content from your server, e.g. servers whose domains you have blocked.
 
 {{< hint style="warning" >}}
-Unfortunately, secure mode is not without its drawbacks, which is why it is not enabled by default. Not all software in the fediverse can support it fully, in particular some functionality will be broken with Mastodon servers older than 3.0; you lose some useful functionality even with up-to-date servers since linked-data signatures are used to make public conversation threads more complete; and because an authentication mechanism on public content means no caching is possible, it comes with an increased computational cost.
+Unfortunately, secure mode is not without its drawbacks, which is why it is not enabled by default. Not all software in the fediverse can support it fully, in particular, some functionality will be broken with Mastodon servers older than 3.0; you lose some useful functionality even with up-to-date servers since linked-data signatures are used to make public conversation threads more complete; and because an authentication mechanism on public content means no caching is possible, it comes with an increased computational cost.
 {{</ hint >}}
 
 {{< hint style="warning" >}}
@@ -80,15 +80,15 @@ This setting was known as `WHITELIST_MODE` prior to 3.1.5.
 
 #### `DISALLOW_UNAUTHENTICATED_API_ACCESS`
 
-As of Mastodon v4.0.0, the web app is now used to render all requests, even for logged-out viewers. In order to make these views work, the web app makes public API requests in order to fetch accounts and statuses. If you would like to disallow this, then set this variable to `true`. Note that disallowing unauthenticated API access will cause profile and post permalinks to return an error to logged-out users, essentially making it so that the only ways to view content is to either log in locally or fetch it via ActivityPub.
+As of Mastodon v4.0.0, the web app is now used to render all requests, even for logged-out viewers. To make these views work, the web app makes public API requests to fetch accounts and statuses. If you would like to disallow this, then set this variable to `true`. Note that disallowing unauthenticated API access will cause profile and post permalinks to return an error to logged-out users, essentially making it so that the only way to view content is to either log in locally or fetch it via ActivityPub.
 
 #### `SINGLE_USER_MODE`
 
-If set to `true`, the frontpage of your Mastodon server will always redirect to the first profile in the database and registrations will be disabled.
+If set to `true`, the front page of your Mastodon server will always redirect to the first profile in the database and registrations will be disabled.
 
 #### `DEFAULT_LOCALE`
 
-By default, Mastodon will automatically detect the visitor's language from browser headers and display the Mastodon interface in that language (if it's supported). If you are running a language-specific or regional server, that behaviour may mislead visitors who do not speak your language into signing up on your server. For this reason, you may want to set this variable to a specific language.
+By default, Mastodon will automatically detect the visitor's language from browser headers and display the Mastodon interface in that language (if it's supported). If you are running a language-specific or regional server, that behavior may mislead visitors who do not speak your language into signing up on your server. For this reason, you may want to set this variable to a specific language.
 
 Example value: `de`
 
@@ -198,13 +198,17 @@ If set to true, Mastodon will answer requests for files in its `public` director
 
 #### `RAILS_LOG_LEVEL`
 
-Determines the amount of logs generated by Mastodon. Defaults to `info`, which generates a log entry about every request served by Mastodon and every background job processed by Mastodon. This can be useful but can get quite noisy and strain the I/O of your machine if there is a lot of traffic/activity. In that case, `warn` is recommended, which will only output information about things that are going wrong, and otherwise stay quiet. Possible values are `debug`, `info`, `warn`, `error`, `fatal` and `unknown`.
+Determines the amount of logs generated by Mastodon for the web and Sidekiq processes. Defaults to `info`, which generates a log entry about every request served by Mastodon and every background job processed by Mastodon. This can be useful but can get quite noisy and strain the I/O of your machine if there is a lot of traffic/activity. In that case, `warn` is recommended, which will only output information about things that are going wrong, and otherwise stay quiet. Possible values are `debug`, `info`, `warn`, `error`, `fatal` and `unknown`.
+
+#### `LOG_LEVEL`
+
+Determines the amount of logs generated by Mastodon for the streaming processes. Defaults to `info`. Possible values are `silly` and `info`.
 
 #### `TRUSTED_PROXY_IP`
 
 Tells the Mastodon web and streaming processes which IPs act as your trusted reverse proxy (e.g. nginx, Cloudflare). It affects how Mastodon determines the source IP of each request, which is used for important rate limits and security functions. If the value is set incorrectly then Mastodon could use the IP of the reverse proxy instead of the actual source.
 
-By default the loopback and private network address ranges are trusted. Specifically:
+By default, the loopback and private network address ranges are trusted. Specifically:
 
 - `127.0.0.1/8`
 - `::1/128`
@@ -311,11 +315,11 @@ Defaults to `5432`.
 
 #### `DB_POOL`
 
-How many database connections to pool in the process. This value should cover every thread in the process, for this reason, it defaults to the value of `MAX_THREADS`.
+Defines how many database connections to pool in the process. This value should cover every thread in the process, for this reason, it defaults to the value of `MAX_THREADS`.
 
 #### `DB_SSLMODE`
 
-Postgres's [SSL mode](https://www.postgresql.org/docs/10/libpq-ssl.html). Defaults to `prefer`.
+PostgreSQL [SSL mode](https://www.postgresql.org/docs/10/libpq-ssl.html). Defaults to `prefer`.
 
 #### `DATABASE_URL`
 
@@ -345,23 +349,23 @@ Example value: `redis://user:password@localhost:6379`
 
 #### `REDIS_NAMESPACE`
 
-If provided, namespaces all Redis keys. This allows sharing the same Redis database between different projects or Mastodon servers.
+If provided, namespaces all Redis keys. This allows the sharing of the same Redis database between different projects or Mastodon servers.
 
 #### `CACHE_REDIS_HOST`
 
-Defaults to value of `REDIS_HOST`.
+Defaults to the value of `REDIS_HOST`.
 
 #### `CACHE_REDIS_PORT`
 
-Defaults to value of `REDIS_PORT`.
+Defaults to the value of `REDIS_PORT`.
 
 #### `CACHE_REDIS_URL`
 
-If provided, takes precedence over `CACHE_REDIS_HOST` and `CACHE_REDIS_PORT`. Defaults to value of `REDIS_URL`.
+If provided, takes precedence over `CACHE_REDIS_HOST` and `CACHE_REDIS_PORT`. Defaults to the value of `REDIS_URL`.
 
 #### `CACHE_REDIS_NAMESPACE`
 
-Defaults to value of `REDIS_NAMESPACE`.
+Defaults to the value of `REDIS_NAMESPACE`.
 
 #### `SIDEKIQ_REDIS_URL`
 
@@ -375,7 +379,7 @@ If set to `true`, Mastodon will use Elasticsearch for its search functions.
 
 #### `ES_PRESET`
 
-It controls the ElasticSearch indices configuration (number of shards and replica).
+It controls the Elasticsearch indices configuration (number of shards and replica).
 
 Possible values are:
 
@@ -383,7 +387,7 @@ Possible values are:
 - `small_cluster`
 - `large_cluster`
 
-See the [ElasticSearch setup page for details on each setting](../elasticsearch#choosing-the-correct-preset).
+See the [Elasticsearch setup page for details on each setting](../elasticsearch#choosing-the-correct-preset).
 
 #### `ES_HOST`
 
@@ -403,7 +407,7 @@ Used for optionally authenticating with Elasticsearch
 
 #### `ES_PREFIX`
 
-Useful if the Elasticsearch server is shared between multiple projects or different Mastodon servers. Defaults to value of `REDIS_NAMESPACE`.
+Useful if the Elasticsearch server is shared between multiple projects or different Mastodon servers. Defaults to the value of `REDIS_NAMESPACE`.
 
 ### StatsD {#statsd}
 
@@ -461,7 +465,7 @@ E-mail configuration is based on the *action_mailer* component of the *Ruby on R
 ### Basic configuration {#basic}
 
 * `SMTP_SERVER`: Specify the server to use. For example `sub.domain.tld`.
-* `SMTP_PORT`: By default, the value is `25` (usual port for SMTP). If StartTLS is detected, it may be switched to port 587.
+* `SMTP_PORT`: By default, the value is `25` (the usual port for SMTP). If StartTLS is detected, it may be switched to port 587.
 * `SMTP_DOMAIN`: Only required if a HELO domain is needed. Will be set to the `SMTP_SERVER` domain by default.
 * `SMTP_FROM_ADDRESS`: Specify a sender address. 
 * `SMTP_DELIVERY_METHOD`: By default, the value is `smtp` (can also be `sendmail`).
@@ -470,7 +474,7 @@ E-mail configuration is based on the *action_mailer* component of the *Ruby on R
 
 * `SMTP_LOGIN`: Login for the SMTP user.
 * `SMTP_PASSWORD`:  Password for the SMTP user.
-* `SMTP_AUTH_METHOD`: Either `plain` (default; password is transmitted in the clear), `login` (password will be base64 encoded) or `cram_md5`.
+* `SMTP_AUTH_METHOD`: Either `plain` (default; the password is transmitted in the clear), `login` (password will be base64 encoded) or `cram_md5`.
 
 ### Secured SMTP
 By default, a StartTLS connection will be attempted to the specified SMTP server.
@@ -499,7 +503,7 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 #### `S3_ALIAS_HOST`
 
-Similar to `CDN_HOST`, you may serve _user-uploaded_ files from a separate host. In fact, if you are using external storage like Amazon S3, Minio or Google Cloud, you will by default be serving files from those services' URLs.
+Similar to `CDN_HOST`, you may serve _user-uploaded_ files from a separate host. If you are using external storage like Amazon S3, Minio or Google Cloud, you will by default be serving files from those services' URLs.
 
 It is _extremely recommended_ to use your own host instead, for a few reasons:
 
@@ -547,6 +551,14 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 #### `S3_READ_TIMEOUT`
 
 #### `S3_FORCE_SINGLE_REQUEST`
+
+#### `S3_BATCH_DELETE_LIMIT`
+
+The official [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html) can handle deleting 1,000 objects in one batch job, but some providers may have issues handling this many in one request, or offer lower limits. Defaults to `1000`.
+
+#### `S3_BATCH_DELETE_RETRY`
+
+During batch delete operations, S3 providers may perodically fail or timeout while processing deletion requests. Mastodon will backoff and retry the request up to the maximum number of times. Defaults to `3`.
 
 ### Swift {#swift}
 
@@ -736,14 +748,14 @@ If set, registrations will not be possible with any e-mails **except** those fro
 If set, registrations will not be possible with any e-mails from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
 
 {{< hint style="warning" >}}
-This option is deprecated. You can dynamically block e-mail domains from the admin interface or from the `tootctl` command-line interface.
+This option is deprecated. You can dynamically block e-mail domains from the admin interface or the `tootctl` command-line interface.
 {{</ hint >}}
 
 ### Sessions
 
 #### `MAX_SESSION_ACTIVATIONS`
 
-How many browser sessions are allowed per-user. Defaults to `10`. If a new browser session is created, then the oldest session is deleted, e.g. user in that browser is logged out.
+Defines the maximum number of browser sessions allowed per user, which defaults to 10. If a new browser session is created and the limit is exceeded, the oldest session is deleted, resulting in the user being logged out of that session.
 
 ### Home feeds
 

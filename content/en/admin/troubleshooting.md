@@ -11,9 +11,20 @@ menu:
 
 All error messages with stack traces are written to the system log. When using systemd, the logs of each systemd service can be browsed with `journalctl -u mastodon-web` (substitute with the correct service name). When using Docker, it’s similar: `docker logs mastodon_web_1` (substitute with the correct container name).
 
-Specific details of server-side errors are _never_ displayed to the public, as they can reveal what your setup looks like internally and give attackers clues how to get in, or how to abuse the system more efficiently.
+Specific details of server-side errors are _never_ displayed to the public, as they can reveal what your setup looks like internally and give attackers clues on how to get in, or how to abuse the system more efficiently.
 
 Each response from Mastodon’s web server carries a header with a unique request ID, which is also reflected in the logs. By inspecting the headers of the error page, you can easily find the corresponding stack trace in the log.
+
+## **I'm not seeing much in my logs. How do I enable additional logging/debugging information?**
+
+By default your logs will show `info` level logging. To see more debugging messages, you can your `.env.production` file to increase the level, for the relevant service:
+
+- **Web/Sidekiq:** Set the value of `RAILS_LOG_LEVEL` to `debug` and then restart the service that you're attempting to troubleshoot.
+- **Streaming:** Set the value of `LOG_LEVEL` to `silly` and then restart the service that you're attempting to troubleshoot.
+
+More information on other logging levels for these option can be found on the [Configuring your environment](https://docs.joinmastodon.org/admin/config) page.
+
+The `debug` or `silly` levels can be very verbose and you should take care to change the log level back to a lower level, once you have completed your troubleshooting.
 
 ## **After an upgrade to a newer version, some pages look weird, like they have unstyled elements. Why?**
 
@@ -29,7 +40,7 @@ Check that you are specifying the correct environment with `RAILS_ENV=production
 
 ## **I encountered a compilation error while executing `RAILS_ENV=production bundle exec rails assets:precompile`, but no more information is given. How to fix it?**
 
-Usually it's because your server ran out of memory while compiling assets. Use a swapfile or increase the swap space to increase the memory capacity. Run `RAILS_ENV=production bundle exec rake tmp:cache:clear` to clear cache, then execute `RAILS_ENV=production bundle exec rails assets:precompile` to compile again. Make sure you clear the cache after a compilation error, or it will show "Everything's OK" but leave the assets unchanged.
+Usually, it's because your server ran out of memory while compiling assets. Use a swapfile or increase the swap space to increase the memory capacity. Run `RAILS_ENV=production bundle exec rake tmp:cache:clear` to clear cache, then execute `RAILS_ENV=production bundle exec rails assets:precompile` to compile again. Make sure you clear the cache after a compilation error, or it will show "Everything's OK" but leave the assets unchanged.
 
 ## **I am getting this error: `Read-only file system @ dir_s_mkdir`. Why?**
 

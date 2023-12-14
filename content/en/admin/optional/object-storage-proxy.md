@@ -3,12 +3,12 @@ title: Proxying object storage through nginx
 description: Serving user-uploaded files in Mastodon from your own domain
 ---
 
-When you are using Mastodon with an object storage provider like Amazon S3, Wasabi, Google Cloud or other, by default the URLs of the files go through the storage providers themselves. This has the following downsides:
+When you are using Mastodon with an object storage provider like Amazon S3, Wasabi, Google Cloud or others, by default the URLs of the files go through the storage providers themselves. This has the following downsides:
 
 - Bandwidth is usually metered and very expensive
 - URLs will be broken if you decide to switch providers later
 
-You can instead serve the files from your own domain, caching them in the process. Access patterns on Mastodon are such that **new files are usually accessed simultaneously by a lot of clients** as new posts stream in through the streaming API or as they get distributed through federation; older content is accessed comparatively rarely. For that reason, caching alone would not reduce bandwidth consumed by your proxy from the actual object storage. To mitigate this, we can use a **cache lock** mechanism that ensures that only one proxy request is made at the same time.
+You can choose to serve the files from your own domain, incorporating caching in the process. In Mastodon, access patterns show that new files are often simultaneously accessed by many clients as they appear in new posts via the streaming API or are shared through federation; in contrast, older content is accessed less frequently. Therefore, relying solely on caching won't significantly reduce the bandwidth usage of your proxy from the actual object storage. To address this, we can implement a cache lock mechanism, which ensures that only one proxy request is made at a time.
 
 Here is an example nginx configuration that accomplishes this:
 
@@ -18,6 +18,9 @@ server {
   listen [::]:443 ssl http2;
   server_name files.example.com;
   root /var/www/html;
+
+  ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;
+  ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
 
   keepalive_timeout 30;
 
@@ -99,7 +102,7 @@ ln -s /etc/nginx/sites-available/files.example.com /etc/nginx/sites-enabled/
 systemctl reload nginx
 ```
 
-You'll also want to get a SSL certificate for it:
+You'll also want to get an SSL certificate for it:
 
 ```bash
 certbot --nginx -d files.example.com

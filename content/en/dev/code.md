@@ -9,7 +9,7 @@ menu:
 
 ### Code structure {#structure}
 
-The following overview should not be seen as complete or authoritative, but as a rough guidance to help you find your way in the application.
+The following overview should not be seen as complete or authoritative but as a rough guidance to help you find your way in the application.
 
 #### Ruby {#ruby}
 
