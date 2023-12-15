@@ -11,7 +11,7 @@
     {{ .Content }}
 
     <p style="color: #687590;">
-      {{ i18n "lastUpdated" }} {{ .Lastmod.Format "January 2, 2006" }}{{ with .File }} · <a href='https://github.com/mastodon/documentation/tree/master/content/{{ .Lang }}/{{ .Path }}' style="color: #687590;">{{ i18n "improvePage" }}{{ end }}</a>
+      {{ i18n "lastUpdated" }} {{ .Lastmod.Format "January 2, 2006" }}{{ with .File }} · <a href='https://github.com/mastodon/documentation/tree/main/content/{{ .Lang }}/{{ .Path }}' style="color: #687590;">{{ i18n "improvePage" }}{{ end }}</a>
 
       {{ if .IsTranslated }}
         <br />
