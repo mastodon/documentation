@@ -47,10 +47,11 @@ You can attach either files or a poll to your status.
 
 Click the paper clip to attach a file to your post. You can attach the following:
 
-* **Images** (PNG, JPG, GIF) **up to 8MB**. Images will be downscaled to 1.6 megapixels (enough for a 1280x1280 image). Up to 4 images can be attached.
-  * **Animated GIFs** are converted to soundless MP4s like on Imgur/Gfycat (**GIFV**). You can also upload soundless MP4 and WebM, which will be handled the same way.
-* **Videos** (MP4, M4V, MOV, WebM) **up to 40MB**. Video will be transcoded to H.264 MP4 with a maximum bitrate of 1300kbps and framerate of 60fps.
-* **Audio** (MP3, OGG, WAV, FLAC, OPUS, AAC, M4A, 3GP) **up to 40MB**. Audio will be transcoded to MP3 using V2 VBR (roughly 192kbps).
+* **Images** (PNG, JPG, HEIF, WEBP) **up to 16MB**. Images will be downscaled to 8.3 megapixels (enough for a 3840x2160 image). Up to 4 images can be attached, per post.
+* **Animated GIFs** (GIFV) **up to 16MB** are converted to soundless MP4s. GIF dimensions must be less than 1MP (1280x720). You can also upload soundless MP4 and WebM files, which will be looped in clients the same way as an animated GIF. Only one animated GIF can be attached, per post.
+  * Static GIF files have the same limits applied to them as animated GIF files. If you are having issues uploading these images, you will need to convert it to another supported image format.
+* **Videos** (MP4, M4V, MOV, WebM) **up to 99MB**. Video will be transcoded to H.264 MP4 with a maximum bitrate of 1300kbps and framerate of 120fps. Only one video can be attached, per post.
+* **Audio** (MP3, OGG, WAV, FLAC, OPUS, AAC, M4A, 3GP) **up to 99MB**. Audio will be transcoded to MP3 using V2 VBR (roughly 192kbps). Only one audio file can be attached, per post.
 
 #### Editing media {#edit}
 

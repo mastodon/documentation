@@ -17,9 +17,9 @@ Multiple scopes can be requested at the same time: During app creation with the 
 Mind the `scope` vs `scopes` difference. This is because `scope` is a standard OAuth parameter name, so it is used in the OAuth methods. Mastodon’s own REST API uses the more appropriate `scopes`.
 {{< /hint >}}
 
-If you do not specify a `scope` in your authorization request, or a `scopes` in your app creation request, the resulting access token / app will default to `read` access.
+If you do not specify a `scope` in your authorization request, or a `scopes` in your app creation request, the resulting access token/app will default to `read` access.
 
-The set of scopes saved during app creation must include all the scopes that you will request in the authorization request, otherwise authorization will fail.
+The set of scopes saved during app creation must include all the scopes that you will request in the authorization request, otherwise, authorization will fail.
 
 ### Version history {#versions}
 

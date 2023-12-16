@@ -22,7 +22,7 @@ aliases: [
 
 ## About the Web Push API {#about}
 
-Mastodon natively supports the [Web Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API). You can utilize the same mechanisms for your native app. It requires running a proxy server that connects to Android’s and Apple’s proprietary notification gateways. However, the proxy server does not have access to the contents of the notifications. For a reference, see [Mozilla’s web push server](https://github.com/mozilla-services/autopush), or more practically, see:
+Mastodon natively supports the [Web Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API). You can utilize the same mechanisms for your native app. Mastodon doesn't connect to Android’s and Apple’s proprietary notification gateways directly, so if you wish to use those you can use a proxy server that translates between the WebPush standard and those gateways. This can be implemented in such a way that the proxy server does not have access to the contents of the notifications. For an example, see [Mozilla’s reference web push server](https://github.com/mozilla-services/autopush), or one of the several relays developed by the Mastodon community specifically for this purpose:
 
 * [toot-relay](https://github.com/DagAgren/toot-relay)
 * [PushToFCM](https://github.com/tateisu/PushToFCM)
@@ -298,7 +298,7 @@ DELETE /api/v1/push/subscription HTTP/1.1
 
 Removes the current Web Push API subscription.
 
-**Returns:** none\
+**Returns:** Empty\
 **OAuth:** User token + `push`\
 **Version history:**\
 2.4.0 - added

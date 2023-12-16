@@ -65,7 +65,7 @@ bundle config set --local path vendor/bundle
 On some operating systems, such as Debian and Fedora, `yarn` has been renamed to `yarnpkg`. On these systems, run `yarnpkg` instead of `yarn`.
 {{</hint>}}
 
-In the development environment, Mastodon will use PostgreSQL as the currently signed-in Linux user using the `ident` method. Ensure that you have created a Postgres user and database for your current signed-in user:
+In the development environment, Mastodon will use PostgreSQL as the currently signed-in Linux user using the `ident` method. Ensure that you have created a PostgreSQL user and database for your current signed-in user:
 
 ```sh
 sudo -u postgres createuser $USER --createdb
@@ -94,6 +94,14 @@ You can now launch `http://localhost:3000` in your browser and log in with the d
 {{<hint style="warning">}}
 By default, Mastodon will run on port 3000. If you configure a different port for it, the generated admin account will use that number as well.
 {{</hint>}}
+
+## Working with emails in development
+
+In development mode, Mastodon will use a gem called [Letter Opener](https://github.com/ryanb/letter_opener) for "sending" emails, which allows you to debug emails in your browser, without actually having to send emails via an SMTP server.
+
+In order to work with emails, you'll need Sidekiq, Redis and PostgreSQL running, and then emails can be viewed by visiting: `http://localhost:3000/letter_opener/`
+
+If you're developing in docker, you'll need to set the `REMOTE_DEV=true` environment variable.
 
 ## Useful commands for testing {#testing}
 

@@ -21,10 +21,10 @@ aliases: [
 ## Resend confirmation email {#confirmation}
 
 ```http
-POST /api/v1/emails/confirmation HTTP/1.1
+POST /api/v1/emails/confirmations HTTP/1.1
 ```
 
-**Returns:** Empty object\
+**Returns:** Empty\
 **OAuth:** User token issued to the client that created the unconfirmed user\
 **Version history:**\
 3.4.0 - added

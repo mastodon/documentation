@@ -118,4 +118,4 @@ aliases: [
 
 {{< page-relref page="methods/admin/email_domain_blocks" caption="admin/email_domain_blocks API methods" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/email_domain_blocks_serializer.rb" caption="app/serializers/rest/admin/email_domain_blocks_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/email_domain_block_serializer.rb" caption="app/serializers/rest/admin/email_domain_block_serializer.rb" >}}

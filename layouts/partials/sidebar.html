@@ -2,6 +2,16 @@
   <img class="link-logo" src="{{ relURL "brand.svg" }}" alt="Mastodon" />
 </a>
 
+<input id="mobile-nav-toggle" class="mobile-nav-toggle" type="checkbox">
+<label for="mobile-nav-toggle">
+    <span class="menu-open">
+        <i class="fa fa-times"></i> Close
+    </span>
+    <span class="menu-close">
+        <i class="fa fa-bars"></i> Menu
+    </span>
+</label>
+
 <ul>
   {{ $currentPage := . }}
   {{ range .Site.Menus.docs.ByWeight }}

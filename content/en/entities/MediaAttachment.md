@@ -212,7 +212,7 @@ More importantly, there may be another topl-level `focus` Hash object on images 
 ### `description` {#description}
 
 **Description:** Alternate text that describes what is in the media attachment, to be used for the visually impaired or when media attachments do not load.\
-**Type:** String\
+**Type:** {{<nullable>}} String, or null if alternate text was not provided for the media attachment\
 **Version history:**\
 2.0.0 - added
 
