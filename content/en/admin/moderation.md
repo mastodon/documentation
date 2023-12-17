@@ -55,7 +55,7 @@ With this option active, no files from the server will be processed locally. Tha
 
 ### Limit {#limit-server}
 
-Equivalent to [limiting](#limit-user) all past and future accounts from the server. Previously known as "silencing". Notably, this will automatically turn all follows from the limited server into follow requests, even if the followed account it not "Locked".
+Equivalent to [limiting](#limit-user) all past and future accounts from the server. Previously known as "silencing". Notably, this will automatically turn all follows from the limited server into follow requests, even if the followed account does not require approving followers.
 
 ### Suspend {#suspend-server}
 
