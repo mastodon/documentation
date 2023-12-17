@@ -53,7 +53,7 @@ aliases: [
 ### `status_matches` {#status_matches}
 
 **Description:** The status ID within the filter that was matched.\
-**Type:** {{<nullable>}} String, or null\
+**Type:** {{<nullable>}} Array of String, or null\
 **Version history:**\
 4.0.0 - added
 

@@ -1,6 +1,6 @@
 ---
-title: Hidden services
-description: Serving Mastodon through TOR hidden services.
+title: Onion services
+description: Serving Mastodon through Tor onion services.
 menu:
   docs:
     weight: 20
@@ -36,24 +36,24 @@ apt install tor deb.torproject.org-keyring
 Edit the file at `/etc/tor/torrc` and add the following configuration.
 
 ```text
-HiddenServiceDir /var/lib/tor/hidden_service/
+HiddenServiceDir /var/lib/tor/onion_service/
 HiddenServiceVersion 3
 HiddenServicePort 80 127.0.0.1:80
 ```
 
-Restart tor.
+Restart Tor.
 
 ```bash
 sudo service tor restart
 ```
 
-Your tor hostname can now be found at `/var/lib/tor/hidden_service/hostname`.
+You can now find your Tor hostname in `/var/lib/tor/hidden_service/hostname`.
 
 ## Move your Mastodon configuration {#nginx}
 
-We will need to tell Nginx about your Mastodon configuration twice. To keep things [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) we need to move the Mastodon configuration into its own file that can be referenced.
+We will need to tell Nginx about your Mastodon configuration twice. To keep things ["DRY"](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) we need to move the Mastodon configuration into its own file that can we can refer to later.
 
-Create a new file at `/etc/nginx/snippets/mastodon.conf`. Put all of your Mastodon configuration parameters in this file with the exception of the `listen`, `server_name`, `include` and all of the SSL options. Your new file may look something like this.
+Create a new file at `/etc/nginx/snippets/mastodon.conf`. Copy every Mastodon configuration parameter, apart from the `listen`, `server_name`, `include` directives, as well as all of the SSL options. Your new file should look somewhat like this:
 
 ```nginx
 add_header Referrer-Policy "same-origin";
@@ -72,14 +72,14 @@ access_log /var/log/nginx/mastodon_access.log;
 error_log /var/log/nginx/mastodon_error.log warn;
 ```
 
-In place of your old Mastodon configuration add an include directive to this new configuration file.
+In the new configuration file, add an include directive in the place of where your Mastodon configurations were.
 
-Your Nginx configuration file will be left looking something like this.
+Your Nginx configuration file should now look a bit like this:
 
 ```nginx
 server {
   listen 80;
-  server_name mastodon.myhosting.com;
+  server_name mastodon.example.com;
   return 301 https://$server_name$request_uri;
 }
 
@@ -91,19 +91,21 @@ map $http_upgrade $connection_upgrade {
 server {
   listen 443 ssl http2;
   list [::]:443 ssl http2;
-  server_name mastodon.myhosting.com;
+  server_name mastodon.example.com;
   include /etc/nginx/snippets/mastodon.conf;
 
-  ssl_certificate /etc/letsencrypt/live/mastodon.myhosting.com/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/mastodon.myhosting.com/privkey.pem;
+  ssl_certificate /etc/letsencrypt/live/mastodon.example.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/mastodon.example.com/privkey.pem;
 }
 ```
 
 ## Serve Tor over http {#http}
 
-While it may be tempting to serve your Tor version of Mastodon over https it is not a good idea for most people. See [this](https://blog.torproject.org/facebook-hidden-services-and-https-certs) blog post from the Tor Project about why https certificates do not add value. Since you cannot get an SSL cert for an onion domain, you will also be plagued with certificate errors when trying to use your Mastodon instance. A Tor developer has more recently spelled out the reasons why serving a Tor service over https is not beneficial for most use cases [here](https://matt.traudt.xyz/posts/2017-12-02-dont-https-your-onions/).
+This section assumes that you want to expose your instance on both Tor and the public Internet *simultaneously*.
 
-The solution is to serve your Mastodon instance over http, but only for Tor. This can be added by prepending an additional configuration to your Nginx configuration.
+While it may be tempting to serve your Tor version of Mastodon over HTTPS, it isn't always ideal. They are mostly useful for large companies that can produce their own certificates with their own company information. There is no Certificate Authority (CA) that provides them [for free](https://community.torproject.org/onion-services/advanced/https/), and there is also [a blog post from the Tor Project](https://blog.torproject.org/facebook-hidden-services-and-https-certs) explains why HTTPS certificates are not really beneficial for security. On the other hand, however, Mastodon uses a lot of redirects to the HTTPS version of your site, where the presence of a validated certificate may make it easier for your users to use your instance on Tor without having to manually remove the `https://` prefix in URLs.
+
+In this section, we will go over how to serve your Mastodon instance over HTTP, but for Tor **only**. This can be added by prepending an additional configuration to your existing Nginx configuration.
 
 ```nginx
 server {
@@ -114,7 +116,7 @@ server {
 
 server {
   listen 80;
-  server_name mastodon.myhosting.com;
+  server_name mastodon.example.com;
   return 301 https://$server_name$request_uri;
 }
 
@@ -126,19 +128,19 @@ map $http_upgrade $connection_upgrade {
 server {
   listen 443 ssl http2;
   list [::]:443 ssl http2;
-  server_name mastodon.myhosting.com;
+  server_name mastodon.example.com;
   include /etc/nginx/snippets/mastodon.conf;
 
-  ssl_certificate /etc/letsencrypt/live/mastodon.myhosting.com/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/mastodon.myhosting.com/privkey.pem;
+  ssl_certificate /etc/letsencrypt/live/mastodon.example.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/mastodon.example.com/privkey.pem;
 }
 ```
 
 Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/hidden_service/hostname`.
 
-Note that the onion hostname has been prefixed with “mastodon.”. Your Tor address acts a wildcard domain. All subdomains will be routed through, and you can configure Nginx to respond to any subdomain you wish. If you do not wish to host any other services on your tor address you can omit the subdomain, or choose a different subdomain.
+Note that the onion hostname has been prefixed with “mastodon.”. Your Tor address acts as a wildcard domain. All subdomains will be routed through, and you can configure Nginx to respond to any subdomain you wish. If you do not wish to host any other services on your tor address you can omit the subdomain, or choose a different subdomain.
 
-Here you can see the payoff of moving your mastodon configurations to a different file. Without this all of your configurations would have to be copied to both places. Any change to your configuration would have to be made both places.
+Here you can see the payoff of moving your mastodon configurations to a different file. Without this, all of your configurations would have to be copied to both places. Any change to your configuration would have to be made in both places.
 
 Restart your web server.
 
@@ -148,7 +150,7 @@ service nginx restart
 
 ## Gotchas {#gotchas}
 
-There are a few things you will need to be aware of. Certain redirects will push your users to https. They will have to manually replace the URL with http to continue.
+There are a few things you will need to be aware of.
 
-Various resources, such as images, will still be offered through your regular non-Tor domain. How much of a problem this is will depend greatly on your user’s level of caution.
-
+- As mentioned earlier, certain URLs in the Mastodon frontend will force your users to a HTTPS URL. They will have to manually replace the URL with HTTP to continue.
+- Various resources, such as images, will **still** be offered through your regular clearnet domain. This could possibly be a problem, depending on how cautious your users want, try or need to be.

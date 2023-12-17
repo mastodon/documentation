@@ -9,7 +9,7 @@ menu:
 
 ## Scopes explained {#scopes}
 
-When we registered our app and when we will authorize our user, we need to define what exactly our generated token will have permission to do. This is done through the use of OAuth scopes. Each API method has an associated scope, and can only be called if the token being used for authorization has been generated with the corresponding scope.
+When we register our app and when we authorize our user, we need to define what exactly our generated token will have permission to do. This is done through the use of OAuth scopes. Each API method has an associated scope, and can only be called if the token being used for authorization has been generated with the corresponding scope.
 
 Scopes must be a subset. When we created our app, we specified `read write push` -- we could request all available scopes by specifying `read write push`, but it is a better idea to only request what your app will actually need through granular scopes. See [OAuth Scopes]({{< relref "api/oauth-scopes" >}}) for a full list of scopes. Each API method's documentation will also specify the OAuth access level and scope required to call it.
 
@@ -109,7 +109,7 @@ With our OAuth token for the authorized user, we can now perform any action as t
 * See [/api/v2/search]({{< relref "methods/search#v2" >}}) for querying resources.
 * See [/api/v1/suggestions]({{< relref "methods/suggestions" >}}) for suggested accounts to follow.
 
-### Use safety features {#safety}
+### User safety features {#safety}
 
 * See [/api/v1/filters]({{< relref "methods/filters" >}}) for managing filtered keywords.
 * See [/api/v1/domain_blocks]({{< relref "methods/domain_blocks" >}}) for managing blocked domains.

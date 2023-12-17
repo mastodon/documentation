@@ -33,7 +33,8 @@ Your header is a banner image shown at the top of your profile, as well as in pr
 
 You can set certain flags on your profile to let others know how you use Mastodon.
 
-![]({{ relUrl "/assets/bot-flag.jpg" }})
+{{< figure src="assets/bot-flag.jpg" caption="Overview of a profile with the Bot flag set." >}}
+
 
 ### Locked account {#locked}
 

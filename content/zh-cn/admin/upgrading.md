@@ -7,7 +7,7 @@ menu:
 ---
 
 {{< hint style="info" >}}
-当一个新的Mastodon版本释出后，它将出现在[GitHub releases页面](https://github.com/mastodon/mastodon/releases)。请注意：运行来自`master`分支的未释出代码，虽然可以进行，但不推荐这样做。
+当一个新的Mastodon版本释出后，它将出现在[GitHub releases页面](https://github.com/mastodon/mastodon/releases)。请注意：运行来自`main`分支的未释出代码，虽然可以进行，但不推荐这样做。
 {{< /hint >}}
 
 Mastodon版本与git tags一致。在尝试升级之前，请至[GitHub releases页面](https://github.com/mastodon/mastodon/releases)查找所需版本。该页面包含了一个**更新日专**，其中描述你需要了解的所有差异，以及**特定的升级指令**。

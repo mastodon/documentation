@@ -1,17 +1,17 @@
 @import 'fontawesome.scss';
-@import 'roboto.scss';
 @import 'roboto-mono.scss';
+@import 'manrope.scss';
 
-$white:    #fff   ; // color5
+$white: #fff; // color5
 $lightest: #d9e1e8; // color2
-$lighter:  #9baec8; // color3
-$darkest:  #1F232B; // color1
-$black:    #000   ; // color8
-$darker:   lighten($darkest, 34%);
+$lighter: #9baec8; // color3
+$darkest: #1F232B; // color1
+$black: #000; // color8
+$darker: lighten($darkest, 34%);
 
-$vibrant:  #2b90d9; // color4
-$error:    #df405a; // color6
-$success:  #79bd9a; // color7
+$vibrant: #6364FF; // color4
+$error: #df405a; // color6
+$success: #79bd9a; // color7
 
 $transition-in: 100ms linear;
 $transition-out: 250ms linear;
@@ -24,19 +24,87 @@ $mobile-width: 600px;
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -45,8 +113,17 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -55,19 +132,24 @@ body {
   box-sizing: border-box;
   text-rendering: optimizelegibility;
   font-feature-settings: "kern";
+  -webkit-text-size-adjust: none;
   text-size-adjust: none;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: '';
   content: none;
 }
@@ -83,7 +165,7 @@ a {
 
 body {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Manrope', sans-serif;
   text-rendering: optimizeLegibility;
   background-color: $darkest;
   color: $lighter;
@@ -113,9 +195,51 @@ body {
 }
 
 .sidebar {
-  @media screen and (max-width: $mobile-width) {
-    margin-bottom: 60px;
-  }
+    @media screen and (max-width: $mobile-width) {
+        margin-bottom: 60px;
+
+        // css menu toggle for mobile.
+        // when the checkbox is checked, the menu shows,
+        // othewise it's hidden.
+        // it's important for it all to be scoped inside this media query,
+        // that way on larger screens the menu will always show even if the checkbox is unchecked.
+        input[type="checkbox"] {
+            display: none;
+        }
+        label {
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 2rem;
+        }
+        label i {
+            margin-right: .25rem;
+        }
+        input[type="checkbox"]:not(:checked) + label > .menu-open {
+            display: none;
+        }
+
+        input[type="checkbox"]:checked + label > .menu-close {
+            display: none;
+        }
+
+        & > ul {
+            display: none;
+        }
+
+        #mobile-nav-toggle:checked ~ ul {
+            display: block;
+        }
+    }
+
+    // on viewport sizes larger than mobile, always hide the mobile nav toggle.
+    @media screen and (min-width: $mobile-width) {
+        .mobile-nav-toggle,
+        .mobile-nav-toggle + label {
+            display: none;
+        }
+    }
+
 
   .brand {
     display: flex;
@@ -138,7 +262,7 @@ body {
     }
   }
 
-  & > ul > li {
+  &>ul>li {
     margin-bottom: 26px;
 
     &:last-child {
@@ -153,7 +277,7 @@ body {
     text-transform: uppercase;
   }
 
-  & > ul a {
+  &>ul a {
     display: block;
     color: $white;
     text-decoration: none;
@@ -290,6 +414,7 @@ main {
     line-height: 28px;
     font-weight: normal;
     margin-bottom: 26px;
+    -webkit-hyphens: auto;
     hyphens: auto;
   }
 
@@ -345,13 +470,12 @@ main {
       width: 78px;
       margin-left: -78px;
       text-align: right;
-      padding-top: 4px;
       padding-right: 15px;
       content: '\2022';
     }
   }
 
-  ol > li {
+  ol>li {
     &::before {
       padding-top: 0;
       content: counter(post) ". ";
@@ -359,8 +483,8 @@ main {
     }
   }
 
-  li > ul,
-  li > ol {
+  li>ul,
+  li>ol {
     margin-top: 14px;
   }
 
@@ -436,6 +560,7 @@ main {
     font-family: 'Roboto Mono', monospace;
     background-color: lighten($darkest, 8%);
     border-radius: 3px;
+    -webkit-hyphens: none;
     hyphens: none;
     white-space: pre;
   }
@@ -451,7 +576,9 @@ main {
     line-height: 28px;
     font-weight: normal;
     margin-bottom: 26px;
+    -webkit-hyphens: auto;
     hyphens: auto;
+
     dt {
       font-weight: 700;
       background: lighten($darkest, 8%);
@@ -459,6 +586,7 @@ main {
       max-width: max-content;
       margin-bottom: 4px;
     }
+
     dd {
       margin-left: 16px;
       margin-bottom: 16px;
@@ -494,7 +622,7 @@ main {
     color: inherit;
   }
 
-  & > ul > li {
+  &>ul>li {
     margin-left: 0;
 
     &::before {
@@ -533,7 +661,7 @@ main {
     margin-bottom: 20px;
   }
 
-  & > a {
+  &>a {
     font-weight: 500;
     color: $vibrant;
     background: #fff;
@@ -737,7 +865,7 @@ main {
     width: 180px;
     font-size: 16px;
 
-    & > div:first-child {
+    &>div:first-child {
       margin-bottom: 2px;
     }
   }
@@ -786,7 +914,7 @@ main {
     justify-content: center;
     flex-direction: row;
 
-    & > div {
+    &>div {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -822,7 +950,7 @@ main {
     color: $lightest;
   }
 
-  .logo-grid > div {
+  .logo-grid>div {
     flex-wrap: wrap;
   }
 

@@ -128,7 +128,7 @@ DELETE /api/v1/conversations/:id HTTP/1.1
 
 Removes a conversation from your list of conversations.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:conversations`\
 **Version history:**\
 2.6.0 - added

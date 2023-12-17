@@ -179,7 +179,17 @@ cp /home/mastodon/live/dist/nginx.conf /etc/nginx/sites-available/mastodon
 ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 ```
 
-编辑 `/etc/nginx/sites-available/mastodon`，替换 `example.com` 为你自己的域名，你可以根据自己的需求做出其它的一些调整。
+编辑 `/etc/nginx/sites-available/mastodon`
+
+1. 替换 `example.com` 为你自己的域名
+2. 启用 `ssl_certificate` 和 `ssl_certificate_key` 这两行，并把它们替换成如下两行（如果你使用自己的证书的话则可以忽略这一步）
+
+```
+ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;
+ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+```
+
+3. 你还可以根据自己的需求做出其它的一些调整。
 
 重载 nginx 以使变更生效：
 

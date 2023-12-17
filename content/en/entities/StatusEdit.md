@@ -78,7 +78,7 @@ aliases: [
 ### `account` {#account}
 
 **Description:** The account that published this revision.\
-**Type:** Account\
+**Type:** [Account]({{<relref "entities/Account">}})\
 **Version history:**\
 3.5.0 - added
 
@@ -105,7 +105,7 @@ aliases: [
 
 ### `media_attachments` {#media_attachments}
 
-**Description:** The current state of the poll options at this revision. Note that edits changing the poll options will be collapsed together into one edit, since this action resets the poll.\
+**Description:** The current state of the media attachments at this revision.\
 **Type:** Array of [MediaAttachment]({{<relref "entities/MediaAttachment">}})\
 **Version history:**\
 3.5.0 - added
