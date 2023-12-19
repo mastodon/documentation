@@ -293,7 +293,7 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
-### `configuration[vapid][public_key]` (#vapid_public_key)
+### `configuration[vapid][public_key]` {#vapid_public_key}
 **Description:** The instances VAPID public key, used for push notifications, the same as [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}}).\
 **Type:** String\
 **Version history:**\
