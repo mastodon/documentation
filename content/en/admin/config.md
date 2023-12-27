@@ -214,7 +214,7 @@ By default the loopback and private network address ranges are trusted. Specific
 
 If you're using a single reverse proxy and it runs on the same machine or is in the same private network as your Mastodon web and streaming processes then you most likely don't need to modify this setting and can use the default. Or if you're using multiple reverse proxy servers and they're all in the same private network as your Mastodon web and streaming processes then, again, the default should be fine. However, if you're using a reverse proxy server that reaches your Mastodon web and streaming servers via a public IP address (for example if you're using Cloudflare or a similar proxy) then you'll need to set this variable. It should be the IPs of all reverse proxies in use, as a comma-separated list of IPs or IP ranges using [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). Note that when this variable is set the default ranges (mentioned above) will no longer be trusted, so if you have both an external reverse proxy _and_ a proxy on localhost then you must include the IPs (or IP ranges) of both.
 
-Admins and Moderators can see what Mastodon is using as the source IP for each user by navigating to the Settings > Moderation > Accounts tab. You can use [an IP whois lookup tool](https://www.google.com/search?q=ip+whois) to gauge whether the IP is being used by an end-user ISP or by a server hosting your proxy.
+Administrators and moderators can find what Mastodon sees as the source IP for each user by navigating to the Settings > Moderation > Accounts tab. You can use tool like [IPInfo](https://ipinfo.io) to gauge whether the IP is being used by an end-user ISP, or by a server hosting your proxy.
 
 #### `SOCKET`
 
