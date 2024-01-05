@@ -473,7 +473,7 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 #### `S3_PERMISSION`
 
-Defines the S3 obect ACL when uploading new files. Default is `public-read`. Be careful, when using [S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) and turning on the `BlockPublicAcls` option, uploading objects with ACL `public-read` will fail (403). In that case, set `S3_PERMISSION` to `private`.
+Defines the S3 object ACL when uploading new files. Default is `public-read`. Use caution when using [S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) and turning on the `BlockPublicAcls` option, as uploading objects with ACL `public-read` will fail (403). In that case, set `S3_PERMISSION` to `private`.
 
 ### Swift {#swift}
 
