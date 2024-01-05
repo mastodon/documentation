@@ -134,6 +134,6 @@ aliases: [
 
 ## See also
 
-{{< page-relref ref="methods/accounts#relationships" caption="POST /api/v1/accounts/relationships" >}}
+{{< page-relref ref="methods/accounts#relationships" caption="GET /api/v1/accounts/relationships" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/relationship_serializer.rb" caption="app/serializers/rest/relationship_serializer.rb" >}}

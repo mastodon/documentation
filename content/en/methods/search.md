@@ -59,11 +59,11 @@ account_id
 exclude_unreviewed
 : Boolean. Filter out unreviewed tags? Defaults to false. Use true when trying to find trending tags.
 
-max_id 
-: String. Return results older than this ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 min_id
-: String. Return results immediately newer than this ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return, per type. Defaults to 20 results per category. Max 40 results per category.
@@ -188,11 +188,11 @@ resolve
 account_id
 : String. If provided, will only return statuses authored by this account.
 
-max_id 
-: String. Return results older than this ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 min_id
-: String. Return results immediately newer than this ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return, per type. Defaults to 20 results per category. Max 40 results per category.

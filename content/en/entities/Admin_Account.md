@@ -210,4 +210,4 @@ aliases: [
 
 {{< page-relref ref="methods/admin/accounts" caption="admin/accounts API methods" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/admin/account_serializer.rb" caption="app/serializers/rest/admin/account_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/account_serializer.rb" caption="app/serializers/rest/admin/account_serializer.rb" >}}

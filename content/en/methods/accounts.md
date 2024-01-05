@@ -313,7 +313,10 @@ Update the user's display and preferences.
 1.1.1 - added\
 2.3.0 - added `locked` parameter\
 2.4.0 - added `source[privacy,sensitive]` parameters\
-2.7.0 - added `discoverable` parameter
+2.4.2 - added `source[language]` parameter\
+2.7.0 - added `discoverable` parameter\
+4.1.0 - added `hide_collections` parameter\
+4.2.0 - added `indexable` parameter
 
 #### Request
 
@@ -344,6 +347,12 @@ bot
 
 discoverable
 : Boolean. Whether the account should be shown in the profile directory.
+
+hide_collections
+: Boolean. Whether to hide followers and followed accounts.
+
+indexable
+: Boolean. Whether public posts should be searchable to anyone.
 
 fields_attributes
 : Hash. The profile fields to be set. Inside this hash, the key is an integer cast to a string (although the exact integer does not matter), and the value is another hash including `name` and `value`. By default, max 4 fields.
@@ -745,14 +754,14 @@ Authorization
 
 ##### Query parameters
 
-max_id 
-: String. Return results older than this ID
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than this ID
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than this ID
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
@@ -767,7 +776,7 @@ exclude_reblogs
 : Boolean. Filter out boosts from the response.
 
 pinned
-: Boolean. Filter for pinned statuses only.
+: Boolean. Filter for pinned statuses only. Defaults to false, which includes all statuses. Pinned statuses do not receive special priority in the order of the returned results.
 
 tagged
 : String. Filter for statuses using a specific hashtag.
@@ -1940,7 +1949,8 @@ Find out whether a given account is followed, blocked, muted, etc.
 **Returns:** Array of [Relationship]({{< relref "entities/Relationship">}})\
 **OAuth:** User token + `read:follows`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+4.3.0 - added `with_suspended` parameter
 
 #### Request
 ##### Headers
@@ -1951,7 +1961,10 @@ Authorization
 ##### Query parameters
 
 id[]
-: Array. Check relationships for the provided account IDs.
+: Array of String. Check relationships for the provided account IDs.
+
+with_suspended
+: Boolean. Whether relationships should be returned for suspended users, defaults to false.
 
 #### Response
 ##### 200: OK

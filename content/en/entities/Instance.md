@@ -41,6 +41,9 @@ aliases: [
     "urls": {
       "streaming": "wss://mastodon.social"
     },
+    "vapid": {
+      "public_key": "BCkMmVdKDnKYwzVCDC99Iuc9GvId-x7-kKtuHnLgfF98ENiZp_aj-UNthbCdI70DqN1zUVis-x0Wrot2sBagkMc="
+    },
     "accounts": {
       "max_featured_tags": 10
     },
@@ -289,6 +292,12 @@ aliases: [
 **Type:** String (URL)\
 **Version history:**\
 4.0.0 - added
+
+### `configuration[vapid][public_key]` {#vapid_public_key}
+**Description:** The instances VAPID public key, used for push notifications, the same as [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}}).\
+**Type:** String\
+**Version history:**\
+4.3.0 - added
 
 #### `configuration[accounts]` {#accounts}
 

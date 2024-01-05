@@ -4,6 +4,10 @@ description:
 menu:
   docs:
     parent: entities
+aliases: [
+  "/api/entities/SOMETHING",
+  "/api/entities/something",
+]
 ---
 
 ## Example

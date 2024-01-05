@@ -19,18 +19,20 @@ aliases: [
 ## Example
 
 ```json
-{
-  "name": "bongoCat",
-  "count": 9,
-  "me": false,
-  "url": "https://files.mastodon.social/custom_emojis/images/000/067/715/original/fdba57dff7576d53.png",
-  "static_url": "https://files.mastodon.social/custom_emojis/images/000/067/715/static/fdba57dff7576d53.png"
-},
-{
-  "name": "🤔",
-  "count": 1,
-  "me": true
-}
+[
+    {
+      "name": "bongoCat",
+      "count": 9,
+      "me": false,
+      "url": "https://files.mastodon.social/custom_emojis/images/000/067/715/original/fdba57dff7576d53.png",
+      "static_url": "https://files.mastodon.social/custom_emojis/images/000/067/715/static/fdba57dff7576d53.png"
+    },
+    {
+      "name": "🤔",
+      "count": 1,
+      "me": true
+    }
+]
 ```
 
 ## Attributes

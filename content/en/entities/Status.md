@@ -334,7 +334,7 @@ aliases: [
 ### `filtered` {{%optional%}} {#filtered}
 
 **Description:** If the current token has an authorized user: The filter and keywords that matched this status.\
-**Type:** Array of [FilterResult]({{ relref "entities/FilterResult" }})\
+**Type:** Array of [FilterResult]({{< relref "entities/FilterResult" >}})\
 **Version history:**\
 4.0.0 - added
 

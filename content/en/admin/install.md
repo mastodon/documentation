@@ -17,7 +17,7 @@ You will be running the commands as root. If you aren’t already root, switch t
 
 ### System repositories {#system-repositories}
 
-Make sure curl, wget, gnupg, apt-transport-https, lsb-release and ca-certificates is installed first:
+Make sure curl, wget, gnupg, apt-transport-https, lsb-release and ca-certificates are installed first:
 
 ```bash
 apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
@@ -26,7 +26,8 @@ apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
 #### Node.js {#node-js}
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_16.x | bash -
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
 ```
 
 #### PostgreSQL {#postgresql}
@@ -45,7 +46,7 @@ apt install -y \
   g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
   zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
-  nginx redis-server redis-tools postgresql postgresql-contrib \
+  nginx nodejs redis-server redis-tools postgresql postgresql-contrib \
   certbot python3-certbot-nginx libidn11-dev libicu-dev libjemalloc-dev
 ```
 
@@ -58,7 +59,7 @@ yarn set version classic
 
 ### Installing Ruby {#installing-ruby}
 
-We will be using rbenv to manage Ruby versions, because it’s easier to get the right versions and to update once a newer release comes out. rbenv must be installed for a single Linux user, therefore, first we must create the user Mastodon will be running as:
+We will use rbenv to manage Ruby versions as it simplifies obtaining the correct versions and updating them when new releases are available. Since rbenv needs to be installed for an individual Linux user, we must first create the user account under which Mastodon will run:
 
 ```bash
 adduser --disabled-login mastodon
@@ -74,7 +75,6 @@ And proceed to install rbenv and rbenv-build:
 
 ```bash
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-cd ~/.rbenv && src/configure && make -C src
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 exec bash
@@ -84,11 +84,11 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 Once this is done, we can install the correct Ruby version:
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.0.4
-rbenv global 3.0.4
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.2.2
+rbenv global 3.2.2
 ```
 
-We’ll also need to install bundler:
+We’ll also need to install the bundler:
 
 ```bash
 gem install bundler --no-document
@@ -106,7 +106,7 @@ exit
 
 #### Performance configuration (optional) {#performance-configuration-optional}
 
-For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/15/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
+For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/16/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
 
 #### Creating a user {#creating-a-user}
 
@@ -141,7 +141,7 @@ Use git to download the latest stable release of Mastodon:
 
 ```bash
 git clone https://github.com/mastodon/mastodon.git live && cd live
-git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
+git checkout $(git tag -l | grep '^v[0-9.]*$' | sort -V | tail -n 1)
 ```
 
 #### Installing the last dependencies {#installing-the-last-dependencies}
@@ -181,6 +181,16 @@ You’re done with the mastodon user for now, so switch back to root:
 exit
 ```
 
+### Acquiring an SSL certificate {#acquiring-a-ssl-certificate}
+
+We’ll use Let’s Encrypt to get a free SSL certificate:
+
+```bash
+certbot certonly --nginx -d example.com
+```
+
+This will obtain the certificate, and save it in the directory `/etc/letsencrypt/live/example.com/`.
+
 ### Setting up nginx {#setting-up-nginx}
 
 Copy the configuration template for nginx from the Mastodon directory:
@@ -188,28 +198,30 @@ Copy the configuration template for nginx from the Mastodon directory:
 ```bash
 cp /home/mastodon/live/dist/nginx.conf /etc/nginx/sites-available/mastodon
 ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
+rm /etc/nginx/sites-enabled/default
 ```
 
-Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with your own domain name, and make any other adjustments you might need.
+Then edit `/etc/nginx/sites-available/mastodon` to 
+
+1. Replace `example.com` with your own domain name
+2. Uncomment the `ssl_certificate` and `ssl_certificate_key` lines and replace the two lines with (ignore this step if you are bringing your own certificate)
+
+```
+ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;
+ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+```
+
+3. Make any other adjustments you might need.
+
+Un-comment the lines starting with `ssl_certificate` and `ssl_certificate_key`, updating the path with the correct domain name.
 
 Reload nginx for the changes to take effect:
-
 
 ```bash
 systemctl reload nginx
 ```
 
-### Acquiring a SSL certificate {#acquiring-a-ssl-certificate}
-
-We’ll use Let’s Encrypt to get a free SSL certificate:
-
-```bash
-certbot --nginx -d example.com
-```
-
-This will obtain the certificate, automatically update `/etc/nginx/sites-available/mastodon` to use the new certificate, and reload nginx for the changes to take effect.
-
-At this point you should be able to visit your domain in the browser and see the elephant hitting the computer screen error page. This is because we haven’t started the Mastodon process yet.
+At this point, you should be able to visit your domain in the browser and see the elephant hitting the computer screen error page. This is because we haven’t started the Mastodon process yet.
 
 ### Setting up systemd services {#setting-up-systemd-services}
 

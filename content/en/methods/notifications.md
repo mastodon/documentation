@@ -46,7 +46,8 @@ Types to filter include:
 3.1.0 - added `follow_request` type\
 3.3.0 - added `status` type; both `min_id` and `max_id` can be used at the same time now\
 3.5.0 - added `types`; add `update` and `admin.sign_up` types\
-4.0.0 - added `admin.report` type
+4.0.0 - added `admin.report` type\
+4.1.0 - notification limit changed from 15 (max 30) to 40 (max 80)
 
 #### Request
 
@@ -57,17 +58,17 @@ Authorization
 
 ##### Query parameters
 
-max_id 
-: String. Return results older than this ID
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than this ID
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than this ID
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 15 notifications. Max 30 notifications.
+: Integer. Maximum number of results to return. Defaults to 40 notifications. Max 80 notifications.
 
 types[]
 : Array of String. Types to include in the result.
@@ -175,7 +176,7 @@ Invalid or missing Authorization header.
 ## Get a single notification {#get-one}
 
 ```http
-GET /api/v1/notification/:id HTTP/1.1
+GET /api/v1/notifications/:id HTTP/1.1
 ```
 
 View information about a notification with a given ID.
@@ -262,7 +263,7 @@ POST /api/v1/notifications/clear HTTP/1.1
 
 Clear all notifications from the server.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:notifications`\
 **Version history:**\
 0.0.0 - added
@@ -303,7 +304,7 @@ POST /api/v1/notifications/:id/dismiss HTTP/1.1
 
 Dismiss a single notification from the server.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:notifications`\
 **Version history:**\
 1.3.0 - added
@@ -350,7 +351,7 @@ POST /api/v1/notifications/dismiss HTTP/1.1
 
 Dismiss a single notification from the server.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:notifications`\
 **Version history**:\
 0.0.0 - available\

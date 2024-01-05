@@ -3,7 +3,7 @@ title: admin/reports API methods
 description: Perform moderation actions with reports.
 menu:
   docs:
-    name: admin/reports
+    name: reports
     parent: methods-admin
     identifier: methods-admin-reports
 aliases: [
@@ -505,7 +505,7 @@ Reopen a currently closed report, if it is closed.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the Report in the database.
 
 ##### Headers
 

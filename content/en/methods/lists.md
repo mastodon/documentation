@@ -50,12 +50,14 @@ Use `id` as a parameter for related API calls.
   {
     "id": "12249",
     "title": "Friends",
-    "replies_policy": "followed"
+    "replies_policy": "followed",
+    "exclusive": false
   },
   {
     "id": "13585",
     "title": "test",
-    "replies_policy": "list"
+    "replies_policy": "list",
+    "exclusive": true
   }
 ]
 ```
@@ -106,7 +108,8 @@ The list 12249 exists and is owned by you
 {
   "id": "12249",
   "title": "Friends",
-  "replies_policy": "followed"
+  "replies_policy": "followed",
+  "exclusive": false
 }
 ```
 
@@ -144,7 +147,8 @@ Create a new list.
 **OAuth:** User token + `write:lists`\
 **Version history:**\
 2.1.0 - added\
-3.3.0 - added `replies_policy`
+3.3.0 - added `replies_policy`\
+4.2.0 - added `exclusive`
 
 #### Request
 ##### Headers
@@ -160,6 +164,9 @@ title
 replies_policy
 : String. One of `followed`, `list`, or `none`. Defaults to `list`.
 
+exclusive
+: Boolean. Whether members of this list need to get removed from the “Home” feed
+
 #### Response
 ##### 200: OK
 
@@ -169,7 +176,8 @@ A sample list was created with a `title` of "test".
 {
   "id": "13585",
   "title": "test",
-  "replies_policy": "list"
+  "replies_policy": "list",
+  "exclusive": false
 }
 ```
 
@@ -238,6 +246,9 @@ title
 replies_policy
 : String. One of `followed`, `list`, or `none`. Defaults to `list`.
 
+exclusive
+: Boolean. Whether members of this list need to get removed from the “Home” feed
+
 #### Response
 ##### 200: OK
 
@@ -247,7 +258,8 @@ The `title` of list 13585 was successfully updated to "testing"
 {
   "id": "13585",
   "title": "test",
-  "replies_policy": "list"
+  "replies_policy": "list",
+  "exclusive": false
 }
 ```
 
@@ -287,7 +299,7 @@ If the `replies_policy` is not understood:
 DELETE /api/v1/lists/:id HTTP/1.1
 ```
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:lists`\
 **Version history:**\
 2.1.0 - added
@@ -449,7 +461,7 @@ POST /api/v1/lists/:id/accounts HTTP/1.1
 
 Add accounts to the given list. Note that the user must be following these accounts.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:lists`\
 **Version history:**\
 2.1.0 - added
@@ -459,7 +471,7 @@ Add accounts to the given list. Note that the user must be following these accou
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the List in the database.
 
 ##### Headers
 
@@ -518,7 +530,7 @@ DELETE /api/v1/lists/:id/accounts HTTP/1.1
 
 Remove accounts from the given list.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:lists`\
 **Version history:**\
 2.1.0 - added
@@ -528,7 +540,7 @@ Remove accounts from the given list.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the List in the database.
 
 ##### Headers
 
@@ -561,7 +573,7 @@ Invalid or missing Authorization header.
 
 ##### 404: Not found
 
-SOMETHING is not owned by you or does not exist
+List is not owned by you or does not exist
 
 ```json
 {
