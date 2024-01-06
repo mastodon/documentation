@@ -662,7 +662,7 @@ before Mastodon starts.
 #### `CAS_DISABLE_SSL_VERIFICATION`
 
 #### `CAS_UID_KEY`
-This key to the username to use for the account.
+The key to the username to use for the account.
 The created account will be `@uid@domain.tld`.
 
 #### `CAS_NAME_KEY`
