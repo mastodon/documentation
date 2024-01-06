@@ -662,6 +662,8 @@ before Mastodon starts.
 #### `CAS_DISABLE_SSL_VERIFICATION`
 
 #### `CAS_UID_KEY`
+This key to the username to use for the account.
+The created account will be `@uid@domain.tld`.
 
 #### `CAS_NAME_KEY`
 
@@ -676,6 +678,9 @@ before Mastodon starts.
 #### `CAS_LOCATION_KEY`
 
 #### `CAS_IMAGE_KEY`
+The key to the image to use as account avatar.
+The value at this key must be an URL to the image file.
+It is important to use a supported file format (like PNG but not SVG).
 
 #### `CAS_PHONE_KEY`
 
