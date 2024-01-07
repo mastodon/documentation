@@ -552,6 +552,10 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 #### `S3_FORCE_SINGLE_REQUEST`
 
+#### `S3_PERMISSION`
+
+Defines the S3 object ACL when uploading new files. Default is `public-read`. Use caution when using [S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) and turning on the `BlockPublicAcls` option, as uploading objects with ACL `public-read` will fail (403). In that case, set `S3_PERMISSION` to `private`.
+
 #### `S3_BATCH_DELETE_LIMIT`
 
 The official [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html) can handle deleting 1,000 objects in one batch job, but some providers may have issues handling this many in one request, or offer lower limits. Defaults to `1000`.
