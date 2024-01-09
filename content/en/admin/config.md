@@ -620,6 +620,34 @@ During batch delete operations, S3 providers may perodically fail or timeout whi
 
 #### `SWIFT_CACHE_TTL`
 
+### HTTP Cache Buster
+
+If configured, the Cache Buster feature will send a request to invalidate the cache for media files when they are deleted or made unavailable from your origin. This allows you to ensure that your caching layer / CDN is purged from any content that is removed from Mastodon.
+
+{{< hint style="info" >}}
+The way to achieve this is very dependent of your proxy/CDN provider and will require configuration. If you are using nginx for HTTP caching, you will want to look at the `proxy_cache_purge` configuration directive.
+{{</ hint >}}
+
+#### `CACHE_BUSTER_ENABLED`
+
+If set to `true`, then Mastodon will send a cache-busting request to the media URL when deleting the file so the file can be purged from the cache.
+
+Defaults to `false`
+
+#### `CACHE_BUSTER_HTTP_METHOD`
+
+Defaults to `GET`
+
+#### `CACHE_BUSTER_SECRET_HEADER`
+
+Name of the header containing the secret defined in `CACHE_BUSTER_SECRET`.
+
+Defaults to an empty value, meaning no header will be added
+
+#### `CACHE_BUSTER_SECRET`
+
+Value of the `CACHE_BUSTER_SECRET_HEADER` header configured above.
+
 ## External authentication {#external-authentication}
 
 ### OmniAuth
@@ -825,12 +853,6 @@ This variable only has any effect when running `rake db:migrate` and it is extre
 
 #### `LIBRE_TRANSLATE_API_KEY`
 
-#### `CACHE_BUSTER_ENABLED`
-
-#### `CACHE_BUSTER_SECRET_HEADER`
-
-#### `CACHE_BUSTER_SECRET`
-
 #### `GITHUB_REPOSITORY`
 
 Defaults to `mastodon/mastodon`
@@ -840,6 +862,12 @@ Defaults to `mastodon/mastodon`
 Defaults to `https://github.com/$GITHUB_REPOSITORY`
 
 #### `FFMPEG_BINARY`
+
+#### `HCAPTCHA_SITE_KEY`
+
+Set this to your hCaptcha site key to enable captchas on the account confirmation page using hCaptcha.
+
+Defaults to empty value (not enabled)
 
 #### `LOCAL_HTTPS`
 
