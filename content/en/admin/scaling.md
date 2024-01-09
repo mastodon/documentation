@@ -306,7 +306,7 @@ Then use `\q` to quit.
 
 Redis is used widely throughout the application, but some uses are more important than others. Home feeds, list feeds, and Sidekiq queues as well as the streaming API are backed by Redis and that’s important data you wouldn’t want to lose (even though the loss can be survived, unlike the loss of the PostgreSQL database - never lose that!). However, Redis is also used for volatile cache. If you are at a stage of scaling up where you are worried about whether your Redis can handle everything, you can use a different Redis database for the cache. In the environment, you can specify `CACHE_REDIS_URL` or individual parts like `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT` etc. Unspecified parts fallback to the same values as without the cache prefix.
 
-Additionally, Redis is used for volatile caching. If you're scaling up and concerned about Redis's capacity to handle the load, you can allocate a separate Redis database specifically for caching. To do this, set `CACHE_REDIS_URL` in the environment, or define individual components such as `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT`, etc. 
+Additionally, Redis is used for volatile caching. If you're scaling up and concerned about Redis's capacity to handle the load, you can allocate a separate Redis database specifically for caching. To do this, set `CACHE_REDIS_URL` in the environment, or define individual components such as `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT`, etc.
 
 Unspecified components will default to their values without the cache prefix.
 
@@ -375,7 +375,29 @@ systemctl restart redis-sidekiq.service
 
 ## Read-replicas {#read-replicas}
 
-To reduce the load on your PostgreSQL server, you may wish to set up hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
+To reduce the load on your PostgreSQL server, you may wish to set up hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby).
+
+### Mastodon >= 4.2
+
+Mastodon has built-in replica support starting with version 4.2. You can use the same configuration for every service (Sidekiq included), and some queries will be directed to your read-only replica, when possible, using Rails's built-in replica support. If your replica is lagging behind for more than a few seconds, then the app will stop sending it queries until it catches up.
+
+To configure it, use the following environment variables:
+
+```
+REPLICA_DB_HOST
+REPLICA_DB_PORT
+REPLICA_DB_NAME
+REPLICA_DB_USER
+REPLICA_DB_PASS
+```
+
+Alternatively, you can also use `REPLICA_DATABASE_URL` if you want to configure them all using the same variable.
+
+Once done, this is all good and you should start seeing requests against your replica server!
+
+### Mastodon <= 4.1
+
+For Mastodon versions before 4.2, you can make use of the replica in Mastodon in these ways:
 
 * The streaming API server does not issue writes at all, so you can connect it straight to the replica (it is not querying the database very often anyway, so the impact of this is small).
 * Use the Makara driver in the web and Sidekiq processes, so that writes go to the master database, while reads go to the replica. Let’s talk about that.

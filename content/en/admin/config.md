@@ -327,6 +327,38 @@ If provided, takes precedence over `DB_HOST`, `DB_USER`, `DB_NAME`, `DB_PASS` an
 
 Example value: `postgresql://user:password@localhost:5432`
 
+### PostgreSQL (read-only replica) {#postgresql-replica}
+
+{{< hint style="info" >}}
+If you want to use a read-only database replica, you can have more details [on this page](../scaling/#read-replicas)
+{{</ hint >}}
+
+#### `REPLICA_DB_HOST`
+
+No default.
+
+#### `REPLICA_DB_PORT`
+
+No default.
+
+#### `REPLICA_DB_NAME`
+
+No default.
+
+#### `REPLICA_DB_USER`
+
+No default.
+
+#### `REPLICA_DB_PASS`
+
+No default.
+
+#### `REPLICA_DATABASE_URL`
+
+If provided, takes precedence over `REPLICA_DB_HOST`, `REPLICA_DB_PORT`, `REPLICA_DB_NAME`, `REPLICA_DB_USER` and `REPLICA_DB_PASS`
+
+No default.
+
 ### Redis {#redis}
 
 {{< hint style="info" >}}
@@ -467,9 +499,9 @@ E-mail configuration is based on the *action_mailer* component of the *Ruby on R
 * `SMTP_SERVER`: Specify the server to use. For example `sub.domain.tld`.
 * `SMTP_PORT`: By default, the value is `25` (the usual port for SMTP). If StartTLS is detected, it may be switched to port 587.
 * `SMTP_DOMAIN`: Only required if a HELO domain is needed. Will be set to the `SMTP_SERVER` domain by default.
-* `SMTP_FROM_ADDRESS`: Specify a sender address. 
+* `SMTP_FROM_ADDRESS`: Specify a sender address.
 * `SMTP_DELIVERY_METHOD`: By default, the value is `smtp` (can also be `sendmail`).
-  
+
 ### Authentication for the SMTP server {#smtpauthentication}
 
 * `SMTP_LOGIN`: Login for the SMTP user.
@@ -480,12 +512,12 @@ E-mail configuration is based on the *action_mailer* component of the *Ruby on R
 By default, a StartTLS connection will be attempted to the specified SMTP server.
 
 * `SMTP_ENABLE_STARTTLS_AUTO`: Default `true`.
-* `SMTP_CA_FILE`: A value may be specified, but on many Linux distros (e.g. Debian-based) this will be `/etc/ssl/certs/ca-certificates.crt`. 
-* `SMTP_OPENSSL_VERIFY_MODE`: `none` or `peer`. When using TLS, it may be useful to accept connections with a self-signed certificate. 
+* `SMTP_CA_FILE`: A value may be specified, but on many Linux distros (e.g. Debian-based) this will be `/etc/ssl/certs/ca-certificates.crt`.
+* `SMTP_OPENSSL_VERIFY_MODE`: `none` or `peer`. When using TLS, it may be useful to accept connections with a self-signed certificate.
 * `SMTP_TLS`: `true` or `false` (default `false`)
 * `SMTP_SSL`: `true` or `false` (default `false`)
 
-Note that `TLSv1.3` and `TLSv1.2` are the only SSL/TLS protocols currently considered to be secure. 
+Note that `TLSv1.3` and `TLSv1.2` are the only SSL/TLS protocols currently considered to be secure.
 
 ## File storage {#files}
 
@@ -846,4 +878,3 @@ Defaults to `512`.
 #### `GITHUB_API_TOKEN`
 
 Used in a rake task for generating AUTHORS.md from GitHub commit history.
-
