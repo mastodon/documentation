@@ -26,7 +26,8 @@ apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
 #### Node.js {#node-js}
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_16.x | bash -
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
 ```
 
 #### PostgreSQL {#postgresql}
@@ -45,7 +46,7 @@ apt install -y \
   g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
   zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
-  nginx redis-server redis-tools postgresql postgresql-contrib \
+  nginx nodejs redis-server redis-tools postgresql postgresql-contrib \
   certbot python3-certbot-nginx libidn11-dev libicu-dev libjemalloc-dev
 ```
 
@@ -197,9 +198,20 @@ Copy the configuration template for nginx from the Mastodon directory:
 ```bash
 cp /home/mastodon/live/dist/nginx.conf /etc/nginx/sites-available/mastodon
 ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
+rm /etc/nginx/sites-enabled/default
 ```
 
-Then edit `/etc/nginx/sites-available/mastodon` to replace `example.com` with your own domain name, and make any other adjustments you might need.
+Then edit `/etc/nginx/sites-available/mastodon` to 
+
+1. Replace `example.com` with your own domain name
+2. Uncomment the `ssl_certificate` and `ssl_certificate_key` lines and replace the two lines with (ignore this step if you are bringing your own certificate)
+
+```
+ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;
+ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+```
+
+3. Make any other adjustments you might need.
 
 Un-comment the lines starting with `ssl_certificate` and `ssl_certificate_key`, updating the path with the correct domain name.
 

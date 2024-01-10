@@ -19,6 +19,9 @@ server {
   server_name files.example.com;
   root /var/www/html;
 
+  ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;
+  ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+
   keepalive_timeout 30;
 
   location = / {

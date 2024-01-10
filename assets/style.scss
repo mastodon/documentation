@@ -195,9 +195,51 @@ body {
 }
 
 .sidebar {
-  @media screen and (max-width: $mobile-width) {
-    margin-bottom: 60px;
-  }
+    @media screen and (max-width: $mobile-width) {
+        margin-bottom: 60px;
+
+        // css menu toggle for mobile.
+        // when the checkbox is checked, the menu shows,
+        // othewise it's hidden.
+        // it's important for it all to be scoped inside this media query,
+        // that way on larger screens the menu will always show even if the checkbox is unchecked.
+        input[type="checkbox"] {
+            display: none;
+        }
+        label {
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 2rem;
+        }
+        label i {
+            margin-right: .25rem;
+        }
+        input[type="checkbox"]:not(:checked) + label > .menu-open {
+            display: none;
+        }
+
+        input[type="checkbox"]:checked + label > .menu-close {
+            display: none;
+        }
+
+        & > ul {
+            display: none;
+        }
+
+        #mobile-nav-toggle:checked ~ ul {
+            display: block;
+        }
+    }
+
+    // on viewport sizes larger than mobile, always hide the mobile nav toggle.
+    @media screen and (min-width: $mobile-width) {
+        .mobile-nav-toggle,
+        .mobile-nav-toggle + label {
+            display: none;
+        }
+    }
+
 
   .brand {
     display: flex;

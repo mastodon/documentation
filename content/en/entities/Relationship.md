@@ -26,6 +26,7 @@ aliases: [
   "muting": false,
   "muting_notifications": false,
   "requested": false,
+  "requested_by": false,
   "domain_blocking": false,
   "endorsed": false,
   "note": ""
@@ -110,6 +111,13 @@ aliases: [
 **Type:** Boolean\
 **Version history:**\
 0.9.9 - added
+
+### `requested_by` {#requested_by}
+
+**Description:** Has this user requested to follow you?\
+**Type:** Boolean\
+**Version history:**\
+4.1.0 - added
 
 ### `domain_blocking` {#domain_blocking}
 

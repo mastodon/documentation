@@ -387,7 +387,29 @@ systemctl restart redis-sidekiq.service
 
 ## Read-replicas {#read-replicas}
 
-To reduce the load on your PostgreSQL server, you may wish to set up hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby). You can make use of the replica in Mastodon in these ways:
+To reduce the load on your PostgreSQL server, you may wish to set up hot streaming replication (read replica). [See this guide for an example](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby).
+
+### Mastodon >= 4.2
+
+Mastodon has built-in replica support starting with version 4.2. You can use the same configuration for every service (Sidekiq included), and some queries will be directed to your read-only replica, when possible, using Rails's built-in replica support. If your replica is lagging behind for more than a few seconds, then the app will stop sending it queries until it catches up.
+
+To configure it, use the following environment variables:
+
+```
+REPLICA_DB_HOST
+REPLICA_DB_PORT
+REPLICA_DB_NAME
+REPLICA_DB_USER
+REPLICA_DB_PASS
+```
+
+Alternatively, you can also use `REPLICA_DATABASE_URL` if you want to configure them all using the same variable.
+
+Once done, this is all good and you should start seeing requests against your replica server!
+
+### Mastodon <= 4.1
+
+For Mastodon versions before 4.2, you can make use of the replica in Mastodon in these ways:
 
 - The streaming API server does not issue writes at all, so you can connect it straight to the replica (it is not querying the database very often anyway, so the impact of this is small).
 - Use the Makara driver in the web and Sidekiq processes, so that writes go to the master database, while reads go to the replica. Let’s talk about that.
@@ -418,4 +440,21 @@ Make sure that the URLs point to the correct locations for your PostgreSQL serve
 
 {{< hint style="warning" >}}
 Make sure the sidekiq processes run with the stock `config/database.yml` to avoid failing jobs and data loss!
+{{< /hint >}}
+
+## Using a web load balancer
+
+Cloud providers like DigitalOcean, AWS, Hetzner, etc., offer virtual load balancing solutions that distribute network traffic across multiple servers, but provide a single public IP address.
+
+Scaling your deployment to provision multiple web/Puma servers behind one of these virtual load balancers can help provide more consistent performance by reducing the risk that a single server may become overwhelmed by user traffic, and decrease downtime when performing maintenance or upgrades. You should consult your provider documentation on how to setup and configure a load balancer, but consider that you need to configure your load balancer to monitor the health of the backend web/Puma nodes, otherwise you may send traffic to a service that is not responsive.
+
+The following endpoints are available to monitor for this purpose:
+
+- **Web/Puma:** `/health`
+- **Streaming API:** `/api/v1/streaming/health`
+
+These endpoints should both return an HTTP status code of 200, and the text `OK` as a result.
+
+{{< hint style="info" >}}
+You can also use these endpoints for health checks with a third-party monitoring/alerting utility.
 {{< /hint >}}
