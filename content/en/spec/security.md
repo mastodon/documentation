@@ -48,7 +48,7 @@ To create an HTTP signature, you will have to define which headers are being has
 GET /users/username/outbox HTTP/1.1
 Host: mastodon.example
 Date: 18 Dec 2019 10:08:46 GMT
-Accept: application/ld+json; profile="http://www.w3.org/ns/activitystreams"
+Accept: application/ld+json; profile="https://www.w3.org/ns/activitystreams"
 ```
 
 The signature string is constructed using the values of the HTTP headers defined in `headers`, joined by newlines. Typically, you will want to include the request target, as well as the host and the date. Mastodon assumes `Date:` header if none are provided. For the above GET request, to generate a `Signature:` with `headers="(request-target) host date"` we would generate the following string:
@@ -67,7 +67,7 @@ The signature string is then hashed with RSA-SHA256 (RSASSA-PKCS1-v1_5 with SHA-
 GET /users/username/inbox HTTP/1.1
 Host: mastodon.example
 Date: 18 Dec 2019 10:08:46 GMT
-Accept: application/ld+json; profile="http://www.w3.org/ns/activitystreams"
+Accept: application/ld+json; profile="https://www.w3.org/ns/activitystreams"
 Signature: keyId="https://my.example.com/actor#main-key",headers="(request-target) host date",signature="Y2FiYW...IxNGRiZDk4ZA=="
 ```
 
@@ -83,7 +83,7 @@ HOST: mastodon.example
 Date: 18 Dec 2019 10:08:46 GMT
 Digest: sha-256=hcK0GZB1BM4R0eenYrj9clYBuyXs/lemt5iWRYmIX0A=
 Signature: keyId="https://my.example.com/actor#main-key",headers="(request-target) host date digest",signature="Y2FiYW...IxNGRiZDk4ZA=="
-Content-Type: application/ld+json; profile="http://www.w3.org/ns/activitystreams"
+Content-Type: application/ld+json; profile="https://www.w3.org/ns/activitystreams"
 
 {
   "@context": "https://www.w3.org/ns/activitystreams",
@@ -109,7 +109,7 @@ Host: mastodon.example
 Date: 18 Dec 2019 10:08:46 GMT
 Digest: e37e179c75071a291f90a5fd4f848da87b491f1282f7bb8509ef2115b81ee0f4
 Signature: keyId="https://my.example.com/actor#main-key",headers="(request-target) host date digest",signature="Y2FiYW...IxNGRiZDk4ZA=="
-Content-Type: application/ld+json; profile="http://www.w3.org/ns/activitystreams"
+Content-Type: application/ld+json; profile="https://www.w3.org/ns/activitystreams"
 
 {
   "@context": "https://www.w3.org/ns/activitystreams",
