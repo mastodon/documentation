@@ -37,7 +37,7 @@ Creates a user and account records. Returns an account access token for the app 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <app token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
