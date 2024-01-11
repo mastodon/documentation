@@ -130,7 +130,9 @@ Sidekiq processes queues by first checking for tasks in the first queue, and if 
 
 It is possible to start different Sidekiq processes for the queues to ensure truly parallel execution, by e.g. creating multiple systemd services for Sidekiq with different arguments.
 
-**Make sure you only have one `scheduler` queue running!**
+{{< hint style="warning" >}}
+You may run as many Sidekiq processes with as many threads as necessary to efficiently process running jobs, however the `scheduler` queue should never be run in more than one Sidekiq process at a time.**
+{{< /hint >}}
 
 ## Transaction pooling with PgBouncer {#pgbouncer}
 
