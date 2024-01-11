@@ -37,7 +37,7 @@ The **fediverse** (“federated universe”) is the name for all websites that c
 * Misskey, which includes microblogging alongside a customizable dashboard;
 * PeerTube, which lets you upload videos to channels;
 * Plume, which lets you publish longer-form articles; and
-* Many more, including individual and personal websites!
+* Many more, including individual and personal websites.
 
 The fediverse does not have its own brand, so you might more often hear “follow me on Mastodon” than “follow me on the fediverse”, but technically the latter is more correct.
 
