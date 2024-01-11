@@ -148,7 +148,7 @@ aliases: [
 
 ### `uri` {#uri}
 
-**Description:** The domain name of the instance.\
+**Description:** The domain name of the instance. Corresponds to the configured `LOCAL_DOMAIN`, which is used for account handles, and is not necessarily the same as `WEB_DOMAIN` where the Mastodon API and web interface are hosted.\
 **Type:** String\
 **Version history:**\
 1.1.0 - added
