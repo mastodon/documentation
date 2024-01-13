@@ -32,12 +32,12 @@ Mastodon uses a standardized, open protocol to implement federation. It is calle
 
 The **fediverse** (“federated universe”) is the name for all websites that can communicate with each other over ActivityPub and the World Wide Web. That includes all Mastodon servers, but also other implementations:
 
-* Pleroma, a modular microblogging engine;
-* Pixelfed, federated image sharing platform, which lets you share and consume media posts;
-* Misskey, which includes microblogging alongside a customizable dashboard;
-* PeerTube, which lets you upload videos to channels;
-* Plume, which lets you publish longer-form articles; and
-* Many more, including individual and personal websites.
+- Pleroma, a modular microblogging engine
+- Pixelfed, federated image sharing platform, which lets you share and consume media posts
+- Misskey, which includes microblogging alongside a customizable dashboard
+- PeerTube, which lets you upload videos to channels
+- Plume, which lets you publish longer-form articles
+- And many more, including individual and personal websites!
 
 The fediverse does not have its own brand, so you might more often hear “follow me on Mastodon” than “follow me on the fediverse”, but technically the latter is more correct.
 
