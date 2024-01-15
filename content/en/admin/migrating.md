@@ -22,7 +22,7 @@ This guide was written with Ubuntu Server in mind; your mileage may vary for oth
 5. Copy the `.env.production` file.
 6. Copy the Redis database from `/var/lib/redis/` to the new server.
 7. Run `RAILS_ENV=production bundle exec rails assets:precompile` to compile Mastodon
-8. Start Mastodon on the new server.
+8. Start Mastodon and Redis on the new server.
 9. Run `RAILS_ENV=production ./bin/tootctl feeds build` to rebuild the home timelines for each user.
 10. Run `RAILS_ENV=production ./bin/tootctl search deploy` to rebuild your Elasticsearch indices (Note: if you are not using Elasticsearch, you can skip this step.)
 11. Update your DNS settings to point to the new server.
@@ -92,7 +92,7 @@ You’ll want to re-run this if any of the files on the old server change.
 
 You should also copy over the `.env.production` file, which contains secrets.
 
-Now copy your redis database over (adjust the location of your redis database as needed). On your old machine, as the `root` user, run:
+Now copy your Redis database over (adjust the location of your redis database as needed). On your old machine, as the `root` user, run:
 
 ```bash
 rsync -avz /var/lib/redis/ root@example.com:/var/lib/redis
@@ -117,9 +117,10 @@ RAILS_ENV=production bundle exec rails assets:precompile
 Now run the following commands as your root user:
 
 ```bash
-systemctl daemon-reload  
+systemctl daemon-reload
+systemctl start redis-server  
 systemctl enable --now mastodon-web mastodon-sidekiq mastodon-streaming  
-systemctl start nginx redis-server
+systemctl restart nginx
 ```
 
 Once your server is back online, you can rebuild the home feeds for users (this can take a long time depending on the number of users.)
