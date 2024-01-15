@@ -16,11 +16,11 @@ This guide was written with Ubuntu Server in mind; your mileage may vary for oth
 ## Basic steps {#basic-steps}
 
 1. Set up a new Mastodon server using the [Production Guide]({{< relref "install" >}}) (however, don’t run `mastodon:setup` and only leave the PostgreSQL service running).
-2. Stop Mastodon and Redis on the old server (e.g. `systemctl stop 'mastodon-*.service'` and `systemctl stop redis-server.service).
+2. Stop Mastodon on the old server (e.g. `systemctl stop 'mastodon-*.service'`).
 3. Dump and load the PostgreSQL database using the instructions below.
 4. Copy the `system/` files using the instructions below. (Note: if you’re using S3, you can skip this step.)
 5. Copy the `.env.production` file.
-6. Copy the Redis database from `/var/lib/redis/` to the new server.
+6. Save the Redis database, stop the Redis service, and copy the Redis database from `/var/lib/redis/` to the new server.
 7. Run `RAILS_ENV=production bundle exec rails assets:precompile` to compile Mastodon
 8. Start Mastodon and Redis on the new server.
 9. Run `RAILS_ENV=production ./bin/tootctl feeds build` to rebuild the home timelines for each user.
@@ -30,6 +30,12 @@ This guide was written with Ubuntu Server in mind; your mileage may vary for oth
 13. Enjoy your new server!
 
 ## Detailed steps {#detailed-steps}
+
+### Stop the Mastodon services  
+
+```bash
+systemctl stop 'mastodon-*.service'
+```
 
 ### What data needs to be migrated {#what-data-needs-to-be-migrated}
 
@@ -95,6 +101,10 @@ You should also copy over the `.env.production` file, which contains secrets.
 Now copy your Redis database over (adjust the location of your Redis database as needed). On your old machine, as the `root` user, run:
 
 ```bash
+redis-cli
+SAVE
+EXIT
+systemctl stop redis-server.service
 rsync -avz /var/lib/redis/ root@example.com:/var/lib/redis
 ```
 
