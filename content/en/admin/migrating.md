@@ -92,7 +92,7 @@ You’ll want to re-run this if any of the files on the old server change.
 
 You should also copy over the `.env.production` file, which contains secrets.
 
-Now copy your Redis database over (adjust the location of your redis database as needed). On your old machine, as the `root` user, run:
+Now copy your Redis database over (adjust the location of your Redis database as needed). On your old machine, as the `root` user, run:
 
 ```bash
 rsync -avz /var/lib/redis/ root@example.com:/var/lib/redis
