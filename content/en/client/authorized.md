@@ -122,3 +122,5 @@ With our OAuth token for the authorized user, we can now perform any action as t
 * See [/api/v1/featured_tags]({{< relref "methods/featured_tags" >}}) for managing a user profile's featured hashtags.
 * See [/api/v1/preferences]({{< relref "methods/preferences" >}}) for reading user preferences.
 
+
+[Previous - Obtaining client app access]({{< relref "client/token" >}})  -----  [Next - Libraries and implementations]({{< relref "client/libraries" >}})
