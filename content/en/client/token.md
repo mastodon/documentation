@@ -66,3 +66,5 @@ If we've obtained our token and formatted our request correctly, we should see o
 
 With our authenticated client application, we can view relations of an account with [GET /api/v1/accounts/:id/following]({{< relref "methods/accounts#following" >}}) and [GET /api/v1/accounts/:id/followers]({{< relref "methods/accounts#followers" >}}). Also, some instances may require authentication for methods that would otherwise be public, so if you encountered any authentication errors while playing around with public methods, then those methods should now work.
 
+
+[Previous - Playing with Public Data]({{< relref "client/public" >}})  -----  [Next - Logging in with an account]({{< relref "client/authorized" >}})
