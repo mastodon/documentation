@@ -157,3 +157,4 @@ Remember to check how recently the library was updated, and whether it includes 
 * [tsl-mastodon](https://github.com/typescriptlibs/tsl-mastodon-api)
 
 
+[Previous - Logging in with an account]({{< relref "client/authorized" >}})
