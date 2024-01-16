@@ -107,3 +107,5 @@ One last thing you can do with anonymous requests is to view information about t
 For a practical example of what you can do with just instance data, see [emojos.in](https://emojos.in/), which lets you preview all custom emoji at a given instance.
 {{< /hint >}}
 
+
+[Previous - Getting started with the API]({{< relref "client/intro" >}})  -----  [Next - Obtaining client app access]({{< relref "client/token" >}})
