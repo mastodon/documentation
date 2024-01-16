@@ -136,3 +136,5 @@ The Mastodon REST API will return JSON as the response text. It also returns HTT
 * 4xx = Client error. Your request was not correct. Most commonly, you may see 401 Unauthorized, 404 Not Found, 410 Gone, or 422 Unprocessed.
 * 5xx = Server error. Something went wrong while handling the request. Most commonly, you may see 503 Unavailable.
 
+
+[Next - Playing with Public Data]({{< relref "client/public" >}})
