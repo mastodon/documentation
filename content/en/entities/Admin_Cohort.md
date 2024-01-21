@@ -107,7 +107,7 @@ Daily retention data for the week between 2022-09-08 and 2022-09-14, given that 
 
 ## CohortData entity attributes {#CohortData}
 
-### `date` {date}
+### `date` {#date}
 
 **Description:** The timestamp for the start of the bucket, at midnight.\
 **Type:** String (ISO 8601 Datetime)\
