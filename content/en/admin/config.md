@@ -535,32 +535,21 @@ Example value: `https://assets.example.com`
 You must serve the files with CORS headers, otherwise some functions of Mastodon's web UI will not work. For example, `Access-Control-Allow-Origin: *`
 {{</ hint >}}
 
-#### `S3_ALIAS_HOST`
-
-Similar to `CDN_HOST`, you may serve _user-uploaded_ files from a separate host. If you are using external storage like Amazon S3, Minio or Google Cloud, you will by default be serving files from those services' URLs.
-
-It is _extremely recommended_ to use your own host instead, for a few reasons:
-
-1. Bandwidth on external storage providers is metered and expensive
-2. You may want to switch to a different provider later without breaking old links
-
-Example value: `files.example.com`
-
-{{< page-ref page="admin/optional/object-storage-proxy" >}}
-
-{{< hint style="info" >}}
-You must serve the files with CORS headers, otherwise some functions of Mastodon's web UI will not work. For example, `Access-Control-Allow-Origin: *`
-{{</ hint >}}
-
 ### Local file storage {#paperclip}
 
 #### `PAPERCLIP_ROOT_PATH`
 
 #### `PAPERCLIP_ROOT_URL`
 
-### Amazon S3 and compatible {#s3}
+### AWS S3 and compatible {#s3}
+
+{{< page-ref page="admin/optional/object-storage" >}}
 
 #### `S3_ENABLED`
+
+#### `S3_REGION`
+
+#### `S3_ENDPOINT`
 
 #### `S3_BUCKET`
 
@@ -568,17 +557,17 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 #### `AWS_SECRET_ACCESS_KEY`
 
-#### `S3_REGION`
+#### `S3_SIGNATURE_VERSION`
+
+#### `S3_OVERRIDE_PATH_STYLE`
+
 
 #### `S3_PROTOCOL`
 
 #### `S3_HOSTNAME`
 
-#### `S3_ENDPOINT`
+#### `S3_ALIAS_HOST`
 
-#### `S3_SIGNATURE_VERSION`
-
-#### `S3_OVERRIDE_PATH_STYLE`
 
 #### `S3_OPEN_TIMEOUT`
 
@@ -586,17 +575,17 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 #### `S3_FORCE_SINGLE_REQUEST`
 
-#### `S3_PERMISSION`
+#### `S3_ENABLE_CHECKSUM_MODE`
 
-Defines the S3 object ACL when uploading new files. Default is `public-read`. Use caution when using [S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) and turning on the `BlockPublicAcls` option, as uploading objects with ACL `public-read` will fail (403). In that case, set `S3_PERMISSION` to `private`.
+#### `S3_STORAGE_CLASS`
+
+#### `S3_MULTIPART_THRESHOLD`
+
+#### `S3_PERMISSION`
 
 #### `S3_BATCH_DELETE_LIMIT`
 
-The official [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html) can handle deleting 1,000 objects in one batch job, but some providers may have issues handling this many in one request, or offer lower limits. Defaults to `1000`.
-
 #### `S3_BATCH_DELETE_RETRY`
-
-During batch delete operations, S3 providers may perodically fail or timeout while processing deletion requests. Mastodon will backoff and retry the request up to the maximum number of times. Defaults to `3`.
 
 ### Swift {#swift}
 
