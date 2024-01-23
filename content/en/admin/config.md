@@ -679,8 +679,8 @@ The created account will be `@uid@domain.tld`.
 
 #### `CAS_IMAGE_KEY`
 The key to the image to use as account avatar.
-The value at this key must be an URL to the image file.
-It is important to use a supported file format (like PNG but not SVG).
+The value in this key must be a URL to the image file.
+It is important to use a supported file format (JPEG or PNG, not SVG).
 
 #### `CAS_PHONE_KEY`
 
