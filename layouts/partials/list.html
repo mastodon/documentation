@@ -1,0 +1,150 @@
+{{ $sideMargin  := "50px" }}
+{{ $verticalMargin := "30px" }}
+{{ $fontSize:= "12pt" }}
+
+{{ $currentPage := . }}
+{{ $curWeight := -1 }}
+
+{{ range .Site.Menus.docs }}  
+  {{ if .HasChildren }}
+    {{ $extractParent := $currentPage.Parent.Page }}
+    {{ $currentParent := (replaceRE "Page\\(\\/(.*)\\)" "$1" $extractParent) }}
+    {{ range .Children }}
+      {{ if eq $currentParent (.Parent) }}              
+        {{ if .Weight }}
+          <!-- Add content to be modified by JavaScript. -->
+          {{ if $currentPage.IsMenuCurrent "docs" . }}
+            <!-- Add filler html and use JavaScript to put in correct links. -->
+            <div style="margin: {{ $verticalMargin }} 0px">            
+              <a id="previousLink" href="PREV_LINK" style="font-size: {{ $fontSize }}">Previous - </a>            
+              <div id="pageTurnSpacer" style="display:inline; margin: 0px {{ $sideMargin }}"></div>            
+              <a id="nextLink" href="NEXT_LINK" style="font-size: {{ $fontSize }}">Next - </a>                       
+            </div>
+            <!-- Use (1) or do not use (0) JavaScript to correct links. -->
+            <div id="useJS" style="display: none">1</div>
+          {{ end }}            
+        {{ else }}
+          <!-- Add content as structured by Hugo -->
+          {{ if $currentPage.IsMenuCurrent "docs" . }}              
+            <div style="margin: {{ $verticalMargin }} 0px">      
+            {{ with $currentPage.NextInSection }}
+              <a id="previousLink" href="{{ .RelPermalink }}" style="font-size: {{ $fontSize }}">Previous - {{ .Name }}</a>            
+            {{ end }}
+            <div id="pageTurnSpacer" style="display:inline; margin: 0px {{ $sideMargin }}"></div>            
+              {{ with $currentPage.PrevInSection }}
+              <a id="nextLink" href="{{ .RelPermalink }}" style="font-size: {{ $fontSize }}">Next - {{ .Name }}</a>                       
+              {{ end }}
+            </div> 
+            <!-- Use (1) or do not use (0) JavaScript to correct links. -->
+            <div id="useJS" style="display: none">0</div>
+          {{ end }}            
+        {{ end }}
+      {{ end }}      
+    {{ end }}
+  {{ else }}
+    {{ $extractParent := $currentPage.Parent.Page }}
+    {{ $currentParent := (replaceRE "Page\\(\\/(.*)\\)" "$1" $extractParent) }}    
+    {{ if eq $currentParent (.Parent) }}              
+      {{ if .Weight }}
+        <!-- Add content to be modified by JavaScript. -->
+        {{ if $currentPage.IsMenuCurrent "docs" . }}
+          <!-- Add filler html and use JavaScript to put in correct links. -->
+          <div style="margin: {{ $verticalMargin }} 0px">            
+            <a id="previousLink" href="PREV_LINK" style="font-size: {{ $fontSize }}">Previous - </a>            
+            <div id="pageTurnSpacer" style="display:inline; margin: 0px {{ $sideMargin }}"></div>            
+            <a id="nextLink" href="NEXT_LINK" style="font-size: {{ $fontSize }}">Next - </a>                       
+          </div>
+          <!-- Use (1) or do not use (0) JavaScript to correct links. -->
+          <div id="useJS" style="display: none">1</div>
+        {{ end }}            
+      {{ else }}
+        {{ if $currentPage.IsMenuCurrent "docs" . }}
+          <!-- Add content as structured by Hugo -->
+          <div style="margin: {{ $verticalMargin }} 0px">      
+            {{ with $currentPage.NextInSection }}
+              <a id="previousLink" href="{{ .RelPermalink }}" style="font-size: {{ $fontSize }}">Previous - {{ .Name }}</a>            
+            {{ end }}
+            <div id="pageTurnSpacer" style="display:inline; margin: 0px {{ $sideMargin }}"></div>            
+            {{ with $currentPage.PrevInSection }}
+              <a id="nextLink" href="{{ .RelPermalink }}" style="font-size: {{ $fontSize }}">Next - {{ .Name }}</a>                       
+            {{ end }}
+          </div> 
+          <!-- Use (1) or do not use (0) JavaScript to correct links. -->
+          <div id="useJS" style="display: none">0</div>
+        {{ end }}            
+      {{ end }}
+    {{ end }}      
+  {{ end }}
+{{ end }}
+                  
+<script>
+ // The ids used in doc page nav at bottom.
+ var previousLink = document.getElementById("previousLink");
+ var nextLink = document.getElementById("nextLink");
+ var pageTurnSpacer = document.getElementById("pageTurnSpacer");
+ var useJS = document.getElementById("useJS");
+ 
+ // Only run statement to add correct links if html id useJS innerHTLM is 1.
+ if (useJS.innerHTML == "1") {
+   // For adding the correct url.
+   var whatIsActive = -1, prevHref, prevName, nextHref, nextName;
+
+   // Start process to select sidebar and ensure correct selection.
+   var selectNavs = document.getElementsByTagName("nav");
+   var selectSidebar;
+   for (i = 0; i < selectNavs.length; i++) {
+     if (selectNavs[i].className == "sidebar") {
+       selectSidebar = selectNavs[i]; // got it
+     }
+   }
+
+   // Start process to select menu item, finding active and its position 
+   // relative in the side navigation.
+   var selectSubMenus = selectSidebar.getElementsByClassName("sub-menu");
+   // Used after loop to change/remove previous and next links.
+   var indexActive, indexPrev, indexNext; 
+   for (i = 0; i < selectSubMenus.length; i++) {
+     let curNavSection = selectSubMenus[i].getElementsByTagName("a");
+     // loop li and see if any are active
+     for (j = 0; j < curNavSection.length; j++) {
+       if (curNavSection[j].className == "active") {
+        if (j == 0) { // on first page in section
+          prevHref = "remove";    
+          nextHref = curNavSection[j+1].href;
+          nextName = curNavSection[j+1].innerText;
+          whatIsActive = i;
+        } else if (j == curNavSection.length - 1) { // somewhere between first and last
+          prevHref = curNavSection[j-1].href;
+          prevName = curNavSection[j-1].innerText;
+          nextHref = "remove";
+          whatIsActive = i;   
+        } else { // on last page in section
+          prevHref = curNavSection[j-1].href;
+          prevName = curNavSection[j-1].innerText;
+          nextHref = curNavSection[j+1].href;
+          nextName = curNavSection[j+1].innerText;
+          whatIsActive = i;
+        }
+         break;
+       }
+     }
+     if (whatIsActive != -1) { break; } // found active class so end loop
+   }
+   // Use results from above loop
+   if (prevHref == "remove") {
+     previousLink.remove();
+     pageTurnSpacer.remove();
+     nextLink.href = nextHref;
+     nextLink.innerHTML += nextName;
+   } else if (nextHref == "remove") {
+     previousLink.href = prevHref;
+     previousLink.innerHTML += prevName;
+     nextLink.remove();
+   } else {
+     previousLink.href = prevHref;
+     previousLink.innerHTML += prevName;
+     nextLink.href = nextHref;
+     nextLink.innerHTML += nextName;
+   }
+ }
+</script>

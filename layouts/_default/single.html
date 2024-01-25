@@ -1,6 +1,5 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-
+  <h1>{{ .Title }}</h1>  
   {{ with .Description }}
     <p>{{.}}</p>
   {{ end }}
@@ -9,7 +8,7 @@
   </aside>
   <div class="e-content">
     {{ .Content }}
-
+    {{ partial "list.html" . }}
     <p style="color: #687590;">
       {{ i18n "lastUpdated" }} {{ .Lastmod.Format "January 2, 2006" }}{{ with .File }} · <a href='https://github.com/mastodon/documentation/tree/main/content/{{ .Lang }}/{{ .Path }}' style="color: #687590;">{{ i18n "improvePage" }}{{ end }}</a>
 
