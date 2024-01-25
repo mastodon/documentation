@@ -16,9 +16,9 @@
           {{ if $currentPage.IsMenuCurrent "docs" . }}
             <!-- Add filler html and use JavaScript to put in correct links. -->
             <div style="margin: {{ $verticalMargin }} 0px">            
-              <a id="previousLink" href="PREV_LINK" style="font-size: {{ $fontSize }}">Previous - </a>            
+              <a id="previousLink" href="javascript:void(0)" style="font-size: {{ $fontSize }}">Previous - Page</a>
               <div id="pageTurnSpacer" style="display:inline; margin: 0px {{ $sideMargin }}"></div>            
-              <a id="nextLink" href="NEXT_LINK" style="font-size: {{ $fontSize }}">Next - </a>                       
+              <a id="nextLink" href="javascript:void(0)" style="font-size: {{ $fontSize }}">Next - Page</a>
             </div>
             <!-- Use (1) or do not use (0) JavaScript to correct links. -->
             <div id="useJS" style="display: none">1</div>
@@ -50,9 +50,9 @@
         {{ if $currentPage.IsMenuCurrent "docs" . }}
           <!-- Add filler html and use JavaScript to put in correct links. -->
           <div style="margin: {{ $verticalMargin }} 0px">            
-            <a id="previousLink" href="PREV_LINK" style="font-size: {{ $fontSize }}">Previous - </a>            
+            <a id="previousLink" href="javascript:void(0)" style="font-size: {{ $fontSize }}">Previous - Page</a>
             <div id="pageTurnSpacer" style="display:inline; margin: 0px {{ $sideMargin }}"></div>            
-            <a id="nextLink" href="NEXT_LINK" style="font-size: {{ $fontSize }}">Next - </a>                       
+            <a id="nextLink" href="javascript:void(0)" style="font-size: {{ $fontSize }}">Next - Page</a>
           </div>
           <!-- Use (1) or do not use (0) JavaScript to correct links. -->
           <div id="useJS" style="display: none">1</div>
@@ -135,16 +135,16 @@
      previousLink.remove();
      pageTurnSpacer.remove();
      nextLink.href = nextHref;
-     nextLink.innerHTML += nextName;
+     nextLink.innerHTML = nextLink.innerHTML.replace("Page", nextName);
    } else if (nextHref == "remove") {
      previousLink.href = prevHref;
-     previousLink.innerHTML += prevName;
+     previousLink.innerHTML = previousLink.innerHTML.replace("Page", prevName);
      nextLink.remove();
    } else {
      previousLink.href = prevHref;
-     previousLink.innerHTML += prevName;
+     previousLink.innerHTML = previousLink.innerHTML.replace("Page", prevName);
      nextLink.href = nextHref;
-     nextLink.innerHTML += nextName;
+     nextLink.innerHTML = nextLink.innerHTML.replace("Page", nextName);
    }
  }
 </script>
