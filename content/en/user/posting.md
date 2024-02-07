@@ -125,6 +125,17 @@ Send your post only to mentioned users.
 **Do not share dangerous and sensitive information over direct messages**. Mastodon is not an encrypted messaging app like Signal or Wire, the database administrators of the sender’s and recipient’s servers have access to the text. Use them with the same caution as you would use forum PMs, Discord PMs and Twitter DMs.
 {{< /hint >}}
 
+## Home feed visibility for replies
+
+Your replies will only appear on your followers' Home feeds if they follow both you and the person you're replying to. 
+
+Some notes about this:
+
+* A new post you make which starts with an `@mention` is **not** considered a reply, so it will show up on the Home feed of all your followers.
+* The reply's visibility (Public vs Unlisted vs Followers-Only) does **not** affect whether it shows up on the Home feed
+* If your post is public and contains a followed hashtag, it'll be shown on the Home feed regardless of whether it's a reply
+* Other Fediverse software may show all of your replies on the Home feed, no matter who the posts are replies to
+
 ## Content warnings and sensitive content {#cw}
 
 {{< figure src="assets/status-cw.jpg" caption="A status with a CW that is marked as sensitive content." >}}
