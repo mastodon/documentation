@@ -286,7 +286,7 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
-##### `configuration[urls][streaming_api]` {#streaming_api}
+##### `configuration[urls][streaming]` {#streaming}
 
 **Description:** The Websockets URL for connecting to the streaming API.\
 **Type:** String (URL)\
