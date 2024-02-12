@@ -459,6 +459,13 @@ If set, all StatsD keys will be prefixed with this. Defaults to `Mastodon.produc
 
 If set to `true`, Mastodon will log some Sidekiq metrics into StatsD. Defaults to `false`.
 
+#### `ES_CA_FILE`
+
+Override Certificate Authority bundle file to use. Useful when using self-signed certificates.
+
+**Version history:**\
+4.3.0 - added
+
 ### SMTP email delivery {#smtp}
 
 #### `SMTP_SERVER`
