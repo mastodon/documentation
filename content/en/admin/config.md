@@ -808,6 +808,16 @@ It is important to use a supported file format (JPEG or PNG, not SVG).
 
 ## Limits {#limits}
 
+### Anti Spam / Abuse 
+
+#### `HCAPTCHA_SITE_KEY`
+#### `HCAPTCHA_SECRET_KEY`
+
+Set this to your hCaptcha site key and secret to enable a checkbox in your administration panel allowing you to enable captchas on the account confirmation page using hCaptcha.
+
+Key can be obtain by registering on (https://www.hcaptcha.com/)[https://www.hcaptcha.com/]
+
+
 ### Email domains
 
 #### `EMAIL_DOMAIN_ALLOWLIST`
@@ -870,9 +880,7 @@ Defaults to `https://github.com/$GITHUB_REPOSITORY`
 
 #### `FFMPEG_BINARY`
 
-#### `HCAPTCHA_SITE_KEY`
 
-Set this to your hCaptcha site key to enable captchas on the account confirmation page using hCaptcha.
 
 Defaults to empty value (not enabled)
 
