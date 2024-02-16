@@ -815,7 +815,7 @@ It is important to use a supported file format (JPEG or PNG, not SVG).
 
 Set this to your hCaptcha site key and secret to enable a checkbox in your administration panel allowing you to enable captchas on the account confirmation page using hCaptcha.
 
-Key can be obtain by registering on (https://www.hcaptcha.com/)[https://www.hcaptcha.com/]
+Key can be obtain by registering on [https://www.hcaptcha.com/](https://www.hcaptcha.com/)
 
 
 ### Email domains
