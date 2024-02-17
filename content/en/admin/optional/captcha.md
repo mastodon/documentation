@@ -12,8 +12,10 @@ With CAPTCHA enabled, new registrations will be required to complete a challenge
 
 ![](/assets/captcha/user-view.png)
 
+{{< hint style="danger" >}}
 For some people, the use of a central CAPTCHA service may be a security and privacy concern.
 In addition, CAPTCHA can make the registration process significantly less accessible to some (especially disabled) people.
+{{</ hint >}}
 
 Currently, hCaptcha is the only available provider supported by Mastodon.
 Other providers may be added in the future.
