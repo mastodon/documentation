@@ -848,6 +848,20 @@ This setting has no relation to which users are considered active for the purpos
 
 This variable only has any effect when running `rake db:migrate` and it is extremely specific to the Mastodon upgrade process. There are two types of database migrations, those that run before new code is deployed and running, and those that run after. By default, both types of migrations are executed. If you shut down all Mastodon processes before running migrations, then there is no difference. The variable makes sense for zero-downtime upgrades. You will see in the upgrade instructions of a specific Mastodon version if you need to use it or not.
 
+### Sign-up Captcha {#captcha}
+
+Setting these variables will allow for hCaptcha support on sign-up.
+
+Defaults to empty values (not enabled)
+
+{{< hint style="info" >}}
+If you wish to use hCaptcha, don't forget to enable it from the Administration -> Dashboard page after configuring.
+{{</ hint >}}
+
+#### `HCAPTCHA_SITE_KEY`
+
+#### `HCAPTCHA_SECRET_KEY`
+
 ### Uncategorized or unsorted
 
 #### `BUNDLE_GEMFILE`
@@ -869,12 +883,6 @@ Defaults to `mastodon/mastodon`
 Defaults to `https://github.com/$GITHUB_REPOSITORY`
 
 #### `FFMPEG_BINARY`
-
-#### `HCAPTCHA_SITE_KEY`
-
-Set this to your hCaptcha site key to enable captchas on the account confirmation page using hCaptcha.
-
-Defaults to empty value (not enabled)
 
 #### `LOCAL_HTTPS`
 
