@@ -52,7 +52,7 @@ Mastodon使用环境变量作为其的配置。
 
 ### 部署 {#deployment}
 
-* `RAILS_ENV`
+* `RAILS_ENV` 
 * `RAILS_SERVE_STATIC_FILES`
 * `RAILS_LOG_LEVEL`
 * `TRUSTED_PROXY_IP`
@@ -243,5 +243,7 @@ Mastodon使用环境变量作为其的配置。
 ## 其它 {#other}
 
 * `SKIP_POST_DEPLOYMENT_MIGRATIONS`
+* `HCAPTCHA_SITE_KEY`
+* `HCAPTCHA_SECRET_KEY`
 
 {{< translation-status-zh-cn raw_title="Configuring your environment" raw_link="/admin/config/" last_tranlation_time="2020-05-04" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}
