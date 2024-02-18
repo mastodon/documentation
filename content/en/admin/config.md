@@ -855,7 +855,7 @@ Setting these variables will allow for hCaptcha support on sign-up.
 Defaults to empty values (not enabled)
 
 {{< hint style="info" >}}
-If you wish to use hCaptcha, don't forget to enable it from the Administration -> Dashboard page after configuring.
+If you wish to use hCaptcha, don't forget to enable it from the Administration -> Server Settings page after configuring.
 {{</ hint >}}
 
 #### `HCAPTCHA_SITE_KEY`

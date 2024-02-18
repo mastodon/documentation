@@ -52,7 +52,7 @@ Mastodon使用环境变量作为其的配置。
 
 ### 部署 {#deployment}
 
-* `RAILS_ENV` 
+* `RAILS_ENV`
 * `RAILS_SERVE_STATIC_FILES`
 * `RAILS_LOG_LEVEL`
 * `TRUSTED_PROXY_IP`
