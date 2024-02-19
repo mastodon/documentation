@@ -2,7 +2,7 @@
 title: Single Sign On
 menu:
   docs:
-    weight: 30
+    weight: 40
     parent: admin-optional
 ---
 
