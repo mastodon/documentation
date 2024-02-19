@@ -813,10 +813,7 @@ It is important to use a supported file format (JPEG or PNG, not SVG).
 #### `HCAPTCHA_SITE_KEY`
 #### `HCAPTCHA_SECRET_KEY`
 
-Set this to your hCaptcha site key and secret to enable a checkbox in your administration panel allowing you to enable captchas on the account confirmation page using hCaptcha.
-
-Key can be obtain by registering on [https://www.hcaptcha.com/](https://www.hcaptcha.com/)
-
+If set, registrations confirm page will display a captcha, see [Captcha](https://docs.joinmastodon.org/admin/optional/captcha/)
 
 ### Email domains
 
@@ -879,8 +876,6 @@ Defaults to `mastodon/mastodon`
 Defaults to `https://github.com/$GITHUB_REPOSITORY`
 
 #### `FFMPEG_BINARY`
-
-
 
 Defaults to empty value (not enabled)
 
