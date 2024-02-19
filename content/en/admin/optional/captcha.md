@@ -23,7 +23,7 @@ Other providers may be added in the future.
 ## hCaptcha
 
 - Create a free hCaptcha account at [hcaptcha.com](https://www.hcaptcha.com)
-- After completing registration, use the hCaptcha dashboard to add a new site with your domain to obtain a Site Key
+- After completing registration, use the hCaptcha dashboard to add a new site with your Mastodon server domain and obtain a Site Key
 - From the Account Settings menu in hCaptcha, obtain your Secret Key
 - Add the values to your Mastodon environment configuration as `HCAPTCHA_SITE_KEY` and `HCAPTCHA_SECRET_KEY`
 - Restart the Mastodon services running on your server
