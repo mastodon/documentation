@@ -343,6 +343,23 @@ Approve new registrations when instance is in approval mode.
 ---
 
 
+### `tootctl accounts prune` {#accounts-prune}
+
+Prune remote accounts that never interacted with local users
+
+`--concurrency N`
+: The number of workers to use for this task. Defaults to N=5.
+
+`--dry-run`
+: Print expected results only, without performing any actions.
+
+**Version history:**\
+2.8.0 - added
+
+
+---
+
+
 ## Cache CLI {#cache}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/cache.rb" caption="lib/mastodon/cli/cache.rb" >}}
