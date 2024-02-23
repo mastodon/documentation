@@ -643,6 +643,12 @@ Value of the `CACHE_BUSTER_SECRET_HEADER` header configured above.
 
 ### OmniAuth
 
+#### `ALLOW_UNSAFE_AUTH_PROVIDER_REATTACH`
+Allow existing users to log in using external authentication providers they have not previously used, provided they use the same e-mail address. This can be useful if you want to offer users the ability to migrate from one external provider to another, but this is a potential security risk, as this allows attackers to hijack an account if they manage to create a new identity with their target's e-mail address on any of your configured providers.
+
+**Version history:**\
+4.2.6 - added
+
 #### `OMNIAUTH_ONLY`
 
 #### `ONE_CLICK_SSO_LOGIN`
