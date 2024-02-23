@@ -86,6 +86,15 @@ As of Mastodon v4.0.0, the web app is now used to render all requests, even for 
 
 If set to `true`, the front page of your Mastodon server will always redirect to the first profile in the database and registrations will be disabled.
 
+#### `DISABLE_AUTOMATIC_SWITCHING_TO_APPROVED_REGISTRATIONS`
+
+In order to prevent abandoned Mastodon servers from being used for spam, harassment and other malicious activity, Mastodon will automatically switch new user registrations to require moderator approval whenever they are left open and no activity (including non-moderation actions from apps) from any logged-in user with permission to access moderation reports has been detected in a full week. When this happens, users with the permission to change server settings will receive an email notification.
+
+Setting `DISABLE_AUTOMATIC_SWITCHING_TO_APPROVED_REGISTRATIONS=true` disables this behavior.
+
+**Version history:**\
+4.2.8 - added
+
 #### `DEFAULT_LOCALE`
 
 By default, Mastodon will automatically detect the visitor's language from browser headers and display the Mastodon interface in that language (if it's supported). If you are running a language-specific or regional server, that behavior may mislead visitors who do not speak your language into signing up on your server. For this reason, you may want to set this variable to a specific language.
