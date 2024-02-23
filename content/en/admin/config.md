@@ -852,6 +852,14 @@ This variable only has any effect when running `rake db:migrate` and it is extre
 
 #### `DEEPL_PLAN`
 
+#### `ENABLE_SIDEKIQ_UNIQUE_JOBS_UI`
+
+Enable `sidekiq-unique-jobs`'s web interface. This can be used to review and clear the locks managed by this gem, but is rarely useful in practice and has had critical security vulnerabilities in the past.
+If you only need to clear all locks, you can now use the newly-added `bundle exec rake sidekiq_unique_jobs:delete_all_locks`.
+
+**Version history:**\
+4.2.6 - added
+
 #### `LIBRE_TRANSLATE_ENDPOINT`
 
 #### `LIBRE_TRANSLATE_API_KEY`
