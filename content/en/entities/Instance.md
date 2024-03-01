@@ -484,7 +484,7 @@ aliases: [
 #### `contact[account]` {#contact-account}
 
 **Description:** An account that can be contacted natively over the network regarding inquiries or issues.\
-**Type:** [Account]({{< relref "entities/Account" >}})\
+**Type:** {{<nullable>}} [Account]({{< relref "entities/Account" >}}) or null\
 **Version history:**\
 4.0.0 - added
 
