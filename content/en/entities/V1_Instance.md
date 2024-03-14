@@ -401,7 +401,7 @@ aliases: [
 ### `contact_account` {#contact_account}
 
 **Description:** A user that can be contacted, as an alternative to `email`.\
-**Type:** [Account]({{< relref "entities/Account" >}})\
+**Type:** {{<nullable>}} [Account]({{< relref "entities/Account" >}}) or null\
 **Version history:**\
 2.3.0 - added
 
