@@ -554,6 +554,8 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 {{< page-ref page="admin/optional/object-storage" >}}
 
+The bucket must support access control lists (ACLs). For AWS S3, this means setting the "Object Ownership" setting to "ACLs enabled". For Google Cloud Storage, this means setting the "Access control" setting to "Fine-grained".
+
 #### `S3_ENABLED`
 
 #### `S3_REGION`
