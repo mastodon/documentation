@@ -47,9 +47,10 @@ aliases: [
 ### `posting:default:language` {#posting-default-language}
 
 **Description:** Default language for new posts. Equivalent to [CredentialAccount#source\[language\]]({{< relref "entities/Account#source-language" >}})\
-**Type:** {{<nullable>}} String (ISO 639-1 language two-letter code), or null\
+**Type:** {{<nullable>}} String (well-formed BCP 47 language tag, but parts other than language subtag may be discarded), or null\
 **Version history:**\
 2.8.0 - added
+4.1.0 - accept BCP 47
 
 ### `reading:expand:media` {#reading-expand-media}
 
