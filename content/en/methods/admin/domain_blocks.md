@@ -60,6 +60,7 @@ limit
   {
     "id": "1",
     "domain": "example.com",
+    "digest": "a379a6f6eeafb9a55e378c118034e2751e682fab9f2d30ab13d2125586ce1947",
     "created_at": "2022-11-16T08:15:34.238Z",
     "severity": "noop",
     "reject_media": false,
@@ -120,6 +121,7 @@ Authorization
 {
   "id": "1",
   "domain": "example.com",
+  "digest": "a379a6f6eeafb9a55e378c118034e2751e682fab9f2d30ab13d2125586ce1947",
   "created_at": "2022-11-16T08:15:34.238Z",
   "severity": "noop",
   "reject_media": false,
@@ -146,7 +148,7 @@ DomainBlock with the given ID does not exist
 
 ```json
 {
-	"error": "Record not found"
+  "error": "Record not found"
 }
 ```
 
@@ -205,6 +207,7 @@ Domain has been blocked from federating.
 {
   "id": "1",
   "domain": "example.com",
+  "digest": "a379a6f6eeafb9a55e378c118034e2751e682fab9f2d30ab13d2125586ce1947",
   "created_at": "2022-11-16T08:15:34.238Z",
   "severity": "noop",
   "reject_media": false,
@@ -225,13 +228,35 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 }
 ```
 
-##### 422: Unprocessable entity
+##### 422: Unprocessable entity - Missing Parameter
 
 The domain parameter was not provided
 
 ```json
 {
-	"error": "Validation failed: Domain can't be blank"
+  "error": "Validation failed: Domain can't be blank"
+}
+```
+
+##### 422: Unprocessable entity - Existing Domain Block
+
+The domain parameter already is covered by an existing domain block.
+
+```json
+{
+  "error": "You have already imposed stricter limits on example.com."
+  "existing_domain_block": {
+    "id": "1",
+    "domain": "example.com",
+    "digest": "a379a6f6eeafb9a55e378c118034e2751e682fab9f2d30ab13d2125586ce1947",
+    "created_at": "2022-11-16T08:15:34.238Z",
+    "severity": "noop",
+    "reject_media": false,
+    "reject_reports": false,
+    "private_comment": null,
+    "public_comment": null,
+    "obfuscate": false
+  }
 }
 ```
 
@@ -292,6 +317,7 @@ Domain block has been updated
 {
   "id": "1",
   "domain": "example.com",
+  "digest": "a379a6f6eeafb9a55e378c118034e2751e682fab9f2d30ab13d2125586ce1947",
   "created_at": "2022-11-16T08:15:34.238Z",
   "severity": "noop",
   "reject_media": false,
@@ -368,7 +394,7 @@ DomainBlock with the given ID does not exist
 
 ```json
 {
-	"error": "Record not found"
+  "error": "Record not found"
 }
 ```
 
