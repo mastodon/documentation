@@ -30,7 +30,8 @@ POST /api/v1/reports HTTP/1.1
 1.1 - added\
 2.3.0 - add `forward` parameter\
 3.5.0 - add `category` and `rule_ids` parameters\
-4.0.0 - `category` is now optional if `rule_ids` is provided
+4.0.0 - `category` is now optional if `rule_ids` is provided\
+4.2.0 - add `legal` category
 
 #### Request
 ##### Headers
@@ -53,7 +54,7 @@ forward
 : Boolean. If the account is remote, should the report be forwarded to the remote admin? Defaults to false.
 
 category
-: String. Specify if the report is due to `spam`, `violation` of enumerated instance rules, or some `other` reason. Defaults to `other`. Will be set to `violation` if `rule_ids[]` is provided (regardless of any category value you provide).
+: String. Specify if the report is due to `spam`, `legal` (illegal content), `violation` of enumerated instance rules, or some `other` reason. Defaults to `other`. Will be set to `violation` if `rule_ids[]` is provided (regardless of any category value you provide).
 
 rule_ids[]
 : Array of Integer. For `violation` category reports, specify the ID of the exact rules broken. Rules and their IDs are available via [GET /api/v1/instance/rules]({{< relref "methods/instance#rules" >}}) and [GET /api/v1/instance]({{< relref "methods/instance#get" >}}).
