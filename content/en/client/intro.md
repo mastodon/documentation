@@ -79,7 +79,7 @@ curl -X POST \
 
 ### Multiple values (Array) {#array}
 
-An array parameter must encoded using bracket notation, e.g. `array[]=foo&array[]=bar` would be translated into the following:
+An array parameter must be encoded using bracket notation. For example, `array[]=foo&array[]=bar` would be translated into the following:
 
 ```ruby
 array = [
@@ -120,7 +120,7 @@ As JSON, hashes are formatted like so:
 
 ### True-or-false (Booleans) {#boolean}
 
-A boolean value is considered false for the values `0`, `f`, `F`, `false`, `FALSE`, `off`, `OFF`, considered to not be provided for empty strings, and considered to be true for all other values. When using JSON data, use the literals `true`, `false`, and `null` instead.
+A boolean value is considered false for the values `0`, `f`, `F`, `false`, `FALSE`, `off`, `OFF`; considered to not be provided for empty strings; and considered to be true for all other values. When using JSON data, use the literals `true`, `false`, and `null` instead.
 
 ### Files {#file}
 
@@ -132,7 +132,7 @@ This can be combined with arrays as well.
 
 The Mastodon REST API will return JSON as the response text. It also returns HTTP headers which may be useful in handling the response, as well as an HTTP status code which should let you know how the server handled the request. The following HTTP status codes may be expected:
 
-* 200 = OK. The request was handled successfully.
-* 4xx = Client error. Your request was not correct. Most commonly, you may see 401 Unauthorized, 404 Not Found, 410 Gone, or 422 Unprocessed.
-* 5xx = Server error. Something went wrong while handling the request. Most commonly, you may see 503 Unavailable.
+- 200 = OK. The request was handled successfully.
+- 4xx = Client error. Your request was not correct. Most commonly, you may see 401 Unauthorized, 404 Not Found, 410 Gone, or 422 Unprocessed.
+- 5xx = Server error. Something went wrong while handling the request. Most commonly, you may see 503 Unavailable.
 
