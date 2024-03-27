@@ -38,11 +38,6 @@ See all currently active announcements set by admins.
 Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
-##### Query parameters
-
-with_dismissed
-: Boolean. If true, response will include announcements dismissed by the user. Defaults to false.
-
 #### Response
 ##### 200: OK
 
