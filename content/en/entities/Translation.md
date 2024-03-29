@@ -62,14 +62,14 @@ Translation of status with poll:
 **Version history:**\
 4.0.0 - added
 
-### `spoiler_warning` {#spoiler_warning}
+### `spoiler_text` {#spoiler_text}
 
 **Description:** The translated spoiler warning of the status.\
 **Type:** String\
 **Version history:**\
 4.2.0 - added
 
-### `poll` {#poll}
+### `poll` {{%optional%}} {#poll}
 
 **Description:** The translated poll of the status.\
 **Type:** [Translation::Poll](#Poll)\
