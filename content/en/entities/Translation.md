@@ -79,7 +79,7 @@ Translation of status with poll:
 ### `media_attachments` {#media_attachments}
 
 **Description:** The translated media descriptions of the status.\
-**Type:** Array\
+**Type:** Array of [Translation::Attachment](#Attachment)\
 **Version history:**\
 4.2.0 - added
 
@@ -101,7 +101,7 @@ Translation of status with poll:
 
 ### `id` {#Poll-id}
 
-**Description:** The ID of the Poll.\
+**Description:** The ID of the poll.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
 4.2.0 - added
@@ -109,7 +109,32 @@ Translation of status with poll:
 ### `options` {#Poll-options}
 
 **Description:** The translated poll options.\
-**Type:** Array\
+**Type:** Array of [Translation::Poll::Option](#Option)\
+**Version history:**\
+4.2.0 - added
+
+## Translation::Poll::Option attributes {#Option}
+
+### `title` {#Option-title}
+
+**Description:** The translated title of the poll option.\
+**Type:** String\
+**Version history:**\
+4.2.0 - added
+
+## Translation::Attachment attributes {#Attachment}
+
+### `id` {#Attachment-id}
+
+**Description:** The id of the attachment.\
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
+**Version history:**\
+4.2.0 - added
+
+### `description` {#Attachment-description}
+
+**Description:** The translated description of the attachment.\
+**Type:** String\
 **Version history:**\
 4.2.0 - added
 
