@@ -868,6 +868,19 @@ This setting has no relation to which users are considered active for the purpos
 
 This variable only has any effect when running `rake db:migrate` and it is extremely specific to the Mastodon upgrade process. There are two types of database migrations, those that run before new code is deployed and running, and those that run after. By default, both types of migrations are executed. If you shut down all Mastodon processes before running migrations, then there is no difference. The variable makes sense for zero-downtime upgrades. You will see in the upgrade instructions of a specific Mastodon version if you need to use it or not.
 
+### DB Encryption support
+
+These three environment variables must be set to enable the Active Record
+Encryption feature within Rails that Mastodon uses to encrypt and decrypt some
+database attributes.
+
+- `ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY`
+- `ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY`
+- `ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT`
+
+**Version history:**\
+4.3.0 - added
+
 ### Uncategorized or unsorted
 
 #### `BUNDLE_GEMFILE`
