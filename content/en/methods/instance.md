@@ -65,7 +65,8 @@ Obtain general information about the server.
       "public_key": "BCkMmVdKDnKYwzVCDC99Iuc9GvId-x7-kKtuHnLgfF98ENiZp_aj-UNthbCdI70DqN1zUVis-x0Wrot2sBagkMc="
     },
     "accounts": {
-      "max_featured_tags": 10
+      "max_featured_tags": 10,
+      "max_pinned_statuses": 4
     },
     "statuses": {
       "max_characters": 500,
