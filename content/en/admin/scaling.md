@@ -315,13 +315,13 @@ Then use `\q` to quit.
 
 ## Separate Redis for cache {#redis}
 
-Redis is used widely throughout the application, but some uses are more important than others. Home feeds, list feeds, and Sidekiq queues as well as the streaming API are backed by Redis and that’s important data you wouldn’t want to lose (even though the loss can be survived, unlike the loss of the PostgreSQL database - never lose that!). However, Redis is also used for volatile cache. If you are at a stage of scaling up where you are worried about whether your Redis can handle everything, you can use a different Redis database for the cache. In the environment, you can specify `CACHE_REDIS_URL` or individual parts like `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT` etc. Unspecified parts fallback to the same values as without the cache prefix.
+Redis is used widely throughout the application, but some uses are more important than others. Home feeds, list feeds, and Sidekiq queues as well as the streaming API are backed by Redis and that’s important data you wouldn’t want to lose (even though the loss can be survived, unlike the loss of the PostgreSQL database - never lose that!).
 
-Additionally, Redis is used for volatile caching. If you are scaling up and you are concerned about Redis's capacity to handle the load, you can allocate a separate Redis database specifically for caching. To do this, set `CACHE_REDIS_URL` in the environment, or define individual components such as `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT`, etc.
+Redis is used for volatile caching. If you are scaling up and you are concerned about Redis's capacity to handle the load, you can allocate a separate Redis database specifically for caching. To do this, set `CACHE_REDIS_URL` in the environment, or define individual components such as `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT`, etc.
 
 Unspecified components will default to their values without the cache prefix.
 
-When configuring the Redis database for caching, it is possible to disable background saving to disk, as data loss on restart is not critical in this context, and this can save some disk I/O. Additionally, consider setting a maximum memory limit and implementing a key eviction policy. For more details on these configurations, refer to this guide:[Using Redis as an LRU cache](https://redis.io/topics/lru-cache)
+When configuring the Redis database for caching, it is possible to disable background saving to disk, as data loss on restart is not critical in this context, and this can save some disk I/O. Additionally, consider setting a maximum memory limit and implementing a key eviction policy. For more details on these configurations, refer to this guide: [Using Redis as an LRU cache](https://redis.io/topics/lru-cache)
 
 ## Separate Redis for Sidekiq {#redis-sidekiq}
 
