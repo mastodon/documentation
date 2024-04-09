@@ -26,12 +26,12 @@ This guide was written with Ubuntu Server in mind; your mileage may vary for oth
 9. Run `RAILS_ENV=production ./bin/tootctl feeds build` to rebuild the home timelines for each user.
 10. Run `RAILS_ENV=production ./bin/tootctl search deploy` to rebuild your Elasticsearch indices (Note: if you are not using Elasticsearch, you can skip this step.)
 11. Update your DNS settings to point to the new server.
-12. Update or copy your Nginx configuration, and re-run LetsEncrypt as necessary.
+12. Update or copy your nginx configuration, and re-run LetsEncrypt as necessary.
 13. Enjoy your new server!
 
 ## Detailed steps {#detailed-steps}
 
-### Stop the Mastodon services  
+### Stop the Mastodon services
 
 ```bash
 systemctl stop 'mastodon-*.service'
@@ -55,13 +55,17 @@ Less crucially, you’ll probably also want to copy the following for convenienc
 
 ### Dump and load PostgreSQL {#dump-and-load-postgresql}
 
-Instead of running `mastodon:setup`, we’re going to create an empty PostgreSQL database using the `template0` database (which is useful when restoring a PostgreSQL dump, [as described in the pg_dump documentation](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)).  
+{{< hint style="info" >}}
+Before you start, note that both `pg_dump` and `pg_restore` can take a long time. (As in, hours for a ~15GB backup file.) You may want to [temporarily tune Postgres's performance](https://stackoverflow.com/a/2095283) just for dumping/restoring.
+{{< /hint >}}
+
+Instead of running `mastodon:setup`, we’re going to create an empty PostgreSQL database using the `template0` database (which is useful when restoring a PostgreSQL dump, [as described in the pg_dump documentation](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)).
 
 If you are using a password for your PostgreSQL user, you may want to configure the `mastodon` user on your new system to use the same password as your old system for convenience:
 
 ```bash
-sudo -u postgres psql  
-ALTER USER mastodon WITH PASSWORD 'YOUR_PASSWORD';  
+sudo -u postgres psql
+ALTER USER mastodon WITH PASSWORD 'YOUR_PASSWORD';
 \q
 ```
 
@@ -84,7 +88,9 @@ pg_restore -Fc -j# -U mastodon -n public --no-owner --role=mastodon \
   -d mastodon_production backup.dump
 ```
 
+{{< hint style="info" >}}
 (Note that if the username is not `mastodon` on the new server, you should change the `-U` AND `--role` values above. It’s okay if the username is different between the two servers.)
+{{< /hint >}}
 
 ### Copy files {#copy-files}
 
@@ -94,11 +100,23 @@ This will probably take some time, and you’ll want to avoid re-copying unneces
 rsync -avz ~/live/public/system/ mastodon@example.com:~/live/public/system/
 ```
 
-You’ll want to re-run this if any of the files on the old server change.  
+You’ll want to re-run this if any of the files on the old server change.
 
 You should also copy over the `.env.production` file, which contains secrets.
 
-Now copy your Redis database over (adjust the location of your Redis database as needed). On your old machine, as the `root` user, run:
+Optionally, you may copy over the nginx, systemd, and PgBouncer config files, or rewrite them from scratch.
+
+### Certbot
+
+Copying your nginx config files will not be sufficient to re-run certbot and renew your server's TLS certificates. You'll need to copy the certificate key files referenced by `ssl_certificate` and `ssl_certificate_key` (in `/etc/nginx/sites-available/mastodon`) to the new machine and update the path in the new machine's nginx config.
+
+Don't use letsencrypt's own `live` folder for this, or else letsencrypt will complain when you try to re-generate the certificate. Just use any temporary directory for this, since re-running letsencrypt will overwrite the config anyway.
+
+### Copy Redis database {#copy-redis}
+
+As mentioned in the [Backup Guide]({{< relref "backups" >}}), losing the Redis database is almost harmless. But if you want to migrate Redis data copy the database to the new machine.
+
+On your old machine, as the `root` user, run:
 
 ```bash
 redis-cli
@@ -108,8 +126,6 @@ systemctl stop redis-server.service
 rsync -avz /var/lib/redis/ root@example.com:/var/lib/redis
 ```
 
-Optionally, you may copy over the nginx, systemd, and PgBouncer config files, or rewrite them from scratch.
-
 ### During migration {#during-migration}
 
 You can edit the `~/live/public/500.html` page on the old machine if you want to show a nice error message to let existing users know that a migration is in progress.
@@ -118,18 +134,18 @@ You’ll probably also want to set the DNS TTL to something small (30-60 minutes
 
 ### After migrating {#after-migrating}
 
-Run the following commands as your mastodon user:  
+Run the following commands as your mastodon user:
 
 ```bash
-RAILS_ENV=production bundle exec rails assets:precompile  
+RAILS_ENV=production bundle exec rails assets:precompile
 ```
 
 Now run the following commands as your root user:
 
 ```bash
 systemctl daemon-reload
-systemctl start redis-server  
-systemctl enable --now mastodon-web mastodon-sidekiq mastodon-streaming  
+systemctl start redis-server
+systemctl enable --now mastodon-web mastodon-sidekiq mastodon-streaming
 systemctl restart nginx
 ```
 
