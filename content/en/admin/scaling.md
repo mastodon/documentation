@@ -317,7 +317,7 @@ Then use `\q` to quit.
 
 Redis is used widely throughout the application, but some uses are more important than others. Home feeds, list feeds, and Sidekiq queues as well as the streaming API are backed by Redis and that’s important data you wouldn’t want to lose (even though the loss can be survived, unlike the loss of the PostgreSQL database - never lose that!).
 
-Redis is used for volatile caching. If you are scaling up and you are concerned about Redis's capacity to handle the load, you can allocate a separate Redis database specifically for caching. To do this, set `CACHE_REDIS_URL` in the environment, or define individual components such as `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT`, etc.
+Redis is also used for volatile caching. If you are scaling up and you are concerned about Redis's capacity to handle the load, you can allocate a separate Redis database specifically for caching. To do this, set `CACHE_REDIS_URL` in the environment, or define individual components such as `CACHE_REDIS_HOST`, `CACHE_REDIS_PORT`, etc.
 
 Unspecified components will default to their values without the cache prefix.
 
