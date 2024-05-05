@@ -1,6 +1,6 @@
 ---
 title: Proxying object storage through nginx
-description: Serving user-uploaded files in Mastodon from your own domain
+summary: Serving user-uploaded files in Mastodon from your own domain
 ---
 
 When you are using Mastodon with an object storage provider like Amazon S3, Wasabi, Google Cloud or others, by default the URLs of the files go through the storage providers themselves. This has the following downsides:

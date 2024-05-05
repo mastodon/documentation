@@ -1,7 +1,7 @@
 
 ---
 title: statuses API methods
-description: Publish, interact, and view information about statuses.
+summary: Publish, interact, and view information about statuses.
 menu:
   docs:
     weight: 30

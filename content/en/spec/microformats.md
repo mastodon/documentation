@@ -1,6 +1,6 @@
 ---
 title: Microformats
-description: An open data format using CSS classes to structure your already-existing HTML.
+summary: An open data format using CSS classes to structure your already-existing HTML.
 menu:
   docs:
     weight: 40

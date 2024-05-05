@@ -1,6 +1,6 @@
 ---
 title: directory API methods
-description: A directory of profiles that your website is aware of.
+summary: A directory of profiles that your website is aware of.
 menu:
   docs:
     weight: 20

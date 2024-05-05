@@ -1,6 +1,6 @@
 ---
 title: Scaling up your server
-descriptions: Optimizations that can be done to serve more users.
+summary: Optimizations that can be done to serve more users.
 menu:
   docs:
     weight: 100

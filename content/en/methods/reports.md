@@ -1,6 +1,6 @@
 ---
 title: reports API methods
-description: Report problematic users to your moderators.
+summary: Report problematic users to your moderators.
 menu:
   docs:
     weight: 70

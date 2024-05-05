@@ -1,0 +1,3 @@
+[submodule "themes/paradox"]
+	path = themes/paradox
+	url = https://github.com/trwnh/hugo-theme-paradox.git

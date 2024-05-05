@@ -1,6 +1,6 @@
 ---
 title: Guidelines and best practices
-description: Things to keep in mind when implementing a Mastodon app.
+summary: Things to keep in mind when implementing a Mastodon app.
 menu:
   docs:
     weight: 10

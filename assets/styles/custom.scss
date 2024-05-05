@@ -1,0 +1,61 @@
+@import "colors";
+
+$sidebar-width: 22rem;
+:root {
+	--sidebar-width: #{$sidebar-width};
+}
+
+/* make the masthead logo line up with the sidebar */
+
+.site-masthead {
+	svg {
+		margin-top: 13px;
+	}
+	.site-title {
+		font-weight: 400;
+		font-size: 24px;
+		letter-spacing: -1px;
+	}
+	padding-bottom: 4px;
+	*:focus {
+		padding-bottom: 4px;
+	}
+	gap: 0.5em;
+	width: 18rem;
+}
+
+@media (min-width: 60rem) {
+	.docs-nav {
+		min-width: 22rem;
+	}
+}
+
+@media (min-width: 1132px) {
+	.color-switcher {
+		margin-left: 3em;
+		margin-right: auto;
+	}
+}
+
+/* re-style nav links */
+
+.header-nav {
+	.menu {
+		gap: 2em;
+	}
+	a {
+		text-decoration: none;
+		color: var(--ui-text-bold);
+		font-weight: 700;
+	}
+}
+
+.docs-nav {
+	li::marker {
+		content: '' !important;
+	}
+	a {
+		text-decoration: none;
+		color: var(--ui-text);
+	}
+}

@@ -1,6 +1,6 @@
 ---
 title: ActivityPub
-description: A decentralized social networking protocol based upon the ActivityStreams 2.0 data format and JSON-LD.
+summary: A decentralized social networking protocol based upon the ActivityStreams 2.0 data format and JSON-LD.
 menu:
   docs:
     weight: 10

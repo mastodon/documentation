@@ -1,6 +1,6 @@
 ---
 title: Status
-description: Represents a status posted by an account.
+summary: Represents a status posted by an account.
 menu:
   docs:
     parent: entities

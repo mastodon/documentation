@@ -1,6 +1,6 @@
 ---
 title: filters API methods
-description: Create and manage filters.
+summary: Create and manage filters.
 menu:
   docs:
     weight: 60

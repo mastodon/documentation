@@ -1,6 +1,6 @@
 ---
 title: Onion services
-description: Serving Mastodon through Tor onion services.
+summary: Serving Mastodon through TOR hidden services.
 menu:
   docs:
     weight: 20

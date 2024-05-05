@@ -1,6 +1,6 @@
 ---
 title: Announcement
-description: Represents an announcement set by an administrator.
+summary: Represents an announcement set by an administrator.
 menu:
   docs:
     parent: entities

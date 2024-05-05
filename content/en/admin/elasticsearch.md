@@ -1,6 +1,6 @@
 ---
 title: Configuring full-text search
-description: Setting up Elasticsearch to search for statuses (authored, favourited, or mentioned), public indexable status, and accounts
+summary: Setting up Elasticsearch to search for statuses (authored, favourited, or mentioned), public indexable status, and accounts
 aliases:
 - /admin/optional/elasticsearch
 menu:

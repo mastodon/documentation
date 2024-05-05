@@ -1,6 +1,6 @@
 ---
 title: Admin::Ip
-description: Represents an IP address associated with a user.
+summary: Represents an IP address associated with a user.
 menu:
   docs:
     parent: entities

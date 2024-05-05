@@ -1,6 +1,6 @@
 ---
 title: Tag
-description: Represents a hashtag used within the content of a status.
+summary: Represents a hashtag used within the content of a status.
 menu:
   docs:
     parent: entities
@@ -112,7 +112,7 @@ aliases: [
 
 ## Admin::Tag attributes {#admin}
 
-```json
+```json{linenos=false,hl_lines=["41-44"]}
 {
   "name": "caturday",
   "url": "https://mastodon.example/tags/caturday",

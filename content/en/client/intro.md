@@ -1,6 +1,6 @@
 ---
 title: Getting started with the API
-description: 'A primer on REST APIs, HTTP requests and responses, and parameters.'
+summary: 'A primer on REST APIs, HTTP requests and responses, and parameters.'
 menu:
   docs:
     weight: 10

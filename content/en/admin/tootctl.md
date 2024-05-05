@@ -1,6 +1,6 @@
 ---
 title: Using the admin CLI
-description: tootctl commands that can be run from the CLI.
+summary: tootctl commands that can be run from the CLI.
 menu:
   docs:
     weight: 60

@@ -1,6 +1,6 @@
 ---
 title: FilterStatus
-description: Represents a status ID that, if matched, should cause the filter action to be taken.
+summary: Represents a status ID that, if matched, should cause the filter action to be taken.
 menu:
   docs:
     parent: entities

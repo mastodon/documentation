@@ -1,6 +1,6 @@
 ---
 title: Admin::DomainBlock
-description: Represents a domain limited from federating.
+summary: Represents a domain limited from federating.
 menu:
   docs:
     parent: entities
