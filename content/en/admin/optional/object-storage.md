@@ -192,6 +192,13 @@ During batch delete operations, S3 providers may perodically fail or
 timeout while processing deletion requests. Mastodon will back off and
 retry the request up to this maximum number of times.
 
+### `S3_KEY_PREFIX`
+
+Default: none
+
+Prefix added to all S3 object keys. Useful for hosting multiple instances on the
+same bucket. Object path will become: '/<S3_KEY_PREFIX>/\<object path\>'
+
 ### MinIO
 
 MinIO is an open-source implementation of an S3 object provider. This section does not cover how to install it, but how to configure a bucket for use in Mastodon.
