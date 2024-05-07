@@ -722,6 +722,88 @@ Account is suspended (since 2.4.0 and until 3.3.0)
 
 ---
 
+## Get multiple accounts {#index}
+
+```http
+GET /api/v1/accounts HTTP/1.1
+```
+
+View information about multiple profiles.
+
+**Returns:** Array of [Account]({{< relref "entities/Account">}})\
+**OAuth:** Public\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+##### Headers
+
+##### Query parameters
+
+id[]
+: Array of String. The IDs of the Accounts in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+[Account]({{< relref "entities/Account">}}) records for the requested confirmed and approved accounts will be returned. There can be fewer records than requested if the accounts do not exist or are not confirmed.
+
+Sample call with `id[]=1&id[]=2` when no account with `id=2` exists:
+
+```json
+[
+  {
+    "id": "1",
+    "username": "Gargron",
+    "acct": "Gargron",
+    "display_name": "Eugen",
+    "locked": false,
+    "bot": false,
+    "created_at": "2016-03-16T14:34:26.392Z",
+    "note": "<p>Developer of Mastodon and administrator of mastodon.social. I post service announcements, development updates, and personal stuff.</p>",
+    "url": "https://mastodon.social/@Gargron",
+    "avatar": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
+    "avatar_static": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
+    "header": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
+    "header_static": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
+    "followers_count": 318699,
+    "following_count": 453,
+    "statuses_count": 61013,
+    "last_status_at": "2019-11-30T20:02:08.277Z",
+    "emojis": [],
+    "fields": [
+      {
+        "name": "Patreon",
+        "value": "<a href=\"https://www.patreon.com/mastodon\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"\">patreon.com/mastodon</span><span class=\"invisible\"></span></a>",
+        "verified_at": null
+      },
+      {
+        "name": "Homepage",
+        "value": "<a href=\"https://zeonfederated.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">zeonfederated.com</span><span class=\"invisible\"></span></a>",
+        "verified_at": "2019-07-15T18:29:57.191+00:00"
+      }
+    ]
+  }
+]
+```
+
+##### 401: Unauthorized
+
+If the instance is in whitelist mode and the Authorization header is missing or invalid
+
+```json
+{
+  "error": "This API requires an authenticated user"
+}
+```
+
+---
+
 ## Get account's statuses {#statuses}
 
 ```http
