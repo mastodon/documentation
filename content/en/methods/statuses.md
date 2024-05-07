@@ -257,6 +257,114 @@ Status does not exist or is private.
 
 ---
 
+## View multiple statuses {#index}
+
+```http
+GET /api/v1/statuses HTTP/1.1
+```
+
+Obtain information about multiple statuses.
+
+**Returns:** Array of [Status]({{< relref "entities/status" >}})\
+**OAuth:** Public for public statuses, user token + `read:statuses` for private statuses\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Query parameters
+
+id[]
+: Array of String. The IDs of the Statuses in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+[Status]({{< relref "entities/status" >}}) records for the requested statuses will be returned. There can be fewer records than requested if the requested statuses do not exist or cannot be accessed given the current credentials.
+Sample call with `id[]=1&id[]=2` when no status with `id=2` exists:
+
+```json
+[
+  {
+    "id": "1",
+    "created_at": "2016-03-16T14:44:31.580Z",
+    "in_reply_to_id": null,
+    "in_reply_to_account_id": null,
+    "sensitive": false,
+    "spoiler_text": "",
+    "visibility": "public",
+    "language": "en",
+    "uri": "https://mastodon.social/users/Gargron/statuses/1",
+    "url": "https://mastodon.social/@Gargron/1",
+    "replies_count": 7,
+    "reblogs_count": 98,
+    "favourites_count": 112,
+    "favourited": false,
+    "reblogged": false,
+    "muted": false,
+    "bookmarked": false,
+    "content": "<p>Hello world</p>",
+    "reblog": null,
+    "application": null,
+    "account": {
+      "id": "1",
+      "username": "Gargron",
+      "acct": "Gargron",
+      "display_name": "Eugen",
+      "locked": false,
+      "bot": false,
+      "created_at": "2016-03-16T14:34:26.392Z",
+      "note": "<p>Developer of Mastodon and administrator of mastodon.social. I post service announcements, development updates, and personal stuff.</p>",
+      "url": "https://mastodon.social/@Gargron",
+      "avatar": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
+      "avatar_static": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
+      "header": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
+      "header_static": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
+      "followers_count": 320472,
+      "following_count": 453,
+      "statuses_count": 61163,
+      "last_status_at": "2019-12-05T03:03:02.595Z",
+      "emojis": [],
+      "fields": [
+        {
+          "name": "Patreon",
+          "value": "<a href=\"https://www.patreon.com/mastodon\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"\">patreon.com/mastodon</span><span class=\"invisible\"></span></a>",
+          "verified_at": null
+        },
+        {
+          "name": "Homepage",
+          "value": "<a href=\"https://zeonfederated.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">zeonfederated.com</span><span class=\"invisible\"></span></a>",
+          "verified_at": "2019-07-15T18:29:57.191+00:00"
+        }
+      ]
+    },
+    "media_attachments": [],
+    "mentions": [],
+    "tags": [],
+    "emojis": [],
+    "card": null,
+    "poll": null
+  }
+]
+```
+
+##### 401: Unauthorized
+
+Instance is in authorized-fetch mode.
+
+```json
+{
+  "error": "This API requires an authenticated user"
+}
+```
+
+---
+
 ## Delete a status {#delete}
 
 ```http
