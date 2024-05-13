@@ -15,6 +15,8 @@ The simplest way to store user uploads is by using the server's file system. Thi
 
 By default, Mastodon will store file uploads under `public/system` in its installation directory, but that can be overridden using the `PAPERCLIP_ROOT_PATH` environment variable.
 
+If `PAPERCLIP_ROOT_PATH` is not below `/home/mastodon/live`, you'll need to edit `mastodon-sidekiq.service` and `mastodon-web.service` and replace `ReadWritePaths=/home/mastodon/live` by `ReadWritePaths=/home/mastodon <PAPERCLIP_ROOT_PATH>`.
+
 By default, the files are served at `https://your-domain/system`, which can be overridden using `PAPERCLIP_ROOT_URL` and `CDN_HOST`.
 
 {{< hint style="info" >}}
