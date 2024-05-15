@@ -7,10 +7,7 @@ menu:
     name: apps
     parent: methods
     identifier: methods-apps
-aliases: [
-  "/methods/apps",
-  "/api/methods/apps",
-]
+aliases: ["/methods/apps", "/api/methods/apps"]
 ---
 
 <style>
@@ -30,9 +27,26 @@ Create a new application to obtain OAuth2 credentials.
 **Version history:**\
 0.0.0 - added\
 2.7.2 - now returns `vapid_key`\
-4.3.0 - deprecated `vapid_key`, please see [api/v2/instance]({{< relref "methods/Instance#v2">}})
+4.3.0 - deprecated `vapid_key`, please see [api/v2/instance]({{< relref "methods/Instance#v2">}})\
+4.3.0 - added support for multiple `redirect_uris` in Form data parameters\
+4.3.0 - added `redirect_uris` response property\
+4.3.0 - deprecated `redirect_uri` response property, since this can be a non-URI if multiple `redirect_uris` are registered
 
 #### Request
+
+Example request:
+
+```
+POST /api/v1/apps HTTP/1.1
+Content-Type: application/json
+
+{
+  "client_name": "Test Application",
+  "redirect_uris": ["https://app.example/callback", "https://app.example/register"],
+  "scopes": "read write push",
+  "website": "https://app.example"
+}
+```
 
 ##### Form data parameters
 
@@ -40,7 +54,7 @@ client_name
 : {{<required>}} String. A name for your application
 
 redirect_uris
-: {{<required>}} String. Where the user should be redirected after authorization. To display the authorization code to the user instead of redirecting to a web page, use `urn:ietf:wg:oauth:2.0:oob` in this parameter.
+: {{<required>}} String or Array of Strings. Where the user should be redirected after authorization. To display the authorization code to the user instead of redirecting to a web page, use `urn:ietf:wg:oauth:2.0:oob` in this parameter.
 
 scopes
 : String. Space separated list of scopes. If none is provided, defaults to `read`. See [OAuth Scopes]({{< relref "api/oauth-scopes" >}}) for a list of possible scopes.
@@ -54,16 +68,44 @@ website
 
 Store the `client_id` and `client_secret` in your cache, as these will be used to obtain OAuth tokens.
 
+{{< hint style="warning" >}}
+Treat the `client_id` and `client_secret` properties as if they are passwords. We recommend you encrypt these when storing in your cache, to prevent credential exposure.
+{{< /hint >}}
+
 ```json
 {
   "id": "563419",
-  "name": "test app",
-  "website": null,
+  "name": "Test Application",
+  "website": "https://app.example",
+  "scopes": ["read", "write", "push"],
   "redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
+  "redirect_uris": ["urn:ietf:wg:oauth:2.0:oob"],
   "client_id": "TWhM-tNSuncnqN7DBJmoyeLnk6K3iJJ71KKXxgL1hPM",
   "client_secret": "ZEaFUFmF0umgBX1qKJDjaU99Q31lDkOU8NutzTOoliw"
 }
 ```
+
+Or with multiple redirect URIs:
+
+```json
+{
+  "id": "563419",
+  "name": "Test Application",
+  "website": "https://app.example",
+  "scopes": ["read", "write", "push"],
+  "redirect_uri": "https://app.example/callback\nhttps://app.example/register",
+  "redirect_uris": [
+    "https://app.example/callback",
+    "https://app.example/register"
+  ],
+  "client_id": "TWhM-tNSuncnqN7DBJmoyeLnk6K3iJJ71KKXxgL1hPM",
+  "client_secret": "ZEaFUFmF0umgBX1qKJDjaU99Q31lDkOU8NutzTOoliw"
+}
+```
+
+{{< hint style="info" >}}
+The `redirect_uri` property in the above examples is considered deprecated as of 4.3.0 and should not be used, instead use the `redirect_uris` property.
+{{< /hint >}}
 
 ##### 422: Unprocessable entity
 
@@ -85,19 +127,21 @@ GET /api/v1/apps/verify_credentials HTTP/1.1
 
 Confirm that the app's OAuth2 credentials work.
 
-**Returns:** [Application]({{< relref "entities/application" >}}), but without `client_id` or `client_secret`\
-**OAuth level:** App token + `read`\
+**Returns:** [Application]({{< relref "entities/application" >}}), but without `client_secret`\
+**OAuth level:** App token\
 **Version history:**\
 2.0.0 - added\
 2.7.2 - now returns `vapid_key`\
-4.3.0 - deprecated `vapid_key`, please see [api/v2/instance]({{< relref "methods/Instance#v2">}})
+4.3.0 - deprecated `vapid_key`, please see [api/v2/instance]({{< relref "methods/Instance#v2">}})\
+4.3.0 - removed the need to have `read` scope to access this API, now any valid App token can be used
+4.3.0 - added `client_id`, `scopes` and `redirect_uris` properties
 
 #### Request
 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <app token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <app token>` to gain authorized access to this API method. `<app token>` may be either a `client_credential` or `access_token` returned from [`/oauth/token`]({{< relref "methods/oauth#token" >}})
 
 #### Response
 
@@ -107,8 +151,14 @@ If the Authorization header was provided with a valid token, you should see your
 
 ```json
 {
-  "name": "test app",
-  "website": null
+  "name": "Test Application",
+  "website": "https://app.example",
+  "scopes": ["read", "write", "push"],
+  "redirect_uris": [
+    "https://app.example/callback",
+    "https://app.example/register"
+  ],
+  "client_id": "TWhM-tNSuncnqN7DBJmoyeLnk6K3iJJ71KKXxgL1hPM"
 }
 ```
 

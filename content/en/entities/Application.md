@@ -16,8 +16,14 @@ aliases: [
 
 ```json
 {
-  "name": "test app",
-  "website": null
+  "name": "Test Application",
+  "website": "https://app.example",
+  "scopes": ["read", "write", "push"],
+  "redirect_uri": "https://app.example/callback\nhttps://app.example/register",
+  "redirect_uris": [
+    "https://app.example/callback",
+    "https://app.example/register"
+  ]
 }
 ```
 
@@ -38,12 +44,13 @@ aliases: [
 0.9.9 - added\
 3.5.1 - this property is now nullable
 
-### `client_id` {{%optional%}} {#client_id}
+### `client_id` {#client_id}
 
 **Description:** Client ID key, to be used for obtaining OAuth tokens\
 **Type:** String\
 **Version history:**\
 0.9.9 - added
+4.3.0 - changed to always be returned
 
 ### `client_secret` {{%optional%}} {#client_secret}
 
@@ -52,7 +59,30 @@ aliases: [
 **Version history:**\
 0.9.9 - added
 
+### `scopes` {#scopes}
+
+**Description:** The scopes for your application. This is the registered `scopes` string split on whitespace.\
+**Type:** Array of Strings\
+**Version history:**\
+4.3.0 - added
+
+### `redirect_uris` {#redirect_uris}
+
+**Description:** The registered redirection URI(s) for your application.\
+**Type:** Array of String (URLs or `"urn:ietf:wg:oauth:2.0:oob"` as values)\
+**Version history:**\
+4.3.0 - added
+
 ## Deprecated attributes
+
+### `redirect_uri` {#redirect_uri}
+
+**Description:** The registered redirection URI(s) for your application.\
+May contain `\n` characters when multiple redirect URIs are registered.\
+**Type:** String\
+**Version history:**\
+0.0.0 - added\
+4.3.0 - deprecated in favour of [`redirect_uris`]({{< relref "entities/Application#redirect_uris" >}}), since the value of this property is not a well-formed URI when multiple redirect URIs are registered
 
 ### `vapid_key` {#vapid_key}
 
