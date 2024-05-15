@@ -1,5 +1,5 @@
 ---
-title: oauth API methods
+title: OAuth API methods
 description: Generate and manage OAuth tokens.
 menu:
   docs:
@@ -7,11 +7,7 @@ menu:
     name: oauth
     parent: methods-apps
     identifier: methods-oauth
-aliases: [
-  "/methods/oauth",
-  "/api/methods/oauth",
-  "/methods/apps/oauth",
-]
+aliases: ["/methods/oauth", "/api/methods/oauth", "/methods/apps/oauth"]
 ---
 
 <style>
@@ -34,6 +30,7 @@ Displays an authorization form to the user. If approved, it will create and retu
 3.5.0 - added `lang`
 
 #### Request
+
 ##### Query parameters
 
 response_type
@@ -55,9 +52,14 @@ lang
 : String. The ISO 639-1 two-letter language code to use while rendering the authorization form.
 
 #### Response
+
 ##### 200: OK
 
 The authorization code will be returned as a query parameter named `code`.
+
+{{< hint style="warning" >}}
+Treat the `code` query parameter as if it were a password, you should ensure that it is not logged in request logs.
+{{< /hint >}}
 
 ```http
 redirect_uri?code=qDFUEaYrRK5c-HNmTCJbAzazwLRInJ7VHFat0wcMgCU
@@ -90,6 +92,7 @@ Obtain an access token, to be used during API calls that are not public.
 0.1.0 - added
 
 #### Request
+
 ##### Form data parameters
 
 grant_type
@@ -111,9 +114,16 @@ scope
 : String. When `grant_type` is set to `client_credentials`, the list of requested OAuth scopes, separated by spaces (or pluses, if using query parameters). Must be a subset of the scopes requested at the time the application was created. If omitted, it defaults to `read`. Has no effect when `grant_type` is `authorization_code`.
 
 #### Response
+
 ##### 200: OK
 
 Store this access_token for later use with auth-required methods. The token should be passed as an HTTP `Authorization` header when making API calls, with the value `Bearer access_token`
+
+{{< hint style="warning" >}}
+Treat the `access_token` as if it were a password. We recommend you encrypt this value when storing in your cache, to prevent credential exposure.\
+\
+Additionally, you should ensure that the `code` parameter is not logged.
+{{< /hint >}}
 
 ```json
 {
@@ -159,9 +169,10 @@ Revoke an access token to make it no longer valid for use.
 **Returns:** Empty\
 **OAuth:** Public\
 **Version history:**\
-x.x.x - added
+0.1.0 - added
 
 #### Request
+
 ##### Form data parameters
 
 client_id
@@ -174,6 +185,7 @@ token
 : {{<required>}} String. The previously obtained token, to be invalidated.
 
 #### Response
+
 ##### 200: OK
 
 If you own the provided token, the API call will provide an empty response. This operation is idempotent, so calling this API multiple times will still return OK.
@@ -192,6 +204,110 @@ If you provide a token you do not own, or no token at all, the API call will ret
   "error_description": "You are not authorized to revoke this token"
 }
 ```
+
+---
+
+## Discover OAuth Server Configuration {#authorization-server-metadata}
+
+```http
+GET /.well-known/oauth-authorization-server HTTP/1.1
+```
+
+Returns the OAuth 2 Authorization Server Metadata for the Mastodon server, as defined by [RFC 8414](https://datatracker.ietf.org/doc/html/rfc8414#section-3.2).
+
+We include the additional non-standard property of `app_registration_endpoint` which refers to the [POST /api/v1/apps]({{% relref ref="methods/apps#create" %}}) endpoint, since we don't currently support the standard `registration_endpoint` endpoint for [Dynamic Client Registration](https://oauth.net/2/dynamic-client-registration/).
+
+The properties exposed by this endpoint can help you better integrate with the Mastodon API, such as allowing for negotiation of `scopes` across different versions of Mastodon.
+
+{{< hint style="info" >}}
+**Example:** You want to use the `read:me` scope, but also want to support older Mastodon servers that don't have that scope and would need `read:accounts` instead. You could discover whether a server supports that scope by making a request this endpoint.
+{{< /hint >}}
+
+**Returns:** JSON as per the above description\
+**OAuth:** Public\
+**Version history:**\
+4.3.0 - added
+
+#### Response
+
+##### 200: OK
+
+```json
+{
+  "issuer": "https://social.example/",
+  "service_documentation": "https://docs.joinmastodon.org/",
+  "authorization_endpoint": "https://social.example/oauth/authorize",
+  "token_endpoint": "https://social.example/oauth/token",
+  "app_registration_endpoint": "https://social.example/api/v1/apps",
+  "revocation_endpoint": "https://social.example/oauth/revoke",
+  "scopes_supported": [
+    "read",
+    "write",
+    "write:accounts",
+    "write:blocks",
+    "write:bookmarks",
+    "write:conversations",
+    "write:favourites",
+    "write:filters",
+    "write:follows",
+    "write:lists",
+    "write:media",
+    "write:mutes",
+    "write:notifications",
+    "write:reports",
+    "write:statuses",
+    "read:accounts",
+    "read:blocks",
+    "read:bookmarks",
+    "read:favourites",
+    "read:filters",
+    "read:follows",
+    "read:lists",
+    "read:mutes",
+    "read:notifications",
+    "read:search",
+    "read:statuses",
+    "follow",
+    "push",
+    "admin:read",
+    "admin:read:accounts",
+    "admin:read:reports",
+    "admin:read:domain_allows",
+    "admin:read:domain_blocks",
+    "admin:read:ip_blocks",
+    "admin:read:email_domain_blocks",
+    "admin:read:canonical_email_blocks",
+    "admin:write",
+    "admin:write:accounts",
+    "admin:write:reports",
+    "admin:write:domain_allows",
+    "admin:write:domain_blocks",
+    "admin:write:ip_blocks",
+    "admin:write:email_domain_blocks",
+    "admin:write:canonical_email_blocks",
+    "crypto"
+  ],
+  "response_types_supported": ["code"],
+  "response_modes_supported": ["query", "fragment", "form_post"],
+  "grant_types_supported": [
+    "authorization_code",
+    "password",
+    "client_credentials"
+  ],
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_basic",
+    "client_secret_post"
+  ]
+}
+```
+
+##### Older Mastodon Versions – 404: Not Found
+
+On Mastodon versions before 4.3.0, requesting this endpoint will result in a `404 Not Found` error.
+
+This is a good indication that the server is running Mastodon older than 4.3.0 and cannot use features added in 4.3.0 and later versions. Instead, you will need to "guess" what that server supports, instead of discovering supported OAuth 2 endpoints, grant flows & scopes dynamically.
+
+You may want to fallback to the [Instance Metadata endpoint]({{% relref ref="methods/instance#v2" %}}) to try to discover what Mastodon version the server is running by parsing the `version` field, however, this is very brittle and not recommended.
 
 ---
 
