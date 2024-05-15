@@ -35,7 +35,7 @@ The set of scopes saved during application creation must include all the scopes 
 Mind the `scope` vs `scopes` difference. This is because `scope` is a standard OAuth parameter name, so it is used in the OAuth methods. Mastodon’s own REST API uses the more appropriate `scopes`.
 {{< /hint >}}
 
-If you do not specify a `scope` in your authorization request, or a `scopes` in your application creation request, the resulting access token/app will default to `read` access. This is subject to change in the future.
+If you do not specify `scope` in your authorization request, or `scopes` in your application creation request, the resulting access token/app will be assigned the default scope. This is currently `read` as of Mastodon 4.3.0, but is subject to change in the future.
 
 ### Version history {#versions}
 
