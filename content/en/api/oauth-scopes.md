@@ -59,7 +59,7 @@ We recommend that you use the [granular scopes](#granular) shown in the right co
 - `admin:read`
 - `admin:write`
 
-If you just want to retrieve the basic details of the currently authenticated user, use the `read:me` scope.
+When only the basic details of the currently authenticated user are required, use the `read:me` scope.
 
 ### `read:me` {#read-me}
 
