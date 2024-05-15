@@ -12,7 +12,7 @@ menu:
 The API is divided up into access scopes. The scopes are hierarchical, i.e. if you have access to `read`, you automatically have access to `read:accounts`. **It is recommended that you request as little as possible for your application.**
 
 {{< hint style="info" >}}
-If you just want to retrieve the basic details of the currently authenticated user, use the `read:me` scope, which can only access the [`GET /api/v1/accounts/verify_credentials`]({{< relref "methods/accounts#verify_credentials" >}}) endpoint.
+To retrieve the basic details of the currently authenticated user, use the `read:me` scope, which can only access the [`GET /api/v1/accounts/verify_credentials`]({{< relref "methods/accounts#verify_credentials" >}}) endpoint.
 {{</ hint >}}
 
 ### Discovering OAuth Scopes supported by a given Mastodon Server
