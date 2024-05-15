@@ -61,8 +61,7 @@ Store the `client_id` and `client_secret` in your cache, as these will be used t
   "website": null,
   "redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
   "client_id": "TWhM-tNSuncnqN7DBJmoyeLnk6K3iJJ71KKXxgL1hPM",
-  "client_secret": "ZEaFUFmF0umgBX1qKJDjaU99Q31lDkOU8NutzTOoliw",
-  "vapid_key": "BCk-QqERU0q-CfYZjcuB6lnyyOYfJ2AifKqfeGIm7Z-HiTU5T9eTG5GxVA0_OH5mMlI4UkkDTpaZwozy0TzdZ2M="
+  "client_secret": "ZEaFUFmF0umgBX1qKJDjaU99Q31lDkOU8NutzTOoliw"
 }
 ```
 
@@ -109,8 +108,7 @@ If the Authorization header was provided with a valid token, you should see your
 ```json
 {
   "name": "test app",
-  "website": null,
-  "vapid_key": "BCk-QqERU0q-CfYZjcuB6lnyyOYfJ2AifKqfeGIm7Z-HiTU5T9eTG5GxVA0_OH5mMlI4UkkDTpaZwozy0TzdZ2M="
+  "website": null
 }
 ```
 
