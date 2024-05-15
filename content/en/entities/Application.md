@@ -17,8 +17,7 @@ aliases: [
 ```json
 {
   "name": "test app",
-  "website": null,
-  "vapid_key": "BCk-QqERU0q-CfYZjcuB6lnyyOYfJ2AifKqfeGIm7Z-HiTU5T9eTG5GxVA0_OH5mMlI4UkkDTpaZwozy0TzdZ2M="
+  "website": null
 }
 ```
 
@@ -60,8 +59,8 @@ aliases: [
 **Description:** Used for Push Streaming API. Returned with [POST /api/v1/apps]({{< relref "methods/apps#create" >}}). Equivalent to [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}}) and [Instance#vapid_public_key]({{< relref "entities/Instance#vapid_public_key" >}})\
 **Type:** String\
 **Version history:**\
-2.8.0 - added
-4.3.0 - deprecated pending removal
+2.8.0 - added\
+4.3.0 - deprecated pending removal, please see [api/v2/instance]({{< relref "methods/Instance#v2">}}) for this value (`configuration.vapid.public_key`)
 
 ## See also
 
