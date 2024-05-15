@@ -28,7 +28,8 @@ Obtain general information about the server.
 **Returns:** [Instance]({{< relref "entities/Instance" >}})\
 **OAuth:** Public\
 **Version history:**\
-4.0.0 - added
+4.0.0 - added\
+4.3.0 - added `configuration.vapid.public_key`
 
 #### Response
 
@@ -204,7 +205,6 @@ Obtain general information about the server.
 }
 ```
 
-
 ---
 
 ## List of connected domains {#peers}
@@ -270,6 +270,7 @@ Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Each hash in the array will contain the following attributes:
@@ -377,7 +378,6 @@ If the instance is in whitelist mode and the Authorization header is missing or 
 
 ## List of rules {#rules}
 
-
 ```http
 GET /api/v1/instance/rules HTTP/1.1
 ```
@@ -390,6 +390,7 @@ Rules that the users of this service should follow.
 3.4.0 - added
 
 #### Response
+
 ##### 200: OK
 
 ```json
@@ -444,6 +445,7 @@ Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 The complete list of domains blocked by this instance
@@ -499,6 +501,7 @@ Obtain an extended description of this server
 4.0.0 - added
 
 #### Response
+
 ##### 200: OK
 
 ```json
@@ -524,6 +527,7 @@ Translation language pairs supported by the translation engine used by the serve
 4.2.0 - added
 
 #### Response
+
 ##### 200: OK
 
 All source and target language pairs supported by the server.
@@ -546,7 +550,7 @@ In the following sample response showing support for translating a status writte
 GET /api/v1/instance HTTP/1.1
 ```
 
-Obtain general information about the server.
+Obtain general information about the server. See [api/v2/instance]({{< relref "methods/Instance#v2">}}) instead.
 
 **Returns:** [V1::Instance]({{< relref "entities/V1_Instance" >}})\
 **OAuth:** Public\
