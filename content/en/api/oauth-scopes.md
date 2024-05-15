@@ -47,7 +47,7 @@ If you do not specify `scope` in your authorization request, or `scopes` in your
 - 2.9.1 - Admin scopes added [#9387](https://github.com/mastodon/mastodon/pull/9387)
 - 3.1.0 - Bookmark scopes added [#7107](https://github.com/mastodon/mastodon/pull/7107)
 - 4.1.0 - Added admin scopes for blocks and allows [#20918](https://github.com/mastodon/mastodon/pull/20918)
-- 4.3.0 - Added `read:me` scope for when you want just basic information about the currently authenticated account. [#29087](https://github.com/mastodon/mastodon/pull/29087)
+- 4.3.0 - Added `read:me` scope to obtain basic information about the currently authenticated account. [#29087](https://github.com/mastodon/mastodon/pull/29087)
 
 ## List of high-level scopes
 
