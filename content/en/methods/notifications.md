@@ -617,6 +617,8 @@ Invalid or missing Authorization header.
 }
 ```
 
+---
+
 ## Get a single notification request {#get-one-request}
 
 ```http
@@ -691,6 +693,110 @@ A single notification request.
       // ...
     }
   }
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Accept a single notification request {#accept-request}
+
+```http
+POST /api/v1/notifications/requests/:id/accept HTTP/1.1
+```
+
+Accept a notification request, which merges the filtered notifications from that user back into the main notification and accepts any future notification from them.
+
+**Returns:** Empty\
+**OAuth:** User token + `write:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Notification in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+```http
+POST https://mastodon.social/api/v1/notifications/requests/112456967201894256/accept HTTP/1.1
+Authorization: Bearer xxx
+```
+
+##### 200: OK
+
+A single notification request.
+
+```json
+{}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Accept a single notification request {#dismiss-request}
+
+```http
+POST /api/v1/notifications/requests/:id/dismiss HTTP/1.1
+```
+
+Dismiss a notification request, which hides it and prevent it from contributing to the pending notification requests count.
+
+**Returns:** Empty\
+**OAuth:** User token + `write:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Notification in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+```http
+POST https://mastodon.social/api/v1/notifications/requests/112456967201894256/accept HTTP/1.1
+Authorization: Bearer xxx
+```
+
+##### 200: OK
+
+A single notification request.
+
+```json
+{}
 ```
 
 ##### 401: Unauthorized
