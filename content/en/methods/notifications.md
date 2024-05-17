@@ -567,18 +567,18 @@ Link: <https://mastodon.example/api/v1/notifications/requests?max_id=11245696720
 
 ```json
 [
-	{
-		"id": "112456967201894256",
-		"created_at": "2024-05-17T14:45:41.171Z",
-		"updated_at": "2024-05-17T14:45:41.171Z",
-		"notifications_count": "1",
-		"account": {
+  {
+    "id": "112456967201894256",
+    "created_at": "2024-05-17T14:45:41.171Z",
+    "updated_at": "2024-05-17T14:45:41.171Z",
+    "notifications_count": "1",
+    "account": {
       "id": "971724",
       "username": "zsc",
       "acct": "zsc",
       // ...
-		},
-		"last_status": {
+    },
+    "last_status": {
       "id": "103186126728896492",
       "created_at": "2019-11-23T07:49:01.940Z",
       "in_reply_to_id": "103186038209478945",
@@ -602,9 +602,95 @@ Link: <https://mastodon.example/api/v1/notifications/requests?max_id=11245696720
         }
       ],
       // ...
-		}
-	}
+    }
+  }
 ]
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+## Get a single notification request {#get-one-request}
+
+```http
+GET /api/v1/notifications/requests/:id HTTP/1.1
+```
+
+View information about a notification request with a given ID.
+
+**Returns:** [NotificationRequest]({{< relref "entities/NotificationRequest" >}})\
+**OAuth:** User token + `read:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Notification in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+```http
+GET https://mastodon.social/api/v1/notifications/requests/112456967201894256 HTTP/1.1
+Authorization: Bearer xxx
+```
+
+##### 200: OK
+
+A single notification request.
+
+```json
+  {
+    "id": "112456967201894256",
+    "created_at": "2024-05-17T14:45:41.171Z",
+    "updated_at": "2024-05-17T14:45:41.171Z",
+    "notifications_count": "1",
+    "account": {
+      "id": "971724",
+      "username": "zsc",
+      "acct": "zsc",
+      // ...
+    },
+    "last_status": {
+      "id": "103186126728896492",
+      "created_at": "2019-11-23T07:49:01.940Z",
+      "in_reply_to_id": "103186038209478945",
+      "in_reply_to_account_id": "14715",
+      // ...
+      "content": "<p><span class=\"h-card\"><a href=\"https://mastodon.social/@trwnh\" class=\"u-url mention\">@<span>trwnh</span></a></span> sup!</p>",
+      // ...
+      "account": {
+        "id": "971724",
+        "username": "zsc",
+        "acct": "zsc",
+        // ...
+      },
+      // ...
+      "mentions": [
+        {
+          "id": "14715",
+          "username": "trwnh",
+          "url": "https://mastodon.social/@trwnh",
+          "acct": "trwnh"
+        }
+      ],
+      // ...
+    }
+  }
 ```
 
 ##### 401: Unauthorized
