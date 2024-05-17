@@ -391,6 +391,62 @@ Invalid or missing Authorization header.
 
 ---
 
+## Get the filtering policy for notifications {#get-policy}
+
+```http
+GET /api/v1/notifications/policy HTTP/1.1
+```
+
+Notifications filtering policy for the user.
+
+**Returns:** [NotificationPolicy]({{< relref "entities/NotificationPolicy" >}})\
+**OAuth:** User token + `read:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+```http
+GET https://mastodon.social/api/v1/notifications/policy HTTP/1.1
+Authorization: Bearer xxx
+```
+
+##### 200: OK
+
+The response body contains the current notifications filtering policy for the user.
+
+```json
+{
+  "filter_not_following": false,
+  "filter_not_followers": false,
+  "filter_new_accounts": false,
+  "filter_private_mentions": true,
+  "summary": {
+    "pending_requests_count": 0,
+    "pending_notifications_count": 0
+  }
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
 ## See also
 
 {{< page-relref ref="methods/push" caption="push API methods" >}}
