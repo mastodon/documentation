@@ -511,6 +511,114 @@ Invalid or missing Authorization header.
 
 ---
 
+## Get all notification requests {#get-requests}
+
+```http
+GET /api/v1/notifications/requests HTTP/1.1
+```
+
+Notification requests for notifications filtered by the user's policy. This API returns Link headers containing links to the next/previous page.
+
+**Returns:** Array of [NotificationRequest]({{< relref "entities/NotificationRequest" >}})\
+**OAuth:** User token + `read:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+
+since_id
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+
+min_id
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 40 notification requests. Max 80 notification requests.
+
+dismissed
+: Boolean. Shows only dismissed requests if `true`, and only non-dismissed requests if `false`. Defaults to `false`.
+
+#### Response
+
+Sample call with limit=2.
+
+```http
+GET https://mastodon.social/api/v1/notifications/requests?limit=2 HTTP/1.1
+Authorization: Bearer xxx
+```
+
+##### 200: OK
+
+The response body contains one page of notification requests. You can use the HTTP Link header for further pagination.
+
+```http
+Link: <https://mastodon.example/api/v1/notifications/requests?max_id=112456967201894256>; rel="next", <https://mastodon.example/api/v1/notifications/requests?min_id=112456967201894256>; rel="prev"
+```
+
+```json
+[
+	{
+		"id": "112456967201894256",
+		"created_at": "2024-05-17T14:45:41.171Z",
+		"updated_at": "2024-05-17T14:45:41.171Z",
+		"notifications_count": "1",
+		"account": {
+      "id": "971724",
+      "username": "zsc",
+      "acct": "zsc",
+      // ...
+		},
+		"last_status": {
+      "id": "103186126728896492",
+      "created_at": "2019-11-23T07:49:01.940Z",
+      "in_reply_to_id": "103186038209478945",
+      "in_reply_to_account_id": "14715",
+      // ...
+      "content": "<p><span class=\"h-card\"><a href=\"https://mastodon.social/@trwnh\" class=\"u-url mention\">@<span>trwnh</span></a></span> sup!</p>",
+      // ...
+      "account": {
+        "id": "971724",
+        "username": "zsc",
+        "acct": "zsc",
+        // ...
+      },
+      // ...
+      "mentions": [
+        {
+          "id": "14715",
+          "username": "trwnh",
+          "url": "https://mastodon.social/@trwnh",
+          "acct": "trwnh"
+        }
+      ],
+      // ...
+		}
+	}
+]
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
 ## See also
 
 {{< page-relref ref="methods/push" caption="push API methods" >}}
