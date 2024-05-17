@@ -445,6 +445,70 @@ Invalid or missing Authorization header.
 }
 ```
 
+## Update the filtering policy for notifications
+
+```http
+PATCH /api/v1/notifications/policy HTTP/1.1
+```
+
+Update the user's notifications filtering policy.
+
+**Returns:** [NotificationPolicy]({{< relref "entities/NotificationPolicy" >}})\
+**OAuth:** User token + `write:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Form data parameters
+
+filter_not_following
+: Boolean. Whether to filter notifications from accounts the user is not following.
+
+filter_not_followers
+: Boolean. Whether to filter notifications from accounts that are not following the user.
+
+filter_new_accounts
+: Boolean. Whether to filter notifications from accounts created in the past 30 days.
+
+filter_private_mentions
+: Boolean. Whether to filter notifications from private mentions. Replies to private mentions initiated by the user, as well as accounts the user follows, are never filtered.
+
+
+#### Response
+
+##### 200: OK
+
+The response body contains the updated notifications filtering policy for the user.
+
+```json
+{
+  "filter_not_following": false,
+  "filter_not_followers": false,
+  "filter_new_accounts": false,
+  "filter_private_mentions": true,
+  "summary": {
+    "pending_requests_count": 0,
+    "pending_notifications_count": 0
+  }
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
 ---
 
 ## See also
