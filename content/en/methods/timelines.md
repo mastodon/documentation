@@ -23,6 +23,8 @@ aliases: [
 GET /api/v1/timelines/public HTTP/1.1
 ```
 
+View public statuses.
+
 **Returns:** Array of [Status]({{<relref "entities/status">}})\
 **OAuth:** Public. Requires app token + `read:statuses` if the instance has disabled public preview.\
 **Version history:**\
