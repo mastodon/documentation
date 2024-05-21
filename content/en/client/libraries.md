@@ -43,6 +43,7 @@ Remember to check how recently the library was updated, and whether it includes 
 * [mastodon-oauth](https://github.com/mastodon-dart/mastodon-oauth2)
 * [mastodon](https://github.com/mykdavies/Mastodon)
 * [dartodon](https://github.com/darkcl/dartodon)
+* [mastodon_entities](https://github.com/MahanRahmati/mastodon-entities)
 
 ## Elixir {#elixir}
 
