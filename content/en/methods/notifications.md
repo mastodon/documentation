@@ -413,11 +413,6 @@ Authorization
 
 #### Response
 
-```http
-GET https://mastodon.social/api/v1/notifications/policy HTTP/1.1
-Authorization: Bearer xxx
-```
-
 ##### 200: OK
 
 The response body contains the current notifications filtering policy for the user.
@@ -550,13 +545,6 @@ dismissed
 
 #### Response
 
-Sample call with limit=2.
-
-```http
-GET https://mastodon.social/api/v1/notifications/requests?limit=2 HTTP/1.1
-Authorization: Bearer xxx
-```
-
 ##### 200: OK
 
 The response body contains one page of notification requests. You can use the HTTP Link header for further pagination.
@@ -646,11 +634,6 @@ Authorization
 
 #### Response
 
-```http
-GET https://mastodon.social/api/v1/notifications/requests/112456967201894256 HTTP/1.1
-Authorization: Bearer xxx
-```
-
 ##### 200: OK
 
 A single notification request.
@@ -709,10 +692,6 @@ Invalid or missing Authorization header.
 
 ## Accept a single notification request {#accept-request}
 
-```http
-POST /api/v1/notifications/requests/:id/accept HTTP/1.1
-```
-
 Accept a notification request, which merges the filtered notifications from that user back into the main notification and accepts any future notification from them.
 
 **Returns:** Empty\
@@ -733,11 +712,6 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-
-```http
-POST https://mastodon.social/api/v1/notifications/requests/112456967201894256/accept HTTP/1.1
-Authorization: Bearer xxx
-```
 
 ##### 200: OK
 
@@ -785,11 +759,6 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
-
-```http
-POST https://mastodon.social/api/v1/notifications/requests/112456967201894256/accept HTTP/1.1
-Authorization: Bearer xxx
-```
 
 ##### 200: OK
 
