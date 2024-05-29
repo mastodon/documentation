@@ -24,6 +24,8 @@ aliases: [
 POST /api/v1/reports HTTP/1.1
 ```
 
+Report a problematic account to your moderators.
+
 **Returns:** [Report]({{< relref "entities/report" >}})\
 **OAuth:** User token + `write:reports`\
 **Version history:**\
