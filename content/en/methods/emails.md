@@ -24,6 +24,8 @@ aliases: [
 POST /api/v1/emails/confirmations HTTP/1.1
 ```
 
+Resend a new confirmation email. If an email is provided, updates the unconfirmed user's email before resending the confirmation email.
+
 **Returns:** Empty\
 **OAuth:** User token issued to the client that created the unconfirmed user\
 **Version history:**\
@@ -38,7 +40,7 @@ Authorization
 ##### Form data parameters
 
 email
-: If provided, updates the unconfirmed user's email before resending the confirmation email.
+: String. If provided, updates the unconfirmed user's email before resending the confirmation email.
 
 #### Response
 ##### 200: OK
