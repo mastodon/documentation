@@ -36,7 +36,7 @@ https://mastodon.example/oauth/authorize
 Note the following:
 
 * `client_id` was obtained when registering our application.
-* `scope` must be a subset of our registered app's registered scopes. It is a good idea to only request what you need. See [OAuth Scopes]({{< relref "api/oauth-scopes" >}}) for more information.
+* `scope` must be a subset of our app's registered scopes. It is a good idea to only request what you need. See [OAuth Scopes]({{< relref "api/oauth-scopes" >}}) for more information.
 * `redirect_uri` is one of the URIs we registered with our app. We are still using "out of band" for this example, which means we will have to manually copy and paste the resulting code, but if you registered your application with a URI that you control, then the code will be returned as a query parameter `code` and can be logged by your request handler. See the response section of the API method documentation for more information on this.
 
 ### Obtain the token {#token}
