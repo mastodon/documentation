@@ -186,7 +186,7 @@ aliases: [
 ### `preview_url` {#preview_url}
 
 **Description:** The location of a scaled-down preview of the attachment.\
-**Type:** String (URL)\
+**Type:** {{<nullable>}} String (URL)\
 **Version history:**\
 0.6.0 - added
 
