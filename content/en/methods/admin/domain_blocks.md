@@ -35,7 +35,7 @@ Show information about all blocked domains.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -112,7 +112,7 @@ Show information about a single blocked domain.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -173,7 +173,7 @@ Add a domain to the list of domains blocked from federating.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -286,7 +286,7 @@ Change parameters for an existing domain block.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -368,7 +368,7 @@ Lift a block against a domain.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK

@@ -38,7 +38,7 @@ Publish a status with the given parameters.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 Idempotency-Key
 : Provide this header with any arbitrary string to prevent duplicate submissions of the same status. Consider using a hash or UUID generated client-side. Idempotency keys are stored for up to 1 hour.
@@ -167,7 +167,7 @@ Obtain information about a status.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -280,7 +280,7 @@ id[]
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -389,7 +389,7 @@ Delete one of your own statuses.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -579,7 +579,7 @@ View statuses above and below this status in the thread.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -661,7 +661,7 @@ lang
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -754,7 +754,7 @@ View who boosted a given status.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -825,7 +825,7 @@ View who favourited a given status.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -896,7 +896,7 @@ Add a status to your favourites list.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -962,7 +962,7 @@ Remove a status from your favourites list.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1029,7 +1029,7 @@ Reshare a status on your own profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -1111,7 +1111,7 @@ Undo a reshare of a status.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1177,7 +1177,7 @@ Privately bookmark a status.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1233,7 +1233,7 @@ Remove a status from your private bookmarks.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1299,7 +1299,7 @@ Do not receive notifications for the thread that this status is part of. Must be
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1365,7 +1365,7 @@ Start receiving notifications again for the thread that this status is part of.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1432,7 +1432,7 @@ Feature one of your own public statuses at the top of your profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1525,7 +1525,7 @@ Unfeature a status from the top of your profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1601,7 +1601,7 @@ Edit a given status to change its text, sensitivity, media attachments, or poll.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -1737,7 +1737,7 @@ Get all known versions of a status, including the initial and current states.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1883,7 +1883,7 @@ Obtain the source properties for a status so that it can be edited.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1941,7 +1941,7 @@ GET /api/v1/statuses/:id/card HTTP/1.1
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK

@@ -83,7 +83,7 @@ Let's verify that our obtained credentials are working by calling [GET /api/v1/a
 
 ```bash
 curl \
-	-H 'Authorization: Bearer our_access_token_here' \
+	-H 'Authorization: Bearer <access_token>' \
 	https://mastodon.example/api/v1/accounts/verify_credentials
 ```
 

@@ -206,7 +206,7 @@ Domains that this instance is aware of.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -247,7 +247,7 @@ Instance activity over the last 3 months, binned weekly.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -422,7 +422,7 @@ Obtain a list of domains that have been blocked.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 

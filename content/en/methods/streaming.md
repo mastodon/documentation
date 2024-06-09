@@ -157,7 +157,7 @@ Returns events that are relevant to the authorized user, i.e. home timeline and 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Events
 
@@ -229,7 +229,7 @@ Returns events for received notifications
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Events
 
@@ -262,7 +262,7 @@ Returns all public statuses
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -314,7 +314,7 @@ Returns all local public statuses
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -365,7 +365,7 @@ Returns all public statuses from remote servers.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -416,7 +416,7 @@ Returns all public statuses for a particular hashtag
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -467,7 +467,7 @@ Returns all local public statuses for a particular hashtag
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -518,7 +518,7 @@ Returns statuses for a list
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -568,7 +568,7 @@ Returns events for received direct messages.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Events
 

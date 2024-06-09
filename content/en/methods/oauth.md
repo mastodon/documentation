@@ -117,7 +117,7 @@ scope
 
 ##### 200: OK
 
-Store this access_token for later use with auth-required methods. The token should be passed as an HTTP `Authorization` header when making API calls, with the value `Bearer access_token`
+Store this `access_token` for later use with methods that require authentication. The token should be passed as an HTTP `Authorization` header when making API calls, with the value `Bearer <access_token>`
 
 {{< hint style="warning" >}}
 Treat the `access_token` as if it were a password. We recommend you encrypt this value when storing in your cache, to prevent credential exposure.\
