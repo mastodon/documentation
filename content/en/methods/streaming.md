@@ -254,11 +254,12 @@ GET /api/v1/streaming/public HTTP/1.1
 Returns all public statuses
 
 **Returns:** `update`, `delete`, `status.update`\
-**OAuth:** Public, or app token + `read:statuses`\
+**OAuth:** User token + `read:statuses`\
 **Version history:**\
 1.0.0 - added\
 2.4.0 - add `only_media` parameter\
 3.5.0 - now returns `status.update`
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
 ##### Headers
@@ -305,11 +306,12 @@ GET /api/v1/streaming/public/local HTTP/1.1
 Returns all local public statuses
 
 **Returns:** `update`, `delete`, `status.update`\
-**OAuth:** Public, or app token + `read:statuses`\
+**OAuth:** User token + `read:statuses`\
 **Version history:**\
 1.1.0 - added\
 2.4.0 - add `only_media` parameter\
 3.5.0 - now returns `status.update`
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
 ##### Headers
@@ -356,10 +358,11 @@ GET /api/v1/streaming/public/remote HTTP/1.1
 Returns all public statuses from remote servers.
 
 **Returns:** `update`, `delete`, `status.update`\
-**OAuth:** Public, or app token + `read:statuses`\
+**OAuth:** User token + `read:statuses`\
 **Version history:**\
 3.1.4 - added\
 3.5.0 - now returns `status.update`
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
 ##### Headers
@@ -406,10 +409,11 @@ GET /api/v1/streaming/hashtag HTTP/1.1
 Returns all public statuses for a particular hashtag
 
 **Returns:** `update`, `delete`, `status.update`\
-**OAuth:** Public, or app token + `read:statuses`\
+**OAuth:** User token + `read:statuses`\
 **Version history:**\
 1.0.0 - added\
 3.5.0 - now returns `status.update`
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
 ##### Headers
@@ -456,10 +460,11 @@ GET /api/v1/streaming/hashtag/local HTTP/1.1
 Returns all local public statuses for a particular hashtag
 
 **Returns:** `update`, `delete`, `status.update`\
-**OAuth:** Public, or app token + `read:statuses`\
+**OAuth:** User token + `read:statuses`\
 **Version history:**\
 1.1.0 - added\
 3.5.0 - now returns `status.update`
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
 ##### Headers
@@ -510,6 +515,7 @@ Returns statuses for a list
 **Version history:**\
 2.1.0 - added\
 3.5.0 - now returns `status.update`
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
 ##### Headers
@@ -587,9 +593,10 @@ wss://mastodon.example/api/v1/streaming
 ```
 
 **Returns:** Stream of [Event](#events)\
-**OAuth:** Public, or user token + `read` (or `read:statuses` and/or `read:notifications`)\
+**OAuth:** User token + `read` (or `read:statuses` and/or `read:notifications`)\
 **Version history:**\
 3.3.0 - added
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 Open a multiplexed WebSocket connection to receive events.
 
@@ -644,7 +651,7 @@ An example update to the public timeline:
 ```
 
 {{< hint style="warning" >}}
-Note that while the event is JSON-encoded, the `payload` is string-encoded and escaped, so it must be parsed and loaded as JSON from that string.
+Note that while the event is JSON-encoded, the `payload` is string-encoded and escaped, so it must be parsed and loaded as JSON from that string. However, for `delete` and `announcements.delete` events the payload is a string representing an identifier, not a JSON value.
 {{</hint>}}
 
 An example delete event from the public timeline:
@@ -671,7 +678,7 @@ An example filter change by the user:
 ```
 
 {{< hint style="warning" >}}
-Note that the `payload` property is not present for `filters_changed` events.
+Note that the `payload` property is not present for `filters_changed` events. And for `delete` and `announcements.delete` the payload is a string, not an object.
 {{</hint>}}
 
 ## See also
