@@ -55,7 +55,7 @@ We recommend that you use the [granular scopes](#granular) shown in the right co
 
 - `read`
 - `write`
-- `follow` (deprecated)
+- `follow` {{%deprecated%}}
 - `admin:read`
 - `admin:write`
 
@@ -100,56 +100,56 @@ Note that there is no singular `admin` scope available.
 
 It is recommended that you make use of granular scopes, unless you really need full access to everything by using a `scope` of `read write follow push`.
 
-| Scope                 | Granular Scopes                      |
-| :-------------------- | :----------------------------------- |
-| `read`                |                                      |
-|                       | `read:accounts`                      |
-|                       | `read:blocks`                        |
-|                       | `read:bookmarks`                     |
-|                       | `read:favourites`                    |
-|                       | `read:filters`                       |
-|                       | `read:follows`                       |
-|                       | `read:lists`                         |
-|                       | `read:mutes`                         |
-|                       | `read:notifications`                 |
-|                       | `read:search`                        |
-|                       | `read:statuses`                      |
-|                       | `read:me`                            |
-| `write`               |                                      |
-|                       | `write:accounts`                     |
-|                       | `write:blocks`                       |
-|                       | `write:bookmarks`                    |
-|                       | `write:conversations`                |
-|                       | `write:favourites`                   |
-|                       | `write:filters`                      |
-|                       | `write:follows`                      |
-|                       | `write:lists`                        |
-|                       | `write:media`                        |
-|                       | `write:mutes`                        |
-|                       | `write:notifications`                |
-|                       | `write:reports`                      |
-|                       | `write:statuses`                     |
-| `follow` (deprecated) |                                      |
-|                       | `read:follows`                       |
-|                       | `write:follows`                      |
-|                       | `read:blocks`                        |
-|                       | `write:blocks`                       |
-|                       | `read:mutes`                         |
-|                       | `write:mutes`                        |
-| `push`                |                                      |
-| `admin:read`          |                                      |
-|                       | `admin:read:accounts`                |
-|                       | `admin:read:reports`                 |
-|                       | `admin:read:domain_allows`           |
-|                       | `admin:read:domain_blocks`           |
-|                       | `admin:read:ip_blocks`               |
-|                       | `admin:read:email_domain_blocks`     |
-|                       | `admin:read:canonical_email_blocks`  |
-| `admin:write`         |                                      |
-|                       | `admin:write:accounts`               |
-|                       | `admin:write:reports`                |
-|                       | `admin:write:domain_allows`          |
-|                       | `admin:write:domain_blocks`          |
-|                       | `admin:write:ip_blocks`              |
-|                       | `admin:write:email_domain_blocks`    |
-|                       | `admin:write:canonical_email_blocks` |
+| Scope                     | Granular Scopes                      |
+| :------------------------ | :----------------------------------- |
+| `profile`                 |                                      |
+| `push`                    |                                      |
+| `read`                    |                                      |
+|                           | `read:accounts`                      |
+|                           | `read:blocks`                        |
+|                           | `read:bookmarks`                     |
+|                           | `read:favourites`                    |
+|                           | `read:filters`                       |
+|                           | `read:follows`                       |
+|                           | `read:lists`                         |
+|                           | `read:mutes`                         |
+|                           | `read:notifications`                 |
+|                           | `read:search`                        |
+|                           | `read:statuses`                      |
+| `write`                   |                                      |
+|                           | `write:accounts`                     |
+|                           | `write:blocks`                       |
+|                           | `write:bookmarks`                    |
+|                           | `write:conversations`                |
+|                           | `write:favourites`                   |
+|                           | `write:filters`                      |
+|                           | `write:follows`                      |
+|                           | `write:lists`                        |
+|                           | `write:media`                        |
+|                           | `write:mutes`                        |
+|                           | `write:notifications`                |
+|                           | `write:reports`                      |
+|                           | `write:statuses`                     |
+| `follow` {{%deprecated%}} |                                      |
+|                           | `read:follows`                       |
+|                           | `write:follows`                      |
+|                           | `read:blocks`                        |
+|                           | `write:blocks`                       |
+|                           | `read:mutes`                         |
+|                           | `write:mutes`                        |
+| `admin:read`              |                                      |
+|                           | `admin:read:accounts`                |
+|                           | `admin:read:reports`                 |
+|                           | `admin:read:domain_allows`           |
+|                           | `admin:read:domain_blocks`           |
+|                           | `admin:read:ip_blocks`               |
+|                           | `admin:read:email_domain_blocks`     |
+|                           | `admin:read:canonical_email_blocks`  |
+| `admin:write`             |                                      |
+|                           | `admin:write:accounts`               |
+|                           | `admin:write:reports`                |
+|                           | `admin:write:domain_allows`          |
+|                           | `admin:write:domain_blocks`          |
+|                           | `admin:write:ip_blocks`              |
+|                           | `admin:write:email_domain_blocks`    |
+|                           | `admin:write:canonical_email_blocks` |

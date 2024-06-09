@@ -2327,7 +2327,7 @@ Username or address does not map to an account
 
 ---
 
-## (DEPRECATED) Identity proofs {#identity_proofs}
+## Identity proofs {{%deprecated%}} {#identity_proofs}
 
 ```http
 GET /api/v1/accounts/:id/identity_proofs HTTP/1.1

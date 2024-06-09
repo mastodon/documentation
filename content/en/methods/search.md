@@ -152,7 +152,7 @@ Invalid or missing Authorization header.
 
 ---
 
-## (REMOVED) Search results (v1) {#v1}
+## Perform a search (v1) {{%removed%}} {#v1}
 
 ```http
 GET /api/v1/search HTTP/1.1
