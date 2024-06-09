@@ -343,7 +343,7 @@ Invalid or missing Authorization header.
 
 ---
 
-## (REMOVED) Dismiss a single notification {#dismiss-deprecated}
+## Dismiss a single notification {{%removed%}} {#dismiss-deprecated}
 
 ```http
 POST /api/v1/notifications/dismiss HTTP/1.1

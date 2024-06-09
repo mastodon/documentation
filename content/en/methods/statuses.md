@@ -1918,7 +1918,7 @@ Status does not exist or is private.
 
 ---
 
-## (DEPRECATED) Fetch preview card {#card}
+## Fetch preview card {{%deprecated%}} {#card}
 
 ```http
 GET /api/v1/statuses/:id/card HTTP/1.1

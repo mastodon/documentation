@@ -1021,7 +1021,7 @@ Prior to Mastodon 4.0, matching filters was done client-size and filters could o
 
 ---
 
-### View your filters {#get-v1}
+### View your filters {{%deprecated%}} {#get-v1}
 
 ```http
 GET /api/v1/filters HTTP/1.1
@@ -1086,7 +1086,7 @@ Invalid or missing Authorization header.
 
 ---
 
-### View a single filter {#get-one-v1}
+### View a single filter {{%deprecated%}} {#get-one-v1}
 
 ```http
 GET /api/v1/filters/:id HTTP/1.1
@@ -1151,7 +1151,7 @@ Filter ID does not exist, or is not owned by you
 
 ---
 
-### Create a filter {#create-v1}
+### Create a filter {{%deprecated%}} {#create-v1}
 
 ```http
 POST /api/v1/filters HTTP/1.1
@@ -1238,7 +1238,7 @@ If context is not provided properly:
 
 ---
 
-### Update a filter {#update-v1}
+### Update a filter {{%deprecated%}} {#update-v1}
 
 ```http
 PUT /api/v1/filters/:id HTTP/1.1
@@ -1343,7 +1343,7 @@ If context is not provided properly:
 
 ---
 
-### Remove a filter {#delete-v1}
+### Remove a filter {{%deprecated%}} {#delete-v1}
 
 ```http
 DELETE /api/v1/filters/:id HTTP/1.1

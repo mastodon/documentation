@@ -366,7 +366,7 @@ Attachment is not owned by you or does not exist
 
 ---
 
-## (DEPRECATED) Upload media as an attachment {#v1}
+## Upload media as an attachment (v1) {{%deprecated%}} {#v1}
 
 ```http
 POST /api/v1/media HTTP/1.1

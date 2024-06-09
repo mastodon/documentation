@@ -73,9 +73,7 @@ aliases: [
 **Version history:**\
 4.3.0 - added
 
-## Deprecated attributes
-
-### `redirect_uri` {#redirect_uri}
+### `redirect_uri` {{%deprecated%}} {#redirect_uri}
 
 **Description:** The registered redirection URI(s) for your application.\
 May contain `\n` characters when multiple redirect URIs are registered.\
@@ -84,7 +82,7 @@ May contain `\n` characters when multiple redirect URIs are registered.\
 0.0.0 - added\
 4.3.0 - deprecated in favour of [`redirect_uris`]({{< relref "entities/Application#redirect_uris" >}}), since the value of this property is not a well-formed URI when multiple redirect URIs are registered
 
-### `vapid_key` {#vapid_key}
+### `vapid_key` {{%deprecated%}} {#vapid_key}
 
 **Description:** Used for Push Streaming API. Returned with [POST /api/v1/apps]({{< relref "methods/apps#create" >}}). Equivalent to [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}}) and [Instance#vapid_public_key]({{< relref "entities/Instance#vapid_public_key" >}})\
 **Type:** String\

@@ -545,7 +545,7 @@ In the following sample response showing support for translating a status writte
 
 ---
 
-## (DEPRECATED) View server information (V1) {#v1}
+## View server information (v1) {{%deprecated%}} {#v1}
 
 ```http
 GET /api/v1/instance HTTP/1.1

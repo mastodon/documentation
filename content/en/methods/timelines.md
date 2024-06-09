@@ -430,7 +430,7 @@ List is not owned by you or does not exist
 
 ---
 
-## (DEPRECATED) View direct timeline {#direct}
+## View direct timeline {{%deprecated%}} {#direct}
 
 ```http
 GET /api/v1/timelines/direct HTTP/1.1

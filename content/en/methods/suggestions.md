@@ -127,7 +127,7 @@ Invalid or missing Authorization header.
 
 ---
 
-## (DEPRECATED) View follow suggestions (v1) {#v1}
+## View follow suggestions (v1) {{%deprecated%}} {#v1}
 
 ```http
 GET /api/v1/suggestions HTTP/1.1

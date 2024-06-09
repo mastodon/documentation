@@ -599,7 +599,7 @@ As noted above while listing the [schema.org @context extensions](#schema), Mast
 }
 ```
 
-### Identity proofs {#IdentityProof}
+### Identity proofs {{%deprecated%}} {#IdentityProof}
 
 {{< hint style="warning" >}}
 This property is currently unused/deprecated due to the removal of Keybase support in Mastodon 3.5: <https://github.com/mastodon/mastodon/pull/17045>
