@@ -29,6 +29,12 @@ This automated removal of applications was removed in Mastodon 4.3\
 A workaround for Mastodon versions older than 4.3 was to register your application, and then immediately request a [Client Credential]({{< relref "client/Token#flow" >}}) token, which would permanently ensure your application always had an active access token and would not be removed.
 {{< /hint >}}
 
+{{< hint style="info" >}}
+At present, Mastodon only supports provisioning confidential clients, i.e., you will always receive a `client_secret` and `client_secret_expires_at` attributes in the [CredentialApplication]({{< relref "entities/Application#CredentialApplication" >}}) entity.\
+\
+For more information see: [OAuth 2 client types]({{< relref "spec/oauth#client-types" >}})
+{{< /hint >}}
+
 **Returns:** [CredentialApplication]({{< relref "entities/Application#CredentialApplication" >}})\
 **OAuth:** Public\
 **Version history:**\
