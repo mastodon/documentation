@@ -46,7 +46,7 @@ For more information see: [OAuth 2 client types]({{< relref "spec/oauth#client-t
 4.3.0 - deprecated `redirect_uri` response property, since this can be a non-URI if multiple `redirect_uris` are registered, use `redirect_uris` instead\
 4.3.0 - changed entity type from [Application]({{< relref "entities/Application">}}) to [CredentialApplication]({{< relref "entities/Application#CredentialApplication">}})
 
-#### Request
+#### Request {#create-request-example}
 
 Example request:
 
