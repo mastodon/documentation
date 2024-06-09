@@ -44,21 +44,6 @@ aliases: [
 0.9.9 - added\
 3.5.1 - this property is now nullable
 
-### `client_id` {#client_id}
-
-**Description:** Client ID key, to be used for obtaining OAuth tokens\
-**Type:** String\
-**Version history:**\
-0.9.9 - added
-4.3.0 - changed to always be returned
-
-### `client_secret` {{%optional%}} {#client_secret}
-
-**Description:** Client secret key, to be used for obtaining OAuth tokens\
-**Type:** String\
-**Version history:**\
-0.9.9 - added
-
 ### `scopes` {#scopes}
 
 **Description:** The scopes for your application. This is the registered `scopes` string split on whitespace.\
@@ -90,6 +75,33 @@ May contain `\n` characters when multiple redirect URIs are registered.\
 2.8.0 - added\
 4.3.0 - deprecated pending removal, please see [api/v2/instance]({{< relref "methods/Instance#v2">}}) for this value (`configuration.vapid.public_key`)
 
+## CredentialApplication attributes {#CredentialApplication}
+
+All [Application](#attributes) attributes and the following:
+
+### `client_id` {#client_id}
+
+**Description:** Client ID key, to be used for obtaining OAuth tokens\
+**Type:** String\
+**Version history:**\
+0.9.9 - added
+4.3.0 - moved to `CredentialApplication` from `Application`
+
+### `client_secret` {#client_secret}
+
+**Description:** Client secret key, to be used for obtaining OAuth tokens\
+**Type:** String\
+**Version history:**\
+0.9.9 - added
+4.3.0 - moved to `CredentialApplication` from `Application`
+
+### `client_secret_expires_at` {#client_secret_expires_at}
+
+**Description:** When the client secret key will expire at, presently this always returns `0` indicating that OAuth Clients do not expire\
+**Type:** String\
+**Version history:**\
+4.3.0 - added
+
 ## See also
 
 {{< page-relref ref="methods/apps" caption="apps API methods" >}}
@@ -97,3 +109,5 @@ May contain `\n` characters when multiple redirect URIs are registered.\
 {{< page-relref ref="entities/Status#application" caption="Status (`application` attribute)" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/application_serializer.rb" caption="app/serializers/rest/application_serializer.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/credential_application_serializer.rb" caption="app/serializers/rest/credential_application_serializer.rb" >}}

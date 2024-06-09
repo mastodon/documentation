@@ -31,7 +31,7 @@ In the above example, we specify the client name and website, which will be show
 - `redirect_uris` has been set to the "out of band" token generation, which means that any generated tokens will have to be copied and pasted manually. The parameter is called `redirect_uris` because it is possible to define more than one redirect URI, but when generating the token, we will need to provide a URI that is included within this list.
 - `scopes` allow us to define what permissions we can request later. However, the requested scope later can be a subset of these registered scopes. See [OAuth Scopes]({{< relref "api/oauth-scopes" >}}) for more information.
 
-{{< hint style="warning" >}}
+{{< hint style="info" >}}
 As of Mastodon 4.3.0, you can make a request to [`/.well-known/oauth-authorization-server`]({{< relref "spec/oauth#authorization-server-metadata" >}}) to discover what `scopes` the server supports. In older versions of Mastodon, this endpoint will be a 404, so you should decide a "minimum version supported" for the Mastodon server that your application is interacting with.
 {{< /hint >}}
 

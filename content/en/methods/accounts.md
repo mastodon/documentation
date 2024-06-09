@@ -157,9 +157,10 @@ GET /api/v1/accounts/verify_credentials HTTP/1.1
 Test to make sure that the user token works.
 
 **Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
-**OAuth**: User token + `read:accounts`\
+**OAuth:** User token + `profile` or `read:accounts`\
 **Version history:**\
 0.0.0 - added
+4.3.0 - added `profile` scope
 
 #### Request
 

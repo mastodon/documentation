@@ -9,17 +9,24 @@ menu:
 
 ## OAuth Scopes
 
-The API is divided up into access scopes. The scopes are hierarchical, i.e. if you have access to `read`, you automatically have access to `read:accounts`. **It is recommended that you request as little as possible for your application.**
+The API access is divided up into several OAuth scopes, these limit what an API client can do, based on the registered and requested scopes that the user has approved. The scopes in Mastodon are hierarchical, for example, if you have request the `read` scope, you automatically have access to `read:accounts`, however **it is recommended that you request the most limited scopes as possible for your application**, i.e., if you only need to access lists and the current user profile, you could use `profile read:lists` as your scopes, instead of `read`.
 
 {{< hint style="info" >}}
-To retrieve the basic details of the currently authenticated user, use the `read:me` scope, which can only access the [`GET /api/v1/accounts/verify_credentials`]({{< relref "methods/accounts#verify_credentials" >}}) endpoint.
+To just retrieve the details of the currently authenticated user, use the `profile` scope, which can only access the [`GET /api/v1/accounts/verify_credentials`]({{< relref "methods/accounts#verify_credentials" >}}) endpoint.\
+This scope was added in Mastodon 4.3, so we recommend using the "Discovering OAuth Scopes supported by a given Mastodon Server" guidance below when using this scope.
 {{</ hint >}}
 
 ### Discovering OAuth Scopes supported by a given Mastodon Server
 
-As of Mastodon 4.3.0, we can make a request to `GET /.well-known/oauth-authorization-server` to discover the scopes supported by the Mastodon server (as well as other OAuth related information such as endpoints and grant flows).
+As of Mastodon 4.3.0, support for [RFC 8414](https://tools.ietf.org/html/rfc8414)'s `GET /.well-known/oauth-authorization-server` endpoint was added, allowing you to discover the scopes supported by the Mastodon server (as well as other OAuth related information such as the endpoints and grant flows).
 
-It is recommended that you do this if you need to support multiple versions of Mastodon for your OAuth Application.
+It is recommended using this endpoint in order to support multiple versions of Mastodon for your OAuth Application.
+
+If you make a request to the `GET /.well-known/oauth-authorization-server` endpoint, and it returns a 404, then you can assume that the Mastodon server is running a version older than 4.3, in which case you'll need to look at the specific scopes your application needs and what the lowest common scopes are for the version range of Mastodon that you wish to support.
+
+{{< hint style="info" >}}
+**Example:** You want to use the `profile` scope, but also want to support older Mastodon servers that don't have that scope and would need `read:accounts` instead. You could discover whether a server supports that scope by making a request this endpoint.
+{{< /hint >}}
 
 {{< page-relref ref="methods/oauth#authorization-server-metadata" caption="GET /.well-known/oauth-authorization-server" >}}
 
@@ -32,22 +39,25 @@ The set of scopes saved during application creation must include all the scopes 
 {{< /hint >}}
 
 {{< hint style="info" >}}
-Mind the `scope` vs `scopes` difference. This is because `scope` is a standard OAuth parameter name, so it is used in the OAuth methods. Mastodon’s own REST API uses the more appropriate `scopes`.
+Mind the `scope` vs `scopes` difference. This is because `scope` is a standard OAuth parameter name, so it is used in the OAuth methods. Mastodon’s own REST API uses the more appropriate `scopes` name instead.
 {{< /hint >}}
 
-If you do not specify `scope` in your authorization request, or `scopes` in your application creation request, the resulting access token/app will be assigned the default scope. This is currently `read` as of Mastodon 4.3.0, but is subject to change in the future.
+If you do not specify `scope` in your authorization request, or `scopes` in your application creation request, the resulting access token/app will be assigned the default scope. This is currently `read` as of Mastodon 4.3, but is subject to change in the future.
+
+{{< page-relref ref="methods/apps#create" caption="POST /api/v1/apps" >}}
 
 ### Version history {#versions}
 
-- 0.9.0 - read, write, follow
-- 2.4.0 - push
-- 2.4.3 - granular scopes added [#7929](https://github.com/mastodon/mastodon/pull/7929)
-- 2.6.0 - `read:reports` deprecated (unused stub) [#8736/adcf23f](https://github.com/mastodon/mastodon/pull/8736/commits/adcf23f1d00c8ff6877ca2ee2af258f326ae4e1f)
-- 2.6.0 - `write:conversations` added [#9009](https://github.com/mastodon/mastodon/pull/9009)
-- 2.9.1 - Admin scopes added [#9387](https://github.com/mastodon/mastodon/pull/9387)
-- 3.1.0 - Bookmark scopes added [#7107](https://github.com/mastodon/mastodon/pull/7107)
+- 0.9.0 - Added read, write, follow scopes
+- 2.4.0 - Added push scope for push notifications
+- 2.4.3 - Added granular scopes [#7929](https://github.com/mastodon/mastodon/pull/7929)
+- 2.6.0 - Deprecated `read:reports` (unused stub) [#8736/adcf23f](https://github.com/mastodon/mastodon/pull/8736/commits/adcf23f1d00c8ff6877ca2ee2af258f326ae4e1f)
+- 2.6.0 - Added `write:conversations` [#9009](https://github.com/mastodon/mastodon/pull/9009)
+- 2.9.1 - Added administrative and moderation scopes [#9387](https://github.com/mastodon/mastodon/pull/9387)
+- 3.1.0 - Added bookmark scopes [#7107](https://github.com/mastodon/mastodon/pull/7107)
+- 3.5.0 - Deprecated `follow` scope in favour of granular scopes [#17678](https://github.com/mastodon/mastodon/pull/17678)
 - 4.1.0 - Added admin scopes for blocks and allows [#20918](https://github.com/mastodon/mastodon/pull/20918)
-- 4.3.0 - Added `read:me` scope to obtain basic information about the currently authenticated account. [#29087](https://github.com/mastodon/mastodon/pull/29087)
+- 4.3.0 - Added `profile` scope to obtain only information about the currently authenticated user [#29087](https://github.com/mastodon/mastodon/pull/29087), [#30357](https://github.com/mastodon/mastodon/pull/30357)
 
 ## List of high-level scopes
 
@@ -59,11 +69,11 @@ We recommend that you use the [granular scopes](#granular) shown in the right co
 - `admin:read`
 - `admin:write`
 
-When only the basic details of the currently authenticated user are required, use the `read:me` scope.
+When only the information about the currently authenticated user is required, use the `profile` scope.
 
-### `read:me` {#read-me}
+### `profile` {#profile}
 
-Grants access only to the [`GET /api/v1/accounts/verify_credentials`]({{< relref "methods/accounts#verify_credentials" >}}) endpoint. Allowing you to retrieve information only about the currently authenticated account.
+Grants access only to the [`GET /api/v1/accounts/verify_credentials`]({{< relref "methods/accounts#verify_credentials" >}}) endpoint. Allowing you to retrieve information about only the currently authenticated user.
 
 ### `read` {#read}
 
@@ -73,6 +83,10 @@ Grants access to read data, including other users. Requesting `read` will also g
 
 Grants access to write data. Requesting `write` will also grant [granular scopes](#granular) shown in the right column of the table below.
 
+### `push` {#push}
+
+Grants access to [Web Push API subscriptions.]({{< relref "methods/push" >}}) Added in Mastodon 2.4.0.
+
 ### `follow` {#follow}
 
 {{< hint style="danger" >}}
@@ -81,10 +95,6 @@ This scope has been deprecated in 3.5.0 and newer. You should instead request th
 {{< /hint >}}
 
 Grants access to manage relationships. Requesting `follow` will also grant [granular scopes](#granular) shown in the right column of the table below.
-
-### `push` {#push}
-
-Grants access to [Web Push API subscriptions.]({{< relref "methods/push" >}}) Added in Mastodon 2.4.0.
 
 ### `admin:read` and `admin:write` {#admin}
 
