@@ -25,6 +25,8 @@ POST /api/v1/accounts HTTP/1.1
 
 Creates a user and account records. Returns an account access token for the app that initiated the request. The app should save this token for later, and should wait for the user to confirm their account by clicking a link in their email inbox.
 
+A relationship between the OAuth Application and created user account is stored.
+
 **Returns:** [Token]({{< relref "entities/token" >}})\
 **OAuth:** App token + `write:accounts`\
 **Version history:**\
