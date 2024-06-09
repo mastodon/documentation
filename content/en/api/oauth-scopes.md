@@ -61,7 +61,7 @@ If you do not specify `scope` in your authorization request, or `scopes` in your
 
 ## List of high-level scopes
 
-We recommend that you use the [granular scopes](#granular) shown in the right column of the table below, instead of using the following scopes:
+We recommend that you use the [granular scopes](#granular-scopes) shown in the right column of the table below, instead of using the following scopes:
 
 - `read`
 - `write`
@@ -77,11 +77,11 @@ Grants access only to the [`GET /api/v1/accounts/verify_credentials`]({{< relref
 
 ### `read` {#read}
 
-Grants access to read data, including other users. Requesting `read` will also grant [granular scopes](#granular) shown in the right column of the table below.
+Grants access to read data, including other users. Requesting `read` will also grant [granular scopes](#granular-scopes) shown in the right column of the table below.
 
 ### `write` {#write}
 
-Grants access to write data. Requesting `write` will also grant [granular scopes](#granular) shown in the right column of the table below.
+Grants access to write data. Requesting `write` will also grant [granular scopes](#granular-scopes) shown in the right column of the table below.
 
 ### `push` {#push}
 
@@ -91,16 +91,16 @@ Grants access to [Web Push API subscriptions.]({{< relref "methods/push" >}}) Ad
 
 {{< hint style="danger" >}}
 **Deprecated**\
-This scope has been deprecated in 3.5.0 and newer. You should instead request the [granular scopes](#granular) individually, or request `read`/`write` scopes as needed.
+This scope has been deprecated in 3.5.0 and newer. You should instead request the [granular scopes](#granular-scopes) individually, or request `read`/`write` scopes as needed.
 {{< /hint >}}
 
-Grants access to manage relationships. Requesting `follow` will also grant [granular scopes](#granular) shown in the right column of the table below.
+Grants access to manage relationships. Requesting `follow` will also grant [granular scopes](#granular-scopes) shown in the right column of the table below.
 
 ### `admin:read` and `admin:write` {#admin}
 
 Used for administrative and moderation APIs. Added in Mastodon 2.9.1.
 
-Requesting `admin:read` or `admin:write` will also grant [granular scopes](#granular) shown in the right column of the table below.
+Requesting `admin:read` or `admin:write` will also grant [granular scopes](#granular-scopes) shown in the right column of the table below.
 
 {{< hint style="info" >}}
 Note that there is no singular `admin` scope available.

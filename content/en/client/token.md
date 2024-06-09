@@ -35,11 +35,14 @@ In the above example, we specify the client name and website, which will be show
 As of Mastodon 4.3.0, you can make a request to [`/.well-known/oauth-authorization-server`]({{< relref "spec/oauth#authorization-server-metadata" >}}) to discover what `scopes` the server supports. In older versions of Mastodon, this endpoint will be a 404, so you should decide a "minimum version supported" for the Mastodon server that your application is interacting with.
 {{< /hint >}}
 
-We should see an [Application]({{< relref "entities/application" >}}) entity returned, but for now, we only care about `client_id` and `client_secret`. These values will be used to generate access tokens, so they should be cached for later use. See [POST /api/v1/apps]({{< relref "methods/apps#create" >}}) for more details on registering applications.
+We should see an [CredentialApplication]({{< relref "entities/application#CredentialApplication" >}}) entity returned, but for now, we only care about `client_id` and `client_secret`. 
 
 {{< hint style="warning" >}}
 Treat the `client_id` and `client_secret` properties as if they are passwords. We recommend you encrypt these when storing in your cache, to prevent accidental credential exposure.
 {{< /hint >}}
+
+The `client_id` and `client_secret` values will be used to generate access tokens, so they should be cached for later use. See [POST /api/v1/apps]({{< relref "methods/apps#create" >}}) for more details on registering applications.
+
 
 ## Example authentication code flow {#flow}
 
