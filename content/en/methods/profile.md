@@ -20,7 +20,7 @@ DELETE /api/v1/profile/avatar HTTP/1.1
 ```
 
 **Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
-**OAuth**: User token + `write:accounts`\
+**OAuth:** User token + `write:accounts`\
 **Version history:**\
 4.2.0 - added
 
@@ -102,7 +102,7 @@ DELETE /api/v1/profile/header HTTP/1.1
 ```
 
 **Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
-**OAuth**: User token + `write:accounts`\
+**OAuth:** User token + `write:accounts`\
 **Version history:**\
 4.2.0 - added
 
