@@ -22,7 +22,14 @@ POST /api/v1/apps HTTP/1.1
 
 Create a new application to obtain OAuth2 credentials.
 
-**Returns:** [Application]({{< relref "entities/Application" >}})\
+{{< hint style="danger" >}}
+In Mastodon prior to 4.3, OAuth Applications could be "vacuumed" and removed from the database under certain conditions, meaning your Application's `client_id` and `client_secret` would not be recognised by the Mastodon server.\
+This automated removal of applications was removed in Mastodon 4.3\
+\
+A workaround for Mastodon versions older than 4.3 was to register your application, and then immediately request a [Client Credential]({{< relref "client/Token#flow" >}}) token, which would permanently ensure your application always had an active access token and would not be removed.
+{{< /hint >}}
+
+**Returns:** [CredentialApplication]({{< relref "entities/Application#CredentialApplication" >}})\
 **OAuth:** Public\
 **Version history:**\
 0.0.0 - added\
@@ -30,7 +37,8 @@ Create a new application to obtain OAuth2 credentials.
 4.3.0 - deprecated `vapid_key`, please see [api/v2/instance]({{< relref "methods/Instance#v2">}})\
 4.3.0 - added support for multiple `redirect_uris` in Form data parameters\
 4.3.0 - added `redirect_uris` response property\
-4.3.0 - deprecated `redirect_uri` response property, since this can be a non-URI if multiple `redirect_uris` are registered
+4.3.0 - deprecated `redirect_uri` response property, since this can be a non-URI if multiple `redirect_uris` are registered, use `redirect_uris` instead\
+4.3.0 - changed entity type from [Application]({{< relref "entities/Application">}}) to [CredentialApplication]({{< relref "entities/Application#CredentialApplication">}})
 
 #### Request
 
@@ -127,14 +135,14 @@ GET /api/v1/apps/verify_credentials HTTP/1.1
 
 Confirm that the app's OAuth2 credentials work.
 
-**Returns:** [Application]({{< relref "entities/application" >}}), but without `client_secret`\
-**OAuth level:** App token\
+**Returns:** [Application]({{< relref "entities/application" >}})\
+**OAuth:** App token\
 **Version history:**\
 2.0.0 - added\
 2.7.2 - now returns `vapid_key`\
 4.3.0 - deprecated `vapid_key`, please see [api/v2/instance]({{< relref "methods/Instance#v2">}})\
-4.3.0 - removed the need to have `read` scope to access this API, now any valid App token can be used
-4.3.0 - added `client_id`, `scopes` and `redirect_uris` properties
+4.3.0 - removed needing `read` scope to access this API, now any valid App token can be used\
+4.3.0 - added `scopes` and `redirect_uris` properties
 
 #### Request
 
@@ -157,8 +165,7 @@ If the Authorization header was provided with a valid token, you should see your
   "redirect_uris": [
     "https://app.example/callback",
     "https://app.example/register"
-  ],
-  "client_id": "TWhM-tNSuncnqN7DBJmoyeLnk6K3iJJ71KKXxgL1hPM"
+  ]
 }
 ```
 

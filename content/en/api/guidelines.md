@@ -13,7 +13,7 @@ menu:
 
 {{< page-ref page="client/authorized" >}}
 
-{{< page-relref ref="methods/oauth" caption="oauth methods" >}}
+{{< page-relref ref="methods/oauth" caption="OAuth methods" >}}
 
 {{< page-relref ref="api/oauth-scopes" caption="OAuth scopes" >}}
 

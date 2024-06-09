@@ -220,7 +220,7 @@ We include the additional non-standard property of `app_registration_endpoint` w
 The properties exposed by this endpoint can help you better integrate with the Mastodon API, such as allowing for negotiation of `scopes` across different versions of Mastodon.
 
 {{< hint style="info" >}}
-**Example:** You want to use the `read:me` scope, but also want to support older Mastodon servers that don't have that scope and would need `read:accounts` instead. You could discover whether a server supports that scope by making a request this endpoint.
+**Example:** You want to use the `profile` scope, but also want to support older Mastodon servers that don't have that scope and would need `read:accounts` instead. You could discover whether a server supports that scope by making a request this endpoint.
 {{< /hint >}}
 
 **Returns:** JSON as per the above description\
@@ -269,6 +269,7 @@ The properties exposed by this endpoint can help you better integrate with the M
     "read:statuses",
     "follow",
     "push",
+    "profile",
     "admin:read",
     "admin:read:accounts",
     "admin:read:reports",
