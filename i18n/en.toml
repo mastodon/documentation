@@ -46,6 +46,12 @@ other = "required"
 [optional]
 other = "optional"
 
+[deprecated]
+other = "deprecated"
+
+[removed]
+other = "removed"
+
 [nullable]
 other = "nullable"
 
