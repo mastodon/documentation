@@ -155,7 +155,7 @@ Confirm that the app's OAuth2 credentials work.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <app token>` to gain authorized access to this API method. `<app token>` may be either a `client_credential` or `access_token` returned from [`/oauth/token`]({{< relref "methods/oauth#token" >}})
+: {{<required>}} Provide this header with `Bearer <app_token>` to gain authorized access to this API method. `<app_token>` may be either a `client_credential` or `access_token` returned from [`/oauth/token`]({{< relref "methods/oauth#token" >}})
 
 #### Response
 
