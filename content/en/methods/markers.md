@@ -24,6 +24,8 @@ aliases: [
 GET /api/v1/markers HTTP/1.1
 ```
 
+Get current positions in timelines.
+
 **Returns:** Hash of timeline key and associated [Marker]({{< relref "entities/Marker" >}})\
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
@@ -78,6 +80,8 @@ Invalid or missing Authorization header.
 ```http
 POST /api/v1/markers HTTP/1.1
 ```
+
+Save current position in timeline.
 
 **Returns:** [Marker]({{< relref "entities/marker" >}})\
 **OAuth:** User token + `write:statuses`\
