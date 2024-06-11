@@ -827,16 +827,27 @@ Create or update an Elasticsearch index and populate it. If Elasticsearch is emp
 : Defaults to 100. A higher batch size can make Elasticsearch process records more quickly, with less load on the PostgreSQL database, but can increase memory pressure on the Elasticsearch nodes during indexing.
 
 `--only INDEX`
-: Specify an index name [`accounts`, `tags`, `statuses`] to create or update only that index.
+: Specify an index name [`instances`, `accounts`, `tags`, `statuses`, `public_statuses`] to create or update only that index.
 
 `--concurrency N`
-: Parallelize execution of the command on multiple threads. Defaults to N=2.
+: Parallelize execution of the command on multiple threads. Defaults to 5.
+
+`--import`
+:Import data from the database to the index
+ 
+`--clean`
+:Remove outdated documents from the index
+
+`--reset-chewy`
+:Reset Chewy's internal index
 
 **Version history:**
 2.8.0 - added\
-3.0.0 - add `--processes` for parallelization
+3.0.0 - add `--processes` for parallelization\
 3.3.0 - options changed\
-3.5.0 - add `--batch-size`
+3.5.0 - add `--batch-size`\
+3.5.3 - switched `--batch-size` default from 1000 to 100 and `--concurrency` from 2 to 5, added `--import` and `--clean`\
+4.2.0 - added `instances` and `public_statuses` options to `--only`, added `--reset-chewy`
 
 
 ---
