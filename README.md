@@ -7,3 +7,7 @@
 The documentation currently uses Hugo to generate a static site from Markdown. Use `hugo serve` to test the site locally.
 
 View the live documentation at [https://docs.joinmastodon.org](https://docs.joinmastodon.org)
+
+## Contributing
+
+Please read the [Contributing to Mastodon](https://github.com/mastodon/.github/blob/main/CONTRIBUTING.md) guide.
