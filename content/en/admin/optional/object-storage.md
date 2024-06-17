@@ -1,5 +1,5 @@
 ---
-title: Object storage
+title: Object Storage
 description: Serving user-uploaded files in Mastodon using external object storage
 menu:
   docs:
