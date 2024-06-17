@@ -111,86 +111,62 @@ You must serve the files with CORS headers, otherwise some functions of Mastodon
 
 #### `S3_OPEN_TIMEOUT`
 
-Default: 5 (seconds)
-
 The number of seconds before the HTTP handler should timeout while trying to open a new HTTP session.
+
+Default: `5` (seconds)
 
 #### `S3_READ_TIMEOUT`
 
-Default: 5 (seconds)
-
 The number of seconds before the HTTP handler should timeout while waiting for an HTTP response.
+
+Default: `5` (seconds)
 
 #### `S3_FORCE_SINGLE_REQUEST`
 
-Default: false
-
 Set this to `true` if you run into trouble processing large files.
+
+Default: `false`
 
 #### `S3_ENABLE_CHECKSUM_MODE`
 
-Default: false
+Enables verification of object checksums when Mastodon is retrieving an object from the storage provider. This feature is available in AWS S3 but may not be available in other S3-compatible implementations.
 
-Enables verification of object checksums when Mastodon is retrieving
-an object from the storage provider. This feature is available in AWS
-S3 but may not be available in other S3-compatible implementations.
+Default: `false`
 
 #### `S3_STORAGE_CLASS`
 
-Default: none
+When using AWS S3, this variable can be set to one of the [storage class](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) options which influence the storage selected for uploaded objects (and thus their access times and costs). If no storage class is specified then AWS S3 will use the `STANDARD` class, but options include `REDUCED_REDUNDANCY`, `GLACIER`, and others.
 
-When using AWS S3, this variable can be set to one of the [storage
-class](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html)
-options which influence the storage selected for uploaded objects (and
-thus their access times and costs). If no storage class is specified
-then AWS S3 will use the `STANDARD` class, but options include
-`REDUCED_REDUNDANCY`, `GLACIER`, and others.
+Default: `STANDARD`
 
 #### `S3_MULTIPART_THRESHOLD`
 
-Default: 15 (megabytes)
+Objects of this size and smaller will be uploaded in a single operation, but larger objects will be uploaded using the multipart chunking mechanism, which can improve transfer speeds and reliability.
 
-Objects of this size and smaller will be uploaded in a single
-operation, but larger objects will be uploaded using the multipart
-chunking mechanism, which can improve transfer speeds and reliability.
+Default: `15` (megabytes)
 
 #### `S3_PERMISSION`
 
+Defines the S3 object ACL when uploading new files. Use caution when using [S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) and turning on the `BlockPublicAcls` option, as uploading objects with ACL `public-read` will fail (403). In that case, set `S3_PERMISSION` to `private`.
+
 Default: `public-read`
 
-Defines the S3 object ACL when uploading new files. Use caution when
-using [S3 Block Public
-Access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html)
-and turning on the `BlockPublicAcls` option, as uploading objects with
-ACL `public-read` will fail (403). In that case, set `S3_PERMISSION`
-to `private`.
-
 {{< hint style="danger" >}}
-Regardless of the ACL configuration, your
-S3 bucket must be set up to ensure that all objects are publicly
-readable but not writable or listable. At the same time, Mastodon
-itself should have write access to the bucket. This configuration is
-generally consistent across all S3 providers, and common ones are
-highlighted below.
+Regardless of the ACL configuration, your S3 bucket must be set up to ensure that all objects are publicly readable but not writable or listable. At the same time, Mastodon itself should have write access to the bucket. This configuration is generally consistent across all S3 providers, and common ones are highlighted below.
 {{</ hint >}}
 
 #### `S3_BATCH_DELETE_LIMIT`
 
-Default: `1000`
+The official [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html) can handle deleting 1,000 objects in one batch job, but some providers may have issues handling this many in one request, or offer lower limits.
 
-The official [Amazon S3
-API](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html)
-can handle deleting 1,000 objects in one batch job, but some providers
-may have issues handling this many in one request, or offer lower
-limits.
+Default: `1000`
 
 #### `S3_BATCH_DELETE_RETRY`
 
-Default: 3
-
-During batch delete operations, S3 providers may perodically fail or
-timeout while processing deletion requests. Mastodon will back off and
+During batch delete operations, S3 providers may perodically fail or timeout while processing deletion requests. Mastodon will back off and
 retry the request up to this maximum number of times.
+
+Default: `3`
 
 ### MinIO
 
