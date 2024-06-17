@@ -15,14 +15,14 @@ The simplest way to store user uploads is by using the server's file system. Thi
 
 By default, Mastodon will store file uploads under `public/system` in its installation directory, but that can be overridden using the `PAPERCLIP_ROOT_PATH` environment variable.
 
-By default, the files are served at `https://your-domain/system`, which can be overridden using `PAPERCLIP_ROOT_URL` and `CDN_HOST`.
+By default, the files are served at `https://example.com/system`, which can be overridden using `PAPERCLIP_ROOT_URL` and `CDN_HOST`.
 
 {{< hint style="info" >}}
 While using the server's file system is perfectly serviceable for small servers, using external object storage is more scalable.
 {{</ hint >}}
 
 {{< hint style="danger" >}}
-The web server must be configured to serve those files but not allow listing them (that is, `https://your-domain/system/` should not return a file list). This should be the case if you use the configuration files distributed with Mastodon, but it is worth double-checking.
+The web server must be configured to serve those files but not allow listing them (that is, `https://example.com/system/` should not return a file list). This should be the case if you use the configuration files distributed with Mastodon, but it is worth double-checking.
 {{</ hint >}}
 
 ## S3-compatible object storage backends {#S3}
