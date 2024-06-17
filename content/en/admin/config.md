@@ -390,7 +390,7 @@ If provided, takes precedence over `REDIS_HOST` and `REDIS_PORT`.
 
 Example value: `redis://user:password@localhost:6379`
 
-If you need to use TLS to connect to your Redis server, you must ues `REDIS_URL` with the protocol scheme `rediss://` and set adjust `REDIS_DRIVER` as described below.
+If you need to use TLS to connect to your Redis server, you must use `REDIS_URL` with the protocol scheme `rediss://` and set `REDIS_DRIVER` as described below.
 
 #### `REDIS_DRIVER`
 
