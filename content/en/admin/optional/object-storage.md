@@ -19,10 +19,9 @@ While using the server's file system is perfectly serviceable for small servers 
 
 ### Backend Variables
 
-The variables define how Mastodon communicates with your backend S3 storage provider.
-It is important to note that even though are many references to AWS as the default provider, many different storage providers are able to be consumed by Mastodon including AWS S3, DigitalOcean Spaces, Cloudflare R2, Wasabi, MinIO, Exoscale, Scaleway, OVH, or any other other S3-compatible provider.
+These variables specify how Mastodon connects to your backend S3 storage provider. While AWS is mentioned as the default, Mastodon can work with various providers like AWS S3, DigitalOcean Spaces, Cloudflare R2, Wasabi, MinIO, Exoscale, Scaleway, OVH, or any other S3-compatible provider.
 
-Please refer to your provider's documentation for assistance in identifying the proper settings for many of these options.
+Consult your provider's documentation for help in setting up these options correctly.
 
 #### `S3_ENABLED`
 
@@ -59,24 +58,27 @@ _No default value, must be setup on your S3 provider._
 
 ### Client Access Variables
 
-Once S3 file storage is enabled, Mastodon will provide new URLs from the web interface, Mastodon API clients, and to other ActivityPub servers for all media 'read' operations.
-Accessing these URLs does not require authentication, using plain HTTP GET methods, which means they can be routed and/or cached through reverse proxies and CDNs.
+Once S3 file storage is enabled, Mastodon will provide new URLs for all media 'read' operations.
+These URLs can be accessed using plain HTTP GET methods, without requiring authentication.
+This means that they can be routed and/or cached through reverse proxies and CDNs.
 
-In addition to hiding the usage of the storage provider, with proper configuration you can reduce egress bandwidth costs from the storage provider.
-It also means that those URLs can contain host/domain names which are entirely different from those used by the S3 storage provider itself, if desired.
+By properly configuring the URLs, you can hide the usage of the storage provider and reduce egress bandwidth costs.
+You can also use host/domain names that are different from those used by the S3 storage provider itself.
 
 {{< hint style="info" >}}
-Remember you must serve the files with proper CORS headers, otherwise media may not be visible in the user's browser and some functions of Mastodon's web UI will not work. For example, `Access-Control-Allow-Origin: *`
+Remember to serve the files with proper CORS headers, such as `Access-Control-Allow-Origin: *`, to ensure media visibility in the user's browser and proper functioning of Mastodon's web UI.
 {{</ hint >}}
 
-It is highly reccomended that you consider using a domain (or subdomain) you control, for delivery of S3 stored media.
-Instead of delivering media from an address like `https://s3-us-east-1.amazonaws.com/example-mastodon-bucket/image.jpg` with the proper configuration it can come from something like `https://files.example.com/image.jpg`.
+It is highly recommended to use a domain (or subdomain) that you control for delivering S3 stored media.
 
-This allows flexibility should you decide to change S3 providers at a later date, especially where the address for your file storage has already federated to other servers for older posts, which may lead to those files being no longer accessible if you need to change this address.
+This provides flexibility in case you decide to change S3 providers in the future. It also ensures that the address for your file storage, which may have already federated to other servers for older posts, remains accessible even if you need to change the storage provider's address.
 
 {{< page-ref page="admin/optional/object-storage-proxy.md" >}}
 
 #### `S3_ALIAS_HOST`
+
+Instead of using an address like `https://s3-us-east-1.amazonaws.com/example-mastodon-bucket/image.jpg`, you can configure it to be delivered from something like `https://files.example.com/image.jpg`.
+In this example, `S3_ALIAS_HOST` would be set to `files.example.com` and constructed as shown:
 
 - If `S3_ALIAS_HOST` is not set, then the media access URL will be `<S3_PROTOCOL>://<S3_HOSTNAME>/<S3_BUCKET>/<object path>`.
 - If `S3_ALIAS_HOST` is set, then the media access URL will be `<S3_PROTOCOL>://<S3_ALIAS_HOST>/<object path>`.
@@ -164,7 +166,7 @@ In that configuration you should set `S3_PERMISSION` to `private`.
 
 {{< hint style="info" >}}
 Regardless of the ACL configuration, your S3 bucket must be set up to ensure that all objects are publicly readable but not writable or listable.
-At the same time, Mastodon itself should have write access to the bucket.
+Mastodon itself should also have write access to the bucket.
 This configuration is generally consistent across all S3 providers.
 {{</ hint >}}
 
