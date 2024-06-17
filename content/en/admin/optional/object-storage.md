@@ -31,30 +31,39 @@ Default: `false`
 
 #### `S3_BUCKET`
 
-Must be set to the name of the bucket hosted by your S3 provider.
+The name of the S3 bucket at your provider.
 
 Default: _None_
 
 #### `S3_REGION`
 
 The S3 region where your bucket was created.
-May not be required by all providers.
+Used to help construct `S3_ENDPOINT` when using AWS, but not required by other providers.
 
 Default: `us-east-1`
 
 #### `S3_ENDPOINT`
 
 The specific S3 target where Mastodon connects to perform API operations.
+Used in conjuction with `S3_REGION` when using AWS, but should be specifically set when using other providers.
 
 Default: `s3.<S3_REGION>.amazonaws.com`
 
 #### `AWS_ACCESS_KEY_ID`
 
-_No default value, must be setup on your S3 provider._
+Effectively this is the API username for the S3 provider.
+This is created/assigned to you by your S3 provider.
+Despite the name it is not AWS specific.
+
+Default: _None_
 
 #### `AWS_SECRET_ACCESS_KEY`
 
-_No default value, must be setup on your S3 provider._
+Effectively this is the API password for the S3 provider.
+This is created/assigned to you by your S3 provider.
+Despite the name it is not AWS specific.
+
+Default: _None_
 
 ### Client Access Variables
 
