@@ -71,16 +71,17 @@ Once S3 file storage is enabled, Mastodon will provide new URLs for all media 'r
 These URLs can be accessed using plain HTTP GET methods, without requiring authentication.
 This means that they can be routed and/or cached through reverse proxies and CDNs.
 
-By properly configuring the URLs, you can hide the usage of the storage provider and reduce egress bandwidth costs.
-You can also use host/domain names that are different from those used by the S3 storage provider itself.
-
 {{< hint style="info" >}}
 Remember to serve the files with proper CORS headers, such as `Access-Control-Allow-Origin: *`, to ensure media visibility in the user's browser and proper functioning of Mastodon's web UI.
 {{</ hint >}}
 
 It is highly recommended to use a domain (or subdomain) that you control for delivering S3 stored media.
+This provides flexibility in case you decide to change S3 providers in the future.
+By properly configuring the URLs, you can hide the usage of the storage provider and use caching to reduce egress bandwidth costs.
+It also ensures that the address for your file storage, which may have already federated to other servers for older posts, remains accessible even if you need to change the storage provider's address.
 
-This provides flexibility in case you decide to change S3 providers in the future. It also ensures that the address for your file storage, which may have already federated to other servers for older posts, remains accessible even if you need to change the storage provider's address.
+Some S3 providers, such as DigitalOcean Spaces, provide integrated CDN/caching services as part of the S3 service.
+For others, you will need to configure this manually or partner with another provider.
 
 {{< page-ref page="admin/optional/object-storage-proxy.md" >}}
 
