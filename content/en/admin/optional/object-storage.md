@@ -7,34 +7,26 @@ menu:
     parent: admin-optional
 ---
 
-User-uploaded files can be stored on the main server's file system, or using an external object storage server, which can be required for scaling.
+User-uploaded files can be stored on the main server's file system, or using an external object storage server.
 
-## Using the filesystem {#FS}
-
-The simplest way to store user uploads is by using the server's file system. This is how it works by default and is suitable for small servers.
-
-By default, Mastodon will store file uploads under `public/system` in its installation directory, but that can be overridden using the `PAPERCLIP_ROOT_PATH` environment variable.
-
-By default, the files are served at `https://example.com/system`, which can be overridden using `PAPERCLIP_ROOT_URL` and `CDN_HOST`.
+By default, Mastodon will store user uploaded and federated media files on the server's file system, under `public/system` in its installation directory and the files are served at `https://example.com/system`.
 
 {{< hint style="info" >}}
 While using the server's file system is perfectly serviceable for small servers, using external object storage is more scalable.
 {{</ hint >}}
 
-{{< hint style="danger" >}}
-The web server must be configured to serve those files but not allow listing them (that is, `https://example.com/system/` should not return a file list). This should be the case if you use the configuration files distributed with Mastodon, but it is worth double-checking.
-{{</ hint >}}
+To enable S3 storage, start by setting the `S3_ENABLED` environment variable to `true`.
 
-## S3-compatible object storage backends {#S3}
+### Access Control
 
-Mastodon can use S3-compatible object storage backends. ACL support is recommended as it allows Mastodon to quickly make the content of temporarily suspended users unavailable, or marginally improve the security of private data.
-Mastodon uses the S3 API (`S3_REGION`, `S3_ENDPOINT`, `S3_BUCKET`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_SIGNATURE_VERSION`, `S3_OVERRIDE_PATH_STYLE`) for all write, delete, and permissions-modification operations. This includes media uploads (from the web interface, from Mastodon API clients, and from ActivityPub servers), media deletion (when a post is edited or deleted), and blocking access to media (when an account is suspended).
+When using an S3-compatible object storage backend, it is recommended to use a backend with ACL support, as it allows Mastodon to quickly improve the security of private data.
 
-Mastodon sends URLs to the web interface, Mastodon API clients, and ActivityPub servers for all 'read' operations. As a result, those operations are anonymous (no authentication or authorization needed) and use plain HTTP GET methods, which means they can be routed through reverse proxies and CDNs, and can be cached. It also means that those URLs can contain host/domain names which are entirely different from those used by the S3 storage provider itself, if desired. See the detailed documentation below which describes how those URLs are constructed and which environment variables are involved.
+Mastodon sends URLs to the web interface, Mastodon API clients, and ActivityPub servers for all 'read' operations.
+As a result, those operations are anonymous (no authentication or authorization needed) and use plain HTTP GET methods, which means they can be routed through reverse proxies and CDNs, and can be cached.
+It also means that those URLs can contain host/domain names which are entirely different from those used by the S3 storage provider itself, if desired.
+See the detailed documentation below which describes how those URLs are constructed and which environment variables are involved.
 
-To enable S3 storage, set the `S3_ENABLED` environment variable to `true`.
-
-### Environment variables for S3 API access
+### Required Environment Variables
 
 - `S3_REGION` (defaults to 'us-east-1', required if using AWS S3, may not be required with other storage providers)
 - `S3_ENDPOINT` (defaults to 's3.<S3_REGION>.amazonaws.com', required if not using AWS S3)
@@ -57,9 +49,11 @@ As noted above, Mastodon will send URLs to clients when they need to access medi
 - If `S3_ALIAS_HOST` is set, then the URL will be
   '<S3_PROTOCOL>://<S3_ALIAS_HOST>/\<object path\>'
 
-It is important to note that when `S3_ALIAS_HOST` is set, the bucket name is **not** included in the generated URL; this means the bucket name must be included in `S3_ALIAS_HOST` (referred to as 'domain-style' object access), or that `S3_ALIAS_HOST` must point to a reverse proxy or CDN which can include the bucket name in the URL it uses to send the request onward to the storage provider. This type of configuration allows you to 'hide' the usage of the storage provider from the instance's clients, which means you can change storage providers without changing the resulting URLs.
+It is important to note that when `S3_ALIAS_HOST` is set, the bucket name is **not** included in the generated URL; this means the bucket name must be included in `S3_ALIAS_HOST` (referred to as 'domain-style' object access), or that `S3_ALIAS_HOST` must point to a reverse proxy or CDN which can include the bucket name in the URL it uses to send the request onward to the storage provider.
+This type of configuration allows you to 'hide' the usage of the storage provider from the instance's clients, which means you can change storage providers without changing the resulting URLs.
 
-In addition to hiding the usage of the storage provider, this can also allow you to cache the media after retrieval from the storage provider, reducing egress bandwidth costs from the storage provider. This can be done in your own reverse proxy, or by using a CDN.
+In addition to hiding the usage of the storage provider, this can also allow you to cache the media after retrieval from the storage provider, reducing egress bandwidth costs from the storage provider.
+This can be done in your own reverse proxy, or by using a CDN.
 
 {{< page-ref page="admin/optional/object-storage-proxy.md" >}}
 
@@ -95,7 +89,8 @@ Default: `false`
 
 #### `S3_STORAGE_CLASS`
 
-When using AWS S3, this variable can be set to one of the [storage class](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) options which influence the storage selected for uploaded objects (and thus their access times and costs). If no storage class is specified then AWS S3 will use the `STANDARD` class, but options include `REDUCED_REDUNDANCY`, `GLACIER`, and others.
+When using AWS S3, this variable can be set to one of the [storage class](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) options which influence the storage selected for uploaded objects (and thus their access times and costs).
+If no storage class is specified then AWS S3 will use the `STANDARD` class, but options include `REDUCED_REDUNDANCY`, `GLACIER`, and others.
 
 Default: `STANDARD`
 
@@ -107,12 +102,15 @@ Default: `15` (megabytes)
 
 #### `S3_PERMISSION`
 
-Defines the S3 object ACL when uploading new files. Use caution when using [S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) and turning on the `BlockPublicAcls` option, as uploading objects with ACL `public-read` will fail (403). In that case, set `S3_PERMISSION` to `private`.
+Defines the S3 object ACL when uploading new files. Use caution when using [S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) and turning on the `BlockPublicAcls` option, as uploading objects with ACL `public-read` will fail (403).
+In that case, set `S3_PERMISSION` to `private`.
 
 Default: `public-read`
 
 {{< hint style="danger" >}}
-Regardless of the ACL configuration, your S3 bucket must be set up to ensure that all objects are publicly readable but not writable or listable. At the same time, Mastodon itself should have write access to the bucket. This configuration is generally consistent across all S3 providers, and common ones are highlighted below.
+Regardless of the ACL configuration, your S3 bucket must be set up to ensure that all objects are publicly readable but not writable or listable.
+At the same time, Mastodon itself should have write access to the bucket.
+This configuration is generally consistent across all S3 providers, and common ones are highlighted below.
 {{</ hint >}}
 
 #### `S3_BATCH_DELETE_LIMIT`
@@ -123,49 +121,53 @@ Default: `1000`
 
 #### `S3_BATCH_DELETE_RETRY`
 
-During batch delete operations, S3 providers may perodically fail or timeout while processing deletion requests. Mastodon will back off and
-retry the request up to this maximum number of times.
+During batch delete operations, S3 providers may perodically fail or timeout while processing deletion requests.
+Mastodon will back off and retry the request up to this maximum number of times.
 
 Default: `3`
 
+## Provider Specific Configurations
+
 ### MinIO
 
-MinIO is an open-source implementation of an S3 object provider. This section does not cover how to install it, but how to configure a bucket for use in Mastodon.
+MinIO is an open-source implementation of an S3 object provider.
+Installing MinIO is outide the scope of this documentation, but this should show how to configure a bucket for use in Mastodon.
 
 You need to set a policy for anonymous access that allows read-only access to objects contained by the bucket without allowing listing them.
-
 To do this, you need to set a custom policy (replace `mastodata` with the actual name of your S3 bucket):
+
 ```json
 {
-   "Version": "2012-10-17",
-   "Statement": [
-      {
-         "Effect": "Allow",
-         "Principal": {
-           "AWS": "*"
-         },
-         "Action": "s3:GetObject",
-         "Resource": "arn:aws:s3:::mastodata/*"
-      }
-   ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::mastodata/*"
+    }
+  ]
 }
 ```
 
 Mastodon itself needs to be able to write to the bucket, so either use your admin MinIO account (discouraged) or an account specific to Mastodon (recommended) with the following policy attached (replace `mastodata` with the actual name of your S3 bucket):
+
 ```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "s3:*",
-            "Resource": "arn:aws:s3:::mastodata/*"
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": "arn:aws:s3:::mastodata/*"
+    }
+  ]
 }
 ```
 
-You can set those policies from the MinIO Console (web-based user interface) or the command-line client (`mcli` / `mc`).
+You can set these policies from the MinIO Console (web-based user interface) or the command-line client (`mcli` / `mc`).
 
 #### Using the MinIO Console
 
@@ -176,7 +178,8 @@ Then, configure the “Access Policy” to a custom one that allows read access 
 ![](/assets/object-storage/minio-access-policy.png)
 
 {{< hint style="info" >}}
-If the MinIO Console does not allow you to set a “Custom” policy, you will likely need to update MinIO. If you are using MinIO in *standalone* or *filesystem* mode, [`RELEASE.2022-10-24T18-35-07Z`](https://github.com/minio/minio/releases/tag/RELEASE.2022-10-24T18-35-07Z) should be a safe version to update to that does not require [an involved migration procedure](https://min.io/docs/minio/linux/operations/install-deploy-manage/migrate-fs-gateway.html#migrate-from-gateway-or-filesystem-mode).
+If the MinIO Console does not allow you to set a “Custom” policy, you will likely need to update MinIO.
+If you are using MinIO in _standalone_ or _filesystem_ mode, [`RELEASE.2022-10-24T18-35-07Z`](https://github.com/minio/minio/releases/tag/RELEASE.2022-10-24T18-35-07Z) should be a safe version to update to that does not require [an involved migration procedure](https://min.io/docs/minio/linux/operations/install-deploy-manage/migrate-fs-gateway.html#migrate-from-gateway-or-filesystem-mode).
 {{< /hint >}}
 
 Create a new `mastodon-readwrite` policy (see above):
@@ -209,19 +212,20 @@ Apply the `mastodon-readwrite` policy to the `mastodon` user:
 ### Wasabi Object Storage
 
 Create a new bucket and define its policy to allow objects to be anonymously readable but not listable:
+
 ```json
 {
-   "Version": "2012-10-17",
-   "Statement": [
-      {
-         "Effect": "Allow",
-         "Principal": {
-           "AWS": "*"
-         },
-         "Action": "s3:GetObject",
-         "Resource": "arn:aws:s3:::mastodata/*"
-      }
-   ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::mastodata/*"
+    }
+  ]
 }
 ```
 
@@ -229,21 +233,20 @@ Create a new bucket and define its policy to allow objects to be anonymously rea
 
 {{< hint style="info" >}}
 If you are using an old bucket, ensure you are not giving “Everyone” read access to objects through Wasabi's legacy Access Control settings, as that allows listing objects and take precedence over the IAM policy defined above.
-
-![](/assets/object-storage/wasabi-access-control.png)
 {{< /hint >}}
 
 Then, create a `mastodon-readwrite` policy to grant read and write access to your bucket:
+
 ```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "s3:*",
-            "Resource": "arn:aws:s3:::mastodata/*"
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": "arn:aws:s3:::mastodata/*"
+    }
+  ]
 }
 ```
 
@@ -264,7 +267,8 @@ In your DigitalOcean Spaces Bucket, make sure that “File Listing” is “Rest
 
 If you want to use Scaleway Object Storage, we strongly recommend you create a Scaleway project dedicated to your Mastodon instance assets and use a custom IAM policy.
 
-First, create a new Scaleway project, in which you create your object storage bucket. You need to set your bucket visibility to "Private" to not allow objects to be listed.
+First, create a new Scaleway project, in which you create your object storage bucket.
+You need to set your bucket visibility to "Private" to not allow objects to be listed.
 
 ![](/assets/object-storage/scaleway-bucket.png)
 
@@ -280,7 +284,8 @@ This policy needs to have one rule, allowing it to read, write and delete object
 
 Then head to the IAM Applications page, and create a new one (eg `my-mastodon-instance`) and select the policy you created above.
 
-Finally, click on the application you just created, then "API Keys", and create a new API key to use in your instance configuration. You should use the "Yes, set up preferred Project" option and select the project you created above as the default project for this key.
+Finally, click on the application you just created, then "API Keys", and create a new API key to use in your instance configuration.
+You should use the "Yes, set up preferred Project" option and select the project you created above as the default project for this key.
 
 ![](/assets/object-storage/scaleway-api-key.png)
 
@@ -298,7 +303,8 @@ On Mastodon's side, you need to set `S3_FORCE_SINGLE_REQUEST=true` to properly h
 
 ### Cloudflare R2
 
-Cloudflare R2 does not support ACLs, so Mastodon needs to be instructed not to try setting them. To do that, set the `S3_PERMISSION` environment variable to an empty string.
+Cloudflare R2 does not support ACLs, so Mastodon needs to be instructed not to try setting them.
+To do that, set the `S3_PERMISSION` environment variable to an empty string.
 
 {{< hint style="warning" >}}
 Without support for ACLs, media files from temporarily-suspended users will remain accessible.

@@ -579,13 +579,11 @@ The bucket must support access control lists (ACLs). For AWS S3, this means sett
 
 #### `S3_OVERRIDE_PATH_STYLE`
 
-
 #### `S3_PROTOCOL`
 
 #### `S3_HOSTNAME`
 
 #### `S3_ALIAS_HOST`
-
 
 #### `S3_OPEN_TIMEOUT`
 
