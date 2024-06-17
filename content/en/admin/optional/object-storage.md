@@ -28,56 +28,28 @@ The web server must be configured to serve those files but not allow listing the
 ## S3-compatible object storage backends {#S3}
 
 Mastodon can use S3-compatible object storage backends. ACL support is recommended as it allows Mastodon to quickly make the content of temporarily suspended users unavailable, or marginally improve the security of private data.
+Mastodon uses the S3 API (`S3_REGION`, `S3_ENDPOINT`, `S3_BUCKET`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_SIGNATURE_VERSION`, `S3_OVERRIDE_PATH_STYLE`) for all write, delete, and permissions-modification operations. This includes media uploads (from the web interface, from Mastodon API clients, and from ActivityPub servers), media deletion (when a post is edited or deleted), and blocking access to media (when an account is suspended).
 
-Mastodon uses the S3 API (`S3_REGION`, `S3_ENDPOINT`, `S3_BUCKET`,
-`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_SIGNATURE_VERSION`,
-`S3_OVERRIDE_PATH_STYLE`) for all write, delete, and
-permissions-modification operations. This includes media uploads (from
-the web interface, from Mastodon API clients, and from ActivityPub
-servers), media deletion (when a post is edited or deleted), and
-blocking access to media (when an account is suspended).
-
-Mastodon sends URLs to the web interface, Mastodon API clients, and
-ActivityPub servers for all 'read' operations. As a result those
-operations are anonymous (no authentication or authorization needed)
-and use plain HTTP GET methods, which means they can be routed through
-reverse proxies and CDNs, and can be cached. It also means that those
-URLs can contain host/domain names which are entirely different from
-those used by the S3 storage provider itself, if desired. See the
-detailed documentation below which describes how those URLs are
-constructed and which environment variables are involved.
+Mastodon sends URLs to the web interface, Mastodon API clients, and ActivityPub servers for all 'read' operations. As a result, those operations are anonymous (no authentication or authorization needed) and use plain HTTP GET methods, which means they can be routed through reverse proxies and CDNs, and can be cached. It also means that those URLs can contain host/domain names which are entirely different from those used by the S3 storage provider itself, if desired. See the detailed documentation below which describes how those URLs are constructed and which environment variables are involved.
 
 To enable S3 storage, set the `S3_ENABLED` environment variable to `true`.
 
 ### Environment variables for S3 API access
 
-- `S3_REGION` (defaults to 'us-east-1', required if using AWS S3, may
-  not be required with other storage providers)
-- `S3_ENDPOINT` (defaults to 's3.<S3_REGION>.amazonaws.com', required
-  if not using AWS S3)
-- `S3_BUCKET=mastodata` (replacing `mastodata` with the name of your
-  bucket)
-- `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` need to be set to
-  your credentials
-- `S3_SIGNATURE_VERSION` (defaults to 'v4', should be compatible with
-  most storage providers)
-- `S3_OVERRIDE_PATH_STYLE` (only used if `S3_ENDPOINT` is configured,
-  set this to `true` if the storage provider requires API operations
-  to be sent to '<S3_BUCKET>.<S3_ENDPOINT>` (domain-style))
+- `S3_REGION` (defaults to 'us-east-1', required if using AWS S3, may not be required with other storage providers)
+- `S3_ENDPOINT` (defaults to 's3.<S3_REGION>.amazonaws.com', required if not using AWS S3)
+- `S3_BUCKET=mastodata` (replacing `mastodata` with the name of your bucket)
+- `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` need to be set to your credentials
+- `S3_SIGNATURE_VERSION` (defaults to 'v4', should be compatible with most storage providers)
+- `S3_OVERRIDE_PATH_STYLE` (only used if `S3_ENDPOINT` is configured, set this to `true` if the storage provider requires API operations to be sent to '<S3_BUCKET>.<S3_ENDPOINT>` (domain-style))
 
 ### Environment variables for client access to media objects
 
 - `S3_PROTOCOL` (defaults to `https`)
-- `S3_HOSTNAME` (defaults to 's3-<S3_REGION>.amazonaws.com', required
-  if not using AWS S3 and `S3_ALIAS_HOST` is not set)
-- `S3_ALIAS_HOST` (can be used instead of `S3_HOSTNAME` if you do not
-  want `S3_BUCKET` to be included in the media URLs, and requires that
-  you have provisioned a reverse proxy or CDN in front of the storage
-  provider)
+- `S3_HOSTNAME` (defaults to 's3-<S3_REGION>.amazonaws.com', required if not using AWS S3 and `S3_ALIAS_HOST` is not set)
+- `S3_ALIAS_HOST` (can be used instead of `S3_HOSTNAME` if you do not want `S3_BUCKET` to be included in the media URLs, and requires that you have provisioned a reverse proxy or CDN in front of the storage provider)
 
-As noted above, Mastodon will send URLs to clients when they need to
-access media objects from the storage provider. The URLs are
-constructed as follows:
+As noted above, Mastodon will send URLs to clients when they need to access media objects from the storage provider. The URLs are constructed as follows:
 
 - If `S3_ALIAS_HOST` is not set, then the URL will be
   '<S3_PROTOCOL>://<S3_HOSTNAME>/<S3_BUCKET>/\<object path\>'
@@ -85,21 +57,9 @@ constructed as follows:
 - If `S3_ALIAS_HOST` is set, then the URL will be
   '<S3_PROTOCOL>://<S3_ALIAS_HOST>/\<object path\>'
 
-It is important to note that when `S3_ALIAS_HOST` is set, the bucket
-name is **not** included in the generated URL; this means the bucket
-name must be included in `S3_ALIAS_HOST` (referred to as
-'domain-style' object access), or that `S3_ALIAS_HOST` must point to a
-reverse proxy or CDN which can include the bucket name in the URL it
-uses to send the request onward to the storage provider. This type of
-configuration allows you to 'hide' the usage of the storage provider
-from the instance's clients, which means you can change storage
-providers without changing the resulting URLs.
+It is important to note that when `S3_ALIAS_HOST` is set, the bucket name is **not** included in the generated URL; this means the bucket name must be included in `S3_ALIAS_HOST` (referred to as 'domain-style' object access), or that `S3_ALIAS_HOST` must point to a reverse proxy or CDN which can include the bucket name in the URL it uses to send the request onward to the storage provider. This type of configuration allows you to 'hide' the usage of the storage provider from the instance's clients, which means you can change storage providers without changing the resulting URLs.
 
-In addition to hiding the usage of the storage provider, this can also
-allow you to cache the media after retrieval from the storage
-provider, reducing egress bandwidth costs from the storage
-provider. This can be done in your own reverse proxy, or by using a
-CDN.
+In addition to hiding the usage of the storage provider, this can also allow you to cache the media after retrieval from the storage provider, reducing egress bandwidth costs from the storage provider. This can be done in your own reverse proxy, or by using a CDN.
 
 {{< page-ref page="admin/optional/object-storage-proxy.md" >}}
 
