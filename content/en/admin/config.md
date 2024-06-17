@@ -398,6 +398,9 @@ If provided, the driver for Redis connections is changed from using the Mastodon
 
 Defaults to `hiredis`, accepted values are `hiredis` or `ruby`.
 
+**Version history:**\
+4.3.0 - added
+
 #### `REDIS_NAMESPACE`
 
 If provided, namespaces all Redis keys. This allows the sharing of the same Redis database between different projects or Mastodon servers.
