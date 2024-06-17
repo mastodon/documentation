@@ -15,6 +15,8 @@ By default, Mastodon will store user uploaded and federated media files on the s
 While using the server's file system is perfectly serviceable for small servers with a handful of users, using external object storage is more scalable.
 {{</ hint >}}
 
+## Configuration Options
+
 ### Backend Variables
 
 The variables define how Mastodon communicates with your backend S3 storage provider.
@@ -79,6 +81,8 @@ Defaults to `https`, which generally should not be changed.
 Defaults to `s3-<S3_REGION>.amazonaws.com`, required if not using AWS S3 and `S3_ALIAS_HOST` is not set.
 
 ### Additional Variables
+
+Due to the large number of S3 provider options, but inconsistencies in how they implement the S3 API, there may be some tuning required specific to your implemention.
 
 #### `S3_SIGNATURE_VERSION`
 
