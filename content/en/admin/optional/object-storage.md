@@ -27,27 +27,27 @@ Consult your provider's documentation for help in setting up these options corre
 
 Must be set to `true` to enable S3 storage.
 
-Default: `false`
+**Default:** `false`
 
 #### `S3_BUCKET`
 
 The name of the S3 bucket at your provider.
 
-Default: _None_
+**Default:** _None_
 
 #### `S3_REGION`
 
 The S3 region where your bucket was created.
 Used to help construct `S3_ENDPOINT` when using AWS, but not required by other providers.
 
-Default: `us-east-1`
+**Default:** `us-east-1`
 
 #### `S3_ENDPOINT`
 
 The specific S3 target where Mastodon connects to perform API operations.
 Used in conjuction with `S3_REGION` when using AWS, but should be specifically set when using other providers.
 
-Default: `s3.<S3_REGION>.amazonaws.com`
+**Default:** `s3.<S3_REGION>.amazonaws.com`
 
 #### `AWS_ACCESS_KEY_ID`
 
@@ -55,7 +55,7 @@ Effectively this is the API username for the S3 provider.
 This is created/assigned to you by your S3 provider.
 Despite the name it is not AWS specific.
 
-Default: _None_
+**Default:** _None_
 
 #### `AWS_SECRET_ACCESS_KEY`
 
@@ -63,7 +63,7 @@ Effectively this is the API password for the S3 provider.
 This is created/assigned to you by your S3 provider.
 Despite the name it is not AWS specific.
 
-Default: _None_
+**Default:** _None_
 
 ### Client Access Variables
 
@@ -89,22 +89,22 @@ This provides flexibility in case you decide to change S3 providers in the futur
 Instead of using an address like `https://s3-us-east-1.amazonaws.com/example-mastodon-bucket/image.jpg`, you can configure it to be delivered from something like `https://files.example.com/image.jpg`.
 In this example, `S3_ALIAS_HOST` would be set to `files.example.com` and constructed as shown:
 
-- If `S3_ALIAS_HOST` is not set, then the media access URL will be `<S3_PROTOCOL>://<S3_HOSTNAME>/<S3_BUCKET>/<object path>`.
-- If `S3_ALIAS_HOST` is set, then the media access URL will be `<S3_PROTOCOL>://<S3_ALIAS_HOST>/<object path>`.
+- If `S3_ALIAS_HOST` is not set, then the media access URL will be `<S3_PROTOCOL>://<S3_HOSTNAME>/<S3_BUCKET>/<object path>`
+- If `S3_ALIAS_HOST` is set, then the media access URL will be `<S3_PROTOCOL>://<S3_ALIAS_HOST>/<object path>`
 
-Default: _None_
+**Default:** _None_
 
 #### `S3_PROTOCOL`
 
 Generally should not be changed from the default of HTTPS.
 
-Default: `https`
+**Default:** `https`
 
 #### `S3_HOSTNAME`
 
 Required if not using AWS S3 and `S3_ALIAS_HOST` is not set.
 
-Default: `s3-<S3_REGION>.amazonaws.com`
+**Default:** `s3-<S3_REGION>.amazonaws.com`
 
 ### Additional Variables
 
@@ -114,59 +114,59 @@ Due to the large number of S3 provider options, but inconsistencies in how they 
 
 The signature version used to authenticate and authorize requests to the S3 provider.
 
-Default: `v4`
+**Default:** `v4`
 
 #### `S3_OVERRIDE_PATH_STYLE`
 
 Set this to `true` if the storage provider requires API operations to be sent to `<S3_BUCKET>.<S3_ENDPOINT>` (domain-style).
 Only used if `S3_ENDPOINT` is also configured.
 
-Default: `false`
+**Default:** `false`
 
 #### `S3_OPEN_TIMEOUT`
 
 The number of seconds before the HTTP handler should timeout while trying to open a new HTTP session.
 
-Default: `5`
+**Default:** `5`
 
 #### `S3_READ_TIMEOUT`
 
 The number of seconds before the HTTP handler should timeout while waiting for an HTTP response.
 
-Default: `5`
+**Default:** `5`
 
 #### `S3_FORCE_SINGLE_REQUEST`
 
 Set this to `true` if you run into trouble processing large files.
 
-Default: `false`
+**Default:** `false`
 
 #### `S3_ENABLE_CHECKSUM_MODE`
 
 Enables verification of object checksums when Mastodon is retrieving an object from the storage provider. This feature is available in AWS S3 but may not be available in other S3-compatible implementations.
 
-Default: `false`
+**Default:** `false`
 
 #### `S3_STORAGE_CLASS`
 
 When using AWS S3, this variable can be set to one of the [storage class](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) options which influence the storage selected for uploaded objects (and thus their access times and costs).
 If no storage class is specified then AWS S3 will use the `STANDARD` class, but options include `REDUCED_REDUNDANCY`, `GLACIER`, and others.
 
-Default: `STANDARD`
+**Default:** `STANDARD`
 
 #### `S3_MULTIPART_THRESHOLD`
 
 The maximum size (in megabytes) of objects that will be uploaded in a single operation.
 Objects above this threshold will be uploaded using the multipart chunking mechanism, which can improve transfer speeds and reliability.
 
-Default: `15`
+**Default:** `15`
 
 #### `S3_PERMISSION`
 
 Defines the S3 object ACL when uploading new files.
 When using an S3-compatible object storage backend, it is recommended to use a backend with ACL support, as it allows Mastodon to quickly improve the security of private data.
 
-Default: `public-read`
+**Default:** `public-read`
 
 {{< hint style="danger" >}}
 Use caution when using [S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) and turning on the `BlockPublicAcls` option, as uploading objects with ACL `public-read` will fail (403).
@@ -183,14 +183,14 @@ This configuration is generally consistent across all S3 providers.
 
 The official [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html) can handle deleting 1,000 objects in one batch job, but some providers may have issues handling this many in one request, or offer lower limits.
 
-Default: `1000`
+**Default:** `1000`
 
 #### `S3_BATCH_DELETE_RETRY`
 
 During batch delete operations, S3 providers may perodically fail or timeout while processing deletion requests.
 Mastodon will back off and retry the request up to this maximum number of times.
 
-Default: `3`
+**Default:** `3`
 
 ## Provider Specific Configurations
 
