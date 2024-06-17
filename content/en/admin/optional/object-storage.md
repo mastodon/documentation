@@ -26,7 +26,9 @@ Please refer to your provider's documentation for assistance in identifying the 
 
 #### `S3_ENABLED`
 
-Defaults to `false`, must be set to `true` to enable S3 storage.
+Must be set to `true` to enable S3 storage.
+
+Default: `false`
 
 #### `S3_BUCKET`
 
@@ -36,24 +38,30 @@ Default: _None_
 
 #### `S3_REGION`
 
-Defaults to `us-east-1` (AWS) but will be specific to where your S3 bucket was created.
+The S3 region where your bucket was created.
+May not be required by all providers.
+
+Default: `us-east-1`
 
 #### `S3_ENDPOINT`
 
-Defaults to `s3.<S3_REGION>.amazonaws.com` (AWS) but if using a different provider will need to be set to the specific target where Mastodon connects to perform API operations.
+The specific S3 target where Mastodon connects to perform API operations.
+
+Default: `s3.<S3_REGION>.amazonaws.com`
 
 #### `AWS_ACCESS_KEY_ID`
 
-No default value, must be setup on your S3 provider.
+_No default value, must be setup on your S3 provider._
 
 #### `AWS_SECRET_ACCESS_KEY`
 
-No default value, must be setup on your S3 provider.
+_No default value, must be setup on your S3 provider._
 
 ### Client Access Variables
 
 Once S3 file storage is enabled, Mastodon will provide new URLs from the web interface, Mastodon API clients, and to other ActivityPub servers for all media 'read' operations.
 Accessing these URLs does not require authentication, using plain HTTP GET methods, which means they can be routed and/or cached through reverse proxies and CDNs.
+
 In addition to hiding the usage of the storage provider, with proper configuration you can reduce egress bandwidth costs from the storage provider.
 It also means that those URLs can contain host/domain names which are entirely different from those used by the S3 storage provider itself, if desired.
 
@@ -63,22 +71,29 @@ Remember you must serve the files with proper CORS headers, otherwise media may 
 
 It is highly reccomended that you consider using a domain (or subdomain) you control, for delivery of S3 stored media.
 Instead of delivering media from an address like `https://s3-us-east-1.amazonaws.com/example-mastodon-bucket/image.jpg` with the proper configuration it can come from something like `https://files.example.com/image.jpg`.
+
 This allows flexibility should you decide to change S3 providers at a later date, especially where the address for your file storage has already federated to other servers for older posts, which may lead to those files being no longer accessible if you need to change this address.
 
 {{< page-ref page="admin/optional/object-storage-proxy.md" >}}
 
 #### `S3_ALIAS_HOST`
 
-- If `S3_ALIAS_HOST` is not set, then the URL will be `<S3_PROTOCOL>://<S3_HOSTNAME>/<S3_BUCKET>/<object path>`.
-- If `S3_ALIAS_HOST` is set, then the URL will be `<S3_PROTOCOL>://<S3_ALIAS_HOST>/<object path>`.
+- If `S3_ALIAS_HOST` is not set, then the media access URL will be `<S3_PROTOCOL>://<S3_HOSTNAME>/<S3_BUCKET>/<object path>`.
+- If `S3_ALIAS_HOST` is set, then the media access URL will be `<S3_PROTOCOL>://<S3_ALIAS_HOST>/<object path>`.
+
+Default: _None_
 
 #### `S3_PROTOCOL`
 
-Defaults to `https`, which generally should not be changed.
+Generally should not be changed from the default of HTTPS.
+
+Default: `https`
 
 #### `S3_HOSTNAME`
 
-Defaults to `s3-<S3_REGION>.amazonaws.com`, required if not using AWS S3 and `S3_ALIAS_HOST` is not set.
+Required if not using AWS S3 and `S3_ALIAS_HOST` is not set.
+
+Default: `s3-<S3_REGION>.amazonaws.com`
 
 ### Additional Variables
 
@@ -140,14 +155,14 @@ Default: `15`
 Defines the S3 object ACL when uploading new files.
 When using an S3-compatible object storage backend, it is recommended to use a backend with ACL support, as it allows Mastodon to quickly improve the security of private data.
 
+Default: `public-read`
+
 {{< hint style="danger" >}}
 Use caution when using [S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) and turning on the `BlockPublicAcls` option, as uploading objects with ACL `public-read` will fail (403).
 In that configuration you should set `S3_PERMISSION` to `private`.
 {{</ hint >}}
 
-Default: `public-read`
-
-{{< hint style="danger" >}}
+{{< hint style="info" >}}
 Regardless of the ACL configuration, your S3 bucket must be set up to ensure that all objects are publicly readable but not writable or listable.
 At the same time, Mastodon itself should have write access to the bucket.
 This configuration is generally consistent across all S3 providers.
