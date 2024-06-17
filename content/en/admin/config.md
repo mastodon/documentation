@@ -262,6 +262,17 @@ If you are not using Unix sockets, this defines the IP to which the process will
 This variable cannot be defined in dotenv (`.env`) files as it's used before they are loaded.
 {{</ hint >}}
 
+#### `MASTODON_USE_LIBVIPS`
+
+By default, Mastodon uses ImageMagick to process images in posts. As an alternative, [libvips](https://www.libvips.org) 8.13+ can be utilized, which has better performance and lower resource utilization.
+
+When installing Mastodon from source, this defaults to `false`, set to `true` to enable.
+
+When utilizating the Mastodon project container image, this is hardcoded to `true` and should not be overridden.
+
+**Version history:**\
+4.3.0 - added
+
 ### Scaling options {#scaling}
 
 {{< page-ref page="admin/scaling" >}}
