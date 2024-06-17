@@ -12,68 +12,98 @@ User-uploaded files can be stored on the main server's file system, or using an 
 By default, Mastodon will store user uploaded and federated media files on the server's file system, under `public/system` in its installation directory and the files are served at `https://example.com/system`.
 
 {{< hint style="info" >}}
-While using the server's file system is perfectly serviceable for small servers, using external object storage is more scalable.
+While using the server's file system is perfectly serviceable for small servers with a handful of users, using external object storage is more scalable.
 {{</ hint >}}
 
-To enable S3 storage, start by setting the `S3_ENABLED` environment variable to `true`.
+### Backend Variables
 
-### Access Control
+The variables define how Mastodon communicates with your backend S3 storage provider.
+It is important to note that even though are many references to AWS as the default provider, many different storage providers are able to be consumed by Mastodon including AWS S3, DigitalOcean Spaces, Cloudflare R2, Wasabi, MinIO, Exoscale, Scaleway, OVH, or any other other S3-compatible provider.
 
-When using an S3-compatible object storage backend, it is recommended to use a backend with ACL support, as it allows Mastodon to quickly improve the security of private data.
+Please refer to your provider's documentation for assistance in identifying the proper settings for many of these options.
 
-Mastodon sends URLs to the web interface, Mastodon API clients, and ActivityPub servers for all 'read' operations.
-As a result, those operations are anonymous (no authentication or authorization needed) and use plain HTTP GET methods, which means they can be routed through reverse proxies and CDNs, and can be cached.
+#### `S3_ENABLED`
+
+Defaults to `false`, must be set to `true` to enable S3 storage.
+
+#### `S3_BUCKET`
+
+Must be set to the name of the bucket hosted by your S3 provider.
+
+Default: _None_
+
+#### `S3_REGION`
+
+Defaults to `us-east-1` (AWS) but will be specific to where your S3 bucket was created.
+
+#### `S3_ENDPOINT`
+
+Defaults to `s3.<S3_REGION>.amazonaws.com` (AWS) but if using a different provider will need to be set to the specific target where Mastodon connects to perform API operations.
+
+#### `AWS_ACCESS_KEY_ID`
+
+No default value, must be setup on your S3 provider.
+
+#### `AWS_SECRET_ACCESS_KEY`
+
+No default value, must be setup on your S3 provider.
+
+### Client Access Variables
+
+Once S3 file storage is enabled, Mastodon will provide new URLs from the web interface, Mastodon API clients, and to other ActivityPub servers for all media 'read' operations.
+Accessing these URLs does not require authentication, using plain HTTP GET methods, which means they can be routed and/or cached through reverse proxies and CDNs.
+In addition to hiding the usage of the storage provider, with proper configuration you can reduce egress bandwidth costs from the storage provider.
 It also means that those URLs can contain host/domain names which are entirely different from those used by the S3 storage provider itself, if desired.
-See the detailed documentation below which describes how those URLs are constructed and which environment variables are involved.
 
-### Required Environment Variables
+{{< hint style="info" >}}
+Remember you must serve the files with proper CORS headers, otherwise media may not be visible in the user's browser and some functions of Mastodon's web UI will not work. For example, `Access-Control-Allow-Origin: *`
+{{</ hint >}}
 
-- `S3_REGION` (defaults to 'us-east-1', required if using AWS S3, may not be required with other storage providers)
-- `S3_ENDPOINT` (defaults to 's3.<S3_REGION>.amazonaws.com', required if not using AWS S3)
-- `S3_BUCKET=mastodata` (replacing `mastodata` with the name of your bucket)
-- `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` need to be set to your credentials
-- `S3_SIGNATURE_VERSION` (defaults to 'v4', should be compatible with most storage providers)
-- `S3_OVERRIDE_PATH_STYLE` (only used if `S3_ENDPOINT` is configured, set this to `true` if the storage provider requires API operations to be sent to '<S3_BUCKET>.<S3_ENDPOINT>` (domain-style))
-
-### Environment variables for client access to media objects
-
-- `S3_PROTOCOL` (defaults to `https`)
-- `S3_HOSTNAME` (defaults to 's3-<S3_REGION>.amazonaws.com', required if not using AWS S3 and `S3_ALIAS_HOST` is not set)
-- `S3_ALIAS_HOST` (can be used instead of `S3_HOSTNAME` if you do not want `S3_BUCKET` to be included in the media URLs, and requires that you have provisioned a reverse proxy or CDN in front of the storage provider)
-
-As noted above, Mastodon will send URLs to clients when they need to access media objects from the storage provider. The URLs are constructed as follows:
-
-- If `S3_ALIAS_HOST` is not set, then the URL will be
-  '<S3_PROTOCOL>://<S3_HOSTNAME>/<S3_BUCKET>/\<object path\>'
-
-- If `S3_ALIAS_HOST` is set, then the URL will be
-  '<S3_PROTOCOL>://<S3_ALIAS_HOST>/\<object path\>'
-
-It is important to note that when `S3_ALIAS_HOST` is set, the bucket name is **not** included in the generated URL; this means the bucket name must be included in `S3_ALIAS_HOST` (referred to as 'domain-style' object access), or that `S3_ALIAS_HOST` must point to a reverse proxy or CDN which can include the bucket name in the URL it uses to send the request onward to the storage provider.
-This type of configuration allows you to 'hide' the usage of the storage provider from the instance's clients, which means you can change storage providers without changing the resulting URLs.
-
-In addition to hiding the usage of the storage provider, this can also allow you to cache the media after retrieval from the storage provider, reducing egress bandwidth costs from the storage provider.
-This can be done in your own reverse proxy, or by using a CDN.
+It is highly reccomended that you consider using a domain (or subdomain) you control, for delivery of S3 stored media.
+Instead of delivering media from an address like `https://s3-us-east-1.amazonaws.com/example-mastodon-bucket/image.jpg` with the proper configuration it can come from something like `https://files.example.com/image.jpg`.
+This allows flexibility should you decide to change S3 providers at a later date, especially where the address for your file storage has already federated to other servers for older posts, which may lead to those files being no longer accessible if you need to change this address.
 
 {{< page-ref page="admin/optional/object-storage-proxy.md" >}}
 
-{{< hint style="info" >}}
-You must serve the files with CORS headers, otherwise some functions of Mastodon's web UI will not work. For example, `Access-Control-Allow-Origin: *`
-{{</ hint >}}
+#### `S3_ALIAS_HOST`
 
-### Optional environment variables
+- If `S3_ALIAS_HOST` is not set, then the URL will be `<S3_PROTOCOL>://<S3_HOSTNAME>/<S3_BUCKET>/<object path>`.
+- If `S3_ALIAS_HOST` is set, then the URL will be `<S3_PROTOCOL>://<S3_ALIAS_HOST>/<object path>`.
+
+#### `S3_PROTOCOL`
+
+Defaults to `https`, which generally should not be changed.
+
+#### `S3_HOSTNAME`
+
+Defaults to `s3-<S3_REGION>.amazonaws.com`, required if not using AWS S3 and `S3_ALIAS_HOST` is not set.
+
+### Additional Variables
+
+#### `S3_SIGNATURE_VERSION`
+
+The signature version used to authenticate and authorize requests to the S3 provider.
+
+Default: `v4`
+
+#### `S3_OVERRIDE_PATH_STYLE`
+
+Set this to `true` if the storage provider requires API operations to be sent to `<S3_BUCKET>.<S3_ENDPOINT>` (domain-style).
+Only used if `S3_ENDPOINT` is also configured.
+
+Default: `false`
 
 #### `S3_OPEN_TIMEOUT`
 
 The number of seconds before the HTTP handler should timeout while trying to open a new HTTP session.
 
-Default: `5` (seconds)
+Default: `5`
 
 #### `S3_READ_TIMEOUT`
 
 The number of seconds before the HTTP handler should timeout while waiting for an HTTP response.
 
-Default: `5` (seconds)
+Default: `5`
 
 #### `S3_FORCE_SINGLE_REQUEST`
 
@@ -96,21 +126,27 @@ Default: `STANDARD`
 
 #### `S3_MULTIPART_THRESHOLD`
 
-Objects of this size and smaller will be uploaded in a single operation, but larger objects will be uploaded using the multipart chunking mechanism, which can improve transfer speeds and reliability.
+The maximum size (in megabytes) of objects that will be uploaded in a single operation.
+Objects above this threshold will be uploaded using the multipart chunking mechanism, which can improve transfer speeds and reliability.
 
-Default: `15` (megabytes)
+Default: `15`
 
 #### `S3_PERMISSION`
 
-Defines the S3 object ACL when uploading new files. Use caution when using [S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) and turning on the `BlockPublicAcls` option, as uploading objects with ACL `public-read` will fail (403).
-In that case, set `S3_PERMISSION` to `private`.
+Defines the S3 object ACL when uploading new files.
+When using an S3-compatible object storage backend, it is recommended to use a backend with ACL support, as it allows Mastodon to quickly improve the security of private data.
+
+{{< hint style="danger" >}}
+Use caution when using [S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) and turning on the `BlockPublicAcls` option, as uploading objects with ACL `public-read` will fail (403).
+In that configuration you should set `S3_PERMISSION` to `private`.
+{{</ hint >}}
 
 Default: `public-read`
 
 {{< hint style="danger" >}}
 Regardless of the ACL configuration, your S3 bucket must be set up to ensure that all objects are publicly readable but not writable or listable.
 At the same time, Mastodon itself should have write access to the bucket.
-This configuration is generally consistent across all S3 providers, and common ones are highlighted below.
+This configuration is generally consistent across all S3 providers.
 {{</ hint >}}
 
 #### `S3_BATCH_DELETE_LIMIT`
@@ -131,7 +167,10 @@ Default: `3`
 ### MinIO
 
 MinIO is an open-source implementation of an S3 object provider.
+
+{{< hint style="info" >}}
 Installing MinIO is outide the scope of this documentation, but this should show how to configure a bucket for use in Mastodon.
+{{</ hint >}}
 
 You need to set a policy for anonymous access that allows read-only access to objects contained by the bucket without allowing listing them.
 To do this, you need to set a custom policy (replace `mastodata` with the actual name of your S3 bucket):
