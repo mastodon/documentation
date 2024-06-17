@@ -579,17 +579,24 @@ The bucket must support access control lists (ACLs). For AWS S3, this means sett
 
 #### `S3_OVERRIDE_PATH_STYLE`
 
-
 #### `S3_PROTOCOL`
 
 #### `S3_HOSTNAME`
 
 #### `S3_ALIAS_HOST`
 
-
 #### `S3_OPEN_TIMEOUT`
 
 #### `S3_READ_TIMEOUT`
+
+#### `S3_RETRY_LIMIT`
+
+Adjusting this may be needed for some S3 providers, particularly when there are connectivity issues between the Mastodon server and the S3 storage. This may be observed when posts from other instances have missing media.
+
+Defaults to `0`, not suggested to increase beyond `3` due to database performance concerns.
+
+**Version history:**\
+4.3.0 - added
 
 #### `S3_FORCE_SINGLE_REQUEST`
 
