@@ -65,6 +65,12 @@ Despite the name it is not AWS specific.
 
 **Default:** _None_
 
+{{< hint style="info" >}}
+The access id/key must provide Mastodon the ability to write data to your S3 bucket.
+You must also set up your S3 bucket to ensure that all objects are publicly readable, but only writable or listable with proper authentication.
+Consult your provider documentation for assistance.
+{{</ hint >}}
+
 ### Client Access Variables
 
 Once S3 file storage is enabled, Mastodon will provide new URLs for all media 'read' operations.
@@ -172,12 +178,6 @@ When using an S3-compatible object storage backend, it is recommended to use a b
 {{< hint style="danger" >}}
 Use caution when using [S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) and turning on the `BlockPublicAcls` option, as uploading objects with ACL `public-read` will fail (403).
 In that configuration you should set `S3_PERMISSION` to `private`.
-{{</ hint >}}
-
-{{< hint style="info" >}}
-Regardless of the ACL configuration, your S3 bucket must be set up to ensure that all objects are publicly readable but not writable or listable.
-Mastodon itself should also have write access to the bucket.
-This configuration is generally consistent across all S3 providers.
 {{</ hint >}}
 
 #### `S3_BATCH_DELETE_LIMIT`
