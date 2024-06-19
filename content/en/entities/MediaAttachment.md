@@ -186,7 +186,7 @@ aliases: [
 ### `preview_url` {#preview_url}
 
 **Description:** The location of a scaled-down preview of the attachment.\
-**Type:** String (URL)\
+**Type:** {{<nullable>}} String (URL)\
 **Version history:**\
 0.6.0 - added
 
@@ -219,7 +219,7 @@ More importantly, there may be another topl-level `focus` Hash object on images 
 ### `blurhash` {#blurhash}
 
 **Description:** A hash computed by [the BlurHash algorithm](https://github.com/woltapp/blurhash), for generating colorful preview thumbnails when media has not been downloaded yet.\
-**Type:** String (Blurhash)\
+**Type:** {{<nullable>}} String (Blurhash)\
 **Version history:**\
 2.8.1 - added
 
