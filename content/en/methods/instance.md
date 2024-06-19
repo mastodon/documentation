@@ -28,7 +28,8 @@ Obtain general information about the server.
 **Returns:** [Instance]({{< relref "entities/Instance" >}})\
 **OAuth:** Public\
 **Version history:**\
-4.0.0 - added
+4.0.0 - added\
+4.3.0 - added `configuration.vapid.public_key`
 
 #### Response
 
@@ -54,9 +55,7 @@ Obtain general information about the server.
       "@2x": "https://files.mastodon.social/site_uploads/files/000/000/001/@2x/57c12f441d083cde.png"
     }
   },
-  "languages": [
-    "en"
-  ],
+  "languages": ["en"],
   "configuration": {
     "urls": {
       "streaming": "wss://mastodon.social"
@@ -186,7 +185,6 @@ Obtain general information about the server.
 }
 ```
 
-
 ---
 
 ## List of connected domains {#peers}
@@ -252,6 +250,7 @@ Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Each hash in the array will contain the following attributes:
@@ -359,7 +358,6 @@ If the instance is in whitelist mode and the Authorization header is missing or 
 
 ## List of rules {#rules}
 
-
 ```http
 GET /api/v1/instance/rules HTTP/1.1
 ```
@@ -372,6 +370,7 @@ Rules that the users of this service should follow.
 3.4.0 - added
 
 #### Response
+
 ##### 200: OK
 
 ```json
@@ -426,6 +425,7 @@ Authorization
 : Provide this header with `Bearer <user token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 The complete list of domains blocked by this instance
@@ -433,17 +433,17 @@ The complete list of domains blocked by this instance
 ```json
 [
   {
-    "domain":"birb.elfenban.de",
-    "digest":"5d2c6e02a0cced8fb05f32626437e3d23096480b47efbba659b6d9e80c85d280",
-    "severity":"suspend",
-    "comment":"Third-party bots"
+    "domain": "birb.elfenban.de",
+    "digest": "5d2c6e02a0cced8fb05f32626437e3d23096480b47efbba659b6d9e80c85d280",
+    "severity": "suspend",
+    "comment": "Third-party bots"
   },
   {
-    "domain":"birdbots.leptonics.com",
-    "digest":"ce019d8d32cce8e369ac4367f4dc232103e6f489fbdd247fb99f9c8a646078a4",
-    "severity":"suspend",
-    "comment":"Third-party bots"
-  },
+    "domain": "birdbots.leptonics.com",
+    "digest": "ce019d8d32cce8e369ac4367f4dc232103e6f489fbdd247fb99f9c8a646078a4",
+    "severity": "suspend",
+    "comment": "Third-party bots"
+  }
   // ...
 ]
 ```
@@ -463,6 +463,7 @@ Invalid or missing Authorization header, if the admin has chosen to show domain 
 The admin has chosen to show domain blocks to no one. The response body is empty; only the HTTP 404 error code is relevant.
 
 ```text
+
 ```
 
 ---
@@ -481,12 +482,13 @@ Obtain an extended description of this server
 4.0.0 - added
 
 #### Response
+
 ##### 200: OK
 
 ```json
 {
-  "updated_at":"2022-11-03T04:09:07Z",
-  "content":"<p>For inquiries not related specifically to the operation of this server, such as press inquiries, please contact <a href=\"mailto:press@joinmastodon.org\">press@joinmastodon.org</a>.</p>\n\n<h2>Funding</h2>\n\n<p>This server is crowdfunded by <a href=\"https://patreon.com/mastodon\">Patreon donations</a>. For a list of sponsors, see <a href=\"https://joinmastodon.org/sponsors\">joinmastodon.org</a>.</p>\n\n<h2>Reporting and moderation</h2>\n\n<p>When reporting accounts, please make sure to include at least a few posts that show rule-breaking behaviour, when applicable. If there is any additional context that might help make a decision, please also include it in the comment. This is especially important when the content is in a language nobody on the moderation team speaks.</p>\n\n<p>We usually handle reports within 24 hours. Please mind that you are not notified when a report you have made has led to a punitive action, and that not all punitive actions are externally visible. For first time offenses, we may opt to delete offending content, escalating to harsher measures on repeat offenses.</p>\n\n<h2>Impressum</h2>\n\n<p>Mastodon gGmbH<br>\nMühlenstraße 8a<br>\n14167 Berlin<br>\nGermany</p>\n\n<p>E-Mail-Adresse: hello@joinmastodon.org</p>\n\n<p>Vertretungsberechtigt: Eugen Rochko (Geschäftsführer)</p>\n\n<p>Umsatzsteuer Identifikationsnummer (USt-ID): DE344258260</p>\n\n<p>Handelsregister<br>\nGeführt bei: Amtsgericht Charlottenburg<br>\nNummer: HRB 230086 B</p>\n"
+  "updated_at": "2022-11-03T04:09:07Z",
+  "content": "<p>For inquiries not related specifically to the operation of this server, such as press inquiries, please contact <a href=\"mailto:press@joinmastodon.org\">press@joinmastodon.org</a>.</p>\n\n<h2>Funding</h2>\n\n<p>This server is crowdfunded by <a href=\"https://patreon.com/mastodon\">Patreon donations</a>. For a list of sponsors, see <a href=\"https://joinmastodon.org/sponsors\">joinmastodon.org</a>.</p>\n\n<h2>Reporting and moderation</h2>\n\n<p>When reporting accounts, please make sure to include at least a few posts that show rule-breaking behaviour, when applicable. If there is any additional context that might help make a decision, please also include it in the comment. This is especially important when the content is in a language nobody on the moderation team speaks.</p>\n\n<p>We usually handle reports within 24 hours. Please mind that you are not notified when a report you have made has led to a punitive action, and that not all punitive actions are externally visible. For first time offenses, we may opt to delete offending content, escalating to harsher measures on repeat offenses.</p>\n\n<h2>Impressum</h2>\n\n<p>Mastodon gGmbH<br>\nMühlenstraße 8a<br>\n14167 Berlin<br>\nGermany</p>\n\n<p>E-Mail-Adresse: hello@joinmastodon.org</p>\n\n<p>Vertretungsberechtigt: Eugen Rochko (Geschäftsführer)</p>\n\n<p>Umsatzsteuer Identifikationsnummer (USt-ID): DE344258260</p>\n\n<p>Handelsregister<br>\nGeführt bei: Amtsgericht Charlottenburg<br>\nNummer: HRB 230086 B</p>\n"
 }
 ```
 
@@ -506,6 +508,7 @@ Translation language pairs supported by the translation engine used by the serve
 4.2.0 - added
 
 #### Response
+
 ##### 200: OK
 
 All source and target language pairs supported by the server.
@@ -528,7 +531,7 @@ In the following sample response showing support for translating a status writte
 GET /api/v1/instance HTTP/1.1
 ```
 
-Obtain general information about the server.
+Obtain general information about the server. See [api/v2/instance]({{< relref "methods/Instance#v2">}}) instead.
 
 **Returns:** [V1::Instance]({{< relref "entities/V1_Instance" >}})\
 **OAuth:** Public\
@@ -546,35 +549,33 @@ Obtain general information about the server.
 
 ```json
 {
-  "uri":"mastodon.social",
-  "title":"Mastodon",
-  "short_description":"The original server operated by the Mastodon gGmbH non-profit",
-  "description":"",
-  "email":"staff@mastodon.social",
-  "version":"3.5.3",
-  "urls":{
-    "streaming_api":"wss://mastodon.social"
+  "uri": "mastodon.social",
+  "title": "Mastodon",
+  "short_description": "The original server operated by the Mastodon gGmbH non-profit",
+  "description": "",
+  "email": "staff@mastodon.social",
+  "version": "3.5.3",
+  "urls": {
+    "streaming_api": "wss://mastodon.social"
   },
-  "stats":{
-    "user_count":812303,
-    "status_count":38151616,
-    "domain_count":25255
+  "stats": {
+    "user_count": 812303,
+    "status_count": 38151616,
+    "domain_count": 25255
   },
-  "thumbnail":"https://files.mastodon.social/site_uploads/files/000/000/001/original/vlcsnap-2018-08-27-16h43m11s127.png",
-  "languages":[
-    "en"
-  ],
-  "registrations":false,
-  "approval_required":false,
-  "invites_enabled":true,
-  "configuration":{
-    "statuses":{
-      "max_characters":500,
-      "max_media_attachments":4,
-      "characters_reserved_per_url":23
+  "thumbnail": "https://files.mastodon.social/site_uploads/files/000/000/001/original/vlcsnap-2018-08-27-16h43m11s127.png",
+  "languages": ["en"],
+  "registrations": false,
+  "approval_required": false,
+  "invites_enabled": true,
+  "configuration": {
+    "statuses": {
+      "max_characters": 500,
+      "max_media_attachments": 4,
+      "characters_reserved_per_url": 23
     },
-    "media_attachments":{
-      "supported_mime_types":[
+    "media_attachments": {
+      "supported_mime_types": [
         "image/jpeg",
         "image/png",
         "image/gif",
@@ -601,74 +602,72 @@ Obtain general information about the server.
         "audio/3gpp",
         "video/x-ms-asf"
       ],
-      "image_size_limit":10485760,
-      "image_matrix_limit":16777216,
-      "video_size_limit":41943040,
-      "video_frame_rate_limit":60,
-      "video_matrix_limit":2304000
+      "image_size_limit": 10485760,
+      "image_matrix_limit": 16777216,
+      "video_size_limit": 41943040,
+      "video_frame_rate_limit": 60,
+      "video_matrix_limit": 2304000
     },
-    "polls":{
-      "max_options":4,
-      "max_characters_per_option":50,
-      "min_expiration":300,
-      "max_expiration":2629746
+    "polls": {
+      "max_options": 4,
+      "max_characters_per_option": 50,
+      "min_expiration": 300,
+      "max_expiration": 2629746
     }
   },
-  "contact_account":{
-    "id":"1",
-    "username":"Gargron",
-    "acct":"Gargron",
-    "display_name":"Eugen",
-    "locked":false,
-    "bot":false,
-    "discoverable":true,
-    "group":false,
-    "created_at":"2016-03-16T00:00:00.000Z",
-    "note":"\u003cp\u003eFounder, CEO and lead developer \u003cspan class=\"h-card\"\u003e\u003ca href=\"https://mastodon.social/@Mastodon\" class=\"u-url mention\"\u003e@\u003cspan\u003eMastodon\u003c/span\u003e\u003c/a\u003e\u003c/span\u003e, Germany.\u003c/p\u003e",
-    "url":"https://mastodon.social/@Gargron",
-    "avatar":"https://files.mastodon.social/accounts/avatars/000/000/001/original/dc4286ceb8fab734.jpg",
-    "avatar_static":"https://files.mastodon.social/accounts/avatars/000/000/001/original/dc4286ceb8fab734.jpg",
-    "header":"https://files.mastodon.social/accounts/headers/000/000/001/original/3b91c9965d00888b.jpeg",
-    "header_static":"https://files.mastodon.social/accounts/headers/000/000/001/original/3b91c9965d00888b.jpeg",
-    "followers_count":118944,
-    "following_count":305,
-    "statuses_count":72309,
-    "last_status_at":"2022-08-24",
-    "emojis":[
-      
-    ],
-    "fields":[
+  "contact_account": {
+    "id": "1",
+    "username": "Gargron",
+    "acct": "Gargron",
+    "display_name": "Eugen",
+    "locked": false,
+    "bot": false,
+    "discoverable": true,
+    "group": false,
+    "created_at": "2016-03-16T00:00:00.000Z",
+    "note": "\u003cp\u003eFounder, CEO and lead developer \u003cspan class=\"h-card\"\u003e\u003ca href=\"https://mastodon.social/@Mastodon\" class=\"u-url mention\"\u003e@\u003cspan\u003eMastodon\u003c/span\u003e\u003c/a\u003e\u003c/span\u003e, Germany.\u003c/p\u003e",
+    "url": "https://mastodon.social/@Gargron",
+    "avatar": "https://files.mastodon.social/accounts/avatars/000/000/001/original/dc4286ceb8fab734.jpg",
+    "avatar_static": "https://files.mastodon.social/accounts/avatars/000/000/001/original/dc4286ceb8fab734.jpg",
+    "header": "https://files.mastodon.social/accounts/headers/000/000/001/original/3b91c9965d00888b.jpeg",
+    "header_static": "https://files.mastodon.social/accounts/headers/000/000/001/original/3b91c9965d00888b.jpeg",
+    "followers_count": 118944,
+    "following_count": 305,
+    "statuses_count": 72309,
+    "last_status_at": "2022-08-24",
+    "emojis": [],
+    "fields": [
       {
-        "name":"Patreon",
-        "value":"\u003ca href=\"https://www.patreon.com/mastodon\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"\u003e\u003cspan class=\"invisible\"\u003ehttps://www.\u003c/span\u003e\u003cspan class=\"\"\u003epatreon.com/mastodon\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e",
-        "verified_at":null
+        "name": "Patreon",
+        "value": "\u003ca href=\"https://www.patreon.com/mastodon\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"\u003e\u003cspan class=\"invisible\"\u003ehttps://www.\u003c/span\u003e\u003cspan class=\"\"\u003epatreon.com/mastodon\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e",
+        "verified_at": null
       }
     ]
   },
-  "rules":[
+  "rules": [
     {
-      "id":"1",
-      "text":"Sexually explicit or violent media must be marked as sensitive when posting"
+      "id": "1",
+      "text": "Sexually explicit or violent media must be marked as sensitive when posting"
     },
     {
-      "id":"2",
-      "text":"No racism, sexism, homophobia, transphobia, xenophobia, or casteism"
+      "id": "2",
+      "text": "No racism, sexism, homophobia, transphobia, xenophobia, or casteism"
     },
     {
-      "id":"3",
-      "text":"No incitement of violence or promotion of violent ideologies"
+      "id": "3",
+      "text": "No incitement of violence or promotion of violent ideologies"
     },
     {
-      "id":"4",
-      "text":"No harassment, dogpiling or doxxing of other users"
+      "id": "4",
+      "text": "No harassment, dogpiling or doxxing of other users"
     },
     {
-      "id":"5",
-      "text":"No content illegal in Germany"
+      "id": "5",
+      "text": "No content illegal in Germany"
     },
     {
-      "id":"7",
-      "text":"Do not share intentionally false or misleading information"
+      "id": "7",
+      "text": "Do not share intentionally false or misleading information"
     }
   ]
 }
