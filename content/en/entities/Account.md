@@ -388,9 +388,10 @@ aliases: [
 #### `source[language]` {#source-language}
 
 **Description:** The default posting language for new statuses.\
-**Type:** String (ISO 639-1 language two-letter code) or empty string\
+**Type:** String (well-formed BCP 47 language tag, but parts other than language subtag may be discarded) or empty string\
 **Version history:**\
 2.4.2 - added
+4.1.0 - accept BCP 47
 
 #### `source[follow_requests_count]` {#follow_requests_count}
 
