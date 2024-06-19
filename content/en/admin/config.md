@@ -390,6 +390,17 @@ If provided, takes precedence over `REDIS_HOST` and `REDIS_PORT`.
 
 Example value: `redis://user:password@localhost:6379`
 
+If you need to use TLS to connect to your Redis server, you must use `REDIS_URL` with the protocol scheme `rediss://` and set `REDIS_DRIVER` as described below.
+
+#### `REDIS_DRIVER`
+
+If provided, the driver for Redis connections is changed from using the Mastodon default hiredis driver to the standard Ruby driver. Using the Ruby driver is required to connect to Redis using TLS. Note that use of the Ruby driver may have an impact on Redis performance in some environments.
+
+Defaults to `hiredis`, accepted values are `hiredis` or `ruby`.
+
+**Version history:**\
+4.3.0 - added
+
 #### `REDIS_NAMESPACE`
 
 If provided, namespaces all Redis keys. This allows the sharing of the same Redis database between different projects or Mastodon servers.
