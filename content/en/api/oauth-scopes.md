@@ -9,7 +9,7 @@ menu:
 
 ## OAuth Scopes
 
-The API access is divided up into several OAuth scopes, these limit what an API client can do, based on the registered and requested scopes that the user has approved. The scopes in Mastodon are hierarchical, for example, if you have request the `read` scope, you automatically have access to `read:accounts`, however **it is recommended that you request the most limited scopes as possible for your application**, i.e., if you only need to access lists and the current user profile, you could use `profile read:lists` as your scopes, instead of `read`.
+The API access is divided up into several OAuth scopes, these limit what an API client can do, based on the registered and requested scopes for the [Access Token]({{< relref "api/oauth-tokens" >}}). The scopes in Mastodon are hierarchical, for example, if you request the `read` scope, you automatically have access to `read:accounts`, however **we recommend that you request the most limited scopes as possible for your application**, i.e., if you only need read access to lists and the current user profile, then you should use `profile read:lists` as your scopes instead of `read`.
 
 {{< hint style="info" >}}
 To just retrieve the details of the currently authenticated user, use the `profile` scope, which can only access the [`GET /api/v1/accounts/verify_credentials`]({{< relref "methods/accounts#verify_credentials" >}}) endpoint.\
@@ -20,7 +20,7 @@ This scope was added in Mastodon 4.3, so we recommend using the "Discovering OAu
 
 As of Mastodon 4.3.0, support for [RFC 8414](https://tools.ietf.org/html/rfc8414)'s `GET /.well-known/oauth-authorization-server` endpoint was added, allowing you to discover the scopes supported by the Mastodon server (as well as other OAuth related information such as the endpoints and grant flows).
 
-It is recommended using this endpoint in order to support multiple versions of Mastodon for your OAuth Application.
+We recommended using this endpoint in order to support multiple versions of Mastodon for your OAuth Application.
 
 If you make a request to the `GET /.well-known/oauth-authorization-server` endpoint, and it returns a 404, then you can assume that the Mastodon server is running a version older than 4.3, in which case you'll need to look at the specific scopes your application needs and what the lowest common scopes are for the version range of Mastodon that you wish to support.
 

@@ -306,9 +306,9 @@ The properties exposed by this endpoint can help you better integrate with the M
 
 On Mastodon versions before 4.3.0, requesting this endpoint will result in a `404 Not Found` error.
 
-This is a good indication that the server is running Mastodon older than 4.3.0 and cannot use features added in 4.3.0 and later versions. Instead, you will need to "guess" what that server supports, instead of discovering supported OAuth 2 endpoints, grant flows & scopes dynamically.
+Instead, you will need to "guess" what that server supports, instead of discovering supported OAuth 2 endpoints, grant flows & scopes dynamically.
 
-You may want to fallback to the [Instance Metadata endpoint]({{% relref ref="methods/instance#v2" %}}) to try to discover what Mastodon version the server is running by parsing the `version` field, however, this is very brittle and not recommended.
+You may want to fallback to the [Instance Metadata endpoint]({{% relref ref="methods/instance#v2" %}}) to try to discover what Mastodon version the server is running by parsing the `version` field; however, this is very brittle and not recommended.
 
 ---
 
