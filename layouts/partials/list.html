@@ -1,0 +1,143 @@
+{{ $sideMargin  := "50px" }}
+{{ $verticalMargin := "30px" }}
+{{ $fontSize := "12pt" }}
+
+{{ $currentPage := . }}
+{{ $curWeight := -1 }}
+
+{{ range .Site.Menus.docs }}  
+  {{ if .HasChildren }}
+    {{ $extractParent := $currentPage.Parent.Page }}
+    {{ $currentParent := (replaceRE "Page\\(\\/(.*)\\)" "$1" $extractParent) }}
+    <!-- Seqential Navigation for section pages. -->
+    {{ range .Children }}
+      {{ if eq $currentParent (.Parent) }}
+        {{ if .Weight }}
+          <!-- Add content to be modified by JavaScript. -->
+          {{ if $currentPage.IsMenuCurrent "docs" . }}
+            <!-- Add filler html and use JavaScript to put in correct links. -->
+            {{ partial "list-seq-nav.html" (dict "fontSize" $fontSize "sideMargin" $sideMargin "verticalMargin" $verticalMargin "currentPage" $currentPage) }}
+          {{ end }}
+        {{ else }}
+          <!-- Add content to be modified by JavaScript. -->
+          {{ if $currentPage.IsMenuCurrent "docs" . }}
+            <!-- Add filler html and use JavaScript to put in correct links. -->
+            {{ partial "list-seq-nav.html" (dict "fontSize" $fontSize "sideMargin" $sideMargin "verticalMargin" $verticalMargin "currentPage" $currentPage) }}
+          {{ end }}
+        {{ end }}
+        {{ if .HasChildren }}
+          <!-- Seqential Navigation for nested section pages. -->
+          {{ range .Children }}
+            <!-- Add content to be modified by JavaScript. -->
+            {{ if eq $currentPage (.Page) }}
+              <!-- Add filler html and use JavaScript to put in correct links. -->
+              {{ partial "list-seq-nav.html" (dict "fontSize" $fontSize "sideMargin" $sideMargin "verticalMargin" $verticalMargin "currentPage" $currentPage) }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ else }}
+        {{ if .HasChildren }}
+          <!-- Seqential Navigation for nested section pages. -->
+          {{ range .Children.ByWeight }}
+            <!-- Add content to be modified by JavaScript. -->
+            {{ if $currentPage.IsMenuCurrent "docs" . }}
+              <!-- Add filler html and use JavaScript to put in correct links. -->
+              {{ partial "list-seq-nav.html" (dict "fontSize" $fontSize "sideMargin" $sideMargin "verticalMargin" $verticalMargin "currentPage" $currentPage) }}
+            {{ end }}
+          {{ end }}
+        {{ else }}
+          <!-- Add content to be modified by JavaScript. -->
+          {{ if $currentPage.IsMenuCurrent "docs" . }}
+            <!-- Add filler html and use JavaScript to put in correct links. -->
+            {{ partial "list-seq-nav.html" (dict "fontSize" $fontSize "sideMargin" $sideMargin "verticalMargin" $verticalMargin "currentPage" $currentPage) }}
+          {{ end }}        
+        {{ end }}
+      {{ end }}
+    {{ end }}  
+  {{ end }}
+{{ end }}
+
+<script>
+ // IMPORTANT NOTE - this depends on HTML attributes to work.
+ // If error, then link href will be "javascript:void(0)" 
+ // and text output of links will render as:
+ // <- Page   Page ->
+ 
+ // DEPENDENT VARIABLES - redefine if HTML attributes or semantics change.
+ var theMenuTag = "nav";           // parent html tag for menu - tagName   <<<< FIRST SET OF VARIABLES
+ var theMenuSideBar = "sidebar";   // holds all sections ------- className <<<< FIRST SET OF VARIABLES
+ var theMenuSubMenu = "sub-menu";  // defines one section ------ className <<<< FIRST SET OF VARIABLES
+ var theMenuActivePage = "active"; // define active page ------- className <<<< FIRST SET OF VARIABLES
+
+ // PULL VARIABLES - for the ids used in doc page nav at bottom.
+ // NOTE - remaining variables should be fine if left as is.
+ var previousLink = document.getElementById("previousLink");     // html a tag to previous page
+ var nextLink = document.getElementById("nextLink");             // html a tag for next page
+ var pageTurnSpacer = document.getElementById("pageTurnSpacer"); // SPACING ELEMENT - for styling - get consistent space
+ 
+ // Variables to run statement to add correct links
+ // and for adding the correct url. Defined in for loops below.
+ var whatIsActive = -1, prevHref, prevName, nextHref, nextName;
+
+ // Start process to select sidebar and ensure it is correct selection.
+ var selectNavs = document.getElementsByTagName(theMenuTag); // "nav" tag - SEE FIRST SET OF VARIABLES
+ var selectSidebar;                                          // definde in loop
+ for (i = 0; i < selectNavs.length; i++) {                   // IMPORTANT - html dom and semantics assumed --- first "nav" with class "sidebar" ---
+   if (selectNavs[i].className == theMenuSideBar) {          // "sidebar" class - SEE FIRST SET OF VARIABLES
+     selectSidebar = selectNavs[i];                          // got it - first "nav" tag with "sidebar" class.
+     break; /////////////////////////////////////////////////// found what we're looking for - onward
+   }
+ }
+
+ // Start process to select menu item, finding active link
+ // and its position relative to the side navigation.
+ var selectSubMenus = selectSidebar.getElementsByClassName(theMenuSubMenu); // html ul for all sections - SEE FIRST SET OF VARIABLES
+ 
+ // Start looping through each section of the menu. 
+ for (i = 0; i < selectSubMenus.length; i++) {                      // for each section:
+   let curNavSection = selectSubMenus[i].getElementsByTagName("a"); // select links in the section - NOTE - this probable doesn't need a variable
+   // start looping current section to see if html class active is found
+   for (j = 0; j < curNavSection.length; j++) {
+     if (curNavSection[j].className == theMenuActivePage) { // found it - "active" class value
+      if (j == 0) {                                // on FIRST page in section
+        prevHref = "remove";                        // no need for prev page
+        nextHref = curNavSection[j+1].href;         // make next page href value of next index
+        nextName = curNavSection[j+1].innerText;    // make next page text value of next index
+        whatIsActive = i; //////////////////////////// make note of ACTIVE page and to end loop
+      } else if (j == curNavSection.length - 1) {  // on LAST page in section
+        prevHref = curNavSection[j-1].href;         // make prev page href value of prior index
+        prevName = curNavSection[j-1].innerText;    // make prev page text value of prior index
+        nextHref = "remove";                        // no need for next page
+        whatIsActive = i; //////////////////////////// make note of ACTIVE page and to end loop
+      } else {                                     // on MIDDLE page in section - will have prev and next links
+        prevHref = curNavSection[j-1].href;         // make prev page href value of prior index
+        prevName = curNavSection[j-1].innerText;    // make prev page text value of prior index
+        nextHref = curNavSection[j+1].href;         // make next page href value of next index
+        nextName = curNavSection[j+1].innerText;    // make next page text value of next index
+        whatIsActive = i; //////////////////////////// make note of ACTIVE page and to end loop
+      }
+       // BREAK - nothing else to be done
+       break;
+     }
+   }
+   // ACTIVE page has been found - turn off loop
+   if (whatIsActive != -1) { break; }
+ }
+ // Use results from above loop
+ if (prevHref == "remove") { /////////////////////////////////////////// FIRST - no previous link
+   previousLink.remove();                                             // no prev link
+   pageTurnSpacer.remove();                                           // no need for SPACING ELEMENT
+   nextLink.href = nextHref;                                          // set href for next page
+   nextLink.innerHTML = nextLink.innerHTML.replace("Page", nextName); // set text for next page
+ } else if (nextHref == "remove") { //////////////////////////////////////////// LAST - no next link
+   previousLink.href = prevHref;                                              // set href for previous page
+   previousLink.innerHTML = previousLink.innerHTML.replace("Page", prevName); // set text for previous page 
+   nextLink.remove();                                                         // no need for next link
+ } else { ////////////////////////////////////////////////////////////////////// MIDDLE - prev and next link
+   previousLink.href = prevHref;                                              // set href for previous page
+   previousLink.innerHTML = previousLink.innerHTML.replace("Page", prevName); // set text for previous page
+   nextLink.href = nextHref;                                                  // set href for next page
+   nextLink.innerHTML = nextLink.innerHTML.replace("Page", nextName);         // set text for next page
+ }                                                                            // IMPORTANT NOTE:
+ // WELL - VERY IMPORTANT NOTE - this all depends on current HTML attributes to work. // 
+</script>
