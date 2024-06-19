@@ -733,7 +733,7 @@ Invalid or missing Authorization header.
 
 ---
 
-## Accept a single notification request {#dismiss-request}
+## Dismiss a single notification request {#dismiss-request}
 
 ```http
 POST /api/v1/notifications/requests/:id/dismiss HTTP/1.1
