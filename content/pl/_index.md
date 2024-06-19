@@ -17,10 +17,10 @@ Tak jak blogowaniem nazwiemy publikowanie aktualności na stronie, **mikroblogow
 | Stopień decentralizacji | Przykłady |
 | :--- | :--- |
 | Scentralizowane | Twitter, Facebook, Instagram |
-| Sfederowane | E-mail, XMPP, sieci komórkowe, fizyczna poczta |
+| Sfederowane | Email, XMPP, sieci komórkowe, fizyczna poczta |
 | Dystrybuowane | BitTorrent, IPFS, Scuttlebutt |
 
-Serwer Mastodona może funkcjonować samodzielnie. Tak jak na tradycyjnej stronie, ludzie mogą się zarejestrować, publikować tam wiadomości i rozmawiać z innymi. W przeciwieństwie do tradycyjnej strony, serwery Mastodona wzajemnie komunikują się ze sobą, pozwalając swoim użytkownikom na wzajemną komunikację – tak, jak mając konto na Gmailu, możesz napisać mail do kogoś na Outlooku, Fastmail, Protonmail czy serwerze dowolnego dostawcy, tak długo, jak znasz jego e-mail, **możesz wspomnieć lub napisać wiadomość do użytkownika dowolnego serwera, jeśli znasz jego adres**.
+Serwer Mastodona może funkcjonować samodzielnie. Tak jak na tradycyjnej stronie, ludzie mogą się zarejestrować, publikować tam wiadomości i rozmawiać z innymi. W przeciwieństwie do tradycyjnej strony, serwery Mastodona wzajemnie komunikują się ze sobą, pozwalając swoim użytkownikom na wzajemną komunikację – tak, jak mając konto na Gmailu, możesz napisać mail do kogoś na Outlooku, Fastmail, Protonmail czy serwerze dowolnego dostawcy, tak długo, jak znasz jego email, **możesz wspomnieć lub napisać wiadomość do użytkownika dowolnego serwera, jeśli znasz jego adres**.
 
 {{< figure src="assets/network-models.jpg" caption="Od lewej do prawej: Scentralizowana, Sfederowana, Dystrybuowana" >}}
 
