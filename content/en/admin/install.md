@@ -215,6 +215,11 @@ ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
 
 Un-comment the lines starting with `ssl_certificate` and `ssl_certificate_key`, updating the path with the correct domain name.
 
+Confirm the user nginx runs as (likely `www-data`) can access the files created under `~mastodon/live/public`. The command will try to access the directory:
+```bash
+sudo -u www-data ls /home/mastodon/live/public/
+```
+
 Reload nginx for the changes to take effect:
 
 ```bash
