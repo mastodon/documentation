@@ -11,6 +11,7 @@ $darker: lighten($darkest, 34%);
 
 $vibrant: #6364FF; // color4
 $error: #df405a; // color6
+$warning: #ffc107;
 $success: #79bd9a; // color7
 
 $transition-in: 100ms linear;
@@ -852,6 +853,20 @@ main {
     font-size: 12px;
     font-weight: 500;
     color: $error;
+  }
+
+  &-removed {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    color: $error;
+  }
+
+  &-deprecated {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    color: $warning;
   }
 
   &-optional {
