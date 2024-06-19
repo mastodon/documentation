@@ -268,7 +268,7 @@ By default, Mastodon uses ImageMagick to process images in posts. As an alternat
 
 When installing Mastodon from source, this defaults to `false`, set to `true` to enable.
 
-When utilizating the Mastodon project container image, this is hardcoded to `true` and should not be overridden.
+When deploying the Mastodon project container image, this is hardcoded to `true` and should not be overridden.
 
 **Version history:**\
 4.3.0 - added
