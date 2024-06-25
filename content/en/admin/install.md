@@ -20,21 +20,21 @@ You will be running the commands as root. If you aren’t already root, switch t
 Make sure curl, wget, gnupg, apt-transport-https, lsb-release and ca-certificates are installed first:
 
 ```bash
-apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
+apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates dpkg
 ```
 
 #### Node.js {#node-js}
 
 ```bash
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
-echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
 ```
 
 #### PostgreSQL {#postgresql}
 
 ```bash
-wget -O /usr/share/keyrings/postgresql.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
-echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/postgresql.list
+curl -sSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor > /usr/share/keyrings/postgresql.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/postgresql.gpg] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/postgresql.list
 ```
 
 ### System packages {#system-packages}
@@ -54,7 +54,7 @@ apt install -y \
 
 ```bash
 corepack enable
-yarn set version classic
+yarn set version stable
 ```
 
 ### Installing Ruby {#installing-ruby}
@@ -84,8 +84,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 Once this is done, we can install the correct Ruby version:
 
 ```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.2.3
-rbenv global 3.2.3
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.3.3
+rbenv global 3.3.3
 ```
 
 We’ll also need to install the bundler:
