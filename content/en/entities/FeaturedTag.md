@@ -19,7 +19,7 @@ aliases: [
   "id": "627",
   "name": "nowplaying",
   "url": "https://mastodon.social/@trwnh/tagged/nowplaying",
-  "statuses_count": 70,
+  "statuses_count": "70",
   "last_status_at": "2022-08-29T12:03:35.061Z"
 }
 ```
@@ -50,7 +50,7 @@ aliases: [
 ### `statuses_count` {#statuses_count}
 
 **Description:** The number of authored statuses containing this hashtag.\
-**Type:** Integer\
+**Type:** String\
 **Version history:**\
 3.0.0 - added
 
