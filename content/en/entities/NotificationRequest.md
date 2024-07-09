@@ -42,7 +42,7 @@ aliases: [
 ### `notifications_count` {#notifications_count}
 
 **Description:** How many of this account's notifications were filtered.\
-**Type:** Integer\
+**Type:** String\
 **Version history:**\
 4.3.0 - added
 
