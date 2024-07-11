@@ -36,6 +36,7 @@ aliases: [
 `admin.sign_up` = Someone signed up (optionally sent to admins)\
 `admin.report` = A new report has been filed\
 `severed_relationships` = Some of your follow relationships have been severed as a result of a moderation or block event\
+`moderation_warning` = A moderator has taken action against your account or has sent you a warning\
 **Version history:**\
 0.9.9 - added\
 2.8.0 - added `poll`\
@@ -43,7 +44,7 @@ aliases: [
 3.3.0 - added `status`\
 3.5.0 - added `update` and `admin.sign_up`\
 4.0.0 - added `admin.report`\
-4.3.0 - added `severed_relationships`
+4.3.0 - added `severed_relationships` and `moderation_warning`
 
 ### `created_at` {#created_at}
 
@@ -77,6 +78,13 @@ aliases: [
 
 **Description:** Summary of the event that caused follow relationships to be severed. Attached when `type` of the notification is `severed_relationships`.\
 **Type:** [RelationshipSeveranceEvent]({{< relref "entities/RelationshipSeveranceEvent" >}})\
+**Version history:**\
+4.3.0 - added
+
+### `moderation_warning` {{%optional%}} {#moderation_warning}
+
+**Description:** Moderation warning that caused the notification. Attached when `type` of the notification is `moderation_warning`.\
+**Type:** [AccountWarning]({{< relref "entities/AccountWarning" >}})\
 **Version history:**\
 4.3.0 - added
 
