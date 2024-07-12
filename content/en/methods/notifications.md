@@ -540,9 +540,6 @@ min_id
 limit
 : Integer. Maximum number of results to return. Defaults to 40 notification requests. Max 80 notification requests.
 
-dismissed
-: Boolean. Shows only dismissed requests if `true`, and only non-dismissed requests if `false`. Defaults to `false`.
-
 #### Response
 
 ##### 200: OK
