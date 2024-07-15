@@ -305,7 +305,7 @@ Invalid or missing Authorization header.
 GET /api/v1/timelines/link?url=:url HTTP/1.1
 ```
 
-View public statuses containing a link to the specified URL. This only lists statuses from people who have opted in discoverability features.
+View public statuses containing a link to the specified currently-trending article. This only lists statuses from people who have opted in discoverability features.
 
 **Returns:** Array of [Status]({{<relref "entities/status">}})\
 **OAuth:** Public. Requires app token + `read:statuses` if the instance has disabled public preview.\
@@ -322,7 +322,7 @@ Authorization
 ##### Query parameters
 
 url
-: {{<required>}} String. The name of the hashtag (not including the # symbol).
+: {{<required>}} String. The URL of the trending article.
 
 max_id
 : String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
