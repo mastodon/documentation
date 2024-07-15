@@ -305,7 +305,7 @@ Invalid or missing Authorization header.
 GET /api/v1/timelines/link?url=:url HTTP/1.1
 ```
 
-View public statuses containing a link to the specified currently-trending article. This only lists statuses from people who have opted in discoverability features.
+View public statuses containing a link to the specified currently-trending article. This only lists statuses from people who have opted in to discoverability features.
 
 **Returns:** Array of [Status]({{<relref "entities/status">}})\
 **OAuth:** Public. Requires app token + `read:statuses` if the instance has disabled public preview.\
