@@ -299,6 +299,58 @@ Invalid or missing Authorization header.
 
 ---
 
+## View link timeline {#link}
+
+```http
+GET /api/v1/timelines/link?url=:url HTTP/1.1
+```
+
+View public statuses containing a link to the specified currently-trending article. This only lists statuses from people who have opted in to discoverability features.
+
+**Returns:** Array of [Status]({{<relref "entities/status">}})\
+**OAuth:** Public. Requires app token + `read:statuses` if the instance has disabled public preview.\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+url
+: {{<required>}} String. The URL of the trending article.
+
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+
+since_id
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+
+min_id
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+
+#### Response
+##### 200: OK
+
+##### 404: Not found
+
+The provided URL is not currently trending.
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
 ## View list timeline {#list}
 
 ```http
