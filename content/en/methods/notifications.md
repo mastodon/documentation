@@ -689,6 +689,10 @@ Invalid or missing Authorization header.
 
 ## Accept a single notification request {#accept-request}
 
+```http
+POST /api/v1/notifications/requests/:id/accept HTTP/1.1
+```
+
 Accept a notification request, which merges the filtered notifications from that user back into the main notification and accepts any future notification from them.
 
 **Returns:** Empty\
