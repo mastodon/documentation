@@ -48,7 +48,7 @@ type
 : String. Specify whether to search for only `accounts`, `hashtags`, `statuses`
 
 resolve
-: Boolean. Attempt WebFinger lookup? Defaults to false.
+: Boolean. Only relevant if `type` includes `accounts`. If `true` and (a) the search query is for a remote account (e.g., `someaccount@someother.server`) and (b) the local server does not know about the account, [WebFinger](/spec/webfinger) is used to try and resolve the account at `someother.server`. This provides the best recall at higher latency. If `false` only accounts the server knows about are returned.
 
 following
 : Boolean. Only include accounts that the user is following? Defaults to false.
