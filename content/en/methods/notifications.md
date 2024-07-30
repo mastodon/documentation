@@ -391,6 +391,70 @@ Invalid or missing Authorization header.
 
 ---
 
+## Get the number of unread notifications {#unread-count}
+
+```http
+GET /api/v1/notifications/unread_count HTTP/1.1
+```
+
+Get the (capped) number of unread notifications for the current user.
+A notification is considered unread if it is more recent than the [notifications read marker]({{< relref "methods/markers" >}}).
+Because the count is dependant on the parameters, it is computed every time and is thus a relatively slow operation (although faster than getting the full corresponding notifications), therefore the number of returned notifications is capped.
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+
+since_id
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+
+min_id
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 100 notifications. Max 1000 notifications.
+
+types[]
+: Array of String. Types to include in the result.
+
+exclude_types[]
+: Array of String. Types to exclude from the results.
+
+account_id
+: String. Return only notifications received from the specified account.
+
+#### Response
+
+##### 200: OK
+
+The response body contains the capped count of unread notifications.
+
+```json
+{
+  "count": 42,
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
 ## Get the filtering policy for notifications {#get-policy}
 
 ```http
