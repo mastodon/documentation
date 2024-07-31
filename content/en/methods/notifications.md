@@ -401,6 +401,11 @@ Get the (capped) number of unread notifications for the current user.
 A notification is considered unread if it is more recent than the [notifications read marker]({{< relref "methods/markers" >}}).
 Because the count is dependant on the parameters, it is computed every time and is thus a relatively slow operation (although faster than getting the full corresponding notifications), therefore the number of returned notifications is capped.
 
+**Returns:** TODO\
+**OAuth:** User token + `read:notifications`\
+**Version history**:\
+4.3.0 - added
+
 #### Request
 
 ##### Headers
@@ -410,26 +415,17 @@ Authorization
 
 ##### Query parameters
 
-max_id
-: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
-
-since_id
-: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
-
-min_id
-: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
-
 limit
 : Integer. Maximum number of results to return. Defaults to 100 notifications. Max 1000 notifications.
 
 types[]
-: Array of String. Types to include in the result.
+: Array of String. Types of notifications that should count towards unread notifications.
 
 exclude_types[]
-: Array of String. Types to exclude from the results.
+: Array of String. Types of notifications that should not count towards unread notifications.
 
 account_id
-: String. Return only notifications received from the specified account.
+: String. Only count unread notifications received from the specified account.
 
 #### Response
 
