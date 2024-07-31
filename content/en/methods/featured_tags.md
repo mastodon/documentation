@@ -125,7 +125,7 @@ If `name` is not a valid hashtag, e.g. contains illegal characters or only numbe
 
 ---
 
-## Unfeature a tag {unfeature}
+## Unfeature a tag {#unfeature}
 
 ```http
 DELETE /api/v1/featured_tags/:id HTTP/1.1
