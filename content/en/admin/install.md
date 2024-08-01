@@ -9,7 +9,7 @@ menu:
 
 ## Pre-requisites {#pre-requisites}
 
-* A machine running **Ubuntu 20.04** or **Debian 11** that you have root access to
+* A machine running **Ubuntu 22.04** or **Debian 11** that you have root access to
 * A **domain name** (or a subdomain) for the Mastodon server, e.g. `example.com`
 * An e-mail delivery service or other **SMTP server**
 
