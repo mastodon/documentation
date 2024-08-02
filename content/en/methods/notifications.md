@@ -401,7 +401,7 @@ Get the (capped) number of unread notifications for the current user.
 A notification is considered unread if it is more recent than the [notifications read marker]({{< relref "methods/markers" >}}).
 Because the count is dependant on the parameters, it is computed every time and is thus a relatively slow operation (although faster than getting the full corresponding notifications), therefore the number of returned notifications is capped.
 
-**Returns:** TODO\
+**Returns:** Hash with a single key of `count`\
 **OAuth:** User token + `read:notifications`\
 **Version history**:\
 4.3.0 - added
