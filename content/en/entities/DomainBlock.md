@@ -48,7 +48,7 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
-### `comment` {{<optional>}} {#comment}
+### `comment` {{%optional%}} {#comment}
 
 **Description:** An optional reason for the domain block.\
 **Type:** String\
