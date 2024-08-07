@@ -4,7 +4,7 @@
   <img alt="Mastodon" src="https://github.com/mastodon/mastodon/raw/mainlib/assets/wordmark.light.png?raw=true" height="34">
 </picture></h1>
 
-The documentation currently uses Hugo to generate a static site from Markdown. Use `hugo serve` to test the site locally.
+The documentation currently uses Hugo to generate a static site from Markdown. Use `hugo serve` to test the site locally. If build errors occur, ensure [hugo](https://github.com/gohugoio/hugo) is the latest release.
 
 View the live documentation at [https://docs.joinmastodon.org](https://docs.joinmastodon.org)
 
