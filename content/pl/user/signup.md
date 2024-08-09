@@ -9,7 +9,7 @@ menu:
 
 ## Wybór serwera {#picker}
 
-Musisz wybrać stronę, na której zarejestrujesz się, tak jakbyś wybierał(-a) dostawcę poczty e-mail lub realm w World of Warcraft dla swojej nowej postaci. Ta strona będzie Twoim dostawcą usługi, hostem dla Twojego konta, Twoim profilem i Twoją stroną główną.
+Musisz wybrać stronę, na której zarejestrujesz się, tak jakbyś wybierał(-a) dostawcę poczty email lub realm w World of Warcraft dla swojej nowej postaci. Ta strona będzie Twoim dostawcą usługi, hostem dla Twojego konta, Twoim profilem i Twoją stroną główną.
 
 {{< hint style="info" >}}
 Możesz [przeglądać listę wybranych serwerów według kategorii i języków na joinmastodon.org](https://joinmastodon.org/#getting-started).
@@ -25,7 +25,7 @@ Mastodon pozwala administratorom serwerów wybrać trzy tryby rejestracji: rejes
 
 #### Otwarta rejestracja {#open}
 
-Na niektórych serwerach możesz zarejestrować się natychmiastowo – po prostu wypełnij formularz rejestracyjny swoją nazwą użytkownika, adresem e-mail i hasłem i już możesz rozpocząć korzystanie ze swojego konta.
+Na niektórych serwerach możesz zarejestrować się natychmiastowo – po prostu wypełnij formularz rejestracyjny swoją nazwą użytkownika, adresem email i hasłem i już możesz rozpocząć korzystanie ze swojego konta.
 
 #### Zaproszenia na serwer {#invite}
 
@@ -42,7 +42,7 @@ Nazwy użytkownika na Mastodonie składają się właściwie z dwóch części:
 * Lokalna nazwa użytkownika, np. `alicja`
 * Domena strony, np. `example.com`
 
-Tak jak przy adresie e-mail. Dla wygody Mastodon pozwala na pominięcie drugiej części, jeżeli oznaczasz osoby z serwera, z którego korzystasz, ale musisz pamiętać, że jeżeli dzielisz się swoją nazwą z innymi, musisz uwzględnić domenę, aby mogli Cię łatwo znaleźć.
+Tak jak przy adresie email. Dla wygody Mastodon pozwala na pominięcie drugiej części, jeżeli oznaczasz osoby z serwera, z którego korzystasz, ale musisz pamiętać, że jeżeli dzielisz się swoją nazwą z innymi, musisz uwzględnić domenę, aby mogli Cię łatwo znaleźć.
 
 |  |  |
 | :--- | :--- |
@@ -52,6 +52,6 @@ Tak jak przy adresie e-mail. Dla wygody Mastodon pozwala na pominięcie drugiej 
 
 Formularz wyszukiwania na Mastodonie pozwala na znalezienie osób zgodnie z oboma powyższymi formatami, więc możesz wybrać ten, który wolisz.
 
-Ta sama nazwa użytkownika _może_ być zarejestrowana na różnych serwerach – nie istnieje sposób na zajęcie ich wszystkich z góry. Tak jak w przypadku adresu e-mail, nie możesz oczekiwać, że `alicja@outlook.com` będzie tą samą osobą co `alicja@gmail.com`, czy `alicja@yahoo.com`.
+Ta sama nazwa użytkownika _może_ być zarejestrowana na różnych serwerach – nie istnieje sposób na zajęcie ich wszystkich z góry. Tak jak w przypadku adresu email, nie możesz oczekiwać, że `alicja@outlook.com` będzie tą samą osobą co `alicja@gmail.com`, czy `alicja@yahoo.com`.
 
 
