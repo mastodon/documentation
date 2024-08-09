@@ -269,9 +269,10 @@ aliases: [
 ### `languages` {#languages}
 
 **Description:** Primary languages of the website and its staff.\
-**Type:** Array of String (ISO 639-1 two-letter code)\
+**Type:** Array of String (well-formed BCP 47 language tag, but parts other than language subtag may be discarded)\
 **Version history:**\
 4.0.0 - added
+4.1.0 - accept BCP 47
 
 ### `configuration` {#configuration}
 
