@@ -109,7 +109,7 @@ Truncated sample search for q=cats limit=2
 **Version history:**\
 1.1.0 - added\
 2.4.1 - v1/search deprecated because it returns Array of String. v2/search added which returns Array of Tag.\
-3.0.0 - v1 removed
+3.0.0 - v1/search removed
 
 ## See also
 

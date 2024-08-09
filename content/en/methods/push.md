@@ -45,14 +45,15 @@ Add a Web Push API subscription to receive notifications. Each access token can 
 3.3.0 - added `data[alerts][status]`\
 3.4.0 - added `data[policy]`\
 3.5.0 - added `data[alerts][update]` and `data[alerts][admin.sign_up]`\
-4.0.0 - added `data[alerts][admin.report]`
+4.0.0 - added `data[alerts][admin.report]`\
+4.3.0 - added stricter request parameter validation, invalid endpoint URLs and subscription keys will now result in an error, previously these would be accepted, but silently fail.
 
 #### Request
 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -147,7 +148,7 @@ View the PushSubscription currently associated with this access token.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -211,7 +212,7 @@ Updates the current push subscription. Only the data part can be updated. To cha
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -308,7 +309,7 @@ Removes the current Web Push API subscription.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 

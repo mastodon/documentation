@@ -13,7 +13,7 @@ menu:
 
 {{< page-ref page="client/authorized" >}}
 
-{{< page-relref ref="methods/oauth" caption="oauth methods" >}}
+{{< page-relref ref="methods/oauth" caption="OAuth methods" >}}
 
 {{< page-relref ref="api/oauth-scopes" caption="OAuth scopes" >}}
 
@@ -58,7 +58,7 @@ To get around this, Mastodon may return links to a "prev" and "next" page. These
 
 ```http
 GET https://mastodon.example/api/v1/endpoint HTTP/1.1
-Authorization: Bearer token
+Authorization: Bearer <access_token>
 
 Link: <https://mastodon.example/api/v1/endpoint?max_id=7163058>; rel="next", <https://mastodon.example/api/v1/endpoint?min_id=7275607>; rel="prev"
 [

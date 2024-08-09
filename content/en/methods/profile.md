@@ -20,7 +20,7 @@ DELETE /api/v1/profile/avatar HTTP/1.1
 ```
 
 **Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
-**OAuth**: User token + `write:accounts`\
+**OAuth:** User token + `write:accounts`\
 **Version history:**\
 4.2.0 - added
 
@@ -31,7 +31,7 @@ Deletes the avatar associated with the user's profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Path parameters
 
@@ -102,7 +102,7 @@ DELETE /api/v1/profile/header HTTP/1.1
 ```
 
 **Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
-**OAuth**: User token + `write:accounts`\
+**OAuth:** User token + `write:accounts`\
 **Version history:**\
 4.2.0 - added
 
@@ -113,7 +113,7 @@ Deletes the header image associated with the user's profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Path parameters
 
