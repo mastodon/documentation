@@ -109,7 +109,7 @@ Returned from `GET /api/v1/scheduled_statuses`:
 ##### `params[poll][expires_in]` {#params-poll-expires_in}
 
 **Description:** How many seconds the poll should last before closing.\
-**Type:** String (cast from integer)\
+**Type:** Integer\
 **Version history:**\
 2.8.0 - added
 
