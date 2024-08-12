@@ -1,11 +1,11 @@
 ---
-title: NotificationPolicy
+title: V1::NotificationPolicy
 description: Represents the notification filtering policy of the user.
 menu:
   docs:
     parent: entities
 aliases: [
-  "/entities/NotificationPolicy",
+  "/entities/v1_NotificationPolicy",
 ]
 ---
 
@@ -81,7 +81,4 @@ aliases: [
 
 {{< page-relref ref="methods/notifications" caption="notifications API methods" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/notification_policy_serializer.rb" caption="app/serializers/rest/notification_policy_serializer.rb" >}}
-
-
-
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/v1/notification_policy_serializer.rb" caption="app/serializers/rest/v1/notification_policy_serializer.rb" >}}

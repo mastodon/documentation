@@ -459,7 +459,7 @@ GET /api/v1/notifications/policy HTTP/1.1
 
 Notifications filtering policy for the user.
 
-**Returns:** [NotificationPolicy]({{< relref "entities/NotificationPolicy" >}})\
+**Returns:** [V1::NotificationPolicy]({{< relref "entities/v1_NotificationPolicy" >}})\
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
 4.3.0 - added
@@ -508,7 +508,7 @@ PATCH /api/v1/notifications/policy HTTP/1.1
 
 Update the user's notifications filtering policy.
 
-**Returns:** [NotificationPolicy]({{< relref "entities/NotificationPolicy" >}})\
+**Returns:** [V1::NotificationPolicy]({{< relref "entities/v1_NotificationPolicy" >}})\
 **OAuth:** User token + `write:notifications`\
 **Version history:**\
 4.3.0 - added
