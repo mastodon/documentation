@@ -79,6 +79,8 @@ aliases: [
 
 ## See also
 
+{{< page-relref ref="entities/NotificationPolicy" caption="NotificationPolicy (for the released version)" >}}
+
 {{< page-relref ref="methods/notifications" caption="notifications API methods" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/v1/notification_policy_serializer.rb" caption="app/serializers/rest/v1/notification_policy_serializer.rb" >}}
