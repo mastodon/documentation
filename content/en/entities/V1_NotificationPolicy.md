@@ -9,6 +9,10 @@ aliases: [
 ]
 ---
 
+{{< hint style="warning" >}}
+This version of the notification filtering policy API is deprecated and has not shipped in any release. Please refer to the [current version]({{< relref "entities/NotificationPolicy">}}) instead.
+{{</ hint >}}
+
 ## Attributes
 
 ### `filter_not_following` {#filter_not_following}
