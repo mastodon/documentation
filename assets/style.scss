@@ -2,21 +2,44 @@
 @import 'roboto-mono.scss';
 @import 'manrope.scss';
 
-// Values from the classic Mastodon UI
+// Values from the Mastodon UI
+$black: #000000; // Black
+$white: #ffffff; // White
+$red-600: #b7253d !default; // Deep Carmine
+$red-500: #df405a !default; // Cerise
+$blurple-600: #563acc; // Iris
+$blurple-500: #6364ff; // Brand purple
+$blurple-400: #7477fd; // Medium slate blue
+$blurple-300: #858afa; // Faded Blue
+$grey-600: hsl(240deg, 8%, 33%); // Trout
+$grey-100: hsl(240deg, 51%, 90%); // Topaz
+
+$success-green: #79bd9a !default; // Padua
+$error-red: $red-500 !default; // Cerise
+$warning-red: #ff5050 !default; // Sunset Orange
+$gold-star: #ca8f04 !default; // Dark Goldenrod
+
 $classic-base-color: hsl(240deg, 16%, 19%);
 $classic-primary-color: hsl(240deg, 29%, 70%);
 $classic-secondary-color: hsl(255deg, 25%, 88%);
+$classic-highlight-color: $blurple-500;
 
-$white: #fff; // color5
-$lightest: #d9e1e8; // color2
-$lighter: #9baec8; // color3
+// Custom values
+
+$lightest: $white; // color2
+$lighter: $classic-secondary-color; // color3
 $darkest: darken($classic-base-color, 8%); // color1
-$black: #000; // color8
-$darker: lighten($darkest, 34%);
+$darker: $classic-primary-color;
 
-$vibrant: #6364FF; // color4
-$error: #df405a; // color6
-$success: #79bd9a; // color7
+$vibrant: lighten($blurple-500, 8%); // color4
+$error: $warning-red; // color6
+$success: $success-green; // color7
+
+$background-border-color: lighten($classic-base-color, 4%);
+$highlight-border-color: $vibrant;
+$warning-border-color: $warning-red;
+$alert-border-color: $gold-star;
+$success-border-color: $success-green;
 
 $transition-in: 100ms linear;
 $transition-out: 250ms linear;
@@ -280,14 +303,19 @@ body {
     padding: 10px;
     font-weight: 500;
     text-transform: uppercase;
+    color: $darker;
   }
 
   &>ul a {
     display: block;
-    color: $white;
+    color: $lighter;
     text-decoration: none;
     font-weight: 500;
     padding: 10px;
+
+    &:hover {
+      color: $lightest;
+    }
   }
 
   .sub-menu {
@@ -333,9 +361,9 @@ main {
     font-size: 36px;
     line-height: 1.48;
     font-weight: 600;
-    color: $lightest;
+    color: $lighter;
     padding-bottom: 35px;
-    border-bottom: 1px solid lighten($darkest, 8%);
+    border-bottom: 1px solid $background-border-color;
     margin-bottom: 35px;
     margin-left: -2.63px;
     text-align: left;
@@ -350,14 +378,14 @@ main {
     margin-top: 50px;
     margin-bottom: 30px;
     font-weight: 600;
-    color: $lightest;
+    color: $lighter;
   }
 
   h3 {
     font-size: 21px;
     line-height: 1.22;
     font-weight: 500;
-    color: $lightest;
+    color: $lighter;
     margin-top: 25px;
     margin-bottom: 30px;
     margin-left: -1.75px;
@@ -368,7 +396,7 @@ main {
     font-size: 18px;
     line-height: 1.22;
     font-weight: 500;
-    color: $lightest;
+    color: $lighter;
     margin-top: 25px;
     margin-bottom: 30px;
     margin-left: -1.75px;
@@ -379,7 +407,7 @@ main {
     font-size: 18px;
     line-height: 1.22;
     font-weight: 500;
-    color: $lightest;
+    color: $lighter;
     margin-top: 25px;
     margin-bottom: 30px;
     margin-left: -1.75px;
@@ -391,7 +419,7 @@ main {
     margin-top: 25px;
     margin-left: -1.75px;
     text-align: left;
-    color: $lightest;
+    color: $lighter;
     font-size: 16px;
     line-height: 28px;
     margin-bottom: 26px;
@@ -424,7 +452,12 @@ main {
   }
 
   a {
-    color: lighten($vibrant, 18%);
+    color: $darker;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   img {
@@ -500,7 +533,7 @@ main {
 
     tr:nth-child(2n),
     thead tr {
-      background-color: darken($darkest, 4%);
+      background-color: $darkest;
     }
 
     th,
@@ -509,7 +542,7 @@ main {
       line-height: 28px;
       padding: 10px 15px;
       vertical-align: middle;
-      border: 1px solid lighten($darkest, 8%);
+      border: 1px solid $background-border-color;
 
       .fa-check {
         color: $success;
@@ -540,7 +573,7 @@ main {
   hr {
     background: transparent;
     border: 0;
-    border-top: 1px solid $darker;
+    border-top: 1px solid $background-border-color;
     margin: 26px 0;
   }
 
@@ -621,7 +654,7 @@ main {
 }
 
 #TableOfContents {
-  color: $lighter;
+  color: $darker;
 
   ul li {
     color: inherit;
@@ -637,11 +670,15 @@ main {
 
   a {
     text-decoration: none;
-    color: inherit;
+    color: $darker;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   padding-bottom: 35px - 14px;
-  border-bottom: 1px solid lighten($darkest, 8%);
+  border-bottom: 1px solid $background-border-color;
   margin-bottom: 35px;
 }
 
@@ -685,10 +722,10 @@ main {
 
     &.secondary {
       padding: 2px 14px;
-      border: 2px solid #fff;
+      border: 2px solid $white;
       background: transparent;
       margin-left: 4px;
-      color: #fff;
+      color: $white;
     }
 
     @media screen and (max-width: 375px) {
@@ -703,40 +740,40 @@ main {
   position: relative;
   border-left: 4px solid;
   border-radius: 4px;
-  background-color: lighten($darkest, 8%);
+  background-color: $background-border-color;
   color: $white;
   font-size: 16px;
   line-height: 28px;
 
   &-info {
-    border-color: $vibrant;
+    border-color: $highlight-border-color;
 
     .hint-icon {
-      color: $vibrant;
+      color: $highlight-border-color;
     }
   }
 
   &-warning {
-    border-color: #ca8f04;
+    border-color: $warning-border-color;
 
     .hint-icon {
-      color: #ca8f04;
+      color: $warning-border-color;
     }
   }
 
   &-success {
-    border-color: $success;
+    border-color: $success-border-color;
 
     .hint-icon {
-      color: $success;
+      color: $success-border-color;
     }
   }
 
   &-danger {
-    border-color: $error;
+    border-color: $alert-border-color;
 
     .hint-icon {
-      color: $error;
+      color: $alert-border-color;
     }
   }
 
@@ -822,7 +859,7 @@ main {
 }
 
 .api-method-parameters-list {
-  border: 1px solid lighten($darkest, 8%);
+  border: 1px solid $background-border-color;
   border-radius: 4px;
   margin-bottom: 26px;
 }
@@ -840,7 +877,7 @@ main {
 
 .api-method-parameter {
   display: flex;
-  border-bottom: 1px solid lighten($darkest, 8%);
+  border-bottom: 1px solid $background-border-color;
 
   &:last-child {
     border-bottom: 0;
