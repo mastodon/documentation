@@ -597,7 +597,7 @@ main {
     font-size: 85%;
     font-family: 'Roboto Mono', monospace;
     background-color: lighten($darkest, 8%);
-    border-radius: 3px;
+    border-radius: 4px;
     -webkit-hyphens: none;
     hyphens: none;
     white-space: pre;
@@ -738,9 +738,8 @@ main {
   margin: 26px 0;
   padding: 16px 16px 16px 56px;
   position: relative;
-  border-left: 4px solid;
   border-radius: 4px;
-  background-color: $background-border-color;
+  border: 1px solid $background-border-color;
   color: $white;
   font-size: 16px;
   line-height: 28px;
