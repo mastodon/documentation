@@ -2,10 +2,15 @@
 @import 'roboto-mono.scss';
 @import 'manrope.scss';
 
+// Values from the classic Mastodon UI
+$classic-base-color: hsl(240deg, 16%, 19%);
+$classic-primary-color: hsl(240deg, 29%, 70%);
+$classic-secondary-color: hsl(255deg, 25%, 88%);
+
 $white: #fff; // color5
 $lightest: #d9e1e8; // color2
 $lighter: #9baec8; // color3
-$darkest: #1F232B; // color1
+$darkest: darken($classic-base-color, 8%); // color1
 $black: #000; // color8
 $darker: lighten($darkest, 34%);
 
