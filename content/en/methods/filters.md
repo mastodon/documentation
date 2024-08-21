@@ -965,7 +965,7 @@ FilterStatus is not owned by you or does not exist
 DELETE /api/v2/filters/statuses/:id HTTP/1.1
 ```
 
-Add a status filter to the current filter group.
+Remove a status filter from the current filter group.
 
 **Returns:** [FilterStatus]({{< relref "entities/FilterStatus" >}})\
 **OAuth:** User token + `write:filters`\
