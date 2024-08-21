@@ -352,6 +352,10 @@ body {
       color: $darker;
       text-decoration: none;
     }
+
+    svg {
+      vertical-align: middle;
+    }
   }
 }
 
@@ -943,7 +947,7 @@ main {
 
 .sponsorship {
   border-radius: 4px;
-  border: 1px solid $vibrant;
+  border: 1px solid $background-border-color;
   padding: 40px 0;
 
   h2 {
