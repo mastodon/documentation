@@ -530,11 +530,10 @@ main {
     width: 100%;
     margin-bottom: 26px;
     color: $lightest;
-
-    tr:nth-child(2n),
-    thead tr {
-      background-color: $darkest;
-    }
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid $background-border-color;
+    border-radius: 4px;
 
     th,
     td {
@@ -542,7 +541,7 @@ main {
       line-height: 28px;
       padding: 10px 15px;
       vertical-align: middle;
-      border: 1px solid $background-border-color;
+      border-bottom: 1px solid $background-border-color;
 
       .fa-check {
         color: $success;
@@ -556,7 +555,15 @@ main {
     thead th {
       font-weight: 500;
     }
-  }
+
+    tr:first-child th {
+      font-weight: bold;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+}
 
   figure {
     figcaption {
