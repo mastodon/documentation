@@ -1290,7 +1290,7 @@ reblogs
 notify
 : Boolean. Receive notifications when this account posts a status? Defaults to false.
 
-languages
+languages[]
 : Array of String (ISO 639-1 language two-letter code). Filter received statuses for these languages. If not provided, you will receive this account's posts in all languages.
 
 #### Response
