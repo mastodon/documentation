@@ -370,7 +370,7 @@ source[sensitive]
 : Boolean. Whether to mark authored statuses as sensitive by default.
 
 source[language]
-: String. Default language to use for authored statuses (ISO 6391)
+: String. Default language to use for authored statuses (in well-formed BCP 47 language tag, but parts other than language subtag may be discarded by the system).
 
 #### Response
 
@@ -1291,7 +1291,7 @@ notify
 : Boolean. Receive notifications when this account posts a status? Defaults to false.
 
 languages
-: Array of String (ISO 639-1 language two-letter code). Filter received statuses for these languages. If not provided, you will receive this account's posts in all languages.
+: Array of String (well-formed BCP 47 language tag, but parts other than language subtag may be discarded). Filter received statuses for these languages. If not provided, you will receive this account's posts in all languages.
 
 #### Response
 ##### 200: OK
