@@ -813,6 +813,7 @@ main {
   &:focus,
   &:active {
     background: lighten($darkest, 8%);
+    text-decoration: none;
   }
 }
 
@@ -942,15 +943,15 @@ main {
 }
 
 .sponsorship {
-  background: darken($darkest, 4%);
   border-radius: 4px;
+  border: 1px solid $vibrant;
   padding: 40px 0;
 
   h2 {
     line-height: 21px;
     font-weight: 500;
     font-size: 16px;
-    color: lighten($darkest, 40%);
+    color: $darker;
     text-align: center;
     margin-bottom: 20px;
   }
