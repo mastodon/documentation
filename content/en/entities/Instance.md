@@ -122,6 +122,9 @@ aliases: [
     "approval_required": false,
     "message": null
   },
+  "api_versions": {
+    "mastodon": 1,
+  },
   "contact": {
     "email": "staff@mastodon.social",
     "account": {
@@ -499,6 +502,20 @@ aliases: [
 **Type:** {{<nullable>}} String (HTML) or null\
 **Version history:**\
 4.0.0 - added
+
+### `api_versions` {#api-versions}
+
+**Description:** Information about which version of the API is implemented by this server. It contains at least a `mastodon` attribute, and other implementations may have their own additional attributes.\
+**Type:** Hash\
+**Version history:**\
+4.3.0 - added
+
+### `api_versions[mastodon]`
+
+**Description:** API version number that this server implements. Starting from Mastodon v4.3.0, API changes will come with a version number, which clients can check against this value.\
+**Type:** Integer\
+**Version history:**\
+4.3.0 - added
 
 ### `contact` {#contact}
 
