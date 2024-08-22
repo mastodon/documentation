@@ -34,6 +34,24 @@ aliases: [
       "@2x": "https://files.mastodon.social/site_uploads/files/000/000/001/@2x/57c12f441d083cde.png"
     }
   },
+  "icon": [
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/36/accf17b0104f18e5.png",
+      "size": "36x36"
+    },
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/72/accf17b0104f18e5.png",
+      "size": "72x72"
+    },
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/192/accf17b0104f18e5.png",
+      "size": "192x192"
+    },
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/512/accf17b0104f18e5.png",
+      "size": "512x512"
+    }
+  ],
   "languages": [
     "en"
   ],
@@ -265,6 +283,13 @@ aliases: [
 **Type:** String (URL)\
 **Version history:**\
 4.0.0 - added
+
+### `icon` {#icon}
+
+**Description:** The list of available size variants for this instance configured icon.\
+**Type:** Array of [InstanceIcon](#InstanceIcon)\
+**Version history:**\
+4.3.0 - added
 
 ### `languages` {#languages}
 
@@ -502,6 +527,21 @@ aliases: [
 **Type:** Array of [Rule]({{< relref "entities/Rule" >}})\
 **Version history:**\
 4.0.0 - added
+
+## InstanceIcon attributes {#InstanceIcon}
+
+### `src` {#src}
+
+**Description:** The URL of this icon.\
+**Type:** String\
+4.3.0 - added
+
+### `size` {#size}
+
+**Description:** The size of this icon.\
+**Type:** String (in the form of `12x34`, where `12` is the width and `34` is the height of the icon)\
+**Version history:**\
+4.3.0 - added
 
 ## See also
 
