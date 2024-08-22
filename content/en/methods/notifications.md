@@ -454,7 +454,7 @@ Invalid or missing Authorization header.
 ## Get the filtering policy for notifications {#get-policy}
 
 ```http
-GET /api/v1/notifications/policy HTTP/1.1
+GET /api/v2/notifications/policy HTTP/1.1
 ```
 
 Notifications filtering policy for the user.
@@ -479,10 +479,11 @@ The response body contains the current notifications filtering policy for the us
 
 ```json
 {
-  "filter_not_following": false,
-  "filter_not_followers": false,
-  "filter_new_accounts": false,
-  "filter_private_mentions": true,
+  "for_not_following": "accept",
+  "for_not_followers": "accept",
+  "for_new_accounts": "accept",
+  "for_private_mentions": "drop",
+  "for_limited_accounts": "filter",
   "summary": {
     "pending_requests_count": 0,
     "pending_notifications_count": 0
@@ -503,7 +504,7 @@ Invalid or missing Authorization header.
 ## Update the filtering policy for notifications
 
 ```http
-PATCH /api/v1/notifications/policy HTTP/1.1
+PATCH /api/v2/notifications/policy HTTP/1.1
 ```
 
 Update the user's notifications filtering policy.
@@ -522,17 +523,20 @@ Authorization
 
 #### Form data parameters
 
-filter_not_following
-: Boolean. Whether to filter notifications from accounts the user is not following.
+for_not_following
+: String. Whether to `accept`, `filter` or `drop` notifications from accounts the user is not following. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.
 
-filter_not_followers
-: Boolean. Whether to filter notifications from accounts that are not following the user.
+for_not_followers
+: String. Whether to `accept`, `filter` or `drop` notifications from accounts that are not following the user. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.
 
-filter_new_accounts
-: Boolean. Whether to filter notifications from accounts created in the past 30 days.
+for_new_accounts
+: String. Whether to `accept`, `filter` or `drop` notifications from accounts created in the past 30 days. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.
 
-filter_private_mentions
-: Boolean. Whether to filter notifications from private mentions. Replies to private mentions initiated by the user, as well as accounts the user follows, are never filtered.
+for_private_mentions
+: String. Whether to `accept`, `filter` or `drop` notifications from private mentions. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing. Replies to private mentions initiated by the user, as well as accounts the user follows, are always allowed, regardless of this value.
+
+for_limited_accounts
+: String. Whether to `accept`, `filter` or `drop` notifications from accounts that were limited by a moderator. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.
 
 
 #### Response
