@@ -68,6 +68,7 @@ aliases: [
   "title": "‘I lost my £193,000 inheritance – with one wrong digit on my sort code’",
   "description": "When Peter Teich’s money went to another Barclays customer, the bank offered £25 as a token gesture",
   "type": "link",
+  "authors": [],
   "author_name": "",
   "author_url": "",
   "provider_name": "",
@@ -114,6 +115,13 @@ aliases: [
 `rich` = iframe OEmbed. Not currently accepted, so won't show up in practice.\
 **Version history:**\
 1.3.0 - added
+
+### `authors` {#authors}
+
+**Description:** Fediverse account of the authors of the original resource.\
+**Type:** Array of PreviewCardAuthor\
+**Version history:**\
+4.3.0 - added
 
 ### `author_name` {#author_name}
 
