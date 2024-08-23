@@ -946,7 +946,7 @@ GET /api/v1/notifications/requests/merged
 ```
 
 Check whether accepted notification requests have been merged.
-Indeed, accepting notification requests schedules a background job to merge the filtered notifications back into the normal notification list. When that process has finished, the client should refresh the notifications list at its earliest convenience. This is communicated by the `notifications_merged` streaming event but can also be polled.
+Accepting notification requests schedules a background job to merge the filtered notifications back into the normal notification list. When that process has finished, the client should refresh the notifications list at its earliest convenience. This is communicated by the `notifications_merged` streaming event but can also be polled using this endpoint.
 
 ***Returns:** Hash with a single boolean attribute `merged`\
 **OAuth:** User token + `read:notifications`\
