@@ -54,13 +54,13 @@ Authorization
 ##### Query parameters
 
 max_id
-: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+: String. All results returned will be about notifications strictly older than this notification ID. In effect, sets an upper bound on results.
 
 since_id
-: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+: String. All results returned will be about notifications strictly newer than this notification ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+: String. Returns results about notifications immediately newer than this notification ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 40 notifications. Max 80 notification groups.
