@@ -119,23 +119,25 @@ aliases: [
 ### `authors` {#authors}
 
 **Description:** Fediverse account of the authors of the original resource.\
-**Type:** Array of PreviewCardAuthor\
+**Type:** Array of [PreviewCardAuthor]({{< relref "entities/PreviewCardAuthor">}})\
 **Version history:**\
 4.3.0 - added
 
 ### `author_name` {#author_name}
 
-**Description:** The author of the original resource.\
+**Description:** The author of the original resource. Deprecated since 4.3.0, clients should use `authors` instead.\
 **Type:** String\
 **Version history:**\
-1.3.0 - added
+1.3.0 - added\
+4.3.0 - deprecated
 
 ### `author_url` {#author_url}
 
-**Description:** A link to the author of the original resource.\
+**Description:** A link to the author of the original resource. Deprecated since 4.3.0, clients should use `authors` instead.\
 **Type:** String (URL)\
 **Version history:**\
-1.3.0 - added
+1.3.0 - added\
+4.3.0 - deprecated
 
 ### `provider_name` {#provider_name}
 
