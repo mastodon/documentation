@@ -483,15 +483,24 @@ TODO
 
 #### `page_min_id` {{%optional%}}
 
-TODO
+**Description:** ID of the oldest notification from this group represented within the current page. This is only returned when paginating through notification groups. Useful when polling new notifications.\
+**Type:** String\
+**Version history:**
+4.3.0 - added
 
 #### `page_max_id` {{%optional%}}
 
-TODO
+**Description:** ID of the newest notification from this group represented within the current page. This is only returned when paginating through notification groups. Useful when polling new notifications.\
+**Type:** String\
+**Version history:**
+4.3.0 - added
 
 #### `latest_page_notification_at` {{%optional%}}
 
-TODO
+**Description:** Date at which the most recent notification from this group within the current page has been created. This is only returned when paginating through notification groups.\
+**Type:** String (ISO 8601 Datetime)\
+**Version history:**
+4.3.0 - added
 
 #### `sample_account_ids`
 
