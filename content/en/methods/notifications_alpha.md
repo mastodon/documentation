@@ -171,7 +171,6 @@ Link: <https://mastodon.social/api/v2_alpha/notifications?limit=2&max_id=196012>
     }
   ]
 }
-
 ```
 
 ##### 401: Unauthorized
@@ -194,7 +193,7 @@ GET /api/v2_alpha/notifications/:group_key HTTP/1.1
 
 View information about a specific notification group with a given group key.
 
-**Returns:** [NotificationGroup]({{< relref "entities/NotificationGroup" >}})\
+**Returns:** [GroupedNotificationsResults](#GroupedNotificationsResults)\
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
 4.3.0 - added
@@ -215,9 +214,52 @@ Authorization
 
 ##### 200: OK
 
-A single notification group
+On success, returns a [GroupedNotificationsResults](#GroupedNotificationsResults) with a single notification group.
 
-TODO
+```json
+{
+  "accounts": [
+    {
+      "id": "16",
+      "username": "eve",
+      "acct": "eve",
+      // …
+    },
+    {
+      "id": "3547",
+      "username": "alice",
+      "acct": "alice",
+      // …
+    }
+  ],
+  "statuses": [
+    {
+      "id": "113010503322889311",
+      "created_at": "2024-08-23T08:57:12.057Z",
+      "account": {
+        "id": "55911",
+        "username": "user",
+        "acct": "user",
+        // …
+      },
+      // …
+    }
+  ],
+  "notification_groups": [
+    {
+      "group_key": "favourite-113010503322889311-479000",
+      "notifications_count": 2,
+      "type": "favourite",
+      "most_recent_notification_id": 196014,
+      "sample_account_ids": [
+        "16",
+        "3547"
+      ],
+      "status_id": "113010503322889311"
+    }
+  ]
+}
+```
 
 ##### 401: Unauthorized
 
