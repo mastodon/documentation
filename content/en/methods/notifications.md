@@ -863,7 +863,7 @@ Accepts multiple notification requests, which merges the filtered notifications 
 ##### Form data parameters
 
 :id[]
-: {{<required>}} Array of String. The ID of the notification requests in the database.
+: {{<required>}} Array of String. The IDs of the notification requests in the database.
 
 ##### Headers
 
@@ -910,7 +910,7 @@ Dismiss multiple notification requests, which hides them and prevent them from c
 ##### Form data parameters
 
 :id[]
-: {{<required>}} Array of String. The ID of the notification requests in the database.
+: {{<required>}} Array of String. The IDs of the notification requests in the database.
 
 ##### Headers
 
