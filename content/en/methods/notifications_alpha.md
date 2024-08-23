@@ -63,7 +63,7 @@ min_id
 : String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
-: Integer. Maximum number of results to return. Defaults to 40 notifications. Max 80 notifications.
+: Integer. Maximum number of results to return. Defaults to 40 notifications. Max 80 notification groups.
 
 types[]
 : Array of String. Types to include in the result.
