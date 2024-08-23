@@ -780,7 +780,7 @@ Authorization
 
 ##### 200: OK
 
-A single notification request.
+A successful call will return an empty object.
 
 ```json
 {}
@@ -827,7 +827,101 @@ Authorization
 
 ##### 200: OK
 
-A single notification request.
+A successful call will return an empty object.
+
+```json
+{}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Accept multiple notification requests {#accept-multiple-requests}
+
+```http
+POST /api/v1/notifications/requests/accept HTTP/1.1
+```
+
+Accepts multiple notification requests, which merges the filtered notifications from those users back into the main notifications and accepts any future notification from them.
+
+**Returns:** Empty\
+**OAuth:** User token + `write:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Form data parameters
+
+:id[]
+: {{<required>}} Array of String. The IDs of the notification requests in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
+
+A successful call will return an empty object.
+
+```json
+{}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Dismiss multiple notification requests {#dismiss-multiple-requests}
+
+```http
+POST /api/v1/notifications/requests/dismiss HTTP/1.1
+```
+
+Dismiss multiple notification requests, which hides them and prevent them from contributing to the pending notification requests count.
+
+**Returns:** Empty\
+**OAuth:** User token + `write:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Form data parameters
+
+:id[]
+: {{<required>}} Array of String. The IDs of the notification requests in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
+
+A successful call will return an empty object.
 
 ```json
 {}
