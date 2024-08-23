@@ -11,6 +11,12 @@ description: Receive notifications for activity on your account or statuses.
 This page documents API endpoints that are not finalized. We welcome feedback on them and you are free to implement them, but we recommend not having these implementations in a release, as they are likely to change and we will not ensure backward compatibility if they do.
 {{</ hint >}}
 
+This page is about grouped notifications, which we implemented server-side so that:
+- grouping is consistent across clients
+- clients do not run into the issue of going through entire pages that do not contribute to any new group; instead, notifications are already deduplicated server-side
+
+The API shape is a bit different from the non-grouped notifications, because large notification groups usually tend to involve the same accounts, and moving accounts to a root key can avoid a lot of duplication, resulting in less server-side work and smaller network payloads.
+
 ## Get all grouped notifications {#get-grouped}
 
 ```http
