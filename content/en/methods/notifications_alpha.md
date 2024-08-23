@@ -25,7 +25,7 @@ GET /api/v2_alpha/notifications HTTP/1.1
 
 Return grouped notifications concerning the user. This API returns Link headers containing links to the next/previous page. However, the links can also be constructed dynamically using query params and `id` values.
 
-Notifications of type `favourite` or `reblog` with the same type and the same target made in a similar timeframe are given a same `group_key` by the server, and querying this endpoint will return aggregated notifications, with only one object per `group_key`.
+Notifications of type `favourite` or `reblog` with the same type and the same target made in a similar timeframe are given a same `group_key` by the server, and querying this endpoint will return aggregated notifications, with only one object per `group_key`. Other notification types (such as `follow`) may be grouped in the future.
 
 Types to filter include:
 - `mention` = Someone mentioned you in their status
