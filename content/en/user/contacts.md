@@ -9,13 +9,13 @@ menu:
 
 ## Generating invites {#invites}
 
-{{< figure src="assets/invites.jpg" caption="Invite people from your account&apos;s settings" >}}
+{{< figure src="assets/invites.png" width="70%" caption="Invite people to join your server" >}}
 
 Invite links can be generated and shared with other people, and some servers require invites in order to register for an account. When generating an invite link, you can set the max uses to limit how many times a certain link is used, or how long it has been active. Invite links can be deactivated at any time.
 
 ## Follows and followers {#relationships}
 
-{{< figure src="assets/relationships.jpg" caption="Mutuals who have not moved their account, sorted by last activity" >}}
+{{< figure src="assets/relationships.png" width="70%" caption="Mutuals who have not moved their account, sorted by most recent" >}}
 
 Within settings, you can find a relationship manager that lets you filter and sort through the profiles that you are connected to, based on different criteria:
 

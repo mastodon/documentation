@@ -11,15 +11,19 @@ menu:
 
 ### Choose a theme {#theme}
 
-Mastodon defaults to a dark theme, but a light or high-contrast theme can be selected.
+Mastodon has multiple theme options: 
 
-{{< figure src="assets/light-theme.jpg" caption="Mastodon light theme" >}}
+- Automatically switch between a dark and light theme depending on your operating system preferences.
+- Manually switch between a dark and light theme.
+- Manually use a dark high contrast theme.
+
+{{< figure src="assets/light-theme.png" width="70%" caption="Mastodon post and thread as viewed from the light theme" >}}
 
 ### Choose your layout {#layout}
 
 Mastodon defaults to a simple, one-column layout with a compose box on the left and a column switcher on the right. You can choose to enable the advanced web interface, which allows you view and pin multiple columns at the same time.
 
-{{< figure src="assets/advanced-web-ui.jpg" caption="The advanced web interface" >}}
+{{< figure src="assets/advanced-web-ui.png" caption="Columns of the advanced web interface using the light theme" >}}
 
 In either interface, updates will load automatically as new posts are available. You can enable Slow Mode to instead show a banner at the top of the column indicating the number of new items available, which will be loaded only when you click the banner.
 
@@ -41,7 +45,7 @@ By default, any media marked as sensitive is hidden behind a click-through overl
 
 Hidden and unloaded media uses a colorful gradient provided by the BlurHash algorithm, which uses the colors of the image but blurs the details. These gradients can be disabled.
 
-{{< figure src="assets/blurhash.jpg" caption="An example blurhash thumbnail" >}}
+{{< figure src="assets/blurhash.png" width="50%" caption="An example blurhash thumbnail" >}}
 
 Posts with content warnings are collapsed by default, but you can choose to always expand the warnings so that the full post is displayed.
 
@@ -70,8 +74,6 @@ You can also choose to not receive notifications when you receive a direct messa
 If you opt out of search engine indexing, a `noindex` flag will be added to your public profile and status pages.
 
 You can choose to hide your network, which will make your following and follower lists private to you only.
-
-{{< figure src="assets/hidden-network.jpg" caption="A profile that has opted to hide its network" >}}
 
 If you want to see posts that are boosted multiple times be reinserted into your feed at the top, you can disable boost grouping in timelines.
 
