@@ -11,8 +11,6 @@ aliases: [
 
 ## Attributes
 
-### `type` {#type}
-
 ### `name` {#name}
 
 **Description:** The original resource author's name. Replaces the deprecated `author_name` attribute of the preview card.\
