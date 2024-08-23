@@ -46,6 +46,13 @@ aliases: [
 4.0.0 - added `admin.report`\
 4.3.0 - added `severed_relationships` and `moderation_warning`
 
+### `group_key` {#group_key}
+
+**Description:** Group key shared by similar notifications, to be used in the grouped notifications feature. Should be considered opaque.
+**Type:** String\
+**Version history:**\
+4.3.0 - added
+
 ### `created_at` {#created_at}
 
 **Description:** The timestamp of the notification.\
