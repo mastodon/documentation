@@ -441,7 +441,92 @@ TODO
 
 ### Attributes
 
+#### `group_key`
+
+**Description:** Group key identifying the grouped notifications. Should be treated as an opaque value.\
+**Type:** String\
+**Version history:**\
+4.3.0 - added
+
+#### `notifications_count`
+
+**Description:** Total number of individual notifications that are part of this notification group.\
+**Type:** Integer\\
+**Version history:**\
+4.3.0 - added
+
+#### `type`
+
+**Description:** The type of event that resulted in the notifications in this group.\
+**Type:** String (Enumerable oneOf)\
+`mention` = Someone mentioned you in their status\
+`status` = Someone you enabled notifications for has posted a status\
+`reblog` = Someone boosted one of your statuses\
+`follow` = Someone followed you\
+`follow_request` = Someone requested to follow you\
+`favourite` = Someone favourited one of your statuses\
+`poll` = A poll you have voted in or created has ended\
+`update` = A status you interacted with has been edited\
+`admin.sign_up` = Someone signed up (optionally sent to admins)\
+`admin.report` = A new report has been filed\
+`severed_relationships` = Some of your follow relationships have been severed as a result of a moderation or block event\
+`moderation_warning` = A moderator has taken action against your account or has sent you a warning\
+**Version history:**\
+4.3.0 - added
+
+#### `most_recent_notification_id`
+
+**Description:** ID of the most recent notification in the group.\
+**Type:** String\
+**Version history:**\
+4.3.0 - added
+
+#### `page_min_id` {{%optional%}}
+
 TODO
+
+#### `page_max_id` {{%optional%}}
+
+TODO
+
+#### `latest_page_notification_at` {{%optional%}}
+
+TODO
+
+#### `sample_account_ids`
+
+**Description:** IDs of some of the accounts who most recently triggered notifications in this group.\
+**Type:** Array of String\
+**Version history:**\
+4.3.0 - added
+
+#### `status_id` {{%optional%}}
+
+**Description:** ID of the [Status]({{< relref "entities/Status" >}}) that was the object of the notification. Attached when `type` of the notification is `favourite`, `reblog`, `status`, `mention`, `poll`, or `update`.\
+**Type:** String\
+**Version history:**\
+4.3.0 - added
+
+#### `report` {{%optional%}}
+
+**Description:** Report that was the object of the notification. Attached when `type` of the notification is `admin.report`.\
+**Type:** [Report]({{< relref "entities/Report" >}})\
+**Version history:**\
+4.3.0 - added
+
+#### `event` {{%optional%}}
+
+**Description:** Summary of the event that caused follow relationships to be severed. Attached when `type` of the notification is `severed_relationships`.\
+**Type:** [RelationshipSeveranceEvent]({{< relref "entities/RelationshipSeveranceEvent" >}})\
+**Version history:**\
+4.3.0 - added
+
+#### `moderation_warning` {{%optional%}}
+
+**Description:** Moderation warning that caused the notification. Attached when `type` of the notification is `moderation_warning`.\
+**Type:** [AccountWarning]({{< relref "entities/AccountWarning" >}})\
+**Version history:**\
+4.3.0 - added
 
 ### Examples
 
