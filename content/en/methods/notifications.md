@@ -939,6 +939,51 @@ Invalid or missing Authorization header.
 
 ---
 
+## Check if accepted notification requests have been merged {#requests-merged}
+
+```http
+GET /api/v1/notifications/requests/merged
+```
+
+Check whether accepted notification requests have been merged.
+Accepting notification requests schedules a background job to merge the filtered notifications back into the normal notification list. When that process has finished, the client should refresh the notifications list at its earliest convenience. This is communicated by the `notifications_merged` streaming event but can also be polled using this endpoint.
+
+***Returns:** Hash with a single boolean attribute `merged`\
+**OAuth:** User token + `read:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
+
+A successful call returns whether the notifications have been merged and are ready for being loaded.
+
+```json
+{
+  "merged": false
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
 ## See also
 
 {{< page-relref ref="methods/push" caption="push API methods" >}}
