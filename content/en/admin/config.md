@@ -463,28 +463,27 @@ Used for optionally authenticating with Elasticsearch
 
 Useful if the Elasticsearch server is shared between multiple projects or different Mastodon servers. Defaults to the value of `REDIS_NAMESPACE`.
 
-### StatsD {#statsd}
-
-#### `STATSD_ADDR`
-
-If set, Mastodon will log some events and metrics into a StatsD instance identified by its hostname and port.
-
-Example value: `localhost:8125`
-
-#### `STATSD_NAMESPACE`
-
-If set, all StatsD keys will be prefixed with this. Defaults to `Mastodon.production` when `RAILS_ENV` is `production`, `Mastodon.development` when it's `development`, etc.
-
-#### `STATSD_SIDEKIQ`
-
-If set to `true`, Mastodon will log some Sidekiq metrics into StatsD. Defaults to `false`.
-
 #### `ES_CA_FILE`
 
 Override Certificate Authority bundle file to use. Useful when using self-signed certificates.
 
 **Version history:**\
 4.3.0 - added
+
+### OpenTelemetry {#otel}
+
+Mastodon supports exporting tracing data using the OpenTelemetry protocol. The instrumentation uses the standard OTEL Ruby SDK, and should support the [standard OTEL environment configuration variables](https://opentelemetry.io/docs/languages/sdk-configuration/general/), with the exception of `OTEL_SERVICE_NAME` (see `OTEL_SERVICE_NAME_PREFIX` below). Mastodon currently only ships with the OLTP exporter.
+
+**Version history:**\
+4.3.0 - added support for the Ruby backend
+
+#### `OTEL_SERVICE_NAME_PREFIX`
+
+Prefix for the OTEL service names. The services names will be `$prefix/web` and `$prefix/sidekiq`. Defaults to `mastodon`.
+
+#### `OTEL_EXPORTER_OTLP_ENDPOINT`
+
+URL of the OLTP server to send the traces to. OpenTelemetry instrumentation is disabled if this variable is not set. No default (empty value).
 
 ### SMTP email delivery {#smtp}
 
@@ -832,7 +831,7 @@ It is important to use a supported file format (JPEG or PNG, not SVG).
 
 ## Limits {#limits}
 
-### Anti Spam / Abuse 
+### Anti Spam / Abuse
 
 #### `HCAPTCHA_SITE_KEY`
 #### `HCAPTCHA_SECRET_KEY`
@@ -891,6 +890,26 @@ database attributes.
 
 **Version history:**\
 4.3.0 - added
+
+### StatsD (removed in 4.3.0) {#statsd}
+
+{{< hint style="danger" >}}
+StatsD support has been deprecated in Mastodon 4.2.0, and remove entirely in 4.3.0.
+{{< /hint >}}
+
+#### `STATSD_ADDR`
+
+If set, Mastodon will log some events and metrics into a StatsD instance identified by its hostname and port.
+
+Example value: `localhost:8125`
+
+#### `STATSD_NAMESPACE`
+
+If set, all StatsD keys will be prefixed with this. Defaults to `Mastodon.production` when `RAILS_ENV` is `production`, `Mastodon.development` when it's `development`, etc.
+
+#### `STATSD_SIDEKIQ`
+
+If set to `true`, Mastodon will log some Sidekiq metrics into StatsD. Defaults to `false`.
 
 ### Uncategorized or unsorted
 
