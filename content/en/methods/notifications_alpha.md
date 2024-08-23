@@ -17,7 +17,9 @@ This page documents API endpoints that are not finalized. We welcome feedback on
 GET /api/v2_alpha/notifications HTTP/1.1
 ```
 
-Notifications concerning the user. This API returns Link headers containing links to the next/previous page. However, the links can also be constructed dynamically using query params and `id` values.
+Return grouped notifications concerning the user. This API returns Link headers containing links to the next/previous page. However, the links can also be constructed dynamically using query params and `id` values.
+
+Notifications of type `favourite` or `reblog` with the same type and the same target made in a similar timeframe are given a same `group_key` by the server, and querying this endpoint will return aggregated notifications, with only one object per `group_key`.
 
 Types to filter include:
 - `mention` = Someone mentioned you in their status
@@ -67,7 +69,7 @@ account_id
 : String. Return only notifications received from the specified account.
 
 expand_accounts
-: String. One of `full` (default) or `partial_avatars`. If `partial_avatars`, some accounts will not be rendered in full.
+: String. One of `full` (default) or `partial_avatars`. When set to `partial_avatars`, some accounts will not be rendered in full in the returned `accounts` list but will be instead returned in stripped-down form in the `partial_accounts` list. The most recent account in a notification group is always rendered in full in the `accounts` attribute.
 
 #### Response
 
