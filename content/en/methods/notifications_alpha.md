@@ -77,6 +77,9 @@ account_id
 expand_accounts
 : String. One of `full` (default) or `partial_avatars`. When set to `partial_avatars`, some accounts will not be rendered in full in the returned `accounts` list but will be instead returned in stripped-down form in the `partial_accounts` list. The most recent account in a notification group is always rendered in full in the `accounts` attribute.
 
+grouped_types[]
+: Array of String. Restrict which notification types can be grouped. Use this if there are notification types for which your client does not support grouping. If omitted, the server will group notifications of all types it supports (currently, `favourite` and `reblog`). If you do not want any notification grouping, use [GET `/api/v1/notifications`]({{< relref "methods/notifications#get" >}}) instead.
+
 #### Response
 
 Sample call with limit=2.
@@ -361,6 +364,9 @@ exclude_types[]
 
 account_id
 : String. Only count unread notifications received from the specified account.
+
+grouped_types[]
+: Array of String. Restrict which notification types can be grouped. Use this if there are notification types for which your client does not support grouping. If omitted, the server will group notifications of all types it supports (currently, `favourite` and `reblog`). If you do not want any notification grouping, use [GET `/api/v1/notifications/unread_count`]({{< relref "methods/notifications#unread-count" >}}) instead.
 
 #### Response
 
