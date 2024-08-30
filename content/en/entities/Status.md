@@ -257,7 +257,7 @@ aliases: [
 ### `reblog` {#reblog}
 
 **Description:** The status being reblogged.\
-**Type:** {{<nullable>}} [Status](#) or null\
+**Type:** {{<nullable>}} [Status]({{< relref "entities/status" >}}) or null\
 **Version history:**\
 0.1.0 - added
 
