@@ -9,7 +9,7 @@ menu:
 
 ## Pre-requisites {#pre-requisites}
 
-* A machine running **Ubuntu 20.04** or **Debian 11** that you have root access to
+* A machine running **Ubuntu 22.04** or **Debian 11** that you have root access to
 * A **domain name** (or a subdomain) for the Mastodon server, e.g. `example.com`
 * An e-mail delivery service or other **SMTP server**
 
@@ -42,7 +42,7 @@ echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.o
 ```bash
 apt update
 apt install -y \
-  imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core \
+  imagemagick ffmpeg libvips-tools libpq-dev libxml2-dev libxslt1-dev file git-core \
   g++ libprotobuf-dev protobuf-compiler pkg-config gcc autoconf \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
   zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
@@ -78,7 +78,7 @@ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 exec bash
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 ```
 
 Once this is done, we can install the correct Ruby version:

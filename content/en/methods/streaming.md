@@ -52,6 +52,9 @@ aliases: [
 `encrypted_message`
 : An encrypted message has been received. Implemented in v3.2.0 but currently unused
 
+`notifications_merged`
+: Accepted notification requests have finished merging, and the notifications list should be refreshed. Payload can be ignored. Available since v4.3.0
+
 ## Streaming timelines/categories {#streams}
 
 `public`
