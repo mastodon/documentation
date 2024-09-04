@@ -1020,3 +1020,95 @@ main {
     margin-left: 0.25em;
   }
 }
+
+/* Update menu styling */
+@media screen and (min-width: $mobile-width) {
+  nav.sidebar {
+    height: 90%;
+    position: sticky !important;
+    top: 0px !important;
+    overflow-y: auto;
+    max-height: 1000px !important;
+    left: 10px !important;
+    margin-left: 0px !important;
+    z-index: 1;  
+    
+    ul:first {
+      background-color: $darkest;
+      top: -55px;
+      position: relative;
+      border-top: 0px solid white;
+    }
+    
+    a:first {
+      position: relative !important;
+      background-color: $darkest;
+      z-index: 1;
+      width: 100%;
+      top: 0px !important;
+      box-sizing: border-box;
+      margin-top: 0px;
+    }
+    
+    a.active {
+      top: 0px !important;
+    } 
+  } 
+  /* give main content a little more room */
+  main {
+    margin-left: 50px;
+  }
+}
+
+
+@media screen and (max-width: $mobile-width) {
+  nav {
+    display: inline-block;
+    top: 0px;
+    left: 0px;        
+    width: 100%;
+    margin: 0px;
+    padding: 0px !important;        
+    background-color: $darkest;
+
+    a.brand {
+      display: inline-block !important;        
+      padding-left: 30%;        
+
+      img {
+        margin: 5px auto 0px auto !important;                
+      }
+    }
+    label[for] {
+      display: inline-block !important;
+      float: right;        
+      margin-top: 10px;
+      margin-right: 10px;
+    }    
+  }       
+}
+
+/* 
+ Designing for scroll-bar thanks to:
+ https://www.geeksforgeeks.org/how-to-change-the-position-of-scrollbar-using-css/ 
+*/
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $darkest;
+  border-radius: 5px; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
