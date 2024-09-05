@@ -390,7 +390,11 @@ systemctl restart redis-sidekiq.service
 
 ## Redis Sentinel for High Availability {#redis-sentinel}
 
-As mentioned, Redis is a critical part of a Mastodon instance's operation. By default, your deployment will use a single Redis instance, or multiple if you've setup a cache. However if that instance goes down it can bring the entire Mastodon instance down as well. To alleviate this, Redis Sentinel can be used to track your Redis instances and automatically direct clients to a new primary if one goes down. You can specify `REDIS_SENTINEL`, which is either a DNS name that resolves to the IPs of your Redis Sentinel instances (e.g a Kubernetes service) or a comma-delimited list of the IP:Port combinations directly, that Mastodon can talk with to determine the current master Redis node. By default Sentinel will set an instance as down and select a new master after a minute of the current master being unreachable, but this can be configured based on your setup.
+As mentioned, Redis is a critical part of a Mastodon instance's operation. By default, your deployment will use a single Redis instance, or multiple if you've setup a cache. However if that instance goes down it can bring the entire Mastodon instance down as well. To alleviate this, Redis Sentinel can be used to track your Redis instances and automatically direct clients to a new primary if one goes down. You can specify `REDIS_SENTINELS`, which is a comma-delimited list of the IP:Port combinations of sentinels that Mastodon can talk with to determine the current master Redis node. You also need to specify the name of the master you would like to connect to in `REDIS_SENTINEL_MASTER`. By default Sentinel will set an instance as down and select a new master after a minute of the current master being unreachable, but this can be configured based on your setup.
+
+All sentinel-related variables are also available prefixed with `CACHE_` and `SIDEKIQ_` in case you use more than one redis instance.
+
+Learn more about Redis sentinel here: https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/
 
 ## Read-replicas {#read-replicas}
 
