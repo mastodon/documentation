@@ -383,8 +383,17 @@ No default.
 
 ### Redis {#redis}
 
+Mastodon uses Redis in three different ways:
+
+* The web application itself uses redis to store data and communicate with the streaming server.
+* Redis is used as cache backend for Rails' built-in caching functionality.
+* Sidekiq, which we use to process background jobs, stores job data in redis.
+
+You can use a single Redis instance for all three use cases. Simple use the appropriate `REDIS_*` variables mentioned below. But you can
+also use two or even three distinct Redis instances by using the variables prefixed with `CACHE_` and `SIDEKIQ_`.
+
 {{< hint style="info" >}}
-It is possible to use a separate Redis server for volatile cache. You may wish to do so if your Redis server starts getting overwhelmed.
+It is advisable to use a separate Redis server for volatile cache. You may wish to do so if your single Redis server starts getting overwhelmed.
 {{</ hint >}}
 
 #### `REDIS_HOST`
@@ -395,9 +404,20 @@ Defaults to `localhost`.
 
 Defaults to `6379`.
 
+#### `REDIS_USER`
+
+Optional. The username used to connect to Redis.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_PASSWORD`
+
+Optional. The password used to connect to Redis.
+
 #### `REDIS_URL`
 
-If provided, takes precedence over `REDIS_HOST` and `REDIS_PORT`.
+If provided, takes precedence over `REDIS_HOST`, `REDIS_PORT`, `REDIS_USER`, `REDIS_PASSWORD` and sentinel settings.
 
 Example value: `redis://user:password@localhost:6379`
 
@@ -416,6 +436,45 @@ Defaults to `hiredis`, accepted values are `hiredis` or `ruby`.
 
 If provided, namespaces all Redis keys. This allows the sharing of the same Redis database between different projects or Mastodon servers.
 
+#### `REDIS_SENTINELS`
+
+A comma-delimited list of Redis Sentinel instance HOST:PORTs. The port number is optional, if omitted it will use the value given in `REDIS_SENTINEL_PORT` or the default of `26379`.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `REDIS_SENTINEL_MASTER`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_SENTINEL_MASTER`
+
+The name of the Redis Sentinel master to connect to.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_SENTINEL_PORT`
+
+The default port for the sentinels given in `REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_SENTINEL_USER`
+
+The username used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_SENTINEL_PASSWORD`
+
+The password used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
 #### `CACHE_REDIS_HOST`
 
 Defaults to the value of `REDIS_HOST`.
@@ -423,6 +482,17 @@ Defaults to the value of `REDIS_HOST`.
 #### `CACHE_REDIS_PORT`
 
 Defaults to the value of `REDIS_PORT`.
+
+#### `CACHE_REDIS_USER`
+
+Optional. The username used to connect to Redis.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_PASSWORD`
+
+Optional. The password used to connect to Redis.
 
 #### `CACHE_REDIS_URL`
 
@@ -432,7 +502,118 @@ If provided, takes precedence over `CACHE_REDIS_HOST` and `CACHE_REDIS_PORT`. De
 
 Defaults to the value of `REDIS_NAMESPACE`.
 
+#### `CACHE_REDIS_SENTINELS`
+
+A comma-delimited list of Redis Sentinel instance HOST:PORTs. The port number is optional, if omitted it will use a default of `26379`.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `CACHE_REDIS_SENTINEL_MASTER`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_SENTINEL_MASTER`
+
+The name of the Redis Sentinel master to connect to.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `CACHE_REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_SENTINEL_PORT`
+
+The default port for the sentinels given in `CACHE_REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_SENTINEL_USER`
+
+The username used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_SENTINEL_PASSWORD`
+
+The password used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_HOST`
+
+Defaults to the value of `REDIS_HOST`.
+
+#### `SIDEKIQ_REDIS_PORT`
+
+Defaults to the value of `REDIS_PORT`.
+
+#### `SIDEKIQ_REDIS_USER`
+
+Optional. The username used to connect to Redis.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_PASSWORD`
+
+Optional. The password used to connect to Redis.
+
 #### `SIDEKIQ_REDIS_URL`
+
+If provided, takes precedence over `SIDEKIQ_REDIS_HOST` and `SIDEKIQ_REDIS_PORT`. Defaults to the value of `REDIS_URL`.
+
+#### `SIDEKIQ_REDIS_NAMESPACE`
+
+Defaults to the value of `REDIS_NAMESPACE`.
+
+#### `SIDEKIQ_REDIS_SENTINELS`
+
+A comma-delimited list of Redis Sentinel instance HOST:PORTs. The port number is optional, if omitted it will use a default of `26379`.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `SIDEKIQ_REDIS_SENTINEL_MASTER`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_SENTINEL_MASTER`
+
+The name of the Redis Sentinel master to connect to.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `SIDEKIQ_REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_SENTINEL_PORT`
+
+The default port for the sentinels given in `SIDEKIQ_REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_SENTINEL_USER`
+
+The username used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_SENTINEL_PASSWORD`
+
+The password used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+### Elasticsearch {#elasticsearch}
+
+{{< page-ref page="admin/elasticsearch" >}}
+
+#### `ES_ENABLED`
+
+If set to `true`, Mastodon will use Elasticsearch for its search functions.
 
 ### Elasticsearch {#elasticsearch}
 
