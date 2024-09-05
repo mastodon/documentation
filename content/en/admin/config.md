@@ -449,7 +449,7 @@ Please note that if you would like to use Redis Sentinel you also need to specif
 
 The name of the Redis Sentinel master to connect to.
 
-Please note that if you would like to use Redis Sentinel you also need to specify `REDIS_SENTINEL_MASTER`.
+Please note that if you would like to use Redis Sentinel you also need to specify `REDIS_SENTINELS`.
 
 **Version history:**\
 4.3.0 - added
@@ -515,7 +515,7 @@ Please note that if you would like to use Redis Sentinel you also need to specif
 
 The name of the Redis Sentinel master to connect to.
 
-Please note that if you would like to use Redis Sentinel you also need to specify `CACHE_REDIS_SENTINEL_MASTER`.
+Please note that if you would like to use Redis Sentinel you also need to specify `CACHE_REDIS_SENTINELS`.
 
 **Version history:**\
 4.3.0 - added
@@ -581,7 +581,7 @@ Please note that if you would like to use Redis Sentinel you also need to specif
 
 The name of the Redis Sentinel master to connect to.
 
-Please note that if you would like to use Redis Sentinel you also need to specify `SIDEKIQ_REDIS_SENTINEL_MASTER`.
+Please note that if you would like to use Redis Sentinel you also need to specify `SIDEKIQ_REDIS_SENTINELS`.
 
 **Version history:**\
 4.3.0 - added
