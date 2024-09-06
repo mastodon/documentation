@@ -437,7 +437,7 @@ Defaults to `hiredis`, accepted values are `hiredis` or `ruby`.
 If provided, namespaces all Redis keys. This allows the sharing of the same Redis database between different projects or Mastodon servers.
 
 {{< hint style="warning" >}}
-This option is deprecated. Sidekiq 7+ removes support for namespaces and one day we will have to upgrade. For everyone using this option today, we will not remove this option without a migration / replacement plan. For everyone setting up a new instance, please do not use this option.
+This option is deprecated. Sidekiq 7 removes support for namespaces, and so will a future version of Mastodon. We will attempt to document a clear migration path by the time that happens. If you are setting up a new instance, using this option is highly discouraged.
 {{</ hint >}}
 
 **Version history:**\
