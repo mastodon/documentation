@@ -436,6 +436,13 @@ Defaults to `hiredis`, accepted values are `hiredis` or `ruby`.
 
 If provided, namespaces all Redis keys. This allows the sharing of the same Redis database between different projects or Mastodon servers.
 
+{{< hint style="warning" >}}
+This option is deprecated. Sidekiq 7+ removes support for namespaces and one day we will have to upgrade. For everyone using this option today, we will not remove this option without a migration / replacement plan. For everyone setting up a new instance, please do not use this option.
+{{</ hint >}}
+
+**Version history:**\
+4.3.0 - deprecated
+
 #### `REDIS_SENTINELS`
 
 A comma-delimited list of Redis Sentinel instance HOST:PORTs. The port number is optional, if omitted it will use the value given in `REDIS_SENTINEL_PORT` or the default of `26379`.
