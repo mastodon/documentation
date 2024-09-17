@@ -264,6 +264,9 @@ alsoKnownAs
 published
 : When the profile was created.
 
+attributionDomains
+: Domains allowed to use `fediverse:creator` for this actor in published articles.
+
 ## JSON-LD Contexts and Extensions {#contexts}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/activitypub/adapter.rb" caption="app/lib/activitypub/adapter.rb" >}}
@@ -283,6 +286,7 @@ Contains definitions for Mastodon features.
 - toot:discoverable (`http://joinmastodon.org/ns#discoverable`)
 - toot:suspended (`http://joinmastodon.org/ns#suspended`)
 - toot:votersCount (`http://joinmastodon.org/ns#votersCount`)
+- toot:attributionDomains (`http://joinmastodon.org/ns#attributionDomains`)
 
 ### ActivityStreams extensions (`as:`) {#as}
 
