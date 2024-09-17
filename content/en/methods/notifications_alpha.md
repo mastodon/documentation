@@ -8,7 +8,7 @@ description: Receive notifications for activity on your account or statuses.
 </style>
 
 {{< hint style="warning" >}}
-This page documents API endpoints that are not finalized. We welcome feedback on them and you are free to implement them, but we recommend not having these implementations in a release, as they are likely to change and we will not ensure backward compatibility if they do.
+This page documents experimental API endpoints and is kept for historical purposes only. See the [finalized version]({{< relref "methods/grouped_notifications" >}}) if you want to implement the grouped notifications feature in a client.
 {{</ hint >}}
 
 This page is about grouped notifications, which we implemented server-side so that:
@@ -42,7 +42,8 @@ Types to filter include:
 **Returns:** [GroupedNotificationsResults](#GroupedNotificationsResults)\
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### Request
 
@@ -205,7 +206,8 @@ View information about a specific notification group with a given group key.
 **Returns:** [GroupedNotificationsResults](#GroupedNotificationsResults)\
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### Request
 
@@ -293,7 +295,8 @@ Dismiss a single notification group from the server.
 **Returns:** Empty\
 **OAuth:** User token + `write:notifications`\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### Request
 
@@ -342,7 +345,8 @@ Because the count is dependant on the parameters, it is computed every time and 
 **Returns:** Hash with a single key of `count`\
 **OAuth:** User token + `read:notifications`\
 **Version history**:\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### Request
 
@@ -401,28 +405,32 @@ Invalid or missing Authorization header.
 **Description:** Accounts referenced by grouped notifications.\
 **Type:** Array of [Account]({{< relref "entities/Account" >}})\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `partial_accounts` {{%optional%}}
 
 **Description:** Partial accounts referenced by grouped notifications. Those are only returned when requesting grouped notifications with `expand_accounts=partial_avatars`.
 **Type:** Array of [PartialAccountWithAvatar](#PartialAccountWithAvatar)\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `statuses`
 
 **Description:** Statuses referenced by grouped notifications.\
 **Type:** Array of [Status]({{< relref "entities/Status" >}}}\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `notification_groups`
 
 **Description:** The grouped notifications themselves.
 **Type:** [NotificationGroup](#NotificationGroup)\
 **Version history:**
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 ### Examples
 
@@ -441,49 +449,56 @@ These are stripped-down versions of [Account]({{< relref "entities/Account" >}})
 **Description:** The account id.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `acct`
 
 **Description:** The Webfinger account URI. Equal to `username` for local users, or `username@domain` for remote users.\
 **Type:** String\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `url`
 
 **Description:** The location of the user's profile page.\
 **Type:** String (URL)\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `avatar`
 
 **Description:** An image icon that is shown next to statuses and in the profile.\
 **Type:** String (URL)\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `avatar_static`
 
 **Description:** A static version of the avatar. Equal to `avatar` if its value is a static image; different if `avatar` is an animated GIF.\
 **Type:** String (URL)\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `locked`
 
 **Description:** Whether the account manually approves follow requests.\
 **Type:** Boolean\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `bot`
 
 **Description:** Indicates that the account may perform automated actions, may not be monitored, or identifies as a robot.\
 **Type:** Boolean\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 ### Examples
 
@@ -500,14 +515,16 @@ TODO
 **Description:** Group key identifying the grouped notifications. Should be treated as an opaque value.\
 **Type:** String\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `notifications_count`
 
 **Description:** Total number of individual notifications that are part of this notification group.\
 **Type:** Integer\\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `type`
 
@@ -526,70 +543,80 @@ TODO
 `severed_relationships` = Some of your follow relationships have been severed as a result of a moderation or block event\
 `moderation_warning` = A moderator has taken action against your account or has sent you a warning\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `most_recent_notification_id`
 
 **Description:** ID of the most recent notification in the group.\
 **Type:** String\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `page_min_id` {{%optional%}}
 
 **Description:** ID of the oldest notification from this group represented within the current page. This is only returned when paginating through notification groups. Useful when polling new notifications.\
 **Type:** String\
 **Version history:**
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `page_max_id` {{%optional%}}
 
 **Description:** ID of the newest notification from this group represented within the current page. This is only returned when paginating through notification groups. Useful when polling new notifications.\
 **Type:** String\
 **Version history:**
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `latest_page_notification_at` {{%optional%}}
 
 **Description:** Date at which the most recent notification from this group within the current page has been created. This is only returned when paginating through notification groups.\
 **Type:** String (ISO 8601 Datetime)\
 **Version history:**
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `sample_account_ids`
 
 **Description:** IDs of some of the accounts who most recently triggered notifications in this group.\
 **Type:** Array of String\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `status_id` {{%optional%}}
 
 **Description:** ID of the [Status]({{< relref "entities/Status" >}}) that was the object of the notification. Attached when `type` of the notification is `favourite`, `reblog`, `status`, `mention`, `poll`, or `update`.\
 **Type:** String\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `report` {{%optional%}}
 
 **Description:** Report that was the object of the notification. Attached when `type` of the notification is `admin.report`.\
 **Type:** [Report]({{< relref "entities/Report" >}})\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `event` {{%optional%}}
 
 **Description:** Summary of the event that caused follow relationships to be severed. Attached when `type` of the notification is `severed_relationships`.\
 **Type:** [RelationshipSeveranceEvent]({{< relref "entities/RelationshipSeveranceEvent" >}})\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 #### `moderation_warning` {{%optional%}}
 
 **Description:** Moderation warning that caused the notification. Attached when `type` of the notification is `moderation_warning`.\
 **Type:** [AccountWarning]({{< relref "entities/AccountWarning" >}})\
 **Version history:**\
-4.3.0 - added
+4.3.0-beta.1 - added\
+4.3.0-beta.2 - deprecated
 
 ### Examples
 
@@ -599,6 +626,8 @@ TODO
 
 ## See also
 
-{{< page-relref ref="methods/notifications" caption="Released notifications API methods" >}}
+{{< page-relref ref="methods/grouped_notifications" caption="Finalized grouped notifications API methods" >}}
+
+{{< page-relref ref="methods/notifications" caption="Individual notification API methods" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v2_alpha/notifications_controller.rb" caption="app/controllers/api/v2_alpha/notifications_controller.rb" >}}
