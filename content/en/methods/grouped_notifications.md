@@ -1,5 +1,5 @@
 ---
-title: grouped notifications API methods
+title: Grouped notifications API methods
 description: Receive grouped notifications for activity on your account or statuses.
 menu:
   docs:
@@ -91,7 +91,7 @@ grouped_types[]
 Sample call with limit=2.
 
 ```http
-GET https://mastodon.social/api/v2_alpha/notifications?limit=2 HTTP/1.1
+GET https://mastodon.social/api/v2/notifications?limit=2 HTTP/1.1
 Authorization: Bearer xxx
 ```
 
@@ -100,7 +100,7 @@ Authorization: Bearer xxx
 The response body contains one page of grouped notifications. You can use the HTTP Link header for further pagination.
 
 ```http
-Link: <https://mastodon.social/api/v2_alpha/notifications?limit=2&max_id=196012>; rel="next", <https://mastodon.social/api/v2_alpha/notifications?limit=2&min_id=196014>; rel="prev";
+Link: <https://mastodon.social/api/v2/notifications?limit=2&max_id=196012>; rel="next", <https://mastodon.social/api/v2/notifications?limit=2&min_id=196014>; rel="prev";
 ```
 
 ```json
@@ -203,7 +203,7 @@ Invalid or missing Authorization header.
 ## Get a single notification group {#get-notification-group}
 
 ```http
-GET /api/v2_alpha/notifications/:group_key HTTP/1.1
+GET /api/v2/notifications/:group_key HTTP/1.1
 ```
 
 View information about a specific notification group with a given group key.
@@ -291,7 +291,7 @@ Invalid or missing Authorization header.
 ## Dismiss a single notification group {#dismiss-group}
 
 ```http
-POST /api/v2_alpha/notifications/:group_key/dismiss HTTP/1.1
+POST /api/v2/notifications/:group_key/dismiss HTTP/1.1
 ```
 
 Dismiss a single notification group from the server.
@@ -335,10 +335,66 @@ Invalid or missing Authorization header.
 
 ---
 
+## Get accounts of all notifications in a notification group {#get-group-accounts}
+
+```http
+GET /api/v2/notifications/:group_key/accounts HTTP/1.1
+```
+
+**Returns:** Array of [Account]({{< relref "entities/Account" >}})\
+**OAuth:** User token + `write:notifications`\
+**Version history:**\
+4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
+
+#### Request
+
+##### Path parameters
+
+:group_key
+: {{<required>}} String. The group key of the notifications to get accounts from.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
+
+```json
+[
+  {
+    "id": "16",
+    "username": "eve",
+    "acct": "eve"
+    // …
+  },
+  {
+    "id": "3547",
+    "username": "alice",
+    "acct": "alice"
+    // …
+  }
+]
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
 ## Get the number of unread notifications {#unread-group-count}
 
 ```http
-GET /api/v2_alpha/notifications/unread_count HTTP/1.1
+GET /api/v2/notifications/unread_count HTTP/1.1
 ```
 
 Get the (capped) number of unread notification groups for the current user.
