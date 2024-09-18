@@ -40,7 +40,7 @@ If you have multiple domains pointed at your Mastodon server, this setting will 
 
 #### `ALLOWED_PRIVATE_ADDRESSES`
 
-Comma-separated specific addresses/subnets are allowed in outgoing HTTP queries.
+Comma-separated list of private IP addresses/subnets that are allowed in outgoing HTTP requests. Mastodon blocks HTTP requests to hosts on private IP address ranges (like `127.0.0.1` or `192.168.1.1/16`) to prevent [Server-side request forgeries](https://en.wikipedia.org/wiki/Server-side_request_forgery). This setting removes the specified IP addresses/subnets from being blocked.
 
 #### `AUTHORIZED_FETCH`
 
