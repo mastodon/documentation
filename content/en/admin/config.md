@@ -680,6 +680,11 @@ Mastodon supports exporting tracing data using the OpenTelemetry protocol. The i
 
 Prefix for the OTEL service names. The services names will be `$prefix/web` and `$prefix/sidekiq`. Defaults to `mastodon`.
 
+#### `OTEL_SERVICE_NAME_SEPARATOR`
+
+What character to use in service names when differentiating between different services. Defaults to `/` (i.e. `mastodon/web`).
+
+
 #### `OTEL_EXPORTER_OTLP_ENDPOINT`
 
 URL of the OLTP server to send the traces to. OpenTelemetry instrumentation is disabled if this variable is not set. No default (empty value).
