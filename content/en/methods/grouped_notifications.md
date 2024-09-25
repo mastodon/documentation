@@ -31,7 +31,7 @@ GET /api/v2/notifications HTTP/1.1
 
 Return grouped notifications concerning the user. This API returns Link headers containing links to the next/previous page. However, the links can also be constructed dynamically using query params and `id` values.
 
-Notifications of type `favourite` or `reblog` with the same type and the same target made in a similar timeframe are given a same `group_key` by the server, and querying this endpoint will return aggregated notifications, with only one object per `group_key`. Other notification types (such as `follow`) may be grouped in the future.
+Notifications of type `favourite`, `follow` or `reblog` with the same type and the same target made in a similar timeframe are given a same `group_key` by the server, and querying this endpoint will return aggregated notifications, with only one object per `group_key`. Other notification types may be grouped in the future. The `grouped_types` parameter should be used by the client to explictely list the types it supports showing grouped notifications for.
 
 Types to filter include:
 - `mention` = Someone mentioned you in their status
@@ -84,7 +84,7 @@ expand_accounts
 : String. One of `full` (default) or `partial_avatars`. When set to `partial_avatars`, some accounts will not be rendered in full in the returned `accounts` list but will be instead returned in stripped-down form in the `partial_accounts` list. The most recent account in a notification group is always rendered in full in the `accounts` attribute.
 
 grouped_types[]
-: Array of String. Restrict which notification types can be grouped. Use this if there are notification types for which your client does not support grouping. If omitted, the server will group notifications of all types it supports (currently, `favourite` and `reblog`). If you do not want any notification grouping, use [GET `/api/v1/notifications`]({{< relref "methods/notifications#get" >}}) instead.
+: Array of String. Restrict which notification types can be grouped. Use this if there are notification types for which your client does not support grouping. If omitted, the server will group notifications of all types it supports (currently, `favourite`, `follow` and `reblog`). If you do not want any notification grouping, use [GET `/api/v1/notifications`]({{< relref "methods/notifications#get" >}}) instead.
 
 #### Response
 
@@ -428,7 +428,7 @@ account_id
 : String. Only count unread notifications received from the specified account.
 
 grouped_types[]
-: Array of String. Restrict which notification types can be grouped. Use this if there are notification types for which your client does not support grouping. If omitted, the server will group notifications of all types it supports (currently, `favourite` and `reblog`). If you do not want any notification grouping, use [GET `/api/v1/notifications/unread_count`]({{< relref "methods/notifications#unread-count" >}}) instead.
+: Array of String. Restrict which notification types can be grouped. Use this if there are notification types for which your client does not support grouping. If omitted, the server will group notifications of all types it supports (currently, `favourite`, `follow` and `reblog`). If you do not want any notification grouping, use [GET `/api/v1/notifications/unread_count`]({{< relref "methods/notifications#unread-count" >}}) instead.
 
 #### Response
 
@@ -494,7 +494,7 @@ TODO
 
 ## `PartialAccountWithAvatar` entity {#PartialAccountWithAvatar}
 
-These are stripped-down versions of [Account]({{< relref "entities/Account" >}}) that only contain what is necessary to display a list of avatars, as well as a few other useful properties. The aim is to cut back on expensive server-side serialization and reduce the network payload size of notification groups. 
+These are stripped-down versions of [Account]({{< relref "entities/Account" >}}) that only contain what is necessary to display a list of avatars, as well as a few other useful properties. The aim is to cut back on expensive server-side serialization and reduce the network payload size of notification groups.
 
 ### Attributes
 
