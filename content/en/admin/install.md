@@ -60,41 +60,12 @@ Enable `corepack` so that the correct version of `yarn` can be installed automat
 corepack enable
 ```
 
-### Installing Ruby {#installing-ruby}
+### Creating the `mastodon` user {#creating-the-mastodon-user}
 
-We will use rbenv to manage Ruby versions as it simplifies obtaining the correct versions and updating them when new releases are available. Since rbenv needs to be installed for an individual Linux user, we must first create the user account under which Mastodon will run:
+This is the user account under which Mastodon will run:
 
 ```bash
 adduser --disabled-password mastodon
-```
-
-We can then switch to the user:
-
-```bash
-su - mastodon
-```
-
-And proceed to install rbenv and rbenv-build:
-
-```bash
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-exec bash
-git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
-```
-
-Once this is done, we can install the correct Ruby version:
-
-```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.3.5
-rbenv global 3.3.5
-```
-
-Return to the root user:
-
-```bash
-exit
 ```
 
 ## Setup {#setup}
@@ -139,6 +110,25 @@ Use git to download the latest stable release of Mastodon:
 ```bash
 git clone https://github.com/mastodon/mastodon.git live && cd live
 git checkout $(git tag -l | grep '^v[0-9.]*$' | sort -V | tail -n 1)
+```
+
+#### Installing Ruby {#installing-ruby}
+
+We will use rbenv to manage Ruby versions as it simplifies obtaining the correct versions and updating them when new releases are available.
+Install rbenv and ruby-build:
+
+```bash
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+exec bash
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+```
+
+Once this is done, we can install the correct Ruby version:
+
+```bash
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install
 ```
 
 #### Installing the last dependencies {#installing-the-last-dependencies}
