@@ -1184,17 +1184,3 @@ Defaults to `512`.
 #### `GITHUB_API_TOKEN`
 
 Used in a rake task for generating AUTHORS.md from GitHub commit history.
-
-#### `REGEXP_TIMEOUT`
-
-The number of seconds until regular expressions time out (fractional
-values are possible, e.g. `1.6`). This defaults to `2` which should be
-fine for most deployments. If you encounter a lot of
-`Regexp::TimeoutError`s in your logs, try to increase this value. If you
-are worried about ReDOS attacks, you can try lower values (for some
-instances, values as low as `0.5` seem to work), but look out for those
-`Regexp::TimeoutError` exceptions.
-
-**Version history:**\
-4.3.0 - added
-
