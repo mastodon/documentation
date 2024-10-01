@@ -292,7 +292,6 @@ The properties exposed by this endpoint can help you better integrate with the M
   "response_modes_supported": ["query", "fragment", "form_post"],
   "grant_types_supported": [
     "authorization_code",
-    "password",
     "client_credentials"
   ],
   "token_endpoint_auth_methods_supported": [

@@ -56,8 +56,7 @@ Authorization code flow
 Client credentials flow
 : For applications that do not act on behalf of users
 
-Password grant flow
-: For bots and other single-user applications. Usage [not recommended](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#name-resource-owner-password-cre) by the OAuth 2 Specification authors due to security concerns. This grant flow may be removed in future versions of Mastodon.
+Mastodon has historically supported the Password Grant flow, however, usage is [not recommended](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#name-resource-owner-password-cre) by the OAuth 2 Specification authors due to security issues, and has subsequently been removed from future versions of Mastodon. Instead, it is recommended that you create an OAuth Application for that user, and use the generated Access Token for interacting with the API.
 
 {{< page-relref ref="methods/oauth#token" caption="POST /oauth/token" >}}
 
