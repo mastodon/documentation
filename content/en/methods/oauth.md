@@ -28,6 +28,7 @@ Displays an authorization form to the user. If approved, it will create and retu
 0.1.0 - added\
 2.6.0 - added `force_login`\
 3.5.0 - added `lang`
+4.3.0 - added support for PKCE parameters
 
 #### Request
 
@@ -44,6 +45,15 @@ redirect_uri
 
 scope
 : String. List of requested OAuth scopes, separated by spaces (or by pluses, if using query parameters). Must be a subset of `scopes` declared during app registration. If not provided, defaults to `read`.
+
+state
+: String. Arbitrary value to passthrough to your server when the user authorizes or rejects the authorization request.
+
+code_challenge
+: String. The [PKCE code challenge]({{< relref "spec/oauth#pkce" >}}) for the authorization request.
+
+code_challenge_method
+: String. Must be `S256`, as this is the only code challenge method that is supported by Mastodon for PKCE.
 
 force_login
 : Boolean. Forces the user to re-login, which is necessary for authorizing with multiple accounts from the same instance.
@@ -63,6 +73,12 @@ Treat the `code` query parameter as if it were a password, you should ensure tha
 
 ```http
 redirect_uri?code=qDFUEaYrRK5c-HNmTCJbAzazwLRInJ7VHFat0wcMgCU
+```
+
+If the state parameter was used, then this will also be present in the URI when the client is redirected.
+
+```http
+redirect_uri?code=qDFUEaYrRK5c-HNmTCJbAzazwLRInJ7VHFat0wcMgCU&state=example
 ```
 
 ##### 400: Client error
@@ -90,6 +106,7 @@ Obtain an access token, to be used during API calls that are not public.
 **OAuth:** Public\
 **Version history:**\
 0.1.0 - added
+4.3.0 - added support for PKCE parameter
 
 #### Request
 
@@ -99,7 +116,7 @@ grant_type
 : {{<required>}} String. Set equal to `authorization_code` if `code` is provided in order to gain user-level access. Otherwise, set equal to `client_credentials` to obtain app-level access only.
 
 code
-: String. A user authorization code, obtained via [GET /oauth/authorize](#authorize).
+: {{<required>}} String. A user authorization code, obtained from the redirect after an [Authorization request](#authorize) is approved. May alternatively be displayed to the user if `urn:ietf:wg:oauth:2.0:oob` is used as the `redirect_uri`.
 
 client_id
 : {{<required>}} String. The client ID, obtained during app registration.
@@ -108,7 +125,10 @@ client_secret
 : {{<required>}} String. The client secret, obtained during app registration.
 
 redirect_uri
-: {{<required>}} String. Set a URI to redirect the user to. If this parameter is set to urn:ietf:wg:oauth:2.0:oob then the token will be shown instead. Must match one of the `redirect_uris` declared during app registration.
+: {{<required>}} String. Must match the `redirect_uri` used during the [Authorization request](#authorize).
+
+code_verifier
+: String. Required if [PKCE]({{< relref "spec/oauth#pkce" >}}) is used during the authorization request. This is the code verifier which was used to create the `code_challenge` using the `code_challenge_method` for the authorization request.
 
 scope
 : String. When `grant_type` is set to `client_credentials`, the list of requested OAuth scopes, separated by spaces (or pluses, if using query parameters). Must be a subset of the scopes requested at the time the application was created. If omitted, it defaults to `read`. Has no effect when `grant_type` is `authorization_code`.
@@ -290,6 +310,9 @@ The properties exposed by this endpoint can help you better integrate with the M
   ],
   "response_types_supported": ["code"],
   "response_modes_supported": ["query", "fragment", "form_post"],
+  "code_challenge_methods_supported": [
+    "S256"
+  ],
   "grant_types_supported": [
     "authorization_code",
     "client_credentials"

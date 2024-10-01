@@ -66,6 +66,22 @@ Post here with client credentials to revoke an access token.
 
 {{< page-relref ref="methods/oauth#revoke" caption="POST /oauth/revoke" >}}
 
+## OAuth 2 Security Considerations
+
+### Proof Key for Code Exchange (PKCE) {#pkce}
+
+When performing an OAuth 2 [authorization code flow]({{< relref ref="methods/oauth#authorize" >}}), there is an additional security mechanism that you can employ to increase the security of the authorization code when the user is redirected back to your application. This is known as Proof Key for Code Exchange, or PKCE (pronounced pixie), and is supported by Mastodon 4.3.0 and above.
+
+We recommend, inline with [OAuth 2 Security Best Current Practices](https://www.ietf.org/archive/id/draft-ietf-oauth-security-topics-27.html#name-pkce), to use PKCE with the Authorization Code flow for both confidential clients and public clients.
+
+{{< caption-link url="https://oauth.net/2/pkce/" caption="Learn more about PKCE on the OAuth.net website" >}}
+
+### State Parameter {#state-parameter}
+
+When performing an OAuth 2 [authorization code flow]({{< relref ref="methods/oauth#authorize" >}}), you can  use the [`state` parameter](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) of the Authorization endpoint to prevent mix-up and cross site request forgery attacks. This parameter is returned back to your server unchanged via the redirect URI upon completion of the OAuth Authorization Code flow.
+
+It is also possible to use this parameter to passthrough arbitrary information to your server via the Authorization Code flow. If you use the `state` parameter, it is recommended that you compare or validate the state value before finishing the authorization code flow (i.e., exchanging the authorization code for an access token).
+
 ## Common gotchas {#gotchas}
 
 - When registering an application using Mastodon's REST API, there is a `scopes` parameter. When interfacing with OAuth endpoints, you must use the `scope` parameter instead, and this parameter's value must be a subset of the `scopes` registered with the app. You cannot include anything that wasn't in the original set.
