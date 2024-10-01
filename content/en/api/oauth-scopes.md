@@ -163,3 +163,7 @@ It is recommended that you make use of granular scopes, unless you really need f
 |                           | `admin:write:ip_blocks`              |
 |                           | `admin:write:email_domain_blocks`    |
 |                           | `admin:write:canonical_email_blocks` |
+
+## Removed scopes {#removed}
+
+* Mastodon versions from 3.2.0 to 4.3.0 did support a `crypto` scope for end-to-end encryption APIs, however, this functionality was never documented nor fully implemented, and has been removed as of version 4.3.0. Any applications registered with that scope will have the scope removed when the server is upgraded to 4.3.0 and above.

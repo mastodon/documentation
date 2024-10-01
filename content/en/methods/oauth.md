@@ -305,8 +305,7 @@ The properties exposed by this endpoint can help you better integrate with the M
     "admin:write:domain_blocks",
     "admin:write:ip_blocks",
     "admin:write:email_domain_blocks",
-    "admin:write:canonical_email_blocks",
-    "crypto"
+    "admin:write:canonical_email_blocks"
   ],
   "response_types_supported": ["code"],
   "response_modes_supported": ["query", "fragment", "form_post"],
