@@ -84,7 +84,7 @@ expand_accounts
 : String. One of `full` (default) or `partial_avatars`. When set to `partial_avatars`, some accounts will not be rendered in full in the returned `accounts` list but will be instead returned in stripped-down form in the `partial_accounts` list. The most recent account in a notification group is always rendered in full in the `accounts` attribute.
 
 grouped_types[]
-: Array of String. Restrict which notification types can be grouped. Use this if there are notification types for which your client does not support grouping. If omitted, the server will group notifications of all types it supports (currently, `favourite`, `follow` and `reblog`). If you do not want any notification grouping, use [GET `/api/v1/notifications`]({{< relref "methods/notifications#get" >}}) instead.
+: Array of String. Restrict which notification types can be grouped. Use this if there are notification types for which your client does not support grouping. If omitted, the server will group notifications of all types it supports (currently, `favourite`, `follow` and `reblog`). If you do not want any notification grouping, use [GET `/api/v1/notifications`]({{< relref "methods/notifications#get" >}}) instead. Notifications that would be grouped if not for this parameter will instead be returned as individual single-notification groups with a unique `group_key` that can be assumed to be of the form `ungrouped-:notification_id`, but the streaming API and the individual notification APIs do not have a mechanism analogue to `grouped_types` and will return a different `group_key` value potentially shared by multiple notifications of the same type.
 
 #### Response
 
