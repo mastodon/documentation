@@ -468,7 +468,7 @@ The default port for the sentinels given in `REDIS_SENTINELS`.
 **Version history:**\
 4.3.0 - added
 
-#### `REDIS_SENTINEL_USER`
+#### `REDIS_SENTINEL_USERNAME`
 
 The username used to authenticate with sentinels.
 
@@ -534,7 +534,7 @@ The default port for the sentinels given in `CACHE_REDIS_SENTINELS`.
 **Version history:**\
 4.3.0 - added
 
-#### `CACHE_REDIS_SENTINEL_USER`
+#### `CACHE_REDIS_SENTINEL_USERNAME`
 
 The username used to authenticate with sentinels.
 
@@ -600,7 +600,7 @@ The default port for the sentinels given in `SIDEKIQ_REDIS_SENTINELS`.
 **Version history:**\
 4.3.0 - added
 
-#### `SIDEKIQ_REDIS_SENTINEL_USER`
+#### `SIDEKIQ_REDIS_SENTINEL_USERNAME`
 
 The username used to authenticate with sentinels.
 
