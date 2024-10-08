@@ -200,19 +200,11 @@ Then edit `/etc/nginx/sites-available/mastodon` to
 
 3. Make any other adjustments you might need.
 
-Add nginx's `www-data` user to the `mastodon` group to allow nginx to access asset files
+Allow other users to traverse the mastodon user's home directory, so that nginx's `www-data` user can access asset files:
 
 ```bash
-usermod -aG mastodon www-data
+chmod o+x /home/mastodon
 ```
-
-{{< hint style="info" >}}
-On Debian 12 there is one additional step, because by default the `mastodon` group may not access the `/home/mastodon` directory:
-
-```bash
-chmod g+x /home/mastodon
-```
-{{< /hint >}}
 
 Restart nginx for the changes to take effect:
 
