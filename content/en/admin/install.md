@@ -201,21 +201,18 @@ ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 rm /etc/nginx/sites-enabled/default
 ```
 
-Then edit `/etc/nginx/sites-available/mastodon` to 
+Then edit `/etc/nginx/sites-available/mastodon` to
 
-1. Replace `example.com` with your own domain name
-2. Uncomment the `ssl_certificate` and `ssl_certificate_key` lines and replace the two lines with (ignore this step if you are bringing your own certificate)
+1. Uncomment the `ssl_certificate` and `ssl_certificate_key` lines. If you have obtained the certificate using `certbot` as described above, replace these two lines with(ignore this step if you are bringing your own certificate)
 
 ```
-ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;
-ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+ssl_certificate     /etc/letsencrypt/live/example.com/cert.pem;
+ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem
 ```
 
+2. Replace `example.com` with your own domain name
 3. Make any other adjustments you might need.
-
-Un-comment the lines starting with `ssl_certificate` and `ssl_certificate_key`, updating the path with the correct domain name.
-
-Reload nginx for the changes to take effect:
+4. Reload nginx for the changes to take effect:
 
 ```bash
 systemctl reload nginx
@@ -231,7 +228,7 @@ Copy the systemd service templates from the Mastodon directory:
 cp /home/mastodon/live/dist/mastodon-*.service /etc/systemd/system/
 ```
 
-If you deviated from the defaults at any point, check that the username and paths are correct: 
+If you deviated from the defaults at any point, check that the username and paths are correct:
 
 ```sh
 $EDITOR /etc/systemd/system/mastodon-*.service
