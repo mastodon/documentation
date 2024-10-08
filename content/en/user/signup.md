@@ -44,10 +44,10 @@ Mastodon usernames actually consist of two parts:
 
 Just like an e-mail address. For convenience sake, Mastodon allows you to skip the second part when addressing people on the same server as you, but you have to keep in mind when sharing your username with other people, you need to include the domain or they won’t be able to find you as easily.
 
-|  |  |
+| Sharing your username |  |
 | :--- | :--- |
-| I’m @alice on Mastodon! | Wrong |
-| I’m @alice@example.com on Mastodon! | Correct |
+| I’m `@alice` on Mastodon! | Wrong |
+| I’m `@alice@example.com` on Mastodon! | Correct |
 | I'm https://example.com/@alice on Mastodon! | Correct |
 
 The search form in Mastodon will find people either with the above address form, or the link to the person’s profile, so you can share that instead if you prefer.
