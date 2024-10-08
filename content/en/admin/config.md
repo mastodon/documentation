@@ -40,7 +40,7 @@ If you have multiple domains pointed at your Mastodon server, this setting will 
 
 #### `ALLOWED_PRIVATE_ADDRESSES`
 
-Comma-separated specific addresses/subnets are allowed in outgoing HTTP queries.
+Comma-separated list of private IP addresses/subnets that are allowed in outgoing HTTP requests. Mastodon blocks HTTP requests to hosts on private IP address ranges (like `127.0.0.1` or `192.168.1.1/16`) to prevent [Server-side request forgeries](https://en.wikipedia.org/wiki/Server-side_request_forgery). This setting removes the specified IP addresses/subnets from being blocked.
 
 #### `AUTHORIZED_FETCH`
 
@@ -262,6 +262,17 @@ If you are not using Unix sockets, this defines the IP to which the process will
 This variable cannot be defined in dotenv (`.env`) files as it's used before they are loaded.
 {{</ hint >}}
 
+#### `MASTODON_USE_LIBVIPS`
+
+By default, Mastodon uses ImageMagick to process images in posts. As an alternative, [libvips](https://www.libvips.org) 8.13+ can be utilized, which has better performance and lower resource utilization.
+
+When installing Mastodon from source, this defaults to `false`, set to `true` to enable.
+
+When deploying the Mastodon project container image, this is hardcoded to `true` and should not be overridden.
+
+**Version history:**\
+4.3.0 - added
+
 ### Scaling options {#scaling}
 
 {{< page-ref page="admin/scaling" >}}
@@ -372,8 +383,17 @@ No default.
 
 ### Redis {#redis}
 
+Mastodon uses Redis in three different ways:
+
+* The web application itself uses redis to store data and communicate with the streaming server.
+* Redis is used as cache backend for Rails' built-in caching functionality.
+* Sidekiq, which we use to process background jobs, stores job data in redis.
+
+You can use a single Redis instance for all three use cases. Simple use the appropriate `REDIS_*` variables mentioned below. But you can
+also use two or even three distinct Redis instances by using the variables prefixed with `CACHE_` and `SIDEKIQ_`.
+
 {{< hint style="info" >}}
-It is possible to use a separate Redis server for volatile cache. You may wish to do so if your Redis server starts getting overwhelmed.
+It is advisable to use a separate Redis server for volatile cache. You may wish to do so if your single Redis server starts getting overwhelmed.
 {{</ hint >}}
 
 #### `REDIS_HOST`
@@ -384,9 +404,20 @@ Defaults to `localhost`.
 
 Defaults to `6379`.
 
+#### `REDIS_USER`
+
+Optional. The username used to connect to Redis.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_PASSWORD`
+
+Optional. The password used to connect to Redis.
+
 #### `REDIS_URL`
 
-If provided, takes precedence over `REDIS_HOST` and `REDIS_PORT`.
+If provided, takes precedence over `REDIS_HOST`, `REDIS_PORT`, `REDIS_USER`, `REDIS_PASSWORD` and sentinel settings.
 
 Example value: `redis://user:password@localhost:6379`
 
@@ -405,6 +436,52 @@ Defaults to `hiredis`, accepted values are `hiredis` or `ruby`.
 
 If provided, namespaces all Redis keys. This allows the sharing of the same Redis database between different projects or Mastodon servers.
 
+{{< hint style="warning" >}}
+This option is deprecated. Sidekiq 7 removes support for namespaces, and so will a future version of Mastodon. We will attempt to document a clear migration path by the time that happens. If you are setting up a new instance, using this option is highly discouraged.
+{{</ hint >}}
+
+**Version history:**\
+4.3.0 - deprecated
+
+#### `REDIS_SENTINELS`
+
+A comma-delimited list of Redis Sentinel instance HOST:PORTs. The port number is optional, if omitted it will use the value given in `REDIS_SENTINEL_PORT` or the default of `26379`.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `REDIS_SENTINEL_MASTER`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_SENTINEL_MASTER`
+
+The name of the Redis Sentinel master to connect to.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_SENTINEL_PORT`
+
+The default port for the sentinels given in `REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_SENTINEL_USERNAME`
+
+The username used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_SENTINEL_PASSWORD`
+
+The password used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
 #### `CACHE_REDIS_HOST`
 
 Defaults to the value of `REDIS_HOST`.
@@ -412,6 +489,17 @@ Defaults to the value of `REDIS_HOST`.
 #### `CACHE_REDIS_PORT`
 
 Defaults to the value of `REDIS_PORT`.
+
+#### `CACHE_REDIS_USER`
+
+Optional. The username used to connect to Redis.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_PASSWORD`
+
+Optional. The password used to connect to Redis.
 
 #### `CACHE_REDIS_URL`
 
@@ -421,7 +509,118 @@ If provided, takes precedence over `CACHE_REDIS_HOST` and `CACHE_REDIS_PORT`. De
 
 Defaults to the value of `REDIS_NAMESPACE`.
 
+#### `CACHE_REDIS_SENTINELS`
+
+A comma-delimited list of Redis Sentinel instance HOST:PORTs. The port number is optional, if omitted it will use a default of `26379`.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `CACHE_REDIS_SENTINEL_MASTER`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_SENTINEL_MASTER`
+
+The name of the Redis Sentinel master to connect to.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `CACHE_REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_SENTINEL_PORT`
+
+The default port for the sentinels given in `CACHE_REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_SENTINEL_USERNAME`
+
+The username used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_SENTINEL_PASSWORD`
+
+The password used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_HOST`
+
+Defaults to the value of `REDIS_HOST`.
+
+#### `SIDEKIQ_REDIS_PORT`
+
+Defaults to the value of `REDIS_PORT`.
+
+#### `SIDEKIQ_REDIS_USER`
+
+Optional. The username used to connect to Redis.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_PASSWORD`
+
+Optional. The password used to connect to Redis.
+
 #### `SIDEKIQ_REDIS_URL`
+
+If provided, takes precedence over `SIDEKIQ_REDIS_HOST` and `SIDEKIQ_REDIS_PORT`. Defaults to the value of `REDIS_URL`.
+
+#### `SIDEKIQ_REDIS_NAMESPACE`
+
+Defaults to the value of `REDIS_NAMESPACE`.
+
+#### `SIDEKIQ_REDIS_SENTINELS`
+
+A comma-delimited list of Redis Sentinel instance HOST:PORTs. The port number is optional, if omitted it will use a default of `26379`.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `SIDEKIQ_REDIS_SENTINEL_MASTER`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_SENTINEL_MASTER`
+
+The name of the Redis Sentinel master to connect to.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `SIDEKIQ_REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_SENTINEL_PORT`
+
+The default port for the sentinels given in `SIDEKIQ_REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_SENTINEL_USERNAME`
+
+The username used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_SENTINEL_PASSWORD`
+
+The password used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+### Elasticsearch {#elasticsearch}
+
+{{< page-ref page="admin/elasticsearch" >}}
+
+#### `ES_ENABLED`
+
+If set to `true`, Mastodon will use Elasticsearch for its search functions.
 
 ### Elasticsearch {#elasticsearch}
 
@@ -463,28 +662,32 @@ Used for optionally authenticating with Elasticsearch
 
 Useful if the Elasticsearch server is shared between multiple projects or different Mastodon servers. Defaults to the value of `REDIS_NAMESPACE`.
 
-### StatsD {#statsd}
-
-#### `STATSD_ADDR`
-
-If set, Mastodon will log some events and metrics into a StatsD instance identified by its hostname and port.
-
-Example value: `localhost:8125`
-
-#### `STATSD_NAMESPACE`
-
-If set, all StatsD keys will be prefixed with this. Defaults to `Mastodon.production` when `RAILS_ENV` is `production`, `Mastodon.development` when it's `development`, etc.
-
-#### `STATSD_SIDEKIQ`
-
-If set to `true`, Mastodon will log some Sidekiq metrics into StatsD. Defaults to `false`.
-
 #### `ES_CA_FILE`
 
 Override Certificate Authority bundle file to use. Useful when using self-signed certificates.
 
 **Version history:**\
 4.3.0 - added
+
+### OpenTelemetry {#otel}
+
+Mastodon supports exporting tracing data using the OpenTelemetry protocol. The instrumentation uses the standard OTEL Ruby SDK, and should support the [standard OTEL environment configuration variables](https://opentelemetry.io/docs/languages/sdk-configuration/general/), with the exception of `OTEL_SERVICE_NAME` (see `OTEL_SERVICE_NAME_PREFIX` below). Mastodon currently only ships with the OLTP exporter.
+
+**Version history:**\
+4.3.0 - added support for the Ruby backend
+
+#### `OTEL_SERVICE_NAME_PREFIX`
+
+Prefix for the OTEL service names. The services names will be `$prefix/web` and `$prefix/sidekiq`. Defaults to `mastodon`.
+
+#### `OTEL_SERVICE_NAME_SEPARATOR`
+
+What character to use in service names when differentiating between different services. Defaults to `/` (i.e. `mastodon/web`).
+
+
+#### `OTEL_EXPORTER_OTLP_ENDPOINT`
+
+URL of the OLTP server to send the traces to. OpenTelemetry instrumentation is disabled if this variable is not set. No default (empty value).
 
 ### SMTP email delivery {#smtp}
 
@@ -832,7 +1035,7 @@ It is important to use a supported file format (JPEG or PNG, not SVG).
 
 ## Limits {#limits}
 
-### Anti Spam / Abuse 
+### Anti Spam / Abuse
 
 #### `HCAPTCHA_SITE_KEY`
 #### `HCAPTCHA_SECRET_KEY`
@@ -891,6 +1094,26 @@ database attributes.
 
 **Version history:**\
 4.3.0 - added
+
+### StatsD (removed in 4.3.0) {#statsd}
+
+{{< hint style="danger" >}}
+StatsD support has been deprecated in Mastodon 4.2.0, and remove entirely in 4.3.0.
+{{< /hint >}}
+
+#### `STATSD_ADDR`
+
+If set, Mastodon will log some events and metrics into a StatsD instance identified by its hostname and port.
+
+Example value: `localhost:8125`
+
+#### `STATSD_NAMESPACE`
+
+If set, all StatsD keys will be prefixed with this. Defaults to `Mastodon.production` when `RAILS_ENV` is `production`, `Mastodon.development` when it's `development`, etc.
+
+#### `STATSD_SIDEKIQ`
+
+If set to `true`, Mastodon will log some Sidekiq metrics into StatsD. Defaults to `false`.
 
 ### Uncategorized or unsorted
 

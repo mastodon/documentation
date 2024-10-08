@@ -11,31 +11,38 @@ aliases: [
 
 ## Attributes
 
-### `filter_not_following` {#filter_not_following}
+### `for_not_following` {#for_not_following}
 
-**Description:** Whether to filter notifications from accounts the user is not following.\
-**Type:** Boolean\
+**Description:** Whether to `accept`, `filter` or `drop` notifications from accounts the user is not following. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.\
+**Type:** String (one of `accept`, `filter` or `drop`)\
 **Version history:**\
 4.3.0 - added
 
-### `filter_not_followers` {#filter_not_followers}
+### `for_not_followers` {#for_not_followers}
 
-**Description:** Whether to filter notifications from accounts that are not following the user.\
-**Type:** Boolean\
+**Description:** Whether to `accept`, `filter` or `drop` notifications from accounts that are not following the user. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.\
+**Type:** String (one of `accept`, `filter` or `drop`)\
 **Version history:**\
 4.3.0 - added
 
-### `filter_new_accounts` {#filter_new_accounts}
+### `for_new_accounts` {#for_new_accounts}
 
-**Description:** Whether to filter notifications from accounts created in the past 30 days.\
-**Type:** Boolean\
+**Description:** Whether to `accept`, `filter` or `drop` notifications from accounts created in the past 30 days. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.\
+**Type:** String (one of `accept`, `filter` or `drop`)\
 **Version history:**\
 4.3.0 - added
 
-### `filter_private_mentions` {#filter_private_mentions}
+### `for_private_mentions` {#for_private_mentions}
 
-**Description:** Whether to filter notifications from private mentions. Replies to private mentions initiated by the user, as well as accounts the user follows, are never filtered.\
-**Type:** Boolean\
+**Description:** Whether to `accept`, `filter` or `drop` notifications from private mentions. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing. Replies to private mentions initiated by the user, as well as accounts the user follows, are always allowed, regardless of this value.\
+**Type:** String (one of `accept`, `filter` or `drop`)\
+**Version history:**\
+4.3.0 - added
+
+### `for_limited_accounts` {#for_limited_accounts}
+
+**Description:** Whether to `accept`, `filter` or `drop` notifications from accounts that were limited by a moderator. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.
+**Type:** String (one of `accept`, `filter` or `drop`)\
 **Version history:**\
 4.3.0 - added
 
@@ -65,10 +72,11 @@ aliases: [
 ```json
 
 {
-  "filter_not_following": false,
-  "filter_not_followers": false,
-  "filter_new_accounts": false,
-  "filter_private_mentions": true,
+  "for_not_following": "accept",
+  "for_not_followers": "accept",
+  "for_new_accounts": "accept",
+  "for_private_mentions": "drop",
+  "for_limited_accounts": "filter",
   "summary": {
     "pending_requests_count": 0,
     "pending_notifications_count": 0
@@ -82,6 +90,3 @@ aliases: [
 {{< page-relref ref="methods/notifications" caption="notifications API methods" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/notification_policy_serializer.rb" caption="app/serializers/rest/notification_policy_serializer.rb" >}}
-
-
-

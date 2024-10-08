@@ -166,6 +166,18 @@ attachment[].blurhash
 replies
 : A Collection of statuses that are in reply to the current status. Up to 5 replies from the same server will be fetched upon discovery of a remote status, in order to resolve threads more fully. On Mastodon's side, the first page contains self-replies, and additional pages contain replies from other people.
 
+likes
+: A Collection used to represent `Like` activities received for this status. The actual activities are not exposed by Mastodon at this time.
+
+likes.totalItems
+: The number of likes this status has received.
+
+shares
+: A Collection used to represent `Announce` activities received for this status. The actual activities are not exposed by Mastodon at this time.
+
+shares.totalItems
+: The number of `Announce` activities received for this status.
+
 #### Poll-specific properties
 
 endTime
@@ -264,6 +276,9 @@ alsoKnownAs
 published
 : When the profile was created.
 
+attributionDomains
+: Domains allowed to use `fediverse:creator` for this actor in published articles.
+
 ## JSON-LD Contexts and Extensions {#contexts}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/activitypub/adapter.rb" caption="app/lib/activitypub/adapter.rb" >}}
@@ -283,6 +298,7 @@ Contains definitions for Mastodon features.
 - toot:discoverable (`http://joinmastodon.org/ns#discoverable`)
 - toot:suspended (`http://joinmastodon.org/ns#suspended`)
 - toot:votersCount (`http://joinmastodon.org/ns#votersCount`)
+- toot:attributionDomains (`http://joinmastodon.org/ns#attributionDomains`)
 
 ### ActivityStreams extensions (`as:`) {#as}
 

@@ -32,7 +32,7 @@ aliases: [
 **Version history:**\
 4.3.0 - added
 
-### `from_account` {#from_account}
+### `account` {#account}
 
 **Description:** The account that performed the action that generated the filtered notifications.\
 **Type:** [Account]({{< relref "entities/Account" >}})\
@@ -42,7 +42,7 @@ aliases: [
 ### `notifications_count` {#notifications_count}
 
 **Description:** How many of this account's notifications were filtered.\
-**Type:** Integer\
+**Type:** String\
 **Version history:**\
 4.3.0 - added
 
@@ -102,6 +102,3 @@ aliases: [
 {{< page-relref ref="methods/notifications" caption="notifications API methods" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/notification_request_serializer.rb" caption="app/serializers/rest/notification_request_serializer.rb" >}}
-
-
-

@@ -54,6 +54,24 @@ Obtain general information about the server.
       "@2x": "https://files.mastodon.social/site_uploads/files/000/000/001/@2x/57c12f441d083cde.png"
     }
   },
+  "icon": [
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/36/accf17b0104f18e5.png",
+      "size": "36x36"
+    },
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/72/accf17b0104f18e5.png",
+      "size": "72x72"
+    },
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/192/accf17b0104f18e5.png",
+      "size": "192x192"
+    },
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/512/accf17b0104f18e5.png",
+      "size": "512x512"
+    }
+  ],
   "languages": [
     "en"
   ],
@@ -635,7 +653,7 @@ Obtain general information about the server.
     "statuses_count":72309,
     "last_status_at":"2022-08-24",
     "emojis":[
-      
+
     ],
     "fields":[
       {
