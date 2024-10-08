@@ -166,6 +166,18 @@ attachment[].blurhash
 replies
 : A Collection of statuses that are in reply to the current status. Up to 5 replies from the same server will be fetched upon discovery of a remote status, in order to resolve threads more fully. On Mastodon's side, the first page contains self-replies, and additional pages contain replies from other people.
 
+likes
+: A Collection used to represent `Like` activities received for this status. The actual activities are not exposed by Mastodon at this time.
+
+likes.totalItems
+: The number of likes this status has received.
+
+shares
+: A Collection used to represent `Announce` activities received for this status. The actual activities are not exposed by Mastodon at this time.
+
+shares.totalItems
+: The number of `Announce` activities received for this status.
+
 #### Poll-specific properties
 
 endTime
