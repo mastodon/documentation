@@ -47,7 +47,8 @@ Types to filter include:
 3.3.0 - added `status` type; both `min_id` and `max_id` can be used at the same time now\
 3.5.0 - added `types`; add `update` and `admin.sign_up` types\
 4.0.0 - added `admin.report` type\
-4.1.0 - notification limit changed from 15 (max 30) to 40 (max 80)
+4.1.0 - notification limit changed from 15 (max 30) to 40 (max 80)\
+4.3.0 - added `include_filtered` parameter
 
 #### Request
 
@@ -78,6 +79,9 @@ exclude_types[]
 
 account_id
 : String. Return only notifications received from the specified account.
+
+include_filtered
+: Boolean. Whether to include notifications filtered by the user's [NotificationPolicy]({{< relref "entities/NotificationPolicy" >}}). Defaults to false.
 
 #### Response
 
