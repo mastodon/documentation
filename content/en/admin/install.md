@@ -74,7 +74,7 @@ adduser --disabled-password mastodon
 
 #### Performance configuration (optional) {#performance-configuration-optional}
 
-For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/16/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`.
+For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/17/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`.
 
 #### Creating a user {#creating-a-user}
 
