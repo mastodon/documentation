@@ -51,6 +51,16 @@ apt install elasticsearch
 **Security warning:** By default, Elasticsearch is supposed to bind to localhost only, i.e. be inaccessible from the outside network. You can check which address Elasticsearch binds to by looking at `network.host` within `/etc/elasticsearch/elasticsearch.yml`. Consider that anyone who can access Elasticsearch can access and modify any data within it, as there is no authentication layer. So it’s really important that the access is secured. Having a firewall that only exposes the 22, 80 and 443 ports is advisable, as outlined in the [main installation instructions](../../prerequisites/#install-a-firewall-and-only-whitelist-ssh-http-and-https-ports). If you have a multi-host setup, you must know how to secure internal traffic.
 {{< /hint >}}
 
+Before you start Elasticsearch, you might want to limit its RAM consumption. A RAM limit can be set be creating a new file `/etc/elasticsearch/jvm.options.d/limit-ram.options` with the following content:
+
+```
+# Limit RAM size to 24 GB
+-Xms16g
+-Xmx24g
+```
+
+This will reserve 16 GB of RAM for Elasticsearch right from the start and allow it to use up to 24 GB of RAM. Also see: [Managing and troubleshooting Elasticsearch memory](https://www.elastic.co/blog/managing-and-troubleshooting-elasticsearch-memory/).
+
 To start Elasticsearch:
 
 ```bash
