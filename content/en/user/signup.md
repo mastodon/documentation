@@ -9,7 +9,7 @@ menu:
 
 ## Choosing a website {#picker}
 
-You have to choose a website to sign up on, like you would choose an e-mail provider, or a World of Warcraft realm for your new character. The website will be your service provider, hosting your account, your profile, and your home feed.
+You have to choose a website to sign up on, like you would choose an email provider, or a World of Warcraft realm for your new character. The website will be your service provider, hosting your account, your profile, and your home feed.
 
 {{< hint style="info" >}}
 You can [browse a list of servers by categories and languages on joinmastodon.org](https://joinmastodon.org/#getting-started).
@@ -42,7 +42,7 @@ Mastodon usernames actually consist of two parts:
 * The local username, e.g. `alice`
 * And the domain of the website, e.g. `example.com`
 
-Just like an e-mail address. For convenience sake, Mastodon allows you to skip the second part when addressing people on the same server as you, but you have to keep in mind when sharing your username with other people, you need to include the domain or they won’t be able to find you as easily.
+Just like an email address. For convenience sake, Mastodon allows you to skip the second part when addressing people on the same server as you, but you have to keep in mind when sharing your username with other people, you need to include the domain or they won’t be able to find you as easily.
 
 | Sharing your username |  |
 | :--- | :--- |
@@ -52,7 +52,4 @@ Just like an e-mail address. For convenience sake, Mastodon allows you to skip t
 
 The search form in Mastodon will find people either with the above address form, or the link to the person’s profile, so you can share that instead if you prefer.
 
-The same username _can_ be registered on different servers -- there is no way to claim all of them ahead of time. Just like with e-mail, you should not expect `alice@outlook.com` to be the same person as `alice@gmail.com` or `alice@yahoo.com`.
-
-
-
+The same username _can_ be registered on different servers -- there is no way to claim all of them ahead of time. Just like with email, you should not expect `alice@outlook.com` to be the same person as `alice@gmail.com` or `alice@yahoo.com`.
