@@ -303,10 +303,11 @@ The streaming API can be deployed to a different domain/subdomain. This may impr
 
 Example value: `wss://streaming.example.com`
 
-#### `STREAMING_CLUSTER_NUM` (deprecated) {#streaming_cluster_num}
+#### `STREAMING_CLUSTER_NUM` {{%removed%}} {#streaming_cluster_num}
 
 {{< hint style="danger" >}}
-Deprecated: The streaming server process now only uses a single node.js process, to scale it further, you'll need to follow the documentation in the [scaling guide](/admin/scaling#streaming)
+**Removed:**\
+The streaming server process now only uses a single node.js process, to scale it further, you'll need to follow the documentation in the [scaling guide](/admin/scaling#streaming)
 {{< /hint >}}
 
 Specific to the streaming API, this variable determines how many different processes the streaming API forks into. Defaults to the number of CPU cores minus one.
@@ -1048,7 +1049,7 @@ If set, registrations confirm page will display a captcha, see [Captcha](https:/
 
 If set, registrations will not be possible with any e-mails **except** those from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
 
-#### `EMAIL_DOMAIN_DENYLIST`
+#### `EMAIL_DOMAIN_DENYLIST` {{%deprecated%}}
 
 If set, registrations will not be possible with any e-mails from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
 

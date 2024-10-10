@@ -39,7 +39,7 @@ Creates a media attachment to be used with a new status. The full sized media wi
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -182,7 +182,7 @@ Get a media attachment, before it is attached to a status and posted, but after 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -286,7 +286,7 @@ Update a MediaAttachment's parameters, before it is attached to a status and pos
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -366,7 +366,7 @@ Attachment is not owned by you or does not exist
 
 ---
 
-## (DEPRECATED) Upload media as an attachment {#v1}
+## Upload media as an attachment (v1) {{%deprecated%}} {#v1}
 
 ```http
 POST /api/v1/media HTTP/1.1
@@ -386,7 +386,7 @@ Creates an attachment to be used with a new status. This method will return afte
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 

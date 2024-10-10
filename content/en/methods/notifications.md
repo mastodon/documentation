@@ -55,7 +55,7 @@ Types to filter include:
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -89,7 +89,7 @@ Sample call with limit=2.
 
 ```http
 GET https://mastodon.social/api/v1/notifications?limit=2 HTTP/1.1
-Authorization: Bearer xxx
+Authorization: Bearer <user_token>
 ```
 
 ##### 200: OK
@@ -200,7 +200,7 @@ View information about a notification with a given ID.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -276,7 +276,7 @@ Clear all notifications from the server.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -323,7 +323,7 @@ Dismiss a single notification from the server.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -347,7 +347,7 @@ Invalid or missing Authorization header.
 
 ---
 
-## (REMOVED) Dismiss a single notification {#dismiss-deprecated}
+## Dismiss a single notification {{%removed%}} {#dismiss-deprecated}
 
 ```http
 POST /api/v1/notifications/dismiss HTTP/1.1
@@ -367,7 +367,7 @@ Dismiss a single notification from the server.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 id

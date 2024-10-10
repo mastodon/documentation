@@ -25,6 +25,8 @@ POST /api/v1/accounts HTTP/1.1
 
 Creates a user and account records. Returns an account access token for the app that initiated the request. The app should save this token for later, and should wait for the user to confirm their account by clicking a link in their email inbox.
 
+A relationship between the OAuth Application and created user account is stored.
+
 **Returns:** [Token]({{< relref "entities/token" >}})\
 **OAuth:** App token + `write:accounts`\
 **Version history:**\
@@ -37,7 +39,7 @@ Creates a user and account records. Returns an account access token for the app 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <app token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <app_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -157,16 +159,17 @@ GET /api/v1/accounts/verify_credentials HTTP/1.1
 Test to make sure that the user token works.
 
 **Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
-**OAuth**: User token + `read:accounts`\
+**OAuth:** User token + `profile` or `read:accounts`\
 **Version history:**\
 0.0.0 - added
+4.3.0 - added `profile` scope
 
 #### Request
 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -323,7 +326,7 @@ Update the user's display and preferences.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -557,7 +560,7 @@ View information about a profile.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -746,7 +749,7 @@ id[]
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -832,7 +835,7 @@ Statuses posted to the given account.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -940,7 +943,7 @@ Accounts which follow the given account, if network is not hidden by the account
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -1046,7 +1049,7 @@ Accounts which the given account is following, if network is not hidden by the a
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -1149,7 +1152,7 @@ Tags featured by this account.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1189,7 +1192,7 @@ User lists that you have added this account to.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1280,7 +1283,7 @@ Follow the given account. Can also be used to update whether to show reblogs or 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -1360,7 +1363,7 @@ Unfollow the given account.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1428,7 +1431,7 @@ Remove the given account from your followers.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1497,7 +1500,7 @@ Block the given account. Clients should filter statuses from this account if rec
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1566,7 +1569,7 @@ Unblock the given account.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1636,7 +1639,7 @@ Mute the given account. Clients should filter statuses and notifications from th
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -1713,7 +1716,7 @@ Unmute the given account.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1782,7 +1785,7 @@ Add the given account to the user's featured profiles. (Featured profiles are cu
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1880,7 +1883,7 @@ Remove the given account from the user's featured profiles.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1948,7 +1951,7 @@ Sets a private note on a user.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -2038,7 +2041,7 @@ Find out whether a given account is followed, blocked, muted, etc.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -2125,7 +2128,7 @@ Obtain a list of all accounts that follow a given account, filtered for accounts
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -2204,7 +2207,7 @@ Search for matching accounts by username or display name.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -2327,7 +2330,7 @@ Username or address does not map to an account
 
 ---
 
-## (DEPRECATED) Identity proofs {#identity_proofs}
+## Identity proofs {{%deprecated%}} {#identity_proofs}
 
 ```http
 GET /api/v1/accounts/:id/identity_proofs HTTP/1.1
