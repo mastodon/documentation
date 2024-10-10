@@ -32,7 +32,7 @@ If you make a request to the `GET /.well-known/oauth-authorization-server` endpo
 
 ### Multiple scopes can be requested at the same time
 
-During application creation with the `scopes` parameter you can specify multiple space-separated scopes, and during the authorization phase with the `scope` query parameter (space-separate the scopes).
+During application creation you can specify multiple space-separated scopes with the `scopes` parameter. During the authorization phase you can do the same with the `scope` query parameter.
 
 {{< hint style="danger" >}}
 The set of scopes saved during application creation must include all the scopes that you will request in the authorization request, otherwise, authorization will fail.
