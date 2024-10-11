@@ -49,3 +49,48 @@ By default, Mastodon makes use of [systemd's sandboxing capabilities](https://ww
 2. run `systemctl stop mastodon-sidekiq mastodon-web`
 3. run `systemctl daemon-reload`
 4. run `systemctl start mastodon-sidekiq mastodon-web`
+
+
+## The Mastodon WebUI just displays an error page, but the API works
+
+This happens for example, when you run 
+
+```
+RAILS_ENV=production bundle exec rails assets:precompile
+```
+
+without a valid, functional NodeJS environment. In some cases `yarn install --immutable` has not been run, yet and the web files have not been installed to the correct directory, yet. Running the `assets::precompile` command again will probably not help. Here's how to fix it:
+
+```
+cd live
+yarn install --immutable
+RAILS_ENV=production bundle exec rake tmp:cache:clear
+RAILS_ENV=production bundle exec rails assets:precompile
+```
+
+Then restart the `mastodon-web` service:
+
+```
+sudo systemctl restart mastodon-web.service
+```
+
+
+## Postgres database migrations fail during a Mastodon update
+
+If you encounter error messages like this:
+
+```
+WARNING:  you don't own a lock of type ExclusiveLock                                           
+bin/rails aborted!                                                                             
+ActiveRecord::ConcurrentMigrationError:  (ActiveRecord::ConcurrentMigrationError)              
+                                                                                                                                                                                               
+Failed to release advisory lock 
+```
+
+You're probably running pg_bouncer in front of PostgreSQL and forgot to specify the PostgreSQL port manually (instead of using the default pg_bouncer port!). To make the migrate commands work, add `DB_PORT`, for example:
+
+```
+RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate
+```
+
+This needs to be done for both - pre-deployment migrations and post-deployment migrations. Also see: [Scaling Mastodon - pg_bouncer section](https://docs.joinmastodon.org/admin/scaling/).
