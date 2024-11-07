@@ -44,8 +44,6 @@ There exist a number of **dedicated Mastodon hosting providers** that take care 
 
 {{< caption-link url="https://weingaertner-it.de" caption="Weingärtner IT" >}}
 
-{{< caption-link url="https://fedi.monster/" caption="Fedi.monster" >}}
-
 {{< caption-link url="https://cloudplane.org" caption="Cloudplane" >}}
 
 {{< caption-link url="https://ungleich.ch/u/products/mastodon-hosting/" caption="ungleich.ch" >}}
