@@ -44,8 +44,6 @@ There exist a number of **dedicated Mastodon hosting providers** that take care 
 
 {{< caption-link url="https://weingaertner-it.de" caption="Weingärtner IT" >}}
 
-{{< caption-link url="https://cloudplane.org" caption="Cloudplane" >}}
-
 {{< caption-link url="https://ungleich.ch/u/products/mastodon-hosting/" caption="ungleich.ch" >}}
 
 Managed hosting solutions are great for those who do not have experience or desire to install and maintain software. However, being in charge of all components on your own hardware gives greater control over scaling, performance and customization.
