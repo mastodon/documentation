@@ -40,8 +40,6 @@ There exist a number of **dedicated Mastodon hosting providers** that take care 
 
 {{< caption-link url="https://hostdon.jp" caption="Hostdon" >}}
 
-{{< caption-link url="https://app.spacebear.ee/mastodon" caption="Spacebear" >}}
-
 {{< caption-link url="https://ossrox.org" caption="Ossrox" >}}
 
 {{< caption-link url="https://weingaertner-it.de" caption="Weingärtner IT" >}}
