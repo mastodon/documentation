@@ -208,6 +208,13 @@ aliases: [
 **Version history:**\
 3.1.0 - added
 
+### `attribution_domains` {#attribution_domains}
+
+**Description:** Domains of websites allowed to credit the account.\
+**Type:** Array of String\
+**Version history:**\
+4.3.2 - added
+
 ### `noindex` {{%optional%}} {#noindex}
 
 **Description:** Whether the local user has opted out of being indexed by search engines.\
