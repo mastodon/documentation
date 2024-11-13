@@ -20,7 +20,7 @@ aliases: [
 ## View information about a single tag {#get}
 
 ```http
-GET /api/v1/tags/:id HTTP/1.1
+GET /api/v1/tags/:name HTTP/1.1
 ```
 
 Show a hashtag and its associated information
@@ -34,8 +34,8 @@ Show a hashtag and its associated information
 
 ##### Path parameters
 
-:id
-: {{<required>}} String. The name of the hashtag.
+:name
+: {{<required>}} String. The name of the hashtag, case-insensitive.
 
 ##### Headers
 
@@ -47,8 +47,9 @@ Authorization
 
 ```json
 {
-  "name": "Test",
-  "url": "http://mastodon.example/tags/test",
+  "id": "802",
+  "name": "Caturday",
+  "url": "http://mastodon.example/tags/caturday",
   "history": [
     {
       "day": "1668556800",
@@ -95,7 +96,7 @@ Authorization
 ## Follow a hashtag {#follow}
 
 ```http
-POST /api/v1/tags/:id/follow HTTP/1.1
+POST /api/v1/tags/:name/follow HTTP/1.1
 ```
 
 Follow a hashtag. Posts containing a followed hashtag will be inserted into your home timeline.
@@ -110,8 +111,8 @@ Follow a hashtag. Posts containing a followed hashtag will be inserted into your
 
 ##### Path parameters
 
-:id
-: {{<required>}} String. The name of the hashtag.
+:name
+: {{<required>}} String. The name of the hashtag, case-insensitive.
 
 ##### Headers
 
@@ -125,8 +126,9 @@ Tag has been successfully followed
 
 ```json
 {
-  "name": "Test",
-  "url": "http://mastodon.example/tags/test",
+  "id": "802",
+  "name": "Caturday",
+  "url": "http://mastodon.example/tags/caturday",
   "history": [
     {
       "day": "1668556800",
@@ -193,7 +195,7 @@ Prior to 4.1.0: Tag was already followed
 ## Unfollow a hashtag {#unfollow}
 
 ```http
-POST /api/v1/tags/:id/unfollow HTTP/1.1
+POST /api/v1/tags/:name/unfollow HTTP/1.1
 ```
 
 Unfollow a hashtag. Posts containing this hashtag will no longer be inserted into your home timeline.
@@ -207,8 +209,8 @@ Unfollow a hashtag. Posts containing this hashtag will no longer be inserted int
 
 ##### Path parameters
 
-:id
-: {{<required>}} String. The name of the hashtag.
+:name
+: {{<required>}} String. The name of the hashtag, case-insensitive.
 
 ##### Headers
 
@@ -222,8 +224,9 @@ Tag has been successfully unfollowed, or was already unfollowed
 
 ```json
 {
-  "name": "Test",
-  "url": "http://mastodon.example/tags/test",
+  "id": "802",
+  "name": "Caturday",
+  "url": "http://mastodon.example/tags/caturday",
   "history": [
     {
       "day": "1668556800",

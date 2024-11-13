@@ -40,6 +40,10 @@ Authorization
 #### Response
 ##### 200: OK
 
+{{< hint style="info" >}}
+The `id` property of the items in this response refers to the [FeaturedTag]({{< relref "entities/featuredtag" >}}) entity, and is not the `id` for a [Tag]({{< relref "entities/tag" >}}) entity.
+{{< /hint >}}
+
 ```json
 [
   {
@@ -208,6 +212,7 @@ Truncated results to first and last tag.
 ```json
 [
   {
+    "id": "4325",
     "name": "nowplaying",
     "url": "https://mastodon.social/tags/nowplaying",
     "history": [
@@ -250,6 +255,7 @@ Truncated results to first and last tag.
   },
   // ...
   {
+    "id": "1684",
     "name": "mastothemes",
     "url": "https://mastodon.social/tags/mastothemes",
     "history": [

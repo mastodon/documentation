@@ -113,6 +113,7 @@ Truncated results of a sample search for "cats" with limit=2.
   ],
   "hashtags": [
     {
+      "id": "205",
       "name": "cats",
       "url": "https://mastodon.social/tags/cats",
       "history": [
@@ -125,6 +126,7 @@ Truncated results of a sample search for "cats" with limit=2.
       ]
     },
     {
+      "id": "708",
       "name": "catsofmastodon",
       "url": "https://mastodon.social/tags/catsofmastodon",
       "history": [

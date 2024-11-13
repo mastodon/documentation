@@ -195,6 +195,7 @@ Authorization
 ```json
 [
   {
+    "id": "802",
     "name": "caturday",
     "url": "https://mastodon.example/tags/caturday",
     "history": [
@@ -234,7 +235,6 @@ Authorization
         "uses": "22"
       }
     ],
-    "id": "802",
     "trendable": true,
     "usable": true,
     "requires_review": false
