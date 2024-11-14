@@ -1,1 +1,2 @@
+# Please make sure you update the GitHub Actions workflow when upgrading the hugo version
 hugo extended_0.130.0
