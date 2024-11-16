@@ -412,6 +412,8 @@ REPLICA_DB_PORT
 REPLICA_DB_NAME
 REPLICA_DB_USER
 REPLICA_DB_PASS
+REPLICA_PREPARED_STATEMENTS (defaults to true)
+REPLICA_DB_TASKS (defaults to true)
 ```
 
 Alternatively, you can also use `REPLICA_DATABASE_URL` if you want to configure them all using the same variable.
