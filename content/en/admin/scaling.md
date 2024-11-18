@@ -412,11 +412,15 @@ REPLICA_DB_PORT
 REPLICA_DB_NAME
 REPLICA_DB_USER
 REPLICA_DB_PASS
-REPLICA_PREPARED_STATEMENTS (defaults to true)
-REPLICA_DB_TASKS (defaults to true)
+REPLICA_PREPARED_STATEMENTS
+REPLICA_DB_TASKS
 ```
 
 Alternatively, you can also use `REPLICA_DATABASE_URL` if you want to configure them all using the same variable.
+
+`REPLICA_DB_TASKS` will connect to an replica database without any database mangement tasks such as schema management, migrations, seeds, etc. By default it is set to true.
+
+`REPLICA_PREPARED_STATEMENTS` is an optional override for the `PREPARED_STATEMENTS` value. By default it is set to true if `PREPARED_STATEMENTS` is not set.
 
 Once done, this is all good and you should start seeing requests against your replica server!
 
