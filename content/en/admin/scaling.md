@@ -418,7 +418,7 @@ REPLICA_DB_TASKS
 
 Alternatively, you can also use `REPLICA_DATABASE_URL` if you want to configure them all using the same variable.
 
-`REPLICA_DB_TASKS` will connect to an replica database without any database mangement tasks such as schema management, migrations, seeds, etc. By default it is set to true.
+`REPLICA_DB_TASKS=false` will connect to an replica database without any database mangement tasks such as schema management, migrations, seeds, etc. By default it is set to true.
 
 `REPLICA_PREPARED_STATEMENTS` is an optional override for the `PREPARED_STATEMENTS` value. By default it is set to true if `PREPARED_STATEMENTS` is not set.
 
