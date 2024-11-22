@@ -32,7 +32,7 @@ aliases: [
 `follow_request` = Someone requested to follow you\
 `favourite` = Someone favourited one of your statuses\
 `poll` = A poll you have voted in or created has ended\
-`update` = A status you interacted with has been edited\
+`update` = A status you reblogged has been edited\
 `admin.sign_up` = Someone signed up (optionally sent to admins)\
 `admin.report` = A new report has been filed\
 `severed_relationships` = Some of your follow relationships have been severed as a result of a moderation or block event\
