@@ -725,7 +725,7 @@ Set to `auto` (default), `always`, or `never`.
 
 #### `SMTP_SSL`
 
-E-mail configuration is based on the *action_mailer* component of the *Ruby on Rails* framework that Mastodon is built on. Complete documentation on action_mailer is available [here](https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration). The client uses SMTP or derivatives: StartTLS + SMTP or SMTPS (SMTP over TLS).
+Email configuration is based on the *action_mailer* component of the *Ruby on Rails* framework that Mastodon is built on. Complete documentation on action_mailer is available [here](https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration). The client uses SMTP or derivatives: StartTLS + SMTP or SMTPS (SMTP over TLS).
 
 ### Basic configuration {#basic}
 
@@ -1047,14 +1047,14 @@ If set, registrations confirm page will display a captcha, see [Captcha](https:/
 
 #### `EMAIL_DOMAIN_ALLOWLIST`
 
-If set, registrations will not be possible with any e-mails **except** those from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
+If set, registrations will not be possible with any emails **except** those from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
 
 #### `EMAIL_DOMAIN_DENYLIST` {{%deprecated%}}
 
-If set, registrations will not be possible with any e-mails from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
+If set, registrations will not be possible with any emails from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
 
 {{< hint style="warning" >}}
-This option is deprecated. You can dynamically block e-mail domains from the admin interface or the `tootctl` command-line interface.
+This option is deprecated. You can dynamically block email domains from the admin interface or the `tootctl` command-line interface.
 {{</ hint >}}
 
 ### Sessions

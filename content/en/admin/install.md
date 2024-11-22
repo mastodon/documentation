@@ -11,7 +11,7 @@ menu:
 
 * A machine running **Ubuntu 24.04** or **Debian 12** that you have root access to
 * A **domain name** (or a subdomain) for the Mastodon server, e.g. `example.com`
-* An e-mail delivery service or other **SMTP server**
+* An email delivery service or other **SMTP server**
 
 We will be using `example.com` as the domain in the following example. Please remember to replace it with your own domain before running any commands.
 
@@ -222,7 +222,7 @@ Copy the systemd service templates from the Mastodon directory:
 cp /home/mastodon/live/dist/mastodon-*.service /etc/systemd/system/
 ```
 
-If you deviated from the defaults at any point, check that the username and paths are correct: 
+If you deviated from the defaults at any point, check that the username and paths are correct:
 
 ```sh
 $EDITOR /etc/systemd/system/mastodon-*.service
