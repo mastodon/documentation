@@ -101,7 +101,7 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** When the account was first discovered.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 2.9.1 - added
 

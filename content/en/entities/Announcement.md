@@ -77,14 +77,14 @@ aliases: [
 ### `starts_at` {#starts_at}
 
 **Description:** When the announcement will start.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime) or null\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)) or null\
 **Version history:**\
 3.1.0 - added
 
 ### `ends_at` {#ends_at}
 
 **Description:** When the announcement will end.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime) or null\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)) or null\
 **Version history:**\
 3.1.0 - added
 
@@ -105,14 +105,14 @@ aliases: [
 ### `published_at` {#created_at}
 
 **Description:** When the announcement was published.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 3.1.0 - added
 
 ### `updated_at` {#updated_at}
 
 **Description:** When the announcement was last updated.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 3.1.0 - added
 
