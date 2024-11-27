@@ -64,6 +64,6 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** When the event took place.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.3.0 - added

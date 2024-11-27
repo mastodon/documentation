@@ -72,7 +72,7 @@ aliases: [
 ### `action_taken_at` {#action_taken_at}
 
 **Description:** When an action was taken against the report.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime) or null\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)) or null\
 **Version history:**\
 4.0.0 - added
 
@@ -103,7 +103,7 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** When the report was created.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.0.0 - added
 

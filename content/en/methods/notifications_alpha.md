@@ -440,7 +440,7 @@ TODO
 
 ## `PartialAccountWithAvatar` entity {#PartialAccountWithAvatar}
 
-These are stripped-down versions of [Account]({{< relref "entities/Account" >}}) that only contain what is necessary to display a list of avatars, as well as a few other useful properties. The aim is to cut back on expensive server-side serialization and reduce the network payload size of notification groups. 
+These are stripped-down versions of [Account]({{< relref "entities/Account" >}}) that only contain what is necessary to display a list of avatars, as well as a few other useful properties. The aim is to cut back on expensive server-side serialization and reduce the network payload size of notification groups.
 
 ### Attributes
 
@@ -573,7 +573,7 @@ TODO
 #### `latest_page_notification_at` {{%optional%}}
 
 **Description:** Date at which the most recent notification from this group within the current page has been created. This is only returned when paginating through notification groups.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**
 4.3.0-beta.1 - added\
 4.3.0-beta.2 - deprecated

@@ -182,7 +182,7 @@ Authorization
 ##### Form data parameters
 
 scheduled_at
-: String. ISO 8601 Datetime at which the status will be published. Must be at least 5 minutes into the future.
+: String. [Datetime](/api/datetime-format#datetime) at which the status will be published. Must be at least 5 minutes into the future.
 
 #### Response
 ##### 200: OK
