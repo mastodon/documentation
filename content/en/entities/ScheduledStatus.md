@@ -74,7 +74,7 @@ Returned from `GET /api/v1/scheduled_statuses`:
 ### `scheduled_at` {#scheduled_at}
 
 **Description:** The timestamp for when the status will be posted.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 2.7.0 - added
 

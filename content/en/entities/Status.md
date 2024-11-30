@@ -119,7 +119,7 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** The date when this status was created.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 0.1.0 - added
 
@@ -292,7 +292,7 @@ aliases: [
 ### `edited_at` {#edited_at}
 
 **Description:** Timestamp of when the status was last edited.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime)\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 3.5.0 - added
 

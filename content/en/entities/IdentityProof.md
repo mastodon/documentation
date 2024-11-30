@@ -45,7 +45,7 @@ Identity proofs have been deprecated in 3.5.0 and newer. Previously, the only pr
 ### `updated_at` {#updated_at}
 
 **Description:** When the identity proof was last updated.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 2.8.0 - added
 

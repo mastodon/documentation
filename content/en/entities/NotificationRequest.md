@@ -21,14 +21,14 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** The timestamp of the notification request, i.e. when the first filtered notification from that user was created.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.3.0 - added
 
 ### `updated_at` {#updated_at}
 
 **Description:** The timestamp of when the notification request was last updated.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.3.0 - added
 

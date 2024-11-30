@@ -70,7 +70,7 @@ aliases: [
 ### `expires_at` {#expires_at}
 
 **Description:** When the filter should no longer be applied.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime), or null if the filter does not expire\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)), or null if the filter does not expire\
 **Version history:**\
 4.0.0 - added
 

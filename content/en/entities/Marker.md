@@ -40,7 +40,7 @@ aliases: [
 ### `updated_at` {#updated_at}
 
 **Description:** The timestamp of when the marker was set.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 3.0.0 - added
 
 ## See also

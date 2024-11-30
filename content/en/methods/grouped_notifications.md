@@ -617,7 +617,7 @@ TODO
 #### `latest_page_notification_at` {{%optional%}}
 
 **Description:** Date at which the most recent notification from this group within the current page has been created. This is only returned when paginating through notification groups.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
 
