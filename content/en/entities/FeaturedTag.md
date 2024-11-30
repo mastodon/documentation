@@ -56,8 +56,8 @@ aliases: [
 
 ### `last_status_at` {#last_status_at}
 
-**Description:** The timestamp of the last authored status containing this hashtag.\
-**Type:** String (ISO 8601 Datetime)\
+**Description:** The date of the last authored status containing this hashtag.\
+**Type:** String ([Date](/api/datetime-format#date))\
 **Version history:**\
 3.0.0 - added
 
