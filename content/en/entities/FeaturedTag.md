@@ -20,7 +20,7 @@ aliases: [
   "name": "nowplaying",
   "url": "https://mastodon.social/@trwnh/tagged/nowplaying",
   "statuses_count": "70",
-  "last_status_at": "2022-08-29T12:03:35.061Z"
+  "last_status_at": "2022-08-29"
 }
 ```
 
