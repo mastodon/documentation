@@ -41,10 +41,10 @@ Authorization
 ##### Form data parameters
 
 start_at
-: {{<required>}} String (ISO 8601 Datetime). The start date for the time period. If a time is provided, it will be ignored.
+: {{<required>}} String ([Datetime](/api/datetime-format#datetime)). The start date for the time period. If a time is provided, it will be ignored.
 
 end_at
-: {{<required>}} String (ISO 8601 Datetime). The end date for the time period. If a time is provided, it will be ignored.
+: {{<required>}} String ([Datetime](/api/datetime-format#datetime)). The end date for the time period. If a time is provided, it will be ignored.
 
 frequency
 : {{<required>}} String (Enumerable oneOf). Specify whether to use `day` or `month` buckets. If any other value is provided, defaults to `day`.

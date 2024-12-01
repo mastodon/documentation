@@ -56,7 +56,7 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** The timestamp of the notification.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 0.9.9 - added
 
