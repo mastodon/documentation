@@ -392,6 +392,13 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
+##### `configuration[media_attachments][description_limit]` {#description_limit}
+
+**Description:** The maximum size of a description, in characters.\
+**Type:** Integer\
+**Version history:**\
+4.4.0 - added
+
 ##### `configuration[media_attachments][image_size_limit]` {#image_size_limit}
 
 **Description:** The maximum size of any uploaded image, in bytes.\
