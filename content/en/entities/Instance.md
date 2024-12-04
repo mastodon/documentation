@@ -101,6 +101,7 @@ aliases: [
         "audio/3gpp",
         "video/x-ms-asf"
       ],
+      "description_limit": 1500,
       "image_size_limit": 10485760,
       "image_matrix_limit": 16777216,
       "video_size_limit": 41943040,
@@ -390,6 +391,13 @@ aliases: [
 **Type:** Array of String\
 **Version history:**\
 4.0.0 - added
+
+##### `configuration[media_attachments][description_limit]` {#description_limit}
+
+**Description:** The maximum size of a description, in characters.\
+**Type:** Integer\
+**Version history:**\
+4.4.0 - added
 
 ##### `configuration[media_attachments][image_size_limit]` {#image_size_limit}
 
