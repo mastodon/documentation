@@ -101,6 +101,7 @@ aliases: [
         "audio/3gpp",
         "video/x-ms-asf"
       ],
+      "description_limit": 1500,
       "image_size_limit": 10485760,
       "image_matrix_limit": 16777216,
       "video_size_limit": 41943040,
