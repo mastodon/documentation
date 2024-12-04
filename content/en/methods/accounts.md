@@ -321,6 +321,8 @@ Update the user's display and preferences.
 4.1.0 - added `hide_collections` parameter\
 4.2.0 - added `indexable` parameter
 
+{{< page-relref ref="methods/preferences#get" caption="Read preferences using /api/v1/preferences" >}}
+
 #### Request
 
 ##### Headers
