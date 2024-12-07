@@ -201,17 +201,23 @@ You need to set a policy for anonymous access that allows read-only access to ob
 To do this, you need to set a custom policy (replace `mastodata` with the actual name of your S3 bucket):
 ```json
 {
-   "Version": "2012-10-17",
-   "Statement": [
-      {
-         "Effect": "Allow",
-         "Principal": {
-           "AWS": "*"
-         },
-         "Action": "s3:GetObject",
-         "Resource": "arn:aws:s3:::mastodata/*"
-      }
-   ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "*"
+                ]
+            },
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::mastodata/*"
+            ]
+        }
+    ]
 }
 ```
 
