@@ -214,7 +214,7 @@ To do this, you need to set a custom policy (replace `mastodata` with the actual
                 "s3:GetObject"
             ],
             "Resource": [
-                "arn:aws:s3:::mastodon-hostnetwork/*"
+                "arn:aws:s3:::mastodata/*"
             ]
         }
     ]
