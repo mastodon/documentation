@@ -68,7 +68,6 @@ limit
       "idempotency": null,
       "scheduled_at": null,
       "spoiler_text": null,
-      "application_id": 596551,
       "in_reply_to_id": null
     },
     "media_attachments": []
@@ -127,7 +126,6 @@ Authorization
     "idempotency": null,
     "scheduled_at": null,
     "spoiler_text": null,
-    "application_id": 596551,
     "in_reply_to_id": null
   },
   "media_attachments": []
@@ -200,7 +198,6 @@ scheduled_at
     "idempotency": null,
     "scheduled_at": null,
     "spoiler_text": null,
-    "application_id": 596551,
     "in_reply_to_id": null
   },
   "media_attachments": []
