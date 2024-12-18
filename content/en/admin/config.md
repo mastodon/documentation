@@ -350,6 +350,24 @@ If provided, takes precedence over `DB_HOST`, `DB_USER`, `DB_NAME`, `DB_PASS` an
 
 Example value: `postgresql://user:password@localhost:5432`
 
+#### `QUERY_LOG_TAGS_ENABLED`
+
+If set to `true`, then ActiveRecord will insert comments at the end of every SQL statement, which can help analyzing the performance of the application.
+
+The comments are formatted using the SqlCommenter format and the following attributes:
+- `namespaced_controller`: full name of the controller for the HTTP request that generated this SQL statement
+- `action`: name of the action for the HTTP request that generated this SQL statement
+- `sidekiq_job_class`: class name of the Sidekiq job that generated this SQL statement
+
+{{< hint style="warning" >}}
+Enabling this option will disable prepared statements
+{{</ hint >}}
+
+Defaults to `false`.
+
+**Version history:**\
+4.4.0 - added
+
 ### PostgreSQL (read-only replica) {#postgresql-replica}
 
 {{< hint style="info" >}}
