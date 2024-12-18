@@ -600,6 +600,12 @@ wss://mastodon.example/api/v1/streaming
 
 Open a multiplexed WebSocket connection to receive events.
 
+#### Request
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
 ##### Parameters
 
 {{< hint style="info" >}}
@@ -619,7 +625,7 @@ Example unsubscription from user updates:
 {{</hint>}}
 
 access_token
-: {{<required>}} String. A user-authorized OAuth token.
+: {{<required>}} String. A user-authorized OAuth token.  Alternative to `Authorization` header.
 
 stream
 : {{<required>}} String. The stream to watch for events. See [Streams](#streams) for possible values.
