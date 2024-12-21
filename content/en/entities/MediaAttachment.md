@@ -223,9 +223,7 @@ More importantly, there may be another topl-level `focus` Hash object on images 
 **Version history:**\
 2.8.1 - added
 
-## Deprecated attributes
-
-### `text_url` {#text_url}
+### `text_url` {{%removed%}} {#text_url}
 
 **Description:** A shorter URL for the attachment.\
 **Type:** String (URL)\

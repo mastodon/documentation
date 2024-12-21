@@ -82,7 +82,7 @@ aliases: [
 ### `action_taken_at` {#action_taken_at}
 
 **Description:** When an action was taken, if this report is currently resolved.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime) or null\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)) or null\
 **Version history:**\
 2.9.1 - added
 
@@ -113,14 +113,14 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** The time the report was filed.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 2.9.1 - added
 
 ### `updated_at` {#updated_at}
 
 **Description:** The time of last action on this report.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 2.9.1 - added
 

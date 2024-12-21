@@ -33,7 +33,7 @@ GET /api/v1/admin/canonical_email_blocks HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -102,7 +102,7 @@ GET /api/v1/admin/canonical_email_blocks/:id HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -155,7 +155,7 @@ Canoniocalize and hash an email address.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -209,7 +209,7 @@ POST /api/v1/admin/canonical_email_blocks HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -275,7 +275,7 @@ DELETE /api/v1/admin/canonical_email_blocks/:id HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK

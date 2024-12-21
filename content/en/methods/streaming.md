@@ -52,6 +52,9 @@ aliases: [
 `encrypted_message`
 : An encrypted message has been received. Implemented in v3.2.0 but currently unused
 
+`notifications_merged`
+: Accepted notification requests have finished merging, and the notifications list should be refreshed. Payload can be ignored. Available since v4.3.0
+
 ## Streaming timelines/categories {#streams}
 
 `public`
@@ -157,7 +160,7 @@ Returns events that are relevant to the authorized user, i.e. home timeline and 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Events
 
@@ -229,7 +232,7 @@ Returns events for received notifications
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Events
 
@@ -251,17 +254,18 @@ GET /api/v1/streaming/public HTTP/1.1
 Returns all public statuses
 
 **Returns:** `update`, `delete`, `status.update`\
-**OAuth:** Public, or app token + `read:statuses`\
+**OAuth:** User token + `read:statuses`\
 **Version history:**\
 1.0.0 - added\
 2.4.0 - add `only_media` parameter\
 3.5.0 - now returns `status.update`
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -302,17 +306,18 @@ GET /api/v1/streaming/public/local HTTP/1.1
 Returns all local public statuses
 
 **Returns:** `update`, `delete`, `status.update`\
-**OAuth:** Public, or app token + `read:statuses`\
+**OAuth:** User token + `read:statuses`\
 **Version history:**\
 1.1.0 - added\
 2.4.0 - add `only_media` parameter\
 3.5.0 - now returns `status.update`
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -353,16 +358,17 @@ GET /api/v1/streaming/public/remote HTTP/1.1
 Returns all public statuses from remote servers.
 
 **Returns:** `update`, `delete`, `status.update`\
-**OAuth:** Public, or app token + `read:statuses`\
+**OAuth:** User token + `read:statuses`\
 **Version history:**\
 3.1.4 - added\
 3.5.0 - now returns `status.update`
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -403,16 +409,17 @@ GET /api/v1/streaming/hashtag HTTP/1.1
 Returns all public statuses for a particular hashtag
 
 **Returns:** `update`, `delete`, `status.update`\
-**OAuth:** Public, or app token + `read:statuses`\
+**OAuth:** User token + `read:statuses`\
 **Version history:**\
 1.0.0 - added\
 3.5.0 - now returns `status.update`
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -453,16 +460,17 @@ GET /api/v1/streaming/hashtag/local HTTP/1.1
 Returns all local public statuses for a particular hashtag
 
 **Returns:** `update`, `delete`, `status.update`\
-**OAuth:** Public, or app token + `read:statuses`\
+**OAuth:** User token + `read:statuses`\
 **Version history:**\
 1.1.0 - added\
 3.5.0 - now returns `status.update`
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -507,12 +515,13 @@ Returns statuses for a list
 **Version history:**\
 2.1.0 - added\
 3.5.0 - now returns `status.update`
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -562,7 +571,7 @@ Returns events for received direct messages.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Events
 
@@ -584,11 +593,18 @@ wss://mastodon.example/api/v1/streaming
 ```
 
 **Returns:** Stream of [Event](#events)\
-**OAuth:** Public, or user token + `read` (or `read:statuses` and/or `read:notifications`)\
+**OAuth:** User token + `read` (or `read:statuses` and/or `read:notifications`)\
 **Version history:**\
 3.3.0 - added
+4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 Open a multiplexed WebSocket connection to receive events.
+
+#### Request
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Parameters
 
@@ -609,7 +625,7 @@ Example unsubscription from user updates:
 {{</hint>}}
 
 access_token
-: {{<required>}} String. A user-authorized OAuth token.
+: {{<required>}} String. A user-authorized OAuth token.  Alternative to `Authorization` header.
 
 stream
 : {{<required>}} String. The stream to watch for events. See [Streams](#streams) for possible values.
@@ -641,7 +657,7 @@ An example update to the public timeline:
 ```
 
 {{< hint style="warning" >}}
-Note that while the event is JSON-encoded, the `payload` is string-encoded and escaped, so it must be parsed and loaded as JSON from that string.
+Note that while the event is JSON-encoded, the `payload` is string-encoded and escaped, so it must be parsed and loaded as JSON from that string. However, for `delete` and `announcements.delete` events the payload is a string representing an identifier, not a JSON value.
 {{</hint>}}
 
 An example delete event from the public timeline:
@@ -668,7 +684,7 @@ An example filter change by the user:
 ```
 
 {{< hint style="warning" >}}
-Note that the `payload` property is not present for `filters_changed` events.
+Note that the `payload` property is not present for `filters_changed` events. And for `delete` and `announcements.delete` the payload is a string, not an object.
 {{</hint>}}
 
 ## See also

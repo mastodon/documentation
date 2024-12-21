@@ -43,9 +43,16 @@ aliases: [
 **Version history:**\
 4.3.0 - added
 
-### `relationships_count` {{%optional%}} {#relationships_count}
+### `followers_count` {#followers_count}
 
-**Description:** Number of follow relationships (in either direction) that were severed.\
+**Description:** Number of followers that were removed as result of the event.\
+**Type:** Integer\
+**Version history:**\
+4.3.0 - added
+
+### `following_count` {#following_count}
+
+**Description:** Number of accounts the user stopped following as result of the event.\
 **Type:** Integer\
 **Version history:**\
 4.3.0 - added
@@ -53,6 +60,6 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** When the event took place.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.3.0 - added

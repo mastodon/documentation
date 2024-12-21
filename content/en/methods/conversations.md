@@ -37,7 +37,7 @@ GET /api/v1/conversations HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -143,7 +143,7 @@ Removes a conversation from your list of conversations.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -195,7 +195,7 @@ POST /api/v1/conversations/:id/read HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK

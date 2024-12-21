@@ -35,7 +35,7 @@ GET /api/v1/scheduled_statuses HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -68,7 +68,6 @@ limit
       "idempotency": null,
       "scheduled_at": null,
       "spoiler_text": null,
-      "application_id": 596551,
       "in_reply_to_id": null
     },
     "media_attachments": []
@@ -109,7 +108,7 @@ GET /api/v1/scheduled_statuses/:id HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -127,7 +126,6 @@ Authorization
     "idempotency": null,
     "scheduled_at": null,
     "spoiler_text": null,
-    "application_id": 596551,
     "in_reply_to_id": null
   },
   "media_attachments": []
@@ -177,12 +175,12 @@ PUT /api/v1/scheduled_statuses/:id HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
 scheduled_at
-: String. ISO 8601 Datetime at which the status will be published. Must be at least 5 minutes into the future.
+: String. [Datetime](/api/datetime-format#datetime) at which the status will be published. Must be at least 5 minutes into the future.
 
 #### Response
 ##### 200: OK
@@ -200,7 +198,6 @@ scheduled_at
     "idempotency": null,
     "scheduled_at": null,
     "spoiler_text": null,
-    "application_id": 596551,
     "in_reply_to_id": null
   },
   "media_attachments": []
@@ -258,7 +255,7 @@ DELETE /api/v1/scheduled_statuses/:id HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK

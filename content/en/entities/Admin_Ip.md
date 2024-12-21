@@ -37,7 +37,7 @@ aliases: [
 ### `used_at` {#used_at}
 
 **Description:** The timestamp of when the IP address was last used for this account.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 3.5.0 - added
 

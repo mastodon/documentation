@@ -239,7 +239,7 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** When the account was created.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 0.1.0 - added\
 3.4.0 - now resolves to midnight instead of an exact time
@@ -247,7 +247,7 @@ aliases: [
 ### `last_status_at` {#last_status_at}
 
 **Description:** When the most recent status was posted.\
-**Type:** {{<nullable>}} String (ISO 8601 Date), or null if no statuses\
+**Type:** {{<nullable>}} String ([Date](/api/datetime-format#date)), or null if no statuses\
 **Version history:**\
 3.0.0 - added\
 3.1.0 - now returns date only, no time
@@ -411,7 +411,7 @@ aliases: [
 ### `mute_expires_at` {#mute_expires_at}
 
 **Description:** When a timed mute will expire, if applicable.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime), or null if the mute is indefinite\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)), or null if the mute is indefinite\
 **Version history:**\
 3.3.0 - added
 
@@ -434,7 +434,7 @@ aliases: [
 ### `verified_at` {#verified_at}
 
 **Description:** Timestamp of when the server verified a URL value for a rel="me" link.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime) if `value` is a verified URL. Otherwise, null.\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)) if `value` is a verified URL. Otherwise, null.\
 **Version history:**\
 2.6.0 - added
 
