@@ -81,7 +81,7 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
-### `relationship_severance_event` {{%optional%}} {#relationship_severance_event}
+### `event` {{%optional%}} {#relationship_severance_event}
 
 **Description:** Summary of the event that caused follow relationships to be severed. Attached when `type` of the notification is `severed_relationships`.\
 **Type:** [RelationshipSeveranceEvent]({{< relref "entities/RelationshipSeveranceEvent" >}})\
