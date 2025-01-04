@@ -34,6 +34,10 @@ location /.well-known/webfinger {
 }
 ```
 
+{{< hint style="info" >}}
+You must serve the redirect with CORS headers; otherwise, some functions of Mastodon's web UI will not work. For example: `Access-Control-Allow-Origin: *`
+{{</ hint >}}
+
 #### `ALTERNATE_DOMAINS`
 
 If you have multiple domains pointed at your Mastodon server, this setting will allow Mastodon to recognize itself when users are addressed using those other domains. Separate the domains by commas, e.g. `foo.com,bar.com`
