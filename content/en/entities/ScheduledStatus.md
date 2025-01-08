@@ -196,7 +196,7 @@ Returned from `GET /api/v1/scheduled_statuses`:
 
 #### `params[with_rate_limit]` {#params-with_rate_limit}
 
-**Description:** Whether the status should be rate limited <!-- TODO: What does this mean -->.\
+**Description:** Whether the status should be rate limited (defaults to true, controls whether to apply status creation rate limit).\
 **Type:** Boolean\
 **Version history:**\
 2.7.0 - added
