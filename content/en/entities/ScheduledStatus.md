@@ -175,7 +175,7 @@ Returned from `GET /api/v1/scheduled_statuses`:
 
 #### `params[application_id]` {#params-application_id}
 
-**Description:** ID of the Application that posted the status.\
+**Description:** Internal ID of the Application that posted the status. Provided for historical compatability only and can be ignored.\
 **Type:** Integer\
 **Version history:**\
 2.7.0 - added
