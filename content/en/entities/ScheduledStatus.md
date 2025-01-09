@@ -194,9 +194,9 @@ Returned from `GET /api/v1/scheduled_statuses`:
 **Version history:**\
 2.7.0 - added
 
-#### `params[with_rate_limit]` {#params-with_rate_limit}
+#### `params[with_rate_limit]` {{%deprecated%}} {#params-with_rate_limit}
 
-**Description:** Whether the status should be rate limited <!-- TODO: What does this mean -->.\
+**Description:** Whether status creation is subject to rate limiting. Provided for historical compatibility only and can be ignored.\
 **Type:** Boolean\
 **Version history:**\
 2.7.0 - added
