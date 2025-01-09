@@ -173,7 +173,7 @@ Returned from `GET /api/v1/scheduled_statuses`:
 **Version history:**\
 2.7.0 - added
 
-#### `params[application_id]` {#params-application_id}
+#### `params[application_id]` {{%deprecated%}} {#params-application_id}
 
 **Description:** Internal ID of the Application that posted the status. Provided for historical compatability only and can be ignored.\
 **Type:** Integer\
