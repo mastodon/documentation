@@ -32,6 +32,7 @@ Returned from `POST /api/v1/statuses?status=test post&scheduled_at=2022-09-29`
     "idempotency": null,
     "with_rate_limit": false,
     "in_reply_to_id": null,
+    "application_id": 3
   },
   "media_attachments": []
 }
@@ -53,6 +54,7 @@ Returned from `GET /api/v1/scheduled_statuses`:
     "idempotency": null,
     "scheduled_at": null,
     "spoiler_text": null,
+    "application_id": 3,
     "in_reply_to_id": null,
     "with_rate_limit": false
   },
@@ -168,6 +170,13 @@ Returned from `GET /api/v1/scheduled_statuses`:
 
 **Description:** The language that will be used for the status.\
 **Type:** {{<nullable>}} String (ISO 639-1 two-letter language code)\
+**Version history:**\
+2.7.0 - added
+
+#### `params[application_id]` {{%deprecated%}} {#params-application_id}
+
+**Description:** Internal ID of the Application that posted the status. Provided for historical compatibility only and can be ignored.\
+**Type:** Integer\
 **Version history:**\
 2.7.0 - added
 

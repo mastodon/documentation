@@ -117,6 +117,7 @@ If scheduled_at is provided, then a ScheduledStatus will be returned instead:
     "poll": null,
     "idempotency": null,
     "in_reply_to_id": null,
+    "application_id": 596551
   },
   "media_attachments": []
 }
