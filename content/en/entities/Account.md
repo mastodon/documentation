@@ -39,6 +39,7 @@ aliases: [
   "locked": false,
   "bot": false,
   "created_at": "2017-02-08T02:00:53.274Z",
+  "attribution_domains": ["example.com", "example.net"],
   "note": "<p>:ms_rainbow_flag:​ :ms_bisexual_flagweb:​ :ms_nonbinary_flag:​ <a href=\"https://awoo.space/tags/awoo\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>awoo</span}.space <a href=\"https://awoo.space/tags/admin\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>admin</span} ~ <a href=\"https://awoo.space/tags/bi\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>bi</span} ~ <a href=\"https://awoo.space/tags/nonbinary\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>nonbinary</span} ~ compsci student ~ likes video <a href=\"https://awoo.space/tags/games\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>games</span} and weird/ old electronics and will post obsessively about both ~ avatar by <span class=\"h-card\"><a href=\"https://weirder.earth/@dzuk\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>dzuk</span}</span></p>",
   "url": "https://awoo.space/@noiob",
   "avatar": "https://files.mastodon.social/accounts/avatars/000/023/634/original/6ca8804dc46800ad.png",
@@ -208,13 +209,6 @@ aliases: [
 **Version history:**\
 3.1.0 - added
 
-### `attribution_domains` {#attribution_domains}
-
-**Description:** Domains of websites allowed to credit the account.\
-**Type:** Array of String\
-**Version history:**\
-4.3.2 - added
-
 ### `noindex` {{%optional%}} {#noindex}
 
 **Description:** Whether the local user has opted out of being indexed by search engines.\
@@ -246,7 +240,7 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** When the account was created.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 0.1.0 - added\
 3.4.0 - now resolves to midnight instead of an exact time
@@ -254,7 +248,7 @@ aliases: [
 ### `last_status_at` {#last_status_at}
 
 **Description:** When the most recent status was posted.\
-**Type:** {{<nullable>}} String (ISO 8601 Date), or null if no statuses\
+**Type:** {{<nullable>}} String ([Date](/api/datetime-format#date)), or null if no statuses\
 **Version history:**\
 3.0.0 - added\
 3.1.0 - now returns date only, no time
@@ -289,6 +283,7 @@ aliases: [
   "acct": "trwnh",
   "display_name": "infinite love ⴳ",
   // ...
+  "attribution_domains": ["example.com", "example.net"],
   "note": "<p>i have approximate knowledge of many things. perpetual student. (nb/ace/they)</p><p>xmpp/email: a@trwnh.com<br /><a href=\"https://trwnh.com\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a><br />help me live: <a href=\"https://liberapay.com/trwnh\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/trwnh</span><span class=\"invisible\"></span></a> or paypal</p><p>- my triggers are moths and glitter<br />- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise<br />- dm me if i did something wrong, so i can improve<br />- purest person on fedi, do not lewd in my presence</p>",
   // ...
   "source": {
@@ -352,6 +347,13 @@ aliases: [
   }
 }
 ```
+
+### `attribution_domains` {#attribution_domains}
+
+**Description:** Domains of websites allowed to credit the account.\
+**Type:** Array of String\
+**Version history:**\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added
 
 ### `source` {#source}
 
@@ -418,7 +420,7 @@ aliases: [
 ### `mute_expires_at` {#mute_expires_at}
 
 **Description:** When a timed mute will expire, if applicable.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime), or null if the mute is indefinite\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)), or null if the mute is indefinite\
 **Version history:**\
 3.3.0 - added
 
@@ -441,7 +443,7 @@ aliases: [
 ### `verified_at` {#verified_at}
 
 **Description:** Timestamp of when the server verified a URL value for a rel="me" link.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime) if `value` is a verified URL. Otherwise, null.\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)) if `value` is a verified URL. Otherwise, null.\
 **Version history:**\
 2.6.0 - added
 
