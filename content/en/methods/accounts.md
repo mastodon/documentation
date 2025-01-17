@@ -319,7 +319,8 @@ Update the user's display and preferences.
 2.4.2 - added `source[language]` parameter\
 2.7.0 - added `discoverable` parameter\
 4.1.0 - added `hide_collections` parameter\
-4.2.0 - added `indexable` parameter
+4.2.0 - added `indexable` parameter\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added `attribution_domains` parameter
 
 #### Request
 
@@ -356,6 +357,9 @@ hide_collections
 
 indexable
 : Boolean. Whether public posts should be searchable to anyone.
+
+attribution_domains[]
+: Array of String. Domains of websites allowed to credit the account.
 
 fields_attributes
 : Hash. The profile fields to be set. Inside this hash, the key is an integer cast to a string (although the exact integer does not matter), and the value is another hash including `name` and `value`. By default, max 4 fields.
