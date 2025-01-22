@@ -107,9 +107,7 @@ systemctl stop redis-server.service
 Now copy your Redis database over (adjust the location of your Redis database as needed). On your old machine, as the `root` user, run:
 
 ```bash
-redis-cli
-SAVE
-EXIT
+redis-cli SAVE
 systemctl stop redis-server.service
 rsync -avz /var/lib/redis/ root@example.com:/var/lib/redis
 ```
