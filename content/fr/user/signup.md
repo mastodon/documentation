@@ -17,9 +17,7 @@ Vous pouvez [parcourir une liste de serveurs par catégories et par langues sur 
 
 ### Comprendre la politique d’une instance {#tos}
 
-<!-- TODO: Update /about/more with /about on other pages. -->
-
-Avant de vous inscrire à un service, il est important d’en comprendre la politique et les conditions d’utilisation. La politique d’une instance Mastodon se trouve généralement sur la page `/about/`, qui se trouve en cliquant « À propos  » sur la page d’accueil de cette instance, en étant déconnecté.
+Avant de vous inscrire à un service, il est important d’en comprendre la politique et les conditions d’utilisation. La politique d’une instance Mastodon se trouve généralement sur la page `/about/more`, qui se trouve en cliquant « À propos  » sur la page d’accueil de cette instance, en étant déconnecté.
 
 ### Types d’inscriptions {#signup}
 
