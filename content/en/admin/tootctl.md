@@ -30,7 +30,9 @@ RAILS_ENV=production bin/tootctl help
 
 ### `tootctl self-destruct` {#self-destruct}
 
-Erase this server from the federation by broadcasting account Delete activities to all known other servers. This allows a "clean exit" from running a Mastodon server, as it leaves next to no cache behind on other servers. This command is always interactive and requires confirmation twice.
+Erase this server from the federation by broadcasting account `Delete` activities to all known other servers. This allows a "clean exit" from running a Mastodon server, as it leaves next to no cache behind on other servers. This command is always interactive and requires confirmation twice.
+
+Prior to Mastodon 4.3.0, deletion jobs are enqueued immediately when running this command. Since Mastodon 4.3.0, this command will instead print out instructions to switch the server to self-destruct mode, which is responsible for sending the `Delete` activities. When a server is in self-destruct mode, it will also allow its users to log in and download their data, but it will not allow them to perform any other action. Calling `tootctl self-destruct` again on a server in self-destruct mode will print information on the progress of the self-destruction process.
 
 No local data is actually deleted because emptying the database or deleting the entire VPS is faster. If you run this command and then continue to operate the instance anyway, then there will be a state mismatch that might lead to glitches and issues with federation.
 
@@ -38,11 +40,12 @@ No local data is actually deleted because emptying the database or deleting the 
 **Make sure you know exactly what you are doing before running this command.** This operation is NOT reversible, and it can take a long time. The server will be in a BROKEN STATE after this command finishes. A running Sidekiq process is required, so do not shut down the server until the queues are fully cleared.
 {{< /hint >}}
 
-`--dry-run`
-: Print expected results only, without performing any actions.
+`--dry-run` {{%removed%}}
+: Print expected results only, without performing any actions. Removed in 4.3.0
 
 **Version history:**\
-2.8.0 - added
+2.8.0 - added\
+4.3.0 - removed `--dry-run`, introduced self-destruct mode
 
 
 ---
