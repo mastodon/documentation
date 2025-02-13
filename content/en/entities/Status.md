@@ -249,7 +249,7 @@ aliases: [
 
 ### `in_reply_to_account_id` {#in_reply_to_account_id}
 
-**Description:** ID of the account that authored the status being replied to.\
+**Description:** ID of the account that authored the status being replied to. This skips over self-replies. So if status A was posted by account 1, and account 2 posts statuses B, C, and D as a chain of replies to status A, statuses B, C, and D will all have `in_reply_to_account_id` = 1 (instead of C and D having `in_reply_to_account_id` = 2).\
 **Type:** {{<nullable>}} String (cast from an integer but not guaranteed to be a number) or null\
 **Version history:**\
 0.1.0 - added
