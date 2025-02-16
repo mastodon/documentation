@@ -53,8 +53,8 @@ To enable S3 storage, set the `S3_ENABLED` environment variable to `true`.
 
 - `S3_REGION` (defaults to 'us-east-1', required if using AWS S3, may
   not be required with other storage providers)
-- `S3_ENDPOINT` (defaults to 's3.<S3_REGION>.amazonaws.com', required
-  if not using AWS S3)
+- `S3_ENDPOINT` (defaults to 'https://s3.<S3_REGION>.amazonaws.com',
+  required if not using AWS S3)
 - `S3_BUCKET=mastodata` (replacing `mastodata` with the name of your
   bucket)
 - `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` need to be set to
