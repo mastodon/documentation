@@ -208,4 +208,220 @@ disablePathToLower = true
   [languages.ja]
     contentDir = "content/ja"
     languageName = "日本語"
+    weight = 2baseURL = "https://docs.joinmastodon.org/"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "Mastodon documentation"
+pygmentsCodeFences = true
+pygmentsStyle = "github-dark"
+metaDataFormat = "yaml"
+enableGitInfo = true
+disablePathToLower = true
+
+[pagination]
+  pagerSize = 100
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 1
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[languages.en.menu]
+  [[languages.en.menu.docs]]
+    name = "Using Mastodon"
+    weight = 10
+    identifier = "user"
+    url = "/user/"
+  [[languages.en.menu.docs]]
+    name = "Running Mastodon"
+    weight = 20
+    identifier = "admin"
+    url = "/admin/"
+  [[languages.en.menu.docs]]
+    name = "Developing Mastodon apps"
+    weight = 30
+    identifier = "client"
+    url = "/client/"
+  [[languages.en.menu.docs]]
+    name = "Contributing to Mastodon"
+    weight = 40
+    identifier = "dev"
+    url = "/dev/"
+  [[languages.en.menu.docs]]
+    name = "Spec compliance"
+    weight = 50
+    identifier = "spec"
+    url = "/spec/"
+  [[languages.en.menu.docs]]
+    name = "REST API"
+    weight = 60
+    identifier = "api"
+    url = "/api/"
+  [[languages.en.menu.docs]]
+    name = "API Methods"
+    weight = 70
+    identifier = "methods"
+    url = "/methods/"
+  [[languages.en.menu.docs]]
+    name = "API Entities"
+    weight = 80
+    identifier = "entities"
+    url = "/entities/"
+
+
+[languages.pl.menu]
+  [[languages.pl.menu.docs]]
+    name = "Korzystaj z Mastodona"
+    weight = 10
+    identifier = "user"
+    url = "/user/"
+  [[languages.pl.menu.docs]]
+    name = "Uruchamianie Mastodona"
+    weight = 20
+    identifier = "admin"
+    url = "/admin/"
+  [[languages.pl.menu.docs]]
+    name = "Twórz aplikacje dla Mastodona"
+    weight = 30
+    identifier = "client"
+    url = "/client/"
+  [[languages.pl.menu.docs]]
+    name = "Współtwórz Mastodona"
+    weight = 40
+    identifier = "dev"
+    url = "/dev/"
+  [[languages.pl.menu.docs]]
+    name = "Zgodność ze specyfikacją"
+    weight = 50
+    identifier = "spec"
+    url = "/spec/"
+  [[languages.pl.menu.docs]]
+    name = "REST API"
+    weight = 60
+    identifier = "api"
+    url = "/api/"
+  [[languages.pl.menu.docs]]
+    name = "Metody API"
+    weight = 70
+    identifier = "methods"
+    url = "/methods/"
+  [[languages.pl.menu.docs]]
+    name = "Jednostki API"
+    weight = 80
+    identifier = "entities"
+    url = "/entities/"
+
+[languages.zh-cn.menu]
+  [[languages.zh-cn.menu.docs]]
+    name = "使用Mastodon"
+    weight = 10
+    identifier = "user"
+    url = "/user/"
+  [[languages.zh-cn.menu.docs]]
+    name = "运营Mastodon"
+    weight = 20
+    identifier = "admin"
+    url = "/admin/"
+  [[languages.zh-cn.menu.docs]]
+    name = "开发Mastodon应用"
+    weight = 30
+    identifier = "client"
+    url = "/client/"
+  [[languages.zh-cn.menu.docs]]
+    name = "向Mastodon项目做贡献"
+    weight = 40
+    identifier = "dev"
+    url = "/dev/"
+  [[languages.zh-cn.menu.docs]]
+    name = "遵循的标准"
+    weight = 50
+    identifier = "spec"
+    url = "/spec/"
+  [[languages.zh-cn.menu.docs]]
+    name = "REST API"
+    weight = 60
+    identifier = "api"
+    url = "/api/"
+  [[languages.zh-cn.menu.docs]]
+    name = "API 方法"
+    weight = 70
+    identifier = "methods"
+    url = "/methods/"
+  [[languages.zh-cn.menu.docs]]
+    name = "API 实体"
+    weight = 80
+    identifier = "entities"
+    url = "/entities/"
+
+[languages.ja.menu]
+  [[languages.ja.menu.docs]]
+    name = "Mastodonを使う"
+    weight = 10
+    identifier = "user"
+    url = "/user/"
+  [[languages.ja.menu.docs]]
+    name = "Mastodonを動かす"
+    weight = 20
+    identifier = "admin"
+    url = "/admin/"
+  [[languages.ja.menu.docs]]
+    name = "Mastodonアプリを開発する"
+    weight = 30
+    identifier = "client"
+    url = "/client/"
+  [[languages.ja.menu.docs]]
+    name = "Mastodonの開発に貢献する"
+    weight = 40
+    identifier = "dev"
+    url = "/dev/"
+  [[languages.ja.menu.docs]]
+    name = "準拠している仕様"
+    weight = 50
+    identifier = "spec"
+    url = "/spec/"
+  [[languages.ja.menu.docs]]
+    name = "REST API"
+    weight = 60
+    identifier = "api"
+    url = "/api/"
+  [[languages.ja.menu.docs]]
+    name = "API Methods"
+    weight = 70
+    identifier = "methods"
+    url = "/methods/"
+  [[languages.ja.menu.docs]]
+    name = "API Entities"
+    weight = 80
+    identifier = "entities"
+    url = "/entities/"
+
+
+[languages]
+  [languages.en]
+    contentDir = "content/en"
+    languageName = "English"
+    weight = -99
+
+  [languages.pl]
+    contentDir = "content/pl"
+    languageName = "Polski"
+    weight = 0
+
+  [languages.zh-cn]
+    contentDir = "content/zh-cn"
+    languageName = "简体中文"
+    weight = 1
+
+  [languages.ja]
+    contentDir = "content/ja"
+    languageName = "日本語"
     weight = 2
+
+  [languages.fr]
+    contentDir = "content/fr"
+    languageName = "français"
+    weight = 3
+
