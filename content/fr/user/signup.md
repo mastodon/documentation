@@ -25,7 +25,7 @@ Mastodon permet aux personnes qui administrent une instance de définir un mode 
 
 #### Inscriptions libres {#open}
 
-Certaines instances vous permettront de vous enregistrer immédiatement —validez simplement le formulaire d’inscription avec votre nom d’utilisateur, adresse de courriel, et mot de passem et vous pourrez utiliser votre compte.
+Certaines instances vous permettront de vous enregistrer immédiatement —validez simplement le formulaire d’inscription avec votre nom d’utilisateur, adresse de courriel, et mot de passe, et vous pourrez utiliser votre compte.
 
 #### Sur invitation {#invite}
 
@@ -52,6 +52,6 @@ Tout comme une adresse de courriel. Par commodité, Mastodon vous permet d’ome
 | Je suis `@claude@example.com` sur Mastodon ! | Correct |
 | Je suis https://example.com/@claude sur Mastodon ! | Correct |
 
-Le formulaire de recherche de Mastodon vous permettra de trouver quelqu’un, soit avec le format d’adresse précédent, soit le lien vers le profil de la personne. Vous pouvez donc partager ce dernier si vous préférez.
+Le formulaire de recherche de Mastodon vous permettra de trouver quelqu’un, soit avec le format d’adresse précédent, soit avec le lien vers le profil de la personne. Vous pouvez donc partager ce dernier si vous préférez.
 
 Le même nom d’utilisateur _peut_ être enregistré sur différentes instances —il n’y a aucun moyen de tous les réserver au préalable. Tout comme le courriel, ne vous attendez pas à ce que `claude@outlook.com` soit la même personne que `claude@gmail.com` ou `claude@yahoo.com`.
