@@ -85,9 +85,9 @@ Au contraire des services propriétaires, **n’importe qui a une liberté absol
 >
 > -- Eugen Rochko, 30 décembre 2018, « [Why does decentralization matter?](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/) »
 
-## Choisissez votre chemin {#étape-suivante}
-
 <!-- TODO: Translate those pages before linking to them.
+
+## Choisissez votre chemin {#étape-suivante}
 
 Apprenez comment utiliser Mastodon :
 
