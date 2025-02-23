@@ -40,7 +40,7 @@ Some websites allow you to fill out a registration form, but with an additional 
 Mastodon addresses actually consist of two parts:
 
 * The local username, e.g. `alice`
-* And the domain of the website, e.g. `exemple.com`
+* And the domain of the website, e.g. `example.com`
 
 Just like an email address. For convenience sake, Mastodon allows you to skip the second part when addressing people on the same server as you, but you have to keep in mind when sharing your username with other people, you need to include the domain or they won’t be able to find you as easily.
 
