@@ -9,7 +9,7 @@ menu:
 
 ## Choisir une instance {#picker}
 
-Vous devez choisir une instance pour vous y inscrire, comme vous choisiriez un fournisseur d’email, ou un royaume _World of Warcraft_ pour votre personnage. Le site web sera votre fournisseur de service, hébergeant votre compte, votre profil, et vore fil d’actualité local.
+Vous devez choisir une instance pour vous y inscrire, comme vous choisiriez un fournisseur d’email, ou un royaume _World of Warcraft_ pour votre personnage. Le site web sera votre fournisseur de service, hébergeant votre compte, votre profil, et votre fil d’actualité local.
 
 {{< hint style="info" >}}
 Vous pouvez [parcourir une liste de serveurs par catégories et par langues sur joinmastodon.org](https://joinmastodon.org/#getting-started).
@@ -37,20 +37,19 @@ Certaines instances vous autorisent à remplir un formulaire d’inscription, ma
 
 ## Votre nom d’utilisateur et votre domaine {#address}
 
-<!-- TODO: Replace username by address in the English version. -->
 
 Les adresses Mastodon se composent de deux parties :
 
 * Le nom local, e.g. `claude`
-* Le domaine de l’instance, e.g. `example.com`
+* Le domaine de l’instance, e.g. `exemple.com`
 
 Tout comme une adresse de courriel. Par commodité, Mastodon vous permet d’omettre la seconde partie lorsque vous vous adressez à des personnes sur la même instance que vous, mais vous devez garder en tête que vous devez inclure le domaine pour partager votre compte à des tiers, ou vous trouver sera moins facile.
 
 | Partager votre nom d’utilisateur |  |
 | :--- | :--- |
 | Je suis `@claude` sur Mastodon ! | Incorrect |
-| Je suis `@claude@example.com` sur Mastodon ! | Correct |
-| Je suis https://example.com/@claude sur Mastodon ! | Correct |
+| Je suis `@claude@exemple.com` sur Mastodon ! | Correct |
+| Je suis https://exemple.com/@claude sur Mastodon ! | Correct |
 
 Le formulaire de recherche de Mastodon vous permettra de trouver quelqu’un, soit avec le format d’adresse précédent, soit avec le lien vers le profil de la personne. Vous pouvez donc partager ce dernier si vous préférez.
 
