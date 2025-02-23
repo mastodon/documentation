@@ -49,7 +49,7 @@ Puisque Mastodon est un logiciel qui peut être utilisé pour n’importe quel s
 >
 > -- Eugen Rochko, 6 juillet 2018, « [Cage the Mastodon](https://blog.joinmastodon.org/2018/07/cage-the-mastodon/) »
 
-> Une plateforme centralisée de réseau social a une structure hiérarchisée où les règles et leur applicatoin, ainsi que le développement et la direction de la plateforme, sont décidées par le PDG […] Un réseau décentralisé renonce délibéremment au contrôle de la plateforme par un propriétaire, en évitant tout bonnement d’en avoir un.
+> Une plateforme centralisée de réseau social a une structure hiérarchisée où les règles et leur application, ainsi que le développement et la direction de la plateforme, sont décidées par le PDG […] Un réseau décentralisé renonce délibéremment au contrôle de la plateforme par un propriétaire, en évitant tout bonnement d’en avoir un.
 >
 > -- Eugen Rochko, 30 décembre 2018, « [Why does decentralization matter?](https://blog.joinmastodon.org/2018/12/why-does-decentralization-matter/) »
 
@@ -61,13 +61,13 @@ Certains opérateurs choisissent d’offrir des comptes payants, certains opéra
 
 Le développement de Mastodon repose également sur un financement participatif, via [Patreon](https://patreon.com/mastodon) et [OpenCollective](https://opencollective.com/mastodon). **Aucun capital-risque n’est impliqué.**
 
-> À mon avis, « une conversation instantanée, publique et globale » devrait, en réalité, être _globale_. Distribuée entre des oragnisations et des acteurs indépendants capables d’auto-gouvernance. Une utilité publique, sans intérêt à exploiter la conversation pour générer du profit.
+> À mon avis, « une conversation instantanée, publique et globale » devrait, en réalité, être _globale_. Distribuée entre des organisations et des acteurs indépendants capables d’auto-gouvernance. Un service public, sans intérêt à exploiter la conversation pour générer du profit.
 >
 > -- Eugen Rochko, 3 mars 2018, « [Twitter is not a public utility](https://blog.joinmastodon.org/2018/03/twitter-is-not-a-public-utility/) »
 
 ### Interopérabilité entre différents logiciels {#interopérabilité}
 
-En pratique : Imaginez que vous puissiez suivre un utilisateur d’Instagram depuis votre compte X, et commenter leurs photos sans quitter votre compte. Si X et Instagram étaient des services fédérés qui utilisent le même protocole, cela serait possible. Avec un compte Mastodon, **vous pouvez communiquer avec n’importe quel site web compatible, _même s’il n’utilise pas Mastodon_**. Tout ce qui est nécessaire est que le logiciel repose sur les mêmes parties du protocole d’ActivityPub qui permettent de créer et interagir avec des messages. Pour en savoir plus sur les spécifications techniques nécessaires à une interopérabilité avec Mastodon, voir [ActivityPub](spec/activitypub), [WebFinger](spec/webfinger), et [Security](spec/security). Pour plus de lecture sur ce qu’ActivityPub nous permet de faire, voir _[Why ActivityPub is the future](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/)_.
+En pratique : imaginez que vous puissiez suivre un utilisateur d’Instagram depuis votre compte X, et commenter leurs photos sans quitter votre compte. Si X et Instagram étaient des services fédérés qui utilisent le même protocole, cela serait possible. Avec un compte Mastodon, **vous pouvez communiquer avec n’importe quel site web compatible, _même s’il n’utilise pas Mastodon_**. Tout ce qui est nécessaire est que le logiciel repose sur les mêmes parties du protocole d’ActivityPub qui permettent de créer et interagir avec des messages. Pour en savoir plus sur les spécifications techniques nécessaires à une interopérabilité avec Mastodon, voir [ActivityPub](spec/activitypub), [WebFinger](spec/webfinger), et [Security](spec/security). Pour plus de lecture sur ce qu’ActivityPub nous permet de faire, voir _[Why ActivityPub is the future](https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/)_.
 
 > Toutes ces plateformes sont différentes et se concentrent sur des besoins différents. Cependant, la fondation est toujours la même : des gens qui s’abonnent pour recevoir des messages d’autres personnes. Et donc, elles sont compatibles.
 >
