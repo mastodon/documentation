@@ -272,7 +272,7 @@ Delete a media attachment that is not currently attached to a status.
 **Returns:** Empty\
 **OAuth:** User token + `write:media`\
 **Version history:**\
-- 4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added
+- 4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 4) - added
 
 #### Request
 
