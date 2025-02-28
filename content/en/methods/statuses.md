@@ -378,7 +378,7 @@ Delete one of your own statuses.
 **Version history:**\
 0.0.0 - added\
 2.9.0 - return source properties, for use with delete and redraft\
-4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added `delete_media` optional parameter
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 4) - added `delete_media` optional parameter
 
 #### Request
 
