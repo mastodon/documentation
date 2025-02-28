@@ -32,6 +32,7 @@ $darker: $classic-primary-color;
 
 $vibrant: lighten($blurple-500, 8%); // color4
 $error: $warning-red; // color6
+$warning: $gold-star;
 $success: $success-green; // color7
 
 $background-border-color: lighten($classic-base-color, 4%);
@@ -903,6 +904,20 @@ main {
     font-size: 12px;
     font-weight: 500;
     color: $error;
+  }
+
+  &-removed {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    color: $error;
+  }
+
+  &-deprecated {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    color: $warning;
   }
 
   &-optional {

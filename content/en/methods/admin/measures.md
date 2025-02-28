@@ -36,7 +36,7 @@ Obtain statistical measures for your server.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -58,10 +58,10 @@ keys[]
 - `instance_followers` = Total local accounts followed by accounts from a remote domain within the time period
 
 start_at
-: {{<required>}} String (ISO 8601 Datetime). The start date for the time period. If a time is provided, it will be ignored.
+: {{<required>}} String ([Datetime](/api/datetime-format#datetime)). The start date for the time period. If a time is provided, it will be ignored.
 
 end_at
-: {{<required>}} String (ISO 8601 Datetime). The end date for the time period. If a time is provided, it will be ignored.
+: {{<required>}} String ([Datetime](/api/datetime-format#datetime)). The end date for the time period. If a time is provided, it will be ignored.
 
 tag_accounts[id]
 : String. When `tag_accounts` is one of the requested keys, you must provide a tag ID to obtain the measure of how many accounts used that hashtag in at least one status within the given time period.

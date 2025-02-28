@@ -20,7 +20,7 @@ This guide was written with Ubuntu Server in mind; your mileage may vary for oth
 3. Dump and load the PostgreSQL database using the instructions below.
 4. Copy the `system/` files using the instructions below. (Note: if you’re using S3, you can skip this step.)
 5. Copy the `.env.production` file.
-6. Save the Redis database, stop the Redis service, and copy the Redis database from `/var/lib/redis/` to the new server.
+6. Save the Redis database, stop the Redis service on both your old and new machines, and copy the Redis database from `/var/lib/redis/` to the new server.
 7. Run `RAILS_ENV=production bundle exec rails assets:precompile` to compile Mastodon
 8. Start Mastodon and Redis on the new server.
 9. Run `RAILS_ENV=production ./bin/tootctl feeds build` to rebuild the home timelines for each user.
@@ -98,12 +98,16 @@ You’ll want to re-run this if any of the files on the old server change.
 
 You should also copy over the `.env.production` file, which contains secrets.
 
+On your new machine, ensure that Redis is not running, otherwise it may overwrite the dump file you are trying to restore. As the `root` user, run:
+
+```bash
+systemctl stop redis-server.service
+```
+
 Now copy your Redis database over (adjust the location of your Redis database as needed). On your old machine, as the `root` user, run:
 
 ```bash
-redis-cli
-SAVE
-EXIT
+redis-cli SAVE
 systemctl stop redis-server.service
 rsync -avz /var/lib/redis/ root@example.com:/var/lib/redis
 ```

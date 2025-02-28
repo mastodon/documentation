@@ -47,14 +47,15 @@ Types to filter include:
 3.3.0 - added `status` type; both `min_id` and `max_id` can be used at the same time now\
 3.5.0 - added `types`; add `update` and `admin.sign_up` types\
 4.0.0 - added `admin.report` type\
-4.1.0 - notification limit changed from 15 (max 30) to 40 (max 80)
+4.1.0 - notification limit changed from 15 (max 30) to 40 (max 80)\
+4.3.0 - added `include_filtered` parameter
 
 #### Request
 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -79,13 +80,16 @@ exclude_types[]
 account_id
 : String. Return only notifications received from the specified account.
 
+include_filtered
+: Boolean. Whether to include notifications filtered by the user's [NotificationPolicy]({{< relref "entities/NotificationPolicy" >}}). Defaults to false.
+
 #### Response
 
 Sample call with limit=2.
 
 ```http
 GET https://mastodon.social/api/v1/notifications?limit=2 HTTP/1.1
-Authorization: Bearer xxx
+Authorization: Bearer <user_token>
 ```
 
 ##### 200: OK
@@ -196,7 +200,7 @@ View information about a notification with a given ID.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -272,7 +276,7 @@ Clear all notifications from the server.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -319,7 +323,7 @@ Dismiss a single notification from the server.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -343,7 +347,7 @@ Invalid or missing Authorization header.
 
 ---
 
-## (REMOVED) Dismiss a single notification {#dismiss-deprecated}
+## Dismiss a single notification {{%removed%}} {#dismiss-deprecated}
 
 ```http
 POST /api/v1/notifications/dismiss HTTP/1.1
@@ -363,7 +367,7 @@ Dismiss a single notification from the server.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 id

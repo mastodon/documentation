@@ -43,7 +43,7 @@ aliases: [
 ### `status_ids` {#status_ids}
 
 **Description:** List of status IDs that are relevant to the warning. When `action` is `mark_statuses_as_sensitive` or `delete_statuses`, those are the affected statuses.\
-**Type:** Array of String (cast from integer)\
+**Type:** {{<nullable>}} Array of String (cast from integer), or null\
 **Version history:**\
 4.3.0 - added
 
@@ -64,6 +64,6 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** When the event took place.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.3.0 - added

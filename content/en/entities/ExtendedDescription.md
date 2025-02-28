@@ -26,7 +26,7 @@ aliases: [
 ### `updated_at` {#updated_at}
 
 **Description:** A timestamp of when the extended description was last updated.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.0.0 - added
 

@@ -23,7 +23,7 @@ aliases: [
 Identity proofs have been deprecated in 3.5.0 and newer. Previously, the only proof provider was Keybase, but development on Keybase has stalled entirely since it was acquired by Zoom.
 {{< /hint >}}
 
-## (REMOVED) View identity proofs {#get}
+## View identity proofs {{%removed%}} {#get}
 
 ```http
 GET /api/proofs HTTP/1.1

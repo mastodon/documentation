@@ -53,8 +53,8 @@ To enable S3 storage, set the `S3_ENABLED` environment variable to `true`.
 
 - `S3_REGION` (defaults to 'us-east-1', required if using AWS S3, may
   not be required with other storage providers)
-- `S3_ENDPOINT` (defaults to 's3.<S3_REGION>.amazonaws.com', required
-  if not using AWS S3)
+- `S3_ENDPOINT` (defaults to 'https://s3.<S3_REGION>.amazonaws.com',
+  required if not using AWS S3)
 - `S3_BUCKET=mastodata` (replacing `mastodata` with the name of your
   bucket)
 - `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` need to be set to
@@ -201,17 +201,23 @@ You need to set a policy for anonymous access that allows read-only access to ob
 To do this, you need to set a custom policy (replace `mastodata` with the actual name of your S3 bucket):
 ```json
 {
-   "Version": "2012-10-17",
-   "Statement": [
-      {
-         "Effect": "Allow",
-         "Principal": {
-           "AWS": "*"
-         },
-         "Action": "s3:GetObject",
-         "Resource": "arn:aws:s3:::mastodata/*"
-      }
-   ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "*"
+                ]
+            },
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::mastodata/*"
+            ]
+        }
+    ]
 }
 ```
 

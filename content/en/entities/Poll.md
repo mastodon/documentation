@@ -52,7 +52,7 @@ aliases: [
 ### `expires_at` {#expires_at}
 
 **Description:** When the poll ends.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime), or null if the poll does not end\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)), or null if the poll does not end\
 **Version history:**\
 2.8.0 - added
 
