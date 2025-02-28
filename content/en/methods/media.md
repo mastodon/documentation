@@ -261,6 +261,31 @@ There was an error processing the media attachment
 
 ---
 
+## Delete media attachment {#delete}
+
+```http
+DELETE /api/v1/media/:id
+```
+
+Delete a media attachment that is not currently attached to a status.
+
+**Returns:** Empty\
+**OAuth:** User token + `write:media`\
+**Version history:**\
+- 4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the MediaAttachment in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
 ## Update media attachment {#update}
 
 ```http
