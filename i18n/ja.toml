@@ -4,9 +4,6 @@ other = "このページを改善する"
 [lastUpdated]
 other = "最終更新"
 
-[lastUpdatedDateFormat]
-other = "{{ .Format \"January 2, 2006\" }}"
-
 [joinTitle]
 other = "ソーシャルメディア革命に参加する"
 
