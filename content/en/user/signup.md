@@ -37,7 +37,7 @@ Some websites allow you to fill out a registration form, but with an additional 
 
 ## Your username and your domain {#address}
 
-Mastodon usernames actually consist of two parts:
+Mastodon addresses actually consist of two parts:
 
 * The local username, e.g. `alice`
 * And the domain of the website, e.g. `example.com`
