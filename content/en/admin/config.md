@@ -46,7 +46,7 @@ If you have multiple domains pointed at your Mastodon server, this setting will 
 
 Comma-separated list of private IP addresses/subnets that are allowed in outgoing HTTP requests. Mastodon blocks HTTP requests to hosts on private IP address ranges (like `127.0.0.1` or `192.168.1.1/16`) to prevent [Server-side request forgeries](https://en.wikipedia.org/wiki/Server-side_request_forgery). This setting removes the specified IP addresses/subnets from being blocked.
 
-#### `AUTHORIZED_FETCH`
+#### `AUTHORIZED_FETCH` {#authorized-fetch}
 
 Also called "secure mode". When set to `true`, the following changes occur:
 
@@ -1135,6 +1135,67 @@ Regeneration of home feeds is computationally expensive, if your Sidekiq is cons
 {{< hint style="info" >}}
 This setting has no relation to which users are considered active for the purposes of statistics, such as the Monthly Active Users number.
 {{</ hint >}}
+
+### Fetch All Replies {#fetch-all-replies}
+
+**Version history:**\
+4.x.x - added
+
+Fetch all replies fetches the tree of replies beneath an expanded post by recursively requesting the [replies collections](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-replies) of each of the statuses, and then requesting the status itself. Fetching replies is triggered by requesting the status's `context` - so will be triggered both from the web interface and external apps.
+
+Specifically, posts will be fetched if
+- The remote server correctly implements [ActivityPub/ActivityStreams Collections](https://www.w3.org/TR/activitypub/#collections), including [paging](https://www.w3.org/TR/activitystreams-core/#paging)
+- The remote server allows requests for replies collections to be made from the default instance actor - e.g. [`AUTHORIZED_FETCH`](#authorized-fetch) is not enabled
+- The post is "public" or "unlisted" visibility, or equivalent in other apps.
+- Either
+  - The status does not exist in the database OR
+  - The status has not been fetched in `FETCH_REPLIES_COOLDOWN_MINUTES` AND
+  - The status was created more than `FETCH_REPLIES_INITIAL_WAIT_MINUTES` ago
+
+All visibility systems still apply - fetched replies will not be visible to accounts that are e.g. blocked by the post author if the fetching server is well behaved.
+
+When fetching, posts from accounts that have no local followers are refetched as well, even if they are not listed in the parent status's `replies` collection. Since the account has no local followers, the fetching instance would not have received a `Delete` activity, so if on refetching the remote instance returns a `404`, the previously fetched status will be removed.
+
+The need for and cost of fetching replies is likely to vary dramatically for servers of different sizes, so these configuration options allow server admins to tune resource usage: smaller instances may want to increase the limits, while larger instances may want to decrease them or lengthen the cooldown intervals.
+
+#### `FETCH_REPLIES_ENABLED`
+
+**Default:** `true`
+
+Enable or disable fetching additional replies when a post's detailed view is expanded.
+
+#### `FETCH_REPLIES_COOLDOWN_MINUTES`
+
+**Default:** `15`
+
+The amount of time to wait since the last fetch of a post and its replies since the last fetch. 
+
+Note that this applies per-status: triggering a fetch for a parent status and then triggering a reply for a child within the reply tree will not double-fetch the status.
+
+#### `FETCH_REPLIES_INITIAL_WAIT_MINUTES`
+
+**Default:** `5`
+
+The amount of time after a post was created to wait before it is eligible for fetching replies
+
+#### `FETCH_REPLIES_MAX_GLOBAL`
+
+**Default:** `1000`
+
+The maximum number of replies to fetch - total, recursively through a whole reply tree, per fetch action.
+
+#### `FETCH_REPLIES_MAX_SINGLE`
+
+**Default:** `500`
+
+The maximum number of replies to fetch for a single status within a reply tree.
+
+#### `FETCH_REPLIES_MAX_PAGES`
+
+**Default:** `500`
+
+The total number of ActivityPub `Collection` pages to fetch from a whole reply tree, per fetch action.
+
 
 ## Other {#other}
 
