@@ -60,9 +60,9 @@ If you are following someone, you also have the option to receive a notification
 
 ## Search {#search}
 
-{{< figure src="assets/search.png" width="50%" caption="The search function with modifier options exposed" >}}
+{{< figure src="assets/search.png" width="50%" caption="The search function with modifier options exposed, see the section on prefixes below for description" >}}
 
-Mastodon's basic search allows logged-in users to find posts containing a specific hashtag, or to load a user or status directly if they know the URL or address. Searching for a term will show profiles whose username or display name contains that term, as well as hashtags that match or contain that term.
+Mastodon's basic search allows logged-in users to find posts containing a specific hashtag, or to load a user or status directly if they know the URL or address. Searching for a term will show profiles whose username or display name contains that term, as well as hashtags that match or contain that term. Searching for a remote post or account's full URL will cause the server to fetch it if it is not already in the database so it can be viewed locally.
 
 {{< figure src="assets/direct-url.png" width="70%" caption="An example of a post being loaded directly by its URL" >}}
 
@@ -77,6 +77,23 @@ The following operators are supported:
 * **"exact phrases"** will try to find the term inside the quote marks. This allows looking only for direct matches, such as `"look at my cluckers"` to find posts explicitly telling you to look at someone's cluckers.
 * **-exclude** will exclude the term prepended by a minus sign. This allows filtering out certain terms, such as `animals -cats` to find posts about animals without posts about cats.
 * **+include** will include the term after the plus sign. This allows searching for multiple terms that must be included, such as `cat +dog` to find posts about both cats and dogs.
+
+The following `prefix:value` pairs are also supported:
+
+* `has:` (`media`, `poll`, `embed`) - posts that contain the specified attachment type
+* `is:` (`reply`, `sensitive`) - posts that are either a reply or marked sensitive.
+* `language:` (`{language_code}`) - posts made in a specific language, indicated by its [ISO639 language code](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)
+* `from:` (`@{username}`, `@{username}@{domain}`, `me`) - posts from a specified author
+* `before:` (`{date}`) - posts created before an ISO8601 formatted date, e.g. "`2025-03-01`". If the account has a timezone set, searches using their local timezone - otherwise in UTC.
+* `after:` (`{date}`) - posts created after an ISO8601 formatted date
+* `during:` (`{date}`) - posts created during an ISO8601 formatted date
+* `in:` (`library`, `public`) - `library` is the collection of posts that you have interacted with in some way: favorited, reblogged, bookmarked, etc. `public` is the global full text search index. The default is to search both, if this option is omitted.
+
+Each can be used in combination with a text search, for example to find all posts from yourself about cryptids, you could search for `from:me "cryptids"`.
+
+Prefixes can be combined, though they are combined with `AND`, so e.g. one can't search for all posts from multiple languages.
+
+Prefixes can be negated with `-` as with string queries, so one can search for posts from anyone else about cryptids like `-from:me "cryptids"`.
 
 ## Private Mentions {#private}
 
