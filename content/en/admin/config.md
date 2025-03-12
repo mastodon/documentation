@@ -46,7 +46,7 @@ If you have multiple domains pointed at your Mastodon server, this setting will 
 
 Comma-separated list of private IP addresses/subnets that are allowed in outgoing HTTP requests. Mastodon blocks HTTP requests to hosts on private IP address ranges (like `127.0.0.1` or `192.168.1.1/16`) to prevent [Server-side request forgeries](https://en.wikipedia.org/wiki/Server-side_request_forgery). This setting removes the specified IP addresses/subnets from being blocked.
 
-#### `AUTHORIZED_FETCH` {#authorized-fetch}
+#### `AUTHORIZED_FETCH`
 
 Also called "secure mode". When set to `true`, the following changes occur:
 
@@ -1145,10 +1145,9 @@ Fetch all replies fetches the tree of replies beneath an expanded post by recurs
 
 Specifically, posts will be fetched if
 - The remote server correctly implements [ActivityPub/ActivityStreams Collections](https://www.w3.org/TR/activitypub/#collections), including [paging](https://www.w3.org/TR/activitystreams-core/#paging)
-- The remote server allows requests for replies collections to be made from the default instance actor - e.g. [`AUTHORIZED_FETCH`](#authorized-fetch) is not enabled
-- The post is "public" or "unlisted" visibility, or equivalent in other apps.
+- The remote server allows requests for replies collections to be made from the default instance actor.
 - Either
-  - The status does not exist in the database OR
+  - A status with a matching URI does not exist in the database OR
   - The status has not been fetched in `FETCH_REPLIES_COOLDOWN_MINUTES` AND
   - The status was created more than `FETCH_REPLIES_INITIAL_WAIT_MINUTES` ago
 
