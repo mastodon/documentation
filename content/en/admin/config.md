@@ -862,6 +862,8 @@ The bucket must support access control lists (ACLs). For AWS S3, this means sett
 
 #### `S3_ALIAS_HOST`
 
+#### `EXTRA_DATA_HOSTS`
+
 
 #### `S3_OPEN_TIMEOUT`
 
