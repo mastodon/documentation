@@ -101,6 +101,12 @@ provider, reducing egress bandwidth costs from the storage
 provider. This can be done in your own reverse proxy, or by using a
 CDN.
 
+`EXTRA_DATA_HOSTS` offers appending an additional list of hosts that
+are allowed to serve media for your instance. This is useful if you 
+include external media in your custom CSS or about page, or if your 
+data storage provider makes use of redirects to other domains.
+`EXTRA_DATA_HOSTS=https://data.example1.com|https://data.example2.com`
+
 {{< page-ref page="admin/optional/object-storage-proxy.md" >}}
 
 {{< hint style="info" >}}
