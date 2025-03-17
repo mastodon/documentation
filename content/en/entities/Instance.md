@@ -121,7 +121,8 @@ aliases: [
   "registrations": {
     "enabled": false,
     "approval_required": false,
-    "message": null
+    "message": null,
+    "min_age": 16
   },
   "api_versions": {
     "mastodon": 1,
@@ -510,6 +511,13 @@ aliases: [
 **Type:** {{<nullable>}} String (HTML) or null\
 **Version history:**\
 4.0.0 - added
+
+#### `registrations[min_age]` {#registrations-min_age}
+
+**Description:** A minimum age required to register, if configured.\
+**Type:** {{<nullable>}} Integer or null\
+**Version history:**\
+4.4.0 - added
 
 ### `api_versions` {#api-versions}
 
