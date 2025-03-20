@@ -11,7 +11,7 @@ menu:
 
 {{< figure src="assets/timeline.png" width="70%" caption="Posts from other servers being streamed into the Live Feed" >}}
 
-To allow you to discover potentially interesting content, Mastodon provides a way to browse all public posts. Well, there is no global shared state between all servers, so there is no way to browse _all_ public posts. When you browse **Live Feeds** > **Other Servers**, you see all public posts that the server you are on knows about. There are various ways your server may discover posts, but the bulk of them will be from people that other users on your server follow.
+To allow you to discover potentially interesting content, Mastodon provides a way to browse all public posts. Well, there is no global shared state between all servers, so there is no way to browse _all_ public posts. When you browse **Live Feeds** > **Other Servers**, you see all public posts that the server you are on knows about. There are [various](#fetching-replies) [ways](#search) your server may discover posts, but the bulk of them will be from people that other users on your server follow. 
 
 You can also filter the Live Feeds to view only public posts created on your server.
 
@@ -26,6 +26,18 @@ You can perform quick actions on a post directly from the timeline, or you can c
 * **Favourite** a post by clicking the star icon. The post will be added to your favourites list, and a favourite notification will be delivered to its author.
 * **Bookmark** a post by clicking the ribbon icon. The post will be privately added to your bookmarks list without generating a notification.
 * Access a **menu** of additional options by clicking the ellipsis icon.
+
+### Fetching Replies {#fetching-replies}
+
+When a status is expanded[^expanded], [if enabled]({{< ref "/admin/config#fetch-all-replies" >}}), your server will attempt to fetch any replies that it does not already know about from other servers. This involves "walking" down the tree of replies and asking each different server for the replies it knows about, so it may take some time, especially for posts with many replies, or if it is the first time the post has been expanded on your server. Try refreshing the page after a few moments if you suspect you aren't seeing all replies.[^retrigger]
+
+Fetching replies will show you most, though not necessarily _all_ replies. Followers-only statuses, direct mentions, and posts from instances that [require authorization]({{< ref "/admin/config#authorized-fetch" >}}) to fetch posts will not be included, unless you or someone else on your server already follows the authoring account.
+
+By [searching](#search) for a post and then expanding it, you can effectively "import" a tree of replies to your instance, helping you and others on your server meet new people and other fediverse creatures!
+
+[^expanded]: "Expanded" in the sense used above, meaning clicking on it to display the detailed view, not e.g. expanding content warnings or unfiltering posts.
+
+[^retrigger]: Refreshing the page will not retrigger a fetch within some cooldown period, so don't worry about overdoing it!
 
 ## Notifications {#notifications}
 
