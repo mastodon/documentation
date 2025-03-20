@@ -27,12 +27,6 @@ It deliberately does not allow searching for arbitrary strings in the entire dat
 Mastodon is tested with Elasticsearch version 7. It should support OpenSearch, as well as Elasticsearch versions 6 and 8, but those setups are not officially supported.
 {{< /hint >}}
 
-Elasticsearch requires a Java runtime. If you don’t have Java already installed, do it now. Assuming you are logged in as `root`:
-
-```bash
-apt install openjdk-17-jre-headless
-```
-
 Add the official Elasticsearch repository to apt:
 
 ```bash
