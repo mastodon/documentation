@@ -706,7 +706,7 @@ Mastodon reports whether a user was locally suspended, for better handling of th
 }
 ```
 
-### Suspended flag {#suspended}
+### Memorial flag {#memorial}
 
 Mastodon reports whether a user's profile was memorialized, for better handling of these accounts. Memorial accounts in Mastodon return normal data, but are rendered with a header indicating that the account is a memorial account. This functionality is implemented using an extra property `memorial` on objects.
 
