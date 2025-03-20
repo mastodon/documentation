@@ -115,6 +115,12 @@ At last, you'll want to make sure Mastodon is using your new proxy to generate f
 S3_ALIAS_HOST=files.example.com
 ```
 
+(Optional) If your S3_ALIAS_HOST is using a 301 redirection or similar. Add the final location to the EXTRA_DATA_HOSTS
+
+```bash
+EXTRA_DATA_HOSTS=https://data.example1.com
+```
+
 And restart Mastodon:
 
 ```bash
