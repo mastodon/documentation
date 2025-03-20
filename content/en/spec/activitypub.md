@@ -261,6 +261,9 @@ manuallyApprovesFollowers
 discoverable
 : Will be shown in the profile directory. See [Discoverability flag](#discoverable).
 
+indexable
+: Posts by this account can be indexed for full-text search. See [Indexable flag](#indexable).
+
 publicKey
 : Required for signatures. See [Public key](#publicKey).
 
@@ -276,6 +279,12 @@ alsoKnownAs
 published
 : When the profile was created.
 
+memorial
+: Whether the account is a memorial account.
+
+suspended
+: Whether the account is currently suspended.
+
 attributionDomains
 : Domains allowed to use `fediverse:creator` for this actor in published articles.
 
@@ -287,18 +296,20 @@ attributionDomains
 
 Base URI: `http://joinmastodon.org/ns#`
 
-Contains definitions for Mastodon features.
+Contains terms used for Mastodon features.
 
 - toot:Emoji (`http://joinmastodon.org/ns#Emoji`)
 - toot:IdentityProof (`http://joinmastodon.org/ns#IdentityProof`)
+- toot:attributionDomains (`http://joinmastodon.org/ns#attributionDomains`)
 - toot:blurhash (`http://joinmastodon.org/ns#blurhash`)
-- toot:focalPoint (`http://joinmastodon.org/ns#focalPoint`)
+- toot:discoverable (`http://joinmastodon.org/ns#discoverable`)
 - toot:featured (`http://joinmastodon.org/ns#featured`)
 - toot:featuredTags (`http://joinmastodon.org/ns#featuredTags`)
-- toot:discoverable (`http://joinmastodon.org/ns#discoverable`)
+- toot:focalPoint (`http://joinmastodon.org/ns#focalPoint`)
+- toot:indexable (`http://joinmastodon.org/ns#indexable`)
+- toot:memorial (`http://joinmastodon.org/ns#memorial`)
 - toot:suspended (`http://joinmastodon.org/ns#suspended`)
 - toot:votersCount (`http://joinmastodon.org/ns#votersCount`)
-- toot:attributionDomains (`http://joinmastodon.org/ns#attributionDomains`)
 
 ### ActivityStreams extensions (`as:`) {#as}
 
@@ -643,7 +654,7 @@ Mastodon supports integration with identity providers to prove that a profile is
 
 ### Discoverability flag {#discoverable}
 
-Mastodon allows users to opt-in or opt-out of discoverability features like the profile directory. This flag may also be used as an indicator of the user's preferences toward being included in external discovery services, such as search engines or other indexing tools. If you are implementing such a tool, it is recommended that you respect this property if it is present. This is implemented using an extra property `discoverable` on objects.
+Mastodon allows users to opt-in or opt-out of discoverability features like the profile directory. This flag may also be used as an indicator of the user's preferences toward being included in external discovery services. If you are implementing such a tool, it is recommended that you respect this property if it is present. This is implemented using an extra property `discoverable` on objects mapping to profiles.
 
 ```json
 {
@@ -656,6 +667,24 @@ Mastodon allows users to opt-in or opt-out of discoverability features like the 
   "id": "https://mastodon.social/users/Gargron",
   "type": "Person",
   "discoverable": true
+}
+```
+
+### Indexable flag {#indexable}
+
+Mastodon allows users to opt-in or opt-out of indexing features like full-text search of public statuses. If you are implementing such a tool, it is recommended that you respect this property if it is present. This is implemented using an extra property `indexable` on objects mapping to profiles.
+
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    {
+      "indexable": "http://joinmastodon.org/ns#indexable"
+    }
+  ],
+  "id": "https://mastodon.social/users/Gargron",
+  "type": "Person",
+  "indexable": true
 }
 ```
 
@@ -674,6 +703,24 @@ Mastodon reports whether a user was locally suspended, for better handling of th
   "id": "https://example.com/@eve",
   "type": "Person",
   "suspended": true
+}
+```
+
+### Suspended flag {#suspended}
+
+Mastodon reports whether a user's profile was memorialized, for better handling of these accounts. Memorial accounts in Mastodon return normal data, but are rendered with a header indicating that the account is a memorial account. This functionality is implemented using an extra property `memorial` on objects.
+
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    {
+      "memorial": "http://joinmastodon.org/ns#memorial"
+    }
+  ],
+  "id": "https://example.com/@alice",
+  "type": "Person",
+  "memorial": true
 }
 ```
 
