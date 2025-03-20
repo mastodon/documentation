@@ -37,7 +37,7 @@ At this moment, limit does not affect federation. A locally limited account is *
 
 A Mastodon suspension means the account is effectively deleted. The account no longer appears in search, the profile page is gone, and all of the posts, uploads, followers, and all other data are removed publicly. However, all the data is available in the admin back-end for a period of 30 days from suspension. This is to give the user an opportunity to work with instance admins to resolve any potential issues and have the account re-instated.
 
-If the account is reinstated within the 30-day period, the user's profile and all posts become publicly accessible again. However, cross-server follow relationships may be broken upon suspension and will not be automatically restored when the account is reinstated. If the 30-day period lapses, **all** of the user's data is permanently purged from the instance. Admins also have the option to immediately delete the user's account data at any point during the 30 day period.
+If the account is reinstated within the 30-day period, the user's profile and all posts become publicly accessible again. However, cross-server follow relationships may be broken upon suspension and will not be automatically restored when the account is reinstated. If the 30-day period lapses, **all** of the user's data is permanently purged from the instance. Admins also have the option to immediately delete the user's account data at any point during the 30-day period.
 
 Once the data has been deleted, whether that is after the 30-day period, or if an admin has force deleted it, the account can still be un-suspended. However, the account will have no data (statuses, profile information, avatar or header image) associated with it.
 
