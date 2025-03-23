@@ -55,23 +55,24 @@ Now that we have an authorization `code`, let's obtain an access token that will
 
 ```bash
 curl -X POST \
+	-F 'grant_type=authorization_code' \
 	-F 'client_id=your_client_id_here' \
 	-F 'client_secret=your_client_secret_here' \
 	-F 'redirect_uri=urn:ietf:wg:oauth:2.0:oob' \
-	-F 'grant_type=authorization_code' \
 	-F 'code=user_authzcode_here' \
-	-F 'scope=read write push' \
 	https://mastodon.example/oauth/token
 ```
 
 Note the following:
 
+- We are requesting a `grant_type` of `authorization_code`
 - `client_id` and `client_secret` were provided in the response text when you registered your application.
 - `redirect_uri` must be one of the URIs defined when registering the application.
-- We are requesting a `grant_type` of `authorization_code`, which still defaults to giving us the `read` scope. However, while authorizing our user, we requested a certain `scope` -- pass the exact same value here.
 - The `code` can only be used once. If you need to obtain a new token, you will need to have the user authorize again by repeating the above [Authorize the user]({{< relref "client/authorized#authorize-the-user" >}}) step.
 
 The response of this method is a [Token]({{< relref "entities/token" >}}) entity. We will need the `access_token` value. Once you have the access token, save it in your local cache.
+
+The `scope` of resulting Access Token will be the scopes approved during the [Authorization Request]({{< relref "client/authorized#login" >}})
 
 {{< hint style="warning" >}}
 Treat the `access_token` as if it were a password. We recommend you encrypt this value when storing in your cache, to prevent accidental credential exposure.
