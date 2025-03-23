@@ -1036,64 +1036,52 @@ main {
   }
 }
 
-/* Update menu styling */
+// none mobile device - sticky and scrollable menu 
 @media screen and (min-width: $mobile-width) {
   nav.sidebar {
-    height: 90%;
     position: sticky !important;
-    top: 0px !important;
     overflow-y: auto;
-    max-height: 1000px !important;
-    left: 10px !important;
-    margin-left: 0px !important;
     z-index: 1;  
+    height: 80%;    
+    max-height: 700px !important; // ensures bottom menu item shows 
+    left: 10px !important;
+    top: 0px !important;         
+    margin-left: 0px !important;
     
-    ul:first {
-      background-color: $darkest;
-      top: -55px;
-      position: relative;
-      border-top: 0px solid white;
-    }
-    
-    a:first {
-      position: relative !important;
-      background-color: $darkest;
-      z-index: 1;
-      width: 100%;
-      top: 0px !important;
-      box-sizing: border-box;
-      margin-top: 0px;
-    }
-    
+    // a.active nested in nav.sidebar 
     a.active {
       top: 0px !important;
     } 
-  } 
-  /* give main content a little more room */
+  }
+  // give main content a little more room 
   main {
-    margin-left: 50px;
+    margin-left: 20px;
   }
 }
 
-
+// mobile device - not sticky and scrollable nav 
 @media screen and (max-width: $mobile-width) {
-  nav {
+  nav.sidebar {
     display: inline-block;
-    top: 0px;
-    left: 0px;        
-    width: 100%;
-    margin: 0px;
-    padding: 0px !important;        
     background-color: $darkest;
+    width: 100%;
+    left: 0px;        
+    top: 0px;
+    margin: 0px;
+    padding: 0px !important;            
 
+    // a.brand nested in nav.sidebar 
     a.brand {
       display: inline-block !important;        
       padding-left: 30%;        
-
+      
+      // img nested in a.brand 
       img {
         margin: 5px auto 0px auto !important;                
       }
     }
+    
+    // label[for] nested in nav.sidebar 
     label[for] {
       display: inline-block !important;
       float: right;        
@@ -1104,26 +1092,26 @@ main {
 }
 
 /* 
- Designing for scroll-bar thanks to:
+ Match scroll-bar style to site design - thanks to:
  https://www.geeksforgeeks.org/how-to-change-the-position-of-scrollbar-using-css/ 
 */
-::-webkit-scrollbar {
+nav.sidebar::-webkit-scrollbar {
   width: 5px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
+// Track 
+nav.sidebar::-webkit-scrollbar-track {
   background: $darkest;
   border-radius: 5px; 
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
+// Handle 
+nav.sidebar::-webkit-scrollbar-thumb {
   background: white;
   border-radius: 5px;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+// Handle on hover 
+nav.sidebar::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
