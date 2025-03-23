@@ -6,6 +6,7 @@ $black: #000000; // Black
 $white: #ffffff; // White
 $red-600: #b7253d !default; // Deep Carmine
 $red-500: #df405a !default; // Cerise
+$blurple-700: #483d8b; // dark slate blue
 $blurple-600: #563acc; // Iris
 $blurple-500: #6364ff; // Brand purple
 $blurple-400: #7477fd; // Medium slate blue
@@ -1101,17 +1102,17 @@ nav.sidebar::-webkit-scrollbar {
 
 // Track 
 nav.sidebar::-webkit-scrollbar-track {
-  background: $darkest;
+  background: $blurple-700;
   border-radius: 5px; 
 }
 
 // Handle 
 nav.sidebar::-webkit-scrollbar-thumb {
-  background: white;
+  background: $white;
   border-radius: 5px;
 }
 
 // Handle on hover 
 nav.sidebar::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: $classic-secondary-color;
 }
