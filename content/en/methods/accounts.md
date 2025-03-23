@@ -32,7 +32,8 @@ A relationship between the OAuth Application and created user account is stored.
 **Version history:**\
 2.7.0 - added\
 3.0.0 - added `reason` parameter\
-3.4.0 - added `details` to failure response
+3.4.0 - added `details` to failure response\
+4.4.0 - added `date_of_birth` parameter
 
 #### Request
 
@@ -60,6 +61,9 @@ locale
 
 reason
 : String. If registrations require manual approval, this text will be reviewed by moderators.
+
+date_of_birth
+: String ([Date](/api/datetime-format#date)), required if the server has a minimum age requirement.
 
 #### Response
 
@@ -332,7 +336,7 @@ Authorization
 ##### Form data parameters
 
 display_name
-: String. The display name to use for the profile. 
+: String. The display name to use for the profile.
 
 note
 : String. The account bio.
@@ -951,7 +955,7 @@ Authorization
 
 ##### Query parameters
 
-max_id 
+max_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 since_id
@@ -1057,7 +1061,7 @@ Authorization
 
 ##### Query parameters
 
-max_id 
+max_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 since_id
