@@ -80,8 +80,10 @@ aliases: [
 **Type:** String (Enumerable, oneOf)\
 `warn` = show a warning that identifies the matching filter by `title`, and allow the user to expand the filtered status. This is the default (and unknown values should be treated as equivalent to `warn`).\
 `hide` = do not show this status if it is received\
+`blur_media` = hide/blur media attachments with a warning identifying the matching filter by `title`
 **Version history:**\
-4.0.0 - added
+4.0.0 - added\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 5) - added `blur_media` value to `filter_action` attribute
 
 ### `keywords` {#keywords}
 
