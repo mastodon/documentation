@@ -180,7 +180,7 @@ Create a filter group with the given parameters.
 **OAuth:** User token + `write:filters`\
 **Version history:**\
 4.0.0 - added\
-4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 5) - added `blur_media` value to `filter_action` attribute
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 5) - added `blur` value to `filter_action` attribute
 
 #### Request
 
@@ -198,7 +198,7 @@ context[]
 : {{<required>}} Array of String. Where the filter should be applied. Specify at least one of `home`, `notifications`, `public`, `thread`, `account`.
 
 filter_action
-: String. The policy to be applied when the filter is matched. Specify `warn`, `hide` or `blur_media`.
+: String. The policy to be applied when the filter is matched. Specify `warn`, `hide` or `blur`.
 
 expires_in
 : Integer. How many seconds from now should the filter expire?
@@ -300,7 +300,7 @@ Update a filter group with the given parameters.
 **OAuth:** User token + `write:filters`\
 **Version history:**\
 4.0.0 - added\
-4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 5) - added `blur_media` value to `filter_action` attribute
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 5) - added `blur` value to `filter_action` attribute
 
 #### Request
 
@@ -323,7 +323,7 @@ context[]
 : Array of String. Where the filter should be applied. Specify at least one of `home`, `notifications`, `public`, `thread`, `account`.
 
 filter_action
-: String. The policy to be applied when the filter is matched. Specify `warn`, `hide` or `blur_media`.
+: String. The policy to be applied when the filter is matched. Specify `warn`, `hide` or `blur`.
 
 expires_in
 : Integer. How many seconds from now should the filter expire?
