@@ -864,6 +864,7 @@ The bucket must support access control lists (ACLs). For AWS S3, this means sett
 
 #### `EXTRA_MEDIA_HOSTS`
 
+**Version history:**\
 4.4.0 - added
 
 #### `S3_OPEN_TIMEOUT`
