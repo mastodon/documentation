@@ -121,6 +121,7 @@ aliases: [
   "registrations": {
     "enabled": false,
     "approval_required": false,
+    "reason_required": false,
     "message": null,
     "min_age": 16
   },
@@ -516,6 +517,13 @@ aliases: [
 
 **Description:** A minimum age required to register, if configured.\
 **Type:** {{<nullable>}} Integer or null\
+**Version history:**\
+4.4.0 - added
+
+#### `registrations[reason_required]` #{registrations-reason_required}
+
+**Description:** Whether registrations require the user to provide a reason for joining. Only applicable when `registrations[approval_required]` is true.\
+**Type:** {{<nullable>}} Boolean\
 **Version history:**\
 4.4.0 - added
 
