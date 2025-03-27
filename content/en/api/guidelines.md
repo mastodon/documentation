@@ -78,6 +78,12 @@ In this case, you may retrieve the `Link` header and parse it for links to the o
 
 Following the `next` link should show you older results. Following the `prev` link should show you newer results.
 
+## Deprecations {#deprecations}
+
+Mastodon rarely removes APIs, but that can still happen from time to time. Therefore, it is recommended to keep up with Mastodon releases and keep an eye out for deprecated APIs.
+
+Furthermore, to help implementers with spotting use of deprecated APIs, Mastodon 4.4.0 makes use of the `Deprecation` header defined in [RFC9745](https://datatracker.ietf.org/doc/html/rfc9745). It is recommended that library and application developers look for this header and display warnings in their development environments so they can spot these deprecated APIs before they get retired.
+
 ## Formatting {#formatting}
 
 Plain text is not available for content from remote servers, and plain text syntax rules may vary wildly between Mastodon and other fediverse applications. For certain attributes, such as the content of statuses, **Mastodon provides sanitized HTML**. See [HTML Sanitization]({{< relref "spec/activitypub#sanitization" >}}) for more details. You may expect these tags to appear in the content:
