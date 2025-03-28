@@ -107,6 +107,10 @@ CDN.
 You must serve the files with CORS headers, otherwise some functions of Mastodon's web UI will not work. For example, `Access-Control-Allow-Origin: *`
 {{</ hint >}}
 
+{{< hint style="info" >}}
+If you change the domain name where you host your files (e.g. from local to object-storage, or between object-storage hosts), you must ensure that the new domain name is added to the `Content-Security-Policy` header of your instance at least one week before the change, because the service workers for Mastodon will cache the value for up to a week. Otherwise your users will see broken images.
+{{</ hint >}}
+
 ### Optional environment variables
 
 #### `S3_OPEN_TIMEOUT`
