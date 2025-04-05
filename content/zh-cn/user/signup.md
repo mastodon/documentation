@@ -1,57 +1,57 @@
 ---
-title: 创建一个帐户
-description: 找寻属于你的完美社区。
+title: 注册帐户
+description: 找到你理想的社区。
 menu:
   docs:
     weight: 10
     parent: user
 ---
 
-## 选择一个站点 {#picker}
+## 选择站点 {#picker}
 
-你必须选择一个Mastodon站点进行注册，就好比你需要选择一个电子邮件提供商，或者像是为你的魔兽世界新角色选择一个地区（服务器）一样。该站点将是你的服务提供方，托管你的帐户、个人资料及个人主页信息流。
+你需要选择一个要注册的站点，就像你选择电子邮件提供商或你新用户组的魔兽世界服务器一样。该站点将成为你的服务提供者，托管你的帐户、个人资料和主页信息流。
 
 {{< hint style="info" >}}
-你可以 [在 joinmastodon.org 上按类别和语言浏览Mastodon站点列表](https://joinmastodon.org/#getting-started).
+你可以[在 joinmastodon.org 上按类别和语言浏览站点列表](https://joinmastodon.org/#getting-started)。
 {{< /hint >}}
 
 ### 了解站点的政策 {#tos}
 
-在你注册之前，了解该Mastodon站点的政策和使用条款是很重要的。Mastodon站点通常会在`/about/more`页面上列出它的政策。你可以在未登录的状态下，点击登录页面上的“了解更多”链接来找到政策和使用条款信息。
+在注册服务之前，了解其政策和使用条款非常重要。Mastodon 站点通常会在 `/about/more` 页面上列出其政策，你可以通过在未登录该站点时单击着陆页上的“了解更多”来找到该页面。
 
-### 站点注册模式 {#signup}
+### 注册模式 {#signup}
 
-Mastodon软件允许站点管理员从三种站点注册模式中选择一种：开放注册、邀请制和审核制。
+Mastodon 允许站点管理员设置三种不同的注册模式之一：开放注册、邀请和审批模式。
 
 #### 开放注册 {#open}
 
-有些站点可能允许你立即注册。只需使用你的用户名、电子邮件地址和密码填写注册信息，就可以开始使用你的帐户了。
+某些站点可能允许你立即注册——只需填写带有用户名、电子邮件地址和密码的注册信息，你就可以开始使用你的帐户。
 
-#### 邀请制 {#invite}
+#### 站点邀请 {#invite}
 
-有些站点禁用注册表单，而是要求生成并分享邀请链接以允许人们注册。
+某些站点禁用注册表单，而是需要生成和共享邀请链接才能允许人们注册。
 
-#### 审核制 {#approval}
+#### 基于审批的注册 {#approval}
 
-有些站点允许你填写注册表单，但是会有一个附加的表单条目来说明你为什么想要加入那个站点。提交了表单之后，你的帐户必须得到管理员的批准才能开始使用。
+某些站点允许你填写注册表单，但会添加一个额外的表单条目，用于说明你想要加入该站点的原因。提交表单后，你的帐户必须经过审核员的批准才能开始使用。
 
-## 你的用户名和域名 {#address}
+## 你的用户名和你的域名 {#address}
 
-Mastodon的用户名由两部分组成：
+Mastodon 用户名实际上由两部分组成：
 
-* 本站用户名，比如 `alice`
-* Mastodon站点的域名，比如 `example.com`
+* 本站用户名，例如 `alice`
+* 站点的域名，例如 `example.com`
 
-就像电子邮件地址一样，为了方便起见，Mastodon允许你在向与你相同的服务器上的人发送地址时跳过第二部分，但是你必须记住：在与他人分享你的用户名时，应当包含站点的域名，否则他人将不能轻松的找到你。
+就像电子邮件地址一样。为了方便起见，Mastodon 允许你在与你同站点的人通信时跳过第二部分，但是当你与其他人分享你的用户名时，你需要记住包含域名，否则他们将无法轻松地找到你。
 
-|  |  |
+| 分享你的用户名 |  |
 | :--- | :--- |
-| 我是Mastodon上的 @alice ！ | 错误的表述 |
-| 我是Mastodon上的 @alice@example.com ！ | 正确的表述 |
-| 我是Mastodon上的 https://example.com/@alice ！ | 正确的表述 |
+| 我是 Mastodon 上的 `@alice`！ | 错误 |
+| 我是 Mastodon 上的 `@alice@example.com`！ | 正确 |
+| 我是 Mastodon 上的 https://example.com/@alice！ | 正确 |
 
-上述两种地址形式（完整用户名、用户主页链接）都可以在Mastodon搜索栏中查找相应的用户，所以你可以根据你的喜好分享。
+Mastodon 中的搜索表单将通过上述地址形式或账户链接找到人员，因此如果你愿意，可以改为共享该链接。
 
-相同的用户名*可以*在不同的服务器上注册——无法提前声明所有的域名后缀。就像电子邮件一样，你不应期待 `alice@outlook.com` 与 `alice@gmail.com` 或 `alice@yahoo.com` 是同一个人。
+相同的用户名 _可以_ 在不同的站点上注册——因为没有办法提前声明所有用户名。就像使用电子邮件一样，你不应期望 `alice@outlook.com` 与 `alice@gmail.com` 或 `alice@yahoo.com` 是同一个人。
 
-{{< translation-status-zh-cn raw_title="Signing up for an account" raw_link="/user/signup/" last_tranlation_time="2020-05-02" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}
+{{< translation-status-zh-cn raw_title="Signing up for an account" raw_link="/user/signup/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}

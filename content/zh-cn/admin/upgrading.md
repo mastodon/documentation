@@ -7,70 +7,80 @@ menu:
 ---
 
 {{< hint style="info" >}}
-当一个新的Mastodon版本释出后，它将出现在[GitHub releases页面](https://github.com/mastodon/mastodon/releases)。请注意：运行来自`main`分支的未释出代码，虽然可以进行，但不推荐这样做。
+当 Mastodon 发布新版本时，它会出现在[ GitHub 发布页面](https://github.com/mastodon/mastodon/releases) 上。请注意，虽然可以运行 `main` 分支中的未发布代码，但不推荐这样做。
 {{< /hint >}}
 
-Mastodon版本与git tags一致。在尝试升级之前，请至[GitHub releases页面](https://github.com/mastodon/mastodon/releases)查找所需版本。该页面包含了一个**更新日专**，其中描述你需要了解的所有差异，以及**特定的升级指令**。
+### 自动更新验证 {#automated_checks}
 
-开始之前，切换至`mastodon`用户：
+从 v4.2.0 版本开始，Mastodon 将自动检查可用更新并通知服务器上拥有 `DevOps` 权限的用户。
+
+这通过每 30 分钟在后台获取 `https://api.joinmastodon.org/update-check?version=<current_version>` 来实现。 `current_version` 省略了构建元数据（如果版本字符串中含有`+`，则为第一个 `+` 之后的所有内容）。例如，如果你的版本是 `4.3.0-beta2+my-fork`，Mastodon 将查询 `https://api.joinmastodon.org/update-check?version=4.3.0-beta2`。
+
+你可以通过设置 `UPDATE_CHECK_URL` 环境变量来更改 Mastodon 查询的 URL。你也可以通过将此环境变量设置为空字符串来完全禁用此行为，但我们强烈建议不要这样做，除非你通过其他方式关注 Mastodon 更新，因为 Mastodon 偶尔会发布必须及时应用的关键安全更新。
+
+### 升级步骤
+
+Mastodon 的发布版本对应 git 标签。在尝试升级之前，请在[ GitHub 发布页面](https://github.com/mastodon/mastodon/releases) 上查看所需的发布版本。该页面将包含**变更日志**，描述关于新版本不同之处的所有信息，以及**特定的升级说明**。
+
+首先，切换到`mastodon`用户：
 
 ```bash
 su - mastodon
 ```
 
-并转至Mastodon根目录：
+并转到 Mastodon 根目录：
 
 ```bash
 cd /home/mastodon/live
 ```
 
-下载相应版本代码，这里假定版本为`v3.1.2`：
+下载发布版本的代码，假设版本为`v3.1.2`：
 
 ```bash
 git fetch --tags
 git checkout v3.1.2
 ```
 
-现在，执行GitHub版本发布说明中的升级指令。因为不同的版本有不同的指令，所以本页面将不包括任何指令。
+现在执行[ GitHub 上该版本的发行说明](https://github.com/mastodon/mastodon/releases) 中包含的升级说明。由于不同的发布版本需要不同的说明，我们不在此页面上包含任何说明。
 
 {{< hint style="info" >}}
-从旧版本升级时，你可以安全的跳过中间版本。你无需单独检出他们。然而，你确实需要追踪每一个版本的升级指令。大多数指令都是重叠的，你只需要确保每条至少执行一次即可。
+从旧版本升级时，你可以安全地跳过中间版本。你不需要单独检出它们。但是，你需要跟随每个版本的说明。大多数说明的步骤是重复的，你只需确保至少执行一次所有内容。
 {{< /hint >}}
 
-当你执行完版本发布说明中的指令后，切换回root用户：
+在执行完发布说明中的指令后，切回 root 用户：
 
 ```bash
 exit
 ```
 
-重启**后台worker**：
+重启**后台工作进程**：
 
 ```bash
 systemctl restart mastodon-sidekiq
 ```
 
-并重载**web进程**：
+并重新加载 **Web 进程**：
 
 ```bash
 systemctl reload mastodon-web
 ```
 
 {{< hint style="info" >}}
-`reload`操作是零下线时间的重启（restart），也被称为“分阶段重启（phased restart）”。因此，Mastodon升级通常不需要为计划下线而提前发布公告。罕见情况下，你可以改用`restart`操作，但你的用户将感到（短暂的）服务中断。
+`reload` 操作是一种零停机重启，也称为"分阶段重启"。因此，Mastodon 升级通常不需要提前通知用户计划停机。在极少数情况下，你可以使用 `restart` 操作代替，但用户会感受到（短暂的）服务中断。
 {{< /hint >}}
 
-罕见情况下，**streaming API** 服务也会被更新并需要重启：
+**流式 API** 服务器也会更新并需要重启，这将导致所有已连接的客户端断开连接，可能增加服务器负载：
 
 ```bash
 systemctl restart mastodon-streaming
 ```
 
 {{< hint style="danger" >}}
-更新streaming API服务非常罕见，在大多数版本中，*不*需要重启它。重启streaming API将导致服务器负载增加，因为断线的用户会尝试重连或改用REST API轮询。因此请尽量避免重启streaming API服务
+重启流式 API 会增加服务器负载，因为断开连接的客户端会尝试重新连接或改为轮询 REST API，所以尽可能避免这样做。
 {{< /hint >}}
 
 {{< hint style="success" >}}
-**就这样！** 您现在正在运行新版本的Mastodon。
+**以上就是所有步骤！**你现在正在运行新版本的 Mastodon。
 {{< /hint >}}
 
-{{< translation-status-zh-cn raw_title="Upgrading to a new release" raw_link="/admin/upgrading/" last_tranlation_time="2020-05-04" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}
+{{< translation-status-zh-cn raw_title="Upgrading to a new release" raw_link="/admin/upgrading/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
