@@ -18,7 +18,7 @@ aliases: [
 {
   "domain": "mastodon.social",
   "title": "Mastodon",
-  "version": "4.0.0rc1",
+  "version": "4.4.0-alpha.3",
   "source_url": "https://github.com/mastodon/mastodon",
   "description": "The original server operated by the Mastodon gGmbH non-profit",
   "usage": {
@@ -57,7 +57,10 @@ aliases: [
   ],
   "configuration": {
     "urls": {
-      "streaming": "wss://mastodon.social"
+      "streaming": "wss://mastodon.social",
+      "about": "https://mastodon.social/about",
+      "privacy_policy": "https://mastodon.social/privacy-policy",
+      "terms_of_service": "https://mastodon.social/terms-of-service"
     },
     "vapid": {
       "public_key": "BCkMmVdKDnKYwzVCDC99Iuc9GvId-x7-kKtuHnLgfF98ENiZp_aj-UNthbCdI70DqN1zUVis-x0Wrot2sBagkMc="
@@ -324,6 +327,27 @@ aliases: [
 **Type:** String (URL)\
 **Version history:**\
 4.0.0 - added
+
+##### `configuration[urls][about]` {#about_url}
+
+**Description:** The URL of the server's about page.\
+**Type:** String (URL)\
+**Version history:**\
+4.4.0 - added
+
+##### `configuration[urls][privacy_policy]` {#privacy_policy}
+
+**Description:** The URL of the server's privacy policy.\
+**Type:** {{<nullable>}} String (URL) or null\
+**Version history:**\
+4.4.0 - added
+
+##### `configuration[urls][terms_of_service]` {#terms_of_service}
+
+**Description:** The URL of the server's current terms of service, if any.\
+**Type:** String (URL)\
+**Version history:**\
+4.4.0 - added
 
 ### `configuration[vapid][public_key]` {#vapid_public_key}
 **Description:** The instances VAPID public key, used for push notifications, the same as [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}}).\
