@@ -855,7 +855,6 @@ The bucket must support access control lists (ACLs). For AWS S3, this means sett
 
 #### `S3_OVERRIDE_PATH_STYLE`
 
-
 #### `S3_PROTOCOL`
 
 #### `S3_HOSTNAME`
@@ -870,6 +869,8 @@ The bucket must support access control lists (ACLs). For AWS S3, this means sett
 #### `S3_OPEN_TIMEOUT`
 
 #### `S3_READ_TIMEOUT`
+
+#### `S3_RETRY_LIMIT`
 
 #### `S3_FORCE_SINGLE_REQUEST`
 
