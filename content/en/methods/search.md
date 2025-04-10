@@ -37,7 +37,7 @@ GET /api/v2/search HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -48,7 +48,7 @@ type
 : String. Specify whether to search for only `accounts`, `hashtags`, `statuses`
 
 resolve
-: Boolean. Attempt WebFinger lookup? Defaults to false.
+: Boolean. Only relevant if `type` includes `accounts`. If `true` and (a) the search query is for a remote account (e.g., `someaccount@someother.server`) and (b) the local server does not know about the account, [WebFinger](/spec/webfinger) is used to try and resolve the account at `someother.server`. This provides the best recall at higher latency. If `false` only accounts the server knows about are returned.
 
 following
 : Boolean. Only include accounts that the user is following? Defaults to false.
@@ -152,7 +152,7 @@ Invalid or missing Authorization header.
 
 ---
 
-## (REMOVED) Search results (v1) {#v1}
+## Perform a search (v1) {{%removed%}} {#v1}
 
 ```http
 GET /api/v1/search HTTP/1.1
@@ -172,7 +172,7 @@ GET /api/v1/search HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 

@@ -35,7 +35,7 @@ List all hashtags featured on your profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -81,7 +81,7 @@ Promote a hashtag on your profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -125,7 +125,7 @@ If `name` is not a valid hashtag, e.g. contains illegal characters or only numbe
 
 ---
 
-## Unfeature a tag {unfeature}
+## Unfeature a tag {#unfeature}
 
 ```http
 DELETE /api/v1/featured_tags/:id HTTP/1.1
@@ -148,7 +148,7 @@ Stop promoting a hashtag on your profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -198,7 +198,7 @@ Shows up to 10 recently-used tags.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK

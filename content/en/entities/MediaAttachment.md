@@ -186,7 +186,7 @@ aliases: [
 ### `preview_url` {#preview_url}
 
 **Description:** The location of a scaled-down preview of the attachment.\
-**Type:** String (URL)\
+**Type:** {{<nullable>}} String (URL)\
 **Version history:**\
 0.6.0 - added
 
@@ -207,7 +207,7 @@ aliases: [
 
 May contain subtrees `small` and `original`, as well as various other top-level properties.
 
-More importantly, there may be another topl-level `focus` Hash object on images as of 2.3.0, with coordinates can be used for smart thumbnail cropping -- see [Focal points for cropped media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more.
+More importantly, there may be another top-level `focus` Hash object on images as of 2.3.0, with coordinates can be used for smart thumbnail cropping -- see [Focal points for cropped media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more.
 
 ### `description` {#description}
 
@@ -219,13 +219,11 @@ More importantly, there may be another topl-level `focus` Hash object on images 
 ### `blurhash` {#blurhash}
 
 **Description:** A hash computed by [the BlurHash algorithm](https://github.com/woltapp/blurhash), for generating colorful preview thumbnails when media has not been downloaded yet.\
-**Type:** String (Blurhash)\
+**Type:** {{<nullable>}} String (Blurhash)\
 **Version history:**\
 2.8.1 - added
 
-## Deprecated attributes
-
-### `text_url` {#text_url}
+### `text_url` {{%removed%}} {#text_url}
 
 **Description:** A shorter URL for the attachment.\
 **Type:** String (URL)\

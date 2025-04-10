@@ -38,7 +38,7 @@ Obtain a list of all filter groups for the current user.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -111,7 +111,7 @@ Obtain a single filter group owned by the current user.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -179,14 +179,15 @@ Create a filter group with the given parameters.
 **Returns:** [Filter]({{< relref "entities/Filter" >}})\
 **OAuth:** User token + `write:filters`\
 **Version history:**\
-4.0.0 - added
+4.0.0 - added\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 5) - added `blur` value to `filter_action` attribute
 
 #### Request
 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -197,7 +198,7 @@ context[]
 : {{<required>}} Array of String. Where the filter should be applied. Specify at least one of `home`, `notifications`, `public`, `thread`, `account`.
 
 filter_action
-: String. The policy to be applied when the filter is matched. Specify `warn` or `hide`.
+: String. The policy to be applied when the filter is matched. Specify `warn`, `hide` or `blur`.
 
 expires_in
 : Integer. How many seconds from now should the filter expire?
@@ -298,7 +299,8 @@ Update a filter group with the given parameters.
 **Returns:** [Filter]({{< relref "entities/Filter" >}})\
 **OAuth:** User token + `write:filters`\
 **Version history:**\
-4.0.0 - added
+4.0.0 - added\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 5) - added `blur` value to `filter_action` attribute
 
 #### Request
 
@@ -310,7 +312,7 @@ Update a filter group with the given parameters.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -321,7 +323,7 @@ context[]
 : Array of String. Where the filter should be applied. Specify at least one of `home`, `notifications`, `public`, `thread`, `account`.
 
 filter_action
-: String. The policy to be applied when the filter is matched. Specify `warn` or `hide`.
+: String. The policy to be applied when the filter is matched. Specify `warn`, `hide` or `blur`.
 
 expires_in
 : Integer. How many seconds from now should the filter expire?
@@ -416,7 +418,7 @@ Delete a filter group with the given id.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -472,7 +474,7 @@ List all keywords attached to the current filter group.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -533,7 +535,7 @@ Add the given keyword to the specified filter group
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -609,7 +611,7 @@ Get one filter keyword by the given id.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -667,7 +669,7 @@ Update the given filter keyword.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -745,7 +747,7 @@ Deletes the given filter keyword.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -801,7 +803,7 @@ Obtain a list of all status filters within this filter group.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -861,7 +863,7 @@ Add a status filter to the current filter group.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -925,7 +927,7 @@ Obtain a single status filter.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -965,7 +967,7 @@ FilterStatus is not owned by you or does not exist
 DELETE /api/v2/filters/statuses/:id HTTP/1.1
 ```
 
-Add a status filter to the current filter group.
+Remove a status filter from the current filter group.
 
 **Returns:** [FilterStatus]({{< relref "entities/FilterStatus" >}})\
 **OAuth:** User token + `write:filters`\
@@ -982,7 +984,7 @@ Add a status filter to the current filter group.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1021,7 +1023,7 @@ Prior to Mastodon 4.0, matching filters was done client-size and filters could o
 
 ---
 
-### View your filters {#get-v1}
+### View your filters {{%deprecated%}} {#get-v1}
 
 ```http
 GET /api/v1/filters HTTP/1.1
@@ -1037,7 +1039,7 @@ GET /api/v1/filters HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1086,7 +1088,7 @@ Invalid or missing Authorization header.
 
 ---
 
-### View a single filter {#get-one-v1}
+### View a single filter {{%deprecated%}} {#get-one-v1}
 
 ```http
 GET /api/v1/filters/:id HTTP/1.1
@@ -1108,7 +1110,7 @@ GET /api/v1/filters/:id HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1151,7 +1153,7 @@ Filter ID does not exist, or is not owned by you
 
 ---
 
-### Create a filter {#create-v1}
+### Create a filter {{%deprecated%}} {#create-v1}
 
 ```http
 POST /api/v1/filters HTTP/1.1
@@ -1168,7 +1170,7 @@ POST /api/v1/filters HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -1238,7 +1240,7 @@ If context is not provided properly:
 
 ---
 
-### Update a filter {#update-v1}
+### Update a filter {{%deprecated%}} {#update-v1}
 
 ```http
 PUT /api/v1/filters/:id HTTP/1.1
@@ -1251,7 +1253,7 @@ Replaces a filter's parameters in-place.
 **Version history:**\
 2.4.3 - added\
 3.1.0 - added `account` context to filter in profile views\
-4.0.0 - deprecated. or compatibility purposes, now returns a V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute). This method will return an error if you attempt to change `expires_in`, `irreversible`, or `context` for a filter with multiple keywords. Changing `phrase` and `whole_word` is always safe.
+4.0.0 - deprecated. For compatibility purposes, now returns a V1::Filter representing one FilterKeyword (with the `keyword` being presented in the `phrase` attribute). This method will return an error if you attempt to change `expires_in`, `irreversible`, or `context` for a filter with multiple keywords. Changing `phrase` and `whole_word` is always safe.
 
 #### Request
 
@@ -1263,7 +1265,7 @@ Replaces a filter's parameters in-place.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -1343,7 +1345,7 @@ If context is not provided properly:
 
 ---
 
-### Remove a filter {#delete-v1}
+### Remove a filter {{%deprecated%}} {#delete-v1}
 
 ```http
 DELETE /api/v1/filters/:id HTTP/1.1
@@ -1365,7 +1367,7 @@ DELETE /api/v1/filters/:id HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK

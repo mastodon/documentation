@@ -25,7 +25,13 @@ We can try to request [GET /api/v1/timelines/public]({{< relref "methods/timelin
 curl https://mastodon.example/api/v1/timelines/public
 ```
 
-Wow, that's a lot of text in response! The public timeline returns 20 statuses by default. We can use the `limit` parameter to request less than that. Let's try requesting the same endpoint, but with a limit of 2 this time:
+Wow, that's a lot of text in response! The public timeline returns 20 statuses by default.
+
+{{< hint style="danger" >}}
+Some Mastodon servers may disable public access to their timelines via the Admin Settings. If this is the case for your server, then you will receive an error response back.
+{{</ hint >}}
+
+We can use the `limit` parameter to request less than that. Let's try requesting the same endpoint, but with a limit of 2 this time:
 
 ```bash
 curl https://mastodon.example/api/v1/timelines/public?limit=2

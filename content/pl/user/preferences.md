@@ -47,9 +47,9 @@ Wpisy z ostrzeżeniami o zawartości są domyślnie zwijane, ale możesz wybrać
 
 ## Kontrolowanie powiadomień {#notifications}
 
-### Wysyłanie e-maili {#email}
+### Wysyłanie emaili {#email}
 
-Możesz wybrać, aby dostawać powiadomienia e-mail według typów powiadomień, które otrzymujesz na Mastodonie. Możesz włączyć maile dla poszczególnych rodzajów powiadomień:
+Możesz wybrać, aby dostawać powiadomienia email według typów powiadomień, które otrzymujesz na Mastodonie. Możesz włączyć maile dla poszczególnych rodzajów powiadomień:
 
 * Obserwacje
 * Prośby o możliwość obserwacji

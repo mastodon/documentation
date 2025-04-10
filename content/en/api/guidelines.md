@@ -13,7 +13,7 @@ menu:
 
 {{< page-ref page="client/authorized" >}}
 
-{{< page-relref ref="methods/oauth" caption="oauth methods" >}}
+{{< page-relref ref="methods/oauth" caption="OAuth methods" >}}
 
 {{< page-relref ref="api/oauth-scopes" caption="OAuth scopes" >}}
 
@@ -58,7 +58,7 @@ To get around this, Mastodon may return links to a "prev" and "next" page. These
 
 ```http
 GET https://mastodon.example/api/v1/endpoint HTTP/1.1
-Authorization: Bearer token
+Authorization: Bearer <access_token>
 
 Link: <https://mastodon.example/api/v1/endpoint?max_id=7163058>; rel="next", <https://mastodon.example/api/v1/endpoint?min_id=7275607>; rel="prev"
 [
@@ -77,6 +77,12 @@ In this case, you may retrieve the `Link` header and parse it for links to the o
 - The value of the link relation will be either `prev` or `next`.
 
 Following the `next` link should show you older results. Following the `prev` link should show you newer results.
+
+## Deprecations {#deprecations}
+
+Mastodon rarely removes APIs, but that can still happen from time to time. Therefore, it is recommended to keep up with Mastodon releases and keep an eye out for deprecated APIs.
+
+Furthermore, to help implementers with spotting use of deprecated APIs, Mastodon 4.4.0 makes use of the `Deprecation` header defined in [RFC9745](https://datatracker.ietf.org/doc/html/rfc9745). It is recommended that library and application developers look for this header and display warnings in their development environments so they can spot these deprecated APIs before they get retired.
 
 ## Formatting {#formatting}
 

@@ -45,7 +45,7 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** When the domain was allowed to federate.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.0.0 - added
 

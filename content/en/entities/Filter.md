@@ -70,7 +70,7 @@ aliases: [
 ### `expires_at` {#expires_at}
 
 **Description:** When the filter should no longer be applied.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime), or null if the filter does not expire\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)), or null if the filter does not expire\
 **Version history:**\
 4.0.0 - added
 
@@ -80,8 +80,10 @@ aliases: [
 **Type:** String (Enumerable, oneOf)\
 `warn` = show a warning that identifies the matching filter by `title`, and allow the user to expand the filtered status. This is the default (and unknown values should be treated as equivalent to `warn`).\
 `hide` = do not show this status if it is received\
+`blur` = hide/blur media attachments with a warning identifying the matching filter by `title`
 **Version history:**\
-4.0.0 - added
+4.0.0 - added\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 5) - added `blur` value to `filter_action` attribute
 
 ### `keywords` {#keywords}
 

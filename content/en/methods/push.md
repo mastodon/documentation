@@ -45,14 +45,16 @@ Add a Web Push API subscription to receive notifications. Each access token can 
 3.3.0 - added `data[alerts][status]`\
 3.4.0 - added `data[policy]`\
 3.5.0 - added `data[alerts][update]` and `data[alerts][admin.sign_up]`\
-4.0.0 - added `data[alerts][admin.report]`
+4.0.0 - added `data[alerts][admin.report]`\
+4.3.0 - added stricter request parameter validation, invalid endpoint URLs and subscription keys will now result in an error, previously these would be accepted, but silently fail.\
+4.4.0 - added `subscription[standard]`
 
 #### Request
 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -64,6 +66,9 @@ subscription[keys][p256dh]
 
 subscription[keys][auth]
 : {{<required>}} String. Auth secret. Base64 encoded string of 16 bytes of random data.
+
+subscription[standard]
+: Boolean. Follow standardized webpush (RFC8030+RFC8291+RFC8292) ? Else follow legacy webpush (unpublished version, 4th draft of RFC8291 and 1st draft of RFC8292). Defaults to false.
 
 data[alerts][mention]
 : Boolean. Receive mention notifications? Defaults to false.
@@ -107,6 +112,7 @@ A new PushSubscription has been generated, which will send the requested alerts 
 {
   "id": 328183,
   "endpoint": "https://yourdomain.example/listener",
+  "standard": true,
   "alerts": {
     "follow": true,
     "favourite": true,
@@ -147,7 +153,7 @@ View the PushSubscription currently associated with this access token.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -156,6 +162,7 @@ Authorization
 {
   "id": 328183,
   "endpoint": "https://yourdomain.example/listener",
+  "standard": true,
   "alerts": {
     "follow": true,
     "favourite": true,
@@ -211,7 +218,7 @@ Updates the current push subscription. Only the data part can be updated. To cha
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -257,6 +264,7 @@ Updating a PushSubscription to only receive mention alerts
 {
   "id": 328183,
   "endpoint": "https://yourdomain.example/listener",
+  "standard": true,
   "alerts": {
     "follow": false,
     "favourite": false,
@@ -308,7 +316,7 @@ Removes the current Web Push API subscription.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 

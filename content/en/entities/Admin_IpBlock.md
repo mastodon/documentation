@@ -65,14 +65,14 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** When the IP block was created.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.0.0 - added
 
 ### `expires_at` {#expires_at}
 
 **Description:** When the IP block will expire.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime)\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.0.0 - added
 

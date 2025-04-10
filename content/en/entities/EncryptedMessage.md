@@ -78,7 +78,7 @@ This entity is currently unused.
 ### `created_at` {#created_at}
 
 **Description:** A timestamp for when the message was created.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 3.2.0 - added
 

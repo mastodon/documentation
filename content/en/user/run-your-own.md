@@ -54,11 +54,7 @@ There exist a number of **dedicated Mastodon hosting providers** that take care 
 
 Managed hosting solutions are great for those who do not have experience or desire to install and maintain software. However, being in charge of all components on your own hardware gives greater control over scaling, performance and customization.
 
-We provide a **DigitalOcean 1-Click Install Image** that you can put on a DigitalOcean droplet of your choosing which essentially gives you everything you would otherwise have after following our installation instructions through an interactive setup wizard.
-
-{{< caption-link url="https://marketplace.digitalocean.com/apps/mastodon" caption="Mastodon 1-Click Install Image on DigitalOcean" >}}
-
-That however does assume a single-machine setup. Mastodon scales quite well horizontally. If your needs outgrow the capacity of a single machine, Mastodon can be divided into multiple app servers, background workers, multiple Redis backends, PostgreSQL replicas -- but 1-click install won't cut it.
+Mastodon scales quite well horizontally. If your needs outgrow the capacity of a single machine, Mastodon can be divided into multiple app servers, background workers, multiple Redis backends, PostgreSQL replicas -- but 1-click install won't cut it.
 
 If you're interested in installing everything on your own, proceed here:
 

@@ -18,7 +18,7 @@ aliases: [
 {
   "domain": "mastodon.social",
   "title": "Mastodon",
-  "version": "4.0.0rc1",
+  "version": "4.4.0-alpha.3",
   "source_url": "https://github.com/mastodon/mastodon",
   "description": "The original server operated by the Mastodon gGmbH non-profit",
   "usage": {
@@ -34,12 +34,33 @@ aliases: [
       "@2x": "https://files.mastodon.social/site_uploads/files/000/000/001/@2x/57c12f441d083cde.png"
     }
   },
+  "icon": [
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/36/accf17b0104f18e5.png",
+      "size": "36x36"
+    },
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/72/accf17b0104f18e5.png",
+      "size": "72x72"
+    },
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/192/accf17b0104f18e5.png",
+      "size": "192x192"
+    },
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/512/accf17b0104f18e5.png",
+      "size": "512x512"
+    }
+  ],
   "languages": [
     "en"
   ],
   "configuration": {
     "urls": {
-      "streaming": "wss://mastodon.social"
+      "streaming": "wss://mastodon.social",
+      "about": "https://mastodon.social/about",
+      "privacy_policy": "https://mastodon.social/privacy-policy",
+      "terms_of_service": "https://mastodon.social/terms-of-service"
     },
     "vapid": {
       "public_key": "BCkMmVdKDnKYwzVCDC99Iuc9GvId-x7-kKtuHnLgfF98ENiZp_aj-UNthbCdI70DqN1zUVis-x0Wrot2sBagkMc="
@@ -83,6 +104,7 @@ aliases: [
         "audio/3gpp",
         "video/x-ms-asf"
       ],
+      "description_limit": 1500,
       "image_size_limit": 10485760,
       "image_matrix_limit": 16777216,
       "video_size_limit": 41943040,
@@ -102,7 +124,12 @@ aliases: [
   "registrations": {
     "enabled": false,
     "approval_required": false,
-    "message": null
+    "reason_required": false,
+    "message": null,
+    "min_age": 16
+  },
+  "api_versions": {
+    "mastodon": 1,
   },
   "contact": {
     "email": "staff@mastodon.social",
@@ -266,6 +293,13 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
+### `icon` {#icon}
+
+**Description:** The list of available size variants for this instance configured icon.\
+**Type:** Array of [InstanceIcon](#InstanceIcon)\
+**Version history:**\
+4.3.0 - added
+
 ### `languages` {#languages}
 
 **Description:** Primary languages of the website and its staff.\
@@ -293,6 +327,27 @@ aliases: [
 **Type:** String (URL)\
 **Version history:**\
 4.0.0 - added
+
+##### `configuration[urls][about]` {#about_url}
+
+**Description:** The URL of the server's about page.\
+**Type:** String (URL)\
+**Version history:**\
+4.4.0 - added
+
+##### `configuration[urls][privacy_policy]` {#privacy_policy}
+
+**Description:** The URL of the server's privacy policy.\
+**Type:** {{<nullable>}} String (URL) or null\
+**Version history:**\
+4.4.0 - added
+
+##### `configuration[urls][terms_of_service]` {#terms_of_service}
+
+**Description:** The URL of the server's current terms of service, if any.\
+**Type:** String (URL)\
+**Version history:**\
+4.4.0 - added
 
 ### `configuration[vapid][public_key]` {#vapid_public_key}
 **Description:** The instances VAPID public key, used for push notifications, the same as [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}}).\
@@ -362,6 +417,13 @@ aliases: [
 **Type:** Array of String\
 **Version history:**\
 4.0.0 - added
+
+##### `configuration[media_attachments][description_limit]` {#description_limit}
+
+**Description:** The maximum size of a description, in characters.\
+**Type:** Integer\
+**Version history:**\
+4.4.0 - added
 
 ##### `configuration[media_attachments][image_size_limit]` {#image_size_limit}
 
@@ -475,6 +537,34 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
+#### `registrations[min_age]` {#registrations-min_age}
+
+**Description:** A minimum age required to register, if configured.\
+**Type:** {{<nullable>}} Integer or null\
+**Version history:**\
+4.4.0 - added
+
+#### `registrations[reason_required]` #{registrations-reason_required}
+
+**Description:** Whether registrations require the user to provide a reason for joining. Only applicable when `registrations[approval_required]` is true.\
+**Type:** {{<nullable>}} Boolean\
+**Version history:**\
+4.4.0 - added
+
+### `api_versions` {#api-versions}
+
+**Description:** Information about which version of the API is implemented by this server. It contains at least a `mastodon` attribute, and other implementations may have their own additional attributes.\
+**Type:** Hash\
+**Version history:**\
+4.3.0 - added
+
+### `api_versions[mastodon]`
+
+**Description:** API version number that this server implements. Starting from Mastodon v4.3.0, API changes will come with a version number, which clients can check against this value.\
+**Type:** Integer\
+**Version history:**\
+4.3.0 - added
+
 ### `contact` {#contact}
 
 **Description:** Hints related to contacting a representative of the website.\
@@ -502,6 +592,21 @@ aliases: [
 **Type:** Array of [Rule]({{< relref "entities/Rule" >}})\
 **Version history:**\
 4.0.0 - added
+
+## InstanceIcon attributes {#InstanceIcon}
+
+### `src` {#src}
+
+**Description:** The URL of this icon.\
+**Type:** String\
+4.3.0 - added
+
+### `size` {#size}
+
+**Description:** The size of this icon.\
+**Type:** String (in the form of `12x34`, where `12` is the width and `34` is the height of the icon)\
+**Version history:**\
+4.3.0 - added
 
 ## See also
 
