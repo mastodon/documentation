@@ -92,7 +92,7 @@ Translation of status with poll:
 
 ### `provider` {#provider}
 
-**Description:** The service that provided the machine translation.
+**Description:** The service that provided the machine translation.\
 **Type:** String\
 **Version history:**\
 4.0.0 - added

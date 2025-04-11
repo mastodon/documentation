@@ -84,7 +84,7 @@ All [Application](#attributes) attributes and the following:
 **Description:** Client ID key, to be used for obtaining OAuth tokens\
 **Type:** String\
 **Version history:**\
-0.9.9 - added
+0.9.9 - added\
 4.3.0 - moved to `CredentialApplication` from `Application`
 
 ### `client_secret` {#client_secret}
@@ -92,7 +92,7 @@ All [Application](#attributes) attributes and the following:
 **Description:** Client secret key, to be used for obtaining OAuth tokens\
 **Type:** String\
 **Version history:**\
-0.9.9 - added
+0.9.9 - added\
 4.3.0 - moved to `CredentialApplication` from `Application`
 
 ### `client_secret_expires_at` {#client_secret_expires_at}

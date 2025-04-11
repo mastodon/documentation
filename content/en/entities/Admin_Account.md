@@ -173,7 +173,7 @@ aliases: [
 
 ### `silenced` {#silenced}
 
-**Description:** Whether the account is currently silenced.
+**Description:** Whether the account is currently silenced.\
 **Type:** Boolean\
 **Version history:**\
 2.9.1 - added

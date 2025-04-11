@@ -48,7 +48,7 @@ aliases: [
 
 ### `group_key` {#group_key}
 
-**Description:** Group key shared by similar notifications, to be used in the grouped notifications feature. Should be considered opaque, but ungrouped notifications can be assumed to have a `group_key` of the form `ungrouped-{notification_id}`.
+**Description:** Group key shared by similar notifications, to be used in the grouped notifications feature. Should be considered opaque, but ungrouped notifications can be assumed to have a `group_key` of the form `ungrouped-{notification_id}`.\
 **Type:** String\
 **Version history:**\
 4.3.0 - added

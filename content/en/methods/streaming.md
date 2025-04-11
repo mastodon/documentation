@@ -258,7 +258,7 @@ Returns all public statuses
 **Version history:**\
 1.0.0 - added\
 2.4.0 - add `only_media` parameter\
-3.5.0 - now returns `status.update`
+3.5.0 - now returns `status.update`\
 4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
@@ -310,7 +310,7 @@ Returns all local public statuses
 **Version history:**\
 1.1.0 - added\
 2.4.0 - add `only_media` parameter\
-3.5.0 - now returns `status.update`
+3.5.0 - now returns `status.update`\
 4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
@@ -361,7 +361,7 @@ Returns all public statuses from remote servers.
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
 3.1.4 - added\
-3.5.0 - now returns `status.update`
+3.5.0 - now returns `status.update`\
 4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
@@ -412,7 +412,7 @@ Returns all public statuses for a particular hashtag
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
 1.0.0 - added\
-3.5.0 - now returns `status.update`
+3.5.0 - now returns `status.update`\
 4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
@@ -463,7 +463,7 @@ Returns all local public statuses for a particular hashtag
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
 1.1.0 - added\
-3.5.0 - now returns `status.update`
+3.5.0 - now returns `status.update`\
 4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
@@ -514,7 +514,7 @@ Returns statuses for a list
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
 2.1.0 - added\
-3.5.0 - now returns `status.update`
+3.5.0 - now returns `status.update`\
 4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 #### Request
@@ -595,7 +595,7 @@ wss://mastodon.example/api/v1/streaming
 **Returns:** Stream of [Event](#events)\
 **OAuth:** User token + `read` (or `read:statuses` and/or `read:notifications`)\
 **Version history:**\
-3.3.0 - added
+3.3.0 - added\
 4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
 Open a multiplexed WebSocket connection to receive events.

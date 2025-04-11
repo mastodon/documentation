@@ -45,21 +45,21 @@ This version of the notification filtering policy API is deprecated and has not 
 
 ### `summary` {#summary}
 
-**Description:** Summary of the filtered notifications
+**Description:** Summary of the filtered notifications\
 **Type:** Hash\
 **Version history:**\
 4.3.0 - added
 
 ### `summary[pending_requests_count]` {#pending_requests_count}
 
-**Description:** Number of different accounts from which the user has non-dismissed filtered notifications. Capped at 100.
+**Description:** Number of different accounts from which the user has non-dismissed filtered notifications. Capped at 100.\
 **Type:** Integer\
 **Version history:**\
 4.3.0 - added
 
 ### `summary[pending_notifications_count]` {#pending_notifications_count}
 
-**Description:** Number of total non-dismissed filtered notifications. May be inaccurate.
+**Description:** Number of total non-dismissed filtered notifications. May be inaccurate.\
 **Type:** Integer\
 **Version history:**\
 4.3.0 - added
