@@ -1770,19 +1770,141 @@ Token does not have an authorized user
 
 ---
 
-## Feature account on your profile {#pin}
+## Get featured accounts {#endorsements}
 
 ```http
-POST /api/v1/accounts/:id/pin HTTP/1.1
+GET /api/v1/accounts/:id/endorsements HTTP/1.1
 ```
 
-Add the given account to the user's featured profiles. (Featured profiles are currently shown on the user's own public profile.)
+Accounts that the user is currently featuring on their profile.
+
+**Returns:** [Account]({{< relref "entities/account" >}})\
+**OAuth:** Public\
+**Version history:**\
+4.4.0 - added
+
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
+
+#### Response
+##### 200: OK
+
+Sample call with limit=2.
+
+```json
+[
+  {
+    "id": "952529",
+    "username": "alayna",
+    "acct": "alayna@desvox.es",
+    "display_name": "Alayna Desirae",
+    "locked": true,
+    "bot": false,
+    "created_at": "2019-10-26T23:12:06.570Z",
+    "note": "experiencing ________ difficulties<br>22y/o INFP in Oklahoma",
+    "url": "https://desvox.es/users/alayna",
+    "avatar": "https://files.mastodon.social/accounts/avatars/000/952/529/original/6534122046d050d5.png",
+    "avatar_static": "https://files.mastodon.social/accounts/avatars/000/952/529/original/6534122046d050d5.png",
+    "header": "https://files.mastodon.social/accounts/headers/000/952/529/original/496f1f817e042ade.png",
+    "header_static": "https://files.mastodon.social/accounts/headers/000/952/529/original/496f1f817e042ade.png",
+    "followers_count": 0,
+    "following_count": 0,
+    "statuses_count": 955,
+    "last_status_at": "2019-11-23T07:05:50.682Z",
+    "emojis": [],
+    "fields": []
+  },
+  {
+    "id": "832844",
+    "username": "a9",
+    "acct": "a9@broadcast.wolfgirl.engineering",
+    "display_name": "vivienne :collar: ",
+    "locked": true,
+    "bot": false,
+    "created_at": "2019-06-12T18:55:12.053Z",
+    "note": "borderline nsfw, considered a schedule I drug by nixon<br>waiting for the year of the illumos desktop",
+    "url": "https://broadcast.wolfgirl.engineering/users/a9",
+    "avatar": "https://files.mastodon.social/accounts/avatars/000/832/844/original/ae1de0b8fb63d1c6.png",
+    "avatar_static": "https://files.mastodon.social/accounts/avatars/000/832/844/original/ae1de0b8fb63d1c6.png",
+    "header": "https://files.mastodon.social/accounts/headers/000/832/844/original/5088e4a16e6d8736.png",
+    "header_static": "https://files.mastodon.social/accounts/headers/000/832/844/original/5088e4a16e6d8736.png",
+    "followers_count": 43,
+    "following_count": 67,
+    "statuses_count": 5906,
+    "last_status_at": "2019-11-23T05:23:47.911Z",
+    "emojis": [
+      {
+        "shortcode": "collar",
+        "url": "https://files.mastodon.social/custom_emojis/images/000/106/920/original/80953b9cd96ec4dc.png",
+        "static_url": "https://files.mastodon.social/custom_emojis/images/000/106/920/static/80953b9cd96ec4dc.png",
+        "visible_in_picker": true
+      }
+    ],
+    "fields": []
+  }
+]
+```
+
+Because AccountPin IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.example/api/v1/accounts/1/endorsements?limit=2&max_id=832844>; rel="next", <https://mastodon.example/api/v1/accounts/1/endorsements?limit=2&since_id=952529>; rel="prev"
+```
+
+##### 401: Unauthorized
+
+If the instance is in whitelist mode and the Authorization header is missing or invalid
+
+```json
+{
+  "error": "This API requires an authenticated user"
+}
+```
+
+##### 404: Not found
+
+Account does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+## Feature account on your profile {#endorse}
+
+```http
+POST /api/v1/accounts/:id/endorse HTTP/1.1
+```
+
+Add the given account to the user's featured profiles.
 
 **Returns:** [Relationship]({{< relref "entities/relationship">}})\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
 2.5.0 - added\
-4.0.0 - calling this method is now idempotent
+4.0.0 - calling this method is now idempotent\
+4.4.0 - renamed from `pin` to `endorse`
 
 #### Request
 ##### Path parameters
@@ -1872,7 +1994,7 @@ Can sometimes be returned if the account already endorsed.
 ## Unfeature account from profile {#unpin}
 
 ```http
-POST /api/v1/accounts/:id/unpin HTTP/1.1
+POST /api/v1/accounts/:id/unendorse HTTP/1.1
 ```
 
 Remove the given account from the user's featured profiles.
@@ -1880,7 +2002,8 @@ Remove the given account from the user's featured profiles.
 **Returns:** [Relationship]({{< relref "entities/relationship">}})\
 **OAuth:** User + `write:accounts`\
 **Version history:**\
-2.5.0 - added
+2.5.0 - added\
+4.4.0 - renamed from `unpin` to `unendorse`
 
 #### Request
 ##### Path parameters
