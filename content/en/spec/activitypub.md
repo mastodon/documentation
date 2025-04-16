@@ -34,6 +34,9 @@ Undo
 Flag
 : Transformed into a report to the moderation team. See the [Reports](#Flag) extension for more information.
 
+QuoteRequest
+: Request approval for a quote post. See the [Quote posts](#Quote) extension for more information.
+
 ### Payloads
 
 The first-class Object types supported by Mastodon are `Note` and `Question`.
@@ -850,6 +853,14 @@ Mastodon generates colorful preview thumbnails for attachments. This is implemen
 ### Sensitive content {#sensitive}
 
 Mastodon uses the `as:sensitive` extension property to mark certain posts as sensitive. When a post is marked as sensitive, any media attached to it will be hidden by default, and if a `summary` is present, the status `content` will be collapsed behind this summary. In Mastodon, this is known as a **content warning**.
+
+### Quote posts and quote controls {#Quote}
+
+Mastodon implements incoming quote posts according to [FEP-044f](https://codeberg.org/fediverse/fep/src/branch/main/fep/044f/fep-044f.md).
+
+Mastodon only accepts the first quote of a post.
+
+Furthermore, Mastodon does not handle the full range of interaction policies, but instead converts the authorized followers to a combination of “public”, “followers” and “unknown”, defaulting to “nobody”. In doing so, `automaticApproval` and `manualApproval` are both considered the same as indications that quoting the post is possible.
 
 ## Other functionality
 
