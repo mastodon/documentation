@@ -338,14 +338,14 @@ aliases: [
 ##### `configuration[urls][privacy_policy]` {#privacy_policy}
 
 **Description:** The URL of the server's privacy policy.\
-**Type:** {{<nullable>}} String (URL) or null\
+**Type:** String (URL) or null\
 **Version history:**\
 4.4.0 - added
 
 ##### `configuration[urls][terms_of_service]` {#terms_of_service}
 
 **Description:** The URL of the server's current terms of service, if any.\
-**Type:** String (URL)\
+**Type:** {{<nullable>}} String (URL)\
 **Version history:**\
 4.4.0 - added
 
