@@ -378,7 +378,7 @@ Unassign a report so that someone else can claim it.
 **OAuth:** User token + `admin:write:reports`\
 **Permissions:** Manage Reports\
 **Version history:**\
-2.9.1 - added
+2.9.1 - added\
 4.0.0 - support custom roles and permissions
 
 #### Request

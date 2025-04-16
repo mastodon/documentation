@@ -471,7 +471,7 @@ Invalid or missing Authorization header.
 
 #### `partial_accounts` {{%optional%}}
 
-**Description:** Partial accounts referenced by grouped notifications. Those are only returned when requesting grouped notifications with `expand_accounts=partial_avatars`.
+**Description:** Partial accounts referenced by grouped notifications. Those are only returned when requesting grouped notifications with `expand_accounts=partial_avatars`.\
 **Type:** Array of [PartialAccountWithAvatar](#PartialAccountWithAvatar)\
 **Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
@@ -485,9 +485,9 @@ Invalid or missing Authorization header.
 
 #### `notification_groups`
 
-**Description:** The grouped notifications themselves.
+**Description:** The grouped notifications themselves.\
 **Type:** [NotificationGroup](#NotificationGroup)\
-**Version history:**
+**Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
 
 ### Examples
@@ -605,21 +605,21 @@ TODO
 
 **Description:** ID of the oldest notification from this group represented within the current page. This is only returned when paginating through notification groups. Useful when polling new notifications.\
 **Type:** String\
-**Version history:**
+**Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
 
 #### `page_max_id` {{%optional%}}
 
 **Description:** ID of the newest notification from this group represented within the current page. This is only returned when paginating through notification groups. Useful when polling new notifications.\
 **Type:** String\
-**Version history:**
+**Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
 
 #### `latest_page_notification_at` {{%optional%}}
 
 **Description:** Date at which the most recent notification from this group within the current page has been created. This is only returned when paginating through notification groups.\
 **Type:** String ([Datetime](/api/datetime-format#datetime))\
-**Version history:**
+**Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
 
 #### `sample_account_ids`
