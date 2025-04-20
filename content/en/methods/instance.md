@@ -549,7 +549,7 @@ GET /api/v1/instance/terms_of_service HTTP/1.1
 
 Obtain the contents of this server's terms of service, if configured.
 
-**Returns:** [PrivacyPolicy]({{< relref "entities/PrivacyPolicy" >}})\
+**Returns:** [TermsOfService]({{< relref "entities/TermsOfService" >}})\
 **OAuth:** Public\
 **Version history:**\
 4.4.0 - added
@@ -558,7 +558,59 @@ Obtain the contents of this server's terms of service, if configured.
 
 ##### 200: OK
 
+```json
+{
+  "effective_date": "2025-04-15",
+  "effective": true,
+  "content": "<p>Foo bar newer</p>\n",
+  "succeeded_by": null
+}
+```
 
+##### 404: Not Found
+
+No terms of service have been configured for this instance.
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+## View a specific version of the terms of service {#terms_of_service_date}
+
+```http
+GET /api/v1/instance/terms_of_service/:date HTTP/1.1
+```
+
+Obtain the contents of this server's terms of service, for a specified date, if configured.
+
+**Returns:** [TermsOfService]({{< relref "entities/TermsOfService" >}})\
+**OAuth:** Public\
+**Version history:**\
+4.4.0 - added
+
+#### Request
+
+##### Path parameters
+
+:date
+: {{<required>}} String. The effective date of the terms of service.
+
+#### Response
+
+##### 200: OK
+
+```json
+{
+  "effective_date": "2025-04-15",
+  "effective": true,
+  "content": "<p>Foo bar newer</p>\n",
+  "succeeded_by": null
+}
+```
 
 ##### 404: Not Found
 
