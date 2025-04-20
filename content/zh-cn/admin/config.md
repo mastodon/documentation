@@ -862,6 +862,10 @@ OTEL 服务名称的前缀。服务名称将是 `$prefix/web` 和 `$prefix/sidek
 
 #### `S3_ALIAS_HOST`
 
+#### `EXTRA_MEDIA_HOSTS`
+
+**版本历史:**\
+4.4.0 - 添加
 
 #### `S3_OPEN_TIMEOUT`
 

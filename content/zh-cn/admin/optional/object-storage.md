@@ -62,6 +62,9 @@ Mastodon 会向 Web 界面、Mastodon API 客户端和 ActivityPub 服务器发�
 
 除隐藏存储提供商之外，这还可以让你在从存储提供商拉取媒体后缓存媒体，从而降低存储提供商的出口带宽成本。 这可以在你自己的反向代理中完成，也可以通过使用 CDN 来完成。
 
+`EXTRA_MEDIA_HOSTS` 允许你追加一组额外的域名，这些域名将被允许为你的实例提供媒体资源。如果你在自定义 CSS 或关于页面中包含了外部媒体，或者你的数据存储提供商会重定向到其他域名时，这个设置非常有用。  
+例如：`EXTRA_MEDIA_HOSTS=https://data.example1.com,https://data.example2.com`
+
 {{< page-ref page="admin/optional/object-storage-proxy.md" >}}
 
 {{< hint style="info" >}}

@@ -549,16 +549,68 @@ GET /api/v1/instance/terms_of_service HTTP/1.1
 
 获取此实例的服务条款的内容（若已配置）。
 
-**返回：** [PrivacyPolicy]({{< relref "entities/PrivacyPolicy" >}})\
-**OAuth：** 公开\
-**版本历史：**\
-4.4.0 - 添加
+**返回：** [TermsOfService]({{< relref "entities/TermsOfService" >}})  
+**OAuth:** 公开  
+**版本历史:**  
+4.4.0 - 新增
 
 #### 响应
 
 ##### 200: OK
 
+```json
+{
+  "effective_date": "2025-04-15",
+  "effective": true,
+  "content": "<p>Foo bar newer</p>\n",
+  "succeeded_by": null
+}
+```
 
+##### 404: 未找到
+
+本实例尚未配置服务条款。
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+## 查看特定版本的服务条款 {#terms_of_service_date}
+
+```http
+GET /api/v1/instance/terms_of_service/:date HTTP/1.1
+```
+
+获取本实例指定日期的服务条款内容（如有配置）。
+
+**返回：** [TermsOfService]({{< relref "entities/TermsOfService" >}})  
+**OAuth:** 公开  
+**版本历史:**  
+4.4.0 - 新增
+
+#### 请求
+
+##### 路径参数
+
+:date  
+: {{<required>}} 字符串。服务条款生效日期。
+
+#### 响应
+
+##### 200: OK
+
+```json
+{
+  "effective_date": "2025-04-15",
+  "effective": true,
+  "content": "<p>Foo bar newer</p>\n",
+  "succeeded_by": null
+}
+```
 
 ##### 404: Not found
 

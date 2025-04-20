@@ -115,6 +115,12 @@ systemctl reload nginx
 S3_ALIAS_HOST=files.example.com
 ```
 
+（可选）如果你的 S3_ALIAS_HOST 使用了 301 重定向或类似方式，请将最终跳转的目标地址添加到 EXTRA_MEDIA_HOSTS。
+
+```bash
+EXTRA_MEDIA_HOSTS=https://data.example1.com,https://data.example2.com
+```
+
 然后重启 Mastodon：
 
 ```bash

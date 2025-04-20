@@ -57,7 +57,10 @@ aliases: [
   ],
   "configuration": {
     "urls": {
-      "streaming": "wss://mastodon.social"
+      "streaming": "wss://mastodon.social",
+      "about": "https://mastodon.social/about",
+      "privacy_policy": "https://mastodon.social/privacy-policy",
+      "terms_of_service": "https://mastodon.social/terms-of-service"
     },
     "vapid": {
       "public_key": "BCkMmVdKDnKYwzVCDC99Iuc9GvId-x7-kKtuHnLgfF98ENiZp_aj-UNthbCdI70DqN1zUVis-x0Wrot2sBagkMc="
@@ -324,6 +327,28 @@ aliases: [
 **类型:** 字符串 (URL)\
 **版本历史:**\
 4.0.0 - 添加
+
+##### `configuration[urls][about]` {#about_url}
+
+**描述:** 实例“关于”页面的 URL。\
+**类型:** 字符串 (URL)\
+**版本历史:**\
+4.4.0 - 添加
+
+##### `configuration[urls][privacy_policy]` {#privacy_policy}
+
+**描述:** 实例隐私政策页面的 URL。\
+**类型:** 字符串 (URL) 或 null\
+**版本历史:**\
+4.4.0 - 添加
+
+##### `configuration[urls][terms_of_service]` {#terms_of_service}
+
+**描述:** 实例当前服务条款页面的 URL。\
+**类型:** {{<nullable>}} 字符串 (URL)\
+**版本历史:**\
+4.4.0 - 添加
+
 
 ### `configuration[vapid][public_key]` {#vapid_public_key}
 **描述:** 实例的 VAPID 公钥，用于推送通知，与 [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}}) 相同。\

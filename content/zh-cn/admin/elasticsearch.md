@@ -27,12 +27,6 @@ Mastodon 的全文搜索允许已登录用户查找以下内容：
 Mastodon 经过测试与 Elasticsearch 7 版本兼容。它理论上也支持 OpenSearch 以及 Elasticsearch 6 和 8 版本，但这些设置不受官方支持。
 {{< /hint >}}
 
-Elasticsearch 需要 Java 运行环境。如果你尚未安装 Java，请立即进行安装。假设你以 `root` 用户身份登录：
-
-```bash
-apt install openjdk-17-jre-headless
-```
-
 将 Elasticsearch 官方仓库添加到 apt：
 
 ```bash
