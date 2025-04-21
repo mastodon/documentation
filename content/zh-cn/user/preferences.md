@@ -89,4 +89,4 @@ Mastodon 默认采用一个简单的单列布局，左侧是撰写框，右侧�
 
 你可以选择在浏览公共时间线时仅显示以某些检测到的语言发布的嘟文。但是，请注意，语言检测可能非常不准确，因此你可能仍然会看到一些以已被你禁用的语言发布的嘟文，或者错过一些被你启用的语言发布的嘟文。
 
-{{< translation-status-zh-cn raw_title="Set your preferences" raw_link="/user/preferences/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Set your preferences" raw_link="/user/preferences/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

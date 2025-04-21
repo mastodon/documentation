@@ -141,4 +141,4 @@ curl \
 - 有关管理用户账户页中的特色话题标签的信息，请查看 [/api/v1/featured_tags]({{< relref "methods/featured_tags" >}})。
 - 有关读取用户设置的信息，请查看 [/api/v1/preferences]({{< relref "methods/preferences" >}})。
 
-{{< translation-status-zh-cn raw_title="Logging in with an account" raw_link="/client/authorized/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Logging in with an account" raw_link="/client/authorized/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

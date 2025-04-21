@@ -103,4 +103,4 @@ Mastodon 的开发同样通过 [Patreon](https://patreon.com/mastodon) 和 [Open
 
 {{< page-ref page="dev/overview" >}}
 
-{{< translation-status-zh-cn raw_title="What is Mastodon?" raw_link="/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="What is Mastodon?" raw_link="/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

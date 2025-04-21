@@ -61,4 +61,4 @@ Datetime 的字符串表示形式使用 [RFC3339 第 5.6 节](https://www.rfc-ed
 
 - 年、月和日期组件始终用 `-` 分隔。
 
-{{< translation-status-zh-cn raw_title="Datetime formats" raw_link="/api/datetime-format/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Datetime formats" raw_link="/api/datetime-format/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

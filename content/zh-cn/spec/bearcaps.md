@@ -28,4 +28,4 @@ bear:?t=<token>&u=https://example.com/foo'
 
 从 v3.3.0 开始，Mastodon 支持在接收到的 Activity 中解引用 bearcaps。目前 Bearcaps 尚未用于发送任何 Activity。
 
-{{< translation-status-zh-cn raw_title="Bearcaps" raw_link="/spec/bearcaps/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Bearcaps" raw_link="/spec/bearcaps/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

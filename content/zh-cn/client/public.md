@@ -113,4 +113,4 @@ print(statuses[0]["content"]) # this prints the status text
 有关仅使用实例数据可以做什么的实际示例，请查看 [emojos.in](https://emojos.in/)，它允许你预览给定实例中的所有自定义表情符号。
 {{</ hint >}}
 
-{{< translation-status-zh-cn raw_title="Playing with public data" raw_link="/client/public/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Playing with public data" raw_link="/client/public/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

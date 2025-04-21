@@ -151,4 +151,4 @@ RAILS_ENV=production ./bin/tootctl search deploy
 
 你可以查看 [whatsmydns.net](https://whatsmydns.net/) 以了解 DNS 传播的进度。要加速这个过程，你可以编辑自己的 `/etc/hosts` 文件，指向新服务器，这样你就可以提前开始使用它。
 
-{{< translation-status-zh-cn raw_title="Migrating to a new machine" raw_link="/admin/migrating/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Migrating to a new machine" raw_link="/admin/migrating/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

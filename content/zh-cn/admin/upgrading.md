@@ -83,4 +83,4 @@ systemctl restart mastodon-streaming
 **以上就是所有步骤！**你现在正在运行新版本的 Mastodon。
 {{< /hint >}}
 
-{{< translation-status-zh-cn raw_title="Upgrading to a new release" raw_link="/admin/upgrading/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Upgrading to a new release" raw_link="/admin/upgrading/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

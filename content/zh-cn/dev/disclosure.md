@@ -15,4 +15,4 @@ menu:
 “Mastodon 中的漏洞”是指在我们 GitHub 主要源代码存储库中分发的代码中存在的漏洞。特定于某个实例的漏洞（例如，配置错误）应举报给该实例的所有者，而不是我们。
 {{< /hint >}}
 
-{{< translation-status-zh-cn raw_title="Bug bounties and responsible disclosure" raw_link="/dev/disclosure/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Bug bounties and responsible disclosure" raw_link="/dev/disclosure/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

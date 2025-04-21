@@ -31,4 +31,4 @@ Mastodon 是一个使用 React.js 前端的 Ruby on Rails 应用程序。 它遵
 
 应该注意的是，与 Mastodon 一起分发的 Docker 配置针对生产环境进行了优化，因此极其不适合开发。 另一方面，Vagrant 配置专门用于开发环境，而不是生产用途。
 
-{{< translation-status-zh-cn raw_title="Technical overview" raw_link="/dev/overview/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Technical overview" raw_link="/dev/overview/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

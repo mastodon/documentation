@@ -297,4 +297,4 @@ instance_followers[domain]
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/admin/metrics/measure/" caption="app/lib/admin/metrics/measure/" >}}
 
-{{< translation-status-zh-cn raw_title="measures API methods" raw_link="/methods/admin/measures/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="measures API methods" raw_link="/methods/admin/measures/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

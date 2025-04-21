@@ -29,4 +29,4 @@ menu:
 
 在账户设置中，你可以更改你的电子邮件地址、设置新密码、撤销活跃会话或授权应用，并启用两步身份验证。
 
-{{< translation-status-zh-cn raw_title="More settings" raw_link="/user/contacts/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="More settings" raw_link="/user/contacts/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

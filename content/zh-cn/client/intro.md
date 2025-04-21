@@ -136,4 +136,4 @@ Mastodon REST API 将返回 JSON 作为响应文本。它还会返回 HTTP 标�
 - 4xx = 客户端错误。你的请求不正确。最常见的是，你可能会看到 401 Unauthorized（未授权）、404 Not Found（未找到）、410 Gone（已删除）或 422 Unprocessed（无法处理）。
 - 5xx = 服务器错误。处理请求时出现问题。最常见的是，你可能会看到 503 Unavailable（服务不可用）。
 
-{{< translation-status-zh-cn raw_title="Getting started with the API" raw_link="/client/intro/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Getting started with the API" raw_link="/client/intro/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

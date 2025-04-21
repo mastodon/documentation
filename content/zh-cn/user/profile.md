@@ -103,4 +103,4 @@ Mastodon 将在以下条件下验证含有“已验证的链接”的账户元�
 在将 rel-me 链接添加到你的网页*后*，请确保保存你的个人资料！验证过程在你保存个人资料时触发，并且可能需要一段时间才能完成。如果你已添加 rel-me 链接并且验证不起作用，请尝试删除该链接、保存、重新添加该链接并再次保存。
 {{< /hint >}}
 
-{{< translation-status-zh-cn raw_title="Setting up your profile" raw_link="/user/profile/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Setting up your profile" raw_link="/user/profile/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

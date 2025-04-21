@@ -87,4 +87,4 @@ Mastodon 历史上一直支持密码授权流程，但由于安全问题，OAuth
 - 使用 Mastodon 的 REST API 注册应用时，有一个 `scopes` 参数。当与 OAuth 端点交互时，你必须改用 `scope` 参数，并且此参数的值必须是注册应用时指定的 `scopes` 的子集。你不能包含原始集合中没有的任何内容。
 - 使用 Mastodon 的 REST API 注册应用时，有一个 `redirect_uris` 参数。当与 OAuth 端点交互时，你必须改用 `redirect_uri` 参数，并且此参数的值必须是注册应用时指定的 `redirect_uris` 之一。
 
-{{< translation-status-zh-cn raw_title="OAuth" raw_link="/spec/oauth/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="OAuth" raw_link="/spec/oauth/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

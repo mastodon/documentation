@@ -149,4 +149,4 @@ Mastodon 提供的一项你在其他社交网络上可能没有看到的功能�
 
 嘟文附加了媒体时，会出现一个复选框，允许你“将媒体标记为敏感”。 默认情况下，这会将全部媒体隐藏在模糊的缩略图后面。 将内容警告添加到嘟文也会自动将媒体标记为敏感。
 
-{{< translation-status-zh-cn raw_title="Posting to your profile" raw_link="/user/posting/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Posting to your profile" raw_link="/user/posting/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

@@ -109,4 +109,4 @@ Mastodon 的基本搜索功能允许登录的用户查找包含特定话题标�
 
 打开一个列表将加载该列表的时间线。 列表时间线仅包含该列表成员的嘟文，以及对你或列表其他成员的回复。 你可以将回复的显示范围更改为显示对你关注的所有人的回复，或不显示对任何人的回复。
 
-{{< translation-status-zh-cn raw_title="Using the network features" raw_link="/user/network/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Using the network features" raw_link="/user/network/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

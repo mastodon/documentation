@@ -374,4 +374,4 @@ Authorization
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/admin/email_domain_blocks_controller.rb" caption="app/controllers/api/v1/admin/email_domain_blocks_controller.rb" >}}
 
-{{< translation-status-zh-cn raw_title="email_domain_blocks API methods" raw_link="/methods/admin/email_domain_blocks/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="email_domain_blocks API methods" raw_link="/methods/admin/email_domain_blocks/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

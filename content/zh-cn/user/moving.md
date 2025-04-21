@@ -41,4 +41,4 @@ menu:
 
 在“设置”>“账户”的底部，你可以找到删除你账户的表单。删除你的账户是不可逆转的，并且会令你的账户和用户名永远无法再次使用。
 
-{{< translation-status-zh-cn raw_title="Moving or leaving accounts" raw_link="/user/moving/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Moving or leaving accounts" raw_link="/user/moving/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

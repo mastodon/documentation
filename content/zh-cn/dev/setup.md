@@ -112,4 +112,4 @@ foreman start
 `RAILS_ENV=development rails db:migrate`
 : 为你的开发实例的数据库运行新的数据库迁移
 
-{{< translation-status-zh-cn raw_title="Setting up a dev environment" raw_link="/dev/setup/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Setting up a dev environment" raw_link="/dev/setup/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

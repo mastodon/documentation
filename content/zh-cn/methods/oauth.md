@@ -343,4 +343,4 @@ GET /.well-known/oauth-authorization-server HTTP/1.1
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/oauth/tokens_controller.rb" caption="app/controllers/oauth/tokens_controller.rb" >}}
 
-{{< translation-status-zh-cn raw_title="OAuth API methods" raw_link="/methods/oauth/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="OAuth API methods" raw_link="/methods/oauth/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

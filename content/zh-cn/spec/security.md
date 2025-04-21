@@ -167,4 +167,4 @@ Mastodon 使用以下算法验证签名：
 * 从 `signature` 中剥离 `type`、`id` 和 `signatureValue`，只留下 `signature[creator]` 和 `signature[created]`。
 * 对 `signatureValue` 进行 Base64 解码，并根据 `signature[creator]` 中的公钥对其进行验证。
 
-{{< translation-status-zh-cn raw_title="Security" raw_link="/spec/security/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Security" raw_link="/spec/security/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

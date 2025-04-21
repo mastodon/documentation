@@ -132,4 +132,4 @@ systemctl reload mastodon-web
 **现在你可以在浏览器中访问你的 Mastodon 以确认一切正常加载**
 {{< /hint >}}
 
-{{< translation-status-zh-cn raw_title="Proxying object storage through nginx" raw_link="/admin/optional/object-storage-proxy/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Proxying object storage through nginx" raw_link="/admin/optional/object-storage-proxy/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

@@ -54,4 +54,4 @@ Mastodon 中的搜索表单将通过上述地址形式或账户链接找到人�
 
 相同的用户名 _可以_ 在不同的站点上注册——因为没有办法提前声明所有用户名。就像使用电子邮件一样，你不应期望 `alice@outlook.com` 与 `alice@gmail.com` 或 `alice@yahoo.com` 是同一个人。
 
-{{< translation-status-zh-cn raw_title="Signing up for an account" raw_link="/user/signup/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Signing up for an account" raw_link="/user/signup/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

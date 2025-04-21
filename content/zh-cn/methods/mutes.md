@@ -99,4 +99,4 @@ Link: <https://mastodon.example/api/v1/mutes?limit=2&max_id=317646>; rel="next",
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/mutes_controller.rb" caption="app/controllers/api/v1/mutes_controller.rb" >}}
 
-{{< translation-status-zh-cn raw_title="mutes API methods" raw_link="/methods/mutes/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="mutes API methods" raw_link="/methods/mutes/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

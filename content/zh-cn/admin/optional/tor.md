@@ -156,4 +156,4 @@ service nginx restart
 - 如前所述，Mastodon前端的某些URL会强制用户使用HTTPS URL。他们必须手动将URL替换为HTTP才能继续。
 - 各种资源，如图像，仍将通过你常规的明网域名提供。这可能会成为问题，具体取决于你的用户希望、尝试或需要多高的隐私程度。
 
-{{< translation-status-zh-cn raw_title="Onion services" raw_link="/admin/optional/tor/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Onion services" raw_link="/admin/optional/tor/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

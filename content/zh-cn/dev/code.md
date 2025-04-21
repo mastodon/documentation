@@ -72,4 +72,4 @@ menu:
 - 运行 `bundle exec i18n-tasks normalize` 来规范化服务器端翻译。
 - 运行 `yarn run i18n:extract` 将客户端翻译提取并将其规范化到 `en.json` 中。
 
-{{< translation-status-zh-cn raw_title="Code structure" raw_link="/dev/code/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Code structure" raw_link="/dev/code/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

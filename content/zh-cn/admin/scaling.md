@@ -476,4 +476,4 @@ production:
 你也可以将这些端点用于第三方监控/警报工具的健康检查。
 {{< /hint >}}
 
-{{< translation-status-zh-cn raw_title="Scaling up your server" raw_link="/admin/scaling/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Scaling up your server" raw_link="/admin/scaling/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

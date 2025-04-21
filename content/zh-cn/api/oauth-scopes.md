@@ -168,4 +168,4 @@ API 访问被划分为若干 OAuth 作用域，这些作用域基于 [访问令�
 
 * Mastodon 3.2.0 到 4.3.0 版本确实支持用于端到端加密 API 的 `crypto` 作用域，但是，此功能从未被记录或完全实现，并且已从 4.3.0 版本中删除。使用该作用域注册的任何应用程序在服务器升级到 4.3.0 及更高版本时，都将被删除该作用域。
 
-{{< translation-status-zh-cn raw_title="OAuth Scopes" raw_link="/api/oauth-scopes/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="OAuth Scopes" raw_link="/api/oauth-scopes/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

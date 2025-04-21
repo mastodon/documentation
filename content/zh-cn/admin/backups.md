@@ -52,4 +52,4 @@ PostgreSQL 面临断电、硬盘驱动器故障与错误的架构迁移带来的
 
 备份 Redis 很容易。Redis 定期写入 `/var/lib/redis/dump.rdb`，这是你唯一需要复制的文件。
 
-{{< translation-status-zh-cn raw_title="Backing up your server" raw_link="/admin/backups/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Backing up your server" raw_link="/admin/backups/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

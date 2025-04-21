@@ -86,4 +86,4 @@ curl \
 
 通过经过身份验证的客户端应用程序，我们可以查看帐户之间的关系，例如 [GET /api/v1/accounts/:id/following]({{< relref "methods/accounts#following" >}}) 和 [GET /api/v1/accounts/:id/followers]({{< relref "methods/accounts#followers" >}})。此外，某些实例可能要求对本来可以公开访问的方法进行身份验证，因此如果你之前在尝试使用公共方法时遇到任何身份验证错误，这些方法现在应该可以工作了。
 
-{{< translation-status-zh-cn raw_title="Obtaining client app access" raw_link="/client/token/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Obtaining client app access" raw_link="/client/token/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

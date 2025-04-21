@@ -26,4 +26,4 @@ Mastodon 支持两种不同的 OAuth 令牌类型：应用令牌和用户令牌�
 
 许多 Mastodon API 需要用户令牌和特定的作用域才能访问。
 
-{{< translation-status-zh-cn raw_title="OAuth Tokens" raw_link="/api/oauth-tokens/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="OAuth Tokens" raw_link="/api/oauth-tokens/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

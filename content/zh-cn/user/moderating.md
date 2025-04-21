@@ -101,4 +101,4 @@ menu:
 
 如果你看到违反了你站点的规则的嘟文或用户，你可以向你的站点的管理员举报该用户。单击用户下拉菜单或嘟文下拉菜单中的“举报”选项将打开举报对话框。在这里，你可以（并且应该）添加一条关于你为什么要举报此帐户的注释。你可以附加某些有问题的嘟文，以提供关于你举报该帐户的理由的更多上下文，并且如果他们的行为违反了外部站点的规则，你还可以选择将举报转发到该用户所在站点的管理员。
 
-{{< translation-status-zh-cn raw_title="Dealing with unwanted content" raw_link="/user/moderating/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Dealing with unwanted content" raw_link="/user/moderating/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

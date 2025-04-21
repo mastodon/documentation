@@ -31,4 +31,4 @@ menu:
 
 账户以卡片形式显示，其中包括用户的昵称、地址、账户简介和一些简短的统计信息，例如对应用户已发布的嘟文数量、拥有的关注者数量以及上次发布嘟文的时间。
 
-{{< translation-status-zh-cn raw_title="Promoting yourself and others" raw_link="/user/discoverability/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Promoting yourself and others" raw_link="/user/discoverability/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

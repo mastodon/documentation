@@ -241,4 +241,4 @@ Mastodon 服务现在将在开机时自动启动。
 **太好了！以上就是安装 Mastodon 的全部步骤。现在你可以在浏览器中访问你的站点了！**
 {{< /hint >}}
 
-{{< translation-status-zh-cn raw_title="Installing from source" raw_link="/admin/install/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Installing from source" raw_link="/admin/install/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

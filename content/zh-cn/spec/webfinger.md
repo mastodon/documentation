@@ -108,4 +108,4 @@ menu:
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/webfinger.rb" caption="app/lib/webfinger.rb" >}}
 
-{{< translation-status-zh-cn raw_title="WebFinger" raw_link="/spec/webfinger/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="WebFinger" raw_link="/spec/webfinger/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

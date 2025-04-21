@@ -196,4 +196,4 @@ aliases: [
 
 {{< page-relref ref="methods/featured_tags#suggestions" caption="GET /api/v1/featured_tags/suggestions" >}}
 
-{{< translation-status-zh-cn raw_title="Tag" raw_link="/entities/Tag/" last_translation_time="2025-04-06" raw_commit="5e2b739ee193896bea937addc2843146ea0bc870">}}
+{{< translation-status-zh-cn raw_title="Tag" raw_link="/entities/Tag/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}
