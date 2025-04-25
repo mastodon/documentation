@@ -544,7 +544,7 @@ aliases: [
 **Version history:**\
 4.4.0 - added
 
-#### `registrations[reason_required]` #{registrations-reason_required}
+#### `registrations[reason_required]` {#registrations-reason_required}
 
 **Description:** Whether registrations require the user to provide a reason for joining. Only applicable when `registrations[approval_required]` is true.\
 **Type:** {{<nullable>}} Boolean\
