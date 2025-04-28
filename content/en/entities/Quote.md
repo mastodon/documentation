@@ -1,6 +1,6 @@
 ---
 title: Quote
-description: Represents a user-defined filter for determining which statuses should not be shown to the user.
+description: Represents a quote or a quote placeholder, with the current authorization status.
 menu:
   docs:
     parent: entities
