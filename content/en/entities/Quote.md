@@ -13,8 +13,8 @@ aliases: [
 
 ```json
 {
-	"state": "accepted",
-	"status": {
+  "state": "accepted",
+  "status": {
     "id": "103270115826048975",
     "created_at": "2019-12-08T03:48:33.901Z",
     "in_reply_to_id": null,
