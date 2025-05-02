@@ -125,6 +125,13 @@ aliases: [
 **Version history:**\
 0.1.0 - added
 
+### `uri` {#uri}
+
+**Description:** The user's ActivityPub actor identifier.\
+**Type:** String (URL)\
+**Version history:**\
+4.2.0 - added
+
 ### `display_name` {#display_name}
 
 **Description:** The profile's display name.\
