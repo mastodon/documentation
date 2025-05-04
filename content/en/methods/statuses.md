@@ -1040,7 +1040,7 @@ Authorization
 ##### Form data parameters
 
 visibility
-: String. Any visibility except `limited` or `direct` (i.e. `public`, `unlisted`, `private`). Defaults to public. Currently unused in UI.
+: String. Any visibility except `limited` or `direct` (i.e. `public`, `unlisted`, `private`). Defaults to public.
 
 #### Response
 ##### 200: OK
