@@ -281,6 +281,13 @@ aliases: [
 **Version history:**\
 0.1.0 - added
 
+### `hide_collections` {#hide_collections}
+
+**Description:** Whether the user hides the contents of their follows and followers collections.\
+**Type:** Boolean\
+**Version history:**\
+4.3.0 - added
+
 ## CredentialAccount entity attributes {#CredentialAccount}
 
 ```json
