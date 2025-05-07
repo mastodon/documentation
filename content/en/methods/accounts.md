@@ -1770,6 +1770,175 @@ Token does not have an authorized user
 
 ---
 
+## Feature account on your profile {{%deprecated%}} {#pin}
+
+```http
+POST /api/v1/accounts/:id/pin HTTP/1.1
+```
+
+Add the given account to the user's featured profiles. (Featured profiles are currently shown on the user's own public profile.)
+
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
+**OAuth:** User token + `write:accounts`\
+**Version history:**\
+2.5.0 - added\
+4.0.0 - calling this method is now idempotent\
+4.4.0 - deprecated in favor of `/api/v1/accounts/:id/endorse`
+
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Successfully endorsed, or was already endorsing.
+
+```json
+{
+  "id": "1",
+  "following": true,
+  "showing_reblogs": true,
+  "notifying": false,
+  "followed_by": true,
+  "blocking": false,
+  "blocked_by": false,
+  "muting": false,
+  "muting_notifications": false,
+  "requested": false,
+  "domain_blocking": false,
+  "endorsed": true
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 403: Forbidden
+
+Token is missing a required scope
+
+```json
+{
+  "error": "This action is outside the authorized scopes"
+}
+```
+
+##### 422: Unprocessable entity
+
+You are not following this account
+
+```json
+{
+  "error": "Validation failed: You must be already following the person you want to endorse"
+}
+```
+
+Alternatively, the token is not authorized with a user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+Alternatively (prior to 4.0), the account may already be endorsed
+
+```json
+{
+  "error": "Duplicate record"
+}
+```
+
+##### 500: Server error
+
+Can sometimes be returned if the account already endorsed.
+
+---
+
+## Unfeature account from profile {{%deprecated%}} {#unpin}
+
+```http
+POST /api/v1/accounts/:id/unpin HTTP/1.1
+```
+
+Remove the given account from the user's featured profiles.
+
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
+**OAuth:** User + `write:accounts`\
+**Version history:**\
+2.5.0 - added\
+4.4.0 - deprecated in favor of `/api/v1/accounts/:id/unendorse`
+
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Successfully unendorsed, or account was already not endorsed
+
+```json
+{
+  "id": "1",
+  "following": true,
+  "showing_reblogs": true,
+  "notifying": false,
+  "followed_by": true,
+  "blocking": false,
+  "blocked_by": false,
+  "muting": false,
+  "muting_notifications": false,
+  "requested": false,
+  "domain_blocking": false,
+  "endorsed": false
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 422: Unprocessable entity
+
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
 ## Get featured accounts {#endorsements}
 
 ```http
@@ -1902,9 +2071,7 @@ Add the given account to the user's featured profiles.
 **Returns:** [Relationship]({{< relref "entities/relationship">}})\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
-2.5.0 - added\
-4.0.0 - calling this method is now idempotent\
-4.4.0 - renamed from `pin` to `endorse`
+4.4.0 - added
 
 #### Request
 ##### Path parameters
@@ -2002,8 +2169,7 @@ Remove the given account from the user's featured profiles.
 **Returns:** [Relationship]({{< relref "entities/relationship">}})\
 **OAuth:** User + `write:accounts`\
 **Version history:**\
-2.5.0 - added\
-4.4.0 - renamed from `unpin` to `unendorse`
+4.4.0 - added
 
 #### Request
 ##### Path parameters
