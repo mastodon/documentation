@@ -7,6 +7,10 @@ menu:
     identifier: admin-troubleshooting
 ---
 
+## **IPv4/IPv6 conflicts**
+
+Having IPv6 on your DNS, but not getting the correct IP or firewalling applied can cause problems including performance (timing out errors) or failing jobs for the fediverse. Make sure you have fully working dual stack if you have a 'AAAA' record in your DNS zone.
+
 ## **I see an error page that says something went wrong. How do I find out what’s wrong?**
 
 All error messages with stack traces are written to the system log. When using systemd, the logs of each systemd service can be browsed with `journalctl -u mastodon-web` (substitute with the correct service name). When using Docker, it’s similar: `docker logs mastodon_web_1` (substitute with the correct container name).
