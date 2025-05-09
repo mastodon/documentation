@@ -148,7 +148,7 @@ aliases: [
 
 ### `uri` {#uri}
 
-**Description:** The domain name of the instance.\
+**Description:** The WebFinger domain name of the instance (not a URI/URL).\
 **Type:** String\
 **Version history:**\
 1.1.0 - added
