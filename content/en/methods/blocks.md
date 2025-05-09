@@ -24,6 +24,8 @@ aliases: [
 GET /api/v1/blocks HTTP/1.1
 ```
 
+Returns your blocked accounts.
+
 **Returns:** Array of [Account]({{< relref "entities/account" >}})\
 **OAuth:** User token + `read:blocks`\
 **Version history:**\
