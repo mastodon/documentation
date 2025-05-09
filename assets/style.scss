@@ -6,6 +6,7 @@ $black: #000000; // Black
 $white: #ffffff; // White
 $red-600: #b7253d !default; // Deep Carmine
 $red-500: #df405a !default; // Cerise
+$blurple-700: #483d8b; // dark slate blue
 $blurple-600: #563acc; // Iris
 $blurple-500: #6364ff; // Brand purple
 $blurple-400: #7477fd; // Medium slate blue
@@ -1034,4 +1035,84 @@ main {
     align-content: center;
     margin-left: 0.25em;
   }
+}
+
+// none mobile device - sticky and scrollable menu 
+@media screen and (min-width: $mobile-width) {
+  nav.sidebar {
+    position: sticky !important;
+    overflow-y: auto;
+    z-index: 1;  
+    height: 80%;    
+    max-height: 700px !important; // ensures bottom menu item shows 
+    left: 10px !important;
+    top: 0px !important;         
+    margin-left: 0px !important;
+    
+    // a.active nested in nav.sidebar 
+    a.active {
+      top: 0px !important;
+    } 
+  }
+  // give main content a little more room 
+  main {
+    margin-left: 20px;
+  }
+}
+
+// mobile device - not sticky and scrollable nav 
+@media screen and (max-width: $mobile-width) {
+  nav.sidebar {
+    display: inline-block;
+    background-color: $darkest;
+    width: 100%;
+    left: 0px;        
+    top: 0px;
+    margin: 0px;
+    padding: 0px !important;            
+
+    // a.brand nested in nav.sidebar 
+    a.brand {
+      display: inline-block !important;        
+      padding-left: 30%;        
+      
+      // img nested in a.brand 
+      img {
+        margin: 5px auto 0px auto !important;                
+      }
+    }
+    
+    // label[for] nested in nav.sidebar 
+    label[for] {
+      display: inline-block !important;
+      float: right;        
+      margin-top: 10px;
+      margin-right: 10px;
+    }    
+  }       
+}
+
+/* 
+ Match scroll-bar style to site design - thanks to:
+ https://www.geeksforgeeks.org/how-to-change-the-position-of-scrollbar-using-css/ 
+*/
+nav.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+// Track 
+nav.sidebar::-webkit-scrollbar-track {
+  background: $blurple-700;
+  border-radius: 5px; 
+}
+
+// Handle 
+nav.sidebar::-webkit-scrollbar-thumb {
+  background: $white;
+  border-radius: 5px;
+}
+
+// Handle on hover 
+nav.sidebar::-webkit-scrollbar-thumb:hover {
+  background: $classic-secondary-color;
 }
