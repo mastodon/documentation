@@ -48,7 +48,7 @@ apt install -y \
   g++ libprotobuf-dev protobuf-compiler pkg-config gcc autoconf \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
   zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
-  nginx nodejs redis-server redis-tools postgresql postgresql-contrib \
+  nginx nodejs redis-server redis-tools postgresql \
   certbot python3-certbot-nginx libidn11-dev libicu-dev libjemalloc-dev
 ```
 
