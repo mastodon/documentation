@@ -40,7 +40,7 @@ Authorization
 
 ##### Query parameters
 
-max_id 
+max_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 since_id
@@ -128,8 +128,10 @@ Invalid or missing Authorization header.
 
 ## See also
 
-{{< page-relref ref="methods/accounts#pin" caption="POST /api/v1/accounts/:id/pin" >}}
+{{< page-relref ref="methods/accounts#endorsements" caption="GET /api/v1/accounts/:id/endorsements" >}}
 
-{{< page-relref ref="methods/accounts#unpin" caption="POST /api/v1/accounts/:id/unpin" >}}
+{{< page-relref ref="methods/accounts#endorse" caption="POST /api/v1/accounts/:id/endorse" >}}
+
+{{< page-relref ref="methods/accounts#unendorse" caption="POST /api/v1/accounts/:id/unendorse" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/endorsements_controller.rb" caption="app/controllers/api/v1/endorsements_controller.rb" >}}
