@@ -124,7 +124,7 @@ Daily retention data for the week between 2022-09-08 and 2022-09-14, given that 
 ### `value` {#value}
 
 **Description:** How many users registered in the specified `period` and were active for the given `date` bucket.\
-**Type:** Integer\
+**Type:** String (cast from integer)\
 **Version history:**\
 3.5.0 - added
 
