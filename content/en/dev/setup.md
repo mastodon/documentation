@@ -50,30 +50,37 @@ Run the following commands in the project directory:
 
 ```sh
 bundle install
-yarn install
+yarn
 ```
+
+{{<hint style="info">}}
+If you would like to avoid installing the gems globally, and are not using something like [RVM gemsets](https://rvm.io/gemsets/basics), you may want to configure the bundle path:
+
+```
+bundle config set --local path vendor/bundle
+```
+{{</hint>}}
+
+{{<hint style="info">}}
+On some operating systems, such as Debian and Fedora, `yarn` has been renamed to `yarnpkg`. On these systems, run `yarnpkg` instead of `yarn`.
+{{</hint>}}
 
 In the development environment, Mastodon will use PostgreSQL as the currently signed-in Linux user using the `ident` method. Ensure that you have created a PostgreSQL user and database for your current signed-in user:
 
 ```sh
-sudo -u postgres createuser $YOUR_USERNAME_HERE --createdb
+sudo -u postgres createuser $USER --createdb
 ```
-
-You can now create the databases `mastodon_development` and `mastodon_test`, load the schema into them, and create seed data defined in `db/seeds/` into `mastodon_development`.
+Finally, run:
 
 ```sh
-rails db:setup
+RAILS_ENV=development bundle exec rails db:setup
 ```
 
-You can now launch `http://localhost:3000` in your browser and log in with the default admin user (`admin@localhost` / `mastodonadmin`).
-
-{{<hint style="warning">}}
-By default, Mastodon will run on port 3000. If you configure a different port for it, the generated admin account will use that number as well.
-{{</hint>}}
+This creates the databases `mastodon_development` and `mastodon_test`, loads the schema into them, and inserts seed data defined in `db/seeds/` into `mastodon_development`.
 
 ### Running {#running}
 
-There are multiple processes that need to be run for the full set of Mastodon’s functionality, although they can be selectively omitted. To run all of them with just one command, you can install and use Foreman:
+There are multiple processes that need to be run for the full set of Mastodon's functionality, although they can be selectively omitted. To run all of them with just one command, you can install and use Foreman:
 
 ```sh
 gem install foreman --no-document
@@ -81,6 +88,12 @@ foreman start
 ```
 
 This will start processes defined in `Procfile.dev`, which will give you: A Rails server, a Webpack server, a streaming API server, and Sidekiq. Of course, you can run any of those things stand-alone depending on your needs.
+
+You can now launch `http://localhost:3000` in your browser and log in with the default admin user (`admin@localhost:3000` / `mastodonadmin`).
+
+{{<hint style="warning">}}
+By default, Mastodon will run on port 3000. If you configure a different port for it, the generated admin account will use that number as well.
+{{</hint>}}
 
 ## Working with emails in development
 
