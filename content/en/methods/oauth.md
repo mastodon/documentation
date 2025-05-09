@@ -27,7 +27,7 @@ Displays an authorization form to the user. If approved, it will create and retu
 **Version history:**\
 0.1.0 - added\
 2.6.0 - added `force_login`\
-3.5.0 - added `lang`
+3.5.0 - added `lang`\
 4.3.0 - added support for PKCE parameters
 
 #### Request
@@ -105,7 +105,7 @@ Obtain an access token, to be used during API calls that are not public.
 **Returns:** [Token]({{< relref "entities/token" >}})\
 **OAuth:** Public\
 **Version history:**\
-0.1.0 - added
+0.1.0 - added\
 4.3.0 - added support for PKCE parameter
 
 #### Request
