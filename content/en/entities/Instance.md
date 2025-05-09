@@ -197,7 +197,7 @@ aliases: [
 
 ### `domain` {#domain}
 
-**Description:** The domain name of the instance.\
+**Description:** The WebFinger domain name of the instance.\
 **Type:** String\
 **Version history:**\
 4.0.0 - added
