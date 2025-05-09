@@ -29,7 +29,8 @@ Obtain general information about the server.
 **OAuth:** Public\
 **Version history:**\
 4.0.0 - added\
-4.3.0 - added `configuration.vapid.public_key`
+4.3.0 - added `configuration.vapid.public_key`\
+4.3.0 - added `api_versions.mastodon`, see [API Versions]({{< relref "api/versions" >}}) and [Instance]({{< relref "entities/Instance#api_versions" >}}) for more info.
 
 #### Response
 
@@ -143,6 +144,9 @@ Obtain general information about the server.
     "enabled": false,
     "approval_required": false,
     "message": null
+  },
+  "api_versions": {
+    "mastodon": 5
   },
   "contact": {
     "email": "staff@mastodon.social",
