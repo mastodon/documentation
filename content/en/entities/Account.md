@@ -296,10 +296,10 @@ aliases: [
   "acct": "trwnh",
   "display_name": "infinite love ⴳ",
   // ...
-  "attribution_domains": ["example.com", "example.net"],
   "note": "<p>i have approximate knowledge of many things. perpetual student. (nb/ace/they)</p><p>xmpp/email: a@trwnh.com<br /><a href=\"https://trwnh.com\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a><br />help me live: <a href=\"https://liberapay.com/trwnh\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/trwnh</span><span class=\"invisible\"></span></a> or paypal</p><p>- my triggers are moths and glitter<br />- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise<br />- dm me if i did something wrong, so i can improve<br />- purest person on fedi, do not lewd in my presence</p>",
   // ...
   "source": {
+    "attribution_domains": ["example.com", "example.net"],
     "privacy": "public",
     "sensitive": false,
     "language": "",
@@ -361,19 +361,19 @@ aliases: [
 }
 ```
 
-### `attribution_domains` {#attribution_domains}
-
-**Description:** Domains of websites allowed to credit the account.\
-**Type:** Array of String\
-**Version history:**\
-4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added
-
 ### `source` {#source}
 
 **Description:** An extra attribute that contains source values to be used with API methods that [verify credentials]({{< relref "methods/accounts#verify_credentials" >}}) and [update credentials]({{< relref "methods/accounts#update_credentials" >}}).\
 **Type:** Hash\
 **Version history:**\
 2.4.0 - added
+
+### `source[attribution_domains]` {#source-attribution_domains}
+
+**Description:** Domains of websites allowed to credit the account.\
+**Type:** Array of String\
+**Version history:**\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added
 
 #### `source[note]` {#source-note}
 
