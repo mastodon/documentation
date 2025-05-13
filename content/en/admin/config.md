@@ -1240,7 +1240,10 @@ Defaults to `1.1`
 
 #### `IP_RETENTION_PERIOD`
 
-Defaults to `31536000` (1 year)
+This controls how long (in seconds) the server stores the IP addresses of people connecting to the server. A value of `172800` (2 days) would be a reasonable privacy-protective value, but you may need to set it longer if you use IP addresses in spam protection.
+
+Defaults to `15552000` (6 months)
+
 
 #### `SESSION_RETENTION_PERIOD`
 
