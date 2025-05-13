@@ -44,12 +44,8 @@ Istnieje kilka **dedykowanych dostawców hostingu Mastodona** które zapewniają
 
 Zarządzane hostingi są świetnym rozwiązaniem, jeżeli nie masz doświadczenia lub chęci samodzielnie instalować i zajmować się oprogramowaniem. Jednak bycie odpowiedzialnym za wszystkie elementy na własnym sprzęcie daje większą kontrolę nad skalowalnością, wydajnością i dostosowywaniem.
 
-Oferujemy **obraz instalacji jednym kliknięciem dla DigitalOcean**, który możesz umieścić na wybranym droplecie DigitalOcean, w zasadzie dając Ci wszystko, co zrobił(a)byś w innym wypadku zgodnie z naszą instrukcją instalacji, lecz z poziomu interaktywnego instalatora.
-
-{{< caption-link url="https://marketplace.digitalocean.com/apps/mastodon" caption="Mastodon 1-Click Install Image na DigitalOcean" >}}
-
 Zakłada to jednak konfigurację na jednym urządzeniu. Mastodon dość dobrze skaluje się horyzontalnie. Jeżeli potrzeby przekroczą możliwość jednego urządzenia, Mastodon może zostać podzielony pomiędzy wiele serwerów aplikacji, workerów działających w tle, backendów Redisa, replik PostgreSQL — ale instalacja jednym kliknięciem nie zapewni tego.
 
 Jeżeli chcesz zainstalować wszystko samodzielnie, przejdź tutaj:
 
-{{< caption-link url="https://marketplace.digitalocean.com/apps/mastodon" caption="Przygotowanie maszyny" >}}
+{{< caption-link url="https://docs.joinmastodon.org/admin/prerequisites" caption="Przygotowanie maszyny" >}}
