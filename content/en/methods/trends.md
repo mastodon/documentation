@@ -48,6 +48,7 @@ offset
 ```json
 [
   {
+    "id": "201",
     "name": "hola",
     "url": "https://mastodon.social/tags/hola",
     "history": [
@@ -60,6 +61,7 @@ offset
     ]
   },
   {
+    "id": "695",
     "name": "SaveDotOrg",
     "url": "https://mastodon.social/tags/SaveDotOrg",
     "history": [
@@ -72,6 +74,7 @@ offset
     ]
   },
   {
+    "id": "415",
     "name": "introduction",
     "url": "https://mastodon.social/tags/introduction",
     "history": [
