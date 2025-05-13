@@ -32,6 +32,7 @@ Returned from `POST /api/v1/statuses?status=test post&scheduled_at=2022-09-29`
     "idempotency": null,
     "with_rate_limit": false,
     "in_reply_to_id": null,
+    "application_id": 3
   },
   "media_attachments": []
 }
@@ -53,6 +54,7 @@ Returned from `GET /api/v1/scheduled_statuses`:
     "idempotency": null,
     "scheduled_at": null,
     "spoiler_text": null,
+    "application_id": 3,
     "in_reply_to_id": null,
     "with_rate_limit": false
   },
@@ -171,6 +173,13 @@ Returned from `GET /api/v1/scheduled_statuses`:
 **Version history:**\
 2.7.0 - added
 
+#### `params[application_id]` {{%deprecated%}} {#params-application_id}
+
+**Description:** Internal ID of the Application that posted the status. Provided for historical compatibility only and can be ignored.\
+**Type:** Integer\
+**Version history:**\
+2.7.0 - added
+
 #### `params[scheduled_at]` {#params-scheduled_at}
 
 **Description:** When the status will be scheduled. This will be null because the status is only scheduled once.\
@@ -185,9 +194,9 @@ Returned from `GET /api/v1/scheduled_statuses`:
 **Version history:**\
 2.7.0 - added
 
-#### `params[with_rate_limit]` {#params-with_rate_limit}
+#### `params[with_rate_limit]` {{%deprecated%}} {#params-with_rate_limit}
 
-**Description:** Whether the status should be rate limited <!-- TODO: What does this mean -->.\
+**Description:** Whether status creation is subject to rate limiting. Provided for historical compatibility only and can be ignored.\
 **Type:** Boolean\
 **Version history:**\
 2.7.0 - added

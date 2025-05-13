@@ -7,7 +7,7 @@ menu:
     parent: user
 ---
 
-{{< figure src="assets/image%20%2859%29.png" caption="启用CW后的撰写表单" >}}
+{{< figure src="assets/compose-with-cw.png" caption="启用CW后的撰写表单" >}}
 
 ## 文本 {#text}
 
@@ -15,25 +15,25 @@ menu:
 
 ### 链接 {#links}
 
-{{< figure src="assets/image%20%287%29.png" caption="链接必须以 http(s):// 开头，无论长度如何，都将被视为23个字符" >}}
+{{< figure src="assets/compose-links.png" caption="链接必须以 http(s):// 开头，无论长度如何，都将被视为23个字符" >}}
 
 如果你的嘟文中有链接，它们必须以 `http://` 或 `https://` 开头。所有的链接无论实际上有多长，都将被记作23个字符。因此没有使用短链接来节省字符的必要。事实上，使用短链接是极其不被推荐的。
 
 ### 提及 {#mentions}
 
-{{< figure src="assets/image%20%2820%29.png" caption="键入@后会自动推荐你可能要提及的本站或跨站用户" >}}
+{{< figure src="assets/compose-mentions.png" caption="键入@后会自动推荐你可能要提及的本站或跨站用户" >}}
 
 你可以通过输入用户的完整地址来提及（@）他们，例如`@alice@example.com`。请注意，`@word`的任何用法都将被解释为提及本地用户名为`word`的用户（如果该用户存在于本站的话）。只有用户名部分才会受到字数限制，域名不被计算在字数内。
 
 ### 话题标签 {#hashtags}
 
-{{< figure src="assets/image%20%2825%29.png" caption="话题标签会根据使用频率自动被系统推荐" >}}
+{{< figure src="assets/compose-hashtags.png" caption="话题标签会根据使用频率自动被系统推荐" >}}
 
 你可以使用 `#话题标签` 使任何搜索该话题标签的人都可以发现你的嘟文。标签可以包含字母数字字符和下划线，但不能只包含数字。
 
 ### 自定义emoji {#emoji}
 
-{{< figure src="assets/image%20%2838%29.png" caption="一组自定义表情符号存在于选择器中" >}}
+{{< figure src="assets/compose-custom-emoji.png" caption="一组自定义表情符号存在于选择器中" >}}
 
 每个服务器都提供了一套你可以使用的自定义表情符号。你可以使用表情符号的短代码，如`:thounking:`，或者点击撰写框中的表情符号图标，浏览“自定义”类别。你也可以使用unicode标准表情符号。
 
@@ -43,7 +43,7 @@ menu:
 
 ### 媒体文件 {#media}
 
-{{< figure src="assets/image%20%2844%29.png" caption="带有删除、编辑、标记为敏感媒体选项的附加媒体文件缩略图" >}}
+{{< figure src="assets/compose-media-attachment.png" caption="带有删除、编辑、标记为敏感媒体选项的附加媒体文件缩略图" >}}
 
 点击回形针将文件附加到你的嘟文上。你可以附上以下文件：
 
@@ -54,13 +54,13 @@ menu:
 
 #### 编辑媒体 {#edit}
 
-{{< figure src="assets/image%20%2826%29.png" caption="编辑媒体以添加媒体描述，或选择预览缩略图的焦点" >}}
+{{< figure src="assets/edit-media.png" caption="编辑媒体以添加媒体描述，或选择预览缩略图的焦点" >}}
 
 通过点击附件缩略图上的“编辑”链接，你可以加载模块，这个模块允许你添加媒体描述或改变焦点。虽然是可选的，但还是建议添加媒体描述来简单地描述媒体中包含的内容。当媒体因任何原因无法加载时，或当视觉障碍人士使用屏幕阅读器和其他辅助技术访问时，这些描述将被显示出来。设置焦点也是可选的，但是当未以16：9的纵横比显示预览缩略图时，可以使预览缩略图看起来更好。
 
 ### 投票 {#polls}
 
-{{< figure src="assets/image%20%2841%29.png" caption="一个含有2个单选选项，过期时间为1天的投票" >}}
+{{< figure src="assets/compose-polls.png" caption="一个含有2个单选选项，过期时间为1天的投票" >}}
 
 单击条型图图标将投票附加到你的嘟文。
 
@@ -126,7 +126,7 @@ menu:
 
 ## 内容警告（CW）和敏感内容 {#cw}
 
-{{< figure src="assets/image.png" caption="在CW中被标记为敏感内容的嘟文" >}}
+{{< figure src="assets/status-cw.png" caption="在CW中被标记为敏感内容的嘟文" >}}
 
 Mastodon提供了一个你可能在其他社交网络上没有看到的功能，那就是在你的嘟文上附加一个内容警告。当包含内容警告时，嘟文内容默认会被折叠，只显示你设置的CW的警告标题，而不直接展开显示嘟文正文，起到了类似于电子邮件的主题栏或“阅读更多”的内容中断作用。这可以用于为你的嘟文添加摘要或主题、折叠长嘟文，或者为嘟文主体提供上下文。
 

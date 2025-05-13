@@ -18,7 +18,7 @@ aliases: [
 {
   "domain": "mastodon.social",
   "title": "Mastodon",
-  "version": "4.0.0rc1",
+  "version": "4.4.0-alpha.3",
   "source_url": "https://github.com/mastodon/mastodon",
   "description": "The original server operated by the Mastodon gGmbH non-profit",
   "usage": {
@@ -57,7 +57,10 @@ aliases: [
   ],
   "configuration": {
     "urls": {
-      "streaming": "wss://mastodon.social"
+      "streaming": "wss://mastodon.social",
+      "about": "https://mastodon.social/about",
+      "privacy_policy": "https://mastodon.social/privacy-policy",
+      "terms_of_service": "https://mastodon.social/terms-of-service"
     },
     "vapid": {
       "public_key": "BCkMmVdKDnKYwzVCDC99Iuc9GvId-x7-kKtuHnLgfF98ENiZp_aj-UNthbCdI70DqN1zUVis-x0Wrot2sBagkMc="
@@ -121,7 +124,9 @@ aliases: [
   "registrations": {
     "enabled": false,
     "approval_required": false,
-    "message": null
+    "reason_required": false,
+    "message": null,
+    "min_age": 16
   },
   "api_versions": {
     "mastodon": 1,
@@ -192,7 +197,7 @@ aliases: [
 
 ### `domain` {#domain}
 
-**Description:** The domain name of the instance.\
+**Description:** The WebFinger domain name of the instance.\
 **Type:** String\
 **Version history:**\
 4.0.0 - added
@@ -241,7 +246,7 @@ aliases: [
 
 ##### `usage[users][active_month]` {#active_month}
 
-**Description:** The number of active users in the past 4 weeks.\
+**Description:** The number of active users in the past 4 weeks. This is set to zero for servers with `configuration[limited_federation]`.\
 **Type:** Integer\
 **Version history:**\
 4.0.0 - added
@@ -323,7 +328,28 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
-### `configuration[vapid][public_key]` {#vapid_public_key}
+##### `configuration[urls][about]` {#about_url}
+
+**Description:** The URL of the server's about page.\
+**Type:** String (URL)\
+**Version history:**\
+4.4.0 - added
+
+##### `configuration[urls][privacy_policy]` {#privacy_policy}
+
+**Description:** The URL of the server's privacy policy.\
+**Type:** String (URL) or null\
+**Version history:**\
+4.4.0 - added
+
+##### `configuration[urls][terms_of_service]` {#terms_of_service}
+
+**Description:** The URL of the server's current terms of service, if any.\
+**Type:** {{<nullable>}} String (URL)\
+**Version history:**\
+4.4.0 - added
+
+#### `configuration[vapid][public_key]` {#vapid_public_key}
 **Description:** The instances VAPID public key, used for push notifications, the same as [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}}).\
 **Type:** String\
 **Version history:**\
@@ -483,6 +509,13 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
+#### `configuration[limited_federation]` {#limited-federation}
+
+**Description:** Whether federation is limited to explicitly allowed domains.\
+**Type:** Boolean\
+**Version history:**\
+4.4.0 - added
+
 ### `registrations`
 
 **Description:** Information about registering for this website.\
@@ -510,6 +543,20 @@ aliases: [
 **Type:** {{<nullable>}} String (HTML) or null\
 **Version history:**\
 4.0.0 - added
+
+#### `registrations[min_age]` {#registrations-min_age}
+
+**Description:** A minimum age required to register, if configured.\
+**Type:** {{<nullable>}} Integer or null\
+**Version history:**\
+4.4.0 - added
+
+#### `registrations[reason_required]` {#registrations-reason_required}
+
+**Description:** Whether registrations require the user to provide a reason for joining. Only applicable when `registrations[approval_required]` is true.\
+**Type:** {{<nullable>}} Boolean\
+**Version history:**\
+4.4.0 - added
 
 ### `api_versions` {#api-versions}
 

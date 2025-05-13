@@ -34,6 +34,10 @@ location /.well-known/webfinger {
 }
 ```
 
+{{< hint style="info" >}}
+You must serve the redirect with CORS headers; otherwise, some functions of Mastodon's web UI will not work. For example: `Access-Control-Allow-Origin: *`
+{{</ hint >}}
+
 #### `ALTERNATE_DOMAINS`
 
 If you have multiple domains pointed at your Mastodon server, this setting will allow Mastodon to recognize itself when users are addressed using those other domains. Separate the domains by commas, e.g. `foo.com,bar.com`
@@ -97,7 +101,13 @@ Setting `DISABLE_AUTOMATIC_SWITCHING_TO_APPROVED_REGISTRATIONS=true` disables th
 
 #### `DEFAULT_LOCALE`
 
-By default, Mastodon will automatically detect the visitor's language from browser headers and display the Mastodon interface in that language (if it's supported). If you are running a language-specific or regional server, that behavior may mislead visitors who do not speak your language into signing up on your server. For this reason, you may want to set this variable to a specific language.
+By default, Mastodon will automatically detect the visitor's language from browser headers and display the Mastodon interface in that language (if it's supported) and otherwise fall back to English.
+If you are running a language-specific or regional server, that behavior may mislead visitors who do not speak your language into signing up on your server. For this reason, you may want to set this variable to a specific language.
+
+As of Mastodon 4.4.0, this environment variable does not override the visitor's browser language. To do that, also set `FORCE_DEFAULT_LOCALE=true`.
+
+**Version history:**\
+4.4.0 - changed to only affect the fallback/default language
 
 Example value: `de`
 
@@ -172,6 +182,13 @@ Supported languages:
 - `zh-CN`
 - `zh-HK`
 - `zh-TW`
+
+#### `FORCE_DEFAULT_LOCALE`
+
+When set to `true`, skips the visitor's brower language detection feature and use `DEFAULT_LOCALE` (or English) instead, corresponding to the behavior of `DEFAULT_LOCALE` prior to Mastodon 4.4.0.
+
+**Version history:**\
+4.4.0 - added
 
 ### Secrets {#secrets}
 
@@ -641,14 +658,6 @@ The password used to authenticate with sentinels.
 
 If set to `true`, Mastodon will use Elasticsearch for its search functions.
 
-### Elasticsearch {#elasticsearch}
-
-{{< page-ref page="admin/elasticsearch" >}}
-
-#### `ES_ENABLED`
-
-If set to `true`, Mastodon will use Elasticsearch for its search functions.
-
 #### `ES_PRESET`
 
 It controls the Elasticsearch indices configuration (number of shards and replica).
@@ -687,26 +696,6 @@ Override Certificate Authority bundle file to use. Useful when using self-signed
 
 **Version history:**\
 4.3.0 - added
-
-### OpenTelemetry {#otel}
-
-Mastodon supports exporting tracing data using the OpenTelemetry protocol. The instrumentation uses the standard OTEL Ruby SDK, and should support the [standard OTEL environment configuration variables](https://opentelemetry.io/docs/languages/sdk-configuration/general/), with the exception of `OTEL_SERVICE_NAME` (see `OTEL_SERVICE_NAME_PREFIX` below). Mastodon currently only ships with the OLTP exporter.
-
-**Version history:**\
-4.3.0 - added support for the Ruby backend
-
-#### `OTEL_SERVICE_NAME_PREFIX`
-
-Prefix for the OTEL service names. The services names will be `$prefix/web` and `$prefix/sidekiq`. Defaults to `mastodon`.
-
-#### `OTEL_SERVICE_NAME_SEPARATOR`
-
-What character to use in service names when differentiating between different services. Defaults to `/` (i.e. `mastodon/web`).
-
-
-#### `OTEL_EXPORTER_OTLP_ENDPOINT`
-
-URL of the OLTP server to send the traces to. OpenTelemetry instrumentation is disabled if this variable is not set. No default (empty value).
 
 ### SMTP email delivery {#smtp}
 
@@ -770,6 +759,73 @@ By default, a StartTLS connection will be attempted to the specified SMTP server
 
 Note that `TLSv1.3` and `TLSv1.2` are the only SSL/TLS protocols currently considered to be secure.
 
+### Prometheus Metrics {#prometheus}
+
+Mastodon optionally supports exposing some metrics using the Prometheus format.
+
+For the Ruby processes, it is using the [`prometheus_exporter` gem](https://github.com/discourse/prometheus_exporter). Please refer to their documentation for more details.
+
+By default, you will need to run a `prometheus_exporter` server (using `./bin/prometheus_exporter`) to collect the metrics and expose them to be scraped. See `MASTODON_PROMETHEUS_EXPORTER_LOCAL` if you want to change this behaviour.
+
+Note that metrics in the Prometheus format are always enabled for the streaming server, and can be accessed at `http://streaming-server-host:port/metrics`
+
+**Version history:**\
+4.4.0 - added support for the Ruby processes
+
+#### `MASTODON_PROMETHEUS_EXPORTER_ENABLED`
+
+If set to `true`, Mastodon's Ruby processes (web & Sidekiq) will enable the Prometheus instrumentation.
+
+#### `MASTODON_PROMETHEUS_EXPORTER_WEB_DETAILED_METRICS`
+
+If set to `true`, the instrumentation will collect and expose per-controller/action metrics for every web request. Note that this might cause some resource overhead.
+
+#### `MASTODON_PROMETHEUS_EXPORTER_SIDEKIQ_DETAILED_METRICS`
+
+If set to `true`, the instrumentation will collect and expose per job metrics for every Sidekiq job. Note that this might cause some resource overhead.
+
+#### `MASTODON_PROMETHEUS_EXPORTER_LOCAL`
+
+If set to `true`, an in-process server will be started to expose the metrics, rather than trying to send them to an external `prometheus_exporter` server. This can be useful when running Sidekiq in a containerized environment to avoid the overhead of the external exporter. Metrics will be exposed on `http://host:port/metrics`
+
+Important: this will not work for multi-process servers, like Puma, as every process will try to listen on the same port and will fail.
+
+#### `PROMETHEUS_EXPORTER_HOST`
+
+If the in-process server is not enabled, the metrics will be sent to this host (which should be running a `prometheus_exporter` server). Defaults to `localhost`.
+
+#### `PROMETHEUS_EXPORTER_PORT`
+
+If the in-process server is not enabled, the metrics will be sent to this host (which should be running a `prometheus_exporter` server). Defaults to `9394`.
+
+#### `MASTODON_PROMETHEUS_EXPORTER_HOST`
+
+If the in-process server is enabled, the in-process exporter will listen on this host. Defaults to `localhost`
+
+#### `MASTODON_PROMETHEUS_EXPORTER_PORT`
+
+If the in-process server is enabled, the in-process exporter will listen on this port. Defaults to `9394`
+
+### OpenTelemetry {#otel}
+
+Mastodon supports exporting tracing data using the OpenTelemetry protocol. The instrumentation uses the standard OTEL Ruby SDK, and should support the [standard OTEL environment configuration variables](https://opentelemetry.io/docs/languages/sdk-configuration/general/), with the exception of `OTEL_SERVICE_NAME` (see `OTEL_SERVICE_NAME_PREFIX` below). Mastodon currently only ships with the OLTP exporter.
+
+**Version history:**\
+4.3.0 - added support for the Ruby backend
+
+#### `OTEL_SERVICE_NAME_PREFIX`
+
+Prefix for the OTEL service names. The services names will be `$prefix/web` and `$prefix/sidekiq`. Defaults to `mastodon`.
+
+#### `OTEL_SERVICE_NAME_SEPARATOR`
+
+What character to use in service names when differentiating between different services. Defaults to `/` (i.e. `mastodon/web`).
+
+
+#### `OTEL_EXPORTER_OTLP_ENDPOINT`
+
+URL of the OLTP server to send the traces to. OpenTelemetry instrumentation is disabled if this variable is not set. No default (empty value).
+
 ## File storage {#files}
 
 ### CDN {#cdn}
@@ -819,6 +875,10 @@ The bucket must support access control lists (ACLs). For AWS S3, this means sett
 
 #### `S3_ALIAS_HOST`
 
+#### `EXTRA_MEDIA_HOSTS`
+
+**Version history:**\
+4.4.0 - added
 
 #### `S3_OPEN_TIMEOUT`
 

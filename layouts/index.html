@@ -10,8 +10,8 @@
   <div class="e-content">
     {{ .Content }}
 
-    <p style="color: #606085;">
-      {{ i18n "lastUpdated" }} {{ i18n "lastUpdatedDateFormat"  .Lastmod }}{{ with .File }} · <a href='https://github.com/mastodon/documentation/tree/main/content/{{ page.Language.Lang }}/{{ .Path }}' style="color: #606085;">{{ i18n "improvePage" }}{{ end }}</a>
+  <p style="color: #606085;">
+      {{ i18n "lastUpdated" }} <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ i18n "lastUpdatedDateFormat"  .Lastmod }}</time>{{ with .File }} · <a href='https://github.com/mastodon/documentation/tree/main/content/{{ page.Language.Lang }}/{{ .Path }}' style="color: #606085;">{{ i18n "improvePage" }}{{ end }}</a>
 
       {{ if .IsTranslated }}
         <br />

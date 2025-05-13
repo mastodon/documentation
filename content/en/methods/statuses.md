@@ -117,6 +117,7 @@ If scheduled_at is provided, then a ScheduledStatus will be returned instead:
     "poll": null,
     "idempotency": null,
     "in_reply_to_id": null,
+    "application_id": 596551
   },
   "media_attachments": []
 }
@@ -376,9 +377,15 @@ Delete one of your own statuses.
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
 0.0.0 - added\
-2.9.0 - return source properties, for use with delete and redraft
+2.9.0 - return source properties, for use with delete and redraft\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 4) - added `delete_media` optional parameter
 
 #### Request
+
+##### Query parameters
+
+delete_media
+: Boolean. Whether to immediately delete the post's media attachments. If omitted or `false`, media attachments may be kept for approximately 24 hours so they can be re-used in a new post.
 
 ##### Path parameters
 
@@ -1033,7 +1040,7 @@ Authorization
 ##### Form data parameters
 
 visibility
-: String. Any visibility except `limited` or `direct` (i.e. `public`, `unlisted`, `private`). Defaults to public. Currently unused in UI.
+: String. Any visibility except `limited` or `direct` (i.e. `public`, `unlisted`, `private`). Defaults to public.
 
 #### Response
 ##### 200: OK

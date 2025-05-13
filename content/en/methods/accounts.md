@@ -32,7 +32,8 @@ A relationship between the OAuth Application and created user account is stored.
 **Version history:**\
 2.7.0 - added\
 3.0.0 - added `reason` parameter\
-3.4.0 - added `details` to failure response
+3.4.0 - added `details` to failure response\
+4.4.0 - added `date_of_birth` parameter
 
 #### Request
 
@@ -60,6 +61,9 @@ locale
 
 reason
 : String. If registrations require manual approval, this text will be reviewed by moderators.
+
+date_of_birth
+: String ([Date](/api/datetime-format#date)), required if the server has a minimum age requirement.
 
 #### Response
 
@@ -310,7 +314,7 @@ PATCH /api/v1/accounts/update_credentials HTTP/1.1
 
 Update the user's display and preferences.
 
-**Returns:** the user's own [Account]({{< relref "entities/Account">}}) with [`source`]({{< relref "entities/Account#source">}}) attribute\
+**Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
 1.1.1 - added\
@@ -319,7 +323,8 @@ Update the user's display and preferences.
 2.4.2 - added `source[language]` parameter\
 2.7.0 - added `discoverable` parameter\
 4.1.0 - added `hide_collections` parameter\
-4.2.0 - added `indexable` parameter
+4.2.0 - added `indexable` parameter\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added `attribution_domains` parameter
 
 #### Request
 
@@ -331,7 +336,7 @@ Authorization
 ##### Form data parameters
 
 display_name
-: String. The display name to use for the profile. 
+: String. The display name to use for the profile.
 
 note
 : String. The account bio.
@@ -356,6 +361,9 @@ hide_collections
 
 indexable
 : Boolean. Whether public posts should be searchable to anyone.
+
+attribution_domains[]
+: Array of String. Domains of websites allowed to credit the account.
 
 fields_attributes
 : Hash. The profile fields to be set. Inside this hash, the key is an integer cast to a string (although the exact integer does not matter), and the value is another hash including `name` and `value`. By default, max 4 fields.
@@ -947,7 +955,7 @@ Authorization
 
 ##### Query parameters
 
-max_id 
+max_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 since_id
@@ -1053,7 +1061,7 @@ Authorization
 
 ##### Query parameters
 
-max_id 
+max_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 since_id

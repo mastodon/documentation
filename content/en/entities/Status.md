@@ -296,6 +296,13 @@ aliases: [
 **Version history:**\
 3.5.0 - added
 
+### `quote` {#quote}
+
+**Description:** Information about the status being quoted, if any\
+**Type:* {{<nullable>}} [Quote]({{< relref "entities/quote" >}}), [ShallowQuote]({{< relref "entities/shallow_quote" >}}) or null\
+**Version history:**\
+4.4.0 - added
+
 ### `favourited` {{%optional%}} {#favourited}
 
 **Description:** If the current token has an authorized user: Have you favourited this status?\

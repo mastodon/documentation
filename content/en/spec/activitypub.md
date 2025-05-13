@@ -34,6 +34,9 @@ Undo
 Flag
 : Transformed into a report to the moderation team. See the [Reports](#Flag) extension for more information.
 
+QuoteRequest
+: Request approval for a quote post. See the [Quote posts](#Quote) extension for more information.
+
 ### Payloads
 
 The first-class Object types supported by Mastodon are `Note` and `Question`.
@@ -261,6 +264,9 @@ manuallyApprovesFollowers
 discoverable
 : Will be shown in the profile directory. See [Discoverability flag](#discoverable).
 
+indexable
+: Posts by this account can be indexed for full-text search. See [Indexable flag](#indexable).
+
 publicKey
 : Required for signatures. See [Public key](#publicKey).
 
@@ -276,6 +282,12 @@ alsoKnownAs
 published
 : When the profile was created.
 
+memorial
+: Whether the account is a memorial account.
+
+suspended
+: Whether the account is currently suspended.
+
 attributionDomains
 : Domains allowed to use `fediverse:creator` for this actor in published articles.
 
@@ -287,18 +299,20 @@ attributionDomains
 
 Base URI: `http://joinmastodon.org/ns#`
 
-Contains definitions for Mastodon features.
+Contains terms used for Mastodon features.
 
 - toot:Emoji (`http://joinmastodon.org/ns#Emoji`)
 - toot:IdentityProof (`http://joinmastodon.org/ns#IdentityProof`)
+- toot:attributionDomains (`http://joinmastodon.org/ns#attributionDomains`)
 - toot:blurhash (`http://joinmastodon.org/ns#blurhash`)
-- toot:focalPoint (`http://joinmastodon.org/ns#focalPoint`)
+- toot:discoverable (`http://joinmastodon.org/ns#discoverable`)
 - toot:featured (`http://joinmastodon.org/ns#featured`)
 - toot:featuredTags (`http://joinmastodon.org/ns#featuredTags`)
-- toot:discoverable (`http://joinmastodon.org/ns#discoverable`)
+- toot:focalPoint (`http://joinmastodon.org/ns#focalPoint`)
+- toot:indexable (`http://joinmastodon.org/ns#indexable`)
+- toot:memorial (`http://joinmastodon.org/ns#memorial`)
 - toot:suspended (`http://joinmastodon.org/ns#suspended`)
 - toot:votersCount (`http://joinmastodon.org/ns#votersCount`)
-- toot:attributionDomains (`http://joinmastodon.org/ns#attributionDomains`)
 
 ### ActivityStreams extensions (`as:`) {#as}
 
@@ -643,7 +657,7 @@ Mastodon supports integration with identity providers to prove that a profile is
 
 ### Discoverability flag {#discoverable}
 
-Mastodon allows users to opt-in or opt-out of discoverability features like the profile directory. This flag may also be used as an indicator of the user's preferences toward being included in external discovery services, such as search engines or other indexing tools. If you are implementing such a tool, it is recommended that you respect this property if it is present. This is implemented using an extra property `discoverable` on objects.
+Mastodon allows users to opt-in or opt-out of discoverability features like the profile directory. This flag may also be used as an indicator of the user's preferences toward being included in external discovery services. If you are implementing such a tool, it is recommended that you respect this property if it is present. This is implemented using an extra property `discoverable` on objects mapping to profiles.
 
 ```json
 {
@@ -656,6 +670,24 @@ Mastodon allows users to opt-in or opt-out of discoverability features like the 
   "id": "https://mastodon.social/users/Gargron",
   "type": "Person",
   "discoverable": true
+}
+```
+
+### Indexable flag {#indexable}
+
+Mastodon allows users to opt-in or opt-out of indexing features like full-text search of public statuses. If you are implementing such a tool, it is recommended that you respect this property if it is present. This is implemented using an extra property `indexable` on objects mapping to profiles.
+
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    {
+      "indexable": "http://joinmastodon.org/ns#indexable"
+    }
+  ],
+  "id": "https://mastodon.social/users/Gargron",
+  "type": "Person",
+  "indexable": true
 }
 ```
 
@@ -674,6 +706,24 @@ Mastodon reports whether a user was locally suspended, for better handling of th
   "id": "https://example.com/@eve",
   "type": "Person",
   "suspended": true
+}
+```
+
+### Memorial flag {#memorial}
+
+Mastodon reports whether a user's profile was memorialized, for better handling of these accounts. Memorial accounts in Mastodon return normal data, but are rendered with a header indicating that the account is a memorial account. This functionality is implemented using an extra property `memorial` on objects.
+
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    {
+      "memorial": "http://joinmastodon.org/ns#memorial"
+    }
+  ],
+  "id": "https://example.com/@alice",
+  "type": "Person",
+  "memorial": true
 }
 ```
 
@@ -804,6 +854,16 @@ Mastodon generates colorful preview thumbnails for attachments. This is implemen
 
 Mastodon uses the `as:sensitive` extension property to mark certain posts as sensitive. When a post is marked as sensitive, any media attached to it will be hidden by default, and if a `summary` is present, the status `content` will be collapsed behind this summary. In Mastodon, this is known as a **content warning**.
 
+### Quote posts and quote controls {#Quote}
+
+Mastodon implements experimental support for handling remote quote posts according to [FEP-044f](https://codeberg.org/fediverse/fep/src/branch/main/fep/044f/fep-044f.md). Additionally, it understands `quoteUri`, `quoteUrl` and `_misskey_quote` for compatibility.
+
+Should a post contain multiple quotes, Mastodon only accepts the first one.
+
+Furthermore, Mastodon does not handle the full range of interaction policies, but instead converts the authorized followers to a combination of “public”, “followers” and “unknown”, defaulting to “nobody”.
+
+At this time, Mastodon does not offer authoring quotes, nor does it expose a quote policy, or produce stamps for incoming quote requests.
+
 ## Other functionality
 
 ### Secure mode {#secure-mode}
@@ -814,12 +874,12 @@ Secure mode is the foundation upon which "limited federation mode" is built. A M
 
 ### Follower synchronization mechanism
 
-Mastodon has a concept of "followers-only" posts, but expanding the followers collection is currently handled at the destination rather than at the origin (i.e., not with explicit addressing). Therefore, a mechanism to detect synchronization issues and correct them is needed. This mechanism must work on partial followers collections, rather than the full collection (which may not be public information).
+Mastodon has a concept of "followers-only" posts, but expanding the followers collection is currently handled at the destination rather than at the origin (i.e., not with explicit addressing). Therefore, a mechanism to detect synchronization issues and correct them is needed. This mechanism must work on partial followers collections, rather than the full collection (which may not be public information). This collection is partial in the sense that it only contains the followers from a specific instance, but it MUST contain all of those followers. A follower being omitted from the collection would lead to that follow relationship getting severed.
 
 When delivering a message to a remote user, an optional `Collection-Synchronization` HTTP header is attached, following the same syntax as the `Signature` header, with the following attributes:
 
 - `collectionId` = MUST be the sender's `followers` collection
-- `url` = a URL to a partial collection containing the identifiers of the sender's followers residing on the receiver's instance. MUST reside on the same domain as the actor itself, and SHOULD be only accessible with a signed query from the receiver's instance
+- `url` = a URL to a partial collection containing the identifier of every one of the sender's followers residing on the receiver's instance. MUST reside on the same domain as the actor itself, and SHOULD be only accessible with a signed query from the receiver's instance
 - `digest` = hexadecimal representation of the XORed SHA256 digests of each of the identifiers in the partial collection
 
 Example:
