@@ -1,22 +1,20 @@
 ---
-title: 站外使用Mastodon
-description: 你可以通过外部应用程序或网站来浏览Mastodon或与Mastodon进行交互。
+title: 在站点外使用 Mastodon
+description: 你可以通过外部应用程序或网站浏览 Mastodon 并与之互动。
 menu:
   docs:
     weight: 90
     parent: user
 ---
 
-## 与另一个Mastodon站点的远程互动 {#interact}
+## 在其他 Mastodon 站点上进行跨站互动 {#interact}
 
-{{< figure src="assets/image%20%2863%29.png" caption="Mastodon网站上的一个嘟文的永久链接" >}}
+当你在浏览其他由 Mastodon 驱动的站点时，点击任何互动按钮都会加载一个对话框，该对话框会将你转到你所在的站点。
 
-当你在跨站浏览其他由Mastodon驱动的远程站点时，点击任何一个交互按钮都会加载一个对话框，将你重定向到你的本地站点。
+{{< figure src="assets/external-reply.gif" caption="用于回复嘟文时的远程互动对话框" >}}
 
-{{< figure src="assets/image%20%288%29.png" caption="跨站嘟文回复对话框" >}}
+## 登录客户端应用 {#apps}
 
-## 登录到一个客户端应用程序 {#apps}
+你可以使用你的 Mastodon 帐户登录任何实现了 Mastodon API 的应用。此类应用的列表可以在[https://joinmastodon.org/apps](https://joinmastodon.org/apps)找到。
 
-你可以使用你的Mastodon帐户登录到任何可以实现Mastodon API的应用程序。这些应用程序的列表可以在 [https://joinmastodon.org/apps](https://joinmastodon.org/apps) 中找到。
-
-{{< translation-status-zh-cn raw_title="Using Mastodon externally" raw_link="/user/external/" last_tranlation_time="2020-05-03" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}
+{{< translation-status-zh-cn raw_title="Using Mastodon externally" raw_link="/user/external/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}

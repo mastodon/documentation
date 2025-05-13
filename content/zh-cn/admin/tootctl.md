@@ -1,461 +1,950 @@
 ---
-title: 使用管理命令行
-description: 可以从命令行运行tootctl命令
+title: 使用管理 CLI
+description: 可以从 CLI 运行的 tootctl 命令。
 menu:
   docs:
     weight: 60
     parent: admin
 ---
----
 
-Mastodon的命令行界面是一个位于Mastodon根目录内`bin`目录中的名为`tootctl`的可执行文件。你必须通过`RAILS_ENV`环境变量指定你执行时打算使用的环境。除非你是在本地计算机上进行开发工作，否则你需要使用`RAILS_ENV=production`。如果你确信永不使用其它环境（开发、测试），为了方便起见，你可以把它添加到 `.bashrc` 文件，例如：
+Mastodon 的命令行界面是一个名为 `tootctl` 的可执行文件，位于 Mastodon 根目录中的 `bin` 目录内。每次执行它时，你必须通过指定 `RAILS_ENV` 环境变量来指定你打算使用的环境。除非你是在本地机器上工作的开发人员，否则你需要使用 `RAILS_ENV=production`。如果你确信永远不需要其他环境（用于开发、测试或暂存），可以为方便起见将其添加到 `.bashrc` 文件中，例如：
 
 ```bash
 echo "export RAILS_ENV=production" >> ~/.bashrc
 ```
 
-如果这样，便无需在每次执行时指定它。否则，通常会这样调用 `tootctl` 命令（假定你的Mastodon代码位于`/home/mastodon/live`）：
+如果这样做，你就不需要每次都在行内指定它。如果未配置全局环境变量，且 Mastodon 代码被检出在 `/home/mastodon/live` 中，对 `tootctl` 的调用通常会像这样：
 
 ```bash
 cd /home/mastodon/live
 RAILS_ENV=production bin/tootctl help
 ```
 
-## 基础命令
+## CLI 基础命令
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/base.rb" caption="lib/mastodon/cli/base.rb" >}}
 
+
+---
+
+
 ### `tootctl self-destruct` {#self-destruct}
 
-通过向所有己知实例广播帐户删除通告，将本服务器从联邦宇宙抹除。此命令允许Mastodon服务器“干净退出（clean exit）”，即几乎不在其它服务器留下任何缓存。此命令始终是交互式的，且需要二次确认。
+向其他所有已知实例广播账户删除活动，从联邦中擦除此服务器。这允许运行 Mastodon 的站点从联邦宇宙中"干净退出"，因为它几乎不会在其他实例上留下缓存。该命令始终是交互式的，需要两次确认。
 
-实际上，不会删除任何本地数据，因为直接清空数据库或删除整个VPS更快。如果你运行此命令后，无论如何都要继续运营实例，状态不匹配可能导致与其它站点互联时出错。
+本地数据实际上并未被删除，因为清空数据库或删除整个 VPS 更快。如果你运行此命令后继续操作实例，则可能会导致状态不匹配，进而导致联合出现故障和问题。
 
 {{< hint style="danger" >}}
-**运行此命令之前，请确保你确实知道自己正在做什么。**此操作**不**可逆，并且可能花费很长时间。完成此命令之后，服务器将处于**破碎状态**（BROKEN STATE）。需要一个运行中的Sidekiq进程，所以在队列完全被清空之前不要关闭服务器。
+**在运行此命令之前，请确保你完全了解自己在做什么。** 此操作**不可逆转**，并且可能需要很长时间。站点将在此命令完成后处于**损坏状态**。需要一个正在运行的 Sidekiq 进程，因此在队列完全清空之前不要关闭站点。
 {{< /hint >}}
 
-**版本历史：**
-* 2.8.0 - 被加入
+`--dry-run`
+: 仅打印预期结果，不执行任何操作。
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `--dry_run` | 仅打印预期结果，而不执行任何操作。 |
+**版本历史：**\
+2.8.0 - 该命令被添加
+
+
+---
+
 
 ### `tootctl --version` {#version}
 
-展示目前运行的Mastodon实例版本。
+显示当前运行的 Mastodon 实例的版本。
 
-**版本历史：**
-* 2.7.0 - 被加入
+**版本历史：**\
+2.7.0 - 该命令被添加
 
-## 帐户相关命令 {#accounts}
+
+---
+
+
+## 账户 CLI {#accounts}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/accounts.rb" caption="lib/mastodon/cli/accounts.rb" >}}
 
+
+---
+
+
 ### `tootctl accounts rotate` {#accounts-rotate}
 
-生成并广播新的RSA密钥，作为安全维护的一部分。
+生成并广播新的 RSA 密钥，作为安全维护的一部分。
 
-**版本历史：**
-* 2.5.0 - 被加入
+`USERNAME`
+: 账户的本站用户名。
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `USERNAME` | 本地帐户用户名 |
-| `--all` | 轮替所有本地帐户密钥，可取代 USERNAME。 |
+`--all`
+: 可以代替 `USERNAME` 提供，为所有本站账户轮换密钥。
+
+**版本历史：**\
+2.5.0 - 该命令被添加
+
+
+---
+
 
 ### `tootctl accounts create` {#accounts-create}
 
-创建一个给定用户名（USERNAME）和给定电子邮件地址（--email）的新帐户。
+使用给定的 `USERNAME` 和提供的 `--email` 创建新用户账户。
 
-**版本历史：**
-* 2.6.0 - 被加入
+`USERNAME`
+: 新账户的本站用户名。{{<required>}}
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `USERNAME`      | 新帐户的本地用户名。 必须的。 |
-| `--email EMAIL` | 要附加到用户的电子邮件地址。 必须的。 |
-| `--confirmed`   | 跳过发送确认邮件步骤并立即激活帐户。 |
-| `--role ROLE`   | 设定新用户的身份为 `user`, `moderator` 或 `admin`。默认为 `user`。 |
-| `--reattach`    | 重用已被删除帐户的旧用户名。 |
-| `--force`       | 强制删除使用此用户名（USERNAME）的现有帐户，然后重新的新帐户代替（刚刚删除的）该帐户。 |
-| `--skip-sign-in-token` | 强制跳过该用户登录时的邮件验证码（目前这是不可逆操作）。 |
+`--email EMAIL`
+: 用户的电子邮件地址。{{<required>}}
+
+`--confirmed`
+: 跳过发送确认电子邮件的流程并立即激活账户。
+
+`--role ROLE`
+: 通过提供对应[用户组]({{< relref "entities/Role" >}})的 `name` 来定义新账户的自定义用户组。默认用户组包括 `Owner`、`Admin` 和 `Moderator`（区分大小写）。
+
+`--reattach`
+: 在账户被删除后重新使用旧的 USERNAME。
+
+`--force`
+: 强制删除任何具有此 `USERNAME` 的现有账户，并重新创建同名的新账户。
+
+`--skip-sign-in-token`
+: 强制确保用户永远不会被要求提供电子邮件发送的安全代码。
+
+**版本历史：**\
+2.6.0 - 该命令被添加\
+4.0.0 - `--role` 不再接受硬编码的 `user`、`moderator` 或 `admin` 用户组。请指定自定义用户组的名称（区分大小写）。
+
+
+---
+
 
 ### `tootctl accounts modify` {#accounts-modify}
 
-修改某帐户的身份，电子邮箱地址，激活状态，审核状态及禁用双因素认证（2FA）。
+修改用户账户的用户组、邮箱、活动状态、批准状态或 2FA 要求。
 
-**版本历史：**
-* 2.6.0 - 被加入
+`USERNAME`
+: 账户的本站用户名。{{<required>}}
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `USERNAME` | 本地帐户的用户名。 必须的。 |
-| `--role ROLE` | 设定该帐户的身份为 `user`, `moderator` 或 `admin`。 |
-| `--email EMAIL` | 将该帐户电子邮箱地址改为 EMAIL。 |
-| `--confirm` | 跳过邮件确认步骤，当使用 --email 时可用。 |
-| `--disable` | 禁止 USERNAME 帐户登录。 |
-| `--enable` | 允许 USERNAME 帐户登录，如果该帐户目前被禁止登录。 |
-| `--approve` | 审核通过该帐户，如果你的实例为审核制。 |
-| `--disable_2fa` | 移除额外认证因素，允许只用密码登录。 |
-| `--reset-password` | 重置此用户的密码，将用一个随机生成的字符串作为临时密码。 |
-| `--skip-sign-in-token` | 强制跳过该用户登录时的邮件验证码（目前这是不可逆操作）。 |
+`--role ROLE`
+: 通过提供对应[用户组]({{< relref "entities/Role" >}})的 `name` 来定义现有账户的自定义用户组。默认用户组包括 `Owner`、`Admin` 和 `Moderator`（区分大小写）。
+
+`--remove-role`
+: 从用户中移除当前用户组。
+
+`--email EMAIL`
+: 将用户的邮箱地址更新为 `EMAIL`。
+
+`--confirm`
+: 与 `--email` 一起使用时，跳过确认邮件。
+
+`--disable`
+: 锁定 `USERNAME` 使其无法访问其账户。
+
+`--enable`
+: 如果 `USERNAME` 的账户当前被禁用，则解锁该账户。
+
+`--approve`
+: 若你的实例处于/曾处于批准模式，则批准 `USERNAME` 的账户。
+
+`--disable-2fa`
+: 移除其它的身份认证因素并允许使用密码登录。
+
+`--reset-password`
+: 重置给定账户的密码。
+
+`--skip-sign-in-token`
+: 强制确保用户永远不会被要求提供发送到邮箱中的安全代码。
+
+**版本历史：**\
+2.6.0 - 该命令被添加\
+3.1.2 - 添加 `--reset-password`\
+4.0.0 - `--role` 不再接受硬编码的 `user`、`moderator` 或 `admin` 用户组。请指定自定义用户组的名称（区分大小写）。使用 `--remove-role` 移除当前用户组。
+
+
+---
+
 
 ### `tootctl accounts delete` {#accounts-delete}
 
-删除给定 USERNAME 的用户帐户。
+删除具有给定 USERNAME 的用户账户。
 
-**版本历史：**
-* 2.6.0 - 被加入
+`USERNAME`
+: 要删除的账户的本站用户名。{{<required>}}
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `USERNAME` | 本地帐户的用户名。 必须的。 |
+**版本历史：**\
+2.6.0 - 该命令被添加
+
+
+---
+
 
 ### `tootctl accounts backup` {#accounts-backup}
 
-请求给定 USERNAME 帐户的备份。备份将会被 Sidekiq 异步创建，创建完成后用户将接收到一封带有备份链接的电子邮件。
+为具有给定 USERNAME 的用户账户请求备份。备份将在 Sidekiq 中异步创建，完成后，用户将收到一封包含备份链接的电子邮件。
 
-**版本历史：**
-* 2.6.0 - 被加入
+`USERNAME`
+: 要备份的账户的本站用户名。{{<required>}}
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `USERNAME` | 本地帐户的用户名。 必须的。 |
+**版本历史：**\
+2.6.0 - 该命令被添加
+
+
+---
+
 
 ### `tootctl accounts cull` {#accounts-cull}
 
-移除不在存在的远程帐户。查询数据库中的所有远程帐户，以确认其是否仍存在于原有服务器，如果不存在，那么该帐户将从数据库中删除。在远程服务器刚刚下线的情况下，最近一周有活动痕迹的帐户将被排除在检测范围之外。
+移除不再存在的外站账户。查询数据库中的每个外站账户，以确定它在原始服务器上是否仍然存在，如果不存在，则从数据库中移除它。在过去一周内有确认活动的账户不包括在检查中，以防服务器只是暂时下线。
 
-**版本历史：**
-* 2.6.0 - 被加入
-* 2.8.0 - 加入 `--dry_run`
+`DOMAIN[...]`
+: 可选择传递特定域名进行清理
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `--concurrency N` | 执行该任务的worker数。默认N=5。 |
-| `--dry_run` | 仅打印预期结果，而不执行任何操作。 |
+`--concurrency N`
+: 用于此任务的作业线程数量。默认为 N=5。
+
+`--dry-run`
+: 仅打印预期结果，不执行任何操作。
+
+**版本历史：**\
+2.6.0 - 该命令被添加\
+2.8.0 - 添加 `--dry-run`\
+3.5.0 - 添加传递特定域名的能力
+
+
+---
+
 
 ### `tootctl accounts refresh` {#accounts-refresh}
 
-重新拉取一个或多个远程帐户的数据与文件。
+重新获取一个或多个账户的外站用户数据和文件。
 
-**版本历史：**
-* 2.6.0 - 被加入
+`USERNAME`
+: 外站账户的 username@domain。
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `USERNAME` | 远程用户名 |
-| `--all` | 刷新所有远程帐户，可取代 USERNAME。 |
-| `--domain DOMAIN` | 仅操作此域名 DOMAIN 下的远程帐户。可取代 USERNAME。 |
-| `--concurrency N` | 执行该任务的worker数。默认N=5。 |
-| `--verbose` | 任务进行时，打印额外信息。 |
-| `--dry_run` | 仅打印预期结果，而不执行任何操作。 |
+`--all`
+: 可以代替 `USERNAME`，刷新所有外站账户。
+
+`--domain DOMAIN`
+: 可以代替 `USERNAME`，仅对来自此 `DOMAIN` 的外站账户进行操作。
+
+`--concurrency N`
+: 用于此任务的作业线程数量。默认为 N=5。
+
+`--verbose`
+: 在任务处理过程中输出额外信息。
+
+`--dry-run`
+: 仅打印预期结果，不执行任何操作。
+
+**版本历史：**\
+2.6.0 - 该命令被添加
+
+
+---
+
+
+### `tootctl accounts merge` {#accounts-merge}
+
+将两个外站账户合并为一个。这主要用于修复由其他服务器更改其域名导致的重复。默认情况下，这仅在公钥相同时有效，但可以覆盖此设置。
+
+`FROM`
+: 要移除的外站账户的 username@domain。{{<required>}}
+
+`TO`
+: 要保留的外站账户的 username@domain。{{<required>}}
+
+`--force`
+: 覆盖公钥检查。
+
+**版本历史：**\
+3.3.0 - 该命令被添加
+
+
+---
+
 
 ### `tootctl accounts follow` {#accounts-follow}
 
-迫使所有本地帐户关注给定本地帐户。
+强制所有本站账户关注具有给定用户名的本站账户。
 
-**版本历史：**
-* 2.7.0 - 被加入
-* 3.0.0 - 使用 USERNAME 取代 ACCT
+`USERNAME`
+: 本站用户名。{{<required>}}
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `USERNAME` | 本地用户名 |
-| `--concurrency N` | 执行该任务的worker数。默认N=5。 |
-| `--verbose` | 任务进行时，打印额外信息。 |
+`--concurrency N`
+: 用于此任务的作业线程数量。默认为 N=5。
+
+`--verbose`
+: 在任务处理过程中输出额外信息。
+
+**版本历史：**\
+2.7.0 - 该命令被添加\
+3.0.0 - 使用 `USERNAME` 代替 `ACCT`
+
+
+---
+
 
 ### `tootctl accounts unfollow` {#accounts-unfollow}
 
-迫使所有本地帐户取消关注给定帐户。
+强制所有本站账户取消关注指定的账户。
 
-**版本历史：**
-* 2.7.0 - 被加入
+`ACCT`
+: `username@domain` 地址。{{<required>}}
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `ACCT` | `username@domain` 地址 |
-| `--concurrency N` | 执行该任务的worker数。默认N=5。 |
-| `--verbose` | 任务进行时，打印额外信息。 |
+`--concurrency N`
+: 用于此任务的作业线程数量。默认为 N=5。
+
+`--verbose`
+: 在任务处理过程中输出额外信息。
+
+**版本历史：**\
+2.7.0 - 该命令被添加
+
+
+---
+
 
 ### `tootctl accounts reset-relationships` {#accounts-reset-relationships}
 
-重置某本地帐户所有正在关注和/或关注者。
+重置本站账户的所有关注和/或关注者关系。
 
-**版本历史：**
-* 2.8.0 - 被加入
+`USERNAME`
+: 本站用户名。
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `USERNAME` | 本地用户名 |
-| `--follows` | 迫使 USERNAME 取消关注所有人后，再重新关注他们。 |
-| `--followers` | 移除 USERNAME 的所有关注者。 |
+`--follows`
+: 强制 `USERNAME` 取消关注所有人，然后重新关注他们。
+
+`--followers`
+: 移除 `USERNAME` 的所有关注者。
+
+**版本历史：**\
+2.8.0 - 该命令被添加
+
+
+---
+
 
 ### `tootctl accounts approve` {#accounts-approve}
 
-当实例为审核制时，审核通过新注册者。
+当实例处于批准模式时，批准新的注册申请。
 
-**版本历史：**
-* 2.8.0 - 被加入
+`USERNAME`
+: 本站用户名。
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `USERNAME` | 审核通过这个用户名的待审核帐户。 |
-| `--number N` | 审核通过最近N个注册者。 |
-| `--all` | 审核通过所有待审核帐户。 |
+`--number N`
+: 批准最早的 N 个待处理注册申请。
 
-## 缓存相关命令 {#cache}
+`--all`
+: 批准所有待处理的注册申请。
+
+**版本历史：**\
+2.8.0 - 该命令被添加
+
+
+---
+
+
+### `tootctl accounts prune` {#accounts-prune}
+
+清理从未与本站用户互动过的外站账户。
+
+`--concurrency N`
+: 用于此任务的作业线程数量。默认为 N=5。
+
+`--dry-run`
+: 仅打印预期结果，不执行任何操作。
+
+**版本历史：**\
+2.8.0 - 该命令被添加
+
+
+---
+
+
+## 缓存 CLI {#cache}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/cache.rb" caption="lib/mastodon/cli/cache.rb" >}}
+
+
+---
+
 
 ### `tootctl cache clear` {#cache-clear}
 
 清除缓存存储。
 
-**版本历史：**
-* 2.8.1 - 被加入
+**版本历史：**\
+2.8.1 - 该命令被添加
+
+
+---
+
 
 ### `tootctl cache recount` {#cache-recount}
 
-通过从头开始进行引用计数，更新指定类型的硬缓存计数。此操作可能会花费很长时间才能完成，这取决于你的数据库大小。帐户将刷新正在关注数、关注者数、嘟文数。嘟文将刷新回复数、转发数及喜爱数。
+从头开始计算引用记录，更新 TYPE 的硬缓存计数器。这与数据库的大小有关，可能需要很长时间才能完成。将刷新账户的关注者、关注和嘟文计数，以及嘟文的回复、转发和收藏计数。
 
-**版本历史：**
-* 3.0.0 - 被加入
+`TYPE`
+: `accounts` 或 `statuses`。{{<required>}}
 
-| 选项 | 描述 |
-| :--- | :--- |
-| TYPE | `accounts` 或 `statuses` |
-| `--concurrency N` | 执行该任务的worker数。默认N=5。 |
-| `--verbose` | 任务进行时，打印额外信息。 |
+`--concurrency N`
+: 用于此任务的作业线程数量。默认为 N=5。
 
-## 域名相关命令 {#domains}
+`--verbose`
+: 在任务处理过程中输出额外信息。
+
+**版本历史：**\
+3.0.0 - 该命令被添加
+
+
+---
+
+
+## 实例 CLI {#domains}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/domains.rb" caption="lib/mastodon/cli/domains.rb" >}}
 
+
+---
+
+
 ### `tootctl domains purge` {#domains-purge}
 
-移除给定域名的所有帐号，不留下任何纪录。与封禁（suspension）不同，如果该域名（DOMAIN）仍存在，这意味着如果该域名上的帐户被再次解析，帐户将重新回来。
+从给定 DOMAIN 中移除所有账户，且不留下任何记录。与封禁不同，如果 DOMAIN 在互联网中仍然在线，则意味着如果再次解析，账户可能仍会返回。
 
-**版本历史：**
-* 2.6.0 - 被加入
-* 2.8.0 - 加入 `--whitelist_mode`
-* 2.9.0 - 同时移除自定义emoji
-* 3.0.0 - 可同时接受多个域名
+`DOMAIN[...]`
+: 要清除的域名，以空格分隔。
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `DOMAIN[...]` | 要移除的域名（Domains），使用空格进行分隔。 |
-| `--whitelist_mode` | 可取代 DOMAIN。不是移除单一域名，而是从数据库移除所有来自非白名单站点的帐户。启用白名单模式并完成白名单设定后运行此命令。 |
-| `--concurrency N` | 执行该任务的worker数。默认为5。 |
-| `--verbose` | 任务进行时，打印额外信息。 |
-| `--dry_run` | 仅打印预期结果，而不执行任何操作。 |
+`--by-uri`
+: 在 actor URI 中匹配域名，而不是在 Webfinger 地址中匹配。
+
+`--limited-federation-mode`
+: 可以代替 DOMAIN 提供。不是从单个域名清除，而是从数据库中移除所有不在许可列表中的域名的账户。在启用有限联合模式并定义许可列表后使用此选项。
+
+`--concurrency N`
+: 用于此任务的作业线程数量。默认为 5。
+
+`--verbose`
+: 在任务处理过程中输出额外信息。
+
+`--dry-run`
+: 仅打印预期结果，不执行任何操作。
+
+**版本历史：**\
+2.6.0 - 该命令被添加\
+2.8.0 - 添加 `--whitelist-mode`\
+2.9.0 - 同时移除自定义表情\
+3.0.0 - 可以接受多个域名\
+3.2.0 - 将 `--whitelist-mode` 重命名为 `--limited-federation-mode`\
+3.5.0 - 添加 `--by-uri`
+
+
+---
+
 
 ### `tootctl domains crawl` {#domains-crawl}
 
-通过使用Mastodon REST API，爬取API暴露的所有节点，收集这些节点的统计数字（只要这些节点支持相关API），来爬取已知联邦宇宙。当没有给定 START 时，此命令将使用服务器数据库中的已知节点作为爬取的种子。返回总实例数、总注册帐户数、最近一周内的总活跃帐户数、最近一周内新加入的总帐户数。
+使用 Mastodon REST API 端点来爬取已知的联邦宇宙，访问该端点获取所有已知的实例，并进一步从这些实例收集统计数据（如果对应实例支持该 API 端点）。当没有给出 START 时，该命令使用服务器自己的已知实例数据库作为初始列表进行爬取。返回总实例数、总注册用户数、过去一周的总活跃用户数以及过去一周加入的总用户数。
 
-**版本历史：**
-* 2.7.0 - 被加入
-* 3.0.0 - 加入 `--exclude_suspended`
+`START`
+: 可选择从不同的域名开始。
 
-| 选项 | 描述 |
-| :--- | :--- |
-| START | 可选的，从一个不同域名开始。 |
-| `--concurrency N` | 执行该任务的worker数。默认为50。 |
-| `--format FORMAT` | 控制数据的返回方式。`summary`将打印一个总结。`domains`将返回以换行符分隔的所有已发现节点列表。`json`将输出原始数据汇总。默认为`summary`。 |
-| `--exclude_suspended` | 输出中不包括已被你封禁的域名，子域名也将包括内。 |
+`--exclude-suspended`
+: 不要在输出中包含你已屏蔽的实例。这还包括被封禁实例域名的任何子域名。
 
-## Emoji相关命令 {#emoji}
+`--concurrency N`
+: 用于此任务的作业线程数量。默认为 N=50。
+
+`--format FORMAT`
+: 控制结果的返回方式。`summary` 将打印摘要。`domains` 将返回所有发现的对等节点的换行符分隔列表。`json` 将转储聚合的原始数据。默认为 `summary`。
+
+**版本历史：**\
+2.7.0 - 该命令被添加\
+3.0.0 - 添加 `--exclude-suspended`
+
+
+---
+
+
+## 邮件域名屏蔽 CLI {#email-domain-blocks}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/email_domain_blocks.rb" caption="lib/mastodon/cli/email_domain_blocks.rb" >}}
+
+
+---
+
+
+### `tootctl email-domain-blocks list` {#email-domain-blocks-list}
+
+列出所有当前被屏蔽的邮件域名。
+
+**版本历史：**\
+3.2.0 - 该命令被添加
+
+
+---
+
+
+### `tootctl email-domain-blocks add` {#email-domain-blocks-add}
+
+向邮件域名屏蔽列表添加条目。
+
+`DOMAIN[...]`
+: 要屏蔽的邮件域名，以空格分隔。{{<required>}}
+
+`--with-dns-records`
+: 如果提供，还将查找 A、AAAA 和 MX 记录并阻止它们。
+
+**版本历史：**\
+3.2.0 - 该命令被添加
+
+
+---
+
+
+### `tootctl email-domain-blocks remove` {#email-domain-blocks-remove}
+
+从邮件域名屏蔽列表中移除条目。
+
+`DOMAIN[...]`
+: 要取消屏蔽的邮件域名，以空格分隔。{{<required>}}
+
+**版本历史：**\
+3.2.0 - 该命令被添加
+
+
+---
+
+
+## 表情 CLI {#emoji}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/emoji.rb" caption="lib/mastodon/cli/emoji.rb" >}}
 
+
+---
+
+
+### `tootctl emoji export` {#emoji-export}
+
+将自定义表情导出到 PATH 下的 `export.tar.gz`。
+
+`PATH`
+: 创建包含图片的 .tar.gz 归档文件的路径。{{<required>}}
+
+`--overwrite`
+: 覆盖 `PATH` 处的任何现有归档文件。
+
+`--category CATEGORY`
+: 仅导出指定的 `CATEGORY`。如果未提供，将导出所有表情。
+
+**版本历史：**\
+3.1.4 - 该命令被添加
+
+
+---
+
+
 ### `tootctl emoji import` {#emoji-import}
 
-从一个给定路径的 .tar.gz 存档中导入自定义emoji。存档中包含的PNG、GIF文件不能大于50KB，emoji短代码（shortcode）将被设为去除扩展名后的文件名，可以使用选项附加前缀与后缀。
+从给定路径的 .tar.gz 归档文件导入自定义表情。归档文件应包含不大于 50KB 的 PNG 或 GIF 文件，短代码将被设置为不包含扩展名的文件名，可以提供前缀和/或后缀。
 
-**版本历史：**
-* 2.5.0 - 被加入
+`PATH`
+: 创建包含图片的 .tar.gz 归档文件的路径。{{<required>}}
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `PATH` | 含图片的 .tar.gz 存档文件的路径。 |
-| `--prefix PREFIX` | 在生成的短代码开头附加前缀 PREFIX。 |
-| `--suffix SUFFIX` | 在生成的短代码结尾附加后缀 SUFFIX。 |
-| `--overwrite` | 不是跳过已存在的emoji，而是覆盖同名短代码的emoji。 |
-| `--unlisted` | 导入的emojis将不在emoji选择器中出现，但仍能通过它们的短代码来使用。 |
-| `--category CATEGORY` | 导入的emoji在选择器的将会分组至 CATEGORY。 |
+`--prefix PREFIX`
+: 在生成的短代码的开头添加 PREFIX。
+
+`--suffix SUFFIX`
+: 在生成的短代码的末尾添加 SUFFIX。
+
+`--overwrite`
+: 不跳过现有表情，用短代码一致的已发现表情替换原有表情。
+
+`--category CATEGORY`
+: 在选择器中将本次处理的表情分组在 CATEGORY 下。
+
+`--unlisted`
+: 处理的表情不会显示在表情选择器中，只能通过直接使用短代码使用。
+
+**版本历史：**\
+2.5.0 - 该命令被添加
+
+
+---
+
 
 ### `tootctl emoji purge` {#emoji-purge}
 
-移除所有自定义emoji。
+移除所有自定义表情。
 
-**版本历史：**
-* 2.8.0 - 被加入
-* 3.1.0 - 加入 `--remote_only`
+`--remote-only`
+: 如果提供，仅移除外站自定义表情。
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `--remote_only` | 如果被提供，将仅移除远程实例。 |
+**版本历史：**\
+2.8.0 - 该命令被添加\
+3.1.0 - 该命令被添加 `--remote-only`
 
-## 时间流（Feeds）相关命令 {#feeds}
+
+---
+
+
+## 信息流 CLI {#feeds}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/feeds.rb" caption="lib/mastodon/cli/feeds.rb" >}}
 
+
+---
+
+
 ### `tootctl feeds build` {#feeds-build}
 
-为某个或所有用户构建主页（home）和列表（list）时间流。时间流将从数所库中构建，并使用Redis缓存于内存中。Mastodon 自动管理激活用户的主页时间流。
+为一个或所有用户构建主页和列表信息流。信息流将从数据库构建并在 Redis 的内存缓存中存储。Mastodon 自动管理活跃用户的主页信息流。
 
-**版本历史：**
-* 2.6.0 - 被加入
+`USERNAME`
+: 要重新生成信息流的本站用户名。
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `USERNAME` | 要被生成时间流的本地用户名。 |
-| `--all` | 刷新所有本地用户的时间流，可取代 USERNAME。 |
-| `--concurrency N` | 执行该任务的worker数。默认N=5。 |
-| `--verbose` | 任务进行时，打印额外信息。 |
-| `--dry_run` | 仅打印预期结果，而不执行任何操作。 |
+`--all`
+: 可以代替 `USERNAME` 提供，刷新所有外站账户。
+
+`--concurrency N`
+: 用于此任务的作业线程数量。默认为 N=5。
+
+`--verbose`
+: 在任务处理过程中输出额外信息。
+
+`--dry-run`
+: 仅打印预期结果，不执行任何操作。
+
+**版本历史：**\
+2.6.0 - 该命令被添加
+
+
+---
+
 
 ### `tootctl feeds clear` {#feeds-clear}
 
-从Redis中移除所有主页和列表时间流。
+从 Redis 中移除所有主页和列表信息流。
 
-**版本历史：**
-* 2.6.0 - 被加入
+**版本历史：**\
+2.6.0 - 该命令被添加
 
-## 媒体相关命令 {#media}
+
+---
+
+
+## 维护 CLI {#maintenance}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/maintenance.rb" caption="lib/mastodon/cli/maintenance.rb" >}}
+
+
+---
+
+
+### `tootctl maintenance fix-duplicates` {#maintenance-fix-duplicates}
+
+修复可能由于更改排序规则导致的数据库索引损坏。删除或合并重复的账户、嘟文、表情等。必须停止 Mastodon 才能运行此任务，该任务将花费很长时间并可能具有破坏性。如果你的数据库索引由于诸如 <https://wiki.postgresql.org/wiki/Locale_data_changes> 等问题而损坏，这将非常有用。
+
+**版本历史：**\
+3.3.0 - 该命令被添加
+
+
+---
+
+
+## 媒体 CLI {#media}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/media.rb" caption="lib/mastodon/cli/media.rb" >}}
 
+
+---
+
+
 ### `tootctl media remove` {#media-remove}
 
-移除本地缓存的其它实例媒体附件。
+移除来自其他服务器的媒体附件、头像或账户页横幅背景的本站缓存副本。默认情况下，只移除媒体附件。
 
-**版本历史：**
-* 2.5.0 - 被加入
-* 2.6.2 - 显示被释放的硬盘空间
+`--days N`
+: 指定多旧的媒体附件才能被移除。对于头像和横幅背景，时间间隔针对对用户的最后一次 webfinger 请求和更新时间计算，默认为 7。
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `--days` | 多久之前的媒体附件将会被清理。默认为7天。 |
-| `--concurrency N` | 执行该任务的worker数。默认为5。 |
-| `--verbose` | 任务进行时，打印额外信息。 |
-| `--dry_run` | 仅打印预期结果，而不执行任何操作。 |
+`--concurrency N`
+: 用于此任务的作业线程数量。默认为 N=5。
+
+`--prune-profiles`
+: 不移除媒体附件，而是移除来自其他服务器的头像和横幅背景的本站缓存副本。不能与 `--remove-headers` 结合使用。
+
+`--remove-headers`
+: 不移除媒体附件，而是移除来自其他服务器的横幅背景的本站缓存副本。不能与 `--prune-profiles` 结合使用。
+
+`--include-follows`
+: 覆盖 `--prune-profiles` 和 `--remove-headers` 的默认行为，移除所有外站实例的头像（和横幅背景）的本站缓存副本，无论关注状态如何（默认情况下，只有本站没有被关注或没有关注任何人的账户的头像和横幅背景会被移除）。只能与 `--prune-profiles` 或 `--remove-headers` 一起使用。
+
+`--verbose`
+: 在任务处理过程中输出额外信息。
+
+`--dry-run`
+: 仅打印预期结果，不执行任何操作。
+
+**版本历史：**\
+2.5.0 - 该命令被添加\
+2.6.2 - 显示释放的磁盘空间\
+4.1.0 - 添加 --prune-profiles、--remove-headers 和 --include-follows。
+
+
+---
+
 
 ### `tootctl media remove-orphans` {#media-remove-orphans}
 
-扫描出不属于任何媒体附件的文件并移除他们。请注意，某些存储提供商会对列出对象所必需的API收取费用。另外，此操作需要遍历每个文件，因此速度很慢。
+扫描不属于现有媒体附件的文件，并移除它们。请注意，某些存储提供商对列出对象所需的 API 请求收费。此外，此操作需要遍历每个文件，因此速度会很慢。
 
-**版本历史：**
-* 3.1.0 - 被加入
+`--start-after`
+: 循环将开始的 Paperclip 附件键。如果命令在之前被中断，请使用此选项。
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `--start_after` | 循环开始的附件key值。如果之前中断过此操作，请使用此选项。 |
-| `--dry_run` | 仅打印预期结果，而不执行任何操作。 |
+`--dry-run`
+: 仅打印预期结果，不执行任何操作。
+
+`--prefix`
+: 仅遍历系统中特定前缀的文件。
+
+`--fix-permissions`
+: 根据环境变量将 S3 ACL 设置为默认值。
+
+**版本历史：**\
+3.1.0 - 该命令被添加\
+3.1.3 - 添加 `--prefix`\
+3.3.0 - 添加 `--fix-permissions`
+
+
+---
+
 
 ### `tootctl media refresh` {#media-refresh}
 
-从其它服务器重拉取远程媒体附件。你必须使用 --status 、 --account 或 --domain 来指定媒体附件来源。如果附件已经存在于数据库，除非你使用 --force，否则将不会被覆写。
+从其他实例重新获取外站媒体附件。你必须使用 `--status`、`--account`、`--domain` 或 `--days` 指定媒体附件的来源。如果附件已存在于数据库中，除非你使用 `--force`，否则不会被覆盖。  
 
-**版本历史：**
-* 3.0.0 - 被加入
-* 3.0.1 - 加入 `--force` 选项，并默认跳过已下载的附件
+`--account ACCT`
+: `username@domain` 格式的用户名字符串
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `--account ACCT` | 需要被处理的帐号，格式 `username@domain` |
-| `--domain DOMAIN` | FQDN string |
-| `--status ID` | 数据库中的嘟文本地数字ID。 |
-| `--concurrency N` | 执行该任务的worker数。默认为5。 |
-| `--verbose` | 任务进行时，打印额外信息。  |
-| `--dry_run` | 仅打印预期结果，而不执行任何操作。 |
-| `--force` | 强制重下载远程资源并覆写本地附件。 |
+`--domain DOMAIN`
+: FQDN 格式的字符串
+
+`--status ID`
+: 数据库中嘟文的本站数字 ID。
+
+`--days N`
+: 限制此任务检查的天数范围。
+  
+`--concurrency N`
+: 用于此任务的作业线程数量。默认为 5。
+
+`--verbose`
+: 在任务处理过程中输出额外信息。
+
+`--dry-run`
+: 仅打印预期结果，不执行任何操作。
+
+`--force`
+: 强制重新下载外站资源并覆盖本站附件。
+
+**版本历史：**\
+3.0.0 - 该命令被添加\
+3.0.1 - 添加 `--force` 并默认跳过已下载的附件\
+4.0.0 - 添加 `--days`
+
+
+---
+
 
 ### `tootctl media usage` {#media-usage}
 
-计算被Mastodon消耗的硬盘空间。
+计算 Mastodon 消耗的磁盘空间。
 
 **版本历史：**
-* 3.0.1 - 被加入
+3.0.1 - 该命令被添加
+
+
+---
+
 
 ### `tootctl media lookup` {#media-lookup}
 
-提示输入媒体URL，然后查询该媒体显示位置。
+提示输入媒体 URL，然后查找显示该媒体的状态。
 
-**版本历史：**
-* 3.1.0 - 被加入
+**版本历史：**\
+3.1.0 - 该命令被添加
 
-## 预览卡片（Preview Cards）相关命令 {#preview_cards}
+
+---
+
+
+## 预览卡片 CLI {#preview_cards}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/preview_cards.rb" caption="lib/mastodon/cli/preview_cards.rb" >}}
 
+
+---
+
+
 ### `tootctl preview_cards remove` {#preview_cards-remove}
 
-移除本地预览卡片缩略图。
+移除预览卡片的本地缩略图。
 
-**版本历史：**
-* 3.0.0 - 被加入
+`--days N`
+: 指定多旧的缩略图才会被移除。默认为 180。（注意：不建议删除最近 14 天内的预览卡片，因为除非链接在最后一次之后的 2 周内重新发布，否则不会重新获取预览卡片。）
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `--days` | 多久之前的媒体附件将会被清理。默认为180天。（注意：不推荐删除14天内的预览卡片，因为同一链接两周之内再次发布将不会重抓取。） |
-| `--concurrency N` | 执行该任务的worker数。默认为5。 |
-| `--verbose` | 任务进行时，打印额外信息。 |
-| `--dry_run` | 仅打印预期结果，而不执行任何操作。 |
-| `--link` | 仅删除链接型（link-type）预览卡片。不处理视频与图片卡片。 |
+`--concurrency N`
+: 用于此任务的作业线程数量。默认为 N=5。
 
-## 搜索相关命令 {#search}
+`--verbose`
+: 在任务处理过程中输出额外信息。
+
+`--dry-run`
+: 仅打印预期结果，不执行任何操作。
+
+`--link`
+: 只删除链接类型的预览卡片；保留视频和照片卡片不变。
+
+**版本历史：**\
+3.0.0 - 该命令被添加
+
+
+---
+
+
+## 搜索 CLI {#search}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/search.rb" caption="lib/mastodon/cli/search.rb" >}}
 
+
+---
+
+
 ### `tootctl search deploy` {#search-deploy}
 
-创建或更新Elasticsearch索引并进行填充。 如果Elasticsearch为空，此命令将创建必要的索引，然后将数据从数据库导入到这些索引中。如果自上次运行以来索引结构已更改，此命令还将升级索引。
+创建或更新 Elasticsearch 索引并填充它。如果 Elasticsearch 为空，此命令将创建必要的索引，然后将数据库中的数据导入到这些索引中。如果自上次运行以来底层架构已更改，此命令也会升级索引。
 
-**版本历史：**
-* 2.8.0 - 被加入
-* 3.0.0 - 加入 `--processes` 选项来并行化
+`--batch-size`
+: 默认为 100。较高的批处理大小可以使 Elasticsearch 更快地处理记录，减轻 PostgreSQL 数据库的负载，但在索引期间可能会增加 Elasticsearch 节点的内存压力。
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `--processes N` | 并行执行命令。默认N=2。可以设为`auto`来基于可用CPU数获取相应数值。 |
+`--only INDEX`
+: 指定索引名称 [`instances`、`accounts`、`tags`、`statuses`、`public_statuses`] 以仅创建或更新该索引。
 
-## 站点设定相关命令 {#settings}
+`--concurrency N`
+: 在多个线程上并行执行命令。默认为 5。
+
+`--import`
+: 将数据从数据库导入到索引
+ 
+`--clean`
+: 从索引中删除过时的文档
+
+`--reset-chewy`
+: 重置 Chewy 的内部索引
+
+**版本历史:**
+2.8.0 - 该命令被添加\
+3.0.0 - 添加 `--processes` 用于并行处理\
+3.3.0 - 更改可选参数\
+3.5.0 - 添加 `--batch-size`\
+3.5.3 - 将 `--batch-size` 默认值从 1000 更改为 100，将 `--concurrency` 从 2 更改为 5，添加 `--import` 和 `--clean`\
+4.2.0 - 为 `--only` 添加 `instances` 和 `public_statuses` 选项，添加 `--reset-chewy`
+
+
+---
+
+
+## 设置 CLI {#settings}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/settings.rb" caption="lib/mastodon/cli/settings.rb" >}}
+
+
+---
+
 
 ### `tootctl settings registrations open` {#settings-registrations-open}
 
 开放注册。
 
-**版本历史：**
-* 2.6.0 - 被加入
+**版本历史：**\
+2.6.0 - 该命令被添加
+
+
+---
+
 
 ### `tootctl settings registrations close` {#settings-registrations-close}
 
 关闭注册。
 
-**版本历史：**
-* 2.6.0 - 被加入
+**版本历史：**\
+2.6.0 - 该命令被添加
 
-## 嘟文相关命令 {#statuses}
+
+---
+
+
+### `tootctl settings registrations approved` {#settings-registrations-approved}
+
+将注册设为需要批准。
+
+**版本历史：**\
+3.5.2 - 该命令被添加
+
+`--require_reason`
+: 如果为真，用户注册时必须输入原因。
+
+
+---
+
+
+## 嘟文 CLI {#statuses}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/statuses.rb" caption="lib/mastodon/cli/statuses.rb" >}}
 
+
+---
+
+
 ### `tootctl statuses remove` {#statuses-remove}
 
-从数据库中删除未被引用的嘟文，例如来自中继的或来自本地用户不再关注的用户的嘟文，同时没有被回复的或以其他方式与之互动的。
+从数据库中删除未引用的嘟文，例如来自中继的、不被任何本站账户关注、且未被回复或以其他方式互动的嘟文。
 
-这是一个计算量很大的操作，其会开始之前创建额外的数据库索引，并在结束后删除它们。
+这是一个计算密集的过程，它在开始前创建额外的数据库索引，并在之后删除它们。
 
-**版本历史：**
-* 2.8.0 - 被加入
+`--days N`
+: 指定多旧的嘟文才会被删除。默认为 90。
 
-| 选项 | 描述 |
-| :--- | :--- |
-| `--days` | 多久之前的嘟文将会被清理。默认为90天。 |
+`--skip-media-remove`
+: 跳过删除媒体，以防 S3 出错。默认为 false。
 
-{{< translation-status-zh-cn raw_title="Using the admin CLI" raw_link="/admin/tootctl/" last_tranlation_time="2020-05-05" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}
+**版本历史：**\
+2.8.0 - 该命令被添加\
+3.1.3 - 该命令被添加 `--skip-media-remove`\
+3.5.0 - 现在删除孤立记录并执行额外的清理任务
+
+
+---
+
+
+## 升级 CLI {#upgrade}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/mastodon/cli/upgrade.rb" caption="lib/mastodon/cli/upgrade.rb" >}}
+
+
+---
+
+
+### `tootctl upgrade storage-schema` {#upgrade-storage-schema}
+
+升级存储架构，将所有非本站媒体资源存储在顶级缓存目录中。警告：这是可选的，仅适用于 v3.1.4 之前的部署。由于可能移动数 TB 的数据，此命令可能会导致巨大的对象存储成本。
+
+`--verbose`
+: 在任务处理过程中输出额外信息。
+
+`--dry-run`
+: 仅打印预期结果，不执行任何操作。
+
+**版本历史：**\
+3.1.4 - 该命令被添加
+
+{{< translation-status-zh-cn raw_title="Using the admin CLI" raw_link="/admin/tootctl/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}
