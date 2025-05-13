@@ -314,7 +314,7 @@ PATCH /api/v1/accounts/update_credentials HTTP/1.1
 
 Update the user's display and preferences.
 
-**Returns:** the user's own [Account]({{< relref "entities/Account">}}) with [`source`]({{< relref "entities/Account#source">}}) attribute\
+**Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
 1.1.1 - added\
