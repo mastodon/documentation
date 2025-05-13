@@ -75,6 +75,7 @@ Remember to check how recently the library was updated, and whether it includes 
 * [masto.js](https://github.com/neet/masto.js)
 * [libodonjs](https://github.com/Zatnosk/libodonjs)
 * [pl-api](https://codeberg.org/mkljczk/pl-fe/src/branch/develop/packages/pl-api)
+* [tsl-mastodon](https://github.com/typescriptlibs/tsl-mastodon-api)
 
 ## JavaScript (Browser) {#javascript-browser}
 
@@ -153,9 +154,3 @@ Remember to check how recently the library was updated, and whether it includes 
 * [MastodonKit](https://github.com/MastodonKit/MastodonKit)
 * [tootsdk](https://github.com/tootsdk/tootsdk)
 * [MastodonAPI](https://github.com/li-bei/MastodonAPI)
-
-## TypeScript {#typescript}
-
-* [tsl-mastodon](https://github.com/typescriptlibs/tsl-mastodon-api)
-
-
