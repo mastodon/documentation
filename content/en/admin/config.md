@@ -1159,7 +1159,7 @@ The need for and cost of fetching replies is likely to vary dramatically for ser
 
 #### `FETCH_REPLIES_ENABLED`
 
-**Default:** `true`
+**Default:** `false`
 
 Enable or disable fetching additional replies when a post's detailed view is expanded.
 
