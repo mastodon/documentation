@@ -95,5 +95,5 @@ aliases: [
 
 ## See also
 
-{{< page-relref ref="entities/shallow_quote" caption="ShallowQuote" >}}
+{{< page-relref ref="entities/ShallowQuote" caption="ShallowQuote" >}}
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/quote_serializer.rb" caption="app/serializers/rest/quote_serializer.rb" >}}
