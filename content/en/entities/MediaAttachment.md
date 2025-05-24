@@ -207,7 +207,7 @@ aliases: [
 
 May contain subtrees `small` and `original`, as well as various other top-level properties.
 
-More importantly, there may be another topl-level `focus` Hash object on images as of 2.3.0, with coordinates can be used for smart thumbnail cropping -- see [Focal points for cropped media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more.
+More importantly, there may be another top-level `focus` Hash object on images as of 2.3.0, with coordinates can be used for smart thumbnail cropping -- see [Focal points for cropped media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more.
 
 ### `description` {#description}
 

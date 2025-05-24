@@ -80,19 +80,21 @@ aliases: [
 **Type:** String (Enumerable, oneOf)\
 `warn` = show a warning that identifies the matching filter by `title`, and allow the user to expand the filtered status. This is the default (and unknown values should be treated as equivalent to `warn`).\
 `hide` = do not show this status if it is received\
+`blur` = hide/blur media attachments with a warning identifying the matching filter by `title`
 **Version history:**\
-4.0.0 - added
+4.0.0 - added\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 5) - added `blur` value to `filter_action` attribute
 
-### `keywords` {#keywords}
+### `keywords` {{%optional%}} {#keywords}
 
-**Description:** The keywords grouped under this filter.\
+**Description:** The keywords grouped under this filter. Omitted when part of a [FilterResult]({{< relref "entities/FilterResult" >}}).\
 **Type:** Array of [FilterKeyword]({{< relref "entities/FilterKeyword" >}})\
 **Version history:**\
 4.0.0 - added
 
-### `statuses` {#statuses}
+### `statuses` {{%optional%}} {#statuses}
 
-**Description:** The statuses grouped under this filter.\
+**Description:** The statuses grouped under this filter. Omitted when part of a [FilterResult]({{< relref "entities/FilterResult" >}}).\
 **Type:** Array of [FilterStatus]({{< relref "entities/FilterStatus" >}})\
 **Version history:**\
 4.0.0 - added

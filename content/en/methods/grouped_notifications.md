@@ -31,7 +31,7 @@ GET /api/v2/notifications HTTP/1.1
 
 Return grouped notifications concerning the user. This API returns Link headers containing links to the next/previous page. However, the links can also be constructed dynamically using query params and `id` values.
 
-Notifications of type `favourite`, `follow` or `reblog` with the same type and the same target made in a similar timeframe are given a same `group_key` by the server, and querying this endpoint will return aggregated notifications, with only one object per `group_key`. Other notification types may be grouped in the future. The `grouped_types` parameter should be used by the client to explictely list the types it supports showing grouped notifications for.
+Notifications of type `favourite`, `follow`, `reblog` or `admin.sign_up` with the same type and the same target made in a similar timeframe are given a same `group_key` by the server, and querying this endpoint will return aggregated notifications, with only one object per `group_key`. Other notification types may be grouped in the future. The `grouped_types` parameter should be used by the client to explictely list the types it supports showing grouped notifications for.
 
 Types to filter include:
 - `mention` = Someone mentioned you in their status
@@ -48,7 +48,8 @@ Types to filter include:
 **Returns:** [GroupedNotificationsResults](#GroupedNotificationsResults)\
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
-4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
+4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added\
+4.4.0 - added `admin.sign_up` to grouped notification types
 
 #### Request
 
@@ -84,7 +85,7 @@ expand_accounts
 : String. One of `full` (default) or `partial_avatars`. When set to `partial_avatars`, some accounts will not be rendered in full in the returned `accounts` list but will be instead returned in stripped-down form in the `partial_accounts` list. The most recent account in a notification group is always rendered in full in the `accounts` attribute.
 
 grouped_types[]
-: Array of String. Restrict which notification types can be grouped. Use this if there are notification types for which your client does not support grouping. If omitted, the server will group notifications of all types it supports (currently, `favourite`, `follow` and `reblog`). If you do not want any notification grouping, use [GET `/api/v1/notifications`]({{< relref "methods/notifications#get" >}}) instead. Notifications that would be grouped if not for this parameter will instead be returned as individual single-notification groups with a unique `group_key` that can be assumed to be of the form `ungrouped-{notification_id}`. Please note that neither the streaming API nor the individual notification APIs are aware of this parameter and will always include a “proper” `group_key` that can be different from what is returned here, meaning that you may have to ignore `group_key` for such notifications that you do not want grouped and use `ungrouped-{notification_id}` instead for consistency.
+: Array of String. Restrict which notification types can be grouped. Use this if there are notification types for which your client does not support grouping. If omitted, the server will group notifications of all types it supports (currently, `favourite`, `follow`, `reblog` and `admin.sign_up`). If you do not want any notification grouping, use [GET `/api/v1/notifications`]({{< relref "methods/notifications#get" >}}) instead. Notifications that would be grouped if not for this parameter will instead be returned as individual single-notification groups with a unique `group_key` that can be assumed to be of the form `ungrouped-{notification_id}`. Please note that neither the streaming API nor the individual notification APIs are aware of this parameter and will always include a “proper” `group_key` that can be different from what is returned here, meaning that you may have to ignore `group_key` for such notifications that you do not want grouped and use `ungrouped-{notification_id}` instead for consistency.
 
 include_filtered
 : Boolean. Whether to include notifications filtered by the user's [NotificationPolicy]({{< relref "entities/NotificationPolicy" >}}). Defaults to false.

@@ -39,7 +39,6 @@ aliases: [
   "locked": false,
   "bot": false,
   "created_at": "2017-02-08T02:00:53.274Z",
-  "attribution_domains": ["example.com", "example.net"],
   "note": "<p>:ms_rainbow_flag:​ :ms_bisexual_flagweb:​ :ms_nonbinary_flag:​ <a href=\"https://awoo.space/tags/awoo\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>awoo</span}.space <a href=\"https://awoo.space/tags/admin\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>admin</span} ~ <a href=\"https://awoo.space/tags/bi\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>bi</span} ~ <a href=\"https://awoo.space/tags/nonbinary\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>nonbinary</span} ~ compsci student ~ likes video <a href=\"https://awoo.space/tags/games\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>games</span} and weird/ old electronics and will post obsessively about both ~ avatar by <span class=\"h-card\"><a href=\"https://weirder.earth/@dzuk\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>dzuk</span}</span></p>",
   "url": "https://awoo.space/@noiob",
   "avatar": "https://files.mastodon.social/accounts/avatars/000/023/634/original/6ca8804dc46800ad.png",
@@ -124,6 +123,13 @@ aliases: [
 **Type:** String (URL)\
 **Version history:**\
 0.1.0 - added
+
+### `uri` {#uri}
+
+**Description:** The user's ActivityPub actor identifier.\
+**Type:** String (URL)\
+**Version history:**\
+4.2.0 - added
 
 ### `display_name` {#display_name}
 
@@ -274,6 +280,13 @@ aliases: [
 **Version history:**\
 0.1.0 - added
 
+### `hide_collections` {#hide_collections}
+
+**Description:** Whether the user hides the contents of their follows and followers collections.\
+**Type:** Boolean\
+**Version history:**\
+4.3.0 - added
+
 ## CredentialAccount entity attributes {#CredentialAccount}
 
 ```json
@@ -283,10 +296,10 @@ aliases: [
   "acct": "trwnh",
   "display_name": "infinite love ⴳ",
   // ...
-  "attribution_domains": ["example.com", "example.net"],
   "note": "<p>i have approximate knowledge of many things. perpetual student. (nb/ace/they)</p><p>xmpp/email: a@trwnh.com<br /><a href=\"https://trwnh.com\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a><br />help me live: <a href=\"https://liberapay.com/trwnh\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/trwnh</span><span class=\"invisible\"></span></a> or paypal</p><p>- my triggers are moths and glitter<br />- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise<br />- dm me if i did something wrong, so i can improve<br />- purest person on fedi, do not lewd in my presence</p>",
   // ...
   "source": {
+    "attribution_domains": ["example.com", "example.net"],
     "privacy": "public",
     "sensitive": false,
     "language": "",
@@ -348,19 +361,19 @@ aliases: [
 }
 ```
 
-### `attribution_domains` {#attribution_domains}
-
-**Description:** Domains of websites allowed to credit the account.\
-**Type:** Array of String\
-**Version history:**\
-4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added
-
 ### `source` {#source}
 
 **Description:** An extra attribute that contains source values to be used with API methods that [verify credentials]({{< relref "methods/accounts#verify_credentials" >}}) and [update credentials]({{< relref "methods/accounts#update_credentials" >}}).\
 **Type:** Hash\
 **Version history:**\
 2.4.0 - added
+
+### `source[attribution_domains]` {#source-attribution_domains}
+
+**Description:** Domains of websites allowed to credit the account.\
+**Type:** Array of String\
+**Version history:**\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added
 
 #### `source[note]` {#source-note}
 

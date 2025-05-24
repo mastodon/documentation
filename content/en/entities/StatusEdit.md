@@ -117,6 +117,13 @@ aliases: [
 **Version history:**\
 3.5.0 - added
 
+### `quote` {{%optional%}} {#quote}
+
+**Description:** Information about the status being quoted, if any\
+**Type:* {{<nullable>}} [Quote]({{< relref "entities/quote" >}}) or [ShallowQuote]({{< relref "entities/ShallowQuote" >}})\
+**Version history:**\
+4.4.0 - added
+
 ## See also
 
 {{< page-relref ref="methods/statuses#history" caption="GET /api/v1/statuses/:id/history" >}}

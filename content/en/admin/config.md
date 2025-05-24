@@ -101,7 +101,13 @@ Setting `DISABLE_AUTOMATIC_SWITCHING_TO_APPROVED_REGISTRATIONS=true` disables th
 
 #### `DEFAULT_LOCALE`
 
-By default, Mastodon will automatically detect the visitor's language from browser headers and display the Mastodon interface in that language (if it's supported). If you are running a language-specific or regional server, that behavior may mislead visitors who do not speak your language into signing up on your server. For this reason, you may want to set this variable to a specific language.
+By default, Mastodon will automatically detect the visitor's language from browser headers and display the Mastodon interface in that language (if it's supported) and otherwise fall back to English.
+If you are running a language-specific or regional server, that behavior may mislead visitors who do not speak your language into signing up on your server. For this reason, you may want to set this variable to a specific language.
+
+As of Mastodon 4.4.0, this environment variable does not override the visitor's browser language. To do that, also set `FORCE_DEFAULT_LOCALE=true`.
+
+**Version history:**\
+4.4.0 - changed to only affect the fallback/default language
 
 Example value: `de`
 
@@ -176,6 +182,13 @@ Supported languages:
 - `zh-CN`
 - `zh-HK`
 - `zh-TW`
+
+#### `FORCE_DEFAULT_LOCALE`
+
+When set to `true`, skips the visitor's brower language detection feature and use `DEFAULT_LOCALE` (or English) instead, corresponding to the behavior of `DEFAULT_LOCALE` prior to Mastodon 4.4.0.
+
+**Version history:**\
+4.4.0 - added
 
 ### Secrets {#secrets}
 
@@ -862,6 +875,10 @@ The bucket must support access control lists (ACLs). For AWS S3, this means sett
 
 #### `S3_ALIAS_HOST`
 
+#### `EXTRA_MEDIA_HOSTS`
+
+**Version history:**\
+4.4.0 - added
 
 #### `S3_OPEN_TIMEOUT`
 

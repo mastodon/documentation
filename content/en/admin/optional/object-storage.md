@@ -53,8 +53,8 @@ To enable S3 storage, set the `S3_ENABLED` environment variable to `true`.
 
 - `S3_REGION` (defaults to 'us-east-1', required if using AWS S3, may
   not be required with other storage providers)
-- `S3_ENDPOINT` (defaults to 's3.<S3_REGION>.amazonaws.com', required
-  if not using AWS S3)
+- `S3_ENDPOINT` (defaults to 'https://s3.<S3_REGION>.amazonaws.com',
+  required if not using AWS S3)
 - `S3_BUCKET=mastodata` (replacing `mastodata` with the name of your
   bucket)
 - `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` need to be set to
@@ -100,6 +100,12 @@ allow you to cache the media after retrieval from the storage
 provider, reducing egress bandwidth costs from the storage
 provider. This can be done in your own reverse proxy, or by using a
 CDN.
+
+`EXTRA_MEDIA_HOSTS` offers appending an additional list of hosts that
+are allowed to serve media for your instance. This is useful if you 
+include external media in your custom CSS or about page, or if your 
+data storage provider makes use of redirects to other domains.
+`EXTRA_MEDIA_HOSTS=https://data.example1.com,https://data.example2.com`
 
 {{< page-ref page="admin/optional/object-storage-proxy.md" >}}
 
