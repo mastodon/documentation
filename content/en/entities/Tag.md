@@ -55,7 +55,8 @@ aliases: [
       "accounts": "34"
     }
   ],
-  "following": false
+  "following": false,
+  "featuring": false
 }
 ```
 
@@ -109,6 +110,13 @@ aliases: [
 **Type:** Boolean\
 **Version history:**\
 4.0.0 - added
+
+### `featuring` {{%optional%}} {#featuring}
+
+**Description:** Whether the current token's authorized user is featuring this tag on their profile.\
+**Type:** Boolean\
+**Version history:**\
+4.4.0 - added
 
 ## Admin::Tag attributes {#admin}
 
