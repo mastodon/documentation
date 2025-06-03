@@ -1870,10 +1870,10 @@ Can sometimes be returned if the account already endorsed.
 
 ---
 
-## Unfeature account from profile {{%deprecated%}} {#unpin}
+## Unfeature account from profile {{%deprecated%}} {#}
 
 ```http
-POST /api/v1/accounts/:id/unpin HTTP/1.1
+POST /api/v1/accounts/:id/ HTTP/1.1
 ```
 
 Remove the given account from the user's featured profiles.
@@ -2158,7 +2158,7 @@ Can sometimes be returned if the account already endorsed.
 
 ---
 
-## Unfeature account from profile {#unpin}
+## Unfeature account from profile {#unendorse}
 
 ```http
 POST /api/v1/accounts/:id/unendorse HTTP/1.1
