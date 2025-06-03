@@ -326,6 +326,8 @@ Update the user's display and preferences.
 4.2.0 - added `indexable` parameter\
 4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added `attribution_domains` parameter
 
+{{< page-relref ref="methods/preferences#get" caption="Read preferences using /api/v1/preferences" >}}
+
 #### Request
 
 ##### Headers
