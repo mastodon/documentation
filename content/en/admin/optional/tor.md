@@ -160,6 +160,23 @@ Restart your web server.
 service nginx restart
 ```
 
+When restarting your webserver you may run into the following issue:
+
+```text
+systemctl status nginx.service
+...
+[...] could not build server_names_hash, you should increase server_names_hash_bucket_size: 64
+...
+```
+
+When this happens you may uncomment the following line in your nginx.conf:
+
+```text
+# server_names_hash_bucket_size 64;
+```
+
+If you still have problems you may consider incresing the size up to 128. 
+
 ## Gotchas {#gotchas}
 
 There are a few things you will need to be aware of.
