@@ -37,7 +37,8 @@ If you get an error like this:
 E: The repository 'https://deb.torproject.org/torproject.org stretch Release' does not have a Release file.
 N: Updating from such a repository can't be done securely, and is therefore disabled by default.
 N: See apt-secure(8) manpage for repository creation and user configuration details.
-``
+```
+
 
 You can follow the [TOR-Projects instructions](https://support.torproject.org/apt/tor-deb-repo/) on installing their repository.
 
