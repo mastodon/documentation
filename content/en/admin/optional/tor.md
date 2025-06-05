@@ -58,7 +58,7 @@ Restart Tor.
 sudo service tor restart
 ```
 
-You can now find your Tor hostname in `/var/lib/tor/hidden_service/hostname`.
+You can now find your Tor hostname in `/var/lib/tor/onion_service/hostname`.
 
 ## Move your Mastodon configuration {#nginx}
 
@@ -148,7 +148,7 @@ server {
 }
 ```
 
-Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/hidden_service/hostname`. This should also be reflected in the `Onion-Location` header in the snippets file.
+Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/onion_service/hostname`. This should also be reflected in the `Onion-Location` header in the snippets file.
 
 Note that the onion hostname has been prefixed with “mastodon.”. Your Tor address acts as a wildcard domain. All subdomains will be routed through, and you can configure Nginx to respond to any subdomain you wish. If you do not wish to host any other services on your tor address you can omit the subdomain, or choose a different subdomain.
 
