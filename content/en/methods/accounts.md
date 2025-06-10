@@ -2158,7 +2158,7 @@ Can sometimes be returned if the account already endorsed.
 
 ---
 
-## Unfeature account from profile {#unpin}
+## Unfeature account from profile {#unendorse}
 
 ```http
 POST /api/v1/accounts/:id/unendorse HTTP/1.1
