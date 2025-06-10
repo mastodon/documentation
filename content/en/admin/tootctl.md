@@ -762,7 +762,7 @@ Refetch remote media attachments from other servers. You must specify the source
 
 Calculate disk space consumed by Mastodon.
 
-**Version history:**
+**Version history:**\
 3.0.1 - added
 
 
@@ -844,7 +844,7 @@ Create or update an Elasticsearch index and populate it. If Elasticsearch is emp
 `--reset-chewy`
 :Reset Chewy's internal index
 
-**Version history:**
+**Version history:**\
 2.8.0 - added\
 3.0.0 - add `--processes` for parallelization\
 3.3.0 - options changed\

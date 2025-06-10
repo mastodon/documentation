@@ -41,28 +41,28 @@ aliases: [
 
 ### `for_limited_accounts` {#for_limited_accounts}
 
-**Description:** Whether to `accept`, `filter` or `drop` notifications from accounts that were limited by a moderator. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.
+**Description:** Whether to `accept`, `filter` or `drop` notifications from accounts that were limited by a moderator. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.\
 **Type:** String (one of `accept`, `filter` or `drop`)\
 **Version history:**\
 4.3.0 - added
 
 ### `summary` {#summary}
 
-**Description:** Summary of the filtered notifications
+**Description:** Summary of the filtered notifications\
 **Type:** Hash\
 **Version history:**\
 4.3.0 - added
 
 ### `summary[pending_requests_count]` {#pending_requests_count}
 
-**Description:** Number of different accounts from which the user has non-dismissed filtered notifications. Capped at 100.
+**Description:** Number of different accounts from which the user has non-dismissed filtered notifications. Capped at 100.\
 **Type:** Integer\
 **Version history:**\
 4.3.0 - added
 
 ### `summary[pending_notifications_count]` {#pending_notifications_count}
 
-**Description:** Number of total non-dismissed filtered notifications. May be inaccurate.
+**Description:** Number of total non-dismissed filtered notifications. May be inaccurate.\
 **Type:** Integer\
 **Version history:**\
 4.3.0 - added
