@@ -73,7 +73,9 @@ When only the information about the currently authenticated user is required, us
 
 ### `profile` {#profile}
 
-Grants access only to the [`GET /api/v1/accounts/verify_credentials`]({{< relref "methods/accounts#verify_credentials" >}}) endpoint. Allowing you to retrieve information about only the currently authenticated user.
+Grants access to only minimal information about the currently authenticated user. The following endpoints can be used with this scope:
+* [`GET /api/v1/accounts/verify_credentials`]({{< relref "methods/accounts#verify_credentials" >}})
+* [`GET /oauth/userinfo`]({{< relref "methods/oauth#userinfo" >}}) (added in 4.4.0)
 
 ### `read` {#read}
 
