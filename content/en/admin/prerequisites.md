@@ -51,6 +51,11 @@ Finally, restart fail2ban:
 systemctl restart fail2ban
 ```
 
+If the service should fail with the error "Failed during configuration: Have not found any log file for sshd jail",
+switch logging to systemd by adding the line `backend=systemd` to the `[sshd]` section.
+You might also have to install the `python3-systemd` package.
+
+
 ## Install a firewall and only allow SSH, HTTP and HTTPS ports
 
 First, install iptables-persistent. During installation, it will ask you if you want to keep the current rules–decline.
