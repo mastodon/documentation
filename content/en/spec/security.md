@@ -7,11 +7,15 @@ menu:
     parent: spec
 ---
 
-## HTTP Signatures {#http}
+## Signed HTTP requests {#http}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/request.rb" caption="app/lib/request.rb" >}}
 
-[HTTP Signatures](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures) is a specification for signing HTTP messages by using a `Signature:` header with your HTTP request. Mastodon requires the use of HTTP Signatures in order to validate that any activity received was authored by the actor generating it. When secure mode is enabled, all GET requests require HTTP signatures as well.
+HTTP signature headers are a way to cryptographically sign HTTP messages. Mastodon requires the use of HTTP signatures in order to validate that any activity received was authored by the actor generating it. When secure mode is enabled, all GET requests require HTTP signatures as well.
+
+### HTTP Signatures {#http-signatures}
+
+Historically, Mastodon uses a proposed draft standard called [HTTP Signatures](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures). This is a specification for signing HTTP messages by using a `Signature:` header with your HTTP request.
 
 For any HTTP request incoming to Mastodon, the Signature header should be attached:
 
@@ -40,7 +44,7 @@ The `keyId` should correspond to the actor and the key being used to generate th
 
 See also: [https://blog.joinmastodon.org/2018/07/how-to-make-friends-and-verify-requests/](https://blog.joinmastodon.org/2018/07/how-to-make-friends-and-verify-requests/)
 
-### Creating HTTP signatures {#http-sign}
+#### Creating HTTP signatures {#http-sign}
 
 To create an HTTP signature, you will have to define which headers are being hashed and signed. For example, consider the following GET request:
 
@@ -73,7 +77,7 @@ Signature: keyId="https://my.example.com/actor#main-key",headers="(request-targe
 
 This request is functionally equivalent to saying that `https://my.example.com/actor` is requesting `https://mastodon.example/users/username/inbox` and is proving that they sent this request by signing `(request-target)`, `Host:`, and `Date:` with their private key linked at `keyId`, resulting in the provided `signature`.
 
-#### Signing POST requests and the Digest header {#digest}
+##### Signing POST requests and the Digest header {#digest}
 
 When making a POST request to Mastodon, you must calculate the RSA-SHA256 digest hash of your request's body and include this hash (in base64 encoding) within the `Digest:` header. The `Digest:` header must also be included within the `headers` parameter of the `Signature:` header. For example:
 
@@ -97,7 +101,7 @@ Content-Type: application/ld+json; profile="https://www.w3.org/ns/activitystream
 }
 ```
 
-### Verifying HTTP signatures {#http-verify}
+#### Verifying HTTP signatures {#http-verify}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/concerns/signature_verification.rb" caption="app/controllers/concerns/signature_verification.rb" >}}
 
@@ -130,6 +134,39 @@ Mastodon verifies the signature using the following algorithm:
 * Fetch the `keyId` and resolve to an actor's `publicKey`.
 * RSA-SHA256 hash the signature string and compare to the Base64-decoded `signature` as decrypted by `publicKey[publicKeyPem]`.
 * Use the `Date:` header to check that the signed request was made within the past 12 hours.
+
+### HTTP Message Signatures (RFC9421) {#http-message-signatures}
+
+**Version history:**\
+4.4.0 - added
+
+Since Mastodon implemented HTTP Signatures this draft specification has been overhauled, released as [RFC9421](https://www.rfc-editor.org/rfc/rfc9421.html) and renamed to "HTTP Message Signatures".
+
+From version 4.4.0 Mastodon supports incoming HTTP requests to be signed with RFC9421-compatible signatures.
+
+The biggest difference to the HTTP Signatures standard described above is that HTTP Message Signatures use *two* separate HTTP headers, `Signature` and `Signature-Input`:
+
+```http
+Signature-Input: sig1=("@method" "@target-uri" "content-digest");created=1748341414;keyid="https://my.example.com/actor#main-key" 
+Signature: sig1=:Y2FiYW...IxNGRiZDk4ZA==:
+```
+
+`Signature-Input` includes parameters, like the `keyid` and a `created` timestamp, and the different components that need to be signed. These can be HTTP headers and so-called "derived components" like the HTTP method (`@method`) or URL (`@target-uri`) used for the request.
+
+`Signature` only includes the actual signature(s).
+
+Mastodon has the following requirements for RFC9421-compatible signatures:
+
+* Only a single signature is supported 
+* The `created` parameter MUST be present
+* The `@method` and `@target-uri` "derived components" MUST be signed
+* A `Content-Digest` header ([RFC9530](https://datatracker.ietf.org/doc/html/rfc9530)) MUST be present and signed
+* The only supported algorithm is still [RSASSA-PKCS1-v1_5 Using SHA-256](https://www.rfc-editor.org/rfc/rfc9421.html#name-rsassa-pkcs1-v1_5-using-sha)
+
+To learn more about HTTP Message Signatures please refer to:
+
+* [RFC9421](https://www.rfc-editor.org/rfc/rfc9421.html) for all the details
+* [HTTP Message Signatures Sandbox](https://httpsig.org/) for an interactive playground and a list of libraries implementing RFC9421 
 
 ## Linked Data Signatures {#ld}
 
