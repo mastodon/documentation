@@ -31,6 +31,8 @@ When the user's account is unfrozen, normal functionality resumes.
 
 Previously known as "silencing". A limited account is hidden from all other users on that instance, except for its followers. All of the content is still there, and it can still be found via search, mentions, and following, but the content is invisible publicly.
 
+If a limited account attempts to follow a user on that instance, the follow is converted into a follow request.
+
 At this moment, limit does not affect federation. A locally limited account is *not* limited automatically on other servers. Account limitations are reversible.
 
 ### Suspend {#suspend-user}
@@ -53,7 +55,7 @@ With this option active, no files from the server will be processed locally. Tha
 
 ### Limit {#limit-server}
 
-Equivalent to [limiting](#limit-user) all past and future accounts from the server. Previously known as "silencing".
+Equivalent to [limiting](#limit-user) all past and future accounts from the server. Previously known as "silencing". Notably, this will automatically turn all follows from the limited server into follow requests, even if the followed account does not require approving followers.
 
 ### Suspend {#suspend-server}
 
