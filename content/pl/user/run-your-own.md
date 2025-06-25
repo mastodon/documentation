@@ -27,9 +27,9 @@ Będziesz potrzebować:
 - Serwera **VPS**. To coś, na czym będzie uruchamiany serwer Mastodona, który będzie stale połączony z Internetem.
 
   **Jak uzyskać**: DigitalOcean, Hetzner, Exoscale, Scaleway, dowolny z licznych dostawców hostingu. Wiąże się to z miesięcznym lub rocznym kosztem zależnym od specyfikacji sprzętu.
-- **Dostawcy e-mail**. Mastodon musi wysyłać wiadomości z odnośnikami potwierdzającymi i różne powiadomienia przez e-mail, a choć hostowanie własnego serwera SMTP jest możliwe, może to być bardziej skomplikowane niż z korzystanie usługi podmiotu trzeciego.
+- **Dostawcy email**. Mastodon musi wysyłać wiadomości z odnośnikami potwierdzającymi i różne powiadomienia przez email, a choć hostowanie własnego serwera SMTP jest możliwe, może to być bardziej skomplikowane niż z korzystanie usługi podmiotu trzeciego.
 
-  **Jak uzyskać**: Mailgun, SparkPost, Postmark, Sendgrid, dowolny z liczny dostawców hostingu e-mail oferujących API SMTP. Wiąże się to z miesięcznym kosztem zależnym od liczby wysłanych e-maili.
+  **Jak uzyskać**: Mailgun, SparkPost, Postmark, Sendgrid, dowolny z liczny dostawców hostingu email oferujących API SMTP. Wiąże się to z miesięcznym kosztem zależnym od liczby wysłanych emaili.
 - Nieobowiązkowo: **Dostawca rozwiązania Object Storage**. Mastodon może zapisywać pliki wysyłane przez użytkowników na dysku VPS-a, na którym jest uruchomiony, lecz zwykle powierzchnia tego dysku nie jest nieograniczona i jej powiększenie może być później trudne. Dostawca Object Storage oferuje praktycznie nieograniczoną przestrzeń na pliki.
 
   **Jak uzyskać**: Amazon S3, Exoscale, Wasabi, Google Cloud, cokolwiek, co oferuje API kompatybilne z S3 lub z OpenStack Swift. Wiąże się to z miesięcznym kosztem zależnym od ilości przechowywanych plików i częstości uzyskiwania ich.
@@ -42,14 +42,12 @@ Istnieje kilka **dedykowanych dostawców hostingu Mastodona** które zapewniają
 
 {{< caption-link url="https://app.spacebear.ee/mastodon" caption="Spacebear" >}}
 
+{{< caption-link url="https://fedihost.co/" caption="FediHost" >}}
+
 Zarządzane hostingi są świetnym rozwiązaniem, jeżeli nie masz doświadczenia lub chęci samodzielnie instalować i zajmować się oprogramowaniem. Jednak bycie odpowiedzialnym za wszystkie elementy na własnym sprzęcie daje większą kontrolę nad skalowalnością, wydajnością i dostosowywaniem.
-
-Oferujemy **obraz instalacji jednym kliknięciem dla DigitalOcean**, który możesz umieścić na wybranym droplecie DigitalOcean, w zasadzie dając Ci wszystko, co zrobił(a)byś w innym wypadku zgodnie z naszą instrukcją instalacji, lecz z poziomu interaktywnego instalatora.
-
-{{< caption-link url="https://marketplace.digitalocean.com/apps/mastodon" caption="Mastodon 1-Click Install Image na DigitalOcean" >}}
 
 Zakłada to jednak konfigurację na jednym urządzeniu. Mastodon dość dobrze skaluje się horyzontalnie. Jeżeli potrzeby przekroczą możliwość jednego urządzenia, Mastodon może zostać podzielony pomiędzy wiele serwerów aplikacji, workerów działających w tle, backendów Redisa, replik PostgreSQL — ale instalacja jednym kliknięciem nie zapewni tego.
 
 Jeżeli chcesz zainstalować wszystko samodzielnie, przejdź tutaj:
 
-{{< page-ref page="admin/prerequisites" >}}
+{{< caption-link url="https://docs.joinmastodon.org/admin/prerequisites" caption="Przygotowanie maszyny" >}}

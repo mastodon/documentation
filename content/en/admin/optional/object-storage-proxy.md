@@ -74,6 +74,8 @@ server {
 
 {{< hint style="info" >}}
 We are using `$s3_backend` as a variable to force nginx to perform a DNS resolution on its value, as the IP of the object storage provider may not always remain the same.
+In fact the pattern may even be different from provider to provider.
+Ex. on Digital Ocean the pattern is https://YOUR_BUCKET_NAME.YOUR_S3_HOSTNAME/YOUR_BUCKET_NAME
 {{</ hint >}}
 
 This configuration does a few different things:
@@ -113,6 +115,12 @@ At last, you'll want to make sure Mastodon is using your new proxy to generate f
 
 ```bash
 S3_ALIAS_HOST=files.example.com
+```
+
+(Optional) If your S3_ALIAS_HOST is using a 301 redirection or similar. Add the final location to the EXTRA_MEDIA_HOSTS
+
+```bash
+EXTRA_MEDIA_HOSTS=https://data.example1.com,https://data.example2.com
 ```
 
 And restart Mastodon:

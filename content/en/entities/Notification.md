@@ -32,10 +32,11 @@ aliases: [
 `follow_request` = Someone requested to follow you\
 `favourite` = Someone favourited one of your statuses\
 `poll` = A poll you have voted in or created has ended\
-`update` = A status you interacted with has been edited\
+`update` = A status you reblogged has been edited\
 `admin.sign_up` = Someone signed up (optionally sent to admins)\
 `admin.report` = A new report has been filed\
 `severed_relationships` = Some of your follow relationships have been severed as a result of a moderation or block event\
+`moderation_warning` = A moderator has taken action against your account or has sent you a warning\
 **Version history:**\
 0.9.9 - added\
 2.8.0 - added `poll`\
@@ -43,12 +44,19 @@ aliases: [
 3.3.0 - added `status`\
 3.5.0 - added `update` and `admin.sign_up`\
 4.0.0 - added `admin.report`\
-4.3.0 - added `severed_relationships`
+4.3.0 - added `severed_relationships` and `moderation_warning`
+
+### `group_key` {#group_key}
+
+**Description:** Group key shared by similar notifications, to be used in the grouped notifications feature. Should be considered opaque, but ungrouped notifications can be assumed to have a `group_key` of the form `ungrouped-{notification_id}`.\
+**Type:** String\
+**Version history:**\
+4.3.0 - added
 
 ### `created_at` {#created_at}
 
 **Description:** The timestamp of the notification.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 0.9.9 - added
 
@@ -73,10 +81,17 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
-### `relationship_severance_event` {{%optional%}} {#relationship_severance_event}
+### `event` {{%optional%}} {#relationship_severance_event}
 
 **Description:** Summary of the event that caused follow relationships to be severed. Attached when `type` of the notification is `severed_relationships`.\
 **Type:** [RelationshipSeveranceEvent]({{< relref "entities/RelationshipSeveranceEvent" >}})\
+**Version history:**\
+4.3.0 - added
+
+### `moderation_warning` {{%optional%}} {#moderation_warning}
+
+**Description:** Moderation warning that caused the notification. Attached when `type` of the notification is `moderation_warning`.\
+**Type:** [AccountWarning]({{< relref "entities/AccountWarning" >}})\
 **Version history:**\
 4.3.0 - added
 

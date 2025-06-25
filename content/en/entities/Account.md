@@ -124,6 +124,13 @@ aliases: [
 **Version history:**\
 0.1.0 - added
 
+### `uri` {#uri}
+
+**Description:** The user's ActivityPub actor identifier.\
+**Type:** String (URL)\
+**Version history:**\
+4.2.0 - added
+
 ### `display_name` {#display_name}
 
 **Description:** The profile's display name.\
@@ -239,7 +246,7 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** When the account was created.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 0.1.0 - added\
 3.4.0 - now resolves to midnight instead of an exact time
@@ -247,7 +254,7 @@ aliases: [
 ### `last_status_at` {#last_status_at}
 
 **Description:** When the most recent status was posted.\
-**Type:** {{<nullable>}} String (ISO 8601 Date), or null if no statuses\
+**Type:** {{<nullable>}} String ([Date](/api/datetime-format#date)), or null if no statuses\
 **Version history:**\
 3.0.0 - added\
 3.1.0 - now returns date only, no time
@@ -273,6 +280,13 @@ aliases: [
 **Version history:**\
 0.1.0 - added
 
+### `hide_collections` {#hide_collections}
+
+**Description:** Whether the user hides the contents of their follows and followers collections.\
+**Type:** Boolean\
+**Version history:**\
+4.3.0 - added
+
 ## CredentialAccount entity attributes {#CredentialAccount}
 
 ```json
@@ -285,6 +299,7 @@ aliases: [
   "note": "<p>i have approximate knowledge of many things. perpetual student. (nb/ace/they)</p><p>xmpp/email: a@trwnh.com<br /><a href=\"https://trwnh.com\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a><br />help me live: <a href=\"https://liberapay.com/trwnh\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/trwnh</span><span class=\"invisible\"></span></a> or paypal</p><p>- my triggers are moths and glitter<br />- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise<br />- dm me if i did something wrong, so i can improve<br />- purest person on fedi, do not lewd in my presence</p>",
   // ...
   "source": {
+    "attribution_domains": ["example.com", "example.net"],
     "privacy": "public",
     "sensitive": false,
     "language": "",
@@ -353,6 +368,13 @@ aliases: [
 **Version history:**\
 2.4.0 - added
 
+### `source[attribution_domains]` {#source-attribution_domains}
+
+**Description:** Domains of websites allowed to credit the account.\
+**Type:** Array of String\
+**Version history:**\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added
+
 #### `source[note]` {#source-note}
 
 **Description:** Profile bio, in plain-text instead of in HTML.\
@@ -411,7 +433,7 @@ aliases: [
 ### `mute_expires_at` {#mute_expires_at}
 
 **Description:** When a timed mute will expire, if applicable.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime), or null if the mute is indefinite\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)), or null if the mute is indefinite\
 **Version history:**\
 3.3.0 - added
 
@@ -434,7 +456,7 @@ aliases: [
 ### `verified_at` {#verified_at}
 
 **Description:** Timestamp of when the server verified a URL value for a rel="me" link.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime) if `value` is a verified URL. Otherwise, null.\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)) if `value` is a verified URL. Otherwise, null.\
 **Version history:**\
 2.6.0 - added
 

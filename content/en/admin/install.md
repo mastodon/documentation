@@ -9,11 +9,13 @@ menu:
 
 ## Pre-requisites {#pre-requisites}
 
-* A machine running **Ubuntu 20.04** or **Debian 11** that you have root access to
+* A machine running **Ubuntu 24.04** or **Debian 12** that you have root access to
 * A **domain name** (or a subdomain) for the Mastodon server, e.g. `example.com`
-* An e-mail delivery service or other **SMTP server**
+* An email delivery service or other **SMTP server**
 
-You will be running the commands as root. If you aren’t already root, switch to root: `sudo su -`
+We will be using `example.com` as the domain in the following example. Please remember to replace it with your own domain before running any commands.
+
+You will be running the commands as root. If you aren’t already root, switch to root: `sudo -i`
 
 ### System repositories {#system-repositories}
 
@@ -42,62 +44,28 @@ echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.o
 ```bash
 apt update
 apt install -y \
-  imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core \
+  imagemagick ffmpeg libvips-tools libpq-dev libxml2-dev libxslt1-dev file git-core \
   g++ libprotobuf-dev protobuf-compiler pkg-config gcc autoconf \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
   zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
-  nginx nodejs redis-server redis-tools postgresql postgresql-contrib \
+  nginx nodejs redis-server redis-tools postgresql \
   certbot python3-certbot-nginx libidn11-dev libicu-dev libjemalloc-dev
 ```
 
 #### Yarn {#yarn}
 
+Enable `corepack` so that the correct version of `yarn` can be installed automatically:
+
 ```bash
 corepack enable
-yarn set version classic
 ```
 
-### Installing Ruby {#installing-ruby}
+### Creating the `mastodon` user {#creating-the-mastodon-user}
 
-We will use rbenv to manage Ruby versions as it simplifies obtaining the correct versions and updating them when new releases are available. Since rbenv needs to be installed for an individual Linux user, we must first create the user account under which Mastodon will run:
-
-```bash
-adduser --disabled-login mastodon
-```
-
-We can then switch to the user:
+This is the user account under which Mastodon will run:
 
 ```bash
-su - mastodon
-```
-
-And proceed to install rbenv and rbenv-build:
-
-```bash
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-exec bash
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-```
-
-Once this is done, we can install the correct Ruby version:
-
-```bash
-RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 3.2.3
-rbenv global 3.2.3
-```
-
-We’ll also need to install the bundler:
-
-```bash
-gem install bundler --no-document
-```
-
-Return to the root user:
-
-```bash
-exit
+adduser --disabled-password mastodon
 ```
 
 ## Setup {#setup}
@@ -106,7 +74,7 @@ exit
 
 #### Performance configuration (optional) {#performance-configuration-optional}
 
-For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/16/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`
+For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/17/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`.
 
 #### Creating a user {#creating-a-user}
 
@@ -144,6 +112,25 @@ git clone https://github.com/mastodon/mastodon.git live && cd live
 git checkout $(git tag -l | grep '^v[0-9.]*$' | sort -V | tail -n 1)
 ```
 
+#### Installing Ruby {#installing-ruby}
+
+We will use rbenv to manage Ruby versions as it simplifies obtaining the correct versions and updating them when new releases are available.
+Install rbenv and ruby-build:
+
+```bash
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+exec bash
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+```
+
+Once this is done, we can install the correct Ruby version:
+
+```bash
+RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install
+```
+
 #### Installing the last dependencies {#installing-the-last-dependencies}
 
 Now to install Ruby and JavaScript dependencies:
@@ -152,7 +139,7 @@ Now to install Ruby and JavaScript dependencies:
 bundle config deployment 'true'
 bundle config without 'development test'
 bundle install -j$(getconf _NPROCESSORS_ONLN)
-yarn install --pure-lockfile
+yarn install
 ```
 
 {{< hint style="info" >}}
@@ -164,7 +151,7 @@ The two `bundle config` commands are only needed the first time you're installin
 Run the interactive setup wizard:
 
 ```bash
-RAILS_ENV=production bundle exec rake mastodon:setup
+RAILS_ENV=production bin/rails mastodon:setup
 ```
 
 This will:
@@ -204,21 +191,25 @@ rm /etc/nginx/sites-enabled/default
 Then edit `/etc/nginx/sites-available/mastodon` to 
 
 1. Replace `example.com` with your own domain name
-2. Uncomment the `ssl_certificate` and `ssl_certificate_key` lines and replace the two lines with (ignore this step if you are bringing your own certificate)
+2. Uncomment the `ssl_certificate` and `ssl_certificate_key` (ignore this step if you are bringing your own certificate):
 
-```
-ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;
-ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
-```
+    ```
+    ssl_certificate     /etc/letsencrypt/live/example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;;
+    ```
 
 3. Make any other adjustments you might need.
 
-Un-comment the lines starting with `ssl_certificate` and `ssl_certificate_key`, updating the path with the correct domain name.
-
-Reload nginx for the changes to take effect:
+Allow other users to traverse the mastodon user's home directory, so that nginx's `www-data` user can access asset files:
 
 ```bash
-systemctl reload nginx
+chmod o+x /home/mastodon
+```
+
+Restart nginx for the changes to take effect:
+
+```bash
+systemctl restart nginx
 ```
 
 At this point, you should be able to visit your domain in the browser and see the elephant hitting the computer screen error page. This is because we haven’t started the Mastodon process yet.
@@ -231,7 +222,7 @@ Copy the systemd service templates from the Mastodon directory:
 cp /home/mastodon/live/dist/mastodon-*.service /etc/systemd/system/
 ```
 
-If you deviated from the defaults at any point, check that the username and paths are correct: 
+If you deviated from the defaults at any point, check that the username and paths are correct:
 
 ```sh
 $EDITOR /etc/systemd/system/mastodon-*.service

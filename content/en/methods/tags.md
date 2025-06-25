@@ -20,7 +20,7 @@ aliases: [
 ## View information about a single tag {#get}
 
 ```http
-GET /api/v1/tags/:id HTTP/1.1
+GET /api/v1/tags/:name HTTP/1.1
 ```
 
 Show a hashtag and its associated information
@@ -34,21 +34,22 @@ Show a hashtag and its associated information
 
 ##### Path parameters
 
-:id
-: {{<required>}} String. The name of the hashtag.
+:name
+: {{<required>}} String. The name of the hashtag, case-insensitive.
 
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
 
 ```json
 {
-  "name": "Test",
-  "url": "http://mastodon.example/tags/test",
+  "id": "802",
+  "name": "Caturday",
+  "url": "http://mastodon.example/tags/caturday",
   "history": [
     {
       "day": "1668556800",
@@ -86,7 +87,8 @@ Authorization
       "uses": "0"
     }
   ],
-  "following": false
+  "following": false,
+  "featured": false
 }
 ```
 
@@ -95,7 +97,7 @@ Authorization
 ## Follow a hashtag {#follow}
 
 ```http
-POST /api/v1/tags/:id/follow HTTP/1.1
+POST /api/v1/tags/:name/follow HTTP/1.1
 ```
 
 Follow a hashtag. Posts containing a followed hashtag will be inserted into your home timeline.
@@ -110,13 +112,13 @@ Follow a hashtag. Posts containing a followed hashtag will be inserted into your
 
 ##### Path parameters
 
-:id
-: {{<required>}} String. The name of the hashtag.
+:name
+: {{<required>}} String. The name of the hashtag, case-insensitive.
 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -125,8 +127,9 @@ Tag has been successfully followed
 
 ```json
 {
-  "name": "Test",
-  "url": "http://mastodon.example/tags/test",
+  "id": "802",
+  "name": "Caturday",
+  "url": "http://mastodon.example/tags/caturday",
   "history": [
     {
       "day": "1668556800",
@@ -164,7 +167,8 @@ Tag has been successfully followed
       "uses": "0"
     }
   ],
-  "following": true
+  "following": true,
+  "featured": false
 }
 ```
 
@@ -193,7 +197,7 @@ Prior to 4.1.0: Tag was already followed
 ## Unfollow a hashtag {#unfollow}
 
 ```http
-POST /api/v1/tags/:id/unfollow HTTP/1.1
+POST /api/v1/tags/:name/unfollow HTTP/1.1
 ```
 
 Unfollow a hashtag. Posts containing this hashtag will no longer be inserted into your home timeline.
@@ -207,18 +211,107 @@ Unfollow a hashtag. Posts containing this hashtag will no longer be inserted int
 
 ##### Path parameters
 
+:name
+: {{<required>}} String. The name of the hashtag, case-insensitive.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Tag has been successfully unfollowed, or was already unfollowed
+
+```json
+{
+  "id": "802",
+  "name": "Caturday",
+  "url": "http://mastodon.example/tags/caturday",
+  "history": [
+    {
+      "day": "1668556800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668470400",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668384000",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668297600",
+      "accounts": "1",
+      "uses": "1"
+    },
+    {
+      "day": "1668211200",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668124800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668038400",
+      "accounts": "0",
+      "uses": "0"
+    }
+  ],
+  "following": false,
+  "featured": false
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Feature a hashtag {#feature}
+
+```http
+POST /api/v1/tags/:id/feature HTTP/1.1
+```
+
+Feature the hashtag on your profile.
+
+**Returns:** [Tag]({{< relref "entities/Tag" >}})\
+**OAuth:** User token + `write:accounts`\
+**Version history:**\
+4.4.0 - added
+
+#### Request
+
+##### Path parameters
+
 :id
 : {{<required>}} String. The name of the hashtag.
 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
 
-Tag has been successfully unfollowed, or was already unfollowed
+Tag has been successfully featured, or was already featured
 
 ```json
 {
@@ -261,7 +354,96 @@ Tag has been successfully unfollowed, or was already unfollowed
       "uses": "0"
     }
   ],
-  "following": false
+  "following": false,
+  "featured": true
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Unfeature a hashtag {#unfeature}
+
+```http
+POST /api/v1/tags/:id/unfeature HTTP/1.1
+```
+
+Stop featuring the hashtag on your profile.
+
+**Returns:** [Tag]({{< relref "entities/Tag" >}})\
+**OAuth:** User token + `write:accounts`\
+**Version history:**\
+4.4.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The name of the hashtag.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Tag has been successfully unfeatured
+
+```json
+{
+  "name": "Test",
+  "url": "http://mastodon.example/tags/test",
+  "history": [
+    {
+      "day": "1668556800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668470400",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668384000",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668297600",
+      "accounts": "1",
+      "uses": "1"
+    },
+    {
+      "day": "1668211200",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668124800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668038400",
+      "accounts": "0",
+      "uses": "0"
+    }
+  ],
+  "following": false,
+  "featured": false
 }
 ```
 

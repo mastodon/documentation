@@ -36,7 +36,7 @@ Obtain information about popularity of certain accounts, servers, languages, etc
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -53,10 +53,10 @@ keys[]
 - `instance_languages` = Most-used languages from a remote server
 
 start_at
-: String (ISO 8601 Datetime). The start date for the time period. If a time is provided, it will be ignored.
+: String ([Datetime](/api/datetime-format#datetime)). The start date for the time period. If a time is provided, it will be ignored.
 
 end_at
-: String (ISO 8601 Datetime). The end date for the time period. If a time is provided, it will be ignored.
+: String ([Datetime](/api/datetime-format#datetime)). The end date for the time period. If a time is provided, it will be ignored.
 
 limit
 : Integer. The maximum number of results to return for sources, servers, languages, tag or instance dimensions.

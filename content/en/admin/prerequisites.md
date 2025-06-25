@@ -6,7 +6,7 @@ menu:
     parent: admin
 ---
 
-If you are setting up a fresh machine, it is recommended that you secure it first. Assuming that you are running **Ubuntu 20.04**:
+If you are setting up a fresh machine, it is recommended that you secure it first. Assuming that you are running **Ubuntu 22.04**:
 
 ## Do not allow password-based SSH login (keys only)
 

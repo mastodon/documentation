@@ -22,6 +22,7 @@ aliases: [
 {
   "id": 328183,
   "endpoint": "https://yourdomain.example/listener",
+  "standard": true,
   "alerts": {
     "follow": false,
     "favourite": false,
@@ -48,6 +49,13 @@ aliases: [
 **Type:** String (URL)\
 **Version history:**\
 2.4.0 - added
+
+### `standard` {#standard}
+
+**Description:** If the push messages follow the standardized specifications (RFC8030+RFC8291+RFC8292). Else they follow a legacy version of the specifications (4th draft of RFC8291 and 1st draft of RFC8292).\
+**Type:** Boolean\
+**Version history:**\
+4.4.0 - added
 
 ### `server_key` {#server_key}
 

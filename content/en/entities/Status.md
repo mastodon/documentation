@@ -119,7 +119,7 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** The date when this status was created.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 0.1.0 - added
 
@@ -249,7 +249,7 @@ aliases: [
 
 ### `in_reply_to_account_id` {#in_reply_to_account_id}
 
-**Description:** ID of the account that authored the status being replied to.\
+**Description:** Might be the ID of the account that authored the status being replied to. This sometimes skips over self-replies. If status A was posted by account 1, and account 2 posts statuses B, C, and D as a chain of replies to status A, statuses B, C, and D will all have `in_reply_to_account_id` = 1 (instead of C and D having `in_reply_to_account_id` = 2). However, if status A was posted by account 1, and account 1 posts status B as a direct reply to A, B will have an `in_reply_to_account_id` = 1 (instead of null).\
 **Type:** {{<nullable>}} String (cast from an integer but not guaranteed to be a number) or null\
 **Version history:**\
 0.1.0 - added
@@ -257,7 +257,7 @@ aliases: [
 ### `reblog` {#reblog}
 
 **Description:** The status being reblogged.\
-**Type:** {{<nullable>}} [Status](#) or null\
+**Type:** {{<nullable>}} [Status]({{< relref "entities/status" >}}) or null\
 **Version history:**\
 0.1.0 - added
 
@@ -292,9 +292,16 @@ aliases: [
 ### `edited_at` {#edited_at}
 
 **Description:** Timestamp of when the status was last edited.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime)\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 3.5.0 - added
+
+### `quote` {#quote}
+
+**Description:** Information about the status being quoted, if any\
+**Type:* {{<nullable>}} [Quote]({{< relref "entities/quote" >}}), [ShallowQuote]({{< relref "entities/ShallowQuote" >}}) or null\
+**Version history:**\
+4.4.0 - added
 
 ### `favourited` {{%optional%}} {#favourited}
 

@@ -26,6 +26,8 @@ aliases: [
 GET /api/v1/polls/:id HTTP/1.1
 ```
 
+View a poll attached to a status.
+
 **Returns:** [Poll]({{< relref "entities/poll" >}})\
 **OAuth:** Public if parent status is public. User token + `read:statuses` if parent status is private.\
 **Version history:**\
@@ -41,7 +43,7 @@ GET /api/v1/polls/:id HTTP/1.1
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -90,6 +92,8 @@ Poll does not exist, or poll's parent status is private
 POST /api/v1/polls/:id/votes HTTP/1.1
 ```
 
+Vote on a poll attached to a status.
+
 **Returns:** [Poll]({{< relref "entities/poll" >}})\
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
@@ -105,7 +109,7 @@ POST /api/v1/polls/:id/votes HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 

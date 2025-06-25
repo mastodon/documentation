@@ -62,8 +62,8 @@ aliases: [
 
 #### `data[][date]` {#data-date}
 
-**Description:** Midnight on the requested day in the time period.\
-**Type:** String (ISO 8601 Datetime)\
+**Description:** The requested day or midnight on the requested day in the time period.\
+**Type:** String ([Date](/api/datetime-format#date) or [Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 3.5.0 - added
 

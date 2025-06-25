@@ -35,10 +35,14 @@ List all hashtags featured on your profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
+
+{{< hint style="info" >}}
+The `id` property of the items in this response refers to the [FeaturedTag]({{< relref "entities/featuredtag" >}}) entity, and is not the `id` for a [Tag]({{< relref "entities/tag" >}}) entity.
+{{< /hint >}}
 
 ```json
 [
@@ -81,7 +85,7 @@ Promote a hashtag on your profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -125,7 +129,7 @@ If `name` is not a valid hashtag, e.g. contains illegal characters or only numbe
 
 ---
 
-## Unfeature a tag {unfeature}
+## Unfeature a tag {#unfeature}
 
 ```http
 DELETE /api/v1/featured_tags/:id HTTP/1.1
@@ -148,7 +152,7 @@ Stop promoting a hashtag on your profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -198,7 +202,7 @@ Shows up to 10 recently-used tags.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -208,6 +212,7 @@ Truncated results to first and last tag.
 ```json
 [
   {
+    "id": "4325",
     "name": "nowplaying",
     "url": "https://mastodon.social/tags/nowplaying",
     "history": [
@@ -250,6 +255,7 @@ Truncated results to first and last tag.
   },
   // ...
   {
+    "id": "1684",
     "name": "mastothemes",
     "url": "https://mastodon.social/tags/mastothemes",
     "history": [

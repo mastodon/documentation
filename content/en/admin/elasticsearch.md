@@ -27,12 +27,6 @@ It deliberately does not allow searching for arbitrary strings in the entire dat
 Mastodon is tested with Elasticsearch version 7. It should support OpenSearch, as well as Elasticsearch versions 6 and 8, but those setups are not officially supported.
 {{< /hint >}}
 
-Elasticsearch requires a Java runtime. If you don’t have Java already installed, do it now. Assuming you are logged in as `root`:
-
-```bash
-apt install openjdk-17-jre-headless
-```
-
 Add the official Elasticsearch repository to apt:
 
 ```bash
@@ -50,6 +44,16 @@ apt install elasticsearch
 {{< hint style="warning" >}}
 **Security warning:** By default, Elasticsearch is supposed to bind to localhost only, i.e. be inaccessible from the outside network. You can check which address Elasticsearch binds to by looking at `network.host` within `/etc/elasticsearch/elasticsearch.yml`. Consider that anyone who can access Elasticsearch can access and modify any data within it, as there is no authentication layer. So it’s really important that the access is secured. Having a firewall that only exposes the 22, 80 and 443 ports is advisable, as outlined in the [main installation instructions](../../prerequisites/#install-a-firewall-and-only-whitelist-ssh-http-and-https-ports). If you have a multi-host setup, you must know how to secure internal traffic.
 {{< /hint >}}
+
+Before you start Elasticsearch, you might want to limit its RAM consumption. A RAM limit can be set be creating a new file `/etc/elasticsearch/jvm.options.d/limit-ram.options` with the following content:
+
+```
+# Limit RAM size to 24 GB
+-Xms16g
+-Xmx24g
+```
+
+This will reserve 16 GB of RAM for Elasticsearch right from the start and allow it to use up to 24 GB of RAM. Also see: [Managing and troubleshooting Elasticsearch memory](https://www.elastic.co/blog/managing-and-troubleshooting-elasticsearch-memory/).
 
 To start Elasticsearch:
 
@@ -150,6 +154,23 @@ su - mastodon
 cd live
 RAILS_ENV=production bin/tootctl search deploy
 ```
+
+{{< hint style="info" >}}
+Creating Elasticsearch indicies could require more memory than the JVM (Java Virtual Machine) provides. If Elasticsearch crashes while creating indicies, try to allocate more memory.
+
+1. Create and open a file in the directory ```/etc/elasticsearch/jvm.options.d/``` (for example: ```nano /etc/elasticsearch/jvm.options.d/ram.options```)
+2. Add following text and edit the allocated memory to your needs. As a rule of thumb, Elasticsearch should use about 25%-50% of your available memory. Do not allocate more memory than available.
+```
+# Xms represents the initial size of total heap space
+# Xmx represents the maximum size of total heap space
+# Both values should be the same
+-Xms2048m
+-Xmx2048m
+```
+3. Save the file.
+4. Restart Elasticsearch using ```systemctl restart elasticsearch```.
+5. Retry creating Elasticsearch indicies. If Elasticsearch still crashes, try to set a higher number.
+{{< /hint >}}
 
 ## Search optimization for other languages
 ### Chinese search optimization {#chinese-search-optimization}

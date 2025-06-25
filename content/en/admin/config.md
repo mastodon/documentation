@@ -34,13 +34,17 @@ location /.well-known/webfinger {
 }
 ```
 
+{{< hint style="info" >}}
+You must serve the redirect with CORS headers; otherwise, some functions of Mastodon's web UI will not work. For example: `Access-Control-Allow-Origin: *`
+{{</ hint >}}
+
 #### `ALTERNATE_DOMAINS`
 
 If you have multiple domains pointed at your Mastodon server, this setting will allow Mastodon to recognize itself when users are addressed using those other domains. Separate the domains by commas, e.g. `foo.com,bar.com`
 
 #### `ALLOWED_PRIVATE_ADDRESSES`
 
-Comma-separated specific addresses/subnets are allowed in outgoing HTTP queries.
+Comma-separated list of private IP addresses/subnets that are allowed in outgoing HTTP requests. Mastodon blocks HTTP requests to hosts on private IP address ranges (like `127.0.0.1` or `192.168.1.1/16`) to prevent [Server-side request forgeries](https://en.wikipedia.org/wiki/Server-side_request_forgery). This setting removes the specified IP addresses/subnets from being blocked.
 
 #### `AUTHORIZED_FETCH`
 
@@ -97,7 +101,13 @@ Setting `DISABLE_AUTOMATIC_SWITCHING_TO_APPROVED_REGISTRATIONS=true` disables th
 
 #### `DEFAULT_LOCALE`
 
-By default, Mastodon will automatically detect the visitor's language from browser headers and display the Mastodon interface in that language (if it's supported). If you are running a language-specific or regional server, that behavior may mislead visitors who do not speak your language into signing up on your server. For this reason, you may want to set this variable to a specific language.
+By default, Mastodon will automatically detect the visitor's language from browser headers and display the Mastodon interface in that language (if it's supported) and otherwise fall back to English.
+If you are running a language-specific or regional server, that behavior may mislead visitors who do not speak your language into signing up on your server. For this reason, you may want to set this variable to a specific language.
+
+As of Mastodon 4.4.0, this environment variable does not override the visitor's browser language. To do that, also set `FORCE_DEFAULT_LOCALE=true`.
+
+**Version history:**\
+4.4.0 - changed to only affect the fallback/default language
 
 Example value: `de`
 
@@ -172,6 +182,13 @@ Supported languages:
 - `zh-CN`
 - `zh-HK`
 - `zh-TW`
+
+#### `FORCE_DEFAULT_LOCALE`
+
+When set to `true`, skips the visitor's brower language detection feature and use `DEFAULT_LOCALE` (or English) instead, corresponding to the behavior of `DEFAULT_LOCALE` prior to Mastodon 4.4.0.
+
+**Version history:**\
+4.4.0 - added
 
 ### Secrets {#secrets}
 
@@ -262,6 +279,17 @@ If you are not using Unix sockets, this defines the IP to which the process will
 This variable cannot be defined in dotenv (`.env`) files as it's used before they are loaded.
 {{</ hint >}}
 
+#### `MASTODON_USE_LIBVIPS`
+
+By default, Mastodon uses ImageMagick to process images in posts. As an alternative, [libvips](https://www.libvips.org) 8.13+ can be utilized, which has better performance and lower resource utilization.
+
+When installing Mastodon from source, this defaults to `false`, set to `true` to enable.
+
+When deploying the Mastodon project container image, this is hardcoded to `true` and should not be overridden.
+
+**Version history:**\
+4.3.0 - added
+
 ### Scaling options {#scaling}
 
 {{< page-ref page="admin/scaling" >}}
@@ -292,10 +320,11 @@ The streaming API can be deployed to a different domain/subdomain. This may impr
 
 Example value: `wss://streaming.example.com`
 
-#### `STREAMING_CLUSTER_NUM` (deprecated) {#streaming_cluster_num}
+#### `STREAMING_CLUSTER_NUM` {{%removed%}} {#streaming_cluster_num}
 
 {{< hint style="danger" >}}
-Deprecated: The streaming server process now only uses a single node.js process, to scale it further, you'll need to follow the documentation in the [scaling guide](/admin/scaling#streaming)
+**Removed:**\
+The streaming server process now only uses a single node.js process, to scale it further, you'll need to follow the documentation in the [scaling guide](/admin/scaling#streaming)
 {{< /hint >}}
 
 Specific to the streaming API, this variable determines how many different processes the streaming API forks into. Defaults to the number of CPU cores minus one.
@@ -338,6 +367,24 @@ If provided, takes precedence over `DB_HOST`, `DB_USER`, `DB_NAME`, `DB_PASS` an
 
 Example value: `postgresql://user:password@localhost:5432`
 
+#### `QUERY_LOG_TAGS_ENABLED`
+
+If set to `true`, then ActiveRecord will insert comments at the end of every SQL statement, which can help analyzing the performance of the application.
+
+The comments are formatted using the SqlCommenter format and the following attributes:
+- `namespaced_controller`: full name of the controller for the HTTP request that generated this SQL statement
+- `action`: name of the action for the HTTP request that generated this SQL statement
+- `sidekiq_job_class`: class name of the Sidekiq job that generated this SQL statement
+
+{{< hint style="warning" >}}
+Enabling this option will disable prepared statements
+{{</ hint >}}
+
+Defaults to `false`.
+
+**Version history:**\
+4.4.0 - added
+
 ### PostgreSQL (read-only replica) {#postgresql-replica}
 
 {{< hint style="info" >}}
@@ -372,8 +419,17 @@ No default.
 
 ### Redis {#redis}
 
+Mastodon uses Redis in three different ways:
+
+* The web application itself uses redis to store data and communicate with the streaming server.
+* Redis is used as cache backend for Rails' built-in caching functionality.
+* Sidekiq, which we use to process background jobs, stores job data in redis.
+
+You can use a single Redis instance for all three use cases. Simple use the appropriate `REDIS_*` variables mentioned below. But you can
+also use two or even three distinct Redis instances by using the variables prefixed with `CACHE_` and `SIDEKIQ_`.
+
 {{< hint style="info" >}}
-It is possible to use a separate Redis server for volatile cache. You may wish to do so if your Redis server starts getting overwhelmed.
+It is advisable to use a separate Redis server for volatile cache. You may wish to do so if your single Redis server starts getting overwhelmed.
 {{</ hint >}}
 
 #### `REDIS_HOST`
@@ -384,15 +440,83 @@ Defaults to `localhost`.
 
 Defaults to `6379`.
 
+#### `REDIS_USER`
+
+Optional. The username used to connect to Redis.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_PASSWORD`
+
+Optional. The password used to connect to Redis.
+
 #### `REDIS_URL`
 
-If provided, takes precedence over `REDIS_HOST` and `REDIS_PORT`.
+If provided, takes precedence over `REDIS_HOST`, `REDIS_PORT`, `REDIS_USER`, `REDIS_PASSWORD` and sentinel settings.
 
 Example value: `redis://user:password@localhost:6379`
+
+If you need to use TLS to connect to your Redis server, you must use `REDIS_URL` with the protocol scheme `rediss://` and set `REDIS_DRIVER` as described below.
+
+#### `REDIS_DRIVER`
+
+If provided, the driver for Redis connections is changed from using the Mastodon default hiredis driver to the standard Ruby driver. Using the Ruby driver is required to connect to Redis using TLS. Note that use of the Ruby driver may have an impact on Redis performance in some environments.
+
+Defaults to `hiredis`, accepted values are `hiredis` or `ruby`.
+
+**Version history:**\
+4.3.0 - added
 
 #### `REDIS_NAMESPACE`
 
 If provided, namespaces all Redis keys. This allows the sharing of the same Redis database between different projects or Mastodon servers.
+
+{{< hint style="warning" >}}
+This option is deprecated. Sidekiq 7 removes support for namespaces, and so will a future version of Mastodon. We will attempt to document a clear migration path by the time that happens. If you are setting up a new instance, using this option is highly discouraged.
+{{</ hint >}}
+
+**Version history:**\
+4.3.0 - deprecated
+
+#### `REDIS_SENTINELS`
+
+A comma-delimited list of Redis Sentinel instance HOST:PORTs. The port number is optional, if omitted it will use the value given in `REDIS_SENTINEL_PORT` or the default of `26379`.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `REDIS_SENTINEL_MASTER`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_SENTINEL_MASTER`
+
+The name of the Redis Sentinel master to connect to.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_SENTINEL_PORT`
+
+The default port for the sentinels given in `REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_SENTINEL_USERNAME`
+
+The username used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+#### `REDIS_SENTINEL_PASSWORD`
+
+The password used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
 
 #### `CACHE_REDIS_HOST`
 
@@ -402,6 +526,17 @@ Defaults to the value of `REDIS_HOST`.
 
 Defaults to the value of `REDIS_PORT`.
 
+#### `CACHE_REDIS_USER`
+
+Optional. The username used to connect to Redis.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_PASSWORD`
+
+Optional. The password used to connect to Redis.
+
 #### `CACHE_REDIS_URL`
 
 If provided, takes precedence over `CACHE_REDIS_HOST` and `CACHE_REDIS_PORT`. Defaults to the value of `REDIS_URL`.
@@ -410,7 +545,110 @@ If provided, takes precedence over `CACHE_REDIS_HOST` and `CACHE_REDIS_PORT`. De
 
 Defaults to the value of `REDIS_NAMESPACE`.
 
+#### `CACHE_REDIS_SENTINELS`
+
+A comma-delimited list of Redis Sentinel instance HOST:PORTs. The port number is optional, if omitted it will use a default of `26379`.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `CACHE_REDIS_SENTINEL_MASTER`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_SENTINEL_MASTER`
+
+The name of the Redis Sentinel master to connect to.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `CACHE_REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_SENTINEL_PORT`
+
+The default port for the sentinels given in `CACHE_REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_SENTINEL_USERNAME`
+
+The username used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+#### `CACHE_REDIS_SENTINEL_PASSWORD`
+
+The password used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_HOST`
+
+Defaults to the value of `REDIS_HOST`.
+
+#### `SIDEKIQ_REDIS_PORT`
+
+Defaults to the value of `REDIS_PORT`.
+
+#### `SIDEKIQ_REDIS_USER`
+
+Optional. The username used to connect to Redis.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_PASSWORD`
+
+Optional. The password used to connect to Redis.
+
 #### `SIDEKIQ_REDIS_URL`
+
+If provided, takes precedence over `SIDEKIQ_REDIS_HOST` and `SIDEKIQ_REDIS_PORT`. Defaults to the value of `REDIS_URL`.
+
+#### `SIDEKIQ_REDIS_NAMESPACE`
+
+Defaults to the value of `REDIS_NAMESPACE`.
+
+#### `SIDEKIQ_REDIS_SENTINELS`
+
+A comma-delimited list of Redis Sentinel instance HOST:PORTs. The port number is optional, if omitted it will use a default of `26379`.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `SIDEKIQ_REDIS_SENTINEL_MASTER`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_SENTINEL_MASTER`
+
+The name of the Redis Sentinel master to connect to.
+
+Please note that if you would like to use Redis Sentinel you also need to specify `SIDEKIQ_REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_SENTINEL_PORT`
+
+The default port for the sentinels given in `SIDEKIQ_REDIS_SENTINELS`.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_SENTINEL_USERNAME`
+
+The username used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
+
+#### `SIDEKIQ_REDIS_SENTINEL_PASSWORD`
+
+The password used to authenticate with sentinels.
+
+**Version history:**\
+4.3.0 - added
 
 ### Elasticsearch {#elasticsearch}
 
@@ -451,22 +689,6 @@ Used for optionally authenticating with Elasticsearch
 #### `ES_PREFIX`
 
 Useful if the Elasticsearch server is shared between multiple projects or different Mastodon servers. Defaults to the value of `REDIS_NAMESPACE`.
-
-### StatsD {#statsd}
-
-#### `STATSD_ADDR`
-
-If set, Mastodon will log some events and metrics into a StatsD instance identified by its hostname and port.
-
-Example value: `localhost:8125`
-
-#### `STATSD_NAMESPACE`
-
-If set, all StatsD keys will be prefixed with this. Defaults to `Mastodon.production` when `RAILS_ENV` is `production`, `Mastodon.development` when it's `development`, etc.
-
-#### `STATSD_SIDEKIQ`
-
-If set to `true`, Mastodon will log some Sidekiq metrics into StatsD. Defaults to `false`.
 
 #### `ES_CA_FILE`
 
@@ -510,7 +732,7 @@ Set to `auto` (default), `always`, or `never`.
 
 #### `SMTP_SSL`
 
-E-mail configuration is based on the *action_mailer* component of the *Ruby on Rails* framework that Mastodon is built on. Complete documentation on action_mailer is available [here](https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration). The client uses SMTP or derivatives: StartTLS + SMTP or SMTPS (SMTP over TLS).
+Email configuration is based on the *action_mailer* component of the *Ruby on Rails* framework that Mastodon is built on. Complete documentation on action_mailer is available [here](https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration). The client uses SMTP or derivatives: StartTLS + SMTP or SMTPS (SMTP over TLS).
 
 ### Basic configuration {#basic}
 
@@ -536,6 +758,73 @@ By default, a StartTLS connection will be attempted to the specified SMTP server
 * `SMTP_SSL`: `true` or `false` (default `false`)
 
 Note that `TLSv1.3` and `TLSv1.2` are the only SSL/TLS protocols currently considered to be secure.
+
+### Prometheus Metrics {#prometheus}
+
+Mastodon optionally supports exposing some metrics using the Prometheus format.
+
+For the Ruby processes, it is using the [`prometheus_exporter` gem](https://github.com/discourse/prometheus_exporter). Please refer to their documentation for more details.
+
+By default, you will need to run a `prometheus_exporter` server (using `./bin/prometheus_exporter`) to collect the metrics and expose them to be scraped. See `MASTODON_PROMETHEUS_EXPORTER_LOCAL` if you want to change this behaviour.
+
+Note that metrics in the Prometheus format are always enabled for the streaming server, and can be accessed at `http://streaming-server-host:port/metrics`
+
+**Version history:**\
+4.4.0 - added support for the Ruby processes
+
+#### `MASTODON_PROMETHEUS_EXPORTER_ENABLED`
+
+If set to `true`, Mastodon's Ruby processes (web & Sidekiq) will enable the Prometheus instrumentation.
+
+#### `MASTODON_PROMETHEUS_EXPORTER_WEB_DETAILED_METRICS`
+
+If set to `true`, the instrumentation will collect and expose per-controller/action metrics for every web request. Note that this might cause some resource overhead.
+
+#### `MASTODON_PROMETHEUS_EXPORTER_SIDEKIQ_DETAILED_METRICS`
+
+If set to `true`, the instrumentation will collect and expose per job metrics for every Sidekiq job. Note that this might cause some resource overhead.
+
+#### `MASTODON_PROMETHEUS_EXPORTER_LOCAL`
+
+If set to `true`, an in-process server will be started to expose the metrics, rather than trying to send them to an external `prometheus_exporter` server. This can be useful when running Sidekiq in a containerized environment to avoid the overhead of the external exporter. Metrics will be exposed on `http://host:port/metrics`
+
+Important: this will not work for multi-process servers, like Puma, as every process will try to listen on the same port and will fail.
+
+#### `PROMETHEUS_EXPORTER_HOST`
+
+If the in-process server is not enabled, the metrics will be sent to this host (which should be running a `prometheus_exporter` server). Defaults to `localhost`.
+
+#### `PROMETHEUS_EXPORTER_PORT`
+
+If the in-process server is not enabled, the metrics will be sent to this host (which should be running a `prometheus_exporter` server). Defaults to `9394`.
+
+#### `MASTODON_PROMETHEUS_EXPORTER_HOST`
+
+If the in-process server is enabled, the in-process exporter will listen on this host. Defaults to `localhost`
+
+#### `MASTODON_PROMETHEUS_EXPORTER_PORT`
+
+If the in-process server is enabled, the in-process exporter will listen on this port. Defaults to `9394`
+
+### OpenTelemetry {#otel}
+
+Mastodon supports exporting tracing data using the OpenTelemetry protocol. The instrumentation uses the standard OTEL Ruby SDK, and should support the [standard OTEL environment configuration variables](https://opentelemetry.io/docs/languages/sdk-configuration/general/), with the exception of `OTEL_SERVICE_NAME` (see `OTEL_SERVICE_NAME_PREFIX` below). Mastodon currently only ships with the OLTP exporter.
+
+**Version history:**\
+4.3.0 - added support for the Ruby backend
+
+#### `OTEL_SERVICE_NAME_PREFIX`
+
+Prefix for the OTEL service names. The services names will be `$prefix/web` and `$prefix/sidekiq`. Defaults to `mastodon`.
+
+#### `OTEL_SERVICE_NAME_SEPARATOR`
+
+What character to use in service names when differentiating between different services. Defaults to `/` (i.e. `mastodon/web`).
+
+
+#### `OTEL_EXPORTER_OTLP_ENDPOINT`
+
+URL of the OLTP server to send the traces to. OpenTelemetry instrumentation is disabled if this variable is not set. No default (empty value).
 
 ## File storage {#files}
 
@@ -579,17 +868,22 @@ The bucket must support access control lists (ACLs). For AWS S3, this means sett
 
 #### `S3_OVERRIDE_PATH_STYLE`
 
-
 #### `S3_PROTOCOL`
 
 #### `S3_HOSTNAME`
 
 #### `S3_ALIAS_HOST`
 
+#### `EXTRA_MEDIA_HOSTS`
+
+**Version history:**\
+4.4.0 - added
 
 #### `S3_OPEN_TIMEOUT`
 
 #### `S3_READ_TIMEOUT`
+
+#### `S3_RETRY_LIMIT`
 
 #### `S3_FORCE_SINGLE_REQUEST`
 
@@ -821,7 +1115,7 @@ It is important to use a supported file format (JPEG or PNG, not SVG).
 
 ## Limits {#limits}
 
-### Anti Spam / Abuse 
+### Anti Spam / Abuse
 
 #### `HCAPTCHA_SITE_KEY`
 #### `HCAPTCHA_SECRET_KEY`
@@ -832,14 +1126,14 @@ If set, registrations confirm page will display a captcha, see [Captcha](https:/
 
 #### `EMAIL_DOMAIN_ALLOWLIST`
 
-If set, registrations will not be possible with any e-mails **except** those from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
+If set, registrations will not be possible with any emails **except** those from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
 
-#### `EMAIL_DOMAIN_DENYLIST`
+#### `EMAIL_DOMAIN_DENYLIST` {{%deprecated%}}
 
-If set, registrations will not be possible with any e-mails from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
+If set, registrations will not be possible with any emails from the specified domains. Pipe-separated values, e.g.: `foo.com|bar.com`
 
 {{< hint style="warning" >}}
-This option is deprecated. You can dynamically block e-mail domains from the admin interface or the `tootctl` command-line interface.
+This option is deprecated. You can dynamically block email domains from the admin interface or the `tootctl` command-line interface.
 {{</ hint >}}
 
 ### Sessions
@@ -880,6 +1174,26 @@ database attributes.
 
 **Version history:**\
 4.3.0 - added
+
+### StatsD (removed in 4.3.0) {#statsd}
+
+{{< hint style="danger" >}}
+StatsD support has been deprecated in Mastodon 4.2.0, and remove entirely in 4.3.0.
+{{< /hint >}}
+
+#### `STATSD_ADDR`
+
+If set, Mastodon will log some events and metrics into a StatsD instance identified by its hostname and port.
+
+Example value: `localhost:8125`
+
+#### `STATSD_NAMESPACE`
+
+If set, all StatsD keys will be prefixed with this. Defaults to `Mastodon.production` when `RAILS_ENV` is `production`, `Mastodon.development` when it's `development`, etc.
+
+#### `STATSD_SIDEKIQ`
+
+If set to `true`, Mastodon will log some Sidekiq metrics into StatsD. Defaults to `false`.
 
 ### Uncategorized or unsorted
 

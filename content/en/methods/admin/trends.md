@@ -35,7 +35,7 @@ Links that have been shared more than others, including unapproved and unreviewe
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -128,7 +128,7 @@ Statuses that have been interacted with more than others, including unapproved a
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -187,7 +187,7 @@ Tags that are being used more frequently within the past week, including unappro
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -195,6 +195,7 @@ Authorization
 ```json
 [
   {
+    "id": "802",
     "name": "caturday",
     "url": "https://mastodon.example/tags/caturday",
     "history": [
@@ -234,7 +235,6 @@ Authorization
         "uses": "22"
       }
     ],
-    "id": "802",
     "trendable": true,
     "usable": true,
     "requires_review": false

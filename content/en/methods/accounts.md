@@ -25,19 +25,22 @@ POST /api/v1/accounts HTTP/1.1
 
 Creates a user and account records. Returns an account access token for the app that initiated the request. The app should save this token for later, and should wait for the user to confirm their account by clicking a link in their email inbox.
 
+A relationship between the OAuth Application and created user account is stored.
+
 **Returns:** [Token]({{< relref "entities/token" >}})\
 **OAuth:** App token + `write:accounts`\
 **Version history:**\
 2.7.0 - added\
 3.0.0 - added `reason` parameter\
-3.4.0 - added `details` to failure response
+3.4.0 - added `details` to failure response\
+4.4.0 - added `date_of_birth` parameter
 
 #### Request
 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <app token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <app_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -58,6 +61,9 @@ locale
 
 reason
 : String. If registrations require manual approval, this text will be reviewed by moderators.
+
+date_of_birth
+: String ([Date](/api/datetime-format#date)), required if the server has a minimum age requirement.
 
 #### Response
 
@@ -157,16 +163,17 @@ GET /api/v1/accounts/verify_credentials HTTP/1.1
 Test to make sure that the user token works.
 
 **Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
-**OAuth**: User token + `read:accounts`\
+**OAuth:** User token + `profile` or `read:accounts`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+4.3.0 - added `profile` scope
 
 #### Request
 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -307,7 +314,7 @@ PATCH /api/v1/accounts/update_credentials HTTP/1.1
 
 Update the user's display and preferences.
 
-**Returns:** the user's own [Account]({{< relref "entities/Account">}}) with [`source`]({{< relref "entities/Account#source">}}) attribute\
+**Returns:** [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}})\
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
 1.1.1 - added\
@@ -316,19 +323,20 @@ Update the user's display and preferences.
 2.4.2 - added `source[language]` parameter\
 2.7.0 - added `discoverable` parameter\
 4.1.0 - added `hide_collections` parameter\
-4.2.0 - added `indexable` parameter
+4.2.0 - added `indexable` parameter\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added `attribution_domains` parameter
 
 #### Request
 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
 display_name
-: String. The display name to use for the profile. 
+: String. The display name to use for the profile.
 
 note
 : String. The account bio.
@@ -353,6 +361,9 @@ hide_collections
 
 indexable
 : Boolean. Whether public posts should be searchable to anyone.
+
+attribution_domains[]
+: Array of String. Domains of websites allowed to credit the account.
 
 fields_attributes
 : Hash. The profile fields to be set. Inside this hash, the key is an integer cast to a string (although the exact integer does not matter), and the value is another hash including `name` and `value`. By default, max 4 fields.
@@ -557,7 +568,7 @@ View information about a profile.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -746,7 +757,7 @@ id[]
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -832,7 +843,7 @@ Statuses posted to the given account.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -940,11 +951,11 @@ Accounts which follow the given account, if network is not hidden by the account
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
-max_id 
+max_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 since_id
@@ -1046,11 +1057,11 @@ Accounts which the given account is following, if network is not hidden by the a
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
-max_id 
+max_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 since_id
@@ -1149,7 +1160,7 @@ Tags featured by this account.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1189,7 +1200,7 @@ User lists that you have added this account to.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1280,7 +1291,7 @@ Follow the given account. Can also be used to update whether to show reblogs or 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -1290,7 +1301,7 @@ reblogs
 notify
 : Boolean. Receive notifications when this account posts a status? Defaults to false.
 
-languages
+languages[]
 : Array of String (ISO 639-1 language two-letter code). Filter received statuses for these languages. If not provided, you will receive this account's posts in all languages.
 
 #### Response
@@ -1360,7 +1371,7 @@ Unfollow the given account.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1428,7 +1439,7 @@ Remove the given account from your followers.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1497,7 +1508,7 @@ Block the given account. Clients should filter statuses from this account if rec
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1566,7 +1577,7 @@ Unblock the given account.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1636,7 +1647,7 @@ Mute the given account. Clients should filter statuses and notifications from th
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -1713,7 +1724,7 @@ Unmute the given account.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1759,7 +1770,7 @@ Token does not have an authorized user
 
 ---
 
-## Feature account on your profile {#pin}
+## Feature account on your profile {{%deprecated%}} {#pin}
 
 ```http
 POST /api/v1/accounts/:id/pin HTTP/1.1
@@ -1771,7 +1782,8 @@ Add the given account to the user's featured profiles. (Featured profiles are cu
 **OAuth:** User token + `write:accounts`\
 **Version history:**\
 2.5.0 - added\
-4.0.0 - calling this method is now idempotent
+4.0.0 - calling this method is now idempotent\
+4.4.0 - deprecated in favor of `/api/v1/accounts/:id/endorse`
 
 #### Request
 ##### Path parameters
@@ -1782,7 +1794,7 @@ Add the given account to the user's featured profiles. (Featured profiles are cu
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1858,7 +1870,7 @@ Can sometimes be returned if the account already endorsed.
 
 ---
 
-## Unfeature account from profile {#unpin}
+## Unfeature account from profile {{%deprecated%}} {#unpin}
 
 ```http
 POST /api/v1/accounts/:id/unpin HTTP/1.1
@@ -1869,7 +1881,8 @@ Remove the given account from the user's featured profiles.
 **Returns:** [Relationship]({{< relref "entities/relationship">}})\
 **OAuth:** User + `write:accounts`\
 **Version history:**\
-2.5.0 - added
+2.5.0 - added\
+4.4.0 - deprecated in favor of `/api/v1/accounts/:id/unendorse`
 
 #### Request
 ##### Path parameters
@@ -1880,7 +1893,294 @@ Remove the given account from the user's featured profiles.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Successfully unendorsed, or account was already not endorsed
+
+```json
+{
+  "id": "1",
+  "following": true,
+  "showing_reblogs": true,
+  "notifying": false,
+  "followed_by": true,
+  "blocking": false,
+  "blocked_by": false,
+  "muting": false,
+  "muting_notifications": false,
+  "requested": false,
+  "domain_blocking": false,
+  "endorsed": false
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 422: Unprocessable entity
+
+Token does not have an authorized user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
+## Get featured accounts {#endorsements}
+
+```http
+GET /api/v1/accounts/:id/endorsements HTTP/1.1
+```
+
+Accounts that the user is currently featuring on their profile.
+
+**Returns:** [Account]({{< relref "entities/account" >}})\
+**OAuth:** Public\
+**Version history:**\
+4.4.0 - added
+
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
+
+#### Response
+##### 200: OK
+
+Sample call with limit=2.
+
+```json
+[
+  {
+    "id": "952529",
+    "username": "alayna",
+    "acct": "alayna@desvox.es",
+    "display_name": "Alayna Desirae",
+    "locked": true,
+    "bot": false,
+    "created_at": "2019-10-26T23:12:06.570Z",
+    "note": "experiencing ________ difficulties<br>22y/o INFP in Oklahoma",
+    "url": "https://desvox.es/users/alayna",
+    "avatar": "https://files.mastodon.social/accounts/avatars/000/952/529/original/6534122046d050d5.png",
+    "avatar_static": "https://files.mastodon.social/accounts/avatars/000/952/529/original/6534122046d050d5.png",
+    "header": "https://files.mastodon.social/accounts/headers/000/952/529/original/496f1f817e042ade.png",
+    "header_static": "https://files.mastodon.social/accounts/headers/000/952/529/original/496f1f817e042ade.png",
+    "followers_count": 0,
+    "following_count": 0,
+    "statuses_count": 955,
+    "last_status_at": "2019-11-23T07:05:50.682Z",
+    "emojis": [],
+    "fields": []
+  },
+  {
+    "id": "832844",
+    "username": "a9",
+    "acct": "a9@broadcast.wolfgirl.engineering",
+    "display_name": "vivienne :collar: ",
+    "locked": true,
+    "bot": false,
+    "created_at": "2019-06-12T18:55:12.053Z",
+    "note": "borderline nsfw, considered a schedule I drug by nixon<br>waiting for the year of the illumos desktop",
+    "url": "https://broadcast.wolfgirl.engineering/users/a9",
+    "avatar": "https://files.mastodon.social/accounts/avatars/000/832/844/original/ae1de0b8fb63d1c6.png",
+    "avatar_static": "https://files.mastodon.social/accounts/avatars/000/832/844/original/ae1de0b8fb63d1c6.png",
+    "header": "https://files.mastodon.social/accounts/headers/000/832/844/original/5088e4a16e6d8736.png",
+    "header_static": "https://files.mastodon.social/accounts/headers/000/832/844/original/5088e4a16e6d8736.png",
+    "followers_count": 43,
+    "following_count": 67,
+    "statuses_count": 5906,
+    "last_status_at": "2019-11-23T05:23:47.911Z",
+    "emojis": [
+      {
+        "shortcode": "collar",
+        "url": "https://files.mastodon.social/custom_emojis/images/000/106/920/original/80953b9cd96ec4dc.png",
+        "static_url": "https://files.mastodon.social/custom_emojis/images/000/106/920/static/80953b9cd96ec4dc.png",
+        "visible_in_picker": true
+      }
+    ],
+    "fields": []
+  }
+]
+```
+
+Because AccountPin IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.example/api/v1/accounts/1/endorsements?limit=2&max_id=832844>; rel="next", <https://mastodon.example/api/v1/accounts/1/endorsements?limit=2&since_id=952529>; rel="prev"
+```
+
+##### 401: Unauthorized
+
+If the instance is in whitelist mode and the Authorization header is missing or invalid
+
+```json
+{
+  "error": "This API requires an authenticated user"
+}
+```
+
+##### 404: Not found
+
+Account does not exist
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+## Feature account on your profile {#endorse}
+
+```http
+POST /api/v1/accounts/:id/endorse HTTP/1.1
+```
+
+Add the given account to the user's featured profiles.
+
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
+**OAuth:** User token + `write:accounts`\
+**Version history:**\
+4.4.0 - added
+
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+Successfully endorsed, or was already endorsing.
+
+```json
+{
+  "id": "1",
+  "following": true,
+  "showing_reblogs": true,
+  "notifying": false,
+  "followed_by": true,
+  "blocking": false,
+  "blocked_by": false,
+  "muting": false,
+  "muting_notifications": false,
+  "requested": false,
+  "domain_blocking": false,
+  "endorsed": true
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 403: Forbidden
+
+Token is missing a required scope
+
+```json
+{
+  "error": "This action is outside the authorized scopes"
+}
+```
+
+##### 422: Unprocessable entity
+
+You are not following this account
+
+```json
+{
+  "error": "Validation failed: You must be already following the person you want to endorse"
+}
+```
+
+Alternatively, the token is not authorized with a user
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+Alternatively (prior to 4.0), the account may already be endorsed
+
+```json
+{
+  "error": "Duplicate record"
+}
+```
+
+##### 500: Server error
+
+Can sometimes be returned if the account already endorsed.
+
+---
+
+## Unfeature account from profile {#unendorse}
+
+```http
+POST /api/v1/accounts/:id/unendorse HTTP/1.1
+```
+
+Remove the given account from the user's featured profiles.
+
+**Returns:** [Relationship]({{< relref "entities/relationship">}})\
+**OAuth:** User + `write:accounts`\
+**Version history:**\
+4.4.0 - added
+
+#### Request
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Account in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1948,7 +2248,7 @@ Sets a private note on a user.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -2038,7 +2338,7 @@ Find out whether a given account is followed, blocked, muted, etc.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -2125,7 +2425,7 @@ Obtain a list of all accounts that follow a given account, filtered for accounts
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -2204,7 +2504,7 @@ Search for matching accounts by username or display name.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -2327,7 +2627,7 @@ Username or address does not map to an account
 
 ---
 
-## (DEPRECATED) Identity proofs {#identity_proofs}
+## Identity proofs {{%deprecated%}} {#identity_proofs}
 
 ```http
 GET /api/v1/accounts/:id/identity_proofs HTTP/1.1

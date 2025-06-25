@@ -47,14 +47,15 @@ Types to filter include:
 3.3.0 - added `status` type; both `min_id` and `max_id` can be used at the same time now\
 3.5.0 - added `types`; add `update` and `admin.sign_up` types\
 4.0.0 - added `admin.report` type\
-4.1.0 - notification limit changed from 15 (max 30) to 40 (max 80)
+4.1.0 - notification limit changed from 15 (max 30) to 40 (max 80)\
+4.3.0 - added `include_filtered` parameter
 
 #### Request
 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -79,13 +80,16 @@ exclude_types[]
 account_id
 : String. Return only notifications received from the specified account.
 
+include_filtered
+: Boolean. Whether to include notifications filtered by the user's [NotificationPolicy]({{< relref "entities/NotificationPolicy" >}}). Defaults to false.
+
 #### Response
 
 Sample call with limit=2.
 
 ```http
 GET https://mastodon.social/api/v1/notifications?limit=2 HTTP/1.1
-Authorization: Bearer xxx
+Authorization: Bearer <user_token>
 ```
 
 ##### 200: OK
@@ -196,7 +200,7 @@ View information about a notification with a given ID.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -272,7 +276,7 @@ Clear all notifications from the server.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -319,7 +323,7 @@ Dismiss a single notification from the server.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -343,7 +347,7 @@ Invalid or missing Authorization header.
 
 ---
 
-## (REMOVED) Dismiss a single notification {#dismiss-deprecated}
+## Dismiss a single notification {{%removed%}} {#dismiss-deprecated}
 
 ```http
 POST /api/v1/notifications/dismiss HTTP/1.1
@@ -355,7 +359,7 @@ Dismiss a single notification from the server.
 **OAuth:** User token + `write:notifications`\
 **Version history**:\
 0.0.0 - available\
-1.3.0 - deprecated in favor of [notifications/:id/dismiss](#dismiss)
+1.3.0 - deprecated in favor of [notifications/:id/dismiss](#dismiss)\
 3.0.0 - removed
 
 #### Request
@@ -363,7 +367,7 @@ Dismiss a single notification from the server.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 id
@@ -377,6 +381,599 @@ Notification with given ID successfully dismissed
 
 ```json
 {}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Get the number of unread notifications {#unread-count}
+
+```http
+GET /api/v1/notifications/unread_count HTTP/1.1
+```
+
+Get the (capped) number of unread notifications for the current user.
+A notification is considered unread if it is more recent than the [notifications read marker]({{< relref "methods/markers" >}}).
+Because the count is dependant on the parameters, it is computed every time and is thus a relatively slow operation (although faster than getting the full corresponding notifications), therefore the number of returned notifications is capped.
+
+**Returns:** Hash with a single key of `count`\
+**OAuth:** User token + `read:notifications`\
+**Version history**:\
+4.3.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+limit
+: Integer. Maximum number of results to return. Defaults to 100 notifications. Max 1000 notifications.
+
+types[]
+: Array of String. Types of notifications that should count towards unread notifications.
+
+exclude_types[]
+: Array of String. Types of notifications that should not count towards unread notifications.
+
+account_id
+: String. Only count unread notifications received from the specified account.
+
+#### Response
+
+##### 200: OK
+
+The response body contains the capped count of unread notifications.
+
+```json
+{
+  "count": 42,
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Get the filtering policy for notifications {#get-policy}
+
+```http
+GET /api/v2/notifications/policy HTTP/1.1
+```
+
+Notifications filtering policy for the user.
+
+**Returns:** [NotificationPolicy]({{< relref "entities/NotificationPolicy" >}})\
+**OAuth:** User token + `read:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
+
+The response body contains the current notifications filtering policy for the user.
+
+```json
+{
+  "for_not_following": "accept",
+  "for_not_followers": "accept",
+  "for_new_accounts": "accept",
+  "for_private_mentions": "drop",
+  "for_limited_accounts": "filter",
+  "summary": {
+    "pending_requests_count": 0,
+    "pending_notifications_count": 0
+  }
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+## Update the filtering policy for notifications
+
+```http
+PATCH /api/v2/notifications/policy HTTP/1.1
+```
+
+Update the user's notifications filtering policy.
+
+**Returns:** [NotificationPolicy]({{< relref "entities/NotificationPolicy" >}})\
+**OAuth:** User token + `write:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Form data parameters
+
+for_not_following
+: String. Whether to `accept`, `filter` or `drop` notifications from accounts the user is not following. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.
+
+for_not_followers
+: String. Whether to `accept`, `filter` or `drop` notifications from accounts that are not following the user. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.
+
+for_new_accounts
+: String. Whether to `accept`, `filter` or `drop` notifications from accounts created in the past 30 days. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.
+
+for_private_mentions
+: String. Whether to `accept`, `filter` or `drop` notifications from private mentions. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing. Replies to private mentions initiated by the user, as well as accounts the user follows, are always allowed, regardless of this value.
+
+for_limited_accounts
+: String. Whether to `accept`, `filter` or `drop` notifications from accounts that were limited by a moderator. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.
+
+
+#### Response
+
+##### 200: OK
+
+The response body contains the updated notifications filtering policy for the user.
+
+```json
+{
+  "filter_not_following": false,
+  "filter_not_followers": false,
+  "filter_new_accounts": false,
+  "filter_private_mentions": true,
+  "summary": {
+    "pending_requests_count": 0,
+    "pending_notifications_count": 0
+  }
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Get all notification requests {#get-requests}
+
+```http
+GET /api/v1/notifications/requests HTTP/1.1
+```
+
+Notification requests for notifications filtered by the user's policy. This API returns Link headers containing links to the next/previous page.
+
+**Returns:** Array of [NotificationRequest]({{< relref "entities/NotificationRequest" >}})\
+**OAuth:** User token + `read:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+
+since_id
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+
+min_id
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 40 notification requests. Max 80 notification requests.
+
+#### Response
+
+##### 200: OK
+
+The response body contains one page of notification requests. You can use the HTTP Link header for further pagination.
+
+```http
+Link: <https://mastodon.example/api/v1/notifications/requests?max_id=112456967201894256>; rel="next", <https://mastodon.example/api/v1/notifications/requests?min_id=112456967201894256>; rel="prev"
+```
+
+```json
+[
+  {
+    "id": "112456967201894256",
+    "created_at": "2024-05-17T14:45:41.171Z",
+    "updated_at": "2024-05-17T14:45:41.171Z",
+    "notifications_count": "1",
+    "account": {
+      "id": "971724",
+      "username": "zsc",
+      "acct": "zsc",
+      // ...
+    },
+    "last_status": {
+      "id": "103186126728896492",
+      "created_at": "2019-11-23T07:49:01.940Z",
+      "in_reply_to_id": "103186038209478945",
+      "in_reply_to_account_id": "14715",
+      // ...
+      "content": "<p><span class=\"h-card\"><a href=\"https://mastodon.social/@trwnh\" class=\"u-url mention\">@<span>trwnh</span></a></span> sup!</p>",
+      // ...
+      "account": {
+        "id": "971724",
+        "username": "zsc",
+        "acct": "zsc",
+        // ...
+      },
+      // ...
+      "mentions": [
+        {
+          "id": "14715",
+          "username": "trwnh",
+          "url": "https://mastodon.social/@trwnh",
+          "acct": "trwnh"
+        }
+      ],
+      // ...
+    }
+  }
+]
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Get a single notification request {#get-one-request}
+
+```http
+GET /api/v1/notifications/requests/:id HTTP/1.1
+```
+
+View information about a notification request with a given ID.
+
+**Returns:** [NotificationRequest]({{< relref "entities/NotificationRequest" >}})\
+**OAuth:** User token + `read:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Notification in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
+
+A single notification request.
+
+```json
+  {
+    "id": "112456967201894256",
+    "created_at": "2024-05-17T14:45:41.171Z",
+    "updated_at": "2024-05-17T14:45:41.171Z",
+    "notifications_count": "1",
+    "account": {
+      "id": "971724",
+      "username": "zsc",
+      "acct": "zsc",
+      // ...
+    },
+    "last_status": {
+      "id": "103186126728896492",
+      "created_at": "2019-11-23T07:49:01.940Z",
+      "in_reply_to_id": "103186038209478945",
+      "in_reply_to_account_id": "14715",
+      // ...
+      "content": "<p><span class=\"h-card\"><a href=\"https://mastodon.social/@trwnh\" class=\"u-url mention\">@<span>trwnh</span></a></span> sup!</p>",
+      // ...
+      "account": {
+        "id": "971724",
+        "username": "zsc",
+        "acct": "zsc",
+        // ...
+      },
+      // ...
+      "mentions": [
+        {
+          "id": "14715",
+          "username": "trwnh",
+          "url": "https://mastodon.social/@trwnh",
+          "acct": "trwnh"
+        }
+      ],
+      // ...
+    }
+  }
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Accept a single notification request {#accept-request}
+
+```http
+POST /api/v1/notifications/requests/:id/accept HTTP/1.1
+```
+
+Accept a notification request, which merges the filtered notifications from that user back into the main notification and accepts any future notification from them.
+
+**Returns:** Empty\
+**OAuth:** User token + `write:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Notification in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
+
+A successful call will return an empty object.
+
+```json
+{}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Dismiss a single notification request {#dismiss-request}
+
+```http
+POST /api/v1/notifications/requests/:id/dismiss HTTP/1.1
+```
+
+Dismiss a notification request, which hides it and prevent it from contributing to the pending notification requests count.
+
+**Returns:** Empty\
+**OAuth:** User token + `write:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Notification in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
+
+A successful call will return an empty object.
+
+```json
+{}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Accept multiple notification requests {#accept-multiple-requests}
+
+```http
+POST /api/v1/notifications/requests/accept HTTP/1.1
+```
+
+Accepts multiple notification requests, which merges the filtered notifications from those users back into the main notifications and accepts any future notification from them.
+
+**Returns:** Empty\
+**OAuth:** User token + `write:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Form data parameters
+
+:id[]
+: {{<required>}} Array of String. The IDs of the notification requests in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
+
+A successful call will return an empty object.
+
+```json
+{}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Dismiss multiple notification requests {#dismiss-multiple-requests}
+
+```http
+POST /api/v1/notifications/requests/dismiss HTTP/1.1
+```
+
+Dismiss multiple notification requests, which hides them and prevent them from contributing to the pending notification requests count.
+
+**Returns:** Empty\
+**OAuth:** User token + `write:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Form data parameters
+
+:id[]
+: {{<required>}} Array of String. The IDs of the notification requests in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
+
+A successful call will return an empty object.
+
+```json
+{}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+---
+
+## Check if accepted notification requests have been merged {#requests-merged}
+
+```http
+GET /api/v1/notifications/requests/merged
+```
+
+Check whether accepted notification requests have been merged.
+Accepting notification requests schedules a background job to merge the filtered notifications back into the normal notification list. When that process has finished, the client should refresh the notifications list at its earliest convenience. This is communicated by the `notifications_merged` streaming event but can also be polled using this endpoint.
+
+***Returns:** Hash with a single boolean attribute `merged`\
+**OAuth:** User token + `read:notifications`\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+#### Response
+
+##### 200: OK
+
+A successful call returns whether the notifications have been merged and are ready for being loaded.
+
+```json
+{
+  "merged": false
+}
 ```
 
 ##### 401: Unauthorized

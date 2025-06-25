@@ -24,6 +24,8 @@ aliases: [
 GET /api/v1/blocks HTTP/1.1
 ```
 
+Returns your blocked accounts.
+
 **Returns:** Array of [Account]({{< relref "entities/account" >}})\
 **OAuth:** User token + `read:blocks`\
 **Version history:**\
@@ -35,7 +37,7 @@ GET /api/v1/blocks HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 

@@ -15,6 +15,10 @@ The simplest way to store user uploads is by using the server's file system. Thi
 
 By default, Mastodon will store file uploads under `public/system` in its installation directory, but that can be overridden using the `PAPERCLIP_ROOT_PATH` environment variable.
 
+{{< hint style="info" >}}
+If `PAPERCLIP_ROOT_PATH` is not below `/home/mastodon/live`, you'll need to edit `mastodon-sidekiq.service` and `mastodon-web.service` and replace `ReadWritePaths=/home/mastodon/live` by `ReadWritePaths=/home/mastodon <PAPERCLIP_ROOT_PATH>`.
+{{</ hint >}}
+
 By default, the files are served at `https://your-domain/system`, which can be overridden using `PAPERCLIP_ROOT_URL` and `CDN_HOST`.
 
 {{< hint style="info" >}}
@@ -53,8 +57,8 @@ To enable S3 storage, set the `S3_ENABLED` environment variable to `true`.
 
 - `S3_REGION` (defaults to 'us-east-1', required if using AWS S3, may
   not be required with other storage providers)
-- `S3_ENDPOINT` (defaults to 's3.<S3_REGION>.amazonaws.com', required
-  if not using AWS S3)
+- `S3_ENDPOINT` (defaults to 'https://s3.<S3_REGION>.amazonaws.com',
+  required if not using AWS S3)
 - `S3_BUCKET=mastodata` (replacing `mastodata` with the name of your
   bucket)
 - `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` need to be set to
@@ -101,10 +105,20 @@ provider, reducing egress bandwidth costs from the storage
 provider. This can be done in your own reverse proxy, or by using a
 CDN.
 
+`EXTRA_MEDIA_HOSTS` offers appending an additional list of hosts that
+are allowed to serve media for your instance. This is useful if you 
+include external media in your custom CSS or about page, or if your 
+data storage provider makes use of redirects to other domains.
+`EXTRA_MEDIA_HOSTS=https://data.example1.com,https://data.example2.com`
+
 {{< page-ref page="admin/optional/object-storage-proxy.md" >}}
 
 {{< hint style="info" >}}
 You must serve the files with CORS headers, otherwise some functions of Mastodon's web UI will not work. For example, `Access-Control-Allow-Origin: *`
+{{</ hint >}}
+
+{{< hint style="info" >}}
+If you change the domain name where you host your files (e.g. from local to object-storage, or between object-storage hosts), you must ensure that the new domain name is added to the `Content-Security-Policy` header of your instance at least one week before the change, because the service workers for Mastodon will cache the value for up to a week. Otherwise your users will see broken images.
 {{</ hint >}}
 
 ### Optional environment variables
@@ -120,6 +134,15 @@ The number of seconds before the HTTP handler should timeout while trying to ope
 Default: 5 (seconds)
 
 The number of seconds before the HTTP handler should timeout while waiting for an HTTP response.
+
+#### `S3_RETRY_LIMIT`
+
+Adjusting this may be needed for some S3 providers, particularly when there are connectivity issues between the Mastodon server and the S3 storage. This may be observed when posts from other instances have missing media.
+
+Defaults to `0`, not suggested to increase beyond `3` due to holding up workers for longer than necessary.
+
+**Version history:**\
+4.3.0 - added
 
 #### `S3_FORCE_SINGLE_REQUEST`
 
@@ -201,17 +224,23 @@ You need to set a policy for anonymous access that allows read-only access to ob
 To do this, you need to set a custom policy (replace `mastodata` with the actual name of your S3 bucket):
 ```json
 {
-   "Version": "2012-10-17",
-   "Statement": [
-      {
-         "Effect": "Allow",
-         "Principal": {
-           "AWS": "*"
-         },
-         "Action": "s3:GetObject",
-         "Resource": "arn:aws:s3:::mastodata/*"
-      }
-   ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "*"
+                ]
+            },
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::mastodata/*"
+            ]
+        }
+    ]
 }
 ```
 

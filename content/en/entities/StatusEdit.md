@@ -71,7 +71,7 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** The timestamp of when the revision was published.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 3.5.0 - added
 
@@ -116,6 +116,13 @@ aliases: [
 **Type:** Array of [CustomEmoji]({{<relref "entities/CustomEmoji">}})\
 **Version history:**\
 3.5.0 - added
+
+### `quote` {{%optional%}} {#quote}
+
+**Description:** Information about the status being quoted, if any\
+**Type:* {{<nullable>}} [Quote]({{< relref "entities/quote" >}}) or [ShallowQuote]({{< relref "entities/ShallowQuote" >}})\
+**Version history:**\
+4.4.0 - added
 
 ## See also
 

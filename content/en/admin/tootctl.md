@@ -30,7 +30,9 @@ RAILS_ENV=production bin/tootctl help
 
 ### `tootctl self-destruct` {#self-destruct}
 
-Erase this server from the federation by broadcasting account Delete activities to all known other servers. This allows a "clean exit" from running a Mastodon server, as it leaves next to no cache behind on other servers. This command is always interactive and requires confirmation twice.
+Erase this server from the federation by broadcasting account `Delete` activities to all known other servers. This allows a "clean exit" from running a Mastodon server, as it leaves next to no cache behind on other servers. This command is always interactive and requires confirmation twice.
+
+Prior to Mastodon 4.3.0, deletion jobs are enqueued immediately when running this command. Since Mastodon 4.3.0, this command will instead print out instructions to switch the server to self-destruct mode, which is responsible for sending the `Delete` activities. When a server is in self-destruct mode, it will also allow its users to log in and download their data, but it will not allow them to perform any other action. Calling `tootctl self-destruct` again on a server in self-destruct mode will print information on the progress of the self-destruction process.
 
 No local data is actually deleted because emptying the database or deleting the entire VPS is faster. If you run this command and then continue to operate the instance anyway, then there will be a state mismatch that might lead to glitches and issues with federation.
 
@@ -38,11 +40,12 @@ No local data is actually deleted because emptying the database or deleting the 
 **Make sure you know exactly what you are doing before running this command.** This operation is NOT reversible, and it can take a long time. The server will be in a BROKEN STATE after this command finishes. A running Sidekiq process is required, so do not shut down the server until the queues are fully cleared.
 {{< /hint >}}
 
-`--dry-run`
-: Print expected results only, without performing any actions.
+`--dry-run` {{%removed%}}
+: Print expected results only, without performing any actions. Removed in 4.3.0
 
 **Version history:**\
-2.8.0 - added
+2.8.0 - added\
+4.3.0 - removed `--dry-run`, introduced self-destruct mode
 
 
 ---
@@ -759,7 +762,7 @@ Refetch remote media attachments from other servers. You must specify the source
 
 Calculate disk space consumed by Mastodon.
 
-**Version history:**
+**Version history:**\
 3.0.1 - added
 
 
@@ -827,16 +830,27 @@ Create or update an Elasticsearch index and populate it. If Elasticsearch is emp
 : Defaults to 100. A higher batch size can make Elasticsearch process records more quickly, with less load on the PostgreSQL database, but can increase memory pressure on the Elasticsearch nodes during indexing.
 
 `--only INDEX`
-: Specify an index name [`accounts`, `tags`, `statuses`] to create or update only that index.
+: Specify an index name [`instances`, `accounts`, `tags`, `statuses`, `public_statuses`] to create or update only that index.
 
 `--concurrency N`
-: Parallelize execution of the command on multiple threads. Defaults to N=2.
+: Parallelize execution of the command on multiple threads. Defaults to 5.
 
-**Version history:**
+`--import`
+:Import data from the database to the index
+ 
+`--clean`
+:Remove outdated documents from the index
+
+`--reset-chewy`
+:Reset Chewy's internal index
+
+**Version history:**\
 2.8.0 - added\
-3.0.0 - add `--processes` for parallelization
+3.0.0 - add `--processes` for parallelization\
 3.3.0 - options changed\
-3.5.0 - add `--batch-size`
+3.5.0 - add `--batch-size`\
+3.5.3 - switched `--batch-size` default from 1000 to 100 and `--concurrency` from 2 to 5, added `--import` and `--clean`\
+4.2.0 - added `instances` and `public_statuses` options to `--only`, added `--reset-chewy`
 
 
 ---
