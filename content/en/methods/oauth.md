@@ -306,7 +306,7 @@ The properties exposed by this endpoint can help you better integrate with the M
 **Returns:** JSON as per the above description\
 **OAuth:** Public\
 **Version history:**\
-4.3.0 - added
+4.3.0 - added\
 4.4.0 - added `userinfo_endpoint`
 
 #### Response
