@@ -202,12 +202,26 @@ aliases: [
 **Description:** Metadata returned by Paperclip.\
 **Type:** Hash\
 **Version history:**\
-1.5.0 - added\
-2.3.0 - added `meta.focus`
+1.5.0 - added
 
 May contain subtrees `small` and `original`, as well as various other top-level properties.
 
-More importantly, there may be another top-level `focus` Hash object on images as of 2.3.0, with coordinates can be used for smart thumbnail cropping -- see [Focal points for cropped media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more.
+### `meta[focus]` {{%optional%}} {#meta-focus}
+
+**Description:** Coordinates that may be used for smart thumbnail cropping -- see [Focal points for cropped media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more.\
+**Type:** {{<nullable>}} Hash or null\
+**Version history:**\
+2.3.0 - added `meta.focus`
+
+### `meta[focus][x]` {#meta-focus-x}
+
+**Description:** Horizontal focal point\
+**Type:** float
+
+### `meta[focus][y]` {#meta-focus-y}
+
+**Description:** Vertical focal point\
+**Type:** float
 
 ### `description` {#description}
 
