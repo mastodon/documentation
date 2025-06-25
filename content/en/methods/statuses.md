@@ -1875,7 +1875,7 @@ GET /api/v1/statuses/:id/source HTTP/1.1
 Obtain the source properties for a status so that it can be edited.
 
 **Returns:** [StatusSource]({{< relref "entities/statussource" >}})\
-**OAuth:** user token + `read:statuses`\
+**OAuth:** App token + `read:statuses`\
 **Version history:**\
 3.5.0 - added
 
