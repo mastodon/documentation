@@ -1,95 +1,154 @@
 ---
 title: 迁移到新机器
-description: 在不损失任何东西的情况下，把你的Mastodon复制安装至新的服务器上。
+description: 将你的 Mastodon 站点无损复制到新服务器。
 menu:
   docs:
     weight: 90
     parent: admin
 ---
 
-有时，出于各种原因，你需要将你的Mastodon实例从一台服务器迁移至另一台。幸运的是，这个过程并不太困解，虽然这可能导致一段时间的下线。
+出于各种原因，你可能希望将 Mastodon 实例从一台服务器迁移到另一台。幸运的是，这个过程并不太困难，尽管可能会导致一些停机时间。
 
 {{< hint style="info" >}}
-本篇指南基于Ubuntu Server编写；根据其他设置的不同，你的过程可能会有变化。
+本指南主要针对 Ubuntu Server 编写；对于其他配置环境，你的实际体验可能有所不同。
 {{< /hint >}}
 
 ## 基本步骤 {#basic-steps}
 
-1. 依照[产品指南]({{< relref "install" >}})安装新的Mastodon服务器（切记，不要运行 `mastodon:setup`）。
-2. 停止旧服务器上的Mastodon（`systemctl stop 'mastodon-*.service'`）。
-3. 依照如下指示，导出并导入PostgreSQL数据库。
-4. 依照如下指示，复制 `system/` 目录下文件。（注意：如果你使用S3存储，你可以跳过此步）。
+1. 使用[生产环境配置指南]({{< relref "install" >}})设置新的 Mastodon 服务器（但不要运行`mastodon:setup`，只保持PostgreSQL服务运行）。
+2. 停止旧服务器上的 Mastodon 服务（例如`systemctl stop 'mastodon-*.service'`）。
+3. 使用下面的说明导出和加载 PostgreSQL 数据库。
+4. 使用下面的说明复制 `system/` 文件。（注意：如果你使用 S3，可以跳过此步骤。）
 5. 复制 `.env.production` 文件。
-6. 运行 `RAILS_ENV=production bundle exec rails assets:precompile` 编译 Mastodon。
-7. 运行 `RAILS_ENV=production ./bin/tootctl feeds build` 重新构建每个用户的主页时间流。
-8. 启动新服务器上的Mastodon。
-9. 更新DNS设置，将其指向新服务器。
-10. 更新或复制你的Nginx设置，如果必要的话可重获取LetsEncrypt证书。
-11. 享受你的新服务器！
+6. 保存 Redis 数据库，停止新旧机器上的 Redis 服务，并将 Redis 数据库从 `/var/lib/redis/` 复制到新服务器。
+7. 运行 `RAILS_ENV=production bundle exec rails assets:precompile` 编译 Mastodon。
+8. 在新服务器上启动 Mastodon 和 Redis。
+9. 运行 `RAILS_ENV=production ./bin/tootctl feeds build` 为每个用户重建主时间线。
+10. 运行 `RAILS_ENV=production ./bin/tootctl search deploy` 重建 Elasticsearch 索引（注意：如果你不使用 Elasticsearch，可以跳过此步骤。）
+11. 更新 DNS 设置，指向新服务器。
+12. 更新或复制 Nginx 配置，并根据需要重新运行 LetsEncrypt。
+13. 享受你的新服务器！
 
 ## 详细步骤 {#detailed-steps}
 
-### 什么数据需要被迁移 {#what-data-needs-to-be-migrated}
+### 停止 Mastodon 服务
 
-你必须需要复制如下内容：
+```bash
+systemctl stop 'mastodon-*.service'
+```
 
-* `~/live/public/system`目录，里面包含了用户上传的图片与视频（如果使用S3，可跳过此步）
-* PostgreSQL数据库（使用[pg_dump](https://www.postgresql.org/docs/9.1/static/backup-dump.html)）
-* `~/live/.env.production`文件，里面包含了服务器配置与密钥
+### 需要迁移哪些数据 {#what-data-needs-to-be-migrated}
 
-不太重要的部分，为了方便起见，你也可以复制如下内容：
+总体而言，你需要复制以下内容：
 
-* nginx配置文件（位于`/etc/nginx/sites-available/default`）
-* systemd配置文件（`/etc/systemd/system/mastodon-*.service`），里面可能包括一些你服务器的调优与个性化
-* PgBouncer配置文件，位于 `/etc/pgbouncer` （如果你使用PgBouncer的话）
+* `~/live/public/system` 目录，该目录包含用户上传的图片和视频（如果使用 S3，则不需要）
+* PostgreSQL 数据库（使用 [pg_dump](https://www.postgresql.org/docs/9.1/static/backup-dump.html)）
+* `~/live/.env.production` 文件，其中包含服务器配置和密钥
+* `/var/lib/redis/` 目录中的 Redis 数据库，其中包含未处理的 Sidekiq 任务。
 
-### 导出并导入PostgreSQL数据库 {#dump-and-load-postgresql}
+以下内容不太重要，但为方便起见，你可能仍然想要复制：
 
-不要运行`mastodon:setup`，而是创建一个名为`template0`的空白PostgreSQL数据库（当导入PostgreSQL导出文件时，这是很有用的，参见[pg_dump文档](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)）。
+* nginx 配置（位于 `/etc/nginx/sites-available/mastodon`）
+* 域名的 SSL 证书（若使用 LetsEncrypt，应位于 `/etc/letsencrypt/live/`）
+* systemd 配置文件（`/etc/systemd/system/mastodon-*.service`），其中可能包含你的服务器调整和自定义
+* `/etc/pgbouncer` 下的 PgBouncer 配置（如果你使用它）
 
-在你的旧系统，使用`mastodon`用户运行如下命令：
+### 导出与导入 PostgreSQL {#dump-and-load-postgresql}
+
+我们不运行 `mastodon:setup`，而是使用 `template0` 数据库创建一个空的 PostgreSQL 数据库（这在还原 PostgreSQL 转储文件时很有用，[如 pg_dump 文档所述](https://www.postgresql.org/docs/9.1/static/backup-dump.html#BACKUP-DUMP-RESTORE)）。  
+
+如果你的 PostgreSQL 用户使用密码，为方便起见，你可能希望在新系统上配置 `mastodon` 用户使用与旧系统相同的密码：
+
+```bash
+sudo -u postgres psql  
+ALTER USER mastodon WITH PASSWORD 'YOUR_PASSWORD';  
+\q
+```
+
+在旧系统上以 `mastodon` 用户身份运行：
 
 ```bash
 pg_dump -Fc mastodon_production -f backup.dump
 ```
 
-使用 `rsync` 或 `scp` 复制 `backup.dump` 文件。然后在新系统，使用`mastodon`帐户创建一个空数据库：
+使用 `rsync` 或 `scp` 复制 `backup.dump` 文件。然后在新系统上，以 `mastodon` 用户身份创建一个空数据库：
 
 ```bash
 createdb -T template0 mastodon_production
 ```
 
-然后导入它：
+然后导入它（将 `-j#` 中的 `#` 替换为系统中的 CPU 数量以提高还原性能）：
 
 ```bash
-pg_restore -U mastodon -n public --no-owner --role=mastodon \
+pg_restore -Fc -j# -U mastodon -n public --no-owner --role=mastodon \
   -d mastodon_production backup.dump
 ```
 
-（注意：如果新服务器上的帐户名不是`mastodon`，你应当修改上面命令中 `-U` **和** `--role` 参数。两台服务器的用户名不同也可以。）
+（请注意，如果新服务器上的用户名不是 `mastodon`，你应该更改上面的 `-U` 和 `--role` 值。两个服务器之间可以使用不同的用户名。）
 
 ### 复制文件 {#copy-files}
 
-本操作可能花费一些时间，若你希望避免不必要重复制，建议使用`rsync`。在你的旧机器上，使用`mastodon`用户，运行：
+这可能需要一些时间，为避免不必要的重复复制，建议使用 `rsync`。在旧机器上，以 `mastodon` 用户身份运行：
 
 ```bash
 rsync -avz ~/live/public/system/ mastodon@example.com:~/live/public/system/
 ```
 
-如果旧服务器上任何文件有改动，你需要重运行此命令。
+如果旧服务器上的任何文件发生更改，你需要重新运行此命令。  
 
-你同样需要复制`.env.production`文件，该文件内含密钥。
+你还应该复制 `.env.production` 文件，其中包含密钥。
 
-可选的，你可以复制nginx、systemd、pgbouncer配置文件，或者从头开始重写它们。
+在新机器上，确保 Redis 未运行，否则它可能会覆盖你尝试还原的转储文件。以 `root` 用户身份运行：
+
+```bash
+systemctl stop redis-server.service
+```
+
+现在复制你的 Redis 数据库（根据需要调整 Redis 数据库的位置）。在旧机器上，以 `root` 用户身份运行：
+
+```bash
+redis-cli SAVE
+systemctl stop redis-server.service
+rsync -avz /var/lib/redis/ root@example.com:/var/lib/redis
+```
+
+作为可选操作，你可以复制 nginx、systemd 和 PgBouncer 配置文件，或者从头重写它们。
 
 ### 迁移期间 {#during-migration}
 
-你可以编辑旧机器上的`~/live/public/500.html`页面，如果你希望展示一个优雅的错误信息，让现有用户知晓正在进行迁移。
+你可以编辑旧机器上的 `~/live/public/500.html` 页面，以显示一条友好的错误消息，让现有用户知道迁移正在进行中。
 
-你也应该提前一天将DNS TTL设置为较小数值（30-60分钟）。这样当你把DNS指向新IP后，新纪录可以很快扩散开来。
+你可能还想在提前一天将 DNS TTL 设置为较小的值（30-60分钟），这样一旦你将其指向新 IP 地址，DNS 就可以快速传播。
 
 ### 迁移后 {#after-migrating}
 
-你可以使用[whatsmydns.net](https://whatsmydns.net/)来查看DNS扩散的过程。为了跳过这个过程，你可以修改你自己的`/etc/hosts`文件，将其指向你的新服务器，这样你可以尽早开始使用新服务器。
+以mastodon用户身份运行以下命令：  
 
-{{< translation-status-zh-cn raw_title="Migrating to a new machine" raw_link="/admin/migrating/" last_tranlation_time="2020-05-06" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}
+```bash
+RAILS_ENV=production bundle exec rails assets:precompile  
+```
+
+现在以 root 用户身份运行以下命令：
+
+```bash
+systemctl daemon-reload
+systemctl start redis-server  
+systemctl enable --now mastodon-web mastodon-sidekiq mastodon-streaming  
+systemctl restart nginx
+```
+
+一旦服务器重新上线，你可以为用户重建主页时间线（这可能需要很长时间，取决于用户数量。）
+
+```bash
+RAILS_ENV=production ./bin/tootctl feeds build
+```
+
+如果你使用 Elasticsearch，请运行以下命令重建索引（这可能需要很长时间，取决于你拥有的状态数量。）
+
+```bash
+RAILS_ENV=production ./bin/tootctl search deploy
+```
+
+你可以查看 [whatsmydns.net](https://whatsmydns.net/) 以了解 DNS 传播的进度。要加速这个过程，你可以编辑自己的 `/etc/hosts` 文件，指向新服务器，这样你就可以提前开始使用它。
+
+{{< translation-status-zh-cn raw_title="Migrating to a new machine" raw_link="/admin/migrating/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}
