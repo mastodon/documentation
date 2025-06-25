@@ -28,17 +28,3 @@ Możesz wybrać które osoby chcesz przestać obserwować lub usunąć z obserwu
 ## Ustawienia konta {#account}
 
 Z ustawień konta możesz zmienić swój adres email, ustawić nowe hasło, unieważnić aktywne sesje lub uwierzytelnione aplikacje czy włączyć uwierzytelnianie dwuetapowe.
-
-## Dowody tożsamości {#proofs}
-
-[Weryfikacja odnośników](../profile#verification) w polach metadanych profilu jest jednym ze sposobów na udowodnienie swojej tożsamości z użyciem odnośników rel=me, ale Mastodon obsługuje bardziej uogólniony podsystem dostawców dowodów tożsamości. Obecnie jedynym dostawcą obsługującym ten mechanizm jest Keybase.
-
-### Weryfikacja tożsamości przez Keybase {#keybase}
-
-{{< figure src="assets/keybase.jpg" caption="Dowód tożsamości na profilu" >}}
-
-Na początek, zarejestruj się na Keybase i wygeneruj lub prześlij publiczny klucz GPG na swoje konto Keybase. Następnie, przejdź do „prove more identities”. Odnajdź swój serwer, jeśli jest dostępny, a jeśli nie, skontaktuj się z Keybase aby uzyskać pomoc. Wybierz swoją domenę Mastodona i wprowadź nazwę użytkownika. Możesz udowodnić swoją tożsamość, autoryzując swoje konto na Mastodonie i publikując wiadomość z dowodem. Gdy to zrobisz, zostanie utworzony dowód tożsamości, a Twój profil będzie pokazywał Keybase jako udowodnioną tożsamość.
-
-{{< hint style="danger" >}}
-**Weryfikacja Keybase jest nieodwracalna.** Keybase używa niemodyfikowalnego łańcucha podpisów dla dowodów tożsamości, więc po zweryfikowaniu tożsamości na Keybase, nie możesz jej usunąć. Możesz tylko unieważnić dowód, podpisując wiadomość unieważniającą używajac powiązanego klucza prywatnego.
-{{< /hint >}}
