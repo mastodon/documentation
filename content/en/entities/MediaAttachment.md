@@ -208,7 +208,7 @@ May contain subtrees `small` and `original`, as well as various other top-level 
 
 ### `meta[focus]` {{%optional%}} {#meta-focus}
 
-**Description:** Coordinates that be used for smart thumbnail cropping -- see [Focal points for cropped media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more.\
+**Description:** Coordinates that may be used for smart thumbnail cropping -- see [Focal points for cropped media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more.\
 **Type:** {{<nullable>}} Hash or null\
 **Version history:**\
 2.3.0 - added `meta.focus`
