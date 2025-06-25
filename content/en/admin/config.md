@@ -1139,7 +1139,7 @@ This setting has no relation to which users are considered active for the purpos
 ### Fetch All Replies {#fetch-all-replies}
 
 **Version history:**\
-4.x.x - added
+4.4.0 - added
 
 Fetch all replies fetches the tree of replies beneath an expanded post by recursively requesting the [replies collections](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-replies) of each of the statuses, and then requesting the status itself. Fetching replies is triggered by requesting the status's `context` - so will be triggered both from the web interface and external apps.
 
