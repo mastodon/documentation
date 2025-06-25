@@ -16,6 +16,7 @@ aliases: [
 
 ```json
 {
+  "id": "802",
   "name": "nowplaying",
   "url": "https://mastodon.social/tags/nowplaying",
   "history": [
@@ -61,6 +62,14 @@ aliases: [
 ```
 
 ## Attributes
+
+### `id` {#id}
+
+**Description:** ID of the hashtag in the database. Useful for constructing URLs for the moderation tools & Admin API.\
+**Type:** String (cast from an integer but not guaranteed to be a number)\
+**Version history:**\
+3.5.0 - added to admin APIs
+4.3.1 - added to public APIs
 
 ### `name` {#name}
 
@@ -122,6 +131,7 @@ aliases: [
 
 ```json
 {
+  "id": "802",
   "name": "caturday",
   "url": "https://mastodon.example/tags/caturday",
   "history": [
@@ -161,19 +171,11 @@ aliases: [
       "uses": "22"
     }
   ],
-  "id": "802",
   "trendable": true,
   "usable": true,
   "requires_review": false
 }
 ```
-
-### `id` {#id}
-
-**Description:** The ID of the Tag in the database.\
-**Type:** String (cast from integer, but not guaranteed to be a number)\
-**Version history:**\
-3.5.0 - added
 
 ### `trendable` {#trendable}
 
