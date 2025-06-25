@@ -195,6 +195,43 @@ diff --git a/app/chewy/accounts_index.rb b/app/chewy/accounts_index.rb
          filter: %w(lowercase asciifolding cjk_width),
        },
 
+diff --git a/app/chewy/public_statuses_index.rb b/app/chewy/public_statuses_index.rb
+--- a/app/chewy/public_statuses_index.rb
++++ b/app/chewy/public_statuses_index.rb
+@@ -19,6 +19,15 @@ class PublicStatusesIndex < Chewy::Index
+       },
+     },
+ 
++    char_filter: {
++      tsconvert: {
++        type: 'stconvert',
++        keep_both: false,
++        delimiter: '#',
++        convert_type: 't2s',
++      },
++    },
++
+     analyzer: {
+       verbatim: {
+         tokenizer: 'uax_url_email',
+@@ -26,7 +35,7 @@ class PublicStatusesIndex < Chewy::Index
+       },
+ 
+       content: {
+-        tokenizer: 'standard',
++        tokenizer: 'ik_max_word',
+         filter: %w(
+           lowercase
+           asciifolding
+@@ -36,6 +45,7 @@ class PublicStatusesIndex < Chewy::Index
+           english_stop
+           english_stemmer
+         ),
++        char_filter: %w(tsconvert),
+       },
+ 
+       hashtag: {
+
 diff --git a/app/chewy/statuses_index.rb b/app/chewy/statuses_index.rb
 --- a/app/chewy/statuses_index.rb
 +++ b/app/chewy/statuses_index.rb
