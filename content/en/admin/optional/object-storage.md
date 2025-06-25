@@ -135,6 +135,15 @@ Default: 5 (seconds)
 
 The number of seconds before the HTTP handler should timeout while waiting for an HTTP response.
 
+#### `S3_RETRY_LIMIT`
+
+Adjusting this may be needed for some S3 providers, particularly when there are connectivity issues between the Mastodon server and the S3 storage. This may be observed when posts from other instances have missing media.
+
+Defaults to `0`, not suggested to increase beyond `3` due to holding up workers for longer than necessary.
+
+**Version history:**\
+4.3.0 - added
+
 #### `S3_FORCE_SINGLE_REQUEST`
 
 Default: false
