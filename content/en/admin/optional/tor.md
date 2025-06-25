@@ -31,6 +31,17 @@ Finally install the required packages.
 apt install tor deb.torproject.org-keyring
 ```
 
+If you get an error like this:
+
+```text
+E: The repository 'https://deb.torproject.org/torproject.org stretch Release' does not have a Release file.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+```
+
+
+You can follow the [TOR-Projects instructions](https://support.torproject.org/apt/tor-deb-repo/) on installing their repository.
+
 ## Configure Tor {#configure}
 
 Edit the file at `/etc/tor/torrc` and add the following configuration.
@@ -47,7 +58,7 @@ Restart Tor.
 sudo service tor restart
 ```
 
-You can now find your Tor hostname in `/var/lib/tor/hidden_service/hostname`.
+You can now find your Tor hostname in `/var/lib/tor/onion_service/hostname`.
 
 ## Move your Mastodon configuration {#nginx}
 
@@ -137,7 +148,7 @@ server {
 }
 ```
 
-Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/hidden_service/hostname`. This should also be reflected in the `Onion-Location` header in the snippets file.
+Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/onion_service/hostname`. This should also be reflected in the `Onion-Location` header in the snippets file.
 
 Note that the onion hostname has been prefixed with “mastodon.”. Your Tor address acts as a wildcard domain. All subdomains will be routed through, and you can configure Nginx to respond to any subdomain you wish. If you do not wish to host any other services on your tor address you can omit the subdomain, or choose a different subdomain.
 
@@ -148,6 +159,23 @@ Restart your web server.
 ```bash
 service nginx restart
 ```
+
+When restarting your webserver you may run into the following issue:
+
+```text
+systemctl status nginx.service
+...
+[...] could not build server_names_hash, you should increase server_names_hash_bucket_size: 64
+...
+```
+
+When this happens you may uncomment the following line in your nginx.conf:
+
+```text
+# server_names_hash_bucket_size 64;
+```
+
+If you still have problems you may consider incresing the size up to 128. 
 
 ## Gotchas {#gotchas}
 
