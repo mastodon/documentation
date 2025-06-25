@@ -19,7 +19,7 @@ Twoja nazwa wyświetlana jest widoczna dla innych przy Twoim adresie. Domyślnie
 
 ### Biogram {#bio}
 
-Twój biogram to krótki opis Twojej osoby wyświetlana jako notatka na Twoim profilu. Domyślnie możesz ustawić biogram składający się maksymalnie z 500 znaków.
+Twój biogram to krótki opis Twojej osoby wyświetlana jako notatka na Twoim profilu. Domyślnie możesz ustawić biogram składający się maksymalnie z 500 znaków. Wszystkie odnośniki są traktowane, jakby miały 23 znaki, niezależnie od ich rzeczywistej długości, więc nie musisz korzystać z usług skracania odnośników. Właściwie to odradzamy korzystanie z nich.
 
 ### Awatar {#avatar}
 
@@ -67,10 +67,18 @@ To, co tam wpiszesz, zależy wyłącznie od Ciebie. Zawartość może zawierać 
 
 Weryfikacja z użyciem dokumentów potwierdzających tożsamość i niebieskie znaczki nie są możliwe bez centralnego zarządzania. Mastodon może krzyżowo powiązywać odnośniki z profilem, aby udowodnić, że jesteś ich rzeczywistym właścicielem. Jeżeli jeden z nich to link do Twojej osobistej strony internetowej, która budzi zaufanie, może to służyć jako prawie najlepsza metoda weryfikacji tożsamości.
 
-Jeżeli umieścisz odnośnik w metadanych swojego profilu, Mastodon sprawdzi, czy powiązana strona zawiera odnośnik do Twojego profilu na Mastodonie. Jeżeli tak, otrzymasz znak weryfikacji przy tym odnośniku, ponieważ jesteś jego potwierdzonym właścicielem.
-
-Mastodon sprawdza, czy odnośnik zawiera atrybut `rel="me"`. Tak samo, Mastodon dodaje `rel="me"` do odnośników w metadanych profilu.
-
 {{< hint style="info" >}}
 Ponieważ możesz hostować Mastodona na własnym serwerze, nie istnieje lepszy sposób na potwierdzenie swojej tożsamości niż hostowanie Mastodona na własnej domenie, której inni już ufają.
 {{< /hint >}}
+
+Jeżeli umieścisz odnośnik HTTPS w metadanych swojego profilu, Mastodon sprawdzi, czy powiązana strona zawiera odnośnik do Twojego profilu na Mastodonie zawierający atrybut `rel="me"`. Jeżeli tak, otrzymasz znak weryfikacji przy tym odnośniku, ponieważ jesteś jego potwierdzonym właścicielem. Tak samo, Mastodon dodaje `rel="me"` do odnośników w metadanych profilu. Odnośnik może wyglądać np. tak:
+
+```html
+<a href="https://social.example.com/@username" rel="me">Obserwuj mnie na Mastodonie!</a>
+```
+
+Może też znajdować się w nagłówku Twojej strony:
+
+```html
+<link href="https://social.example.com/@username" rel="me">
+```

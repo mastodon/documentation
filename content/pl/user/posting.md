@@ -47,10 +47,11 @@ Możesz załączyć do wpisu pliki lub ankietę.
 
 Naciśnij ikonę spinacza, aby dodać plik do wpisu. Możesz załączyć:
 
-* **Zdjęcia** (PNG, JPG, GIF) **do 8MB**. Zdjęcia zostaną zmniejszone do 1.6 megapikseli (wystarczająco na obraz 1280x1280). Możesz załączyć maksymalnie 4 zdjęcia.
-  * **Animowane GIF-y** są konwertowane do plików MP4 bez dźwięku jak na Imgur/Gfycat (**GIFV**). Możesz też wysłać plik MP4 lub WebM bez dźwięku, zostaną one obsłużone w ten sam sposób.
-* **Filmy** (MP4, M4V, MOV, WebM) **do 40MB**. Filmy zostaną transkodowane do H.264 MP4 o maksymalnej przepustowości 1300kbps i liczby 60 klatek na sekundę.
-* **Dźwięk** (MP3, OGG, WAV, FLAC, OPUS, AAC, M4A, 3GP) **do 40MB**. Dźwięk zostanie transkodowany do MP3 z użyciem V2 VBR (około 192kbps).
+* **Zdjęcia** (PNG, JPG, HEIF, WEBP, AVIF) **do 16MB**. Zdjęcia zostaną zmniejszone do 8.3 megapikseli (wystarczająco na obraz 3840x2160). Możesz załączyć maksymalnie 4 zdjęcia w jednym wpisie.
+* **Animowane GIF-y** (GIFV) **do 16MB** są konwertowane do plików MP4 bez dźwięku. Wymiary GIF-a muszą być mniejsze niż 1MP (1280x720). Możesz też wysłać plik MP4 lub WebM bez dźwięku, który będzie zapętlany tak samo jak animowane GIF-y. Wpis może zawierać tylko jeden animowany GIF.
+  * Statyczne pliki GIF mają te same limity, co animowane pliki GIF. Jeżeli masz problem z ich wysłaniem, musisz skonwertować je do innego obsługiwanego formatu plikow.
+* **Filmy** (MP4, M4V, MOV, WebM) **do 99MB**. Filmy zostaną transkodowane do H.264 MP4 o maksymalnej przepustowości 1300kbps i liczby 120 klatek na sekundę. Wpis może zawierać tylko jeden film.
+* **Dźwięk** (MP3, OGG, WAV, FLAC, OPUS, AAC, M4A, 3GP) **do 99MB**. Dźwięk zostanie transkodowany do MP3 z użyciem V2 VBR (około 192kbps). Wpis może zawierać tylko jeden plik dźwiękowy.
 
 #### Edytowanie mediów {#edit}
 
@@ -77,7 +78,7 @@ Naciśnij na ikonę wykresu, aby załączyć ankietę do wpisu.
 | Tylko dla śledzących | Nie | Zalogowani na tym samym serwerze | W aplikacji lub zalogowani | Tak |
 | Bezpośrednio | Nie | Zalogowani i wspomnieni | W aplikacji lub zalogowani | Nie |
 
-Wpisy mogą być opublikowane z czterema poziomami prywatności:
+Wpisy mogą być opublikowane z jednym z czterech poziomów prywatności, jak opisano poniżej. Możesdz [ustawić domyślny poziom prywatności dla swoich wpisów](../preferences#posting) i zmieniać poziom prywatności tworzonych wpisów wybierając przycisk „Dostosuj widoczność wpisów” pod treścią wpisu. 
 
 ### Publiczny {#public}
 
@@ -123,6 +124,17 @@ Wyślij wpis wyłącznie wspomnianym użytkownikom.
 {{< hint style="warning" >}}
 **Nie dziel się niebezpiecznymi ani wrażliwymi informacjami z użyciem wiadomości bezpośrednich**. Mastodon nie jest aplikacją do szyfrowanych korespondencji jak Signal czy Wire, administratorzy bazy danych serwerów wysyłającego i odbiorców wiadomości mają dostęp do ich treści. Używaj ich z taką ostrożnością, jakbyś korzystał(-a) z wiadomości prywatnych na forum, Discordzie czy Twitterze.
 {{< /hint >}}
+
+## Widoczność odpowiedzi {#replies}
+
+Twoje odpowiedzi będą pojawiały się na osi czasu Twoich obserwujących tylko jeżeli obserwują zarówno Ciebie, jak i osobę której obserwujesz.
+
+Kilka uwag o tym:
+
+* Nowy wpis zaczynający się `@wzmianką` **nie** jest traktowany jak odpowiedź, wiec będzie pojawiał się na stronie głównej wszystkich Twoich obserwujących.
+* Widoczność wpisu (Publiczny, Niewidoczny, Tylko dla obserwujących) **nie** wpływa na widoczność na stronie głównej.
+* Jeżeli Twój wpis jest publiczny i zawiera obserwowany hasztag, będzie wyświetlany na stronie głównej niezależnie od tego, czy jest odpowiedzią.
+* Inne fediwersowe oprogramowanie może wyświetlać wszystkie Twoje odpowiedzi na stronie głównej, niezależnie komu odpowiadasz.
 
 ## Ostrzeżenia o zawartości (CW) i zawartość wrażliwa {#cw}
 

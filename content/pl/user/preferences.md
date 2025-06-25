@@ -75,11 +75,11 @@ Możesz ukryć swoją sieć, dzięki czemu lista obserwujących Cię i obserwowa
 
 Jeżeli chcesz widzieć wpisy, które zostały udostępnione wielokrotnie na osi czasu, możesz wyłączyć grupowanie podbić w osiach czasu.
 
-### Domyślne ustawienia wpisów {#posting}
+### Konfiguracja domyślnych ustawień prywatności wpisów, języka i wrażliwości mediów {#posting}
 
 Wpisy domyślnie są ustawiane jako publiczne. Możesz wybrać, aby nowe wpisy były domyślnie niewidoczne lub tylko dla obserwujących. Dla lepszego wyjaśnienia poziomów prywatności przeczytaj [Tworzenie wpisów &gt; Poziomy publikacji](../posting#privacy).
 
-Domyślnie, język Twoich wpisów jest wykrywany automatycznie, ale to wykrywanie nie jest zbyt precyzyjne. Jeżeli piszesz głównie bądź tylko w jednym języku, możesz go tu ustawić.
+Jeżeli piszesz głównie bądź tylko w jednym języku, możesz go tu ustawić jako domyślny.
 
 Jeżeli często publikujesz zawartość wrażliwą, możesz wybrać, aby zawsze oznaczać Twoje media jako wrażliwe.
 

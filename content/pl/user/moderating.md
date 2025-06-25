@@ -91,7 +91,7 @@ Jeżeli jesteś na tym samym serwerze, na którym jest zablokowana osoba, ta oso
 
 ### Ukrywanie całego serwera {#block-domain}
 
-![]({{ relUrl "/assets/block-domain.png" }})
+{{< figure src="assets/block-domain.png" caption="Przykład blokowania całej domeny." >}}
 
 Jeżeli zablokujesz cały serwer:
 

@@ -13,7 +13,7 @@ menu:
 
 W każdym momencie możesz odwiedzić Preferencje &gt; Eksportowanie danych i pobrać plik CSV zawierający obecnie obserwowane konta, Twoje obecne listy, blokowanych lub wyciszonych użytkowników, zablokowane domeny. Twoja lista obserwowanych, blokowanych, wyciszonych lub zablokowanych domen może zostać zaimportowana w Preferencje &gt; Importowanie danych, gdzie mogą one zostać połączone lub nadpisane.
 
-Zażądanie archiwum wpisów lub mediów jest możliwe co 7 dni i mogą one zostać pobrane w formacie ActivityPub JSON. Mastodon obecnie nie obsługuje importowania wpisów lub mediów ze względu na ograniczenia techniczne, ale Twoje archiwum może zostać wyświetlone przez dowolne oprogramowanie, które potrafi parsować dokumenty ActivityPub.
+Zażądanie archiwum wpisów lub mediów jest możliwe co 7 dni i mogą one zostać pobrane w formacie Activity Streams 2.0 JSON. Mastodon obecnie nie obsługuje importowania wpisów lub mediów ze względu na ograniczenia techniczne, ale Twoje archiwum może zostać wyświetlone przez dowolne oprogramowanie, które potrafi parsować dokumenty Activity Streams 2.0.
 
 ## Przekierowanie lub przenoszenie profilu {#migration}
 
@@ -29,7 +29,7 @@ Przekierowanie konta wyłączy możliwość tworzenia z niego wpisów i wyświet
 
 {{< figure src="assets/account-move.jpg" caption="Formularz przenoszenia profilu" >}}
 
-Przenoszenie konta działa tak jak przekierowanie konta, ale również nieodwracalnie wymusi na obserwujących Twoje konto cofnięcie tej obserwacji i zaobserwowanie nowego konta, jeżeli oprogramowanie ich serwerów obsługuje aktywność Move. Twoje wpisy nie zostaną przeniesione z uwagi na ograniczenia techniczne. Istnieje też okres, w którego trakcie nie możesz ponownie migrować konta, więc uważaj, zanim użyjesz tej opcji!
+Przenoszenie konta działa tak jak przekierowanie konta, ale również nieodwracalnie wymusi na obserwujących Twoje konto cofnięcie tej obserwacji i zaobserwowanie nowego konta, jeżeli oprogramowanie ich serwerów obsługuje aktywność Move. Twoje wpisy nie zostaną przeniesione z uwagi na ograniczenia techniczne. Istnieje też trzydziestodniowy okres, w trakcie którego nie możesz ponownie migrować konta, więc uważaj, zanim użyjesz tej opcji!
 
 ### Aliasy konta {#aliases}
 
