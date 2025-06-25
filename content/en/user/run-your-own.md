@@ -48,6 +48,8 @@ There exist a number of **dedicated Mastodon hosting providers** that take care 
 
 {{< caption-link url="https://fedihost.co/" caption="FediHost" >}}
 
+{{< caption-link url="https://qoddi.com/mastodon" caption="Qoddi App Platform" >}}
+
 Managed hosting solutions are great for those who do not have experience or desire to install and maintain software. However, being in charge of all components on your own hardware gives greater control over scaling, performance and customization.
 
 Mastodon scales quite well horizontally. If your needs outgrow the capacity of a single machine, Mastodon can be divided into multiple app servers, background workers, multiple Redis backends, PostgreSQL replicas -- but 1-click install won't cut it.
