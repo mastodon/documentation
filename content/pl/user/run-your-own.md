@@ -42,6 +42,8 @@ Istnieje kilka **dedykowanych dostawców hostingu Mastodona** które zapewniają
 
 {{< caption-link url="https://app.spacebear.ee/mastodon" caption="Spacebear" >}}
 
+{{< caption-link url="https://fedihost.co/" caption="FediHost" >}}
+
 Zarządzane hostingi są świetnym rozwiązaniem, jeżeli nie masz doświadczenia lub chęci samodzielnie instalować i zajmować się oprogramowaniem. Jednak bycie odpowiedzialnym za wszystkie elementy na własnym sprzęcie daje większą kontrolę nad skalowalnością, wydajnością i dostosowywaniem.
 
 Zakłada to jednak konfigurację na jednym urządzeniu. Mastodon dość dobrze skaluje się horyzontalnie. Jeżeli potrzeby przekroczą możliwość jednego urządzenia, Mastodon może zostać podzielony pomiędzy wiele serwerów aplikacji, workerów działających w tle, backendów Redisa, replik PostgreSQL — ale instalacja jednym kliknięciem nie zapewni tego.
