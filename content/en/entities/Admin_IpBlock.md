@@ -65,14 +65,14 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** When the IP block was created.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.0.0 - added
 
 ### `expires_at` {#expires_at}
 
 **Description:** When the IP block will expire.\
-**Type:** {{<nullable>}} String (ISO 8601 Datetime)\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.0.0 - added
 
@@ -80,4 +80,4 @@ aliases: [
 
 {{< page-relref page="methods/admin/ip_blocks" caption="admin/ip_blocks API methods" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/ip_blocks_serializer.rb" caption="app/serializers/rest/admin/ip_blocks_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/ip_block_serializer.rb" caption="app/serializers/rest/admin/ip_block_serializer.rb" >}}

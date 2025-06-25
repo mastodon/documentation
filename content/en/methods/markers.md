@@ -24,6 +24,8 @@ aliases: [
 GET /api/v1/markers HTTP/1.1
 ```
 
+Get current positions in timelines.
+
 **Returns:** Hash of timeline key and associated [Marker]({{< relref "entities/Marker" >}})\
 **OAuth:** User token + `read:statuses`\
 **Version history:**\
@@ -34,7 +36,7 @@ GET /api/v1/markers HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -79,6 +81,8 @@ Invalid or missing Authorization header.
 POST /api/v1/markers HTTP/1.1
 ```
 
+Save current position in timeline.
+
 **Returns:** [Marker]({{< relref "entities/marker" >}})\
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
@@ -89,7 +93,7 @@ POST /api/v1/markers HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 

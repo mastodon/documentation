@@ -35,18 +35,18 @@ GET /api/v1/scheduled_statuses HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
-max_id 
-: String. Return results older than ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than ID.
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
@@ -109,7 +109,7 @@ GET /api/v1/scheduled_statuses/:id HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -177,12 +177,12 @@ PUT /api/v1/scheduled_statuses/:id HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
 scheduled_at
-: String. ISO 8601 Datetime at which the status will be published. Must be at least 5 minutes into the future.
+: String. [Datetime](/api/datetime-format#datetime) at which the status will be published. Must be at least 5 minutes into the future.
 
 #### Response
 ##### 200: OK
@@ -243,7 +243,7 @@ ScheduledStatus is not owned by you or does not exist
 DELETE /api/v1/scheduled_statuses/:id HTTP/1.1
 ```
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
 2.7.0 - added
@@ -258,7 +258,7 @@ DELETE /api/v1/scheduled_statuses/:id HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK

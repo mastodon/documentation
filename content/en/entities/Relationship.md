@@ -26,6 +26,7 @@ aliases: [
   "muting": false,
   "muting_notifications": false,
   "requested": false,
+  "requested_by": false,
   "domain_blocking": false,
   "endorsed": false,
   "note": ""
@@ -111,6 +112,13 @@ aliases: [
 **Version history:**\
 0.9.9 - added
 
+### `requested_by` {#requested_by}
+
+**Description:** Has this user requested to follow you?\
+**Type:** Boolean\
+**Version history:**\
+4.1.0 - added
+
 ### `domain_blocking` {#domain_blocking}
 
 **Description:** Are you blocking this user's domain?\
@@ -134,6 +142,6 @@ aliases: [
 
 ## See also
 
-{{< page-relref ref="methods/accounts#relationships" caption="POST /api/v1/accounts/relationships" >}}
+{{< page-relref ref="methods/accounts#relationships" caption="GET /api/v1/accounts/relationships" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/relationship_serializer.rb" caption="app/serializers/rest/relationship_serializer.rb" >}}

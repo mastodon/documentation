@@ -117,7 +117,7 @@ Error: There was a temporary problem serving your request, please try again. App
 
 ## See also
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/controllers/api/base_controller.rb" caption="app/controllers/api/base_controller.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/base_controller.rb" caption="app/controllers/api/base_controller.rb" >}}
 
 
 

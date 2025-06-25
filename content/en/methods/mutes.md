@@ -30,13 +30,13 @@ Accounts the user has muted.
 **OAuth:** User token + `read:mutes` or `follow`\
 **Version history:**\
 0.0.0 - added\
-3.3.0 - added `mute_expires_at`. both `min_id` and `max_id` can be used at the same time now
+3.3.0 - added `mute_expires_at`
 
 #### Request
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 

@@ -9,7 +9,7 @@ menu:
 
 ## An introduction to REST {#rest}
 
-Mastodon provides access to its data over a REST API. REST stands for REpresentational State Transfer, but for our purposes, just think of it as sending and receiving information about various resources based on the request. The Mastodon REST API uses HTTP for its requests, and JSON for its payloads.
+Mastodon provides access to its data over a REST API. REST stands for REpresentational State Transfer, but for our purposes, just think of it as sending and receiving information about various resources based on the request. The Mastodon REST API uses HTTP for its requests and JSON for its payloads.
 
 ## Understanding HTTP requests and responses {#http}
 
@@ -64,7 +64,7 @@ curl -X POST \
 
 ### JSON {#json}
 
-*JavaScript Object Notation* as defined in ECMA-404. Quick one page overview: https://www.json.org/
+*JavaScript Object Notation* as defined in ECMA-404. Quick one-page overview: https://www.json.org/
 
 Similar to sending form data, but with an additional header to specify that the data is in JSON format. To send a JSON request with cURL, specify the JSON content type with a header, then send the JSON data as form data:
 
@@ -79,7 +79,7 @@ curl -X POST \
 
 ### Multiple values (Array) {#array}
 
-An array parameter must encoded using bracket notation, e.g. `array[]=foo&array[]=bar` would be translated into the following:
+An array parameter must be encoded using bracket notation. For example, `array[]=foo&array[]=bar` would be translated into the following:
 
 ```ruby
 array = [
@@ -113,14 +113,14 @@ As JSON, hashes are formatted like so:
 {
   "source": {
     "privacy": "public",
-    "language", "en"
+    "language": "en"
   }
 }
 ```
 
 ### True-or-false (Booleans) {#boolean}
 
-A boolean value is considered false for the values `0`, `f`, `F`, `false`, `FALSE`, `off`, `OFF`, considered to not be provided for empty strings, and considered to be true for all other values. When using JSON data, use the literals `true`, `false`, and `null` instead.
+A boolean value is considered false for the values `0`, `f`, `F`, `false`, `FALSE`, `off`, `OFF`; considered to not be provided for empty strings; and considered to be true for all other values. When using JSON data, use the literals `true`, `false`, and `null` instead.
 
 ### Files {#file}
 
@@ -132,7 +132,6 @@ This can be combined with arrays as well.
 
 The Mastodon REST API will return JSON as the response text. It also returns HTTP headers which may be useful in handling the response, as well as an HTTP status code which should let you know how the server handled the request. The following HTTP status codes may be expected:
 
-* 200 = OK. The request was handled successfully.
-* 4xx = Client error. Your request was not correct. Most commonly, you may see 401 Unauthorized, 404 Not Found, 410 Gone, or 422 Unprocessed.
-* 5xx = Server error. Something went wrong while handling the request. Most commonly, you may see 503 Unavailable.
-
+- 200 = OK. The request was handled successfully.
+- 4xx = Client error. Your request was not correct. Most commonly, you may see 401 Unauthorized, 404 Not Found, 410 Gone, 422 Unprocessable Content, or [429 Too Many Requests]({{< relref "api/rate-limits" >}}).
+- 5xx = Server error. Something went wrong while handling the request. Most commonly, you may see 503 Unavailable.

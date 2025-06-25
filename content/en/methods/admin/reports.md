@@ -3,7 +3,7 @@ title: admin/reports API methods
 description: Perform moderation actions with reports.
 menu:
   docs:
-    name: admin/reports
+    name: reports
     parent: methods-admin
     identifier: methods-admin-reports
 aliases: [
@@ -36,7 +36,7 @@ View information about all reports.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -153,7 +153,7 @@ GET /api/v1/admin/reports/:id HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -253,7 +253,7 @@ Change metadata for a report.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -316,7 +316,7 @@ Claim the handling of this report to yourself.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -378,7 +378,7 @@ Unassign a report so that someone else can claim it.
 **OAuth:** User token + `admin:write:reports`\
 **Permissions:** Manage Reports\
 **Version history:**\
-2.9.1 - added
+2.9.1 - added\
 4.0.0 - support custom roles and permissions
 
 #### Request
@@ -391,7 +391,7 @@ Unassign a report so that someone else can claim it.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -453,7 +453,7 @@ Mark a report as resolved with no further action taken.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -510,7 +510,7 @@ Reopen a currently closed report, if it is closed.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK

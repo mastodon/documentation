@@ -1,3 +1,4 @@
+
 ---
 title: statuses API methods
 description: Publish, interact, and view information about statuses.
@@ -37,7 +38,7 @@ Publish a status with the given parameters.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 Idempotency-Key
 : Provide this header with any arbitrary string to prevent duplicate submissions of the same status. Consider using a hash or UUID generated client-side. Idempotency keys are stored for up to 1 hour.
@@ -78,7 +79,7 @@ language
 : String. ISO 639 language code for this status.
 
 scheduled_at
-: String. ISO 8601 Datetime at which to schedule a status. Providing this parameter will cause ScheduledStatus to be returned instead of Status. Must be at least 5 minutes in the future.
+: String. [Datetime](/api/datetime-format#datetime) at which to schedule a status. Providing this parameter will cause ScheduledStatus to be returned instead of Status. Must be at least 5 minutes in the future.
 
 #### Response
 ##### 200: OK
@@ -166,7 +167,7 @@ Obtain information about a status.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -256,6 +257,114 @@ Status does not exist or is private.
 
 ---
 
+## View multiple statuses {#index}
+
+```http
+GET /api/v1/statuses HTTP/1.1
+```
+
+Obtain information about multiple statuses.
+
+**Returns:** Array of [Status]({{< relref "entities/status" >}})\
+**OAuth:** Public for public statuses, user token + `read:statuses` for private statuses\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Query parameters
+
+id[]
+: Array of String. The IDs of the Statuses in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+[Status]({{< relref "entities/status" >}}) records for the requested statuses will be returned. There can be fewer records than requested if the requested statuses do not exist or cannot be accessed given the current credentials.
+Sample call with `id[]=1&id[]=2` when no status with `id=2` exists:
+
+```json
+[
+  {
+    "id": "1",
+    "created_at": "2016-03-16T14:44:31.580Z",
+    "in_reply_to_id": null,
+    "in_reply_to_account_id": null,
+    "sensitive": false,
+    "spoiler_text": "",
+    "visibility": "public",
+    "language": "en",
+    "uri": "https://mastodon.social/users/Gargron/statuses/1",
+    "url": "https://mastodon.social/@Gargron/1",
+    "replies_count": 7,
+    "reblogs_count": 98,
+    "favourites_count": 112,
+    "favourited": false,
+    "reblogged": false,
+    "muted": false,
+    "bookmarked": false,
+    "content": "<p>Hello world</p>",
+    "reblog": null,
+    "application": null,
+    "account": {
+      "id": "1",
+      "username": "Gargron",
+      "acct": "Gargron",
+      "display_name": "Eugen",
+      "locked": false,
+      "bot": false,
+      "created_at": "2016-03-16T14:34:26.392Z",
+      "note": "<p>Developer of Mastodon and administrator of mastodon.social. I post service announcements, development updates, and personal stuff.</p>",
+      "url": "https://mastodon.social/@Gargron",
+      "avatar": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
+      "avatar_static": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
+      "header": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
+      "header_static": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
+      "followers_count": 320472,
+      "following_count": 453,
+      "statuses_count": 61163,
+      "last_status_at": "2019-12-05T03:03:02.595Z",
+      "emojis": [],
+      "fields": [
+        {
+          "name": "Patreon",
+          "value": "<a href=\"https://www.patreon.com/mastodon\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"\">patreon.com/mastodon</span><span class=\"invisible\"></span></a>",
+          "verified_at": null
+        },
+        {
+          "name": "Homepage",
+          "value": "<a href=\"https://zeonfederated.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">zeonfederated.com</span><span class=\"invisible\"></span></a>",
+          "verified_at": "2019-07-15T18:29:57.191+00:00"
+        }
+      ]
+    },
+    "media_attachments": [],
+    "mentions": [],
+    "tags": [],
+    "emojis": [],
+    "card": null,
+    "poll": null
+  }
+]
+```
+
+##### 401: Unauthorized
+
+Instance is in authorized-fetch mode.
+
+```json
+{
+  "error": "This API requires an authenticated user"
+}
+```
+
+---
+
 ## Delete a status {#delete}
 
 ```http
@@ -268,9 +377,15 @@ Delete one of your own statuses.
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
 0.0.0 - added\
-2.9.0 - return source properties, for use with delete and redraft
+2.9.0 - return source properties, for use with delete and redraft\
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 4) - added `delete_media` optional parameter
 
 #### Request
+
+##### Query parameters
+
+delete_media
+: Boolean. Whether to immediately delete the post's media attachments. If omitted or `false`, media attachments may be kept for approximately 24 hours so they can be re-used in a new post.
 
 ##### Path parameters
 
@@ -280,7 +395,7 @@ Delete one of your own statuses.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -455,9 +570,10 @@ GET /api/v1/statuses/:id/context HTTP/1.1
 View statuses above and below this status in the thread.
 
 **Returns:** [Context]({{< relref "entities/context" >}})\
-**OAuth:** Public for public statuses. User token + `read:statuses` for private statuses.\
+**OAuth:** Public for public statuses limited to 40 ancestors and 60 descendants with a maximum depth of 20. User token + `read:statuses` for up to 4,096 ancestors, 4,096 descendants, unlimited depth, and private statuses.\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+4.0.0 - limit unauthenticated requests
 
 #### Request
 
@@ -469,7 +585,7 @@ View statuses above and below this status in the thread.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -551,17 +667,50 @@ lang
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
 
-Translating the first "Hello world" post from mastodon.social into Spanish
+Translating a status in Spanish with content warning and media into English
 
 ```json
 {
-  "content": "<p>Hola mundo</p>",
-  "detected_source_language": "en",
+  "content": "<p>Hello world</p>",
+  "spoiler_text": "Greatings ahead",
+  "media_attachments": [
+    {
+      "id": 22345792,
+      "description": "Status author waving at the camera"
+    }
+  ],
+  "poll": null,
+  "detected_source_language": "es",
+  "provider": "DeepL.com"
+}
+```
+
+Translating a status with poll into English
+
+```json
+{
+  "content": "<p>Should I stay or should I go?</p>",
+  "spoiler_text": null,
+  "media_attachments": [],
+  "poll": [
+    {
+      "id": 34858,
+      "options": [
+        {
+          "title": "Stay"
+        },
+        {
+          "title": "Go"
+        }
+      ]
+    }
+  ],
+  "detected_source_language": "ja",
   "provider": "DeepL.com"
 }
 ```
@@ -597,7 +746,7 @@ GET /api/v1/statuses/:id/reblogged_by HTTP/1.1
 View who boosted a given status.
 
 **Returns:** Array of [Account]({{< relref "entities/account" >}})\
-**OAuth:** Public for public statuses. User token + `read:statuses` for private statuses.
+**OAuth:** Public for public statuses. User token + `read:statuses` for private statuses.\
 **Version history:**\
 0.0.0 - added
 
@@ -611,17 +760,14 @@ View who boosted a given status.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
-max_id 
+max_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 since_id
-: **Internal parameter.** Use HTTP `Link` header for pagination.
-
-min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
@@ -630,7 +776,7 @@ limit
 #### Response
 ##### 200: OK
 
-A list of statuses that boosted the status
+A list of accounts that boosted the status
 
 ```json
 [
@@ -685,17 +831,14 @@ View who favourited a given status.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
-max_id 
+max_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 since_id
-: **Internal parameter.** Use HTTP `Link` header for pagination.
-
-min_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 limit
@@ -759,7 +902,7 @@ Add a status to your favourites list.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -825,7 +968,7 @@ Remove a status from your favourites list.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -892,12 +1035,12 @@ Reshare a status on your own profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
 visibility
-: String. Any visibility except `limited` or `direct` (i.e. `public`, `unlisted`, `private`). Defaults to public. Currently unused in UI.
+: String. Any visibility except `limited` or `direct` (i.e. `public`, `unlisted`, `private`). Defaults to public.
 
 #### Response
 ##### 200: OK
@@ -974,7 +1117,7 @@ Undo a reshare of a status.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1040,7 +1183,7 @@ Privately bookmark a status.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1096,7 +1239,7 @@ Remove a status from your private bookmarks.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1162,7 +1305,7 @@ Do not receive notifications for the thread that this status is part of. Must be
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1228,7 +1371,7 @@ Start receiving notifications again for the thread that this status is part of.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1295,7 +1438,7 @@ Feature one of your own public statuses at the top of your profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1388,7 +1531,7 @@ Unfeature a status from the top of your profile.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1464,7 +1607,7 @@ Edit a given status to change its text, sensitivity, media attachments, or poll.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -1482,6 +1625,9 @@ language
 
 media_ids[]
 : Array of String. Include Attachment IDs to be attached as media. If provided, `status` becomes optional, and `poll` cannot be used.
+
+media_attributes[][]
+: Array of String. Each array includes id, description, and focus.
 
 poll[options][]
 : Array of String. Possible answers to the poll. If provided, `media_ids` cannot be used, and `poll[expires_in]` must be provided.
@@ -1597,7 +1743,7 @@ Get all known versions of a status, including the initial and current states.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1729,7 +1875,7 @@ GET /api/v1/statuses/:id/source HTTP/1.1
 Obtain the source properties for a status so that it can be edited.
 
 **Returns:** [StatusSource]({{< relref "entities/statussource" >}})\
-**OAuth:** App token + `read:statuses`\
+**OAuth:** user token + `read:statuses`\
 **Version history:**\
 3.5.0 - added
 
@@ -1743,7 +1889,7 @@ Obtain the source properties for a status so that it can be edited.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1778,7 +1924,7 @@ Status does not exist or is private.
 
 ---
 
-## (DEPRECATED) Fetch preview card {#card}
+## Fetch preview card {{%deprecated%}} {#card}
 
 ```http
 GET /api/v1/statuses/:id/card HTTP/1.1
@@ -1801,7 +1947,7 @@ GET /api/v1/statuses/:id/card HTTP/1.1
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -1857,3 +2003,4 @@ Status does not exist or is private.
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/reblogs_controller.rb" caption="app/controllers/api/v1/statuses/reblogs_controller.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/statuses/sources_controller.rb" caption="app/controllers/api/v1/statuses/sources_controller.rb" >}}
+

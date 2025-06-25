@@ -25,10 +25,11 @@ GET /api/v2/instance
 
 Obtain general information about the server.
 
-**Returns:** [V1::Instance]({{< relref "entities/instance" >}})\
+**Returns:** [Instance]({{< relref "entities/Instance" >}})\
 **OAuth:** Public\
 **Version history:**\
-4.0.0 - added
+4.0.0 - added\
+4.3.0 - added `configuration.vapid.public_key`
 
 #### Response
 
@@ -54,6 +55,24 @@ Obtain general information about the server.
       "@2x": "https://files.mastodon.social/site_uploads/files/000/000/001/@2x/57c12f441d083cde.png"
     }
   },
+  "icon": [
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/36/accf17b0104f18e5.png",
+      "size": "36x36"
+    },
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/72/accf17b0104f18e5.png",
+      "size": "72x72"
+    },
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/192/accf17b0104f18e5.png",
+      "size": "192x192"
+    },
+    {
+      "src": "https://files.mastodon.social/site_uploads/files/000/000/003/512/accf17b0104f18e5.png",
+      "size": "512x512"
+    }
+  ],
   "languages": [
     "en"
   ],
@@ -61,8 +80,12 @@ Obtain general information about the server.
     "urls": {
       "streaming": "wss://mastodon.social"
     },
+    "vapid": {
+      "public_key": "BCkMmVdKDnKYwzVCDC99Iuc9GvId-x7-kKtuHnLgfF98ENiZp_aj-UNthbCdI70DqN1zUVis-x0Wrot2sBagkMc="
+    },
     "accounts": {
-      "max_featured_tags": 10
+      "max_featured_tags": 10,
+      "max_pinned_statuses": 4
     },
     "statuses": {
       "max_characters": 500,
@@ -99,6 +122,7 @@ Obtain general information about the server.
         "audio/3gpp",
         "video/x-ms-asf"
       ],
+      "description_limit": 1500,
       "image_size_limit": 10485760,
       "image_matrix_limit": 16777216,
       "video_size_limit": 41943040,
@@ -182,7 +206,6 @@ Obtain general information about the server.
 }
 ```
 
-
 ---
 
 ## List of connected domains {#peers}
@@ -204,7 +227,7 @@ Domains that this instance is aware of.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 
@@ -245,9 +268,10 @@ Instance activity over the last 3 months, binned weekly.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Each hash in the array will contain the following attributes:
@@ -355,7 +379,6 @@ If the instance is in whitelist mode and the Authorization header is missing or 
 
 ## List of rules {#rules}
 
-
 ```http
 GET /api/v1/instance/rules HTTP/1.1
 ```
@@ -368,6 +391,7 @@ Rules that the users of this service should follow.
 3.4.0 - added
 
 #### Response
+
 ##### 200: OK
 
 ```json
@@ -419,9 +443,10 @@ Obtain a list of domains that have been blocked.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 The complete list of domains blocked by this instance
@@ -429,17 +454,17 @@ The complete list of domains blocked by this instance
 ```json
 [
   {
-    "domain":"birb.elfenban.de",
-    "digest":"5d2c6e02a0cced8fb05f32626437e3d23096480b47efbba659b6d9e80c85d280",
-    "severity":"suspend",
-    "comment":"Third-party bots"
+    "domain": "birb.elfenban.de",
+    "digest": "5d2c6e02a0cced8fb05f32626437e3d23096480b47efbba659b6d9e80c85d280",
+    "severity": "suspend",
+    "comment": "Third-party bots"
   },
   {
-    "domain":"birdbots.leptonics.com",
-    "digest":"ce019d8d32cce8e369ac4367f4dc232103e6f489fbdd247fb99f9c8a646078a4",
-    "severity":"suspend",
-    "comment":"Third-party bots"
-  },
+    "domain": "birdbots.leptonics.com",
+    "digest": "ce019d8d32cce8e369ac4367f4dc232103e6f489fbdd247fb99f9c8a646078a4",
+    "severity": "suspend",
+    "comment": "Third-party bots"
+  }
   // ...
 ]
 ```
@@ -459,6 +484,7 @@ Invalid or missing Authorization header, if the admin has chosen to show domain 
 The admin has chosen to show domain blocks to no one. The response body is empty; only the HTTP 404 error code is relevant.
 
 ```text
+
 ```
 
 ---
@@ -477,26 +503,167 @@ Obtain an extended description of this server
 4.0.0 - added
 
 #### Response
+
 ##### 200: OK
 
 ```json
 {
-  "updated_at":"2022-11-03T04:09:07Z",
-  "content":"<p>For inquiries not related specifically to the operation of this server, such as press inquiries, please contact <a href=\"mailto:press@joinmastodon.org\">press@joinmastodon.org</a>.</p>\n\n<h2>Funding</h2>\n\n<p>This server is crowdfunded by <a href=\"https://patreon.com/mastodon\">Patreon donations</a>. For a list of sponsors, see <a href=\"https://joinmastodon.org/sponsors\">joinmastodon.org</a>.</p>\n\n<h2>Reporting and moderation</h2>\n\n<p>When reporting accounts, please make sure to include at least a few posts that show rule-breaking behaviour, when applicable. If there is any additional context that might help make a decision, please also include it in the comment. This is especially important when the content is in a language nobody on the moderation team speaks.</p>\n\n<p>We usually handle reports within 24 hours. Please mind that you are not notified when a report you have made has led to a punitive action, and that not all punitive actions are externally visible. For first time offenses, we may opt to delete offending content, escalating to harsher measures on repeat offenses.</p>\n\n<h2>Impressum</h2>\n\n<p>Mastodon gGmbH<br>\nMühlenstraße 8a<br>\n14167 Berlin<br>\nGermany</p>\n\n<p>E-Mail-Adresse: hello@joinmastodon.org</p>\n\n<p>Vertretungsberechtigt: Eugen Rochko (Geschäftsführer)</p>\n\n<p>Umsatzsteuer Identifikationsnummer (USt-ID): DE344258260</p>\n\n<p>Handelsregister<br>\nGeführt bei: Amtsgericht Charlottenburg<br>\nNummer: HRB 230086 B</p>\n"
+  "updated_at": "2022-11-03T04:09:07Z",
+  "content": "<p>For inquiries not related specifically to the operation of this server, such as press inquiries, please contact <a href=\"mailto:press@joinmastodon.org\">press@joinmastodon.org</a>.</p>\n\n<h2>Funding</h2>\n\n<p>This server is crowdfunded by <a href=\"https://patreon.com/mastodon\">Patreon donations</a>. For a list of sponsors, see <a href=\"https://joinmastodon.org/sponsors\">joinmastodon.org</a>.</p>\n\n<h2>Reporting and moderation</h2>\n\n<p>When reporting accounts, please make sure to include at least a few posts that show rule-breaking behaviour, when applicable. If there is any additional context that might help make a decision, please also include it in the comment. This is especially important when the content is in a language nobody on the moderation team speaks.</p>\n\n<p>We usually handle reports within 24 hours. Please mind that you are not notified when a report you have made has led to a punitive action, and that not all punitive actions are externally visible. For first time offenses, we may opt to delete offending content, escalating to harsher measures on repeat offenses.</p>\n\n<h2>Impressum</h2>\n\n<p>Mastodon gGmbH<br>\nMühlenstraße 8a<br>\n14167 Berlin<br>\nGermany</p>\n\n<p>E-Mail-Adresse: hello@joinmastodon.org</p>\n\n<p>Vertretungsberechtigt: Eugen Rochko (Geschäftsführer)</p>\n\n<p>Umsatzsteuer Identifikationsnummer (USt-ID): DE344258260</p>\n\n<p>Handelsregister<br>\nGeführt bei: Amtsgericht Charlottenburg<br>\nNummer: HRB 230086 B</p>\n"
 }
 ```
 
 ---
 
-## (DEPRECATED) View server information (V1) {#v1}
+## View privacy policy {#privacy_policy}
+
+```http
+GET /api/v1/instance/privacy_policy HTTP/1.1
+```
+
+Obtain the contents of this server's privacy policy.
+
+**Returns:** [PrivacyPolicy]({{< relref "entities/PrivacyPolicy" >}})\
+**OAuth:** Public\
+**Version history:**\
+4.0.0 - added
+
+#### Response
+
+##### 200: OK
+
+```json
+{
+  "updated_at": "2022-10-07T00:00:00+00:00",
+  "content": "<p>This privacy policy describes how example.com (&quot;example.com&quot;, &quot;we&quot;, &quot;us&quot;) collects,\nprotects and uses the personally identifiable information you may provide\nthrough the example.com website or its API.</p>\n\n<h1>What information do we collect?</h1>\n\n<ul>\n<li><strong>Basic account information</strong>: If you register on this server, you may be\nasked to enter a username, an e-mail address and a password.</li>\n<li><strong>Posts, following and other public information</strong>: The list of people you\nfollow is listed publicly, the same is true for your followers.</li>\n<li><strong>Direct and followers-only posts</strong>: All posts are stored and processed on the\nserver. You may\ntoggle an option to approve and reject new followers manually in the settings.\n<strong>Please keep in mind that the operators of the server and any receiving\nserver may view such messages</strong>, and that recipients may screenshot, copy or\notherwise re-share them. <strong>Do not share any sensitive information over\nMastodon.</strong></li>\n<li><strong>IPs and other metadata</strong>: When you log in, we record the IP address you log\nin from, as well as the name of your browser application.</li>\n</ul>\n\n<hr>\n\n<p>This document is CC-BY-SA. Originally adapted from the <a href=\"https://github.com/discourse/discourse\">Discourse privacy\npolicy</a>.</p>\n"
+}
+```
+
+---
+
+## View terms of service {#terms_of_service}
+
+```http
+GET /api/v1/instance/terms_of_service HTTP/1.1
+```
+
+Obtain the contents of this server's terms of service, if configured.
+
+**Returns:** [TermsOfService]({{< relref "entities/TermsOfService" >}})\
+**OAuth:** Public\
+**Version history:**\
+4.4.0 - added
+
+#### Response
+
+##### 200: OK
+
+```json
+{
+  "effective_date": "2025-04-15",
+  "effective": true,
+  "content": "<p>Foo bar newer</p>\n",
+  "succeeded_by": null
+}
+```
+
+##### 404: Not Found
+
+No terms of service have been configured for this instance.
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+## View a specific version of the terms of service {#terms_of_service_date}
+
+```http
+GET /api/v1/instance/terms_of_service/:date HTTP/1.1
+```
+
+Obtain the contents of this server's terms of service, for a specified date, if configured.
+
+**Returns:** [TermsOfService]({{< relref "entities/TermsOfService" >}})\
+**OAuth:** Public\
+**Version history:**\
+4.4.0 - added
+
+#### Request
+
+##### Path parameters
+
+:date
+: {{<required>}} String. The effective date of the terms of service.
+
+#### Response
+
+##### 200: OK
+
+```json
+{
+  "effective_date": "2025-04-15",
+  "effective": true,
+  "content": "<p>Foo bar newer</p>\n",
+  "succeeded_by": null
+}
+```
+
+##### 404: Not Found
+
+No terms of service have been configured for this instance.
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
+## View translation languages {#translation_languages}
+
+```http
+GET /api/v1/instance/translation_languages HTTP/1.1
+```
+
+Translation language pairs supported by the translation engine used by the server.
+
+**Returns:** Object with source language codes as keys and arrays of target language codes as values.\
+**OAuth:** Public\
+**Version history:**\
+4.2.0 - added
+
+#### Response
+
+##### 200: OK
+
+All source and target language pairs supported by the server.
+
+In the following sample response showing support for translating a status written in English (`en`) into German (`de`) or Spanish (`es`). The source language code `und` indicates that the server supports auto-detection the language of statuses with an empty `language` attribute and translating these into either British English (`en-GB`), German or Spanish.
+
+```json
+{
+  "en": ["de", "es"],
+  // [...]
+  "und": ["en-GB", "de", "es"]
+}
+```
+
+---
+
+## View server information (v1) {{%deprecated%}} {#v1}
 
 ```http
 GET /api/v1/instance HTTP/1.1
 ```
 
-Obtain general information about the server.
+Obtain general information about the server. See [api/v2/instance]({{< relref "methods/Instance#v2">}}) instead.
 
-**Returns:** [V1::Instance]({{< relref "entities/instance" >}})\
+**Returns:** [V1::Instance]({{< relref "entities/V1_Instance" >}})\
 **OAuth:** Public\
 **Version history:**\
 1.1.0 - added\
@@ -512,35 +679,33 @@ Obtain general information about the server.
 
 ```json
 {
-  "uri":"mastodon.social",
-  "title":"Mastodon",
-  "short_description":"The original server operated by the Mastodon gGmbH non-profit",
-  "description":"",
-  "email":"staff@mastodon.social",
-  "version":"3.5.3",
-  "urls":{
-    "streaming_api":"wss://mastodon.social"
+  "uri": "mastodon.social",
+  "title": "Mastodon",
+  "short_description": "The original server operated by the Mastodon gGmbH non-profit",
+  "description": "",
+  "email": "staff@mastodon.social",
+  "version": "3.5.3",
+  "urls": {
+    "streaming_api": "wss://mastodon.social"
   },
-  "stats":{
-    "user_count":812303,
-    "status_count":38151616,
-    "domain_count":25255
+  "stats": {
+    "user_count": 812303,
+    "status_count": 38151616,
+    "domain_count": 25255
   },
-  "thumbnail":"https://files.mastodon.social/site_uploads/files/000/000/001/original/vlcsnap-2018-08-27-16h43m11s127.png",
-  "languages":[
-    "en"
-  ],
-  "registrations":false,
-  "approval_required":false,
-  "invites_enabled":true,
-  "configuration":{
-    "statuses":{
-      "max_characters":500,
-      "max_media_attachments":4,
-      "characters_reserved_per_url":23
+  "thumbnail": "https://files.mastodon.social/site_uploads/files/000/000/001/original/vlcsnap-2018-08-27-16h43m11s127.png",
+  "languages": ["en"],
+  "registrations": false,
+  "approval_required": false,
+  "invites_enabled": true,
+  "configuration": {
+    "statuses": {
+      "max_characters": 500,
+      "max_media_attachments": 4,
+      "characters_reserved_per_url": 23
     },
-    "media_attachments":{
-      "supported_mime_types":[
+    "media_attachments": {
+      "supported_mime_types": [
         "image/jpeg",
         "image/png",
         "image/gif",
@@ -567,17 +732,17 @@ Obtain general information about the server.
         "audio/3gpp",
         "video/x-ms-asf"
       ],
-      "image_size_limit":10485760,
-      "image_matrix_limit":16777216,
-      "video_size_limit":41943040,
-      "video_frame_rate_limit":60,
-      "video_matrix_limit":2304000
+      "image_size_limit": 10485760,
+      "image_matrix_limit": 16777216,
+      "video_size_limit": 41943040,
+      "video_frame_rate_limit": 60,
+      "video_matrix_limit": 2304000
     },
-    "polls":{
-      "max_options":4,
-      "max_characters_per_option":50,
-      "min_expiration":300,
-      "max_expiration":2629746
+    "polls": {
+      "max_options": 4,
+      "max_characters_per_option": 50,
+      "min_expiration": 300,
+      "max_expiration": 2629746
     }
   },
   "contact_account":{
@@ -601,40 +766,40 @@ Obtain general information about the server.
     "statuses_count":72309,
     "last_status_at":"2022-08-24",
     "emojis":[
-      
+
     ],
     "fields":[
       {
-        "name":"Patreon",
-        "value":"\u003ca href=\"https://www.patreon.com/mastodon\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"\u003e\u003cspan class=\"invisible\"\u003ehttps://www.\u003c/span\u003e\u003cspan class=\"\"\u003epatreon.com/mastodon\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e",
-        "verified_at":null
+        "name": "Patreon",
+        "value": "\u003ca href=\"https://www.patreon.com/mastodon\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"\u003e\u003cspan class=\"invisible\"\u003ehttps://www.\u003c/span\u003e\u003cspan class=\"\"\u003epatreon.com/mastodon\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e",
+        "verified_at": null
       }
     ]
   },
-  "rules":[
+  "rules": [
     {
-      "id":"1",
-      "text":"Sexually explicit or violent media must be marked as sensitive when posting"
+      "id": "1",
+      "text": "Sexually explicit or violent media must be marked as sensitive when posting"
     },
     {
-      "id":"2",
-      "text":"No racism, sexism, homophobia, transphobia, xenophobia, or casteism"
+      "id": "2",
+      "text": "No racism, sexism, homophobia, transphobia, xenophobia, or casteism"
     },
     {
-      "id":"3",
-      "text":"No incitement of violence or promotion of violent ideologies"
+      "id": "3",
+      "text": "No incitement of violence or promotion of violent ideologies"
     },
     {
-      "id":"4",
-      "text":"No harassment, dogpiling or doxxing of other users"
+      "id": "4",
+      "text": "No harassment, dogpiling or doxxing of other users"
     },
     {
-      "id":"5",
-      "text":"No content illegal in Germany"
+      "id": "5",
+      "text": "No content illegal in Germany"
     },
     {
-      "id":"7",
-      "text":"Do not share intentionally false or misleading information"
+      "id": "7",
+      "text": "Do not share intentionally false or misleading information"
     }
   ]
 }
@@ -651,3 +816,7 @@ Obtain general information about the server.
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/instances/peers_controller.rb" caption="app/controllers/api/v1/instances/peers_controller.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/instances/rules_controller.rb" caption="app/controllers/api/v1/instances/rules_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/instances/privacy_policies_controller.rb" caption="app/controllers/api/v1/instances/privacy_policies_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/instances/terms_of_services_controller.rb" caption="app/controllers/api/v1/instances/terms_of_services_controller.rb" >}}

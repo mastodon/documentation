@@ -19,8 +19,8 @@ aliases: [
   "id": "627",
   "name": "nowplaying",
   "url": "https://mastodon.social/@trwnh/tagged/nowplaying",
-  "statuses_count": 70,
-  "last_status_at": "2022-08-29T12:03:35.061Z"
+  "statuses_count": "70",
+  "last_status_at": "2022-08-29"
 }
 ```
 
@@ -50,14 +50,14 @@ aliases: [
 ### `statuses_count` {#statuses_count}
 
 **Description:** The number of authored statuses containing this hashtag.\
-**Type:** Number\
+**Type:** String\
 **Version history:**\
 3.0.0 - added
 
 ### `last_status_at` {#last_status_at}
 
-**Description:** The timestamp of the last authored status containing this hashtag.\
-**Type:** String (ISO 8601 Datetime)\
+**Description:** The date of the last authored status containing this hashtag.\
+**Type:** String ([Date](/api/datetime-format#date))\
 **Version history:**\
 3.0.0 - added
 

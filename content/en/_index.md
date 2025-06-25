@@ -32,12 +32,12 @@ Mastodon uses a standardized, open protocol to implement federation. It is calle
 
 The **fediverse** (“federated universe”) is the name for all websites that can communicate with each other over ActivityPub and the World Wide Web. That includes all Mastodon servers, but also other implementations:
 
-* Pleroma, a modular microblogging engine,
-* Pixelfed, federated image sharing platform, which lets you share and consume media posts,
-* Misskey, which includes microblogging alongside a customizable dashboard,
-* PeerTube, which lets you upload videos to channels,
-* Plume, which lets you publish longer-form articles,
-* and many more, including individual and personal websites!
+- Pleroma, a modular microblogging engine
+- Pixelfed, federated image sharing platform, which lets you share and consume media posts
+- Misskey, which includes microblogging alongside a customizable dashboard
+- PeerTube, which lets you upload videos to channels
+- Plume, which lets you publish longer-form articles
+- And many more, including individual and personal websites!
 
 The fediverse does not have its own brand, so you might more often hear “follow me on Mastodon” than “follow me on the fediverse”, but technically the latter is more correct.
 
@@ -77,7 +77,7 @@ In practical terms: Imagine if you could follow an Instagram user from your Twit
 
 ### Free/libre software {#libre}
 
-Unlike proprietary services, **anyone has the complete freedom to run, examine, inspect, copy, modify, distribute, and reuse the Mastodon source code, provided they guarantee the same freedoms for any derivative work.** Just like how users of Mastodon can choose their service provider, you as an individual are free to contribute features to Mastodon or publish a modified version of Mastodon that includes different features. These modified versions, also known as software forks, are required to also uphold the same freedoms as the original Mastodon project. For example, [glitch-soc](https://glitch-soc.github.io/docs/) is a software distribution that adds various experimental features. Many individual forks exist as well, perhaps themed slightly differently or including small modifications to the codebase. Because Mastodon is libre software that respects your freedom, personalizations like this are not only allowed but encouraged.
+Unlike proprietary services, **anyone has the complete freedom to run, examine, inspect, copy, modify, distribute, and reuse the Mastodon source code, provided they guarantee the same freedoms for any derivative work.** Just like how users of Mastodon can choose their service provider, you as an individual are free to contribute features to Mastodon or publish a modified version of Mastodon that includes different features. These modified versions, also known as software forks, are required to also uphold the same freedoms as the original Mastodon project. For example, [glitch-soc](https://glitch-soc.github.io/docs/) is a software distribution that adds various experimental features. Many individual forks exist as well, perhaps themed slightly differently or including small modifications to the codebase. Because Mastodon is libre software that respects your freedom, personalizations like these are not only allowed but encouraged.
 
 > The ultimate power is in giving people the ability to create their own spaces, their own communities, to modify the software as they see fit, but without sacrificing the ability of people from different communities to interact with each other.
 >

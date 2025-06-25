@@ -25,7 +25,13 @@ We can try to request [GET /api/v1/timelines/public]({{< relref "methods/timelin
 curl https://mastodon.example/api/v1/timelines/public
 ```
 
-Wow, that's a lot of text in response! The public timeline returns 20 statuses by default. We can use the `limit` parameter to request less than that. Let's try requesting the same endpoint, but with a limit of 2 this time:
+Wow, that's a lot of text in response! The public timeline returns 20 statuses by default.
+
+{{< hint style="danger" >}}
+Some Mastodon servers may disable public access to their timelines via the Admin Settings. If this is the case for your server, then you will receive an error response back.
+{{</ hint >}}
+
+We can use the `limit` parameter to request less than that. Let's try requesting the same endpoint, but with a limit of 2 this time:
 
 ```bash
 curl https://mastodon.example/api/v1/timelines/public?limit=2
@@ -58,7 +64,7 @@ We can do similarly for hashtags by calling [GET /api/v1/timelines/tag/:hashtag]
 curl https://mastodon.example/api/v1/timelines/tag/cats?limit=2
 ```
 
-We should once again see 2 statuses have been returned in a JSON array of [Status]({{< relref "entities/status" >}}) entities. We can parse the JSON by array, then by object. If we were using Python, our code might look something like this:
+We should once again see that 2 statuses have been returned in a JSON array of [Status]({{< relref "entities/status" >}}) entities. We can parse the JSON by array, then by object. If we were using Python, our code might look something like this:
 
 ```python
 import requests
@@ -71,7 +77,7 @@ print(statuses[0]["content"]) # this prints the status text
 ```
 
 {{< hint style="info" >}}
-Parsing JSON and using it in your program is outside of the scope of this tutorial, as it will be different depending on your choice of programming language and on the design of your program. Look for other tutorials on how to work with JSON in your programming language of choice.
+Parsing JSON and using it in your program is outside of the scope of this tutorial, as it will be different depending on your choice of programming language and the design of your program. Look for other tutorials on how to work with JSON in your programming language of choice.
 {{< /hint >}}
 
 {{< hint style="info" >}}

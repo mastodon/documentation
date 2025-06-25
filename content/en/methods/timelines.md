@@ -23,6 +23,8 @@ aliases: [
 GET /api/v1/timelines/public HTTP/1.1
 ```
 
+View public statuses.
+
 **Returns:** Array of [Status]({{<relref "entities/status">}})\
 **OAuth:** Public. Requires app token + `read:statuses` if the instance has disabled public preview.\
 **Version history:**\
@@ -38,7 +40,7 @@ GET /api/v1/timelines/public HTTP/1.1
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -51,14 +53,14 @@ remote
 only_media
 : Boolean. Show only statuses with media attached? Defaults to false.
 
-max_id 
-: String. Return results older than ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than ID.
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
@@ -117,7 +119,7 @@ View public statuses containing the given hashtag.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -139,14 +141,14 @@ remote
 only_media
 : Boolean. Return only statuses with media attachments? Defaults to false.
 
-max_id 
-: String. Return results older than ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than ID.
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
@@ -231,32 +233,33 @@ Hashtag does not exist
 GET /api/v1/timelines/home HTTP/1.1
 ```
 
-View statuses from followed users.
+View statuses from followed users and hashtags.
 
 **Returns:** Array of [Status]({{<relref "entities/status">}})\
 **OAuth:** User + `read:statuses`\
 **Version history:**\
 0.0.0 - added\
 2.6.0 - add `min_id`\
-3.3.0 - both `min_id` and `max_id` can be used at the same time now
+3.3.0 - both `min_id` and `max_id` can be used at the same time now\
+4.0.0 - as users can now follow hashtags, statuses from non-followed users may appear in the timeline
 
 #### Request
 
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
-max_id 
-: String. Return results older than ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than ID.
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
@@ -296,6 +299,58 @@ Invalid or missing Authorization header.
 
 ---
 
+## View link timeline {#link}
+
+```http
+GET /api/v1/timelines/link?url=:url HTTP/1.1
+```
+
+View public statuses containing a link to the specified currently-trending article. This only lists statuses from people who have opted in to discoverability features.
+
+**Returns:** Array of [Status]({{<relref "entities/status">}})\
+**OAuth:** Public. Requires app token + `read:statuses` if the instance has disabled public preview.\
+**Version history:**\
+4.3.0 - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+url
+: {{<required>}} String. The URL of the trending article.
+
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+
+since_id
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+
+min_id
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+
+#### Response
+##### 200: OK
+
+##### 404: Not found
+
+The provided URL is not currently trending.
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
 ## View list timeline {#list}
 
 ```http
@@ -321,18 +376,18 @@ View statuses in the given list timeline.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
-max_id 
-: String. Return results older than ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than ID.
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
@@ -375,7 +430,7 @@ List is not owned by you or does not exist
 
 ---
 
-## (DEPRECATED) View direct timeline {#direct}
+## View direct timeline {{%deprecated%}} {#direct}
 
 ```http
 GET /api/v1/timelines/direct HTTP/1.1
@@ -394,18 +449,18 @@ x.x.x - added\
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
-max_id 
-: String. Return results older than ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than ID.
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.

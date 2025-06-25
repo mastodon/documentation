@@ -3,7 +3,7 @@ title: admin/accounts API methods
 description: Perform moderation actions with accounts.
 menu:
   docs:
-    name: admin/accounts
+    name: accounts
     parent: methods-admin
     identifier: methods-admin-accounts
 aliases: [
@@ -37,7 +37,7 @@ View all accounts, optionally matching certain criteria for filtering, up to 100
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -83,14 +83,14 @@ ip
 staff
 : Boolean. Filter for staff accounts?
 
-max_id 
-: String. Return results older than ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than ID.
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 100 accounts. Max 200 accounts.
@@ -199,7 +199,7 @@ View all accounts, optionally matching certain criteria for filtering, up to 100
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -233,14 +233,14 @@ email
 ip
 : String. Lookup users with this IP address.
 
-max_id 
-: String. Return results older than ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 since_id
-: String. Return results newer than ID.
+: String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Return results immediately newer than ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return. Defaults to 100 accounts. Max 200 accounts.
@@ -331,7 +331,7 @@ View admin-level information about the given account.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -427,7 +427,7 @@ Approve the given local account if it is currently pending approval.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -493,7 +493,7 @@ Reject the given local account if it is currently pending approval.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -597,7 +597,7 @@ Permanently delete data for a suspended account.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -686,7 +686,7 @@ POST /api/v1/admin/accounts/:id/action HTTP/1.1
 
 Perform an action against an account and log this action in the moderation history. Also resolves any open reports against this account.
 
-**Returns:** empty object\
+**Returns:** Empty\
 **OAuth:** User token + `admin:write:accounts`\
 **Permissions:** Manage Users, Manage Reports\
 **Version history:**\
@@ -704,7 +704,7 @@ Perform an action against an account and log this action in the moderation histo
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
@@ -789,7 +789,7 @@ Re-enable a local account whose login is currently disabled.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -855,7 +855,7 @@ Unsilence an account if it is currently silenced.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -921,7 +921,7 @@ Unsuspend a currently suspended account.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -987,7 +987,7 @@ Stops marking an account's posts as sensitive, if it was previously flagged as s
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK

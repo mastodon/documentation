@@ -22,6 +22,7 @@ aliases: [
 {
   "id": "1",
   "domain": "example.com",
+  "digest": "a379a6f6eeafb9a55e378c118034e2751e682fab9f2d30ab13d2125586ce1947",
   "created_at": "2022-11-16T08:15:34.238Z",
   "severity": "noop",
   "reject_media": false,
@@ -48,10 +49,17 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
+### `digest` {#digest}
+
+**Description:** The sha256 hex digest of the domain that is not allowed to federated.\
+**Type:** String\
+**Version history:**\
+4.3.0 - added
+
 ### `created_at` {#created_at}
 
 **Description:** When the domain was blocked from federating.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.0.0 - added
 
@@ -104,4 +112,4 @@ aliases: [
 
 {{< page-relref page="methods/admin/domain_blocks" caption="admin/domain_blocks API methods" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/domain_blocks_serializer.rb" caption="app/serializers/rest/admin/domain_blocks_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/domain_block_serializer.rb" caption="app/serializers/rest/admin/domain_block_serializer.rb" >}}

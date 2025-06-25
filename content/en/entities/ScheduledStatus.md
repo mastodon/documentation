@@ -74,7 +74,7 @@ Returned from `GET /api/v1/scheduled_statuses`:
 ### `scheduled_at` {#scheduled_at}
 
 **Description:** The timestamp for when the status will be posted.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 2.7.0 - added
 
@@ -109,7 +109,7 @@ Returned from `GET /api/v1/scheduled_statuses`:
 ##### `params[poll][expires_in]` {#params-poll-expires_in}
 
 **Description:** How many seconds the poll should last before closing.\
-**Type:** String (cast from integer)\
+**Type:** Integer\
 **Version history:**\
 2.8.0 - added
 
@@ -173,9 +173,9 @@ Returned from `GET /api/v1/scheduled_statuses`:
 **Version history:**\
 2.7.0 - added
 
-#### `params[application_id]` {#params-application_id}
+#### `params[application_id]` {{%deprecated%}} {#params-application_id}
 
-**Description:** ID of the Application that posted the status.\
+**Description:** Internal ID of the Application that posted the status. Provided for historical compatibility only and can be ignored.\
 **Type:** Integer\
 **Version history:**\
 2.7.0 - added
@@ -194,9 +194,9 @@ Returned from `GET /api/v1/scheduled_statuses`:
 **Version history:**\
 2.7.0 - added
 
-#### `params[with_rate_limit]` {#params-with_rate_limit}
+#### `params[with_rate_limit]` {{%deprecated%}} {#params-with_rate_limit}
 
-**Description:** Whether the status should be rate limited <!-- TODO: What does this mean -->.\
+**Description:** Whether status creation is subject to rate limiting. Provided for historical compatibility only and can be ignored.\
 **Type:** Boolean\
 **Version history:**\
 2.7.0 - added

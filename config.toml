@@ -3,11 +3,13 @@ languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Mastodon documentation"
 pygmentsCodeFences = true
-pygmentsStyle = "dracula"
+pygmentsStyle = "github-dark"
 metaDataFormat = "yaml"
-paginate = 100
 enableGitInfo = true
 disablePathToLower = true
+
+[pagination]
+  pagerSize = 100
 
 [markup]
   [markup.tableOfContents]

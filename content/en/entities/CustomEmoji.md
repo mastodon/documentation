@@ -61,7 +61,7 @@ aliases: [
 ### `category` {#category}
 
 **Description:** Used for sorting custom emoji in the picker.\
-**Type:** String\
+**Type:** {{<nullable>}} String\
 **Version history:**\
 3.0.0 - added
 

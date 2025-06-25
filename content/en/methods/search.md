@@ -23,6 +23,8 @@ aliases: [
 GET /api/v2/search HTTP/1.1
 ```
 
+Perform a search for content in accounts, statuses and hashtags with the given parameters.
+
 **Returns:** [Search]({{< relref "entities/Search" >}})\
 **OAuth:** Public (without `resolve` or `offset`), or User token + `read:search`\
 **Version history:**\
@@ -37,7 +39,7 @@ GET /api/v2/search HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -48,7 +50,7 @@ type
 : String. Specify whether to search for only `accounts`, `hashtags`, `statuses`
 
 resolve
-: Boolean. Attempt WebFinger lookup? Defaults to false.
+: Boolean. Only relevant if `type` includes `accounts` or if `query` is a HTTPS URL. In the first case, if `true` and (a) the search query is for a remote account (e.g., `someaccount@someother.server`) and (b) the local server does not know about the account, [WebFinger](/spec/webfinger) is used to try and resolve the account at `someother.server`. This provides the best recall at higher latency. If `false`, only accounts the server knows about are returned. In the second case, if `true`, resolving the URL and returning the matching status is attempted. If `false`, this resolving logic is circumvented and a regular search is performed instead.  
 
 following
 : Boolean. Only include accounts that the user is following? Defaults to false.
@@ -59,11 +61,11 @@ account_id
 exclude_unreviewed
 : Boolean. Filter out unreviewed tags? Defaults to false. Use true when trying to find trending tags.
 
-max_id 
-: String. Return results older than this ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 min_id
-: String. Return results immediately newer than this ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return, per type. Defaults to 20 results per category. Max 40 results per category.
@@ -113,6 +115,7 @@ Truncated results of a sample search for "cats" with limit=2.
   ],
   "hashtags": [
     {
+      "id": "205",
       "name": "cats",
       "url": "https://mastodon.social/tags/cats",
       "history": [
@@ -125,6 +128,7 @@ Truncated results of a sample search for "cats" with limit=2.
       ]
     },
     {
+      "id": "708",
       "name": "catsofmastodon",
       "url": "https://mastodon.social/tags/catsofmastodon",
       "history": [
@@ -152,7 +156,7 @@ Invalid or missing Authorization header.
 
 ---
 
-## (REMOVED) Search results (v1) {#v1}
+## Perform a search (v1) {{%removed%}} {#v1}
 
 ```http
 GET /api/v1/search HTTP/1.1
@@ -172,7 +176,7 @@ GET /api/v1/search HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -188,11 +192,11 @@ resolve
 account_id
 : String. If provided, will only return statuses authored by this account.
 
-max_id 
-: String. Return results older than this ID.
+max_id
+: String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
 
 min_id
-: String. Return results immediately newer than this ID.
+: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
 
 limit
 : Integer. Maximum number of results to return, per type. Defaults to 20 results per category. Max 40 results per category.

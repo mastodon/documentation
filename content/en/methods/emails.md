@@ -21,10 +21,12 @@ aliases: [
 ## Resend confirmation email {#confirmation}
 
 ```http
-POST /api/v1/emails/confirmation HTTP/1.1
+POST /api/v1/emails/confirmations HTTP/1.1
 ```
 
-**Returns:** Empty object\
+Resend a new confirmation email. If an email is provided, updates the unconfirmed user's email before resending the confirmation email.
+
+**Returns:** Empty\
 **OAuth:** User token issued to the client that created the unconfirmed user\
 **Version history:**\
 3.4.0 - added
@@ -33,12 +35,12 @@ POST /api/v1/emails/confirmation HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Form data parameters
 
 email
-: If provided, updates the unconfirmed user's email before resending the confirmation email.
+: String. If provided, updates the unconfirmed user's email before resending the confirmation email.
 
 #### Response
 ##### 200: OK

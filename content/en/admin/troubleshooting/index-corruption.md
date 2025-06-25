@@ -15,17 +15,17 @@ Textual values in the database, such as usernames, or status identifiers, are co
 When setting up a database, Mastodon will use the database server's default locale settings, including the default collation rules, which often is defined by the operating system's settings.
 
 Unfortunately, in late 2018, a `glibc` update changed the collation rules for many locales, which means databases using an affected locale would now order textual values differently.
-Since the database indexes are algorithmic structures which rely on the ordering of the values they are indexing, some of them would become inconsistent.
+Since the database indexes are algorithmic structures that rely on the ordering of the values they are indexing, some of them would become inconsistent.
 
 More information: https://wiki.postgresql.org/wiki/Locale_data_changes https://postgresql.verite.pro/blog/2018/08/27/glibc-upgrade.html
 
 ## Am I affected by this issue? {#am-i-affected}
 
 If your database is not using `C` or `POSIX` for its collation setting (which you can check with `SELECT datcollate FROM pg_database WHERE datname = current_database();`),
-your indexes might be inconsistent, if you ever ran with a version of glibc prior to 2.28 and did not immediately reindex your databases after updating to glibc 2.28 or newer.
+your indexes might be inconsistent if you ever ran with a version of glibc prior to 2.28 and did not immediately reindex your databases after updating to glibc 2.28 or newer.
 
 {{< hint style="info" >}}
-You may have found this page because of **PgHero** warnings about "Duplicate Indexes". While such warnings can sometimes be indicative of an issue in deploying or updating Mastodon, **they are not related to database index corruption and not indicative of any functional issue with your database**.
+You may have found this page because of PgHero warnings about "Duplicate Indexes". While such warnings can sometimes be indicative of an issue in deploying or updating Mastodon, **they are not related to database index corruption and are not indicative of any functional issue with your database**.
 {{< /hint >}}
 
 You can check whether your indexes are consistent using [PostgreSQL's `amcheck` module](https://www.postgresql.org/docs/10/amcheck.html): as the database server's super user, connect to your Mastodon database and issue the following (this may take a while):
@@ -79,14 +79,14 @@ If this succeeds, without returning an error, your database should be consistent
 
 ## Fixing the issue {#fixing}
 
-Unless you take action, if you are affected, your database could get more and more inconsistent as the time pass. Therefore, it is important to fix it as soon as possible.
+Unless you take action, if you are affected, your database could get more and more inconsistent as time passes. Therefore, it is important to fix it as soon as possible.
 
 Mastodon 3.2.2 and later come with a semi-interactive script to fix those corruptions as best as possible. If you're on an earlier version, update to 3.2.2 first. It is possible that running the database migrations to 3.2.2 will fail because of those very corruptions, but the database should then be brought to a state that the maintenance tool bundled with Mastodon 3.2.2 can then recover from.
 
 Before attempting to fix your database, **stop Mastodon and make a backup of your database**. Then, with **Mastodon still stopped**, run the maintenance script:
 
 ```
-RAILS_ENV=production tootctl maintenance fix-duplicates
+RAILS_ENV=production bin/tootctl maintenance fix-duplicates
 ```
 
 The script will walk through the database to automatically find duplicates and fix them. In some cases, those operations are destructive. In the most destructive cases, you will be asked to choose which record to keep and which records to discard. In all cases, walking through the whole database in search of duplicates is an extremely long operation.

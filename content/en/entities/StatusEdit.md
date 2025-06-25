@@ -71,14 +71,14 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** The timestamp of when the revision was published.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 3.5.0 - added
 
 ### `account` {#account}
 
 **Description:** The account that published this revision.\
-**Type:** Account\
+**Type:** [Account]({{<relref "entities/Account">}})\
 **Version history:**\
 3.5.0 - added
 
@@ -105,7 +105,7 @@ aliases: [
 
 ### `media_attachments` {#media_attachments}
 
-**Description:** The current state of the poll options at this revision. Note that edits changing the poll options will be collapsed together into one edit, since this action resets the poll.\
+**Description:** The current state of the media attachments at this revision.\
 **Type:** Array of [MediaAttachment]({{<relref "entities/MediaAttachment">}})\
 **Version history:**\
 3.5.0 - added
@@ -116,6 +116,13 @@ aliases: [
 **Type:** Array of [CustomEmoji]({{<relref "entities/CustomEmoji">}})\
 **Version history:**\
 3.5.0 - added
+
+### `quote` {{%optional%}} {#quote}
+
+**Description:** Information about the status being quoted, if any\
+**Type:* {{<nullable>}} [Quote]({{< relref "entities/quote" >}}) or [ShallowQuote]({{< relref "entities/ShallowQuote" >}})\
+**Version history:**\
+4.4.0 - added
 
 ## See also
 

@@ -1,18 +1,22 @@
 ---
 title: Libraries and implementations
-description: Interface with the Mastodon API in the programming language of your choice.
+description: Code, libraries and SDKs for the Mastodon API in a range of programming languages.
 menu:
   docs:
     weight: 60
     parent: client
 ---
 
-## Apex (Salesforce) {#apex-salesforce}
+Thank you to our awesome developer community, for supporting the project with a wide range of implementations of the API. If you have built a library or SDK for the Mastodon API, [let us know](https://github.com/mastodon/mastodon/discussions) about it, and it may be included below in a future update.
 
-* [apex-mastodon](https://github.com/tzmfreedom/apex-mastodon)
+Remember to check how recently the library was updated, and whether it includes the API features you may want to use.
 
+## Arduino / ESP32 / IoT {#arduino-iot}
+
+* [lyuba](https://github.com/ringtailsoftware/lyuba)
 ## C# (.NET Standard) {#c-net-standard}
 
+* [MastodonAPI](https://github.com/golf1052/MastodonAPI)
 * [Mastodot](https://github.com/yamachu/Mastodot)
 * [Mastonet](https://github.com/glacasa/Mastonet)
 * [TootNet](https://github.com/cucmberium/TootNet)
@@ -23,26 +27,37 @@ menu:
 
 * [mastodonpp](https://schlomp.space/tastytea/mastodonpp)
 
-## Crystal {#crystal}
-
-* [mastodon.cr](https://github.com/decors/mastodon.cr)
-
 ## Common Lisp {#common-lisp}
 
+* [mastodon-cl](https://github.com/compufox/mastodon-cl)
 * [tooter](https://github.com/Shinmera/tooter)
 
-## Dart
+## Crystal {#crystal}
 
-* [mastodon](https://pub.dev/packages/mastodon)
+* [mastodon-api-crystal](https://github.com/renatolond/mastodon-api-crystal)
+
+## Dart {#dart}
+
+* [mastodon_dart](https://pub.dev/packages/mastodon_dart)
+* [mastodon-api](https://github.com/mastodon-dart/mastodon-api)
+* [mastodon-oauth](https://github.com/mastodon-dart/mastodon-oauth2)
+* [mastodon](https://github.com/mykdavies/Mastodon)
+* [dartodon](https://github.com/darkcl/dartodon)
+* [mastodon_entities](https://github.com/MahanRahmati/mastodon-entities)
 
 ## Elixir {#elixir}
 
 * [hunter](https://github.com/milmazz/hunter)
 
+## Erlang {#erlang}
+
+* [masterldon](https://github.com/igb/masterldon)
+
 ## Go {#go}
 
 * [go-mastodon](https://github.com/mattn/go-mastodon)
 * [madon](https://github.com/McKael/madon)
+* [go-mastodon-api](https://github.com/aaronland/go-mastodon-api)
 
 ## Haskell {#haskell}
 
@@ -50,12 +65,17 @@ menu:
 
 ## Java {#java}
 
-* [mastodon4j](https://github.com/sys1yagi/mastodon4j)
+* [BigBone](https://github.com/andregasser/bigbone)
+* [Mastodon4J](https://github.com/Mastodon4J/Mastodon4J)
+* [mastodon-jfx](https://github.com/wakingrufus/mastodon-jfx)
 
 ## JavaScript {#javascript}
 
+* [megalodon](https://github.com/h3poteto/megalodon)
 * [masto.js](https://github.com/neet/masto.js)
 * [libodonjs](https://github.com/Zatnosk/libodonjs)
+* [pl-api](https://codeberg.org/mkljczk/pl-fe/src/branch/develop/packages/pl-api)
+* [tsl-mastodon](https://github.com/typescriptlibs/tsl-mastodon-api)
 
 ## JavaScript (Browser) {#javascript-browser}
 
@@ -63,8 +83,20 @@ menu:
 
 ## JavaScript (Node.js) {#javascript-node-js}
 
-* [node-mastodon](https://github.com/jessicahayley/node-mastodon)
 * [mastodon-api](https://github.com/vanita5/mastodon-api)
+
+## Kotlin {#kotlin}
+
+* [BigBone](https://github.com/andregasser/bigbone)
+* [mastodonk](https://github.com/outadoc/mastodonk)
+
+## Nim {#nim}
+
+* [Mastonim](https://github.com/matrix07012/Mastonim)
+
+## Objective-C {#objective-c}
+
+* [Cocotodon](https://github.com/shibafu528/Cocotodon)
 
 ## Perl {#perl}
 
@@ -72,20 +104,30 @@ menu:
 
 ## PHP {#php}
 
-* [Mastodon API for Laravel](https://github.com/kawax/laravel-mastodon-api)
-* [Composer based php API wrapper](https://github.com/r-daneelolivaw/mastodon-api-php)
-* [MastodonOAuthPHP](https://github.com/TheCodingCompany/MastodonOAuthPHP)
+* [mastodon-api-client](https://github.com/vazaha-nl/mastodon-api-client)
 * [Phediverse Mastodon REST Client](https://github.com/phediverse/mastodon-rest)
 * [TootoPHP](https://framagit.org/MaxKoder/TootoPHP)
 * [oauth2-mastodon](https://github.com/lrf141/oauth2-mastodon)
+* [MastodonBotPHP](https://github.com/Eleirbag89/MastodonBotPHP)
+* [mastodon-api-php-oauth](https://github.com/yks118/Mastodon-api-php-oauth)
+* [mastodon-api-php](https://github.com/colorfield/mastodon-api-php)
+* [Mastodon API for Laravel](https://github.com/kawax/laravel-mastodon-api)
+* [Mastodon for Drupal](https://www.drupal.org/project/mastodon)
+* [Mastodon for Socialite](https://github.com/kawax/socialite-mastodon)
+
+## PowerShell {#powershell}
+
+* [Mastodon](https://github.com/JB405/Mastodon)
 
 ## Python {#python}
 
 * [Mastodon.py](https://github.com/halcy/Mastodon.py)
+* [mastopy](https://gitlab.com/spla/mastopy)
 
 ## R {#r}
 
 * [mastodon](https://github.com/ThomasChln/mastodon)
+* [rtoot](https://github.com/schochastics/rtoot)
 
 ## Ruby {#ruby}
 
@@ -93,8 +135,8 @@ menu:
 
 ## Rust {#rust}
 
-* [mammut](https://github.com/Aaronepower/mammut) (unmaintained)
-* [elefren](https://github.com/DeeUnderscore/elefren) (unmaintained)
+* [megalodon-rs](https://github.com/h3poteto/megalodon-rs)
+* [mastodon-async](https://github.com/dscottboggs/mastodon-async)
 
 ## Scala {#scala}
 
@@ -104,9 +146,11 @@ menu:
 
 ### Guile {#guile}
 
-* [elefan](https://codeberg.org/WammKD/Guile-Mastodon)
+* [Guile-Mastodon](https://codeberg.org/WammKD/Guile-Mastodon)
 
 ## Swift {#swift}
 
-* [MastodonKit](https://github.com/ornithocoder/MastodonKit)
-
+* [Mastodon.swift](https://github.com/Swiftodon/Mastodon.swift)
+* [MastodonKit](https://github.com/MastodonKit/MastodonKit)
+* [tootsdk](https://github.com/tootsdk/tootsdk)
+* [MastodonAPI](https://github.com/li-bei/MastodonAPI)

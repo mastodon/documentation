@@ -37,7 +37,7 @@ Accounts that are promoted by staff, or that the user has had past positive inte
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -89,7 +89,7 @@ DELETE /api/v1/suggestions/:account_id HTTP/1.1
 
 Remove an account from follow suggestions.
 
-**Returns:** n/a\
+**Returns:** Empty\
 **OAuth:** User token + `read`\
 **Version history:**\
 2.4.3 - added
@@ -104,7 +104,7 @@ Remove an account from follow suggestions.
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
 ##### 200: OK
@@ -127,7 +127,7 @@ Invalid or missing Authorization header.
 
 ---
 
-## (DEPRECATED) View follow suggestions (v1) {#v1}
+## View follow suggestions (v1) {{%deprecated%}} {#v1}
 
 ```http
 GET /api/v1/suggestions HTTP/1.1
@@ -145,7 +145,7 @@ Accounts the user has had past positive interactions with, but is not yet follow
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 

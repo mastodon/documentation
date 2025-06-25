@@ -23,6 +23,8 @@ aliases: [
 GET /api/v1/followed_tags HTTP/1.1
 ```
 
+List your followed hashtags.
+
 **Returns:** Array of [Tag]({{< relref "entities/Tag" >}})\
 **OAuth:** User token + `read:follows`\
 **Version history:**\
@@ -34,7 +36,7 @@ GET /api/v1/followed_tags HTTP/1.1
 ##### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ##### Query parameters
 
@@ -58,8 +60,9 @@ List of followed hashtags
 ```json
 [
   {
-    "name": "Test",
-    "url": "http://mastodon.example/tags/test",
+    "id": "802",
+    "name": "Caturday",
+    "url": "http://mastodon.example/tags/caturday",
     "history": [
       {
         "day": "1668556800",
@@ -103,7 +106,7 @@ List of followed hashtags
 ]
 ```
 
-Because TagFollow IDs are generally not exposed via any API responses, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+To paginate through the records in the followed tags collection, you must use the HTTP `Link` header to load older or newer results. The `id` property in the results refers to the [Tag]({{< relref "entities/Tag" >}}), not the record representing the following relationship to a Tag. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
 ```http
 Link: <http://mastodon.example/api/v1/followed_tags?limit=1&max_id=2>; rel="next", <http://mastodon.example/api/v1/followed_tags?limit=1&since_id=2>; rel="prev"

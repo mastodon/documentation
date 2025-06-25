@@ -101,7 +101,7 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** When the account was first discovered.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 2.9.1 - added
 
@@ -173,7 +173,7 @@ aliases: [
 
 ### `silenced` {#silenced}
 
-**Description:** Whether the account is currently silenced.
+**Description:** Whether the account is currently silenced.\
 **Type:** Boolean\
 **Version history:**\
 2.9.1 - added
@@ -210,4 +210,4 @@ aliases: [
 
 {{< page-relref ref="methods/admin/accounts" caption="admin/accounts API methods" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/master/app/serializers/rest/admin/account_serializer.rb" caption="app/serializers/rest/admin/account_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/account_serializer.rb" caption="app/serializers/rest/admin/account_serializer.rb" >}}

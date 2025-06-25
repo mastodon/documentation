@@ -45,7 +45,7 @@ aliases: [
 ### `created_at` {#created_at}
 
 **Description:** When the domain was allowed to federate.\
-**Type:** String (ISO 8601 Datetime)\
+**Type:** String ([Datetime](/api/datetime-format#datetime))\
 **Version history:**\
 4.0.0 - added
 
@@ -53,4 +53,4 @@ aliases: [
 
 {{< page-relref page="methods/admin/domain_allows" caption="admin/domain_allows API methods" >}}
 
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/domain_allows_serializer.rb" caption="app/serializers/rest/admin/domain_allows_serializer.rb" >}}
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/admin/domain_allow_serializer.rb" caption="app/serializers/rest/admin/domain_allow_serializer.rb" >}}

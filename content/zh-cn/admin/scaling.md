@@ -1,218 +1,283 @@
 ---
-title: 伸缩你的服务器
-descriptions: 为服务更多用户而优化。
+title: 扩大你的站点规模
+descriptions: 为服务更多用户可以进行的优化。
 menu:
   docs:
     weight: 100
     parent: admin
 ---
 
-## 并发管理 {#concurrency}
+## 管理并发度 {#concurrency}
 
-Mastodon有三种进程：
+Mastodon 有三种类型的进程：
 
-* Web (Puma)
-* Streaming API
-* 后台进程 (Sidekiq)
+- Web (Puma)
+- 流式 API
+- 后台处理 (Sidekiq)
 
 ### Web (Puma) {#web}
 
-web进程处理绝大多数应用的短HTTP请求。以下环境变量可以控制它：
+Web 进程处理应用大部分的短周期 HTTP 请求。可通过以下环境变量控制并发度：
 
-* `WEB_CONCURRENCY` 控制worker进程数
-* `MAX_THREADS` 控制每进程的线程数
+- `WEB_CONCURRENCY` 控制工作进程的数量
+- `MAX_THREADS` 控制每个进程的线程数量
 
-线程共享其父进程的内存。不同的线程被分配了专有内存，虽然他们通过copy-on-write共享了一些内存。数量较多的线程会先消耗掉你的CPU，数量较多的进程会先消耗掉你的内存。
+线程共享其父进程的内存。不同的进程分配自己的内存，但通过写时复制共享一些内存。增加线程数量会优先耗尽你的 CPU，而增加进程数量会先耗尽你的 RAM。
 
-这些数值会影响到可以同时处理多少HTTP请求。
+上述变量的值可以影响同时能处理多少 HTTP 请求。
 
-在吞吐量方面，多进程比多线程要好。
+就吞吐量指标而言，增加进程数量比增加线程数量效果更好。
 
-### Streaming API {#streaming}
+### 流式 API {#streaming}
 
-streaming API处理长HTTP连接与WebSockets连接，通过这些连接用户可以接受到实时更新。以下环境变量可以控制它：
+流式 API 处理长周期 HTTP 和 WebSocket 连接，客户端通过这些连接接收实时更新。可通过以下环境变量控制并发度：
 
-* `STREAMING_CLUSTER_NUM` 控制worker进程数
-* `STREAMING_API_BASE_URL` 控制streaming API的base URL
+- `STREAMING_API_BASE_URL` 控制流式 API 的根 URL
+- `PORT` 控制流式 API 服务器将监听的端口，默认为4000。`BIND`和`SOCKET`环境变量也可以使用。
+- 此外，流式 API 还使用共享的[数据库](/admin/config#postgresql)和 [Redis](/admin/config#redis) 环境变量。
 
-一个进程可以处理相当数量的连接。 如果您愿意，streaming API可以托管在其他子域上，例如：避免nginx代理连接开销。
+通过设置 `STREAMING_API_BASE_URL`，流式 API 可以使用不同的子域。这允许你为流式 API 和 Web API 请求使用不同的负载均衡器。然而，这也要求应用程序从[实例端点](/methods/instance/#v2)正确请求流式 API URL，而不是假设它与 Web API 托管在同一域名上。
 
-### 后台进程 (Sidekiq) {#sidekiq}
+流式 API 服务端的一个进程可以处理相当多的连接和吞吐量，但如果你发现单个进程无法处理你实例的负载，你可以通过改变每个进程的 `PORT` 号来运行多个进程，然后使用nginx将流量负载均衡到每个实例。例如，一个有大约 50000 个用户且月活跃用户为 10000 - 20000 个用户的社区，通常会有大约 800-1200 个并发流式 API 连接。
 
-Mastodon许多任务都分配给后台进程，以确保HTTP请求快速响应，并防止HTTP请求中止影响到这些任务的执行。Sidekiq是单个进程，具有可配置的线程数。
+流式 API 服务端还在 `/metrics` 上暴露了一个 [Prometheus](https://prometheus.io/) 端点，提供许多指标帮助你了解 Mastodon 流式 API 服务器的当前负载，一些关键指标包括：
 
-#### 线程数 {#sidekiq-threads}
+- `mastodon_streaming_connected_clients`：这是已连接客户端的数量，按客户端类型标记（websocket 或 eventsource）
+- `mastodon_streaming_connected_channels`：这是当前订阅的"频道"数量（注意由于我们内部"系统"频道的工作方式，这个数字比连接的客户端要高得多）
+- `mastodon_streaming_messages_sent_total`：这是自上次重启以来发送给客户端的消息总数。
+- `mastodon_streaming_redis_messages_received_total`：这是从 Redis pubsub 接收的消息数量，用于补充[直接监控Redis](https://sysdig.com/blog/redis-prometheus/)。
 
-虽然web进程数与web线程数影响Mastodon实例响应终端用户，分配给后台进程的线程数影响嘟文从作者分发至其他人的速度，电子邮件花多长时间发完等等。
+{{< hint style="info" >}}
+运行的流式 API 服务端进程越多， PostgreSQL 上消耗的数据库连接就越多，所以你可能需要使用 PgBouncer，如下文所述。
+{{< /hint >}}
 
-Sidekiq的线程数并不受环境变量控制，但是可通过命令行参数控制，例如：
+下面是一个 nginx 配置示例，用于将流量路由到三个不同的进程，分别运行在 `PORT` 4000、 4001 和 4002 上：
+
+```text
+upstream streaming {
+    least_conn;
+    server 127.0.0.1:4000 fail_timeout=0;
+    server 127.0.0.1:4001 fail_timeout=0;
+    server 127.0.0.1:4002 fail_timeout=0;
+}
+```
+
+如果你使用分布式 systemd 文件，那么可以使用以下命令启动多个流式 API 服务端：
+
+```bash
+$ sudo systemctl start mastodon-streaming@4000.service
+$ sudo systemctl start mastodon-streaming@4001.service
+$ sudo systemctl start mastodon-streaming@4002.service
+```
+
+默认情况下， `sudo systemctl start mastodon-streaming` 只在端口4000上启动一个进程，相当于运行 `sudo systemctl start mastodon-streaming@4000.service`。
+
+{{< hint style="warning" >}}
+Mastodon 的早期版本有一个 `STREAMING_CLUSTER_NUM` 环境变量，该变量使流式 API 服务端使用集群，它启动多个工作进程并使用 Node.js 进行负载均衡。
+
+上述配置与其他配置的交互方式使容量规划变得困难，在涉及到数据库连接和 CPU 资源时尤为如此。默认情况下，流式 API 服务端会消耗所有可用 CPU 上的资源，这可能会与服务器上运行的其他软件产生冲突。另一个常见问题是配置错误的 `STREAMING_CLUSTER_NUM` 导致因为每个集群工作进程打开连接池而耗尽数据库连接，因此 `STREAMING_CLUSTER_NUM` 为 `5` 且 `DB_POOL` 为 `10` 可能会消耗50个数据库连接。
+
+现在，单个流式 API 服务端进程最多只会使用 `DB_POOL` 个PostgreSQL连接，并且通过运行更多的流式 API 服务端实例来处理扩展。
+{{< /hint >}}
+
+### 后台处理 (Sidekiq) {#sidekiq}
+
+Mastodon 中的许多任务都被委托给后台处理，以确保对 HTTP 请求的快速响应，并防止 HTTP 请求中止影响这些任务的执行。Sidekiq 是一个单一进程，具有可配置的线程数。
+
+#### 线程数量 {#sidekiq-threads}
+
+虽然 Web 进程中的线程数影响 Mastodon 实例对最终用户的响应速度，但分配给后台处理的线程数影响嘟文从作者传递给其他人的速度、邮件发送速度等。
+
+线程数不是通过环境变量调整的，而是通过调用 Sidekiq 时的命令行参数调整，如下例所示：
 
 ```bash
 bundle exec sidekiq -c 15
 ```
 
-将启一个15线程的sidekiq进程。请注意每个线程都需要能够连接数据库，这意味着数据库连接池应足够大以满足所有进程。数据库连接池的大小由`DB_POOL`环境变量控制，该变量必须至少与进程数同样大。
+这将以 15 个线程启动 Sidekiq 进程。需要注意的是，每个线程都需要一个数据库连接，所以这需要一个大的数据库池。这个池的大小由 `DB_POOL` 环境变量管理，它应该设置为至少等于线程数的值。
 
 #### 队列 {#sidekiq-queues}
 
-Sidekiq根据任务的重要性使用不同队列，这里的重要性是指如果队列不工作，其对本地用户体验的冲击有多大。按重要性降序排列：
+Sidekiq 使用不同的队列来处理不同重要性的任务，其中重要性是指如果队列不工作，对服务器本地用户体验的影响程度。队列按重要性降序列出如下：
 
-| 队列 | 重要性 |
-| :--- | :--- |
-| `default` | 影响本地用户的所有任务 |
-| `push` | 推送消息至其它服务器 |
-| `mailers` | 分发电子邮件 |
-| `pull` | 从其它服务器拉取信息 |
-| `scheduler` | 完成计划任务，例如更新当下流行标签及清理日志 |
+`default`
+: 影响本地用户的所有任务。
 
-默认队列及其优先级存储于`config/sidekiq.yml`，但可通过调用Sidekiq命令行覆盖，例如：
+`push`
+: 将负载传递到其他服务器。
+
+`ingress`
+: 传入的外站活动。优先级低于默认队列，以便在服务器负载过重时本站用户仍能看到他们的嘟文。
+
+`mailers`
+: 负责邮件的传递。
+
+`pull`
+: 较低优先级的任务，如处理导入、备份、解析嘟文串、删除用户、转发回复。
+
+`scheduler`
+: 处理定时任务，如刷新热门话题标签和清理日志。
+
+默认队列及其优先级存储在 [config/sidekiq.yml](https://github.com/mastodon/mastodon/blob/main/config/sidekiq.yml) 中，但可以通过 Sidekiq 的命令行调用进行覆盖，例如：
 
 ```bash
 bundle exec sidekiq -q default
 ```
 
-仅运行`default`队列。
+此命令将只运行 `default` 队列。
 
-Sidekiq处理队列的方式是，它首先检查第一个队列中的任务，如果没有，则检查下一个队列。这意味着，如果第一个队列已满，其他队列将延后。
+Sidekiq 通过首先检查第一个队列中的任务来处理队列，如果没有找到，它会检查后续队列。因此，如果第一个队列过满，其他队列中的任务可能会遭遇延迟。
 
-作为一种解决方案，可以启动为不同队列启动不同的Sidekiq进程以确保真正的并列执行，例如：使用不同Sidekiq参数创建多个systemd服务。
+为队列创建不同的 Sidekiq 进程，可以实现真正的并行执行，例如为具有不同参数的 Sidekiq 创建多个 systemd 服务。
 
-**请确保仅有一个`scheduler`队列！！**
+{{< hint style="warning" >}}
+你可以根据需要运行任意多的 Sidekiq 进程和线程，以有效处理运行中的作业，但是 `scheduler` 队列永远不应该在多个 Sidekiq 进程中同时运行。
+{{< /hint >}}
 
+## 使用PgBouncer进行事务池化 {#pgbouncer}
 
-## 使用pgBouncer事务池 {#pgbouncer}
+### 为什么你可能需要PgBouncer {#pgbouncer-why}
 
-### 你为什么要用PgBouncer {#pgbouncer-why}
+如果你开始耗尽可用的 PostgreSQL 连接（默认为100个），那么 PgBouncer 可能是一个好的解决方案。本文档描述了一些常见的问题，以及 Mastodon 的良好配置默认值。
 
-如果开始耗尽可用的Postgres连接（默认为100），那PgBouncer可能是一个好方案。本文档将介绍Mastodon的一些常见陷阱及好的默认配置。
-
-请注意，你可以在管理界面的“PgHero”查看当前使用了多少Postgres连接。通常Mastodon使用Puma、Sidekiq、streaming API三者线程数总和的连接数。
+在 Mastodon 中具有 `DevOps` 权限的用户可以通过管理视图中的 PgHero 链接监控当前 PostgreSQL 连接的使用情况。通常，打开的连接数等于 Puma、Sidekiq 和流媒体 API 中的线程总数。
 
 ### 安装PgBouncer {#pgbouncer-install}
 
-在Debian和Ubuntu：
+在 Debian 和 Ubuntu 上：
 
 ```bash
 sudo apt install pgbouncer
 ```
 
-### 配置PgBouncer {#pgbouncer-config}
+### 配置 PgBouncer {#pgbouncer-config}
 
 #### 设置密码 {#pgbouncer-password}
 
-首先，如果你的Postgres中`mastodon`帐户没有设置密码的话，你需要设置一个密码。
-First off, if your `mastodon` user in Postgres is set up without a password, you will need to set a password.
+首先，如果你的 PostgreSQL 中的 `mastodon` 用户没有设置密码，你需要设置一个密码。
 
-下面是如何重置密码：
+以下是重置密码的方法：
 
 ```bash
 psql -p 5432 -U mastodon mastodon_production -w
 ```
 
-之后（很显然，使用一个与单词“password”不同的密码）：
+然后（显然，此处应该使用不同于 "password" 的密码）：
 
 ```sql
 ALTER USER mastodon WITH PASSWORD 'password';
 ```
 
-然后输入 `\q` 退出。
+然后使用 `\q` 退出。
 
-#### 配置userlist.txt {#pgbouncer-userlist}
+#### 配置 userlist.txt {#pgbouncer-userlist}
 
 编辑 `/etc/pgbouncer/userlist.txt`
 
-只要稍后你在 pgbouncer.ini 中指定一个用户名/密码，userlist.txt文件中的值*不必*与真实PostgreSQL用户相同。你可以随意设定用户名和密码，但是为方便起来，你可以重用“真实”的凭证。添加`mastodon`帐户至`userlist.txt`：
+只要你在稍后的 `pgbouncer.ini` 中指定了用户/密码， `userlist.txt` 中的值就不必与真实的 PostgreSQL 用户组对应。你可以任意定义用户和密码，但为了简单起见，你可以重用"真实"的凭证。将 `mastodon` 用户添加到 `userlist.txt`：
 
 ```text
 "mastodon" "md5d75bb2be2d7086c6148944261a00f605"
 ```
 
-这里，我们使用md5格式，这里的md5密码就是字符串`密码 + 用户名`的md5值附加上`md5`。例如：为了获得用户名为`mastodon`密码为`password`的散列值，你可以这样做：
+这里我们使用 md5 方案，其中 md5 密码只是 `password + username` 的 md5sum，前面加上字符串 `md5`。例如，为用户 `mastodon` 和密码 `password` 生成哈希：
 
 ```bash
-# ubuntu, debian, etc.
+# ubuntu, debian等
 echo -n "passwordmastodon" | md5sum
-# macOS, openBSD, etc.
+# macOS, openBSD等
 md5 -s "passwordmastodon"
 ```
 
-然后将`md5`添加至开头。
+然后只需在开头添加 `md5`。
 
-你也可以创建一个`pgbouncer`管理帐户，以登入查看PgBouncer管理数据库。下面是一个`userlist.txt`文件的例子：
+你还需要创建一个 `pgbouncer` 管理员用户来登录 PgBouncer 管理数据库。这里是一个示例 `userlist.txt`：
 
 ```text
 "mastodon" "md5d75bb2be2d7086c6148944261a00f605"
 "pgbouncer" "md5a45753afaca0db833a6f7c7b2864b9d9"
 ```
 
-以上两个帐户密码者是`password`。
+上述两个示例中的密码都为 `password`。
 
 #### 配置 pgbouncer.ini {#pgbouncer-ini}
 
 编辑 `/etc/pgbouncer/pgbouncer.ini`
 
-在`[databases]`行下，列出你想连接的Postgres数据库。这里PgBouncer将使用同样的用户名/密码和数据库名称连接下层Postgres数据库：
+在 `[databases]` 部分添加一行，列出你想连接的 PostgreSQL 数据库。这里我们只让 PgBouncer 使用相同的用户名/密码和数据库名来连接底层的 PostgreSQL 数据库：
 
-```text
+```ini
 [databases]
 mastodon_production = host=127.0.0.1 port=5432 dbname=mastodon_production user=mastodon password=password
 ```
 
-`listen_addr` 和 `listen_port` 告诉 PgBouncer 从哪个地址/端口接收连接。默认值即可：
+`listen_addr` 和 `listen_port` 将告知 PgBouncer 接受哪个地址/端口的连接。默认值的效果已经较为理想：
 
-```text
+```ini
 listen_addr = 127.0.0.1
 listen_port = 6432
 ```
 
-将`auth_type`设为`md5`（假定你在`userlist.txt`使用md5格式）：
+将 `auth_type` 设为 `md5`（假设你在 `userlist.txt` 中使用了 md5 格式）：
 
-确保`pgbouncer`帐户为管理员：
+```ini
+auth_type = md5
+```
 
-**接下来的部分极其重要！** 默认连接池模式是基于连接（session-based），但是Mastodon需要基于事务（transaction-based）。换而言之，当一个事务创建一个Postgres连接随之创建，当事务完成该连接也随之结束。因此，你需要把`pool_mode`从`session`改为`transaction`：
+确保 `pgbouncer` 用户是管理员：
 
-接下来，`max_client_conn`定义PgBouncer自身接受多少连接，`default_pool_size`限制后台开启多少Postgres连接。（在PgHero，显示的连接数将与`default_pool_size`数目一致，因为它不知道PgBouncer。）
+```ini
+admin_users = pgbouncer
+```
 
-使用默认值启动即可，你可以随后调大他们：
+Mastodon 需要不同于默认的基于会话的池化模式。具体而言，它需要基于事务的池化模式。这意味着 PostgreSQL 连接在事务开始时建立，在事务完成时终止。因此，必须将 `pool_mode` 设置从 `session` 更改为 `transaction`：
 
-```text
+```ini
+pool_mode = transaction
+```
+
+接下来， `max_client_conn` 定义 PgBouncer 本身将接受多少个连接，而 `default_pool_size` 限制了底层会开启多少个 PostgreSQL 连接。（在 PgHero 中举报的连接数将对应于 `default_pool_size`，因为它不知道 PgBouncer 的存在）。
+
+默认值可以开始，之后你可以随时增加它们：
+
+```ini
 max_client_conn = 100
 default_pool_size = 20
 ```
 
-完成更改后，不要忘记重载（reload）或重启（restart）pgbouncer：
+修改完成后，不要忘记重新加载或重新启动 PgBouncer：
 
 ```bash
 sudo systemctl reload pgbouncer
 ```
 
-#### 调试，确保一切正常 {#pgbouncer-debug}
+#### 调试并确认一切正常 {#pgbouncer-debug}
 
-你应该能像连接Postgres一样连接PgBouncer：
+你应该能够像连接 PostgreSQL 那样连接到 PgBouncer：
 
 ```bash
 psql -p 6432 -U mastodon mastodon_production
 ```
 
-然后，使用你的密码登录。
+然后使用你的密码登录。
 
-你也可以检查PgBouncer日专，就像这样：
+你还可以这样检查 PgBouncer 日志：
 
 ```bash
 tail -f /var/log/postgresql/pgbouncer.log
 ```
 
-#### 配置 Mastodon 以连接 PgBouncer {#pgbouncer-mastodon}
+#### 配置 Mastodon 与 PgBouncer 通信 {#pgbouncer-mastodon}
 
-首先，确保`.env.production`文件这样设置：
+在你的 `.env.production` 文件中，首先确保配置了：
 
 ```bash
 PREPARED_STATEMENTS=false
 ```
 
-因为我们使用基于事务（transaction-based）的连接池，我们不能使用参数化查询（prepared statement）。
+由于我们使用基于事务的池化，我们不能使用预处理语句。
 
-接下来，配置Mastodon使用6432端口（PgBouncer）而不是5432端口（Postgres）就可以了：
+接下来，配置 Mastodon 使用端口 6432（PgBouncer）而不是 5432（PostgreSQL），之后你应该就可以开始运行了：
 
 ```bash
 DB_HOST=localhost
@@ -223,18 +288,18 @@ DB_PORT=6432
 ```
 
 {{< hint style="warning" >}}
-你不能使用pgBouncer来执行 `db:migrate` 操作。但是这个问题很容易解决。如果你的postgres和pgBouncer位于同一台主机，只需要在执行任务时与 `RAILS_ENV=production` 一同定义 `DB_PORT=5432` 就可以了，例如：`RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate`（如果主机不同，你也可以指定`DB_HOST`等等）
+PgBouncer 不能用于执行 `db:migrate` 任务，但这很容易解决。如果你的 PostgreSQL 和 PgBouncer 在同一主机上，可以简单地在调用任务时定义 `DB_PORT=5432` 和 `RAILS_ENV=production`，例如： `RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate` （如果不同，你也可以指定 `DB_HOST` 等）
 {{< /hint >}}
 
 #### 管理 PgBouncer {#pgbouncer-admin}
 
-最简单的重启方法：
+最简单的重启方法是：
 
 ```bash
 sudo systemctl restart pgbouncer
 ```
 
-但如果你设定了PgBouncer管理员帐户，你也可以用管理员帐户连接：
+但如果你已经设置了 PgBouncer 管理员用户，你也可以以管理员身份连接：
 
 ```bash
 psql -p 6432 -U pgbouncer pgbouncer
@@ -246,22 +311,131 @@ psql -p 6432 -U pgbouncer pgbouncer
 RELOAD;
 ```
 
-使用 `\q` 以退出。
+然后使用 `\q` 退出。
 
-## 单独的Redis缓存 {#redis}
+## 针对缓存分离Redis {#redis}
 
-Redis被广泛使用于应用，但是某些用途比其他用途更重要。主页时间轴、列表时间轴、Sidekiq队列还有streaming API都是由Redis支持的，这些是你不希望丢失的重要数据（尽管丢失了也能存活，不像PostgreSQL数据库的丢失——永远不要丢失PostgreSQL数据库！）。然而，Redis也被用于易失性缓存。如果你正处于扩展阶段，担心你的Redis能否处理所有事情，你可以使用一个不同的Redis数据库来做缓存。在环境变量中，你可以指定 `CACHE_REDIS_URL` 或分离形式，就像 `CACHE_REDIS_HOST`、 `CACHE_REDIS_PORT`等等。未指定部分将会回落至没有前缀的相同设定值。
+Redis 在整个应用中被广泛使用，但有些用途比其他用途更重要。主页订阅、列表订阅、 Sidekiq 队列以及流式 API 都由 Redis 支持，这些是你不想丢失的重要数据（虽然与比不可丢失的 PostgreSQL 数据库不同，丢失这些数据也可以恢复）。
 
-至于Redis数据库配置，基本上你可以去除后台保存至磁盘，因为重启致使数据丢失也没关系，你可以以此节省一些磁盘I/O。你还可以添加最大内存限制和 key eviction policy，对于这部分，请参阅这个指南：[Using Redis as an LRU cache](https://redis.io/topics/lru-cache)。
+Redis 也用于易失性缓存。如果你正在扩展站点规模，并担忧 Redis 处理负载的能力，你可以专门为缓存分配一个单独的 Redis 数据库。要做到这一点，请在环境中设置 `CACHE_REDIS_URL`，或者定义单独的组件如 `CACHE_REDIS_HOST`、 `CACHE_REDIS_PORT` 等。
 
-## 只读副本（Read-replicas） {#read-replicas}
+未指定的组件将默认为没有 `CACHE_` 前缀的值。
 
-为了减轻你的Postgresql服务器负担，你可以使用热流复制（hot streaming replication）（只读副本（read replica））。有关示例，请参见[该指南](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby)。你可以给以下Mastodon用途使用副本（replica）：
+在配置用于缓存的 Redis 数据库时，可以禁用后台保存到磁盘的功能，因为在重启时数据丢失不是很关键，这可以节省一些磁盘 I/O。此外，考虑设置最大内存限制和实现键驱逐策略。有关这些配置的更多详细信息，请查看此指南：[使用 Redis 作为 LRU 缓存](https://redis.io/topics/lru-cache)
 
-* streaming API 服务器无需写入，因此你可以将其直接使用副本（replica）。但由于 streaming API 服务器不经常查询数据库，这样的优化影响很小。
-* 使用 Makara 驱动 web 与 sidekiq 进程，这样可以实现从主（master）数据库写，从副本（replica）读。让我们开始吧。
+## 针对 Sidekiq 分离 Redis {#redis-sidekiq}
 
-编辑 `config/database.yml` 文件，将 `production` 替换为如下内容：
+Redis 在 Sidekiq 中用于跟踪其锁和队列。尽管总体上性能提升不是很大，但一些实例可能会受益于为 Sidekiq 单独设置 Redis 实例。
+
+在环境文件中，你可以指定 `SIDEKIQ_REDIS_URL` 或单独的部分如 `SIDEKIQ_REDIS_HOST`、 `SIDEKIQ_REDIS_PORT` 等。未指定的部分回退到不带 `SIDEKIQ_` 前缀的相同值。
+
+创建一个单独的 Redis 实例用于 Sidekiq 相对简单：
+
+首先复制默认的 redis systemd 服务：
+
+```bash
+cp /etc/systemd/system/redis.service /etc/systemd/system/redis-sidekiq.service
+```
+
+在 `redis-sidekiq.service` 文件中，更改以下值：
+
+```bash
+ExecStart=/usr/bin/redis-server /etc/redis/redis-sidekiq.conf --supervised systemd --daemonize no
+PIDFile=/run/redis/redis-server-sidekiq.pid
+ReadWritePaths=-/var/lib/redis-sidekiq
+Alias=redis-sidekiq.service
+```
+
+为新的 Sidekiq Redis 实例复制 Redis 配置文件：
+
+```bash
+cp /etc/redis/redis.conf /etc/redis/redis-sidekiq.conf
+```
+
+在复制后的 `redis-sidekiq.conf` 文件中，更改以下值：
+
+```bash
+port 6479
+pidfile /var/run/redis/redis-server-sidekiq.pid
+logfile /var/log/redis/redis-server-sidekiq.log
+dir /var/lib/redis-sidekiq
+```
+
+在启动新的 Redis 实例之前，创建一个数据目录：
+
+```bash
+mkdir /var/lib/redis-sidekiq
+chown redis /var/lib/redis-sidekiq
+```
+
+启动新的 Redis 实例：
+
+```bash
+systemctl enable --now redis-sidekiq
+```
+
+更新你的环境变量，并添加以下行：
+
+```bash
+SIDEKIQ_REDIS_URL=redis://127.0.0.1:6479/
+```
+
+重启 Mastodon 以使用新的 Redis 实例。确保同时重启 web 和 Sidekiq（否则其中一个仍将从错误的实例工作）：
+
+```bash
+systemctl restart mastodon-web.service
+systemctl restart redis-sidekiq.service
+```
+
+
+## 用于高可用场景的 Redis Sentinel {#redis-sentinel}
+
+如前所述， Redis 是 Mastodon 实例运行的关键部分。默认情况下，你的部署将使用单个 Redis 实例，或者如果你设置了缓存，则使用多个实例。但是，如果该实例宕机，也可能导致整个 Mastodon 实例宕机。为了缓解这个问题，可以使用 Redis Sentinel 来跟踪你的 Redis 实例，并在一个实例宕机时自动将客户端引导到新的主实例。你可以指定 `REDIS_SENTINELS`，这是 Mastodon 可以与之交互的 Sentinel 实例的 IP:Port 组合的以逗号分隔的列表，以确定当前的主 Redis 节点。你还需要在 `REDIS_SENTINEL_MASTER` 中指定你想要连接的主节点的名称。默认情况下， Sentinel 将在当前主节点无法访问一分钟后将其设置为宕机并选择新的主节点，但这可以根据你的设置进行配置。
+
+所有与 sentinel 相关的变量也可以设置 `CACHE_`和`SIDEKIQ_` 前缀，以便使用多个redis实例。
+
+了解更多关于 Redis sentinel 的信息：https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/
+
+## 读副本 {#read-replicas}
+
+为了减轻 PostgreSQL 服务器的负载，你可能希望设置热数据流式复制（读副本）。[参见此指南获取示例](https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby)。
+
+### Mastodon >= 4.2
+
+从 4.2 版本开始，Mastodon 内置了对副本的支持。你可以为每个服务（包括 Sidekiq）使用相同的配置，当情况允许时，某些查询将使用 Rails 内置的副本支持被定向到读副本。如果你的副本落后超过几秒钟，应用将停止向它发送查询，直到它赶上进度。
+
+要配置读副本，请使用以下环境变量：
+
+```
+REPLICA_DB_HOST
+REPLICA_DB_PORT
+REPLICA_DB_NAME
+REPLICA_DB_USER
+REPLICA_DB_PASS
+REPLICA_PREPARED_STATEMENTS
+REPLICA_DB_TASKS
+```
+
+或者，如果你想使用同一个变量配置上述所有配置，也可以使用 `REPLICA_DATABASE_URL`。
+
+`REPLICA_DB_TASKS=false` 将使应用连接到副本数据库，但不执行任何数据库管理任务，如模型管理、迁移、种子管理等。默认情况下，它被设为 true。
+
+作为可选选项，可用 `REPLICA_PREPARED_STATEMENTS` 覆盖 `PREPARED_STATEMENTS` 的值。如果未设置 `PREPARED_STATEMENTS`，默认为 true。
+
+应用上述配置后，你应该开始看到对副本服务器的请求了！
+
+### Mastodon <= 4.1
+
+对于 4.2 之前的 Mastodon 版本，你可以通过以下方式在 Mastodon 中使用副本：
+
+- 流式 API 服务端完全不发出写操作，所以你可以直接将其连接到副本（它无论如何也不经常查询数据库，所以这样做的影响很小）。
+- 在 web 和 Sidekiq 进程中使用 Makara 驱动程序，使写操作发送到主数据库，而读操作发送到副本。让我们来讨论这个。
+
+{{< hint style="warning" >}}
+Sidekiq 进程当前不支持读副本，对 Sidekiq 进程使用读副本将导致作业失败和数据丢失。
+{{< /hint >}}
+
+你将需要为web进程使用单独的 `config/database.yml` 文件，并编辑它以替换 `production` 部分，如下所示：
 
 ```yaml
 production:
@@ -279,10 +453,27 @@ production:
         url: postgresql://db_user:db_password@db_host:db_port/db_name
 ```
 
-确保URL指向PostgreSQL服务器所在位置。你可以添加多个副本（replica）。你可以本地安装一个pgBouncer，该pgBouncer可被配置为根据数据库名称连接两个不同服务器，例如：“mastodon”连接主服务器，“mastodon_replica”连接副本服务器，这样上面文件中的两个URL可以使用同样用户名、密码、主机、端口，不同数据库名称。可能的设置有很多！有关Makara的更多信息，请参阅[其文档](https://github.com/taskrabbit/makara#databaseyml)。
+确保 URL 指向 PostgreSQL 服务器的正确位置。你可以添加多个副本。你可以在本地安装一个 PgBouncer，并配置其基于数据库名称连接到两个不同的服务器，例如， "mastodon" 连接到主服务器， "mastodon_replica" 连接到副本，因此在上面的文件中，两个URL都会指向具有相同用户、密码、主机和端口但数据库名称不同的本地 PgBouncer。这样设置的可能性很多。有关 Makara 的更多信息，[请查看其文档](https://github.com/taskrabbit/makara#databaseyml)。
 
 {{< hint style="warning" >}}
-Sidekiq无法可靠的使用只读副本（read-replicas），因为即使是最微小的复制延迟也会导致查询不到相关纪录所致的任务失败。
+确保 sidekiq 进程运行使用标准的 `config/database.yml`，以避免作业失败和数据丢失！
 {{< /hint >}}
 
-{{< translation-status-zh-cn raw_title="Scaling up your server" raw_link="/admin/scaling/" last_tranlation_time="2020-05-06" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}
+## 使用 Web 负载均衡器
+
+像 DigitalOcean、AWS、Hetzner 等云提供商提供虚拟负载均衡解决方案，它们在多个服务器之间分配网络流量，但提供单一的公共 IP 地址。
+
+可以扩展你的部署架构，在其中一个虚拟负载均衡器后面设置多个 web/Puma 服务器，以减少单个服务器被用户流量压垮的风险，帮助提供更一致的性能，并在进行维护或升级时减少停机时间。你应该咨询提供商的文档了解如何设置和配置负载均衡器，但要考虑到你需要配置负载均衡器来监控后端 web/Puma 节点的健康状况，否则你可能会向不响应的服务发送流量。
+
+以下端点可用于监控此目的：
+
+- **Web/Puma:** `/health`
+- **流媒体API:** `/api/v1/streaming/health`
+
+这两个端点都应返回HTTP状态码200，以及文本`OK`作为结果。
+
+{{< hint style="info" >}}
+你也可以将这些端点用于第三方监控/警报工具的健康检查。
+{{< /hint >}}
+
+{{< translation-status-zh-cn raw_title="Scaling up your server" raw_link="/admin/scaling/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}
