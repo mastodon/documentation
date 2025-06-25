@@ -35,19 +35,13 @@ other = "版权信息"
 other = "表单数据参数"
 
 [headers]
-other = "标头"
+other = "标题"
 
 [required]
-other = "必需"
+other = "必需的"
 
 [optional]
-other = "可选"
-
-[deprecated]
-other = "已弃用"
-
-[removed]
-other = "已移除"
+other = "可选的"
 
 [nullable]
 other = "nullable"
@@ -66,6 +60,3 @@ other = "响应"
 
 [otherTranslations]
 other = "也可在此找到："
-
-[sponsoredBy]
-other = "赞助商"

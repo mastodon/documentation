@@ -1,31 +1,31 @@
 ---
-title: 洋葱服务
-description: 通过 Tor 洋葱服务提供 Mastodon 服务。
+title: 匿名服务
+description: 通过Tor的匿名服务来访问Mastodon。
 menu:
   docs:
     weight: 20
     parent: admin-optional
 ---
 
-Mastodon 可以通过 Tor 作为洋葱服务提供服务。这将为你提供一个 `*.onion` 地址，该地址只能在连接到 Tor 网络时使用。
+可以通过Tor的匿名服务来访问Mastodon。这将给你一个只能通过 Tor 网络连接的 \*.onion 地址。
 
 ## 安装 Tor {#install}
 
-首先需要将 Tor 的 Debian 存储库添加到 apt 中。
+首先，Tor的Debian软件仓库需要被添加至apt中。
 
 ```text
 deb https://deb.torproject.org/torproject.org stretch main
 deb-src https://deb.torproject.org/torproject.org stretch main
 ```
 
-接下来添加 gpg 密钥。
+接下来，添加相应gpg密钥。
 
 ```bash
 curl https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
 gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | apt-key add -
 ```
 
-最后安装所需的软件包。
+最后，安装所需软件包。
 
 ```bash
 apt install tor deb.torproject.org-keyring
@@ -33,10 +33,10 @@ apt install tor deb.torproject.org-keyring
 
 ## 配置 Tor {#configure}
 
-编辑 `/etc/tor/torrc` 文件并添加以下配置。
+编辑 `/etc/tor/torrc` 并添加如下设置。
 
 ```text
-HiddenServiceDir /var/lib/tor/onion_service/
+HiddenServiceDir /var/lib/tor/hidden_service/
 HiddenServiceVersion 3
 HiddenServicePort 80 127.0.0.1:80
 ```
@@ -47,37 +47,34 @@ HiddenServicePort 80 127.0.0.1:80
 sudo service tor restart
 ```
 
-现在你可以在 `/var/lib/tor/hidden_service/hostname` 中找到你的 Tor 主机名。
+现在，你的Tor域名可以在 `/var/lib/tor/hidden_service/hostname` 找到。
 
-## 移动你的 Mastodon 配置 {#nginx}
+## 移动你的Mastodon配置 {#nginx}
 
-我们需要在 Nginx 中配置两次 Mastodon。为了保持["DRY"](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)原则，我们需要将 Mastodon 配置移到自己的文件中，以便之后可以引用。
+我们将需要将你的Mastodon配置告诉Nginx两次。为了不自我重复（[DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)），我们需要将Mastodon配置移动到一个可被引用的独立文件。
 
-创建一个新文件 `/etc/nginx/snippets/mastodon.conf`。复制所有 Mastodon 配置参数，除了 `listen`、`server_name`、`include` 指令以及所有 SSL 选项。包含一个 `Onion-Location` 头，让支持的浏览器知道该服务也可以通过 Tor 访问。你的新文件应该看起来像这样：
+在 `/etc/nginx/snippets/mastodon.conf` 创建一个新文件。放入除`listen`、`server_name`、`include`及所有SSL相关选项之外的所有配置参数至新文件中。你的新文件看起来可能像这样。
 
-```nginx
+```text
 add_header Referrer-Policy "same-origin";
-add_header Onion-Location mastodon.qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7.onion$request_uri;
 
 keepalive_timeout    70;
 sendfile             on;
 client_max_body_size 80m;
 
 root /home/mastodon/live/public;
-
-# …
-
+…
 error_page 500 501 502 503 504 /500.html;
 
 access_log /var/log/nginx/mastodon_access.log;
 error_log /var/log/nginx/mastodon_error.log warn;
 ```
 
-在新的配置文件中，在原来 Mastodon 配置的位置添加 `include` 指令。
+替换你的旧Mastodon配置文件，在新配置文件中添加一个include指令。
 
-你的 Nginx 配置文件现在应该看起来像这样：
+你的Nginx配置文件将看起来像这样。
 
-```nginx
+```text
 server {
   listen 80;
   server_name mastodon.example.com;
@@ -100,15 +97,13 @@ server {
 }
 ```
 
-## 通过 HTTP 提供 Tor 服务 {#http}
+## 通过http提供Tor服务 {#http}
 
-本节假设你希望同时在 Tor 和公共互联网上公开你的实例。
+尽管通过https提供你的Tor版Mastodon可能很诱人，但对大多数人来说这不是一个好主意。请参阅Tor Project上的[这篇](https://blog.torproject.org/facebook-hidden-services-and-https-certs)博文，了解为什么https证书无法增加价值。由于你无法获得onion域名的SSL证书，当你尝试使用你的Mastodon时还会被证书错误所困扰。最近，一位Tor开发者在[这里](https://matt.traudt.xyz/p/o44SnkW2.html)阐述了为什么通过https提供Tor服务对大多数用例都没有好处的原因。
 
-虽然通过 HTTPS 提供 Mastodon 的 Tor 版本看起来很诱人，但这并不总是理想的选择。HTTPS 证书主要对能够使用自己的公司信息生成证书的大公司有用。没有证书颁发机构(CA)能[免费](https://community.torproject.org/onion-services/advanced/https/)提供它们，Tor 项目的[一篇博客文章](https://blog.torproject.org/facebook-hidden-services-and-https-certs)也解释了为什么 HTTPS 证书对安全性并没有真正的好处。但另一方面，Mastodon 使用了大量使用到 HTTPS 的重定向，有经过验证的证书可能会使你的用户更容易在 Tor 上使用你的实例，而无需手动删除 URL 中的 `https://` 前缀。
+解决方法是通过http提供你的Mastodon服务，但仅供Tor使用。这可以通过在Nginx配置文件中添加额外的设置来完成。
 
-在本节中，我们将介绍如何通过 HTTP 提供 Mastodon 实例，但仅限于 Tor。这可以通过在现有 Nginx 配置前添加额外配置来实现。
-
-```nginx
+```text
 server {
   listen 80;
   server_name mastodon.qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7.onion;
@@ -137,11 +132,11 @@ server {
 }
 ```
 
-用 `/var/lib/tor/hidden_service/hostname` 文件中的 Tor 域名替换这里提供的长哈希值。这也应该反映在 snippets 文件中的 `Onion-Location` 头中。
+用你位于 `/var/lib/tor/hidden_service/hostname` 文件中的长hash替换上文中提供的。
 
-注意洋葱主机名前面加了 "mastodon."。你的 Tor 地址充当通配符域名。所有子域名都会被路由，你可以配置 Nginx 响应你想要的任何子域名。如果你不希望在 Tor 地址上托管任何其他服务，可以省略子域名，或选择不同的子域名。
+请注意，onion域名已经被附加了“mastodon.”前缀。你的Tor地址充当通配符域名。所有的子域名都将被路由，你可以配置你的Nginx来响应你想要的任何子域名。如果你不想在你的tor域名上托管任何其他服务，你可以省略子域名，或者选择一个不同的子域名。
 
-现在你可以看到将 mastodon 配置移动到不同文件的好处。如果不这样做，所有配置都必须复制到两个地方。对配置的任何更改都必须在两个地方进行。
+这里，你就可以看出移动你的mastodon配置到不同文件的好处了。如果不移动的话，你的所有配置都必须粘贴至两个地方，任何对你配置的改动你都必须同时修改两个地方。
 
 重启你的Web服务器。
 
@@ -149,11 +144,10 @@ server {
 service nginx restart
 ```
 
-## 注意事项 {#gotchas}
+## 陷阱 {#gotchas}
 
-你需要注意几点事项：
+你需要注意一些事情。某些重定向会将你的用户跳转至https。他们必须手动把URL替换成http才能继续。
 
-- 如前所述，Mastodon前端的某些URL会强制用户使用HTTPS URL。他们必须手动将URL替换为HTTP才能继续。
-- 各种资源，如图像，仍将通过你常规的明网域名提供。这可能会成为问题，具体取决于你的用户希望、尝试或需要多高的隐私程度。
+许多的资源，诸如图片，将仍然从常规非Tor域名加载。问题的严重性很大程度上取决于用户的谨慎程度。
 
-{{< translation-status-zh-cn raw_title="Onion services" raw_link="/admin/optional/tor/" last_translation_time="2025-04-21" raw_commit="6addd5cf525adec1859f48c52dafcfe1f96e558a">}}
+{{< translation-status-zh-cn raw_title="Hidden services" raw_link="/admin/optional/tor/" last_tranlation_time="2020-05-04" raw_commit="ad1ef20f171c9f61439f32168987b0b4f9abd74b">}}
