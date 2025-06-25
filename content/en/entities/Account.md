@@ -161,7 +161,7 @@ aliases: [
 
 ### `header` {#header}
 
-**Description:** An image banner that is shown above the profile and in profile cards.\
+**Description:** An image banner that is shown above the profile and in profile cards. Will end `/headers/original/missing.png` if the user has not set a header image.\
 **Type:** String (URL)\
 **Version history:**\
 0.1.0 - added
