@@ -74,6 +74,8 @@ server {
 
 {{< hint style="info" >}}
 We are using `$s3_backend` as a variable to force nginx to perform a DNS resolution on its value, as the IP of the object storage provider may not always remain the same.
+In fact the pattern may even be different from provider to provider.
+Ex. on Digital Ocean the pattern is https://YOUR_BUCKET_NAME.YOUR_S3_HOSTNAME/YOUR_BUCKET_NAME
 {{</ hint >}}
 
 This configuration does a few different things:
