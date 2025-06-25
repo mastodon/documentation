@@ -23,6 +23,8 @@ aliases: [
 GET /api/v2/search HTTP/1.1
 ```
 
+Perform a search for content in accounts, statuses and hashtags with the given parameters.
+
 **Returns:** [Search]({{< relref "entities/Search" >}})\
 **OAuth:** Public (without `resolve` or `offset`), or User token + `read:search`\
 **Version history:**\
