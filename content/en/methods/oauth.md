@@ -227,6 +227,66 @@ If you provide a token you do not own, or no token at all, the API call will ret
 
 ---
 
+## Retrieve user information {#userinfo}
+
+```http
+GET /oauth/userinfo HTTP/1.1
+```
+
+Retrieves standardised OIDC [claims](https://www.iana.org/assignments/jwt/jwt.xhtml#claims) about the currently authenticated user.\
+**Note:** For compatibility with the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo) this endpoint is also available via `POST` request.
+
+**OAuth:** User token + `profile` scope\
+**Version history:**\
+4.4.0 - added
+
+#### Response
+
+##### 200: OK
+
+```json
+{
+  "iss": "http://social.example/",
+  "sub": "http://social.example/users/john_mastodon",
+  "name": "John Mastodon",
+  "preferred_username": "john_mastodon",
+  "profile": "http://social.example/@john_mastodon",
+  "picture": "http://cdn.social.example/media/accounts/avatars/112/570/037/924/789/254/original/d746f9fb43a5705f.jpg"
+}
+```
+
+The claims are as follows for the authenticated user:
+* `iss` matches the `issuer` in the [OAuth Server Configuration]({{< relref "methods/oauth#authorization-server-metadata" >}})
+* `sub` is the URI of the ActivityPub Actor document
+* `name` is the display name for the profile. This may contain custom emoji shortcodes.
+* `preferred_username` is the username for the profile. For example, the account `@john_mastodon@social.example` would have `john_mastodon` as the `preferred_username`
+* `profile` is the URL to the profile page (this the URL intended for humans)
+* `picture` is the URL to the profile picture (can also be the URL of the default profile picture)
+
+We use the URI of the ActivityPub Actor document for the `sub` claim because the [`id`]({{< relref "entities/Account#id">}}) on an Account entity is not guaranteed to be globally unique, leading to conflicts in consuming applications.
+
+##### 401: Unauthorized
+
+Returned if the access token is not valid
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 403: Forbidden
+
+Returned if the access token does not have the `profile` scope
+
+```json
+{
+  "error": "This action is outside the authorized scopes"
+}
+```
+
+---
+
 ## Discover OAuth Server Configuration {#authorization-server-metadata}
 
 ```http
@@ -235,7 +295,7 @@ GET /.well-known/oauth-authorization-server HTTP/1.1
 
 Returns the OAuth 2 Authorization Server Metadata for the Mastodon server, as defined by [RFC 8414](https://datatracker.ietf.org/doc/html/rfc8414#section-3.2).
 
-We include the additional non-standard property of `app_registration_endpoint` which refers to the [POST /api/v1/apps]({{% relref ref="methods/apps#create" %}}) endpoint, since we don't currently support the standard `registration_endpoint` endpoint for [Dynamic Client Registration](https://oauth.net/2/dynamic-client-registration/).
+We include the additional non-standard property of `app_registration_endpoint` which refers to the [POST /api/v1/apps]({{< relref "methods/apps#create" >}}) endpoint, since we don't currently support the standard `registration_endpoint` endpoint for [Dynamic Client Registration](https://oauth.net/2/dynamic-client-registration/).
 
 The properties exposed by this endpoint can help you better integrate with the Mastodon API, such as allowing for negotiation of `scopes` across different versions of Mastodon.
 
@@ -247,6 +307,7 @@ The properties exposed by this endpoint can help you better integrate with the M
 **OAuth:** Public\
 **Version history:**\
 4.3.0 - added
+4.4.0 - added `userinfo_endpoint`
 
 #### Response
 
@@ -260,6 +321,7 @@ The properties exposed by this endpoint can help you better integrate with the M
   "token_endpoint": "https://social.example/oauth/token",
   "app_registration_endpoint": "https://social.example/api/v1/apps",
   "revocation_endpoint": "https://social.example/oauth/revoke",
+  "userinfo_endpoint": "https://social.example/oauth/userinfo",
   "scopes_supported": [
     "read",
     "write",
@@ -329,7 +391,7 @@ On Mastodon versions before 4.3.0, requesting this endpoint will result in a `40
 
 Instead, you will need to "guess" what that server supports, instead of discovering supported OAuth 2 endpoints, grant flows & scopes dynamically.
 
-You may want to fallback to the [Instance Metadata endpoint]({{% relref ref="methods/instance#v2" %}}) to try to discover what Mastodon version the server is running by parsing the `version` field; however, this is very brittle and not recommended.
+You may want to fallback to the [Instance Metadata endpoint]({{< relref "methods/instance#v2" >}}) to try to discover what Mastodon version the server is running by parsing the `version` field; however, this is very brittle and not recommended.
 
 ---
 
@@ -342,3 +404,5 @@ You may want to fallback to the [Instance Metadata endpoint]({{% relref ref="met
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/oauth/authorized_applications_controller.rb" caption="app/controllers/oauth/authorized_applications_controller.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/oauth/tokens_controller.rb" caption="app/controllers/oauth/tokens_controller.rb" >}}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/oauth/userinfo_controller.rb" caption="app/controllers/oauth/userinfo_controller.rb" >}}
