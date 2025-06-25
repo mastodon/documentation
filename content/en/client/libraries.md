@@ -14,6 +14,7 @@ Remember to check how recently the library was updated, and whether it includes 
 ## Arduino / ESP32 / IoT {#arduino-iot}
 
 * [lyuba](https://github.com/ringtailsoftware/lyuba)
+
 ## C# (.NET Standard) {#c-net-standard}
 
 * [MastodonAPI](https://github.com/golf1052/MastodonAPI)
@@ -154,3 +155,4 @@ Remember to check how recently the library was updated, and whether it includes 
 * [MastodonKit](https://github.com/MastodonKit/MastodonKit)
 * [tootsdk](https://github.com/tootsdk/tootsdk)
 * [MastodonAPI](https://github.com/li-bei/MastodonAPI)
+* [Swinub](https://github.com/noppefoxwolf/Swinub)
