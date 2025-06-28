@@ -3,7 +3,7 @@ title: health API methods
 description: Check the health of the web process for the instance.
 menu:
   docs:
-    weight: 40
+    weight: 70
     name: health
     parent: methods
     identifier: methods-health
