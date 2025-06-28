@@ -1,6 +1,6 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-description: 
+description:
 menu:
   docs:
     parent: methods
@@ -27,7 +27,7 @@ x.x.x - added
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the SOMETHING in the database.
+: {{<required>}} String. The ID of the SOMETHING.
 
 ##### Headers
 
@@ -76,7 +76,7 @@ Invalid or missing Authorization header.
 
 ##### 403: Forbidden
 
-Authorized user is missing a permission, or invalid or missing Authorization header
+Authorized user is missing a permission, or invalid or missing Authorization header.
 
 ```json
 {
@@ -86,7 +86,7 @@ Authorized user is missing a permission, or invalid or missing Authorization hea
 
 ##### 404: Not found
 
-SOMETHING is not owned by you or does not exist
+SOMETHING is not owned by you or does not exist.
 
 ```json
 {
