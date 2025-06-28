@@ -1,6 +1,6 @@
 ---
 title: FeaturedTag
-description: Represents a hashtag that is featured on a profile.
+description: Represents a hashtag that is featured on an account profile.
 menu:
   docs:
     parent: entities
@@ -28,7 +28,7 @@ aliases: [
 
 ### `id` {#id}
 
-**Description:** The internal ID of the featured tag in the database.\
+**Description:** The ID of the featured tag.\
 **Type:** String (cast from integer but not guaranteed to be a number)\
 **Version history:**\
 3.0.0 - added
@@ -66,8 +66,3 @@ aliases: [
 {{< page-relref ref="methods/featured_tags" caption="featured_tags API methods" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/featured_tag_serializer.rb" caption="app/serializers/rest/featured_tag_serializer.rb" >}}
-
-
-
-
-
