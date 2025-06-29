@@ -42,7 +42,7 @@ aliases: [
 
 ### `status_ids` {#status_ids}
 
-**Description:** List of status IDs that are relevant to the warning. When `action` is `mark_statuses_as_sensitive` or `delete_statuses`, those are the affected statuses.\
+**Description:** List of status IDs that are relevant to the warning. When `action` is `mark_statuses_as_sensitive` or `delete_statuses`, those are the affected statuses. If the action is `delete_statuses` then they have been irrevocably deleted (irrespective of the appeal state), and will be inaccessible to the client.\
 **Type:** {{<nullable>}} Array of String (cast from integer), or null\
 **Version history:**\
 4.3.0 - added
