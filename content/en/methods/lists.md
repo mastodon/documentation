@@ -80,7 +80,7 @@ Invalid or missing Authorization header.
 GET /api/v1/lists/:id HTTP/1.1
 ```
 
-Fetch the list with the given ID. Used for verifying the title of a list, and which replies to show within that list.
+Fetch the list with the given ID.
 
 **Returns:** [List]({{< relref "entities/list" >}})\
 **OAuth:** User token + `read:lists`\
@@ -92,7 +92,7 @@ Fetch the list with the given ID. Used for verifying the title of a list, and wh
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the List in the database.
+: {{<required>}} String. The ID of the list.
 
 ##### Headers
 
@@ -102,7 +102,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-The list 12249 exists and is owned by you
+The list 12249 exists and is owned by you.
 
 ```json
 {
@@ -165,7 +165,7 @@ replies_policy
 : String. One of `followed`, `list`, or `none`. Defaults to `list`.
 
 exclusive
-: Boolean. Whether members of this list need to get removed from the “Home” feed
+: Boolean. Whether members of this list need to get removed from the “Home” feed.
 
 #### Response
 ##### 200: OK
@@ -193,7 +193,7 @@ Invalid or missing Authorization header.
 
 ##### 422: Unprocessable entity
 
-If the title is missing:
+If the `title` is missing:
 
 ```json
 {
@@ -201,7 +201,7 @@ If the title is missing:
 }
 ```
 
-If the replies_policy is not understood:
+If the `replies_policy` is not understood:
 
 ```json
 {
@@ -218,20 +218,21 @@ If the replies_policy is not understood:
 PUT /api/v1/lists/:id HTTP/1.1
 ```
 
-Change the title of a list, or which replies to show.
+Change the properties of a list.
 
 **Returns:** [List]({{< relref "entities/list" >}})\
 **OAuth:** User token + `write:lists`\
 **Version history:**\
 2.1.0 - added\
 3.3.0 - added `replies_policy`
+4.2.0 - added `exclusive`
 
 #### Request
 
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the List in the database.
+: {{<required>}} String. The ID of the list.
 
 ##### Headers
 
@@ -247,12 +248,12 @@ replies_policy
 : String. One of `followed`, `list`, or `none`. Defaults to `list`.
 
 exclusive
-: Boolean. Whether members of this list need to get removed from the “Home” feed
+: Boolean. Whether members of this list need to get removed from the “Home” feed.
 
 #### Response
 ##### 200: OK
 
-The `title` of list 13585 was successfully updated to "testing"
+The `title` of list 13585 was successfully updated to "testing".
 
 ```json
 {
@@ -309,7 +310,7 @@ DELETE /api/v1/lists/:id HTTP/1.1
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the List in the database.
+: {{<required>}} String. The ID of the list.
 
 ##### Headers
 
@@ -319,7 +320,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-List was successfully deleted
+The list was successfully deleted.
 
 ```json
 {}
@@ -365,7 +366,7 @@ GET /api/v1/lists/:id/accounts HTTP/1.1
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the List in the database.
+: {{<required>}} String. The ID of the list.
 
 ##### Headers
 
@@ -374,7 +375,7 @@ Authorization
 
 ##### Query parameters
 
-max_id 
+max_id
 : **Internal parameter.** Use HTTP `Link` header for pagination.
 
 since_id
@@ -471,7 +472,7 @@ Add accounts to the given list. Note that the user must be following these accou
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the List in the database.
+: {{<required>}} String. The ID of the list.
 
 ##### Headers
 
@@ -502,7 +503,7 @@ Invalid or missing Authorization header.
 
 ##### 404: Not found
 
-You are not following a given account ID, or you do not own the list ID, or list/account ID does not exist
+You are not following a given account ID, or you do not own the list ID, or list/account ID does not exist.
 
 ```json
 {
@@ -512,7 +513,7 @@ You are not following a given account ID, or you do not own the list ID, or list
 
 ##### 422: Unprocessable entity
 
-An Account with one of the provided IDs is already in the list
+An Account with one of the provided IDs is already in the list.
 
 ```json
 {
@@ -540,7 +541,7 @@ Remove accounts from the given list.
 ##### Path parameters
 
 :id
-: {{<required>}} String. The ID of the List in the database.
+: {{<required>}} String. The ID of the list.
 
 ##### Headers
 
@@ -573,7 +574,7 @@ Invalid or missing Authorization header.
 
 ##### 404: Not found
 
-List is not owned by you or does not exist
+List is not owned by you or does not exist.
 
 ```json
 {

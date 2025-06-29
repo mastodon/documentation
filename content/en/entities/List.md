@@ -17,7 +17,9 @@ aliases: [
 ```json
 {
   "id": "12249",
-  "title": "Friends"
+  "title": "Friends",
+  "replies_policy": "list",
+  "exclusive": false
 }
 ```
 
@@ -25,7 +27,7 @@ aliases: [
 
 ### `id` {#id}
 
-**Description:** The internal database ID of the list.\
+**Description:** The ID of the list.\
 **Type:** String (cast from an integer, but not guaranteed to be a number)\
 **Version history:**\
 2.1.0 - added
@@ -43,17 +45,19 @@ aliases: [
 **Type:** String (Enumerable oneOf)\
 `followed` = Show replies to any followed user\
 `list` = Show replies to members of the list\
-`none` = Show replies to no one\
+`none` = Do not show any replies\
 **Version history:**\
 3.3.0 - added
 
-## See also
+### `exclusive` {#exclusive}
+
+**Description:** Whether members of the list should be removed from the “Home” feed.\
+**Type:** Boolean\
+**Version history:**\
+4.2.0 - added
 
 {{< page-relref ref="methods/accounts#lists" caption="GET /api/v1/accounts/:id/lists" >}}
 
 {{< page-relref ref="methods/lists" caption="lists API methods" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/list_serializer.rb" caption="app/serializers/rest/list_serializer.rb" >}}
-
-
-

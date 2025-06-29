@@ -1,6 +1,6 @@
 ---
 title: Application
-description: Represents an application that interfaces with the REST API to access accounts or post statuses.
+description: Represents an application that interfaces with the REST API, for example to access account information or post statuses.
 menu:
   docs:
     parent: entities
@@ -16,6 +16,7 @@ aliases: [
 
 ```json
 {
+  "id": "12348",
   "name": "Test Application",
   "website": "https://app.example",
   "scopes": ["read", "write", "push"],
@@ -29,38 +30,45 @@ aliases: [
 
 ## Attributes
 
+### `id` {#id}
+
+**Description:** The numeric ID of the application.\
+**Type:** String\
+**Version history:**\
+0.9.9 - added
+
 ### `name` {#name}
 
-**Description:** The name of your application.\
+**Description:** The name of the application.\
 **Type:** String\
 **Version history:**\
 0.9.9 - added
 
 ### `website` {{%optional%}} {#website}
 
-**Description:** The website associated with your application.\
+**Description:** The website associated with the application.\
 **Type:** {{<nullable>}} String (URL)\
 **Version history:**\
 0.9.9 - added\
-3.5.1 - this property is now nullable
+3.5.1 - the property is now nullable
 
 ### `scopes` {#scopes}
 
-**Description:** The scopes for your application. This is the registered `scopes` string split on whitespace.\
+**Description:** The scopes for the application. This is the registered `scopes` string split on whitespace.\
 **Type:** Array of Strings\
 **Version history:**\
 4.3.0 - added
 
 ### `redirect_uris` {#redirect_uris}
 
-**Description:** The registered redirection URI(s) for your application.\
+**Description:** The registered redirection URI(s) for the application.\
 **Type:** Array of String (URLs or `"urn:ietf:wg:oauth:2.0:oob"` as values)\
 **Version history:**\
 4.3.0 - added
 
 ### `redirect_uri` {{%deprecated%}} {#redirect_uri}
 
-**Description:** The registered redirection URI(s) for your application.\
+**Description:** The registered redirection URI(s) for the application.\
 May contain `\n` characters when multiple redirect URIs are registered.\
 **Type:** String\
 **Version history:**\
@@ -81,7 +89,7 @@ All [Application](#attributes) attributes and the following:
 
 ### `client_id` {#client_id}
 
-**Description:** Client ID key, to be used for obtaining OAuth tokens\
+**Description:** Client ID key, to be used for obtaining OAuth tokens.\
 **Type:** String\
 **Version history:**\
 0.9.9 - added\
@@ -89,7 +97,7 @@ All [Application](#attributes) attributes and the following:
 
 ### `client_secret` {#client_secret}
 
-**Description:** Client secret key, to be used for obtaining OAuth tokens\
+**Description:** Client secret key, to be used for obtaining OAuth tokens.\
 **Type:** String\
 **Version history:**\
 0.9.9 - added\
@@ -97,7 +105,7 @@ All [Application](#attributes) attributes and the following:
 
 ### `client_secret_expires_at` {#client_secret_expires_at}
 
-**Description:** When the client secret key will expire at, presently this always returns `0` indicating that OAuth Clients do not expire\
+**Description:** When the client secret key will expire. Presently this always returns `0` indicating that OAuth Clients do not expire.\
 **Type:** String\
 **Version history:**\
 4.3.0 - added
