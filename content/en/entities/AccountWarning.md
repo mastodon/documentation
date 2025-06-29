@@ -49,7 +49,7 @@ aliases: [
 
 ### `target_account` {#target_account}
 
-**Description:** Account against which a moderation decision has been taken.\
+**Description:** Account against which a moderation decision has been taken. If this `AccountWarning` is present in a [Notification](/entities/Notification/) then this is always the same as the authenticated account that requested the notification.\
 **Type:** [Account]({{< relref "entities/Account" >}})\
 **Version history:**\
 4.3.0 - added
