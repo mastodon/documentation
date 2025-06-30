@@ -14,7 +14,7 @@ aliases: [
 
 ### `id` {#id}
 
-**Description:** The ID of the account warning in the database.\
+**Description:** The ID of the account warning.\
 **Type:** String (cast from integer)\
 **Version history:**\
 4.3.0 - added
