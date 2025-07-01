@@ -1502,7 +1502,7 @@ Prior to 3.5.0, you could not pin one of your private statuses because private s
 
 ```json
 {
-  "error": "Validation failed: Non-public toot cannot be pinned"
+  "error": "Validation failed: Posts that are only visible to mentioned users cannot be pinned"
 }
 ```
 
