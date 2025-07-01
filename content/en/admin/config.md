@@ -759,6 +759,17 @@ By default, a StartTLS connection will be attempted to the specified SMTP server
 
 Note that `TLSv1.3` and `TLSv1.2` are the only SSL/TLS protocols currently considered to be secure.
 
+### Optional bulk email settings
+
+Some transactional email providers require customers to use a separate set of SMTP credentials to send emails that are not transactional in nature. In Mastodon this applies to server announcements and terms of service changes that can result in a lot of emails to the server's users.
+
+There is a second set of SMTP configuration environment variables for this. These variables are all prefixed with `BULK_`, so you have `BULK_SMTP_SERVER`, `BULK_SMTP_PORT` etc. These work exactly like their non-prefixed counterparts described above.
+
+Usage of the bulk mail settings is completely optional. If you do not set these variables, the same SMTP settings are used for all outgoing emails.
+
+**Version history:**\
+4.4.0 - added support for optional bulk email settings
+
 ### Prometheus Metrics {#prometheus}
 
 Mastodon optionally supports exposing some metrics using the Prometheus format.
