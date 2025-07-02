@@ -24,18 +24,9 @@ Remember to check how recently the library was updated, and whether it includes 
 * [mastodon-api-cs](https://github.com/pawotter/mastodon-api-cs)
 * [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net)
 
-## C++ {#c}
-
-* [mastodonpp](https://schlomp.space/tastytea/mastodonpp)
-
 ## Common Lisp {#common-lisp}
 
-* [mastodon-cl](https://github.com/compufox/mastodon-cl)
 * [tooter](https://github.com/Shinmera/tooter)
-
-## Crystal {#crystal}
-
-* [mastodon-api-crystal](https://github.com/renatolond/mastodon-api-crystal)
 
 ## Dart {#dart}
 
@@ -81,10 +72,6 @@ Remember to check how recently the library was updated, and whether it includes 
 ## JavaScript (Browser) {#javascript-browser}
 
 * [mastodon.js](https://github.com/Kirschn/mastodon.js)
-
-## JavaScript (Node.js) {#javascript-node-js}
-
-* [mastodon-api](https://github.com/vanita5/mastodon-api)
 
 ## Kotlin {#kotlin}
 
@@ -154,5 +141,4 @@ Remember to check how recently the library was updated, and whether it includes 
 * [Mastodon.swift](https://github.com/Swiftodon/Mastodon.swift)
 * [MastodonKit](https://github.com/MastodonKit/MastodonKit)
 * [tootsdk](https://github.com/tootsdk/tootsdk)
-* [MastodonAPI](https://github.com/li-bei/MastodonAPI)
 * [Swinub](https://github.com/noppefoxwolf/Swinub)
