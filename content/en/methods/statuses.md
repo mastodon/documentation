@@ -76,7 +76,7 @@ visibility
 : String. Sets the visibility of the posted status to `public`, `unlisted`, `private`, `direct`.
 
 language
-: String. ISO 639 language code for this status.
+: String. ISO 639-1 language code for this status.
 
 scheduled_at
 : String. [Datetime](/api/datetime-format#datetime) at which to schedule a status. Providing this parameter will cause ScheduledStatus to be returned instead of Status. Must be at least 5 minutes in the future.
@@ -662,7 +662,7 @@ Translate the status content into some language.
 ##### Form data parameters
 
 lang
-: String (ISO 639 language code). The status content will be translated into this language. Defaults to the user's current locale.
+: String (ISO 639-1 language code). The status content will be translated into this language. Defaults to the user's current locale.
 
 ##### Headers
 
@@ -1621,7 +1621,7 @@ sensitive
 : Boolean. Whether the status should be marked as sensitive.
 
 language
-: String. ISO 639 language code for the status.
+: String. ISO 639-1 language code for the status.
 
 media_ids[]
 : Array of String. Include Attachment IDs to be attached as media. If provided, `status` becomes optional, and `poll` cannot be used.

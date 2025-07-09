@@ -131,7 +131,7 @@ aliases: [
 ### `locale` {#locale}
 
 **Description:** The locale of the account.\
-**Type:** String (ISO 639 Part 1 two-letter language code)\
+**Type:** String (ISO 639-1 two-letter language code)\
 **Version history:**\
 2.9.1 - added
 

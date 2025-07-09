@@ -278,7 +278,7 @@ aliases: [
 ### `language` {#language}
 
 **Description:** Primary language of this status.\
-**Type:** {{<nullable>}} String (ISO 639 Part 1 two-letter language code) or null\
+**Type:** {{<nullable>}} String (ISO 639-1 two-letter language code) or null\
 **Version history:**\
 1.4.0 - added
 
