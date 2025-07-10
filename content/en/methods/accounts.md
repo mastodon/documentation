@@ -381,7 +381,7 @@ source[sensitive]
 : Boolean. Whether to mark authored statuses as sensitive by default.
 
 source[language]
-: String. Default language to use for authored statuses (ISO 6391)
+: String. Default language to use for authored statuses (ISO 639-1)
 
 #### Response
 

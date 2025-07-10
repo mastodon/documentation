@@ -11,7 +11,7 @@ menu:
 
 {{< figure src="assets/timeline.png" width="70%" caption="Posts from other servers being streamed into the Live Feed" >}}
 
-To allow you to discover potentially interesting content, Mastodon provides a way to browse all public posts. Well, there is no global shared state between all servers, so there is no way to browse _all_ public posts. When you browse **Live Feeds** > **Other Servers**, you see all public posts that the server you are on knows about. There are [various](#fetching-replies) [ways](#search) your server may discover posts, but the bulk of them will be from people that other users on your server follow. 
+To allow you to discover potentially interesting content, Mastodon provides a way to browse all public posts. Well, there is no global shared state between all servers, so there is no way to browse _all_ public posts. When you browse **Live Feeds** > **Other Servers**, you see all public posts that the server you are on knows about. There are [various](#fetching-replies) [ways](#search) your server may discover posts, but the bulk of them will be from people that other users on your server follow.
 
 You can also filter the Live Feeds to view only public posts created on your server.
 
@@ -94,7 +94,7 @@ The following `prefix:value` pairs are also supported:
 
 * `has:` (`media`, `poll`, `embed`) - posts that contain the specified attachment type
 * `is:` (`reply`, `sensitive`) - posts that are either a reply or marked sensitive.
-* `language:` (`{language_code}`) - posts made in a specific language, indicated by its [ISO639 language code](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)
+* `language:` (`{language_code}`) - posts made in a specific language, indicated by its [ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)
 * `from:` (`@{username}`, `@{username}@{domain}`, `me`) - posts from a specified author
 * `before:` (`{date}`) - posts created before an ISO8601 formatted date, e.g. "`2025-03-01`". If the account has a timezone set, searches using their local timezone - otherwise in UTC.
 * `after:` (`{date}`) - posts created after an ISO8601 formatted date

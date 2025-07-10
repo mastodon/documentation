@@ -40,7 +40,7 @@ Translation of status with poll:
     "id": "34858",
     "options": [
       {
-        "title": "Stay" 
+        "title": "Stay"
       },
       {
         "title": "Go"
@@ -86,7 +86,7 @@ Translation of status with poll:
 ### `detected_source_language` {#detected_source_language}
 
 **Description:** The language of the source text, as auto-detected by the machine translation provider.\
-**Type:** String (ISO 639 language code)\
+**Type:** String (ISO 639-1 language code)\
 **Version history:**\
 4.0.0 - added
 
