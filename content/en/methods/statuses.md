@@ -1589,7 +1589,7 @@ Status does not exist or is private.
 PUT /api/v1/statuses/:id HTTP/1.1
 ```
 
-Edit a given status to change its text, sensitivity, media attachments, or poll. Note that editing a poll's options will reset the votes.
+Edit a given status to change its text, sensitivity, media attachments, or poll. Note that editing a poll’s options or changing whether it is multiple choice will reset the votes.
 
 **Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `write:statuses`\
