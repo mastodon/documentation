@@ -25,7 +25,7 @@ aliases: [
 Mastodon natively supports the [Web Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API). You can utilize the same mechanisms for your native app. Mastodon doesn't connect to Android’s and Apple’s proprietary notification gateways directly, so if you wish to use those you can use a proxy server that translates between the WebPush standard and those gateways. This can be implemented in such a way that the proxy server does not have access to the contents of the notifications. For an example, see [Mozilla’s reference web push server](https://github.com/mozilla-services/autopush), or one of the several relays developed by the Mastodon community specifically for this purpose:
 
 * [toot-relay](https://github.com/DagAgren/toot-relay)
-* [PushToFCM](https://github.com/tateisu/PushToFCM)
+* [SubwayTooterAppServerV2](https://github.com/tateisu/SubwayTooterAppServerV2)
 * [metatext-apns](https://github.com/metabolist/metatext-apns)
 
 ---
