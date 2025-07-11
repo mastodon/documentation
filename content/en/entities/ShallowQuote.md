@@ -14,7 +14,7 @@ aliases: [
 ```json
 {
   "state": "accepted",
-  "status_id": "103270115826048975"
+  "quoted_status_id": "103270115826048975"
 }
 ```
 
@@ -33,7 +33,7 @@ aliases: [
 **Version history:**\
 4.4.0 - added
 
-### `status_id` {#status_id}
+### `quoted_status_id` {#quoted_status_id}
 
 **Description:** The identifier of the status being quoted, if the quote has been accepted. This will be `null`, unless the `state` attribute is `accepted`.\
 **Type:** {{<nullable>}} String (cast from an integer but not guaranteed to be a number) or null\
