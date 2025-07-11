@@ -14,7 +14,7 @@ aliases: [
 ```json
 {
   "state": "accepted",
-  "status": {
+  "quoted_status": {
     "id": "103270115826048975",
     "created_at": "2019-12-08T03:48:33.901Z",
     "in_reply_to_id": null,
@@ -86,7 +86,7 @@ aliases: [
 **Version history:**\
 4.4.0 - added
 
-### `status` {#status}
+### `quoted_status` {#quoted_status}
 
 **Description:** The status being quoted, if the quote has been accepted. This will be `null`, unless the `state` attribute is `accepted`.\
 **Type:** {{<nullable>}} [Status]({{< relref "entities/status" >}}) or null\
