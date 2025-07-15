@@ -80,10 +80,6 @@ print(statuses[0]["content"]) # this prints the status text
 Parsing JSON and using it in your program is outside of the scope of this tutorial, as it will be different depending on your choice of programming language and the design of your program. Look for other tutorials on how to work with JSON in your programming language of choice.
 {{< /hint >}}
 
-{{< hint style="info" >}}
-[MastoVue](https://mastovue.glitch.me) is an example of an application that lets you browse public timelines.
-{{< /hint >}}
-
 ## Fetching public accounts and statuses {#posts}
 
 Now that we are familiar with how to make requests and how to handle responses, you can experiment with more public data. The following methods may be of interest:
