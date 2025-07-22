@@ -69,6 +69,7 @@ The user has no way of knowing they have been muted.
 
 Blocking hides a user from your view:
 
+* If you were following the user you unfollow them
 * You won’t see the user in your home feed
 * You won’t see other people boosting the user
 * You won’t see other people mentioning the user
