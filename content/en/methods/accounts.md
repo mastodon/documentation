@@ -1494,6 +1494,7 @@ POST /api/v1/accounts/:id/block HTTP/1.1
 [Blocks]({{< relref "user/moderating#block">}}) the given account.
 
 {{< hint style="info" >}} The call may return before the block has been applied to the user's timelines. Clients may wish to remove the blocked account from any cached copies of the timelines, and apply the block within the client for a short period of time.
+{{< /hint >}}
 
 **Returns:** [Relationship]({{< relref "entities/relationship">}})\
 **OAuth:** User token + `write:blocks`\
