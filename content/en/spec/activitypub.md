@@ -318,7 +318,7 @@ Contains terms used for Mastodon features.
 
 Base URI: `https://www.w3.org/ns/activitystreams#`
 
-Contains ActivityStreams extended properties that have been proposed but not officially adopted yet.
+Contains ActivityStreams extended properties that have been proposed but not officially adopted yet. These have now been documented by the [ActivityPub Miscellaneous Terms](https://swicg.github.io/miscellany/) document.
 
 - as:Hashtag (`https://www.w3.org/ns/activitystreams#Hashtag`)
 - as:manuallyApprovesFollowers (`https://www.w3.org/ns/activitystreams#manuallyApprovesFollowers`)
