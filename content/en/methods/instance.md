@@ -1,5 +1,5 @@
 ---
-title: instance API methods
+title: Instance API Methods
 description: Discover information about a Mastodon website.
 menu:
   docs:
@@ -431,7 +431,7 @@ Rules that the users of this service should follow.
 GET /api/v1/instance/domain_blocks HTTP/1.1
 ```
 
-Obtain a list of domains that have been blocked.
+View the instance's list of blocked domains and the associated block rationale. Domain names returned may be partially obfuscated with multiple asteriks (i.e. `foo**.com` or `foo.bar*****.com`). This API is disabled by default in server settings.
 
 **Returns:** Array of [DomainBlock]({{< relref "entities/DomainBlock" >}})\
 **OAuth:** Public, or User token if limited to users\
@@ -443,7 +443,7 @@ Obtain a list of domains that have been blocked.
 ##### Headers
 
 Authorization
-: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+: {{<optional>}} If the server settings for "Show domain blocks" or "Show why domains were blocked" is set to "To logged-in local users", authorization is required for this method. If authorization is required, provide the `Bearer <user_token>` header to gain access to this API method.
 
 #### Response
 
@@ -454,16 +454,16 @@ The complete list of domains blocked by this instance
 ```json
 [
   {
-    "domain": "birb.elfenban.de",
-    "digest": "5d2c6e02a0cced8fb05f32626437e3d23096480b47efbba659b6d9e80c85d280",
+    "domain": "example.com",
+    "digest": "391196688aa55d3321deffa736f8d103b4813470952b748e9c2c9deb17fa60f5",
     "severity": "suspend",
     "comment": "Third-party bots"
   },
   {
-    "domain": "birdbots.leptonics.com",
-    "digest": "ce019d8d32cce8e369ac4367f4dc232103e6f489fbdd247fb99f9c8a646078a4",
+    "domain": "foo.bar*****.com",
+    "digest": "9cdbe150e9f29d9c1e70cd2a1680909d43c7339a92ccff6812004c5f0656f0d4",
     "severity": "suspend",
-    "comment": "Third-party bots"
+    "comment": "Ongoing rule breaking"
   }
   // ...
 ]
