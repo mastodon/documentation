@@ -22,7 +22,7 @@ You will be running the commands as root. If you aren’t already root, switch t
 Make sure curl, wget, gnupg, apt-transport-https, lsb-release and ca-certificates are installed first:
 
 ```bash
-apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates
+apt install -y curl wget gnupg lsb-release ca-certificates
 ```
 
 #### Node.js {#node-js}
@@ -44,12 +44,11 @@ echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.o
 ```bash
 apt update
 apt install -y \
-  imagemagick ffmpeg libvips-tools libpq-dev libxml2-dev libxslt1-dev file git-core \
-  g++ libprotobuf-dev protobuf-compiler pkg-config gcc autoconf \
-  bison build-essential libssl-dev libyaml-dev libreadline6-dev \
-  zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev \
-  nginx nodejs redis-server redis-tools postgresql \
-  certbot python3-certbot-nginx libidn11-dev libicu-dev libjemalloc-dev
+  imagemagick ffmpeg libvips-tools libpq-dev libxslt1-dev file git \
+  protobuf-compiler pkg-config autoconf bison build-essential \
+  libssl-dev libyaml-dev libreadline-dev zlib1g-dev libffi-dev \
+  libgdbm-dev nginx nodejs redis-server postgresql certbot \
+  python3-certbot-nginx libidn-dev libicu-dev libjemalloc-dev
 ```
 
 #### Yarn {#yarn}
