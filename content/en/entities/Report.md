@@ -81,10 +81,12 @@ aliases: [
 **Description:** The generic reason for the report.\
 **Type:** String (Enumerable oneOf)\
 `spam` = Unwanted or repetitive content\
+`legal` = Illegal content\
 `violation` = A specific rule was violated\
 `other` = Some other reason\
 **Version history:**\
-4.0.0 - added
+4.0.0 - added\
+4.2.0 - add `legal` category
 
 ### `comment` {#comment}
 
