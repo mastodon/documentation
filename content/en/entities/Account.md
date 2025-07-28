@@ -49,6 +49,8 @@ aliases: [
   "following_count": 404,
   "statuses_count": 28468,
   "last_status_at": "2019-11-17",
+  "indexable": true,
+  "roles": [],
   "emojis": [
     {
       "shortcode": "ms_rainbow_flag",
@@ -106,7 +108,7 @@ aliases: [
 ### `username` {#username}
 
 **Description:** The username of the account, not including domain.\
-**Type:** String\
+**Type:** String. Maximum 30 characters for local accounts.\
 **Version history:**\
 0.1.0 - added
 
@@ -119,14 +121,14 @@ aliases: [
 
 ### `url` {#url}
 
-**Description:** The location of the user's profile page.\
-**Type:** String (URL)\
+**Description:** The location of the user's profile page (web interface URL).\
+**Type:** {{<nullable>}} String (URL)\
 **Version history:**\
 0.1.0 - added
 
 ### `uri` {#uri}
 
-**Description:** The user's ActivityPub actor identifier.\
+**Description:** The user's ActivityPub actor identifier (used for federation).\
 **Type:** String (URL)\
 **Version history:**\
 4.2.0 - added
@@ -134,14 +136,14 @@ aliases: [
 ### `display_name` {#display_name}
 
 **Description:** The profile's display name.\
-**Type:** String\
+**Type:** String. Maximum 30 characters.\
 **Version history:**\
 0.1.0 - added
 
 ### `note` {#note}
 
 **Description:** The profile's bio or description.\
-**Type:** String (HTML)\
+**Type:** String (HTML). Maximum 500 characters.\
 **Version history:**\
 0.1.0 - added
 
@@ -176,14 +178,14 @@ aliases: [
 ### `locked` {#locked}
 
 **Description:** Whether the account manually approves follow requests.\
-**Type:** Boolean\
+**Type:** Boolean. Defaults to false.\
 **Version history:**\
 0.1.0 - added
 
 ### `fields` {#fields}
 
 **Description:** Additional metadata attached to a profile as name-value pairs.\
-**Type:** Array of [Field](#Field)\
+**Type:** Array of [Field](#Field). Maximum 4 fields.\
 **Version history:**\
 2.4.0 - added
 
@@ -196,8 +198,8 @@ aliases: [
 
 ### `bot` {#bot}
 
-**Description:** Indicates that the account may perform automated actions, may not be monitored, or identifies as a robot.\
-**Type:** Boolean\
+**Description:** Indicates that the account may perform automated actions, may not be monitored, or identifies as a robot. This is determined by the account's `actor_type` being set to 'Application' or 'Service'.\
+**Type:** Boolean. Defaults to false.\
 **Version history:**\
 2.4.0 - added
 
@@ -211,28 +213,42 @@ aliases: [
 ### `discoverable` {#discoverable}
 
 **Description:** Whether the account has opted into discovery features such as the profile directory.\
-**Type:** {{<nullable>}} Boolean\
+**Type:** {{<nullable>}} Boolean. Defaults to null.\
 **Version history:**\
 3.1.0 - added
+
+### `indexable` {#indexable}
+
+**Description:** Whether the account allows indexing by search engines.\
+**Type:** Boolean. Defaults to false.\
+**Version history:**\
+4.3.0 - added
 
 ### `noindex` {{%optional%}} {#noindex}
 
 **Description:** Whether the local user has opted out of being indexed by search engines.\
-**Type:** {{<nullable>}} Boolean\
+**Type:** {{<nullable>}} Boolean. Defaults to false.\
 **Version history:**\
 4.0.0 - added
 
 ### `moved` {{%optional%}} {#moved}
 
 **Description:** Indicates that the profile is currently inactive and that its user has moved to a new account.\
-**Type:** {{<nullable>}} [Account]({{< relref "entities/Account" >}}), or null if the profile is suspended.\
+**Type:** {{<nullable>}} [Account]({{< relref "entities/Account" >}}), or null if the profile has not moved or is suspended.\
 **Version history:**\
 2.1.0 - added
+
+### `memorial` {{%optional%}} {#memorial}
+
+**Description:** An extra attribute returned only when an account is memorialized (when `memorial` is true).\
+**Type:** Boolean\
+**Version history:**\
+4.2.0 - added
 
 ### `suspended` {{%optional%}} {#suspended}
 
 **Description:** An extra attribute returned only when an account is suspended.\
-**Type:**  Boolean\
+**Type:** Boolean\
 **Version history:**\
 3.3.0 - added
 
@@ -283,9 +299,16 @@ aliases: [
 ### `hide_collections` {#hide_collections}
 
 **Description:** Whether the user hides the contents of their follows and followers collections.\
-**Type:** Boolean\
+**Type:** {{<nullable>}} Boolean. Defaults to null.\
 **Version history:**\
 4.3.0 - added
+
+### `roles` {#roles}
+
+**Description:** An array of roles assigned to the user that are publicly visible (highlighted roles only), if the account is local. Will be an empty array if no roles are highlighted or if the account is remote.\
+**Type:** Array of [AccountRole](#AccountRole)\
+**Version history:**\
+4.1.0 - added
 
 ## CredentialAccount entity attributes {#CredentialAccount}
 
@@ -298,6 +321,8 @@ aliases: [
   // ...
   "note": "<p>i have approximate knowledge of many things. perpetual student. (nb/ace/they)</p><p>xmpp/email: a@trwnh.com<br /><a href=\"https://trwnh.com\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a><br />help me live: <a href=\"https://liberapay.com/trwnh\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/trwnh</span><span class=\"invisible\"></span></a> or paypal</p><p>- my triggers are moths and glitter<br />- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise<br />- dm me if i did something wrong, so i can improve<br />- purest person on fedi, do not lewd in my presence</p>",
   // ...
+  "indexable": true,
+  "roles": [],
   "source": {
     "attribution_domains": ["example.com", "example.net"],
     "privacy": "public",
@@ -326,7 +351,10 @@ aliases: [
         "verified_at": null
       }
     ],
-    "follow_requests_count": 5
+    "follow_requests_count": 5,
+    "hide_collections": false,
+    "discoverable": false,
+    "indexable": true
   },
   // ...
   "fields": [
@@ -371,13 +399,13 @@ aliases: [
 ### `source[attribution_domains]` {#source-attribution_domains}
 
 **Description:** Domains of websites allowed to credit the account.\
-**Type:** Array of String\
+**Type:** Array of String. Defaults to empty array.\
 **Version history:**\
 4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added
 
 #### `source[note]` {#source-note}
 
-**Description:** Profile bio, in plain-text instead of in HTML.\
+**Description:** Profile bio, in plain text instead of HTML.\
 **Type:** String\
 **Version history:**\
 1.5.0 - added
@@ -392,7 +420,7 @@ aliases: [
 #### `source[privacy]` {#source-privacy}
 
 **Description:** The default post privacy to be used for new statuses.\
-**Type:** String (Enumerable, oneOf)\
+**Type:** String (Enumerable, oneOf). Defaults to `public` for unlocked accounts, `private` for locked accounts.\
 `public` = Public post\
 `unlisted` = Unlisted post\
 `private` = Followers-only post\
@@ -403,14 +431,14 @@ aliases: [
 #### `source[sensitive]` {#source-sensitive}
 
 **Description:** Whether new statuses should be marked sensitive by default.\
-**Type:** Boolean\
+**Type:** Boolean. Defaults to false.\
 **Version history:**\
 1.5.0 - added
 
 #### `source[language]` {#source-language}
 
 **Description:** The default posting language for new statuses.\
-**Type:** String (ISO 639-1 language two-letter code) or empty string\
+**Type:** String (ISO 639-1 language two-letter code) or empty string. Defaults to empty string.\
 **Version history:**\
 2.4.2 - added
 
@@ -421,9 +449,30 @@ aliases: [
 **Version history:**\
 3.0.0 - added
 
+#### `source[hide_collections]` {#source-hide_collections}
+
+**Description:** Whether the user hides the contents of their follows and followers collections.\
+**Type:** {{<nullable>}} Boolean. Defaults to null.\
+**Version history:**\
+4.1.0 - added
+
+#### `source[discoverable]` {#source-discoverable}
+
+**Description:** Whether the account has opted into discovery features such as the profile directory.\
+**Type:** {{<nullable>}} Boolean. Defaults to null.\
+**Version history:**\
+3.1.0 - added
+
+#### `source[indexable]` {#source-indexable}
+
+**Description:** Whether public posts should be searchable to anyone.\
+**Type:** Boolean. Defaults to false.\
+**Version history:**\
+4.3.0 - added
+
 ### `role` {#role}
 
-**Description:** The role assigned to the currently authorized user.\
+**Description:** The complete role assigned to the currently authorized user, including permissions and highlighted status.\
 **Type:** [Role]({{< relref "entities/Role" >}})\
 **Version history:**\
 4.0.0 - added
@@ -433,23 +482,48 @@ aliases: [
 ### `mute_expires_at` {#mute_expires_at}
 
 **Description:** When a timed mute will expire, if applicable.\
-**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)), or null if the mute is indefinite\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)), or null if the mute is indefinite.\
 **Version history:**\
 3.3.0 - added
+
+## AccountRole entity attributes {#AccountRole}
+
+The simplified role entity returned in the Account `roles` array, containing only public role information.
+
+### `id` {#accountrole-id}
+
+**Description:** The ID of the Role in the database.\
+**Type:** String\
+**Version history:**\
+4.1.0 - added
+
+### `name` {#accountrole-name}
+
+**Description:** The name of the role.\
+**Type:** String\
+**Version history:**\
+4.1.0 - added
+
+### `color` {#accountrole-color}
+
+**Description:** The hex code assigned to this role. If no hex code is assigned, the string will be empty.\
+**Type:** String\
+**Version history:**\
+4.1.0 - added
 
 ## Field entity attributes {#Field}
 
 ### `name` {#name}
 
 **Description:** The key of a given field's key-value pair.\
-**Type:** String\
+**Type:** String. Maximum 255 characters for local accounts, 2,047 for remote accounts.\
 **Version history:**\
 2.4.0 - added
 
 ### `value` {#value}
 
 **Description:** The value associated with the `name` key.\
-**Type:** String (HTML)\
+**Type:** String (HTML). Maximum 255 characters for local accounts, 2,047 for remote accounts.\
 **Version history:**\
 2.4.0 - added
 
