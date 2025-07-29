@@ -200,6 +200,8 @@ Note the extra `source` property, which is not visible on accounts other than yo
   "following_count": 178,
   "statuses_count": 33120,
   "last_status_at": "2019-11-24T15:49:42.251Z",
+  "indexable": true,
+  "roles": [],
   "source": {
     "privacy": "public",
     "sensitive": false,
@@ -227,7 +229,11 @@ Note the extra `source` property, which is not visible on accounts other than yo
         "verified_at": null
       }
     ],
-    "follow_requests_count": 0
+    "follow_requests_count": 0,
+    "attribution_domains": [],
+    "hide_collections": false,
+    "discoverable": false,
+    "indexable": true
   },
   "emojis": [
     {
@@ -258,7 +264,14 @@ Note the extra `source` property, which is not visible on accounts other than yo
       "value": "systemic analysis, design patterns, anticapitalism, info/tech freedom, theory and philosophy, and otherwise being a genuine and decent wholesome poster. i&apos;m just here to hang out and talk to cool people!",
       "verified_at": null
     }
-  ]
+  ],
+  "role": {
+    "id": "-99",
+    "name": "",
+    "permissions": "65536",
+    "color": "",
+    "highlighted": false
+  }
 }
 ```
 
@@ -363,7 +376,7 @@ indexable
 : Boolean. Whether public posts should be searchable to anyone.
 
 attribution_domains[]
-: Array of String. Domains of websites allowed to credit the account.
+: Array of String. Domains of websites allowed to credit the account. Maximum of 10 domains.
 
 fields_attributes
 : Hash. The profile fields to be set. Inside this hash, the key is an integer cast to a string (although the exact integer does not matter), and the value is another hash including `name` and `value`. By default, max 4 fields.
@@ -416,7 +429,7 @@ PATCH https://mastodon.example/api/v1/accounts/update_credentials
 &...
 ```
 
-Note that the integer index does not actually matter -- fields will be populated by the order in which they are provided. For example:
+Note that the integer index does not actually matter - fields will be populated by the order in which they are provided. For example:
 
 ```json
 {
@@ -462,6 +475,8 @@ You should use accounts/verify_credentials to first obtain plaintext representat
   "following_count": 182,
   "statuses_count": 33760,
   "last_status_at": "2019-12-01T00:12:08.731Z",
+  "indexable": true,
+  "roles": [],
   "source": {
     "privacy": "public",
     "sensitive": false,
@@ -489,7 +504,11 @@ You should use accounts/verify_credentials to first obtain plaintext representat
         "verified_at": null
       }
     ],
-    "follow_requests_count": 0
+    "follow_requests_count": 0,
+    "attribution_domains": [],
+    "hide_collections": false,
+    "discoverable": false,
+    "indexable": true
   },
   "emojis": [
     {
@@ -520,7 +539,14 @@ You should use accounts/verify_credentials to first obtain plaintext representat
       "value": "systemic analysis, design patterns, anticapitalism, info/tech freedom, theory and philosophy, and otherwise being a genuine and decent wholesome poster. i&apos;m just here to hang out and talk to cool people!",
       "verified_at": null
     }
-  ]
+  ],
+  "role": {
+    "id": "-99",
+    "name": "",
+    "permissions": "65536",
+    "color": "",
+    "highlighted": false
+  }
 }
 ```
 
@@ -597,6 +623,14 @@ The Account record will be returned. Note that `acct` of local users does not in
   "statuses_count": 61013,
   "last_status_at": "2019-11-30T20:02:08.277Z",
   "emojis": [],
+  "indexable": true,
+  "roles": [
+    {
+      "id": "3",
+      "name": "Owner",
+      "color": "#ff3838"
+    }
+  ],
   "fields": [
     {
       "name": "Patreon",
@@ -633,6 +667,8 @@ The Account record will be returned. Note that `acct` of local users does not in
   "following_count": 405,
   "statuses_count": 28982,
   "last_status_at": "2019-12-01T00:39:57.264Z",
+  "indexable": true,
+  "roles": [],
   "emojis": [
     {
       "shortcode": "ms_rainbow_flag",
