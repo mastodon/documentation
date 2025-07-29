@@ -258,7 +258,7 @@ Authorization
 ##### Form data parameters
 
 category
-: String. Change the classification of the report to `spam`, `violation`, or `other`.
+: String. Change the classification of the report to `spam`, `legal`, `violation`, or `other`.
 
 rule_ids[]
 : Array of Integer. For `violation` category reports, specify the ID of the exact rules broken. Rules and their IDs are available via [GET /api/v1/instance/rules]({{< relref "methods/instance#rules" >}}) and [GET /api/v1/instance]({{< relref "methods/instance#get" >}}).

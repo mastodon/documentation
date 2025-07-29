@@ -91,10 +91,12 @@ aliases: [
 **Description:** The category under which the report is classified.\
 **Type:** String (Enumerable oneOf)\
 `spam` = Malicious, fake, or repetitive content\
+`legal` = Illegal content\
 `violation` = Violates one or more specific [`rules`](#rules)\
 `other` = The default (catch-all) category\
 **Version history:**\
-3.5.0 - added
+3.5.0 - added\
+4.2.0 - add `legal` category
 
 ### `comment` {#comment}
 
