@@ -88,13 +88,6 @@ aliases: [
 **Version history:**\
 3.1.0 - added
 
-### `published` {#published}
-
-**Description:** Whether the announcement is currently active.\
-**Type:** Boolean\
-**Version history:**\
-3.1.0 - added
-
 ### `all_day` {#all_day}
 
 **Description:** Whether the announcement should start and end on dates only instead of datetimes. Will be false if there is no `starts_at` or `ends_at` time.\
