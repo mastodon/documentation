@@ -108,7 +108,7 @@ aliases: [
 ### `username` {#username}
 
 **Description:** The username of the account, not including domain.\
-**Type:** String. Maximum 30 characters for local accounts.\
+**Type:** String\
 **Version history:**\
 0.1.0 - added
 
@@ -136,14 +136,14 @@ aliases: [
 ### `display_name` {#display_name}
 
 **Description:** The profile's display name.\
-**Type:** String. Maximum 30 characters.\
+**Type:** String\
 **Version history:**\
 0.1.0 - added
 
 ### `note` {#note}
 
 **Description:** The profile's bio or description.\
-**Type:** String (HTML). Maximum 500 characters.\
+**Type:** String (HTML)\
 **Version history:**\
 0.1.0 - added
 
@@ -178,14 +178,14 @@ aliases: [
 ### `locked` {#locked}
 
 **Description:** Whether the account manually approves follow requests.\
-**Type:** Boolean. Defaults to false.\
+**Type:** Boolean\
 **Version history:**\
 0.1.0 - added
 
 ### `fields` {#fields}
 
 **Description:** Additional metadata attached to a profile as name-value pairs.\
-**Type:** Array of [Field](#Field). Maximum 4 fields.\
+**Type:** Array of [Field](#Field)\
 **Version history:**\
 2.4.0 - added
 
@@ -199,7 +199,7 @@ aliases: [
 ### `bot` {#bot}
 
 **Description:** Indicates that the account may perform automated actions, may not be monitored, or identifies as a robot. This is determined by the account's `actor_type` being set to 'Application' or 'Service'.\
-**Type:** Boolean. Defaults to false.\
+**Type:** Boolean\
 **Version history:**\
 2.4.0 - added
 
@@ -213,21 +213,21 @@ aliases: [
 ### `discoverable` {#discoverable}
 
 **Description:** Whether the account has opted into discovery features such as the profile directory.\
-**Type:** {{<nullable>}} Boolean. Defaults to null.\
+**Type:** {{<nullable>}} Boolean\
 **Version history:**\
 3.1.0 - added
 
 ### `indexable` {#indexable}
 
 **Description:** Whether the account allows indexing by search engines.\
-**Type:** Boolean. Defaults to false.\
+**Type:** Boolean\
 **Version history:**\
 4.3.0 - added
 
 ### `noindex` {{%optional%}} {#noindex}
 
 **Description:** Whether the local user has opted out of being indexed by search engines.\
-**Type:** {{<nullable>}} Boolean. Defaults to false.\
+**Type:** {{<nullable>}} Boolean\
 **Version history:**\
 4.0.0 - added
 
@@ -299,7 +299,7 @@ aliases: [
 ### `hide_collections` {#hide_collections}
 
 **Description:** Whether the user hides the contents of their follows and followers collections.\
-**Type:** {{<nullable>}} Boolean. Defaults to null.\
+**Type:** {{<nullable>}} Boolean\
 **Version history:**\
 4.3.0 - added
 
@@ -399,7 +399,7 @@ aliases: [
 ### `source[attribution_domains]` {#source-attribution_domains}
 
 **Description:** Domains of websites allowed to credit the account.\
-**Type:** Array of String. Defaults to empty array.\
+**Type:** Array of String\
 **Version history:**\
 4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added
 
@@ -420,7 +420,7 @@ aliases: [
 #### `source[privacy]` {#source-privacy}
 
 **Description:** The default post privacy to be used for new statuses.\
-**Type:** String (Enumerable, oneOf). Defaults to `public` for unlocked accounts, `private` for locked accounts.\
+**Type:** String (Enumerable, oneOf)\
 `public` = Public post\
 `unlisted` = Unlisted post\
 `private` = Followers-only post\
@@ -431,14 +431,14 @@ aliases: [
 #### `source[sensitive]` {#source-sensitive}
 
 **Description:** Whether new statuses should be marked sensitive by default.\
-**Type:** Boolean. Defaults to false.\
+**Type:** Boolean\
 **Version history:**\
 1.5.0 - added
 
 #### `source[language]` {#source-language}
 
 **Description:** The default posting language for new statuses.\
-**Type:** String (ISO 639-1 language two-letter code) or empty string. Defaults to empty string.\
+**Type:** String (ISO 639-1 language two-letter code, or empty string)\
 **Version history:**\
 2.4.2 - added
 
@@ -452,21 +452,21 @@ aliases: [
 #### `source[hide_collections]` {#source-hide_collections}
 
 **Description:** Whether the user hides the contents of their follows and followers collections.\
-**Type:** {{<nullable>}} Boolean. Defaults to null.\
+**Type:** {{<nullable>}} Boolean\
 **Version history:**\
 4.1.0 - added
 
 #### `source[discoverable]` {#source-discoverable}
 
 **Description:** Whether the account has opted into discovery features such as the profile directory.\
-**Type:** {{<nullable>}} Boolean. Defaults to null.\
+**Type:** {{<nullable>}} Boolean\
 **Version history:**\
 3.1.0 - added
 
 #### `source[indexable]` {#source-indexable}
 
 **Description:** Whether public posts should be searchable to anyone.\
-**Type:** Boolean. Defaults to false.\
+**Type:** Boolean\
 **Version history:**\
 4.3.0 - added
 
@@ -482,7 +482,7 @@ aliases: [
 ### `mute_expires_at` {#mute_expires_at}
 
 **Description:** When a timed mute will expire, if applicable.\
-**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)), or null if the mute is indefinite.\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)), or null if the mute is indefinite\
 **Version history:**\
 3.3.0 - added
 
@@ -516,14 +516,14 @@ The simplified role entity returned in the Account `roles` array, containing onl
 ### `name` {#name}
 
 **Description:** The key of a given field's key-value pair.\
-**Type:** String. Maximum 255 characters for local accounts, 2,047 for remote accounts.\
+**Type:** String\
 **Version history:**\
 2.4.0 - added
 
 ### `value` {#value}
 
 **Description:** The value associated with the `name` key.\
-**Type:** String (HTML). Maximum 255 characters for local accounts, 2,047 for remote accounts.\
+**Type:** String (HTML)\
 **Version history:**\
 2.4.0 - added
 
