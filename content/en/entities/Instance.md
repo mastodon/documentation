@@ -421,7 +421,7 @@ aliases: [
 
 ### `domain` {#domain}
 
-**Description:** The WebFinger domain name of the instance.\
+**Description:** The WebFinger domain name of the server.\
 **Type:** String\
 **Version history:**\
 4.0.0 - added
@@ -435,14 +435,14 @@ aliases: [
 
 ### `version` {#version}
 
-**Description:** The version of Mastodon installed on the instance.\
+**Description:** The version of Mastodon installed on the server.\
 **Type:** String\
 **Version history:**\
 4.0.0 - added
 
 ### `source_url` {#source_url}
 
-**Description:** The URL for the source code of the software running on this instance, in keeping with AGPL license requirements.\
+**Description:** The URL for the source code of the software running on this server, per the AGPL license requirements.\
 **Type:** String (URL)\
 **Version history:**\
 4.0.0 - added
@@ -456,28 +456,28 @@ aliases: [
 
 ### `usage` {#usage}
 
-**Description:** Usage data for this instance.\
+**Description:** Usage data for this server.\
 **Type:** Hash\
 **Version history:**\
 4.0.0 - added
 
 #### `usage[users]` {#users}
 
-**Description:** Usage data related to users on this instance.\
+**Description:** Usage data related to users on this server.\
 **Type:** Hash\
 **Version history:**\
 4.0.0 - added
 
 ##### `usage[users][active_month]` {#active_month}
 
-**Description:** The number of active users in the past 4 weeks. This is set to zero for instances with `configuration[limited_federation]`.\
+**Description:** The number of active users in the past 4 weeks. This is set to zero for server with `configuration[limited_federation]`.\
 **Type:** Integer\
 **Version history:**\
 4.0.0 - added
 
 ### `thumbnail` {#thumbnail}
 
-**Description:** An image used to represent this instance.\
+**Description:** An image used to represent this server.\
 **Type:** Hash\
 **Version history:**\
 4.0.0 - added
@@ -519,7 +519,7 @@ aliases: [
 
 ### `icon` {#icon}
 
-**Description:** The list of available size variants for this instance configured icon.\
+**Description:** The list of available size variants for this server's configured icon.\
 **Type:** Array of [InstanceIcon](#InstanceIcon)\
 **Version history:**\
 4.3.0 - added
@@ -554,34 +554,34 @@ aliases: [
 
 ##### `configuration[urls][status]` {#status_url}
 
-**Description:** The URL of the instance's status page, if configured.\
+**Description:** The URL of the server's status page, if configured.\
 **Type:** {{<nullable>}} String (URL)\
 **Version history:**\
 4.1.0 - added
 
 ##### `configuration[urls][about]` {#about_url}
 
-**Description:** The URL of the instance's about page.\
+**Description:** The URL of the server's about page.\
 **Type:** String (URL)\
 **Version history:**\
 4.4.0 - added
 
 ##### `configuration[urls][privacy_policy]` {#privacy_policy}
 
-**Description:** The URL of the instance's privacy policy.\
+**Description:** The URL of the server's privacy policy.\
 **Type:** {{<nullable>}} String (URL)\
 **Version history:**\
 4.4.0 - added
 
 ##### `configuration[urls][terms_of_service]` {#terms_of_service}
 
-**Description:** The URL of the instance's current terms of service, if any.\
+**Description:** The URL of the server's current terms of service, if any.\
 **Type:** {{<nullable>}} String (URL)\
 **Version history:**\
 4.4.0 - added
 
 #### `configuration[vapid][public_key]` {#vapid_public_key}
-**Description:** The instance's VAPID public key, used for push notifications, the same as [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}}).\
+**Description:** The server's VAPID public key, used for push notifications, the same as [WebPushSubscription#server_key]({{< relref "entities/WebPushSubscription#server_key" >}}).\
 **Type:** String\
 **Version history:**\
 4.3.0 - added
@@ -735,7 +735,7 @@ aliases: [
 
 ##### `configuration[translation][enabled]` {#translation-enabled}
 
-**Description:** Whether the Translations API is available on this instance.\
+**Description:** Whether the Translations API is available on this server.\
 **Type:** Boolean\
 **Version history:**\
 4.0.0 - added
@@ -756,7 +756,7 @@ aliases: [
 
 #### `registrations[enabled]` {#registrations-enabled}
 
-**Description:** Whether registrations are enabled. This will be `false` if `registrations_mode` is `none` or if the instance is in `single_user_mode`.\
+**Description:** Whether registrations are enabled. This will be `false` if `registrations_mode` is `none` or if the server is in `single_user_mode`.\
 **Type:** Boolean\
 **Version history:**\
 4.0.0 - added
@@ -798,7 +798,7 @@ aliases: [
 
 ### `api_versions` {#api-versions}
 
-**Description:** Machine-readable API version information that allows clients to determine which API endpoints and features are available on this instance. This provides a more reliable method for capability detection than parsing human-readable version strings, especially for forks and development builds. It contains at least a `mastodon` attribute, and other implementations may have their own additional attributes.\
+**Description:** Machine-readable API version information that allows clients to determine which API endpoints and features are available on this server. This provides a more reliable method for capability detection than parsing human-readable version strings, especially for forks and development builds. It contains at least a `mastodon` attribute, and other implementations may have their own additional attributes.\
 **Type:** Hash\
 **Version history:**\
 4.3.0 - added

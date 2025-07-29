@@ -1,6 +1,6 @@
 ---
 title: instance API methods
-description: Discover information about a Mastodon instance.
+description: Discover information about a Mastodon server.
 menu:
   docs:
     weight: 70
@@ -23,7 +23,7 @@ aliases: [
 GET /api/v2/instance
 ```
 
-Obtain general information about the instance.
+Obtain general information about the server.
 
 **Returns:** [Instance]({{< relref "entities/Instance" >}})\
 **OAuth:** Public\
@@ -449,13 +449,13 @@ Obtain general information about the instance.
 GET /api/v1/instance/peers HTTP/1.1
 ```
 
-Domains that this instance is aware of.
+Domains that this server is aware of.
 
 **Returns:** Array of String\
 **OAuth:** Public\
 **Version history:**\
 2.1.2 - added\
-3.0.0 - requires user token if instance is in whitelist mode
+3.0.0 - requires user token if server is in whitelist mode
 
 #### Request
 
@@ -474,7 +474,7 @@ Authorization
 
 ##### 401: Unauthorized
 
-If the instance is in whitelist mode and the Authorization header is missing or invalid
+If the server is in whitelist mode and the Authorization header is missing or invalid
 
 ```json
 {
@@ -490,13 +490,13 @@ If the instance is in whitelist mode and the Authorization header is missing or 
 GET /api/v1/instance/activity HTTP/1.1
 ```
 
-Instance activity over the last 3 months, binned weekly.
+Server activity over the last 3 months, binned weekly.
 
 **Returns:** Array of Hash\
 **OAuth:** Public\
 **Version history:**\
 2.1.2 - added\
-3.0.0 - requires user token if instance is in whitelist mode
+3.0.0 - requires user token if server is in whitelist mode
 
 #### Request
 
@@ -602,7 +602,7 @@ registrations
 
 ##### 401: Unauthorized
 
-If the instance is in whitelist mode and the Authorization header is missing or invalid
+If the server is in whitelist mode and the Authorization header is missing or invalid
 
 ```json
 {
@@ -730,7 +730,7 @@ The admin has chosen to show domain blocks to no one. The response body is empty
 GET /api/v1/instance/extended_description HTTP/1.1
 ```
 
-Obtain an extended description of this server
+Obtain an extended description of this server.
 
 **Returns:** [ExtendedDescription]({{< relref "entities/ExtendedDescription" >}})\
 **OAuth:** Public\
@@ -804,7 +804,7 @@ Obtain the contents of this server's terms of service, if configured.
 
 ##### 404: Not Found
 
-No terms of service have been configured for this instance.
+No terms of service have been configured for this server.
 
 ```json
 {
@@ -849,7 +849,7 @@ Obtain the contents of this server's terms of service, for a specified date, if 
 
 ##### 404: Not Found
 
-No terms of service have been configured for this instance.
+No terms of service have been configured for this server.
 
 ```json
 {
