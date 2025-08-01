@@ -59,7 +59,7 @@ Content-Type: application/json
   "client_name": "Test Application",
   "redirect_uris": ["https://app.example/callback", "https://app.example/register"],
   "scopes": "read write push",
-  "website": "https://app.example",
+  "website": "https://app.example"
 }
 ```
 
