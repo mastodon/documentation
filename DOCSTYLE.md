@@ -2,7 +2,7 @@
 
 We've defined some basic patterns to bring our documentation towards a more consistent, readable style.
 
-- We are committed to inclusive communication.
+- We are committed to inclusive communication
 - We use British English spelling (e.g., "organisation" not "organization", "centre" not "center")
 - We prefer "-ise" over "-ize" endings
 - We spell out numbers one through ten, use numerals for 11+
@@ -22,8 +22,8 @@ Outside of specifically technical documentation sections that require particular
 Here is a non-exhaustive list of terms we use.
 
 - we refer to "the Fediverse" as a collective noun
-- "toot" is outdated (except in as a protocol extension); Mastodon statuses are posts, not toots.
-- "instance" is outdated, we prefer "server" over "website" or "instance" (except where instance is part of an API call or technical reference).
+- "toot" is outdated (except in as a protocol extension); Mastodon statuses are posts, not toots
+- "instance" is outdated, we prefer "server" over "website" or "instance" (except where instance is part of an API call or technical reference)
 
 Example domains may be 
 `mastodon.social`, `mastodon.online`, `example.com`, `example.social`
