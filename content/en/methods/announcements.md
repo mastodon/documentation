@@ -1,6 +1,6 @@
 ---
 title: announcements API methods
-description: For announcements set by administration.
+description: For announcements set by administrators.
 menu:
   docs:
     weight: 90

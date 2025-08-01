@@ -13,6 +13,7 @@ aliases: [
 ---
 
 ## Example
+
 ```json
 {
   "id": "8",
@@ -95,7 +96,7 @@ aliases: [
 **Version history:**\
 3.1.0 - added
 
-### `published_at` {#created_at}
+### `published_at` {#published_at}
 
 **Description:** When the announcement was published.\
 **Type:** String ([Datetime](/api/datetime-format#datetime))\
@@ -176,26 +177,22 @@ aliases: [
 
 ### `acct` {#Account-acct}
 
-**Description:** The webfinger acct: URI of the mentioned user. Equivalent to `username` for local users, or `username@domain` for remote users.\
+**Description:** The WebFinger acct: URI of the mentioned user. Equivalent to `username` for local users, or `username@domain` for remote users.\
 **Type:** String\
 **Version history:**\
 3.1.0 - added
 
 ## Announcement::Status attributes {#Status}
 
-### `id` {#Status-id}
+**Note:** Statuses in announcements are serialised as full [Status]({{< relref "entities/Status" >}}) objects. See the Status entity documentation for complete field descriptions.
 
-**Description:** The ID of an attached Status in the database.\
-**Type:** String (cast from an integer, but not guaranteed to be a number)\
-**Version history:**\
-3.1.0 - added
+The most commonly relevant fields include:
 
-### `url` {#Status-url}
-
-**Description:** The URL of an attached Status.\
-**Type:** String (URL)\
-**Version history:**\
-3.1.0 - added
+- `id` - Status ID
+- `url` - Status URL
+- `content` - Status content (HTML)
+- `account` - Author account
+- `created_at` - When the status was created
 
 ## See also
 
