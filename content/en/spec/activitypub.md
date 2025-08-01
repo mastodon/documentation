@@ -1,6 +1,6 @@
 ---
 title: ActivityPub
-description: A decentralized social networking protocol based upon the ActivityStreams 2.0 data format and JSON-LD.
+description: A decentralised social networking protocol based upon the ActivityStreams 2.0 data format and JSON-LD.
 menu:
   docs:
     weight: 10
@@ -41,10 +41,10 @@ QuoteRequest
 
 The first-class Object types supported by Mastodon are `Note` and `Question`.
 
-- Notes are transformed into regular statuses.
-- Questions are transformed into a poll status. See the [Polls](#Question) extension for more information.
+- Mastodon transforms Notes into regular statuses.
+- Mastodon transforms Questions into poll statuses. See the [Polls](#Question) extension for more information.
 
-Some other Object types are converted as best as possible:
+Mastodon converts some other Object types as best as possible:
 
 - Article
 - Page
@@ -53,21 +53,21 @@ Some other Object types are converted as best as possible:
 - Video
 - Event
 
-The transformer uses `content` if available, or `name` if not, in order to generate status text. The `url` will be appended. The `summary` property will be used as the CW text. The `icon` will be used as a thumbnail.
+The transformer uses `content` to generate status text. If `content` is not available, it uses `name` instead. The `url` will be appended. The `summary` property will be used as the Content Warning (CW) text. The `icon` will be used as a thumbnail.
 
-### HTML sanitization {#sanitization}
+### HTML sanitisation {#sanitization}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/lib/sanitize_ext/sanitize_config.rb" caption="lib/sanitize_ext/sanitize_config.rb" >}}
 
-Mastodon sanitizes incoming HTML in order to not break assumptions for API client developers. Supported elements will be kept as-is, and unsupported elements will be converted or removed. Supported attributes will be kept, and all other attributes will be stripped. The following elements and attributes are supported:
- 
+Mastodon keeps supported elements as-is, and converts or removes unsupported elements. Supported attributes will be kept, and all other attributes will be stripped. Mastodon supports the following elements and attributes:
+
 - `<p>`
 - `<span>` (`class`)
 - `<br>`
 - `<a>` (`href`, `rel`, `class`)
 - lists will be converted to `<p>`, and list items will be separated with `<br>`
 
-Since Mastodon v4.2, the following elements and attributes are supported:
+Since Mastodon 4.2, the following elements and attributes are supported:
 
 - `<p>`
 - `<span>` (`class`)
@@ -86,8 +86,8 @@ Since Mastodon v4.2, the following elements and attributes are supported:
 - `<li>` (`value`)
 - `<blockquote>`
 - headings will be converted to `<strong>` and then wrapped in `<p>`
- 
-The sanitizer will keep classes if they begin with microformats prefixes or are semantic classes:
+
+The sanitiser will keep classes if they begin with microformats prefixes or are semantic classes:
 
 - h-*
 - p-*
@@ -116,58 +116,58 @@ Links will be kept if the protocol is supported, and converted to text otherwise
 ### Properties used
 
 content
-: Used as status text
+: Used as status text.
 
 name
-: Used as status text, if `content` is not provided on a transformed Object type
+: Used as status text, if `content` is not provided on a transformed Object type.
 
 summary
-: Used as CW text
+: Used as Content Warning (CW) text.
 
 sensitive
-: Used to determine whether status media or text should be hidden by default. See the [Sensitive content](#sensitive) extension section for more information about `as:sensitive`
+: Used to determine whether status media or text should be hidden by default. See the [Sensitive content](#sensitive) extension section for more information about `as:sensitive`.
 
 inReplyTo
-: Used for threading a status as a reply to another status
+: Used for threading a status as a reply to another status.
 
 published
-: Used as status date
+: Used as status date.
 
 url
-: Used for status permalinks, and also appended to status text for transformed Objects
+: Used for status permalinks, and also appended to status text for transformed Objects.
 
 attributedTo
-: Used to determine the profile which authored the status
+: Used to determine the profile which authored the status.
 
 to/cc
-: Used to determine audience and visibility of a status, in combination with mentions. See [Mentions for adddressing and notifications](#Mention)
+: Used to determine audience and visibility of a status, in combination with mentions. See [Mentions for addressing and notifications](#Mention).
 
 tag
 : Used to mark up mentions and hashtags.
 
 tag[].type
-: Either `Mention`, `Hashtag`, or `Emoji` is currently supported. See the [Hashtag](#Hashtag) and [Custom emoji](#Emoji) extension sections for more information
+: Either `Mention`, `Hashtag`, or `Emoji` is currently supported. See the [Hashtag](#Hashtag) and [Custom emoji](#Emoji) extension sections for more information.
 
 tag[].name
-: The plain-text Webfinger address of a profile Mention (`@user` or `@user@domain`), or the plain-text Hashtag (`#tag`), or the custom Emoji shortcode (`:thounking:`)
+: The plain-text WebFinger address of a profile Mention (`@user` or `@user@domain`), or the plain-text Hashtag (`#tag`), or the custom Emoji shortcode (`:thounking:`).
 
 tag[].href
-: The URL of the actor or tag
+: The URL of the actor or tag.
 
 attachment
 : Used to include attached images, videos, or audio.
 
 attachment[].url
-: Used to fetch the media attachment
+: Used to fetch the media attachment.
 
 attachment[].summary
-: Used as media description
+: Used as media description.
 
 attachment[].blurhash
-: Used to generate a blurred preview image corresponding to the colors used within the image. See [Blurhash](#blurhash) for more details.
+: Used to generate a blurred preview image corresponding to the colours used within the image. See [Blurhash](#blurhash) for more details.
 
 replies
-: A Collection of statuses that are in reply to the current status. Up to 5 replies from the same server will be fetched upon discovery of a remote status, in order to resolve threads more fully. On Mastodon's side, the first page contains self-replies, and additional pages contain replies from other people.
+: A Collection of statuses that are in reply to the current status. Up to five replies from the same server will be fetched upon discovery of a remote status, in order to resolve threads more fully. On Mastodon's side, the first page contains self-replies, and additional pages contain replies from other people.
 
 likes
 : A Collection used to represent `Like` activities received for this status. The actual activities are not exposed by Mastodon at this time.
@@ -184,25 +184,25 @@ shares.totalItems
 #### Poll-specific properties
 
 endTime
-: The timestamp for when voting will close on the poll
+: The timestamp for when voting will close on the poll.
 
 closed
 : The timestamp for when voting closed on the poll. The timestamp will likely match the `endTime` timestamp. If this property is present, the poll is assumed to be closed.
 
 votersCount
-: How many people have voted in the poll. Distinct from how many votes have been cast (in the case of multiple-choice polls)
+: How many people have voted in the poll. Distinct from how many votes have been cast (in the case of multiple-choice polls).
 
 oneOf
-: Single-choice poll options
+: Single-choice poll options.
 
 anyOf
-: Multiple-choice poll options
+: Multiple-choice poll options.
 
 oneOf/anyOf[].name
-: The poll option's text
+: The poll option's text.
 
 oneOf/anyOf[].replies.totalItems
-: The poll option's vote count
+: The poll option's vote count.
 
 ## Profile federation {#profile}
 
@@ -211,14 +211,14 @@ oneOf/anyOf[].replies.totalItems
 Follow
 : Indicate interest in receiving status updates from a profile.
 
-Accept/Reject
+Accept, or Reject
 : Used to approve or deny Follow activities. Unlocked accounts will automatically reply with an Accept, while locked accounts can manually choose whether to approve or deny a follow request.
 
-Add/Remove
+Add, or Remove
 : Manage pinned posts and featured collections.
 
 Update
-: Refresh account details
+: Refresh account details.
 
 Delete
 : Remove an account from the database, as well as all of their statuses.
@@ -238,7 +238,7 @@ Move
 ### Properties used
 
 preferredUsername
-: Used for Webfinger lookup. Must be unique on the domain, and must correspond to a Webfinger `acct:` URI.
+: Used for WebFinger lookup. Must be unique on the domain, and must correspond to a WebFinger `acct:` URI.
 
 name
 : Used as profile display name.
@@ -359,20 +359,20 @@ Used for Linked Data Signatures. See [Security > Linked Data Signatures]({{< rel
 
 ## Extensions defined using ActivityStreams vocabulary
 
-While the Activity Vocabulary defines a wide range of types and terms, ActivityPub only defines side effects for a subset of them. The following activity types have the following side effects when received in a Mastodon inbox.
+While the Activity Vocabulary defines a wide range of types and terms, ActivityPub only defines side effects for a subset of them. When Mastodon receives these activity types in an inbox, the following side effects occur:
 
 ### Remote blocking (`Block`) {#Block}
 
-ActivityPub defines the `Block` activity for client-to-server (C2S) use-cases, but not for server-to-server (S2S) -- it recommends that servers SHOULD NOT deliver Block activities to their `object`. However, Mastodon will send this activity when a local user blocks a remote user. When Mastodon receives a `Block` activity where the `object` is an actor on the local domain, it will interpret this as a signal to hide the actor's profile and posts from the local user, as well as disallowing mentions of that actor by that local user.
+ActivityPub defines the `Block` activity for client-to-server (C2S) use-cases, but not for server-to-server (S2S) - it recommends that servers SHOULD NOT deliver Block activities to their `object`. However, Mastodon will send this activity when a local user blocks a remote user. When Mastodon receives a `Block` activity where the `object` is an actor on the local domain, it will interpret this as a signal to hide the actor's profile and posts from the local user, as well as disallowing mentions of that actor by that local user.
 
 ```json
 {
   "@context": "https://www.w3.org/ns/activitystreams",
-  "id": "https://mastodon.example/bd06bb61-01e0-447a-9dc8-95915db9aec8",
+  "id": "https://example.com/bd06bb61-01e0-447a-9dc8-95915db9aec8",
   "type": "Block",
-  "actor": "https://mastodon.example/users/alice",
-  "object": "https://example.com/~mallory",
-  "to": "https://example.com/~mallory"
+  "actor": "https://example.com/users/alice",
+  "object": "https://example.org/~mallory",
+  "to": "https://example.org/~mallory"
 }
 ```
 
@@ -383,16 +383,16 @@ To report profiles and/or posts on remote servers, Mastodon will send a `Flag` a
 ```json
 {
   "@context": "https://www.w3.org/ns/activitystreams",
-  "id": "https://mastodon.example/ccb4f39a-506a-490e-9a8c-71831c7713a4",
+  "id": "https://example.com/ccb4f39a-506a-490e-9a8c-71831c7713a4",
   "type": "Flag",
-  "actor": "https://mastodon.example/actor",
+  "actor": "https://example.com/actor",
   "content": "Please take a look at this user and their posts",
   "object": [
-    "https://example.com/users/1",
-    "https://example.com/posts/380590",
-    "https://example.com/posts/380591"
+    "https://example.org/users/1",
+    "https://example.org/posts/380590",
+    "https://example.org/posts/380591"
   ],
-  "to": "https://example.com/users/1"
+  "to": "https://example.org/users/1"
 }
 ```
 
@@ -403,12 +403,12 @@ Mastodon uses the Move activity to signal that an account has migrated to a diff
 ```json
 {
   "@context": "https://www.w3.org/ns/activitystreams",
-  "id": "https://mastodon.example/users/alice#moves/1",
-  "actor": "https://mastodon.example/users/alice",
+  "id": "https://example.com/users/alice#moves/1",
+  "actor": "https://example.com/users/alice",
   "type": "Move",
-  "object": "https://mastodon.example/users/alice",
-  "target": "https://alice.com/users/109835986274379",
-  "to": "https://mastodon.example/users/alice/followers"
+  "object": "https://example.com/users/alice",
+  "target": "https://example.org/users/109835986274379",
+  "to": "https://example.com/users/alice/followers"
 }
 ```
 
@@ -419,7 +419,7 @@ Mastodon uses the Move activity to signal that an account has migrated to a diff
 The ActivityStreams Vocabulary specification describes loosely (non-normatively) how a question might be represented. Mastodon's implementation of polls is somewhat inspired by this section. The following implementation details can be observed:
 
 - `Question` is used as an `Object` type instead of as an `IntransitiveActivity`; rather than being sent directly, it is wrapped in a `Create` just like any other status.
-- Poll options are serialized using `oneOf` or `anyOf` as an array.
+- Poll options are serialised using `oneOf` or `anyOf` as an array.
   - Each item in this array has no `id`, has a `type` of `Note`, and has a `name` representing the text of the poll option.
   - Each item in this array also has a `replies` property, representing the responses to this particular poll option. This node has no `id`, has a `type` of `Collection`, and has a `totalItems` property representing the total number of votes received for this option.
 
@@ -431,7 +431,7 @@ The ActivityStreams Vocabulary specification describes loosely (non-normatively)
       "votersCount": "http://joinmastodon.org/ns#votersCount"
     }
   ],
-  "id": "https://mastodon.example/users/alice/statuses/1009947848598745",
+  "id": "https://example.com/users/alice/statuses/1009947848598745",
   "type": "Question",
   "content": "What should I eat for breakfast today?",
   "published": "2023-03-05T07:40:13Z",
@@ -466,40 +466,40 @@ The ActivityStreams Vocabulary specification describes loosely (non-normatively)
 }
 ```
 
-- Poll votes are serialized as `Create` activities, where the `object` is a `Note` with a `name` that exactly matches the `name` of the poll option. The `Note.inReplyTo` points to the URI of the `Question` object.
+- Poll votes are serialised as `Create` activities, where the `object` is a `Note` with a `name` that exactly matches the `name` of the poll option. The `Note.inReplyTo` points to the URI of the `Question` object.
   - For multiple-choice polls, multiple activities may be sent. Votes will be counted if you have not previously voted for that option.
 
 ```json
 {
   "@context": "https://www.w3.org/ns/activitystreams",
-  "id": "https://mastodon.example/users/bob#votes/827163/activity",
-  "to": "https://mastodon.example/users/alice",
-  "actor": "https://mastodon.example/users/bob",
+  "id": "https://example.com/users/bob#votes/827163/activity",
+  "to": "https://example.com/users/alice",
+  "actor": "https://example.com/users/bob",
   "type": "Create",
   "object": {
-    "id": "https://mastodon.example/users/bob#votes/827163",
+    "id": "https://example.com/users/bob#votes/827163",
     "type": "Note",
     "name": "orange",
-    "attributedTo": "https://mastodon.example/users/bob",
-    "to": "https://mastodon.example/users/alice",
-    "inReplyTo": "https://mastodon.example/users/alice/statuses/1009947848598745"
+    "attributedTo": "https://example.com/users/bob",
+    "to": "https://example.com/users/alice",
+    "inReplyTo": "https://example.com/users/alice/statuses/1009947848598745"
   }
 }
 ```
 ```json
 {
   "@context": "https://www.w3.org/ns/activitystreams",
-  "id": "https://mastodon.example/users/bob#votes/827164/activity",
-  "to": "https://mastodon.example/users/alice",
-  "actor": "https://mastodon.example/users/bob",
+  "id": "https://example.com/users/bob#votes/827164/activity",
+  "to": "https://example.com/users/alice",
+  "actor": "https://example.com/users/bob",
   "type": "Create",
   "object": {
-    "id": "https://mastodon.example/users/bob#votes/827164",
+    "id": "https://example.com/users/bob#votes/827164",
     "type": "Note",
     "name": "banana",
-    "attributedTo": "https://mastodon.example/users/bob",
-    "to": "https://mastodon.example/users/alice",
-    "inReplyTo": "https://mastodon.example/users/alice/statuses/1009947848598745"
+    "attributedTo": "https://example.com/users/bob",
+    "to": "https://example.com/users/alice",
+    "inReplyTo": "https://example.com/users/alice/statuses/1009947848598745"
   }
 }
 ```
@@ -508,11 +508,11 @@ The ActivityStreams Vocabulary specification describes loosely (non-normatively)
 
 {{< caption-link url="https://www.w3.org/TR/activitystreams-vocabulary/#microsyntaxes" caption="Activity Vocabulary §5.6 - Mentions, Tags, and Other Common Social Microsyntaxes" >}}
 
-In the ActivityStreams Vocabulary, `Mention` is a subtype of `Link` that is intended to represent the microsyntax of @mentions. The `tag` property is intended to add references to other Objects or Links. For Link tags, the `name` of the Link should be a substring of the natural language properties (`name`, `summary`, `content`) on that object. Wherever such a substring is found, it can be transformed into a hyperlink reference to the `href`.
+In the ActivityStreams Vocabulary, `Mention` is a subtype of `Link` that is intended to represent the microsyntax of @mentions. The `tag` property is intended to add references to other Objects or Links. For Link tags, the `name` should be a substring of the object's natural language properties. These properties include `name`, `summary`, and `content`. Wherever such a substring is found, it can be transformed into a hyperlink reference to the `href`.
 
 However, Mastodon also uses `Mention` tags for addressing in some cases. Based on the presence or exclusion of Mention tags, and compared to the explicitly declared audiences in `to` and `cc`, Mastodon will calculate a visibility level for the post. Additionally, Mastodon requires Mention tags in order to generate a notification. (The mentioned actor must still be included within `to` or `cc` explicitly in order to receive the post.)
 
-- `public`: Public statuses have the `as:Public` magic collection in `to`
+- `public`: Public statuses have the `as:Public` magic collection (a special ActivityStreams collection) in `to`
 - `unlisted`: Unlisted statuses have the `as:Public` magic collection in `cc`
 - `private`: Followers-only statuses have an actor's follower collection in `to` or `cc`, but do not include the `as:Public` magic collection
 - `limited`: Limited-audience statuses have actors in `to` or `cc`, at least one of which is not `Mention`ed in `tag`
@@ -536,11 +536,11 @@ Public keys are used for HTTP Signatures and Linked Data Signatures. This is imp
     "https://www.w3.org/ns/activitystreams",
     "https://w3id.org/security/v1"
   ],
-  "id": "https://mastodon.social/users/Gargron",
+  "id": "https://example.com/users/Gargron",
   "type": "Person",
   "publicKey": {
-    "id": "https://mastodon.social/users/Gargron#main-key",
-    "owner": "https://mastodon.social/users/Gargron",
+    "id": "https://example.com/users/Gargron#main-key",
+    "owner": "https://example.com/users/Gargron",
     "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvXc4vkECU2/CeuSo1wtn\nFoim94Ne1jBMYxTZ9wm2YTdJq1oiZKif06I2fOqDzY/4q/S9uccrE9Bkajv1dnkO\nVm31QjWlhVpSKynVxEWjVBO5Ienue8gND0xvHIuXf87o61poqjEoepvsQFElA5ym\novljWGSA/jpj7ozygUZhCXtaS2W5AD5tnBQUpcO0lhItYPYTjnmzcc4y2NbJV8hz\n2s2G8qKv8fyimE23gY1XrPJg+cRF+g4PqFXujjlJ7MihD9oqtLGxbu7o1cifTn3x\nBfIdPythWu5b4cujNsB3m3awJjVmx+MHQ9SugkSIYXV0Ina77cTNS0M2PYiH1PFR\nTwIDAQAB\n-----END PUBLIC KEY-----\n"
   }
 }
@@ -548,7 +548,7 @@ Public keys are used for HTTP Signatures and Linked Data Signatures. This is imp
 
 ### Featured collection {#featured}
 
-What is known in Mastodon as “pinned statuses”, or statuses that are always featured at the top of people’s profiles, is implemented using an extra property `featured` on the actor object that points to a `Collection` of objects.
+Mastodon implements what it calls "pinned statuses" (statuses that are always featured at the top of people's profiles), using an extra property `featured` on the actor object, that points to a `Collection` of objects.
 
 ```json
 {
@@ -608,18 +608,18 @@ As noted above while listing the [schema.org @context extensions](#schema), Mast
       "value": "schema:value"
     }
   ],
-  "id": "https://mastodon.social/users/Gargron",
+  "id": "https://example.com/users/Gargron",
   "type": "Person",
   "attachment": [
     {
       "type": "PropertyValue",
       "name": "Patreon",
-      "value": "<a href=\"https://www.patreon.com/mastodon\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"\">patreon.com/mastodon</span><span class=\"invisible\"></span}"
+      "value": "<a href=\"https://www.patreon.com/mastodon\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"\">patreon.com/mastodon</span><span class=\"invisible\"></span>"
     },
     {
       "type": "PropertyValue",
       "name": "Homepage",
-      "value": "<a href=\"https://zeonfederated.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">zeonfederated.com</span><span class=\"invisible\"></span}"
+      "value": "<a href=\"https://zeonfederated.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">zeonfederated.com</span><span class=\"invisible\"></span>"
     }
   ]
 }
@@ -628,7 +628,7 @@ As noted above while listing the [schema.org @context extensions](#schema), Mast
 ### Identity proofs {{%deprecated%}} {#IdentityProof}
 
 {{< hint style="warning" >}}
-This property is currently unused/deprecated due to the removal of Keybase support in Mastodon 3.5: <https://github.com/mastodon/mastodon/pull/17045>
+This property is currently unused/deprecated due to [the removal of Keybase support in Mastodon 3.5](https://github.com/mastodon/mastodon/pull/17045).
 {{</hint>}}
 
 Mastodon supports integration with identity providers to prove that a profile is linked to a certain identity. This is implemented using the `attachment` property on actor objects, with objects in the array having a type of `IdentityProof` from the Mastodon namespace. The object also includes `signatureAlgorithm` and `signatureValue` from the W3ID Security Vocabulary namespace.
@@ -642,7 +642,7 @@ Mastodon supports integration with identity providers to prove that a profile is
       "IdentityProof": "http://joinmastodon.org/ns#IdentityProof"
     }
   ],
-  "id": "https://mastodon.social/users/Gargron",
+  "id": "https://example.com/users/Gargron",
   "type": "Person",
   "attachment": [
     {
@@ -667,7 +667,7 @@ Mastodon allows users to opt-in or opt-out of discoverability features like the 
       "discoverable": "http://joinmastodon.org/ns#discoverable"
     }
   ],
-  "id": "https://mastodon.social/users/Gargron",
+  "id": "https://example.com/users/Gargron",
   "type": "Person",
   "discoverable": true
 }
@@ -685,7 +685,7 @@ Mastodon allows users to opt-in or opt-out of indexing features like full-text s
       "indexable": "http://joinmastodon.org/ns#indexable"
     }
   ],
-  "id": "https://mastodon.social/users/Gargron",
+  "id": "https://example.com/users/Gargron",
   "type": "Person",
   "indexable": true
 }
@@ -703,7 +703,7 @@ Mastodon reports whether a user was locally suspended, for better handling of th
       "suspended": "http://joinmastodon.org/ns#suspended"
     }
   ],
-  "id": "https://example.com/@eve",
+  "id": "https://example.org/@eve",
   "type": "Person",
   "suspended": true
 }
@@ -711,7 +711,7 @@ Mastodon reports whether a user was locally suspended, for better handling of th
 
 ### Memorial flag {#memorial}
 
-Mastodon reports whether a user's profile was memorialized, for better handling of these accounts. Memorial accounts in Mastodon return normal data, but are rendered with a header indicating that the account is a memorial account. This functionality is implemented using an extra property `memorial` on objects.
+Mastodon reports whether a user's profile was memorialised, for better handling of these accounts. Memorial accounts in Mastodon return normal data, but are rendered with a header indicating that the account is a memorial account. This functionality is implemented using an extra property `memorial` on objects.
 
 ```json
 {
@@ -721,7 +721,7 @@ Mastodon reports whether a user's profile was memorialized, for better handling 
       "memorial": "http://joinmastodon.org/ns#memorial"
     }
   ],
-  "id": "https://example.com/@alice",
+  "id": "https://example.org/@alice",
   "type": "Person",
   "memorial": true
 }
@@ -729,7 +729,7 @@ Mastodon reports whether a user's profile was memorialized, for better handling 
 
 ### Hashtags {#Hashtag}
 
-Similar to the `Mention` subtype of Link already defined in ActivityStreams, Mastodon will use `Hashtag` as a subtype of Link in order to surface posts referencing some common topic identified by a string key. The Hashtag has a `name` containing the #hashtag microsyntax -- a `#` followed by a string sequence representing a topic. This is similar to the @mention microsyntax, where an `@` is followed by some string sequence representing a resource (where in Mastodon's case, this resource is expected to be an account). Mastodon will also normalize hashtags to be case-insensitive lowercase strings, performing ASCII folding and removing invalid characters.
+Similar to the `Mention` subtype of Link already defined in ActivityStreams, Mastodon will use `Hashtag` as a subtype of Link in order to surface posts referencing some common topic identified by a string key. The Hashtag has a `name` containing the #hashtag microsyntax - a `#` followed by a string sequence representing a topic. This is similar to the @mention microsyntax, where an `@` is followed by some string sequence representing a resource (where in Mastodon's case, this resource is expected to be an account). Mastodon will also normalise hashtags to be case-insensitive lowercase strings, performing ASCII folding and removing invalid characters.
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/hashtag_normalizer.rb" caption="app/lib/hashtag_normalizer.rb" >}}
 
@@ -788,7 +788,7 @@ Mastodon supports arbitrary emojis by including a `tag` of the `Emoji` type. Han
 
 ### Focal points {#focalPoint}
 
-Mastodon supports setting a focal point on uploaded images, so that wherever that image is displayed, the focal point stays in view. This is implemented using an extra property `focalPoint` on `Image` objects. The property is an array of two floating points between -1.0 and 1.0, with 0,0 being the center of the image, the first value being x (-1.0 is the left edge, +1.0 is the right edge) and the second value being y (-1.0 is the bottom edge, +1.0 is the top edge). See [API Guidelines > Focal points]({{< relref "api/guidelines#focal-points" >}}) for more information.
+Mastodon supports setting a focal point on uploaded images, so that wherever that image is displayed, the focal point stays in view. This is implemented using an extra property `focalPoint` on `Image` objects. The property is an array of two floating points between -1.0 and 1.0, with 0,0 being the centre of the image, the first value being x (-1.0 is the left edge, +1.0 is the right edge) and the second value being y (-1.0 is the bottom edge, +1.0 is the top edge). See [API Guidelines > Focal points]({{< relref "api/guidelines#focal-points" >}}) for more information.
 
 ```json
 {
@@ -821,11 +821,11 @@ Mastodon supports setting a focal point on uploaded images, so that wherever tha
 
 {{< figure src="/assets/focal-points.jpg" caption="A demonstration of various focal points and their coordinates." >}}
 
-The focal point of (-0.55, 0.43) in the example above corresponds to a point 55% to the left of center and 43% above center. This focal point should remain visible within the cropped thumbnail, if any cropping is done.
+The focal point of (-0.55, 0.43) in the example above corresponds to a point 55% to the left of centre and 43% above centre. This focal point should remain visible within the cropped thumbnail, if any cropping is done.
 
 ### Blurhash {#blurhash}
 
-Mastodon generates colorful preview thumbnails for attachments. This is implemented using an extra property `blurhash` on `Image` objects. The property is a string generated by the [BlurHash algorithm](https://blurha.sh).
+Mastodon generates colourful preview thumbnails for attachments. This is implemented using an extra property `blurhash` on `Image` objects. The property is a string generated by the [BlurHash algorithm](https://blurha.sh).
 
 ```json
 {
@@ -852,7 +852,7 @@ Mastodon generates colorful preview thumbnails for attachments. This is implemen
 
 ### Sensitive content {#sensitive}
 
-Mastodon uses the `as:sensitive` extension property to mark certain posts as sensitive. When a post is marked as sensitive, any media attached to it will be hidden by default, and if a `summary` is present, the status `content` will be collapsed behind this summary. In Mastodon, this is known as a **content warning**.
+Mastodon uses the `as:sensitive` extension property to mark certain posts as sensitive. When a post is marked as sensitive, any media attached to it will be hidden by default, and if a `summary` is present, the status `content` will be collapsed behind this summary. In Mastodon, this is known as a **Content Warning** (CW), which allows users to hide potentially sensitive content behind a warning label.
 
 ### Quote posts and quote controls {#Quote}
 
@@ -860,21 +860,13 @@ Mastodon implements experimental support for handling remote quote posts accordi
 
 Should a post contain multiple quotes, Mastodon only accepts the first one.
 
-Furthermore, Mastodon does not handle the full range of interaction policies, but instead converts the authorized followers to a combination of “public”, “followers” and “unknown”, defaulting to “nobody”.
+Furthermore, Mastodon does not handle the full range of interaction policies, but instead converts the authorised followers to a combination of "public", "followers" and "unknown", defaulting to "nobody".
 
 At this time, Mastodon does not offer authoring quotes, nor does it expose a quote policy, or produce stamps for incoming quote requests.
 
-## Other functionality
+### Follower synchronisation mechanism
 
-### Secure mode {#secure-mode}
-
-When a Mastodon server runs in secure mode, all cross-server HTTP requests to it must be signed (in other words, even `GET` requests to public resources). That way, the Mastodon server can choose to reject requests from servers it has blocked and avoid "leaking" public information. Mastodon itself uses a dedicated system actor to sign such HTTP requests. See [Security]({{< relref "spec/security" >}}) for more details on HTTP signatures.
-
-Secure mode is the foundation upon which "limited federation mode" is built. A Mastodon server in limited federation mode will only federate with servers its admin has explicitly allowed, and reject all other requests.
-
-### Follower synchronization mechanism
-
-Mastodon has a concept of "followers-only" posts, but expanding the followers collection is currently handled at the destination rather than at the origin (i.e., not with explicit addressing). Therefore, a mechanism to detect synchronization issues and correct them is needed. This mechanism must work on partial followers collections, rather than the full collection (which may not be public information). This collection is partial in the sense that it only contains the followers from a specific instance, but it MUST contain all of those followers. A follower being omitted from the collection would lead to that follow relationship getting severed.
+Mastodon has a concept of "followers-only" posts, but expanding the followers collection is currently handled at the destination rather than at the origin (i.e., not with explicit addressing). Therefore, a mechanism to detect synchronisation issues and correct them is needed. This mechanism must work on partial followers collections, rather than the full collection (which may not be public information). This collection is partial. It only contains the followers from a specific instance. However, it MUST contain all of those followers. A follower being omitted from the collection would lead to that follow relationship getting severed.
 
 When delivering a message to a remote user, an optional `Collection-Synchronization` HTTP header is attached, following the same syntax as the `Signature` header, with the following attributes:
 
@@ -882,28 +874,47 @@ When delivering a message to a remote user, an optional `Collection-Synchronizat
 - `url` = a URL to a partial collection containing the identifier of every one of the sender's followers residing on the receiver's instance. MUST reside on the same domain as the actor itself, and SHOULD be only accessible with a signed query from the receiver's instance
 - `digest` = hexadecimal representation of the XORed SHA256 digests of each of the identifiers in the partial collection
 
+#### Digest calculation
+
+The digest is calculated by:
+1. Computing the SHA256 hash of each follower identifier (as a UTF-8 encoded string)
+2. XORing all the resulting digest bytes together
+3. Converting the final result to hexadecimal representation
+
+For multiple followers, each SHA256 digest is XORed with the others. For example, with followers A and B: `digest = SHA256(A) XOR SHA256(B)`.
+
 Example:
 
 ```http
-POST https://mastodon.social/users/foo/inbox HTTP/1.1
+POST https://example.social/users/alice/inbox HTTP/1.1
 Collection-Synchronization:
-  collectionId="https://social.sitedethib.com/users/Thib/followers",
-  url="https://social.sitedethib.com/users/Thib/followers_synchronization",
+  collectionId="https://example.com/users/bob/followers",
+  url="https://example.com/users/bob/followers_synchronization",
   digest="b08ab6951c7d6cc2b91e17ebd9557da7fae02489728e9332fcb3a97748244d50"
 ```
 
 When a remote user attempts to GET the partial collection `url`, this request must be signed with HTTP signatures. Example:
 
 ```http
-GET https://social.sitedethib.com/users/Thib/followers_synchronization HTTP/1.1
-Signature: ... # a signature from an account on mastodon.social
+GET https://example.com/users/bob/followers_synchronization HTTP/1.1
+Signature: ... # a signature from an account on example.social
+```
 
+```json
 {
   "@context": "https://www.w3.org/ns/activitystreams",
-  "id": "https://social.sitedethib.com/users/Thib/followers?domain=mastodon.social",
+  "id": "https://example.com/users/bob/followers?domain=example.social",
   "type": "OrderedCollection",
   "orderedItems": [
-    "https://mastodon.social/users/Gargron"
+    "https://example.social/users/alice"
   ]
 }
 ```
+
+## Other functionality
+
+### Secure mode {#secure-mode}
+
+When a Mastodon server runs in secure mode, all cross-server HTTP requests to it must be signed (in other words, even `GET` requests to public resources). That way, the Mastodon server can choose to reject requests from servers it has blocked and avoid "leaking" public information. Mastodon itself uses a dedicated instance actor to sign such HTTP requests. See [Security]({{< relref "spec/security" >}}) for more details on HTTP signatures.
+
+Secure mode is the foundation upon which "limited federation mode" is built. A Mastodon server in limited federation mode will only federate with servers its admin has explicitly allowed, and reject all other requests.
