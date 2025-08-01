@@ -1,6 +1,6 @@
 # Documentation style guidance
 
-We're adopting some basic patterns (and specific terminology requirements) to bring our documentation towards a more consistent, readable style.
+We've defined some basic patterns to bring our documentation towards a more consistent, readable style.
 
 - We are committed to inclusive communication.
 - We use British English spelling (e.g., "organisation" not "organization", "centre" not "center")
@@ -38,3 +38,8 @@ Always refer to other software by official spellings, and check for correct capi
 - OpenCollective (noun)
 
 
+## Markup and styling
+
+Consistency of terminology, punctuation, and formatting is important to us!
+
+Code blocks should be correctly marked up with language hints (http, text, json, shell etc).
