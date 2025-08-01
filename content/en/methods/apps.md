@@ -51,7 +51,7 @@ For more information see: [OAuth 2 client types]({{< relref "spec/oauth#client-t
 
 Example request:
 
-```
+```http
 POST /api/v1/apps HTTP/1.1
 Content-Type: application/json
 
