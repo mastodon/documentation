@@ -184,7 +184,11 @@ aliases: [
 
 ## Announcement::Status attributes {#Status}
 
-**Note:** Statuses in announcements are serialised as full [Status]({{< relref "entities/Status" >}}) objects. See the Status entity documentation for complete field descriptions.
+{{< hint style="info" >}}
+
+Statuses in announcements are serialised as full [Status]({{< relref "entities/Status" >}}) objects. See the Status entity documentation for complete field descriptions.
+
+{{< /hint >}}
 
 The most commonly relevant fields include:
 
