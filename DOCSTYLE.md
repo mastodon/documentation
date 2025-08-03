@@ -5,7 +5,6 @@ We've defined some basic patterns to bring our documentation towards a more cons
 - We are committed to inclusive communication
 - We're a European organisation, and choose to use British English spelling (e.g., "organisation" not "organization", "centre" not "center"; we prefer "-ise" over "-ize" endings) 
 - We use the Oxford comma
-- We spell out numbers one through ten, use numerals for 11+
 - We write dates as “January 1” or “January 1, 2025” format
 
 Outside of specifically technical documentation sections that require particular terms (i.e. in prose, tutorials, and descriptive writing)
