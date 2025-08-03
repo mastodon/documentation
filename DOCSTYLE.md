@@ -1,12 +1,11 @@
 # Documentation style guidance
 
-We've defined some basic patterns to bring our documentation towards a more consistent, readable style.
+We've defined some basic patterns to bring our documentation towards a more consistent, readable style. These also reflect our team's shared choices for communication overall.
 
 - We are committed to inclusive communication
-- We use British English spelling (e.g., "organisation" not "organization", "centre" not "center")
-- We prefer "-ise" over "-ize" endings
-- We spell out numbers one through ten, use numerals for 11+
+- We're a European organisation, and choose to use British English spelling (e.g., "organisation" not "organization", "centre" not "center"; we prefer "-ise" over "-ize" endings) 
 - We use the Oxford comma
+- We spell out numbers one through ten, use numerals for 11+
 - We write dates as “January 1” or “January 1, 2025” format
 
 Outside of specifically technical documentation sections that require particular terms (i.e. in prose, tutorials, and descriptive writing)
@@ -15,7 +14,6 @@ Outside of specifically technical documentation sections that require particular
 - We use active voice and positive framing
 - We keep sentences concise but helpful
 - We avoid overly formal language 
-
 
 ## Terminology
 
@@ -36,7 +34,6 @@ Always refer to other software by official spellings, and check for correct capi
 - OAuth (noun)
 - JavaScript (noun)
 - OpenCollective (noun)
-
 
 ## Markup and styling
 
