@@ -10,7 +10,7 @@ View the live documentation at [https://docs.joinmastodon.org](https://docs.join
 
 ## Contributing to the Mastodon documentation
 
-Please read the [Contributing to Mastodon](https://github.com/mastodon/.github/blob/main/CONTRIBUTING.md) guide. The same guidance applied to the documentation.
+Please read the [Contributing to Mastodon](https://github.com/mastodon/.github/blob/main/CONTRIBUTING.md) guide. The same guidance applies to the documentation.
 
 Also see the [Style](./DOCSTYLE.md) guide.
 
