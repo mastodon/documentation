@@ -13,6 +13,8 @@ menu:
 
 Invite links can be generated and shared with other people, and some servers require invites in order to register for an account. When generating an invite link, you can set the max uses to limit how many times a certain link is used, or how long it has been active. Invite links can be deactivated at any time.
 
+Go to **Preferences** &gt; **Invite people** to generate invite links.
+
 ## Follows and followers {#relationships}
 
 {{< figure src="assets/relationships.png" width="70%" caption="Mutuals who have not moved their account, sorted by most recent" >}}
