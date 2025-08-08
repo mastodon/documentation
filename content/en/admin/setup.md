@@ -9,21 +9,7 @@ menu:
 
 ## Creating an admin account {#admin}
 
-### In the browser {#admin-gui}
-
-After signing up in the browser, you will need to use the command line to give your newly created account admin privileges. Assuming your username is `alice`:
-
-```bash
-RAILS_ENV=production bin/tootctl accounts modify alice --role Owner
-```
-
-{{<hint style="warning">}}
-Prior to Mastodon 4.0, roles were hardcoded to be one of `user`, `moderator`, or `admin`. Since Mastodon 4.0, there is a customizable role system, with default roles created for `Moderator`, `Admin`, and `Owner`. Names of custom roles are case-sensitive.
-{{</hint>}}
-
-### From the command line {#admin-cli}
-
-You can create a new account using the command-line interface.
+Registrations are disabled by default in the browser, so you will need to use the command line to create an account with admin privileges. Assuming your username is `alice`:
 
 ```bash
 RAILS_ENV=production bin/tootctl accounts create \
@@ -34,6 +20,16 @@ RAILS_ENV=production bin/tootctl accounts create \
 ```
 
 A randomly generated password will be shown in the terminal.
+
+You will need to approve your new admin account:
+
+```bash
+RAILS_ENV=production bin/tootctl accounts modify alice --approve
+```
+
+{{<hint style="warning">}}
+Prior to Mastodon 4.0, roles were hardcoded to be one of `user`, `moderator`, or `admin`. Since Mastodon 4.0, there is a customizable role system, with default roles created for `Moderator`, `Admin`, and `Owner`. Names of custom roles are case-sensitive.
+{{</hint>}}
 
 ## Filling in server information {#info}
 
