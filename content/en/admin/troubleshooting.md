@@ -23,7 +23,7 @@ Each response from Mastodon’s web server carries a header with a unique reques
 
 Please note that Mastodon (as a 12-factor application), logs to `stdout`, and NOT `#{Rails.root}/log/#{Rails.env}.log` as it's usual in Rails. Watch your console!
 
-By default your logs will show `info` level logging. To see more debugging messages, you can your `.env.production` file to increase the level, for the relevant service:
+By default your logs will show `info` level logging. To see more debugging messages, you can modify your `.env.production` file to increase the level, for the relevant service:
 
 - **Web/Sidekiq:** Set the value of `RAILS_LOG_LEVEL` to `debug` and then restart the service that you're attempting to troubleshoot.
 - **Streaming:** Set the value of `LOG_LEVEL` to `silly` and then restart the service that you're attempting to troubleshoot.
