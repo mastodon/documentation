@@ -11,7 +11,7 @@ menu:
 
 {{< figure src="assets/export.png" width="70%" caption="The data export page in settings" >}}
 
-At any time you want, you can go to Settings &gt; Export and download a CSV file for your current followed accounts, your currently created lists, your currently blocked accounts, your currently muted accounts, and your currently blocked domains. Your following, blocking, muting, and domain-blocking lists can be imported at Settings &gt; Import, where they can either be merged or overwritten.
+At any time you want, you can go to Settings &gt; Import and export &gt; Export and download a CSV file for your current followed accounts, your currently created lists, your currently blocked accounts, your currently muted accounts, and your currently blocked domains. Your following, blocking, muting, and domain-blocking lists can be imported at Settings &gt; Import and export &gt; Import, where they can either be merged or overwritten.
 
 Requesting an archive of your posts and media can be done once every 7 days, and can be downloaded in Activity Streams 2.0 JSON format. Mastodon currently does not support importing posts or media due to technical limitations, but your archive can be viewed by any software that understands how to parse Activity Streams 2.0 documents.
 
