@@ -19,7 +19,7 @@ You will be running the commands as root. If you aren’t already root, switch t
 
 ### System repositories {#system-repositories}
 
-Make sure curl, wget, gnupg, apt-transport-https, lsb-release and ca-certificates are installed first:
+Make sure curl, wget, gnupg, lsb-release and ca-certificates are installed first:
 
 ```bash
 apt install -y curl wget gnupg lsb-release ca-certificates
