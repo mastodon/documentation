@@ -68,8 +68,7 @@ aliases: [
 
 ### `redirect_uri` {{%deprecated%}} {#redirect_uri}
 
-**Description:** The registered redirection URI(s) for the application.\
-May contain `\n` characters when multiple redirect URIs are registered.\
+**Description:** The registered redirection URI(s) for the application stored as a single string. Multiple URIs are separated by whitespace characters. May contain `\n` characters when multiple redirect URIs are registered.\
 **Type:** String\
 **Version history:**\
 0.0.0 - added\
@@ -106,9 +105,9 @@ All [Application](#attributes) attributes and the following:
 ### `client_secret_expires_at` {#client_secret_expires_at}
 
 **Description:** When the client secret key will expire. Presently this always returns `0` indicating that OAuth Clients do not expire.\
-**Type:** String\
+**Type:** Integer\
 **Version history:**\
-4.3.0 - added
+4.4.0 - added
 
 ## See also
 
