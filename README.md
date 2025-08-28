@@ -8,8 +8,10 @@ The documentation currently uses [Hugo](https://github.com/gohugoio/hugo) to gen
 
 View the live documentation at [https://docs.joinmastodon.org](https://docs.joinmastodon.org)
 
-## Contributing
+## Contributing to the Mastodon documentation
 
-Please read the [Contributing to Mastodon](https://github.com/mastodon/.github/blob/main/CONTRIBUTING.md) guide.
+Please read the [Contributing to Mastodon](https://github.com/mastodon/.github/blob/main/CONTRIBUTING.md) guide. The same guidance applies to the documentation.
 
-There is a [list of currently undocumented topics](https://github.com/mastodon/documentation/issues/1211) that need some coverage, please feel free to take a look.
+Also see the [Style](./DOCSTYLE.md) guide.
+
+![help wanted](https://img.shields.io/badge/help_wanted-8A2BE2) there is a [list of currently undocumented topics](https://github.com/mastodon/documentation/issues/1211) that need some coverage, please feel free to take a look.
