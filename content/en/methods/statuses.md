@@ -818,6 +818,115 @@ Status does not exist or is private
 
 ---
 
+## See quotes of a status {#quotes}
+
+```http
+GET /api/v1/statuses/:id/quotes HTTP/1.1
+```
+
+View quotes of a status you have posted.
+
+**Returns:** Array of [Status]({{< relref "entities/status" >}})\
+**OAuth:** User token + `read:statuses`. The user token must be owned by the author of the status.\
+**Version history:**\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
+
+#### Response
+##### 200: OK
+
+A list of statuses that quote the requested status
+
+```json
+[
+  {
+    "id": "115107232286434584",
+    "created_at": "2025-08-28T16:02:57.029Z",
+    "quote": {
+      "state": "accepted",
+      "quoted_status": {
+        "id":"115107231366664709",
+        // ...
+      },
+    },
+    // ...
+  },
+  {
+    "id": "115107231976600838",
+    "created_at": "2025-08-28T16:02:52.302Z",
+    "quote": {
+      "state": "accepted",
+      "quoted_status": {
+        "id":"115107231366664709",
+        // ...
+      },
+    },
+    // ...
+  },
+  // ...
+]
+```
+
+Because quote Status IDs are generally not known ahead of time, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.example/api/v1/statuses/109404970108594430/quotes?limit=2&max_id=109406336446186031>; rel="next", <https://mastodon.example/api/v1/statuses/109404970108594430/quotes?limit=2&since_id=109408462939099398>; rel="prev"
+```
+
+##### 404: Not found
+
+Status does not exist or is private
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+##### 403: Forbidden
+
+Status is not owned by the requesting user
+
+```json
+{
+  "error": "This action is not allowed"
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
 ## See who favourited a status {#favourited_by}
 
 ```http
