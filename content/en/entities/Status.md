@@ -226,6 +226,13 @@ aliases: [
 **Version history:**\
 0.1.0 - added
 
+### `quotes_count` {#quotes_count}
+
+**Description:** How many accepted quotes this status has.\
+**Type:** Integer\
+**Version history:**\
+4.5.0 - added
+
 ### `replies_count` {#replies_count}
 
 **Description:** How many replies this status has received.\
