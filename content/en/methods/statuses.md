@@ -32,7 +32,7 @@ Publish a status with the given parameters.
 0.0.0 - added\
 2.7.0 - `scheduled_at` added\
 2.8.0 - `poll` added
-4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - `quoted_status_id` added
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - `quoted_status_id` and `quote_approval_policy` added
 
 #### Request
 
@@ -84,6 +84,12 @@ scheduled_at
 
 quoted_status_id
 : String. ID of the status being quoted, if any. Will raise an error if the status does not exist, the author does not have access to it, or quoting is denied by Mastodon's understanding of the attached quote policy.
+
+quote_approval_policy
+: String (Enumerable, oneOf). Sets who is allowed to quote the status. Ignored if `visibility` is `private` or `direct`, in which case the policy will always be set to `nobody`.\
+`public` = Anyone is allowed to quote this status and will have their quote automatically accepted, unless they are blocked.\
+`followers` = Only followers and the author are allowed to quote this status, and will have their quote automatically accepted.\
+`nobody` = Only the author is allowed to quote the status.
 
 #### Response
 ##### 200: OK
@@ -1599,7 +1605,8 @@ Edit a given status to change its text, sensitivity, media attachments, or poll.
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
 3.5.0 - added\
-4.0.0 - add `language`
+4.0.0 - add `language`\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - add `quote_approval_policy`
 
 #### Request
 
@@ -1644,6 +1651,12 @@ poll[multiple]
 
 poll[hide_totals]
 : Boolean. Hide vote counts until the poll ends? Defaults to false.
+
+quote_approval_policy
+: String (Enumerable, oneOf). Sets who is allowed to quote the status. Ignored if `visibility` is `private` or `direct`, in which case the policy will always be set to `nobody`. Changing the policy does not invalidate past quotes.\
+`public` = Anyone is allowed to quote this status and will have their quote automatically accepted, unless they are blocked.\
+`followers` = Only followers and the author are allowed to quote this status, and will have their quote automatically accepted.\
+`nobody` = Only the author is allowed to quote the status.
 
 #### Response
 ##### 200: OK
