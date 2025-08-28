@@ -303,6 +303,13 @@ aliases: [
 **Version history:**\
 4.4.0 - added
 
+### `quote_approval` {#quote_approval}
+
+**Description:** Summary of the post quote's approval policy and how it applies to the user making the request, that is, whether the user can be expected to be allowed to quote that post\
+**Type:** [QuoteApproval]({{< relref "entities/QuoteApproval" >}})
+**Version history:**\
+4.5.0 - added
+
 ### `favourited` {{%optional%}} {#favourited}
 
 **Description:** If the current token has an authorized user: Have you favourited this status?\
