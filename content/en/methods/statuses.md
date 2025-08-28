@@ -32,6 +32,7 @@ Publish a status with the given parameters.
 0.0.0 - added\
 2.7.0 - `scheduled_at` added\
 2.8.0 - `poll` added
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - `quoted_status_id` added
 
 #### Request
 
@@ -80,6 +81,9 @@ language
 
 scheduled_at
 : String. [Datetime](/api/datetime-format#datetime) at which to schedule a status. Providing this parameter will cause ScheduledStatus to be returned instead of Status. Must be at least 5 minutes in the future.
+
+quoted_status_id
+: String. ID of the status being quoted, if any. Will raise an error if the status does not exist, the author does not have access to it, or quoting is denied by Mastodon's understanding of the attached quote policy.
 
 #### Response
 ##### 200: OK
