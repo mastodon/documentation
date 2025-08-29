@@ -29,7 +29,8 @@ Preferences defined by the user in their account settings.
 **Returns:** Preferences by key and value\
 **OAuth:** User token + `read:accounts`\
 **Version history:**\
-2.8.0 - added
+2.8.0 - added\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added `posting:default:quoted_policy`
 
 #### Request
 
@@ -46,6 +47,7 @@ Authorization
   "posting:default:visibility": "public",
   "posting:default:sensitive": false,
   "posting:default:language": null,
+  "posting:default:quote_policy": "followers",
   "reading:expand:media": "default",
   "reading:expand:spoilers": false
 }
