@@ -27,7 +27,7 @@ aliases: [
 **Type:** Array of String (Enumerable, anyOf)\
 `public` = Anybody is expected to be able to quote this status and have the quote be automatically accepted.\
 `followers` = Followers are expected to be able to quote this status and have the quote be automatically accepted.\
-`unknown` = The underlying quote policy is too complex for Mastodon to represent. Some accounts that do not fit in the above categories may be able to quote and have the quote be automatically accepted.\
+`unsupported_policy` = The underlying quote policy is not supported by Mastodon. Some accounts that do not fit in the above categories may be able to quote and have the quote be automatically accepted.\
 **Version history:**\
 4.5.0 - added
 
@@ -37,7 +37,7 @@ aliases: [
 **Type:** Array of String (Enumerable, anyOf)\
 `public` = Anybody is expected to be able to quote this status, but have the quote be accepted only after manual review.\
 `followers` = Followers are expected to be able to quote this status, but have the quote be accepted only after manual review.\
-`unknown` = The underlying quote policy is too complex for Mastodon to represent. Some accounts that do not fit in the above categories may be allowed to quote with manual review.\
+`unsupported_policy` = The underlying quote policy is not supported by Mastodon. Some accounts that do not fit in the above categories may be allowed to quote with manual review.\
 **Version history:**\
 4.5.0 - added
 
@@ -48,6 +48,6 @@ aliases: [
 `automatic` = The requesting user is expected to be allowed to quote and have their quote be automatically accepted.\
 `manual` = The requesting user is expected to be allowed to quote after manual review of the post by the quoted status' author.\
 `denied` = The requesting user is not expected to be allowed to quote this post. Mastodon will return an error if you attempt to do so.\
-`unknown` = The underlying quote policy is too complex for Mastodon to represent. This should be treated as `denied` unless you are targeting “power users”.\
+`unknown` = The user is not covered by the quote policies supported by Mastodon, and there are additional underlying quote policies that are unsupported by Mastodon. This should be treated as `denied` unless you are targeting “power users”.\
 **Version history:**\
 4.5.0 - added
