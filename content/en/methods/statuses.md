@@ -1401,6 +1401,83 @@ Status does not exist or is private.
 
 ---
 
+## Revoke a quote post {#revoke_quote}
+
+```http
+POST /api/v1/statuses/:id/quotes/:quoting_status_id/revoke HTTP/1.1
+```
+
+Revoke quote authorization of status `quoting_status_id`, detaching status `id`.
+
+**Returns:** [Status]({{< relref "entities/status" >}})\
+**OAuth:** User token + `write:statuses`. The user token must be owned by the author of the status `id`.\
+**Version history:**\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the quoted Status in the database.
+
+:quoting_status_id
+: {{<required>}} String. The ID of the quoting Status in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+An updated Status with the quote revoked
+
+```json
+{
+  "id": "115107232286434584",
+  "created_at": "2025-08-28T16:02:57.029Z",
+  "quote": {
+    "state": "revoked",
+    "quoted_status": null,
+  },
+  // ...
+}
+```
+
+##### 404: Not found
+
+Status does not exist or is private, or no such quote exists
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+##### 403: Forbidden
+
+Status is not owned by the requesting user
+
+```json
+{
+  "error": "This action is not allowed"
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
 ## Mute a conversation {#mute}
 
 ```http
