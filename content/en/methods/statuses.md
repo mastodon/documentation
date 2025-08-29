@@ -1923,6 +1923,115 @@ Status does not exist, is private, or is not owned by you.
 
 ---
 
+## Edit a status' interaction policies {#edit_interaction_policy}
+
+```http
+PUT /api/v1/statuses/:id/interaction_policy HTTP/1.1
+```
+
+Edit a given status to change its interaction policies. Currently, this means changing its quote approval policy.
+
+**Returns:** [Status]({{< relref "entities/status" >}})\
+**OAuth:** User token + `write:statuses`\
+**Version history:**\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+quote_approval_policy
+: String (Enumerable, oneOf). Sets who is allowed to quote the status. Ignored if `visibility` is `private` or `direct`, in which case the policy will always be set to `nobody`. Changing the policy does not invalidate past quotes.\
+`public` = Anyone is allowed to quote this status and will have their quote automatically accepted, unless they are blocked.\
+`followers` = Only followers and the author are allowed to quote this status, and will have their quote automatically accepted.\
+`nobody` = Only the author is allowed to quote the status.
+
+#### Response
+##### 200: OK
+
+Status has been successfully edited.
+
+```json
+{
+  "id": "108942703571991143",
+  "created_at": "2022-09-04T23:22:13.704Z",
+  "in_reply_to_id": null,
+  "in_reply_to_account_id": null,
+  "sensitive": false,
+  "spoiler_text": "",
+  "visibility": "public",
+  "language": "en",
+  "uri": "https://mastodon.social/users/trwnh/statuses/108942703571991143",
+  "url": "https://mastodon.social/@trwnh/108942703571991143",
+  "replies_count": 3,
+  "reblogs_count": 1,
+  "favourites_count": 6,
+  "edited_at": "2022-09-05T00:33:20.309Z",
+  "favourited": false,
+  "reblogged": false,
+  "muted": false,
+  "bookmarked": false,
+  "pinned": false,
+  "content": "<p>this is a status that has been edited multiple times to change the text, add a poll, and change poll options.</p>",
+  "filtered": [],
+  "reblog": null,
+  "application": {
+    "name": "SubwayTooter",
+    "website": null
+  },
+  "account": {
+    "id": "14715",
+    "username": "trwnh",
+    "acct": "trwnh",
+    "display_name": "infinite love ⴳ",
+    // ...
+  },
+  "media_attachments": [],
+  "mentions": [],
+  "tags": [],
+  "emojis": [],
+  "card": null,
+  "poll": null,
+  "quote_approval": {
+    "automatic": ["public"],
+    "manual": [],
+    "current_user": "automatic",
+  }
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Status does not exist, is private, or is not owned by you.
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+---
+
 ## View edit history of a status {#history}
 
 ```http
