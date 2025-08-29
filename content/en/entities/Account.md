@@ -470,6 +470,16 @@ aliases: [
 **Version history:**\
 4.3.0 - added
 
+#### `source[quote_policy]` {#source-quote_policy}
+
+**Description:** The default quote policy to be used for new statuses.\
+**Type:** String (Enumerable, oneOf)\
+`public` = Anyone (except blocked accounts) can quote\
+`followers` = Only followers and author can quote\
+`nobody` = Only author can quote\
+**Version history:**\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added `posting:default:quoted_policy`
+
 ### `role` {#role}
 
 **Description:** The complete role assigned to the currently authorized user, including permissions and highlighted status.\

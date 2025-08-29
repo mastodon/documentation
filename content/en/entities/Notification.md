@@ -37,6 +37,8 @@ aliases: [
 `admin.report` = A new report has been filed\
 `severed_relationships` = Some of your follow relationships have been severed as a result of a moderation or block event\
 `moderation_warning` = A moderator has taken action against your account or has sent you a warning\
+`quote` = Someone has quoted one of your statuses\
+`quoted_update` = A status you have quoted has been edited\
 **Version history:**\
 0.9.9 - added\
 2.8.0 - added `poll`\
@@ -44,7 +46,8 @@ aliases: [
 3.3.0 - added `status`\
 3.5.0 - added `update` and `admin.sign_up`\
 4.0.0 - added `admin.report`\
-4.3.0 - added `severed_relationships` and `moderation_warning`
+4.3.0 - added `severed_relationships` and `moderation_warning`\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added `quote` and `quoted_update`
 
 ### `group_key` {#group_key}
 
@@ -69,7 +72,7 @@ aliases: [
 
 ### `status` {{%optional%}} {#status}
 
-**Description:** Status that was the object of the notification. Attached when `type` of the notification is `favourite`, `reblog`, `status`, `mention`, `poll`, or `update`.\
+**Description:** Status that was the object of the notification. Attached when `type` of the notification is `favourite`, `reblog`, `status`, `mention`, `poll`, `update`, `quote` or `quoted_update`. In the case of `quoted_update`, your quote of the edited status is attached, not the status that was edited.\
 **Type:** [Status]({{< relref "entities/Status" >}})\
 **Version history:**\
 0.9.9 - added
