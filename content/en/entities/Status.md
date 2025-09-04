@@ -226,6 +226,13 @@ aliases: [
 **Version history:**\
 0.1.0 - added
 
+### `quotes_count` {#quotes_count}
+
+**Description:** How many accepted quotes this status has.\
+**Type:** Integer\
+**Version history:**\
+4.5.0 - added
+
 ### `replies_count` {#replies_count}
 
 **Description:** How many replies this status has received.\
@@ -302,6 +309,13 @@ aliases: [
 **Type:* {{<nullable>}} [Quote]({{< relref "entities/quote" >}}), [ShallowQuote]({{< relref "entities/ShallowQuote" >}}) or null\
 **Version history:**\
 4.4.0 - added
+
+### `quote_approval` {#quote_approval}
+
+**Description:** Summary of the post quote's approval policy and how it applies to the user making the request, that is, whether the user can be expected to be allowed to quote that post\
+**Type:** [QuoteApproval]({{< relref "entities/QuoteApproval" >}})
+**Version history:**\
+4.5.0 - added
 
 ### `favourited` {{%optional%}} {#favourited}
 

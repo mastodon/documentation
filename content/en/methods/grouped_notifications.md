@@ -591,8 +591,11 @@ TODO
 `admin.report` = A new report has been filed\
 `severed_relationships` = Some of your follow relationships have been severed as a result of a moderation or block event\
 `moderation_warning` = A moderator has taken action against your account or has sent you a warning\
+`quote` = Someone has quoted one of your statuses\
+`quoted_update` = A status you have quoted has been edited\
 **Version history:**\
-4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
+4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added `quote` and `quoted_update`
 
 #### `most_recent_notification_id`
 
@@ -631,7 +634,7 @@ TODO
 
 #### `status_id` {{%optional%}}
 
-**Description:** ID of the [Status]({{< relref "entities/Status" >}}) that was the object of the notification. Attached when `type` of the notification is `favourite`, `reblog`, `status`, `mention`, `poll`, or `update`.\
+**Description:** ID of the [Status]({{< relref "entities/Status" >}}) that was the object of the notification. Attached when `type` of the notification is `favourite`, `reblog`, `status`, `mention`, `poll`, `update`, `quote` or `quoted_update`. In the case of `quoted_update`, your quote of the edited status is attached, not the status that was edited.\
 **Type:** String\
 **Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added

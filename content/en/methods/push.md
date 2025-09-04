@@ -47,7 +47,8 @@ Add a Web Push API subscription to receive notifications. Each access token can 
 3.5.0 - added `data[alerts][update]` and `data[alerts][admin.sign_up]`\
 4.0.0 - added `data[alerts][admin.report]`\
 4.3.0 - added stricter request parameter validation, invalid endpoint URLs and subscription keys will now result in an error, previously these would be accepted, but silently fail.\
-4.4.0 - added `subscription[standard]`
+4.4.0 - added `subscription[standard]`\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7)- added `data[alerts][quote]` and `data[alerts][quoted_update]`
 
 #### Request
 
@@ -73,6 +74,9 @@ subscription[standard]
 data[alerts][mention]
 : Boolean. Receive mention notifications? Defaults to false.
 
+data[alerts][quote]
+: Boolean. Receive quote notifications? Defaults to false.
+
 data[alerts][status]
 : Boolean. Receive new subscribed account notifications? Defaults to false.
 
@@ -93,6 +97,9 @@ data[alerts][poll]
 
 data[alerts][update]
 : Boolean. Receive status edited notifications? Defaults to false.
+
+data[alerts][quoted_update]
+: Boolean. Receive quoted status edit notifications? Defaults to false.
 
 data[alerts][admin.sign_up]
 : Boolean. Receive new user signup notifications? Defaults to false. Must have a role with the appropriate permissions.

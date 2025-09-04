@@ -337,7 +337,8 @@ Update the user's display and preferences.
 2.7.0 - added `discoverable` parameter\
 4.1.0 - added `hide_collections` parameter\
 4.2.0 - added `indexable` parameter\
-4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added `attribution_domains` parameter
+4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added `attribution_domains` parameter\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added `quote_policy` parameter
 
 #### Request
 
@@ -395,6 +396,9 @@ source[sensitive]
 
 source[language]
 : String. Default language to use for authored statuses (ISO 639-1)
+
+source[quote_policy]
+: String (Enumerable, oneOf `public` `followers` `nobody`). Default quote policy for new posts.
 
 #### Response
 
