@@ -856,13 +856,13 @@ Mastodon uses the `as:sensitive` extension property to mark certain posts as sen
 
 ### Quote posts and quote controls {#Quote}
 
-Mastodon implements experimental support for handling remote quote posts according to [FEP-044f](https://codeberg.org/fediverse/fep/src/branch/main/fep/044f/fep-044f.md). Additionally, it understands `quoteUri`, `quoteUrl` and `_misskey_quote` for compatibility.
+Mastodon implements support for handling remote quote posts according to [FEP-044f](https://codeberg.org/fediverse/fep/src/branch/main/fep/044f/fep-044f.md). Additionally, it understands `quoteUri`, `quoteUrl` and `_misskey_quote` for compatibility.
 
 Should a post contain multiple quotes, Mastodon only accepts the first one.
 
-Furthermore, Mastodon does not handle the full range of interaction policies, but instead converts the authorized followers to a combination of “public”, “followers” and “unknown”, defaulting to “nobody”.
+Furthermore, Mastodon does not handle the full range of interaction policies, but instead converts the authorized followers to a combination of “public”, “followers” and “nobody”, defaulting to “nobody”.
 
-At this time, Mastodon does not offer authoring quotes, nor does it expose a quote policy, or produce stamps for incoming quote requests.
+As of v4.5, Mastodon offers authoring quotes and granting quote approvals according to the same specification.
 
 ## Other functionality
 
