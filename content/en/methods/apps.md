@@ -44,7 +44,7 @@ For more information see: [OAuth 2 client types]({{< relref "spec/oauth#client-t
 4.3.0 - added support for multiple `redirect_uris` in Form data parameters\
 4.3.0 - added `redirect_uris` response property\
 4.3.0 - deprecated `redirect_uri` response property, since this can be a non-URI if multiple `redirect_uris` are registered, use `redirect_uris` instead\
-4.3.0 - changed entity type from [Application]({{< relref "entities/Application">}}) to [CredentialApplication]({{< relref "entities/Application#CredentialApplication">}})
+4.3.0 - changed entity type from [Application]({{< relref "entities/Application">}}) to [CredentialApplication]({{< relref "entities/Application#CredentialApplication">}})\
 4.4.0 - added `client_secret_expires_at`
 
 #### Request {#create-request-example}
