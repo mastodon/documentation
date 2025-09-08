@@ -9,7 +9,7 @@ menu:
 
 ## Pre-requisites {#pre-requisites}
 
-* A machine running **Ubuntu 24.04** or **Debian 12** that you have root access to
+* A machine running **Ubuntu 24.04** or **Debian 13** that you have root access to
 * A **domain name** (or a subdomain) for the Mastodon server, e.g. `example.com`
 * An email delivery service or other **SMTP server**
 
