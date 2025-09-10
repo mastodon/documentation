@@ -479,7 +479,7 @@ Invalid or missing Authorization header.
 #### `statuses`
 
 **Description:** Statuses referenced by grouped notifications.\
-**Type:** Array of [Status]({{< relref "entities/Status" >}}}\
+**Type:** Array of [Status]({{< relref "entities/Status" >}})\
 **Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
 
