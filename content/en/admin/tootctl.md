@@ -109,11 +109,9 @@ Create a new user account with the given `USERNAME` and provided `--email`.
 `--force`
 Forcefully delete any existing account with this `USERNAME` and reattach the new account in place of the (just-deleted) account.
 
-`--skip-sign-in-token`
-: Forcefully ensure that the user is never asked for an e-mailed security code.
-
 **Version history:**\
 2.6.0 - added\
+3.5.1 - removed `--skip-sign-in-token`\
 4.0.0 - `--role` no longer takes hard-coded `user`, `moderator`, or `admin` roles. Specify the name of the custom Role instead (case-sensitive).
 
 
@@ -154,12 +152,10 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 `--reset-password`
 : Resets the password of the given account.
 
-`--skip-sign-in-token`
-: Forcefully ensure that the user is never asked for an e-mailed security code.
-
 **Version history:**\
 2.6.0 - added\
 3.1.2 - added `--reset-password`\
+3.5.1 - removed `--skip-sign-in-token`\
 4.0.0 - `--role` no longer takes hard-coded `user`, `moderator`, or `admin` roles. Specify the name of the custom Role instead (case-sensitive). Remove the current role with `--remove-role`.
 
 
@@ -723,7 +719,7 @@ Scans for files that do not belong to existing media attachments, and remove the
 
 ### `tootctl media refresh` {#media-refresh}
 
-Refetch remote media attachments from other servers. You must specify the source of media attachments with either `--status`, `--account`, `--domain`, or `--days`. If an attachment already exists in the database, it will not be overwritten unless you use `--force`.  
+Refetch remote media attachments from other servers. You must specify the source of media attachments with either `--status`, `--account`, `--domain`, or `--days`. If an attachment already exists in the database, it will not be overwritten unless you use `--force`.
 
 `--account ACCT`
 : String `username@domain` handle of the account
@@ -736,7 +732,7 @@ Refetch remote media attachments from other servers. You must specify the source
 
 `--days N`
 : The number of days to limit this task to.
-  
+
 `--concurrency N`
 : The number of workers to use for this task. Defaults to 5.
 
@@ -837,7 +833,7 @@ Create or update an Elasticsearch index and populate it. If Elasticsearch is emp
 
 `--import`
 :Import data from the database to the index
- 
+
 `--clean`
 :Remove outdated documents from the index
 
