@@ -15,6 +15,14 @@ Quote posts allow you to reference another user's post in your own, while adding
 - Don’t want to be quoted? Disable quoting by default for all posts, or turn off quoting for a specific post
 - Want your thoughts to inspire a wider audience? Keep the default setting enabled to ‘Anyone’.
 
+## How to quote others {#how}
+
+If an author of a post has enabled quoting, you’ll see an option to quote their post under a new menu accessed from the *Boost* button.
+
+<video src="/assets/quotes/initiate.mp4" autoplay playsinline loop controls muted width="100%"></video>
+
+Your post will then appear within the composer window, where you can add your comment and post to continue the discussion.
+
 ## Setting your default quote settings {#defaults}
 
 Disable or limit quotes by navigating to *Settings -> Preferences -> Posting Defaults*.
@@ -38,11 +46,11 @@ Mastodon will notify users being quoted as long as the quote is using the new pr
 
 ## Removing your post from someone’s quote post {#remove}
 
-You can easily remove your quoted post from another user’s post using the ••• Options menu.
+You can easily remove your original post from another user’s post using the ••• Options menu.
 
 <video src="/assets/quotes/revoke.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
-Sometimes, removing a single post may not be enough. If you believe someone is abusing the ability to quote you, you can also take the following actions:
+Sometimes, removing your post from a single quote may not be enough. If you believe someone is abusing the ability to quote you, you can also take the following actions:
 
 - Block the user. While this action won’t retroactively remove your post from posts the user has already published, it will prevent the user from quoting you in future posts.
 - Change the quote settings for your published post. The next section outlines how to do this.
@@ -53,15 +61,7 @@ On your own published posts, edit the quote settings from the ••• menu. Ch
 
 <video src="/assets/quotes/change-post.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
-Only public and quiet public posts can be edited this way, since your followers-only posts and direct mentions can only ever be quoted by you.
-
-## How to quote others {#how}
-
-If an author of a post has enabled quoting, you’ll see an option to quote their post under a new menu accessed from the *Boost* button.
-
-<video src="/assets/quotes/initiate.mp4" autoplay playsinline loop controls muted width="100%"></video>
-
-Your post will then appear within the composer window, where you can add your comment and post to continue the discussion.
+Only public and quiet public posts can be edited this way; your followers-only posts and direct mentions can only ever be quoted by you.
 
 ## Additional tips {#tips}
 
