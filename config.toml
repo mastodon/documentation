@@ -13,7 +13,7 @@ disablePathToLower = true
 
 [markup]
   [markup.tableOfContents]
-    endLevel = 3
+    endLevel = 2
     ordered = false
     startLevel = 1
   [markup.goldmark.renderer]

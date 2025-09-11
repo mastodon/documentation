@@ -19,10 +19,10 @@ You’re in control of how much or how little you engage.
 
 ## Setting your default quote settings {#defaults}
 
-Disable or limit quotes by navigating to *Settings > Preferences > Posting Defaults*.
+Disable or limit quotes by navigating to *Settings Preferences Posting Defaults*.
 These defaults will apply to all *future* posts you create.
 
-(Note: Users on Mastodon 4.4 will find this setting under *Settings > Preferences > Other*)
+(Note: Users on Mastodon 4.4 will find this setting under *Settings Preferences Other*)
 
 {{< figure src="assets/compose-with-cw.png" width="50%" caption="Compose form with optional Content Warning enabled" >}}
 
@@ -42,7 +42,7 @@ Mastodon will notify users being quoted as long as the quote is using the new pr
 
 ## Removing your post from someone’s quote post {#remove}
 
-You can easily remove your quoted post from another user’s post using the ••• Options menu.
+You can easily remove your quoted post from another user’s post using the ••Options menu.
 
 []()
 
@@ -53,7 +53,7 @@ Sometimes, removing a single post may not be enough. If you believe someone is a
 
 ## Changing quote settings on a published post {#change}
 
-On your own published posts, edit the quote settings from the ••• menu. Changes to disallow quoting will prevent users from quoting your post in the future, but will not apply retroactively to quotes already published.
+On your own published posts, edit the quote settings from the ••menu. Changes to disallow quoting will prevent users from quoting your post in the future, but will not apply retroactively to quotes already published.
 
 []()
 
@@ -77,41 +77,54 @@ Your post will then appear within the composer window, where you can add your co
 
 ## Frequently Asked Questions {#faq}
 
-- **Do quote posts appear in the same context as a thread, or do they create a new context?**
-  > Quote posts create a new context, and do not appear in the replies. Replies to the quote post will only notify you if you are also mentioned.
+#### Do quote posts appear in the same context as a thread, or do they create a new context? {#faq-context}
 
-- **I don’t want to be quoted at all, can I prevent people from quoting me?**
-  > Yes, for every post you make, you can decide who can quote you, from “Anyone”, “Followers only”, and “Just me”. People you have blocked are not able to quote you, even if you have selected “Anyone”. You can select “Just me” if you don’t want to be quoted at all (note that you can *always* quote yourself).
+Quote posts create a new context, and do not appear in the replies. Replies to the quote post will only notify you if you are also mentioned.
 
-- **What happens if the quoted post is deleted or edited?**
-  > If a quoted post is deleted, the contents of the quote post will remain, but the quoted post will be replaced with a placeholder explaining it is unavailable. If the quoted post is edited, this will be reflected when viewing the quote post.
+#### I don’t want to be quoted at all, can I prevent people from quoting me? {#faq-opt-out}
 
-- **I don’t want to see quote posts, can I disable them?**
-  > The Mastodon web interface allows you to hide quote posts from your own timeline, the same way it allows you to hide boosts or replies.
+Yes, for every post you make, you can decide who can quote you, from “Anyone”, “Followers only”, and “Just me”. People you have blocked are not able to quote you, even if you have selected “Anyone”. You can select “Just me” if you don’t want to be quoted at all (note that you can *always* quote yourself).
 
-- **As a server administrator, I don’t want my users to use and see quotes, can I disable them?**
-  > No, there is no server setting in Mastodon to disable quote display or authoring for their users.
+#### What happens if the quoted post is deleted or edited? {#faq-changed-post}
 
-- **I don’t like how my post was quoted. Can I remove it? Do I need to block the person who quoted me?**
-  > Yes, you can [revoke a quote](#remove) at any time. This will be irreversible though, so proceed with caution. You do not need to block the author to remove the quote.
+If a quoted post is deleted, the contents of the quote post will remain, but the quoted post will be replaced with a placeholder explaining it is unavailable. If the quoted post is edited, this will be reflected when viewing the quote post.
 
-- **I don’t want my post to be quoted anymore. Can I stop the quotes? Do I need to delete the post?**
-  > You can change the quote policy at any time without deleting the post. It will only affect new quotes, existing ones will remain unless you manually remove them.
+#### I don’t want to see quote posts, can I disable them? {#faq-hide-quotes}
 
-- **Are my old posts quotable?**
-  > Posts made in Mastodon 4.4 and earlier do not allow quotes, although you can make them quotable by individually [changing their quote policy](#change).
+The Mastodon web interface allows you to hide quote posts from your own timeline, the same way it allows you to hide boosts or replies.
 
-- **How does Mastodon enforce quote consent?**
-  > Mastodon uses [FEP-044f, Consent-respecting quote posts](https://codeberg.org/fediverse/fep/src/branch/main/fep/044f/fep-044f.md) to advertise who is expected to be allowed to quote a post, request for consent, distribute and revoke approval. Mastodon will only offer the option to quote a post if the advertised policy allows it, and will only display a quote if it is a self-quote, or it has a valid authorization. Mastodon cannot prevent other Fediverse software from displaying quotes without consent, but it will not show such quotes, and we encourage other implementers to make use of the protocol described in Fediverse Enhancement Proposal FEP-044f.
+#### As a server administrator, I don’t want my users to use and see quotes, can I disable them? {#faq-admin}
 
-- **Why is my quote taking time to appear?**
-  > While Mastodon will automatically approve or reject quotes according to your settings (see [Setting your default quote settings](#defaults)), other Fediverse software might require manual approval of quotes. This means that when you quote posts from across the Fediverse, it may take time for your quote to appear. When the quote is approved, it will automatically update on your post.
+No, there is no server setting in Mastodon to disable quote display or authoring for their users.
 
-- **How do Mastodon quotes show up in other Fediverse software?**
-  > Quotes authored with Mastodon should show up as any other quote in Misskey, Akkoma, and most other pieces of Fediverse software that already have some quote implementations.
+#### I don’t like how my post was quoted. Can I remove it? Do I need to block the person who quoted me? {#faq-remove-quote}
 
-- **How do quotes from other Fediverse software show up in Mastodon?**
-  > Only self-quotes and quotes with explicit consent will show up as proper quotes in Mastodon. Quotes that do not meet these requirements and are authored from software that does not support Mastodon’s approval flow will show up as they did before Mastodon 4.4, as if they were not quote posts.
+Yes, you can [revoke a quote](#remove) at any time. This will be irreversible though, so proceed with caution. You do not need to block the author to remove the quote.
 
-- **How do quotes interact with blocks?**
-  > If you have blocked someone and see someone quoting them, the quote post will still appear, but the quote will be hidden. The same applies if they have blocked you. People cannot quote you if you have blocked them, but past quotes from blocked users are currently not detached when you block them.
+#### I don’t want my post to be quoted anymore. Can I stop the quotes? Do I need to delete the post? {#faq-stop-quotes}
+
+You can change the quote policy at any time without deleting the post. It will only affect new quotes, existing ones will remain unless you manually remove them.
+
+#### Are my old posts quotable? {#faq-old-posts}
+
+Posts made in Mastodon 4.4 and earlier do not allow quotes, although you can make them quotable by individually [changing their quote policy](#change).
+
+#### How does Mastodon enforce quote consent? {#faq-consent}
+
+Mastodon uses [FEP-044f, Consent-respecting quote posts](https://codeberg.org/fediverse/fep/src/branch/main/fep/044f/fep-044f.md) to advertise who is expected to be allowed to quote a post, request for consent, distribute and revoke approval. Mastodon will only offer the option to quote a post if the advertised policy allows it, and will only display a quote if it is a self-quote, or it has a valid authorization. Mastodon cannot prevent other Fediverse software from displaying quotes without consent, but it will not show such quotes, and we encourage other implementers to make use of the protocol described in Fediverse Enhancement Proposal FEP-044f.
+
+#### Why is my quote taking time to appear? {#faq-delay}
+
+While Mastodon will automatically approve or reject quotes according to your settings (see [Setting your default quote settings](#defaults)), other Fediverse software might require manual approval of quotes. This means that when you quote posts from across the Fediverse, it may take time for your quote to appear. When the quote is approved, it will automatically update on your post.
+
+#### How do Mastodon quotes show up in other Fediverse software? {#faq-quote-from-mastodon}
+
+Quotes authored with Mastodon should show up just like any other quote in Misskey, Akkoma, and most other pieces of Fediverse software that already have some quote implementations.
+
+#### How do quotes from other Fediverse software show up in Mastodon? {#faq-quote-from-fedi}
+
+Only self-quotes and quotes with explicit consent will show up as proper quotes in Mastodon. Quotes that do not meet these requirements and are authored from software that does not support Mastodon’s approval flow will show up as they did before Mastodon 4.4, as if they were not quote posts.
+
+#### How do quotes interact with blocks? {#faq-blocks}
+
+If you have blocked someone and see someone quoting them, the quote post will still appear, but the quote will be hidden. The same applies if they have blocked you. People cannot quote you if you have blocked them, but past quotes from blocked users are currently not detached when you block them.
