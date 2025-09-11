@@ -1,9 +1,9 @@
 ---
-title: User guide for official iOS and Android apps
-description: Learn the basics of Mastodon
+title: Official iOS and Android apps
+description: Learn the basics of the official iOS and Android apps for Mastodon
 menu:
   docs:
-    weight: 10
+    weight: 75
     parent: user
 ---
 
