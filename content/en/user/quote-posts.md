@@ -53,7 +53,7 @@ Sometimes, removing a single post may not be enough. If you believe someone is a
 
 ## Changing quote settings on a published post {#change}
 
-On your own published posts, edit the quote settings from the ••• menu. Changes will prevent users from quoting your post in the future, but will not apply retroactively to quotes already published.
+On your own published posts, edit the quote settings from the ••• menu. Changes to disallow quoting will prevent users from quoting your post in the future, but will not apply retroactively to quotes already published.
 
 []()
 
@@ -81,7 +81,7 @@ Your post will then appear within the composer window, where you can add your co
   > Quote posts create a new context, and do not appear in the replies. Replies to the quote post will only notify you if you are also mentioned.
 
 - **I don’t want to be quoted at all, can I prevent people from quoting me?**
-  > Yes, for every post you make, you can decide who can quote you, from “Everyone”, “Only your followers” and “Nobody”. You can *always* quote yourself. People you have blocked are not able to quote you, even if you have selected “Everyone”. You can select “Nobody” if you don’t want to be quoted at all.
+  > Yes, for every post you make, you can decide who can quote you, from “Anyone”, “Followers only”, and “Just me”. People you have blocked are not able to quote you, even if you have selected “Anyone”. You can select “Just me” if you don’t want to be quoted at all (note that you can *always* quote yourself).
 
 - **What happens if the quoted post is deleted or edited?**
   > If a quoted post is deleted, the contents of the quote post will remain, but the quoted post will be replaced with a placeholder explaining it is unavailable. If the quoted post is edited, this will be reflected when viewing the quote post.
@@ -99,7 +99,7 @@ Your post will then appear within the composer window, where you can add your co
   > You can change the quote policy at any time without deleting the post. It will only affect new quotes, existing ones will remain unless you manually remove them.
 
 - **Are my old posts quotable?**
-  > Posts made in Mastodon 4.4 and earlier do not allow quotes, although you can change their individual quote policy.
+  > Posts made in Mastodon 4.4 and earlier do not allow quotes, although you can make them quotable by individually [changing their quote policy](#change).
 
 - **How does Mastodon enforce quote consent?**
   > Mastodon uses [FEP-044f, Consent-respecting quote posts](https://codeberg.org/fediverse/fep/src/branch/main/fep/044f/fep-044f.md) to advertise who is expected to be allowed to quote a post, request for consent, distribute and revoke approval. Mastodon will only offer the option to quote a post if the advertised policy allows it, and will only display a quote if it is a self-quote, or it has a valid authorization. Mastodon cannot prevent other Fediverse software from displaying quotes without consent, but it will not show such quotes, and we encourage other implementers to make use of the protocol described in Fediverse Enhancement Proposal FEP-044f.
