@@ -9,13 +9,11 @@ menu:
 
 ## What are quote posts? {#what}
 
-Quote posts allow people to expand discussions and make new connections.
+Quote posts allow you to reference another user's post in your own, while adding your own commentary.
 
 - Found something inspiring? Quote your favourite posts from where you typically boost them.
 - Don’t want to be quoted? Disable quoting by default for all posts, or turn off quoting for a specific post
-- Want your thoughts to inspire a wider audience? Keep the default setting enabled to ‘anyone’.
-
-You’re in control of how much or how little you engage.
+- Want your thoughts to inspire a wider audience? Keep the default setting enabled to ‘Anyone’.
 
 ## Setting your default quote settings {#defaults}
 
@@ -24,7 +22,7 @@ These defaults will apply to all *future* posts you create.
 
 (Note: Users on Mastodon 4.4 will find this setting under *Settings -> Preferences -> Other*)
 
-<video src="/assets/quotes/defaults.mp4" autoplay playsinline muted width="100%"></video>
+<video src="/assets/quotes/defaults.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
 Your visibility setting controls options for who can quote. When you make a followers-only post, others (including followers) won’t be able to quote it – this ensures that your post remains visible to only your followers.
 
@@ -32,7 +30,7 @@ Your visibility setting controls options for who can quote. When you make a foll
 
 Override your global settings for an individual post by navigating to *Visibility and interaction settings* within the composer.
 
-<video src="/assets/quotes/individual-post.mp4" autoplay playsinline muted width="100%"></video>
+<video src="/assets/quotes/individual-post.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
 ## Notifications {#notifications}
 
@@ -42,7 +40,7 @@ Mastodon will notify users being quoted as long as the quote is using the new pr
 
 You can easily remove your quoted post from another user’s post using the ••• Options menu.
 
-<video src="/assets/quotes/revoke.mp4" autoplay playsinline muted width="100%"></video>
+<video src="/assets/quotes/revoke.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
 Sometimes, removing a single post may not be enough. If you believe someone is abusing the ability to quote you, you can also take the following actions:
 
@@ -53,7 +51,7 @@ Sometimes, removing a single post may not be enough. If you believe someone is a
 
 On your own published posts, edit the quote settings from the ••• menu. Changes to disallow quoting will prevent users from quoting your post in the future, but will not apply retroactively to quotes already published.
 
-<video src="/assets/quotes/change-post.mp4" autoplay playsinline muted width="100%"></video>
+<video src="/assets/quotes/change-post.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
 Only public and quiet public posts can be edited this way, since your followers-only posts and direct mentions can only ever be quoted by you.
 
@@ -61,7 +59,7 @@ Only public and quiet public posts can be edited this way, since your followers-
 
 If an author of a post has enabled quoting, you’ll see an option to quote their post under a new menu accessed from the *Boost* button.
 
-<video src="/assets/quotes/initiate.mp4" autoplay playsinline muted width="100%"></video>
+<video src="/assets/quotes/initiate.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
 Your post will then appear within the composer window, where you can add your comment and post to continue the discussion.
 
