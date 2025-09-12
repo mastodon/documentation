@@ -11,7 +11,7 @@ menu:
 
 {{< figure src="assets/timeline.png" width="70%" caption="Posts from other servers being streamed into the Live Feed" >}}
 
-To allow you to discover potentially interesting content, Mastodon provides a way to browse all public posts. There is no global shared state between all servers, so there is no way to browse _all_ public posts. When you browse **Live Feeds** > **Other Servers**, you see all public posts that the server you are on knows about. There are [various](#fetching-replies) [ways](#search) your server may discover posts, but the bulk of them will be from people that other users on your server follow.
+To allow you to discover potentially interesting content, Mastodon provides a way to browse all public posts. There is no global shared state between all servers, so there is no way to browse _all_ public posts. When you browse **Live Feeds > Other Servers**, you see public posts from across the fediverse. Your server shows posts it knows about through [various](#fetching-replies) [methods](#search). Most posts come from accounts that other users on your server follow.
 
 You can also filter the Live Feeds to view only public posts created on your server.
 
@@ -32,7 +32,7 @@ You can perform quick actions on a post directly from the timeline, or you can c
 
 When a status is expanded[^expanded], [if enabled]({{< ref "/admin/config#fetch-all-replies" >}}), your server will attempt to fetch any replies that it does not already know about from other servers. This process checks each server in the conversation thread to gather any missing replies, which may take some time, especially for posts with many replies or when viewing a post for the first time on your server. Try refreshing the page after a few moments if you suspect you aren't seeing all replies.[^retrigger]
 
-Fetching replies will show you most, though not necessarily _all_ replies. Followers-only statuses, direct mentions, and posts from instances that [require authorization]({{< ref "/admin/config#authorized-fetch" >}}) to fetch posts will not be included, unless you or someone else on your server already follows the authoring account.
+Some replies won't be fetched. These include followers-only posts,private mentions, and posts from servers that [require authorization]({{< ref "/admin/config#authorized-fetch" >}}). The only exception is if you or someone on your server already follows the author.
 
 By [searching](#search) for a post and then expanding it, you can effectively "import" a tree of replies to your instance, helping you and others on your server meet new people and other fediverse creatures!
 
@@ -59,9 +59,9 @@ When unread notifications are present, a checkmark will appear in the column hea
 
 {{< figure src="assets/profile.png" width="70%" caption="Profile card with the Follow button shown" >}}
 
-As long as you encounter a person within your app’s user interface, e.g. the web interface on your home server, or your mobile app, you can just click “follow” and you won’t notice a difference if that person is on your server or not.
+When you see someone in your app's interface (e.g. the web interface on your home server, or your mobile app), you can simply click "follow." It works the same way whether they're on your server or another server.
 
-If you come across someone’s public profile hosted on a different server, there’s an obstacle: That server sees you as just another anonymous visitor. Not to worry! You can copy the URL of that profile, or of one of their posts, and then paste that URL into the search function.
+If you come across someone’s public profile hosted on a different server and you're not in your own app's interface, there’s an obstacle: That server sees you as just another anonymous visitor. Not to worry! You can copy the URL of that profile, or of one of their posts, and then paste that URL into the search function.
 
 If you are visiting a public page on another Mastodon site, see [Using Mastodon outside of your site](../external/#interact).
 
@@ -83,7 +83,7 @@ Mastodon's basic search allows logged-in users to find posts containing a specif
 
 {{< figure src="assets/search-hashtags.png" width="70%" caption="An example of hashtags returned when searching for &quot;friday&quot;" >}}
 
-Admins may optionally install full-text search. Mastodon’s full-text search allows logged-in users to find results from their own posts, their favourites, their bookmarks and their mentions. It deliberately does not allow searching for arbitrary strings in the entire database, in order to reduce the risk of abuse by people searching for controversial terms to find people to dogpile.
+Admins may optionally install full-text search. Mastodon’s full-text search allows logged-in users to find results from their own posts, their favourites, their bookmarks, and their mentions. Full-text search is limited for safety reasons. You can't search for any text across the entire database. This prevents people from searching for controversial terms to find and harass others.
 
 The following operators are supported:
 
