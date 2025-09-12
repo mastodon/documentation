@@ -23,14 +23,14 @@ You can perform quick actions on a post directly from the timeline, or you can c
 
 * **Reply** to a post by clicking the arrow icon. Your post will show up in the thread below the post you are replying to.
 * **Boost** a post by clicking the cycled-arrow icon. The post will be reshared on your profile.
-* **Quote** a post by choosing this option from the **Boost** button menu. [Learn more about Quote posts]({{< ref "/user/quote-posts" >}}).
+* **Quote** a post by choosing this option from the **Boost** button menu. [Learn more about Quote posts](../quote-posts).
 * **Favourite** a post by clicking the star icon. The post will be added to your favourites list, and a favourite notification will be delivered to its author.
 * **Bookmark** a post by clicking the ribbon icon. The post will be privately added to your bookmarks list without generating a notification.
 * Access a **menu** of additional options by clicking the ellipsis icon.
 
 ### Fetching Replies {#fetching-replies}
 
-When a status is expanded[^expanded], [if enabled]({{< ref "/admin/config#fetch-all-replies" >}}), your server will attempt to fetch any replies that it does not already know about from other servers. This involves "walking" down the tree of replies and asking each different server for the replies it knows about, so it may take some time, especially for posts with many replies, or if it is the first time the post has been expanded on your server. Try refreshing the page after a few moments if you suspect you aren't seeing all replies.[^retrigger]
+When a status is expanded[^expanded], [if enabled]({{< ref "/admin/config#fetch-all-replies" >}}), your server will attempt to fetch any replies that it does not already know about from other servers. This process checks each server in the conversation thread to gather any missing replies, which may take some time, especially for posts with many replies or when viewing a post for the first time on your server. Try refreshing the page after a few moments if you suspect you aren't seeing all replies.[^retrigger]
 
 Fetching replies will show you most, though not necessarily _all_ replies. Followers-only statuses, direct mentions, and posts from instances that [require authorization]({{< ref "/admin/config#authorized-fetch" >}}) to fetch posts will not be included, unless you or someone else on your server already follows the authoring account.
 
@@ -61,7 +61,7 @@ When unread notifications are present, a checkmark will appear in the column hea
 
 As long as you encounter a person within your app’s user interface, e.g. the web interface on your home server, or your mobile app, you can just click “follow” and you won’t notice a difference if that person is on your server or not.
 
-However if you come across someone’s public profile hosted on a different server, there’s an obstacle: That server sees you as just another anonymous visitor. Not to worry! You can copy the URL of that profile, or of one of their posts, and then paste that URL into the search function.
+If you come across someone’s public profile hosted on a different server, there’s an obstacle: That server sees you as just another anonymous visitor. Not to worry! You can copy the URL of that profile, or of one of their posts, and then paste that URL into the search function.
 
 If you are visiting a public page on another Mastodon site, see [Using Mastodon outside of your site](../external/#interact).
 

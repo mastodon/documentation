@@ -15,7 +15,7 @@ Quote posts allow you to reference another user's post in your own, while adding
 - Don’t want to be quoted? Disable quoting by default for all posts, or turn off quoting for a specific post
 - Want your thoughts to inspire a wider audience? Keep the default setting enabled to ‘Anyone’.
 
-Quoting is just one way of interacting with existing posts on Mastodon. For more interactions (replies, boost etc) see the [Using the network features]({{< ref "/user/network#actions" >}}) section.
+Quoting is just one way of interacting with existing posts on Mastodon. For more interactions (replies, boost etc) see the [Interacting with Posts](../network#actions) section.
 
 ## How to quote others {#how}
 
