@@ -19,7 +19,7 @@ Quoting is just one way of interacting with existing posts on Mastodon. For more
 
 ## How to quote others {#how}
 
-If an author of a post has enabled quoting, you’ll see an option to quote their post under a new menu accessed from the *Boost* button.
+If an author of a post has enabled quoting, you’ll see an option to quote their post under a new menu accessed from the **Boost** button.
 
 <video src="/assets/quotes/initiate.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
@@ -67,7 +67,7 @@ Only public and quiet public posts can be edited this way; your followers-only p
 
 ## Additional tips {#tips}
 
-**Power booster?** You can still boost quickly using `Shift + Click` on the *Boost* button or using the `‘B’` hotkey.
+**Power booster?** You can still boost quickly using `Shift + Click` on the **Boost** button or using the `‘B’` hotkey.
 
 **Quote responsibly.** Authors can remove their post if they’re uncomfortable with the way you’ve quoted them. See [Removing your post from someone’s quote post](#remove) for more details.
 
