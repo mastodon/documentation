@@ -3,7 +3,7 @@ title: Quoting other posts
 description: All about quoting content (your own posts, or those made by other people).
 menu:
   docs:
-    weight: 40
+    weight: 45
     parent: user
 ---
 
@@ -14,6 +14,8 @@ Quote posts allow you to reference another user's post in your own, while adding
 - Found something inspiring? Quote your favourite posts from where you typically boost them.
 - Don’t want to be quoted? Disable quoting by default for all posts, or turn off quoting for a specific post
 - Want your thoughts to inspire a wider audience? Keep the default setting enabled to ‘Anyone’.
+
+Quoting is just one way of interacting with existing posts on Mastodon. For more interactions (replies, boost etc) see the [Using the network features]({{< ref "/user/network#actions" >}}) section.
 
 ## How to quote others {#how}
 
@@ -46,7 +48,7 @@ Mastodon will notify users being quoted as long as the quote is using the new pr
 
 ## Removing your post from someone’s quote post {#remove}
 
-You can easily remove your original post from another user’s post using the ••• Options menu.
+You can easily remove your original post from another user’s post using the ellipsis icon.
 
 <video src="/assets/quotes/revoke.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
@@ -57,7 +59,7 @@ Sometimes, removing your post from a single quote may not be enough. If you beli
 
 ## Changing quote settings on a published post {#change}
 
-On your own published posts, edit the quote settings from the ••• menu. Changes to disallow quoting will prevent users from quoting your post in the future, but will not apply retroactively to quotes already published.
+On your own published posts, edit the quote settings from the ellipsis icon. Changes to disallow quoting will prevent users from quoting your post in the future, but will not apply retroactively to quotes already published.
 
 <video src="/assets/quotes/change-post.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
@@ -103,13 +105,21 @@ You can change the quote policy at any time without deleting the post. It will o
 
 Posts made in Mastodon 4.4 and earlier do not allow quotes, although you can make them quotable by individually [changing their quote policy](#change).
 
+#### Will there be a setting to enable quoting for “Accounts I follow”? {#faq-follow}
+
+This will not be part of the quote posts implementation in Mastodon 4.5. We may consider this option for the future.
+
+#### Can I quote and reply at the same time? {#faq-with-reply}
+
+Yes. Start writing a reply, then click the “Quote” button on the post you want to quote. The quote will be attached to the reply.
+
+#### Why doesn't Mastodon use the existing "Object Links" method for quotes {#faq-object-links}
+
+There is a Fediverse Enhancement Proposal FEP-e232 that describes the concept of "Object Links" for ActivityPub. This has previously been used by some other Fediverse platforms to provide something similar to quote posts. Mastodon chose to implement additional consent and visibility options via a new FEP (see [How does Mastodon enforce quote consent?](#faq-consent))
+
 #### How does Mastodon enforce quote consent? {#faq-consent}
 
 Mastodon uses [FEP-044f, Consent-respecting quote posts](https://codeberg.org/fediverse/fep/src/branch/main/fep/044f/fep-044f.md) to advertise who is expected to be allowed to quote a post, request for consent, distribute and revoke approval. Mastodon will only offer the option to quote a post if the advertised policy allows it, and will only display a quote if it is a self-quote, or it has a valid authorization. Mastodon cannot prevent other Fediverse software from displaying quotes without consent, but it will not show such quotes, and we encourage other implementers to make use of the protocol described in Fediverse Enhancement Proposal FEP-044f.
-
-#### Why is my quote taking time to appear? {#faq-delay}
-
-While Mastodon will automatically approve or reject quotes according to your settings (see [Setting your default quote settings](#defaults)), other Fediverse software might require manual approval of quotes. This means that when you quote posts from across the Fediverse, it may take time for your quote to appear. When the quote is approved, it will automatically update on your post.
 
 #### How do Mastodon quotes show up in other Fediverse software? {#faq-quote-from-mastodon}
 
@@ -118,6 +128,10 @@ Quotes authored with Mastodon should show up just like any other quote in Misske
 #### How do quotes from other Fediverse software show up in Mastodon? {#faq-quote-from-fedi}
 
 Only self-quotes and quotes with explicit consent will show up as proper quotes in Mastodon. Quotes that do not meet these requirements and are authored from software that does not support Mastodon’s approval flow will show up as they did before Mastodon 4.4, as if they were not quote posts.
+
+#### Why is my quote taking time to appear? {#faq-delay}
+
+While Mastodon will automatically approve or reject quotes according to your settings (see [Setting your default quote settings](#defaults)), other Fediverse software might require manual approval of quotes. This means that when you quote posts from across the Fediverse, it may take time for your quote to appear. When the quote is approved, it will automatically update on your post.
 
 #### How do quotes interact with blocks? {#faq-blocks}
 

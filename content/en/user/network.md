@@ -11,7 +11,7 @@ menu:
 
 {{< figure src="assets/timeline.png" width="70%" caption="Posts from other servers being streamed into the Live Feed" >}}
 
-To allow you to discover potentially interesting content, Mastodon provides a way to browse all public posts. Well, there is no global shared state between all servers, so there is no way to browse _all_ public posts. When you browse **Live Feeds** > **Other Servers**, you see all public posts that the server you are on knows about. There are [various](#fetching-replies) [ways](#search) your server may discover posts, but the bulk of them will be from people that other users on your server follow.
+To allow you to discover potentially interesting content, Mastodon provides a way to browse all public posts. There is no global shared state between all servers, so there is no way to browse _all_ public posts. When you browse **Live Feeds** > **Other Servers**, you see all public posts that the server you are on knows about. There are [various](#fetching-replies) [ways](#search) your server may discover posts, but the bulk of them will be from people that other users on your server follow.
 
 You can also filter the Live Feeds to view only public posts created on your server.
 
@@ -23,6 +23,7 @@ You can perform quick actions on a post directly from the timeline, or you can c
 
 * **Reply** to a post by clicking the arrow icon. Your post will show up in the thread below the post you are replying to.
 * **Boost** a post by clicking the cycled-arrow icon. The post will be reshared on your profile.
+* **Quote** a post by choosing this option from the **Boost** button menu. [Learn more about Quote posts]({{< ref "/user/quote-posts" >}}).
 * **Favourite** a post by clicking the star icon. The post will be added to your favourites list, and a favourite notification will be delivered to its author.
 * **Bookmark** a post by clicking the ribbon icon. The post will be privately added to your bookmarks list without generating a notification.
 * Access a **menu** of additional options by clicking the ellipsis icon.
@@ -99,7 +100,7 @@ The following `prefix:value` pairs are also supported:
 * `before:` (`{date}`) - posts created before an ISO8601 formatted date, e.g. "`2025-03-01`". If the account has a timezone set, searches using their local timezone - otherwise in UTC.
 * `after:` (`{date}`) - posts created after an ISO8601 formatted date
 * `during:` (`{date}`) - posts created during an ISO8601 formatted date
-* `in:` (`library`, `public`) - `library` is the collection of posts that you have interacted with in some way: favorited, reblogged, bookmarked, etc. `public` is the global full text search index. The default is to search both, if this option is omitted.
+* `in:` (`library`, `public`) - `library` is the collection of posts that you have interacted with in some way: favourited, reblogged, bookmarked, etc. `public` is the global full text search index. The default is to search both, if this option is omitted.
 
 Each can be used in combination with a text search, for example to find all posts from yourself about cryptids, you could search for `from:me "cryptids"`.
 
