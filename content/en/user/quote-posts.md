@@ -113,9 +113,9 @@ Posts made in Mastodon 4.4 and earlier do not allow quotes, although you can mak
 
 Yes. Start writing a reply, then click the “Quote” button on the post you want to quote. The quote will be attached to the reply.
 
-#### Why doesn't Mastodon use the existing "Object Links" method for quotes {#faq-object-links}
+#### Why doesn't Mastodon use the existing "Object Links" method for quotes? {#faq-object-links}
 
-There is a Fediverse Enhancement Proposal FEP-e232 that describes the concept of "Object Links" for ActivityPub. This has previously been used by some other Fediverse platforms to provide something similar to quote posts. Mastodon chose to implement additional consent and visibility options via a new FEP (see [How does Mastodon enforce quote consent?](#faq-consent))
+Fediverse Enhancement Proposal FEP-e232 describes the concept of "Object Links" for ActivityPub. This FEP is used by some other Fediverse platforms to provide functionality similar to quote posts. Mastodon chose to implement additional *consent* and *visibility* options, via a new FEP (see [How does Mastodon enforce quote consent?](#faq-consent))
 
 #### How does Mastodon enforce quote consent? {#faq-consent}
 
