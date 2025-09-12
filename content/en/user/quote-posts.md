@@ -3,36 +3,44 @@ title: Quoting other posts
 description: All about quoting content (your own posts, or those made by other people).
 menu:
   docs:
-    weight: 40
+    weight: 45
     parent: user
 ---
 
 ## What are quote posts? {#what}
 
-Quote posts allow people to expand discussions and make new connections.
+Quote posts allow you to reference another user's post in your own, while adding your own commentary.
 
 - Found something inspiring? Quote your favourite posts from where you typically boost them.
 - Don’t want to be quoted? Disable quoting by default for all posts, or turn off quoting for a specific post
-- Want your thoughts to inspire a wider audience? Keep the default setting enabled to ‘anyone’.
+- Want your thoughts to inspire a wider audience? Keep the default setting enabled to ‘Anyone’.
 
-You’re in control of how much or how little you engage.
+Quoting is just one way of interacting with existing posts on Mastodon. For more interactions (replies, boost etc) see the [Interacting with Posts](../network#actions) section.
+
+## How to quote others {#how}
+
+If an author of a post has enabled quoting, you’ll see an option to quote their post under a new menu accessed from the **Boost** button.
+
+<video src="/assets/quotes/initiate.mp4" autoplay playsinline loop controls muted width="100%"></video>
+
+Your post will then appear within the composer window, where you can add your comment and post to continue the discussion.
 
 ## Setting your default quote settings {#defaults}
 
-Disable or limit quotes by navigating to *Settings -> Preferences -> Posting Defaults*.
+Disable or limit quotes by navigating to **Settings > Preferences > Posting Defaults**.
 These defaults will apply to all *future* posts you create.
 
-(Note: Users on Mastodon 4.4 will find this setting under *Settings -> Preferences -> Other*)
+(Note: Users on Mastodon 4.4 will find this setting under **Settings > Preferences > Other**)
 
-<video src="/assets/quotes/defaults.mp4" autoplay playsinline muted width="100%"></video>
+<video src="/assets/quotes/defaults.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
 Your visibility setting controls options for who can quote. When you make a followers-only post, others (including followers) won’t be able to quote it – this ensures that your post remains visible to only your followers.
 
 ## Customizing quote settings when composing a post {#custom}
 
-Override your global settings for an individual post by navigating to *Visibility and interaction settings* within the composer.
+Override your global settings for an individual post by navigating to **Visibility and interaction settings** within the composer.
 
-<video src="/assets/quotes/individual-post.mp4" autoplay playsinline muted width="100%"></video>
+<video src="/assets/quotes/individual-post.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
 ## Notifications {#notifications}
 
@@ -40,34 +48,26 @@ Mastodon will notify users being quoted as long as the quote is using the new pr
 
 ## Removing your post from someone’s quote post {#remove}
 
-You can easily remove your quoted post from another user’s post using the ••• Options menu.
+You can easily remove your original post from another user’s post using the ellipsis icon.
 
-<video src="/assets/quotes/revoke.mp4" autoplay playsinline muted width="100%"></video>
+<video src="/assets/quotes/revoke.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
-Sometimes, removing a single post may not be enough. If you believe someone is abusing the ability to quote you, you can also take the following actions:
+Sometimes, removing your post from a single quote may not be enough. If you believe someone is abusing the ability to quote you, you can also take the following actions:
 
 - Block the user. While this action won’t retroactively remove your post from posts the user has already published, it will prevent the user from quoting you in future posts.
 - Change the quote settings for your published post. The next section outlines how to do this.
 
 ## Changing quote settings on a published post {#change}
 
-On your own published posts, edit the quote settings from the ••• menu. Changes to disallow quoting will prevent users from quoting your post in the future, but will not apply retroactively to quotes already published.
+On your own published posts, edit the quote settings from the ellipsis icon. Changes to disallow quoting will prevent users from quoting your post in the future, but will not apply retroactively to quotes already published.
 
-<video src="/assets/quotes/change-post.mp4" autoplay playsinline muted width="100%"></video>
+<video src="/assets/quotes/change-post.mp4" autoplay playsinline loop controls muted width="100%"></video>
 
-Only public and quiet public posts can be edited this way, since your followers-only posts and direct mentions can only ever be quoted by you.
-
-## How to quote others {#how}
-
-If an author of a post has enabled quoting, you’ll see an option to quote their post under a new menu accessed from the *Boost* button.
-
-<video src="/assets/quotes/initiate.mp4" autoplay playsinline muted width="100%"></video>
-
-Your post will then appear within the composer window, where you can add your comment and post to continue the discussion.
+Only public and quiet public posts can be edited this way; your followers-only posts and direct mentions can only ever be quoted by you.
 
 ## Additional tips {#tips}
 
-**Power booster?** You can still boost quickly using `Shift + Click` on the *Boost* button or using the `‘B’` hotkey.
+**Power booster?** You can still boost quickly using `Shift + Click` on the **Boost** button or using the `‘B’` hotkey.
 
 **Quote responsibly.** Authors can remove their post if they’re uncomfortable with the way you’ve quoted them. See [Removing your post from someone’s quote post](#remove) for more details.
 
@@ -80,6 +80,10 @@ Quote posts create a new context, and do not appear in the replies. Replies to t
 #### I don’t want to be quoted at all, can I prevent people from quoting me? {#faq-opt-out}
 
 Yes, for every post you make, you can decide who can quote you, from “Anyone”, “Followers only”, and “Just me”. People you have blocked are not able to quote you, even if you have selected “Anyone”. You can select “Just me” if you don’t want to be quoted at all (note that you can *always* quote yourself).
+
+#### Will there be a setting to enable quoting for “Accounts I follow”? {#faq-follow}
+
+This will not be part of the quote posts implementation in Mastodon 4.5. We may consider this option for the future.
 
 #### What happens if the quoted post is deleted or edited? {#faq-changed-post}
 
@@ -105,13 +109,17 @@ You can change the quote policy at any time without deleting the post. It will o
 
 Posts made in Mastodon 4.4 and earlier do not allow quotes, although you can make them quotable by individually [changing their quote policy](#change).
 
+#### Can I quote and reply at the same time? {#faq-with-reply}
+
+Yes. Start writing a reply, then click the “Quote” button on the post you want to quote. The quote will be attached to the reply.
+
+#### Why doesn't Mastodon use the existing "Object Links" method for quotes? {#faq-object-links}
+
+Fediverse Enhancement Proposal FEP-e232 describes the concept of "Object Links" for ActivityPub. This FEP is used by some other Fediverse platforms to provide functionality similar to quote posts. Mastodon chose to implement additional *consent* and *visibility* options, via a new FEP (see [How does Mastodon enforce quote consent?](#faq-consent))
+
 #### How does Mastodon enforce quote consent? {#faq-consent}
 
-Mastodon uses [FEP-044f, Consent-respecting quote posts](https://codeberg.org/fediverse/fep/src/branch/main/fep/044f/fep-044f.md) to advertise who is expected to be allowed to quote a post, request for consent, distribute and revoke approval. Mastodon will only offer the option to quote a post if the advertised policy allows it, and will only display a quote if it is a self-quote, or it has a valid authorization. Mastodon cannot prevent other Fediverse software from displaying quotes without consent, but it will not show such quotes, and we encourage other implementers to make use of the protocol described in Fediverse Enhancement Proposal FEP-044f.
-
-#### Why is my quote taking time to appear? {#faq-delay}
-
-While Mastodon will automatically approve or reject quotes according to your settings (see [Setting your default quote settings](#defaults)), other Fediverse software might require manual approval of quotes. This means that when you quote posts from across the Fediverse, it may take time for your quote to appear. When the quote is approved, it will automatically update on your post.
+Mastodon uses [FEP-044f, Consent-respecting quote posts](https://codeberg.org/fediverse/fep/src/branch/main/fep/044f/fep-044f.md) to advertise who is expected to be allowed to quote a post, request for consent, distribute and revoke approval. Mastodon checks the post's policy before offering the quote option. It only displays quotes in two cases: when you quote yourself, or when the quote has proper authorization from the original author. Mastodon cannot prevent other fediverse software from showing quotes without consent, but it won't display such quotes itself. We encourage other implementers to make use of the protocol described in Fediverse Enhancement Proposal FEP-044f.
 
 #### How do Mastodon quotes show up in other Fediverse software? {#faq-quote-from-mastodon}
 
@@ -119,8 +127,12 @@ Quotes authored with Mastodon should show up just like any other quote in Misske
 
 #### How do quotes from other Fediverse software show up in Mastodon? {#faq-quote-from-fedi}
 
-Only self-quotes and quotes with explicit consent will show up as proper quotes in Mastodon. Quotes that do not meet these requirements and are authored from software that does not support Mastodon’s approval flow will show up as they did before Mastodon 4.4, as if they were not quote posts.
+Only self-quotes and quotes with explicit consent will show up as proper quotes in Mastodon. Some quotes won't meet these requirements. These include quotes from software that doesn't support Mastodon's approval system. They will appear as regular posts, not as quotes.
+
+#### Why is my quote taking time to appear? {#faq-delay}
+
+While Mastodon will automatically approve or reject quotes according to your settings (see [Setting your default quote settings](#defaults)), other Fediverse software might require manual approval of quotes. This means that when you quote posts from across the Fediverse, it may take time for your quote to appear. When the quote is approved, it will automatically update on your post.
 
 #### How do quotes interact with blocks? {#faq-blocks}
 
-If you have blocked someone and see someone quoting them, the quote post will still appear, but the quote will be hidden. The same applies if they have blocked you. People cannot quote you if you have blocked them, but past quotes from blocked users are currently not detached when you block them.
+If you have blocked someone and see someone quoting them, the quote post will still appear, but the quote will be hidden. The same applies if they have blocked you. Blocked users cannot quote your new posts. However, their existing quotes of your posts will remain visible until manually removed.

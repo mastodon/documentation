@@ -3,7 +3,7 @@ title: Official iOS and Android apps
 description: Learn the basics of the official iOS and Android apps for Mastodon
 menu:
   docs:
-    weight: 75
+    weight: 300
     parent: user
 ---
 
