@@ -47,7 +47,7 @@ For remote accounts, suspending will make them unfollow any local account. Those
 
 ## Moderating entire websites {#server-wide-moderation}
 
-Because individually moderating a large volume of users from a misbehaving server can be exhausting, it is possible to pre-emptively moderate against all users from that particular server using a so-called **domain block**, which comes with several different levels of severity.
+Because individually moderating a large volume of users from a misbehaving server can be exhausting, it is possible to pre-emptively moderate against all users from that particular server using a so-called **domain block**, which comes with several different levels of severity. Go to **Preferences** &gt; **Moderation** &gt; **Federation**, then click "Add new domain block" to block a server.
 
 ### Reject media {#reject-media}
 
@@ -62,6 +62,14 @@ Equivalent to [limiting](#limit-user) all past and future accounts from the serv
 Equivalent to [suspending](#suspend-user) all past and future accounts from the server. No content from the server will be stored locally except for usernames.
 
 Suspending a server will remove all existing follow relationships between local accounts and accounts on the suspended server. They will not be restored in case the remote server is un-suspended later.
+
+### Blocklist {#blocklist}
+
+A "blocklist" is a file that contains a list of servers that have been identified as problematic by other administrators, and may include comments describing the problematic content. You can import blocklists to block those servers from interacting with your Mastodon server. As a starting point, you may wish to use a blocklist such as the [Unified](https://codeberg.org/oliphant/blocklists/src/branch/main/blocklists/mastodon/_unified_tier0_blocklist.csv) list, which aggregates reputable blocklists shared by other administrators.
+
+After you have downloaded a blocklist, go to **Preferences** &gt; **Moderation** &gt; **Federation**, then click "Import". Select the blocklist's `.csv` file, then click "Upload". Mastodon will give you the chance to review the list, and you can de-select individual servers if desired. When you have finished, click "Import" to block the selected servers.
+
+You can also click "Export" to backup your Mastodon server's blocklist or share it with other administrators.
 
 ## Spam-fighting measures {#spam-fighting-measures}
 
