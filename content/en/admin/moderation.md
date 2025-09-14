@@ -65,7 +65,7 @@ Suspending a server will remove all existing follow relationships between local 
 
 ### Blocklist {#blocklist}
 
-A "blocklist" is a file that contains a list of servers that have been identified as problematic by other administrators, and may include comments describing the problematic content. You can import blocklists to block those servers from interacting with your Mastodon server. As a starting point, you may wish to use a blocklist such as the [Unified](https://codeberg.org/oliphant/blocklists/src/branch/main/blocklists/mastodon/_unified_tier0_blocklist.csv) list, which aggregates reputable blocklists shared by other administrators.
+A "blocklist" is a file that contains a list of servers that have been identified as problematic by other administrators, and may include comments describing the problematic content. You can import blocklists to block those servers from interacting with your Mastodon server.
 
 After you have downloaded a blocklist, go to **Preferences** &gt; **Moderation** &gt; **Federation**, then click "Import". Select the blocklist's `.csv` file, then click "Upload". Mastodon will give you the chance to review the list, and you can de-select individual servers if desired. When you have finished, click "Import" to block the selected servers.
 
