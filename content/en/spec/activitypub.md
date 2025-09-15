@@ -860,7 +860,7 @@ Mastodon implements support for handling remote quote posts according to [FEP-04
 
 Should a post contain multiple quotes, Mastodon only accepts the first one.
 
-Furthermore, Mastodon does not handle the full range of interaction policies, but instead converts the authorized followers to a combination of “public”, “followers” and “nobody”, defaulting to “nobody”.
+Furthermore, Mastodon does not handle the full range of interaction policies, but instead converts the authorized followers to a combination of “public”, “followers”, “following” and “nobody”, defaulting to “nobody”.
 
 As of v4.5, Mastodon offers authoring quotes and granting quote approvals according to the same specification.
 
