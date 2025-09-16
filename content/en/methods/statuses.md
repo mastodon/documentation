@@ -32,6 +32,7 @@ Publish a status with the given parameters.
 0.0.0 - added\
 2.7.0 - `scheduled_at` added\
 2.8.0 - `poll` added
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - `quoted_status_id` and `quote_approval_policy` added
 
 #### Request
 
@@ -80,6 +81,15 @@ language
 
 scheduled_at
 : String. [Datetime](/api/datetime-format#datetime) at which to schedule a status. Providing this parameter will cause ScheduledStatus to be returned instead of Status. Must be at least 5 minutes in the future.
+
+quoted_status_id
+: String. ID of the status being quoted, if any. Will raise an error if the status does not exist, the author does not have access to it, or quoting is denied by Mastodon's understanding of the attached quote policy. All posts except Private Mentions (`direct` visibility) are quotable by their author. Quoting a `private` post will restrict the quoting post's `visibility` to `private` or `direct` (if the given `visibility` is `public` or `unlisted`, `private` will be used instead). If the `status` text doesn't include a link to the quoted post, Mastodon will prepend a `<p class="quote-inline">RE: <a href="…">…</a></p>` paragraph for backward compatibility (such a paragraph will be hidden by Mastodon's web interface).
+
+quote_approval_policy
+: String (Enumerable, oneOf). Sets who is allowed to quote the status. When omitted, the user's [default setting](/entities/Account##source-quote_policy) will be used instead. Ignored if `visibility` is `private` or `direct`, in which case the policy will always be set to `nobody`.\
+`public` = Anyone is allowed to quote this status and will have their quote automatically accepted, unless they are blocked.\
+`followers` = Only followers and the author are allowed to quote this status, and will have their quote automatically accepted.\
+`nobody` = Only the author is allowed to quote the status.
 
 #### Response
 ##### 200: OK
@@ -808,6 +818,115 @@ Status does not exist or is private
 
 ---
 
+## See quotes of a status {#quotes}
+
+```http
+GET /api/v1/statuses/:id/quotes HTTP/1.1
+```
+
+View quotes of a status you have posted.
+
+**Returns:** Array of [Status]({{< relref "entities/status" >}})\
+**OAuth:** User token + `read:statuses`. The user token must be owned by the author of the status.\
+**Version history:**\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+max_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+since_id
+: **Internal parameter.** Use HTTP `Link` header for pagination.
+
+limit
+: Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
+
+#### Response
+##### 200: OK
+
+A list of statuses that quote the requested status.
+
+```json
+[
+  {
+    "id": "115107232286434584",
+    "created_at": "2025-08-28T16:02:57.029Z",
+    "quote": {
+      "state": "accepted",
+      "quoted_status": {
+        "id":"115107231366664709",
+        // ...
+      },
+    },
+    // ...
+  },
+  {
+    "id": "115107231976600838",
+    "created_at": "2025-08-28T16:02:52.302Z",
+    "quote": {
+      "state": "accepted",
+      "quoted_status": {
+        "id":"115107231366664709",
+        // ...
+      },
+    },
+    // ...
+  },
+  // ...
+]
+```
+
+Because quote Status IDs are generally not known ahead of time, you will have to parse the HTTP `Link` header to load older or newer results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```http
+Link: <https://mastodon.example/api/v1/statuses/109404970108594430/quotes?limit=2&max_id=109406336446186031>; rel="next", <https://mastodon.example/api/v1/statuses/109404970108594430/quotes?limit=2&since_id=109408462939099398>; rel="prev"
+```
+
+##### 404: Not found
+
+Status does not exist or is private.
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+##### 403: Forbidden
+
+Status is not owned by the requesting user.
+
+```json
+{
+  "error": "This action is not allowed"
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
 ## See who favourited a status {#favourited_by}
 
 ```http
@@ -1282,6 +1401,83 @@ Status does not exist or is private.
 
 ---
 
+## Revoke a quote post {#revoke_quote}
+
+```http
+POST /api/v1/statuses/:id/quotes/:quoting_status_id/revoke HTTP/1.1
+```
+
+Revoke quote authorization of status `quoting_status_id`, detaching status `id`.
+
+**Returns:** [Status]({{< relref "entities/status" >}})\
+**OAuth:** User token + `write:statuses`. The user token must be owned by the author of the status `id`.\
+**Version history:**\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the quoted Status in the database.
+
+:quoting_status_id
+: {{<required>}} String. The ID of the quoting Status in the database.
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+#### Response
+##### 200: OK
+
+An updated Status with the quote revoked.
+
+```json
+{
+  "id": "115107232286434584",
+  "created_at": "2025-08-28T16:02:57.029Z",
+  "quote": {
+    "state": "revoked",
+    "quoted_status": null,
+  },
+  // ...
+}
+```
+
+##### 404: Not found
+
+Status does not exist or is private, or no such quote exists.
+
+```json
+{
+  "error": "Record not found"
+}
+```
+
+##### 403: Forbidden
+
+Status is not owned by the requesting user.
+
+```json
+{
+  "error": "This action is not allowed"
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "This method requires an authenticated user"
+}
+```
+
+---
+
 ## Mute a conversation {#mute}
 
 ```http
@@ -1595,7 +1791,8 @@ Edit a given status to change its text, sensitivity, media attachments, or poll.
 **OAuth:** User token + `write:statuses`\
 **Version history:**\
 3.5.0 - added\
-4.0.0 - add `language`
+4.0.0 - add `language`\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - add `quote_approval_policy`
 
 #### Request
 
@@ -1640,6 +1837,12 @@ poll[multiple]
 
 poll[hide_totals]
 : Boolean. Hide vote counts until the poll ends? Defaults to false.
+
+quote_approval_policy
+: String (Enumerable, oneOf). Sets who is allowed to quote the status. Ignored if `visibility` is `private` or `direct`, in which case the policy will always be set to `nobody`. Changing the policy does not invalidate past quotes.\
+`public` = Anyone is allowed to quote this status and will have their quote automatically accepted, unless they are blocked.\
+`followers` = Only followers and the author are allowed to quote this status, and will have their quote automatically accepted.\
+`nobody` = Only the author is allowed to quote the status.
 
 #### Response
 ##### 200: OK
@@ -1715,6 +1918,115 @@ Status does not exist, is private, or is not owned by you.
 ```json
 {
   "error": "Validation failed: Text can't be blank"
+}
+```
+
+---
+
+## Edit a status' interaction policies {#edit_interaction_policy}
+
+```http
+PUT /api/v1/statuses/:id/interaction_policy HTTP/1.1
+```
+
+Edit a given status to change its interaction policies. Currently, this means changing its quote approval policy.
+
+**Returns:** [Status]({{< relref "entities/status" >}})\
+**OAuth:** User token + `write:statuses`\
+**Version history:**\
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added
+
+#### Request
+
+##### Path parameters
+
+:id
+: {{<required>}} String. The ID of the Status in the database.
+
+##### Headers
+
+Authorization
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+##### Form data parameters
+
+quote_approval_policy
+: String (Enumerable, oneOf). Sets who is allowed to quote the status. Ignored if `visibility` is `private` or `direct`, in which case the policy will always be set to `nobody`. Changing the policy does not invalidate past quotes.\
+`public` = Anyone is allowed to quote this status and will have their quote automatically accepted, unless they are blocked.\
+`followers` = Only followers and the author are allowed to quote this status, and will have their quote automatically accepted.\
+`nobody` = Only the author is allowed to quote the status.
+
+#### Response
+##### 200: OK
+
+Status has been successfully edited.
+
+```json
+{
+  "id": "108942703571991143",
+  "created_at": "2022-09-04T23:22:13.704Z",
+  "in_reply_to_id": null,
+  "in_reply_to_account_id": null,
+  "sensitive": false,
+  "spoiler_text": "",
+  "visibility": "public",
+  "language": "en",
+  "uri": "https://mastodon.social/users/trwnh/statuses/108942703571991143",
+  "url": "https://mastodon.social/@trwnh/108942703571991143",
+  "replies_count": 3,
+  "reblogs_count": 1,
+  "favourites_count": 6,
+  "edited_at": "2022-09-05T00:33:20.309Z",
+  "favourited": false,
+  "reblogged": false,
+  "muted": false,
+  "bookmarked": false,
+  "pinned": false,
+  "content": "<p>this is a status that has been edited multiple times to change the text, add a poll, and change poll options.</p>",
+  "filtered": [],
+  "reblog": null,
+  "application": {
+    "name": "SubwayTooter",
+    "website": null
+  },
+  "account": {
+    "id": "14715",
+    "username": "trwnh",
+    "acct": "trwnh",
+    "display_name": "infinite love ⴳ",
+    // ...
+  },
+  "media_attachments": [],
+  "mentions": [],
+  "tags": [],
+  "emojis": [],
+  "card": null,
+  "poll": null,
+  "quote_approval": {
+    "automatic": ["public"],
+    "manual": [],
+    "current_user": "automatic",
+  }
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
+##### 404: Not found
+
+Status does not exist, is private, or is not owned by you.
+
+```json
+{
+  "error": "Record not found"
 }
 ```
 
