@@ -857,7 +857,7 @@ limit
 #### Response
 ##### 200: OK
 
-A list of statuses that quote the requested status
+A list of statuses that quote the requested status.
 
 ```json
 [
@@ -897,7 +897,7 @@ Link: <https://mastodon.example/api/v1/statuses/109404970108594430/quotes?limit=
 
 ##### 404: Not found
 
-Status does not exist or is private
+Status does not exist or is private.
 
 ```json
 {
@@ -907,7 +907,7 @@ Status does not exist or is private
 
 ##### 403: Forbidden
 
-Status is not owned by the requesting user
+Status is not owned by the requesting user.
 
 ```json
 {
@@ -1432,7 +1432,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-An updated Status with the quote revoked
+An updated Status with the quote revoked.
 
 ```json
 {
@@ -1448,7 +1448,7 @@ An updated Status with the quote revoked
 
 ##### 404: Not found
 
-Status does not exist or is private, or no such quote exists
+Status does not exist or is private, or no such quote exists.
 
 ```json
 {
@@ -1458,7 +1458,7 @@ Status does not exist or is private, or no such quote exists
 
 ##### 403: Forbidden
 
-Status is not owned by the requesting user
+Status is not owned by the requesting user.
 
 ```json
 {
