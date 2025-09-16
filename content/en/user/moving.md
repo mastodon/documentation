@@ -29,7 +29,7 @@ Redirecting your account disables posting from that account and displays a "prof
 
 Moving your account is the same as redirecting your account, but it will also irreversibly force everyone to unfollow your current account and follow your new account, if their software supports the Move activity. Your posts will not be moved, due to technical limitations. There is also a 30 day cooldown period in which you cannot migrate again, so be very careful before using this option!
 
-While moving your profile should automatically move your followers over, it does not automatically transfer your follows, blocks, mutes, or bookmarks. Those can be imported from [previously exported CSV files](./#export).
+While moving your profile should automatically move your followers over, it does not automatically transfer your follows, blocks, mutes, or bookmarks. Those can be imported from [previously exported CSV files](#export).
 
 ### Account aliases {#aliases}
 
