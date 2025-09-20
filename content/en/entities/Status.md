@@ -306,7 +306,7 @@ aliases: [
 ### `quote` {#quote}
 
 **Description:** Information about the status being quoted, if any\
-**Type:* {{<nullable>}} [Quote]({{< relref "entities/quote" >}}), [ShallowQuote]({{< relref "entities/ShallowQuote" >}}) or null\
+**Type:** {{<nullable>}} [Quote]({{< relref "entities/quote" >}}), [ShallowQuote]({{< relref "entities/ShallowQuote" >}}) or null\
 **Version history:**\
 4.4.0 - added
 
