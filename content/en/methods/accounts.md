@@ -389,7 +389,7 @@ fields_attributes[:index][value]
 : String. The value of the profile field. By default, max 255 characters.
 
 source[privacy]
-: String. Default post privacy for authored statuses. Can be `public`, `unlisted`, or `private`.
+: String (Enumerable, oneOf `public`, `unlisted`, or `private`). Default post privacy for authored statuses.
 
 source[sensitive]
 : Boolean. Whether to mark authored statuses as sensitive by default.
