@@ -1159,7 +1159,7 @@ Authorization
 ##### Form data parameters
 
 visibility
-: String. Any visibility except `limited` or `direct` (i.e. `public`, `unlisted`, `private`). Defaults to public.
+: String (Enumerable, oneOf `public`, `unlisted`, or `private`). Defaults to public.
 
 #### Response
 ##### 200: OK
