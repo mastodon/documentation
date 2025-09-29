@@ -31,7 +31,7 @@ Publish a status with the given parameters.
 **Version history:**\
 0.0.0 - added\
 2.7.0 - `scheduled_at` added\
-2.8.0 - `poll` added
+2.8.0 - `poll` added\
 4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - `quoted_status_id` and `quote_approval_policy` added
 
 #### Request
