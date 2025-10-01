@@ -827,7 +827,7 @@ GET /api/v1/statuses/:id/quotes HTTP/1.1
 View quotes of a status you have posted.
 
 **Returns:** Array of [Status]({{< relref "entities/status" >}})\
-**OAuth:** User token + `read:statuses`. The user token must be owned by the author of the status.\
+**OAuth:** User token + `read:statuses`.\
 **Version history:**\
 4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added
 
@@ -902,16 +902,6 @@ Status does not exist or is private.
 ```json
 {
   "error": "Record not found"
-}
-```
-
-##### 403: Forbidden
-
-Status is not owned by the requesting user.
-
-```json
-{
-  "error": "This action is not allowed"
 }
 ```
 
