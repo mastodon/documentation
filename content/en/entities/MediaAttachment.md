@@ -245,6 +245,15 @@ May contain subtrees `small` and `original`, as well as various other top-level 
 0.6.0 - added\
 3.5.0 - removed
 
+## ProcessingMediaAttachment entity attributes {#ProcessingMediaAttachment}
+
+A MediaAttachment that is currently being processed.
+
+### `url` {#url}
+
+**Description:** The location of the original full-size attachment.\
+**Type:** {{<nullable>}} String (URL)
+
 ## See also
 
 {{< page-relref ref="entities/Status#media_attachments" caption="Status (`media_attachments` attribute)" >}}
