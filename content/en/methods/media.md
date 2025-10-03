@@ -28,7 +28,7 @@ POST /api/v2/media HTTP/1.1
 
 Creates a media attachment to be used with a new status. The full sized media will be processed asynchronously in the background for large uploads.
 
-**Returns:** [MediaAttachment]({{< relref "entities/MediaAttachment" >}}), but without a URL\
+**Returns:** [MediaAttachment]({{< relref "entities/MediaAttachment" >}}) with a HTTP 200 response or [ProcessingMediaAttachment]({{< relref "entities/MediaAttachment#ProcessingMediaAttachment" >}}) with a HTTP 202 response\
 **OAuth:** User token + `write:media`\
 **Version history:**\
 3.1.3 - added\
@@ -94,7 +94,7 @@ MediaAttachment was created successfully, and the full-size file was processed s
 
 ##### 202: Accepted
 
-MediaAttachment was created successfully, but the full-size file is still processing. Note that the MediaAttachment's `url` will still be null, as the media is still being processed in the background. However, the `preview_url` should be available. Use [`GET /api/v1/media/:id`](#get) to check the status of the media attachment.
+ProcessingMediaAttachment was created successfully, but the full-size file is still processing. Note that the ProcessingMediaAttachment's `url` will still be null, as the media is still being processed in the background. However, the `preview_url` should be available. Use [`GET /api/v1/media/:id`](#get) to check the status of the media attachment.
 
 ```json
 {
