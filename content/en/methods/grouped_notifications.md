@@ -486,7 +486,7 @@ Invalid or missing Authorization header.
 #### `notification_groups`
 
 **Description:** The grouped notifications themselves.\
-**Type:** [NotificationGroup](#NotificationGroup)\
+**Type:** Array of [NotificationGroup](#NotificationGroup)\
 **Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
 
