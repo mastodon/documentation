@@ -1196,7 +1196,7 @@ Enable or disable fetching additional replies when a post's detailed view is exp
 
 **Default:** `15`
 
-The amount of time to wait since the last fetch of a post and its replies since the last fetch. 
+The amount of time to wait since the last fetch of a post and its replies since the last fetch.
 
 Note that this applies per-status: triggering a fetch for a parent status and then triggering a reply for a child within the reply tree will not double-fetch the status.
 
@@ -1238,6 +1238,9 @@ This variable only has any effect when running `rake db:migrate` and it is extre
 These three environment variables must be set to enable the Active Record
 Encryption feature within Rails that Mastodon uses to encrypt and decrypt some
 database attributes.
+
+To generate values for these variables, you can run:
+`bundle exec rake db:encryption:init`
 
 - `ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY`
 - `ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY`
