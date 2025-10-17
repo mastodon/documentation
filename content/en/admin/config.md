@@ -194,11 +194,11 @@ When set to `true`, skips the visitor's brower language detection feature and us
 
 #### `SECRET_KEY_BASE`
 
-Generate with `rake secret`. Changing it will break all active browser sessions.
+Generate with `rails secret`. Changing it will break all active browser sessions.
 
 #### `OTP_SECRET`
 
-Generate with `rake secret`. Changing it will break two-factor authentication.
+Generate with `rails secret`. Changing it will break two-factor authentication.
 
 #### `VAPID_PRIVATE_KEY`
 
