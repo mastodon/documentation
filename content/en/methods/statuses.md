@@ -579,11 +579,14 @@ GET /api/v1/statuses/:id/context HTTP/1.1
 
 View statuses above and below this status in the thread.
 
+Starting from Mastodon 4.5, when this endpoint is being queried, asynchronous background jobs may be started to check for the existence of missing replies and fetch those if possible. In this case a new, experimental header, `Mastodon-Async-Refresh`, may be added to the response. See [AsyncRefreshes]({{< relref "methods/async_refreshes" >}}) for a detailed explanation.
+
 **Returns:** [Context]({{< relref "entities/context" >}})\
 **OAuth:** Public for public statuses limited to 40 ancestors and 60 descendants with a maximum depth of 20. User token + `read:statuses` for up to 4,096 ancestors, 4,096 descendants, unlimited depth, and private statuses.\
 **Version history:**\
 0.0.0 - added\
-4.0.0 - limit unauthenticated requests
+4.0.0 - limit unauthenticated requests\
+4.5.0 - added experimental `Mastodon-Async-Refresh` header
 
 #### Request
 
