@@ -756,21 +756,21 @@ aliases: [
 
 #### `configuration[timeline_access]` {#timeline_access}
 
-**Description:** Information with regards to access restrictions on different timelines.\
+**Description:** Access restrictions on different timelines.\
 **Type:** Hash\
 **Version history:**\
 4.5.0 - added
 
 #### `configuration[timeline_access][live_feeds]` {#timeline_access-live_feeds}
 
-**Description:** Information with regards to access restrictions on [public “firehose” feeds]({{< relref "methods/timelines#public" >}}).\
+**Description:** Access restrictions on [public “firehose” feeds]({{< relref "methods/timelines#public" >}}).\
 **Type:** Hash\
 **Version history:**\
 4.5.0 - added
 
 #### `configuration[timeline_access][live_feeds][local]` {#timeline_access-live_feeds-local}
 
-**Description:** Information with regards to access restrictions for local posts in the public “firehose” feed.\
+**Description:** Access restrictions for local posts in the public “firehose” feed.\
 **Type:** String (Enumerable oneOf)\
 - `public` = Access to local posts in the public “firehose” feed is available to both visitors and logged-in users.\
 - `authenticated` = Access to local posts in the public “firehose” feed requires authentication.\
@@ -780,7 +780,7 @@ aliases: [
 
 #### `configuration[timeline_access][live_feeds][remote]` {#timeline_access-live_feeds-remote}
 
-**Description:** Information with regards to access restrictions for remote posts in the public “firehose” feed.\
+**Description:** Access restrictions for remote posts in the public “firehose” feed.\
 **Type:** String (Enumerable oneOf)\
 - `public` = Access to remote posts in the public “firehose” feed is available to both visitors and logged-in users.\
 - `authenticated` = Access to remote posts in the public “firehose” feed requires authentication.\
@@ -790,14 +790,14 @@ aliases: [
 
 #### `configuration[timeline_access][hashtag_feeds]` {#timeline_access-hashtag_feeds}
 
-**Description:** Information with regards to access restrictions on [hashtag feeds]({{< relref "methods/timelines#tag" >}}).\
+**Description:** Access restrictions on [hashtag feeds]({{< relref "methods/timelines#tag" >}}).\
 **Type:** Hash\
 **Version history:**\
 4.5.0 - added
 
 #### `configuration[timeline_access][hashtag_feeds][local]` {#timeline_access-hashtag_feeds-local}
 
-**Description:** Information with regards to access restrictions for local posts in hashtag feeds.\
+**Description:** Access restrictions for local posts in hashtag feeds.\
 **Type:** String (Enumerable oneOf)\
 - `public` = Access to local posts in hashtag feeds is available to both visitors and logged-in users.\
 - `authenticated` = Access to local posts in hashtag feeds requires authentication.\
@@ -807,7 +807,7 @@ aliases: [
 
 #### `configuration[timeline_access][hashtag_feeds][remote]` {#timeline_access-hashtag_feeds-remote}
 
-**Description:** Information with regards to access restrictions for remote posts in hashtag feeds.\
+**Description:** Access restrictions for remote posts in hashtag feeds.\
 **Type:** String (Enumerable oneOf)\
 - `public` = Access to remote posts in hashtag feeds is available to both visitors and logged-in users.\
 - `authenticated` = Access to remote posts in hashtag feeds requires authentication.\
@@ -817,14 +817,14 @@ aliases: [
 
 #### `configuration[timeline_access][trending_link_feeds]` {#timeline_access-trending_link_feeds}
 
-**Description:** Information with regards to access restrictions on [trending link feeds]({{< relref "methods/timelines#link" >}}).\
+**Description:** Access restrictions on [trending link feeds]({{< relref "methods/timelines#link" >}}).\
 **Type:** Hash\
 **Version history:**\
 4.5.0 - added
 
 #### `configuration[timeline_access][trending_link_feeds][local]` {#timeline_access-trending_link_feeds-local}
 
-**Description:** Information with regards to access restrictions for local posts in the trending link feeds.\
+**Description:** Access restrictions for local posts in the trending link feeds.\
 **Type:** String (Enumerable oneOf)\
 - `public` = Access to local posts in trending link feeds is available to both visitors and logged-in users.\
 - `authenticated` = Access to local posts in trending link feeds requires authentication.\
@@ -834,7 +834,7 @@ aliases: [
 
 #### `configuration[timeline_access][trending_link_feeds][remote]` {#timeline_access-trending_link_feeds-remote}
 
-**Description:** Information with regards to access restrictions for remote posts in trending link feeds.\
+**Description:** Access restrictions for remote posts in trending link feeds.\
 **Type:** String (Enumerable oneOf)\
 - `public` = Access to remote posts in trending link feeds is available to both visitors and logged-in users.\
 - `authenticated` = Access to remote posts in trending link feeds requires authentication.\
