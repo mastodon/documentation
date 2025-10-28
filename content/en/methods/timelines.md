@@ -89,6 +89,16 @@ Sample API call with limit=2
 ]
 ```
 
+##### 401: Unauthorized
+
+Invalid or missing Authorization header when the server is configured to disable unauthenticated access to the public timeline. When unauthenticated access to remote statuses in this timeline are disabled, unauthenticated requests to this endpoint will fail with a 401 unless `local` is set to true. Likewise for unauthenticated access to local posts and the `remote` parameter.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
 ---
 
 ## View hashtag timeline {#tag}
@@ -227,6 +237,16 @@ Hashtag does not exist
 
 ---
 
+##### 401: Unauthorized
+
+Invalid or missing Authorization header when the server is configured to disable unauthenticated access to hashtag timelines.
+
+```json
+{
+  "error": "The access token is invalid"
+}
+```
+
 ## View home timeline {#home}
 
 ```http
@@ -346,6 +366,16 @@ The provided URL is not currently trending.
 ```json
 {
   "error": "Record not found"
+}
+```
+
+##### 401: Unauthorized
+
+Invalid or missing Authorization header when the server is configured to disable unauthenticated access to link timelines.
+
+```json
+{
+  "error": "The access token is invalid"
 }
 ```
 
