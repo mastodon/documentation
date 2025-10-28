@@ -138,11 +138,12 @@ Mastodon verifies the signature using the following algorithm:
 ### HTTP Message Signatures (RFC9421) {#http-message-signatures}
 
 **Version history:**\
-4.4.0 - added
+4.4.0 - added support for validating signatures, but not enabled by default
+4.5.0 - enabled support for validating signatures by default
 
 Since Mastodon implemented HTTP Signatures this draft specification has been overhauled, released as [RFC9421](https://www.rfc-editor.org/rfc/rfc9421.html) and renamed to "HTTP Message Signatures".
 
-From version 4.4.0 Mastodon supports incoming HTTP requests to be signed with RFC9421-compatible signatures.
+Mastodon 4.4.0 added support for incoming HTTP requests to be signed with RFC9421-compatible signatures, but required the `http_message_signatures` feature flag to be enabled. Mastodon 4.5.0 removes the feature flag and enables this support by default.
 
 The biggest difference to the HTTP Signatures standard described above is that HTTP Message Signatures use *two* separate HTTP headers, `Signature` and `Signature-Input`:
 
