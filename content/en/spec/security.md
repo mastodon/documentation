@@ -138,7 +138,7 @@ Mastodon verifies the signature using the following algorithm:
 ### HTTP Message Signatures (RFC9421) {#http-message-signatures}
 
 **Version history:**\
-4.4.0 - added support for validating signatures, but not enabled by default
+4.4.0 - added support for validating signatures, but not enabled by default\
 4.5.0 - enabled support for validating signatures by default
 
 Since Mastodon implemented HTTP Signatures this draft specification has been overhauled, released as [RFC9421](https://www.rfc-editor.org/rfc/rfc9421.html) and renamed to "HTTP Message Signatures".
