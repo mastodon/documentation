@@ -31,7 +31,7 @@ Those two notification types are also new `alerts` keys for requests to the [`/a
 The following endpoints have new parameters:
 - [`POST /api/v1/statuses`]({{< relref "methods/statuses#create" >}}) has two new optional parameters:
   - `quoted_status_id`: the identifier of the status to quote
-    Tthis will raise an error if the current user does not have access to this status, or if Mastodon knows for sure the policy disallows it.
+    This will raise an error if the current user does not have access to this status, or if Mastodon knows for sure the policy disallows it.
     Unless the quoted post is on the same server, the quote will be in [pending state]({{< relref "entities/Quote#state" >}}) until it is explicitly accepted; quoting a private post is only possible in a private quote.
     Private Mentions cannot be quoted.
     A `<p class="quote-inline">RE: <a href="…">…</a></p>` link will be prepended to the body by the server for backward compatibility purposes if the body of the post does not already include a link to the quoted post. (This prepended paragraph will be hidden by the Mastodon Web UI)
