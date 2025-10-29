@@ -1168,7 +1168,12 @@ This setting has no relation to which users are considered active for the purpos
 ### Fetch All Replies {#fetch-all-replies}
 
 **Version history:**\
-4.4.0 - added
+4.4.0 - added\
+4.5.0 - removed
+
+{{< hint style="danger" >}}
+Fetch All Replies has been enabled unconditionally in 4.5. The related configuration variables have consequently been removed.
+{{< /hint >}}
 
 Fetch all replies fetches the tree of replies beneath an expanded post by recursively requesting the [replies collections](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-replies) of each of the statuses, and then requesting the status itself. Fetching replies is triggered by requesting the status's `context` - so will be triggered both from the web interface and external apps.
 
@@ -1186,13 +1191,13 @@ When fetching, posts from accounts that have no local followers are refetched as
 
 The need for and cost of fetching replies is likely to vary dramatically for servers of different sizes, so these configuration options allow server admins to tune resource usage: smaller instances may want to increase the limits, while larger instances may want to decrease them or lengthen the cooldown intervals.
 
-#### `FETCH_REPLIES_ENABLED`
+#### `FETCH_REPLIES_ENABLED` {{%removed%}}
 
 **Default:** `false`
 
 Enable or disable fetching additional replies when a post's detailed view is expanded.
 
-#### `FETCH_REPLIES_COOLDOWN_MINUTES`
+#### `FETCH_REPLIES_COOLDOWN_MINUTES` {{%removed%}}
 
 **Default:** `15`
 
@@ -1200,25 +1205,25 @@ The amount of time to wait since the last fetch of a post and its replies since 
 
 Note that this applies per-status: triggering a fetch for a parent status and then triggering a reply for a child within the reply tree will not double-fetch the status.
 
-#### `FETCH_REPLIES_INITIAL_WAIT_MINUTES`
+#### `FETCH_REPLIES_INITIAL_WAIT_MINUTES` {{%removed%}}
 
 **Default:** `5`
 
 The amount of time after a post was created to wait before it is eligible for fetching replies
 
-#### `FETCH_REPLIES_MAX_GLOBAL`
+#### `FETCH_REPLIES_MAX_GLOBAL` {{%removed%}}
 
 **Default:** `1000`
 
 The maximum number of replies to fetch - total, recursively through a whole reply tree, per fetch action.
 
-#### `FETCH_REPLIES_MAX_SINGLE`
+#### `FETCH_REPLIES_MAX_SINGLE` {{%removed%}}
 
 **Default:** `500`
 
 The maximum number of replies to fetch for a single status within a reply tree.
 
-#### `FETCH_REPLIES_MAX_PAGES`
+#### `FETCH_REPLIES_MAX_PAGES` {{%removed%}}
 
 **Default:** `500`
 
