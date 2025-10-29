@@ -1990,7 +1990,7 @@ GET /api/v1/accounts/:id/endorsements HTTP/1.1
 
 Accounts that the user is currently featuring on their profile.
 
-**Returns:** [Account]({{< relref "entities/account" >}})\
+**Returns:** Array of [Account]({{< relref "entities/account" >}})\
 **OAuth:** Public\
 **Version history:**\
 4.4.0 - added
