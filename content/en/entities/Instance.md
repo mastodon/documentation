@@ -772,9 +772,9 @@ aliases: [
 
 **Description:** Access restrictions for local posts in the public “firehose” feed.\
 **Type:** String (Enumerable oneOf)\
-- `public` = Access to local posts in the public “firehose” feed is available to both visitors and logged-in users.\
-- `authenticated` = Access to local posts in the public “firehose” feed requires authentication.\
-- `disabled` = Access to local posts in the public “firehose” feed is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
+`public` = Access to local posts in the public “firehose” feed is available to both visitors and logged-in users.\
+`authenticated` = Access to local posts in the public “firehose” feed requires authentication.\
+`disabled` = Access to local posts in the public “firehose” feed is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
 **Version history:**\
 4.5.0 - added
 
@@ -782,9 +782,9 @@ aliases: [
 
 **Description:** Access restrictions for remote posts in the public “firehose” feed.\
 **Type:** String (Enumerable oneOf)\
-- `public` = Access to remote posts in the public “firehose” feed is available to both visitors and logged-in users.\
-- `authenticated` = Access to remote posts in the public “firehose” feed requires authentication.\
-- `disabled` = Access to remote posts in the public “firehose” feed is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
+`public` = Access to remote posts in the public “firehose” feed is available to both visitors and logged-in users.\
+`authenticated` = Access to remote posts in the public “firehose” feed requires authentication.\
+`disabled` = Access to remote posts in the public “firehose” feed is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
 **Version history:**\
 4.5.0 - added
 
@@ -799,9 +799,9 @@ aliases: [
 
 **Description:** Access restrictions for local posts in hashtag feeds.\
 **Type:** String (Enumerable oneOf)\
-- `public` = Access to local posts in hashtag feeds is available to both visitors and logged-in users.\
-- `authenticated` = Access to local posts in hashtag feeds requires authentication.\
-- `disabled` = Access to local posts in hashtag feeds is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
+`public` = Access to local posts in hashtag feeds is available to both visitors and logged-in users.\
+`authenticated` = Access to local posts in hashtag feeds requires authentication.\
+`disabled` = Access to local posts in hashtag feeds is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
 **Version history:**\
 4.5.0 - added
 
@@ -809,9 +809,9 @@ aliases: [
 
 **Description:** Access restrictions for remote posts in hashtag feeds.\
 **Type:** String (Enumerable oneOf)\
-- `public` = Access to remote posts in hashtag feeds is available to both visitors and logged-in users.\
-- `authenticated` = Access to remote posts in hashtag feeds requires authentication.\
-- `disabled` = Access to remote posts in hashtag feeds is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
+`public` = Access to remote posts in hashtag feeds is available to both visitors and logged-in users.\
+`authenticated` = Access to remote posts in hashtag feeds requires authentication.\
+`disabled` = Access to remote posts in hashtag feeds is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
 **Version history:**\
 4.5.0 - added
 
@@ -826,9 +826,9 @@ aliases: [
 
 **Description:** Access restrictions for local posts in the trending link feeds.\
 **Type:** String (Enumerable oneOf)\
-- `public` = Access to local posts in trending link feeds is available to both visitors and logged-in users.\
-- `authenticated` = Access to local posts in trending link feeds requires authentication.\
-- `disabled` = Access to local posts in trending link feeds is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
+`public` = Access to local posts in trending link feeds is available to both visitors and logged-in users.\
+`authenticated` = Access to local posts in trending link feeds requires authentication.\
+`disabled` = Access to local posts in trending link feeds is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
 **Version history:**\
 4.5.0 - added
 
@@ -836,9 +836,9 @@ aliases: [
 
 **Description:** Access restrictions for remote posts in trending link feeds.\
 **Type:** String (Enumerable oneOf)\
-- `public` = Access to remote posts in trending link feeds is available to both visitors and logged-in users.\
-- `authenticated` = Access to remote posts in trending link feeds requires authentication.\
-- `disabled` = Access to remote posts in trending link feeds is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
+`public` = Access to remote posts in trending link feeds is available to both visitors and logged-in users.\
+`authenticated` = Access to remote posts in trending link feeds requires authentication.\
+`disabled` = Access to remote posts in trending link feeds is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
 **Version history:**\
 4.5.0 - added
 
