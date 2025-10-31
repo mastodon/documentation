@@ -178,8 +178,8 @@ aliases: [
 
 ### `url` {#url}
 
-**Description:** The location of the original full-size attachment.\
-**Type:** String (URL)\
+**Description:** The location of the original full-size attachment. Url may be null if the file is still being processed. See [`POST /api/v2/media`]({{< relref "methods/media" >}}#v2).\
+**Type:** {{<nullable>}} String (URL)\
 **Version history:**\
 0.6.0 - added
 
