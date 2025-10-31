@@ -754,21 +754,21 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
-#### `configuration[timeline_access]` {#timeline_access}
+#### `configuration[timelines_access]` {#timelines_access}
 
 **Description:** Access restrictions on different timelines.\
 **Type:** Hash\
 **Version history:**\
 4.5.0 - added
 
-#### `configuration[timeline_access][live_feeds]` {#timeline_access-live_feeds}
+#### `configuration[timelines_access][live_feeds]` {#timelines_access-live_feeds}
 
 **Description:** Access restrictions on [public “firehose” feeds]({{< relref "methods/timelines#public" >}}).\
 **Type:** Hash\
 **Version history:**\
 4.5.0 - added
 
-#### `configuration[timeline_access][live_feeds][local]` {#timeline_access-live_feeds-local}
+#### `configuration[timelines_access][live_feeds][local]` {#timelines_access-live_feeds-local}
 
 **Description:** Access restrictions for local posts in the public “firehose” feed.\
 **Type:** String (Enumerable oneOf)\
@@ -778,7 +778,7 @@ aliases: [
 **Version history:**\
 4.5.0 - added
 
-#### `configuration[timeline_access][live_feeds][remote]` {#timeline_access-live_feeds-remote}
+#### `configuration[timelines_access][live_feeds][remote]` {#timelines_access-live_feeds-remote}
 
 **Description:** Access restrictions for remote posts in the public “firehose” feed.\
 **Type:** String (Enumerable oneOf)\
@@ -788,14 +788,14 @@ aliases: [
 **Version history:**\
 4.5.0 - added
 
-#### `configuration[timeline_access][hashtag_feeds]` {#timeline_access-hashtag_feeds}
+#### `configuration[timelines_access][hashtag_feeds]` {#timelines_access-hashtag_feeds}
 
 **Description:** Access restrictions on [hashtag feeds]({{< relref "methods/timelines#tag" >}}).\
 **Type:** Hash\
 **Version history:**\
 4.5.0 - added
 
-#### `configuration[timeline_access][hashtag_feeds][local]` {#timeline_access-hashtag_feeds-local}
+#### `configuration[timelines_access][hashtag_feeds][local]` {#timelines_access-hashtag_feeds-local}
 
 **Description:** Access restrictions for local posts in hashtag feeds.\
 **Type:** String (Enumerable oneOf)\
@@ -805,7 +805,7 @@ aliases: [
 **Version history:**\
 4.5.0 - added
 
-#### `configuration[timeline_access][hashtag_feeds][remote]` {#timeline_access-hashtag_feeds-remote}
+#### `configuration[timelines_access][hashtag_feeds][remote]` {#timelines_access-hashtag_feeds-remote}
 
 **Description:** Access restrictions for remote posts in hashtag feeds.\
 **Type:** String (Enumerable oneOf)\
@@ -815,14 +815,14 @@ aliases: [
 **Version history:**\
 4.5.0 - added
 
-#### `configuration[timeline_access][trending_link_feeds]` {#timeline_access-trending_link_feeds}
+#### `configuration[timelines_access][trending_link_feeds]` {#timelines_access-trending_link_feeds}
 
 **Description:** Access restrictions on [trending link feeds]({{< relref "methods/timelines#link" >}}).\
 **Type:** Hash\
 **Version history:**\
 4.5.0 - added
 
-#### `configuration[timeline_access][trending_link_feeds][local]` {#timeline_access-trending_link_feeds-local}
+#### `configuration[timelines_access][trending_link_feeds][local]` {#timelines_access-trending_link_feeds-local}
 
 **Description:** Access restrictions for local posts in the trending link feeds.\
 **Type:** String (Enumerable oneOf)\
@@ -832,7 +832,7 @@ aliases: [
 **Version history:**\
 4.5.0 - added
 
-#### `configuration[timeline_access][trending_link_feeds][remote]` {#timeline_access-trending_link_feeds-remote}
+#### `configuration[timelines_access][trending_link_feeds][remote]` {#timelines_access-trending_link_feeds-remote}
 
 **Description:** Access restrictions for remote posts in trending link feeds.\
 **Type:** String (Enumerable oneOf)\
