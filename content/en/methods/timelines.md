@@ -33,7 +33,8 @@ View public statuses.
 2.6.0 - add `min_id`\
 3.0.0 - auth is required if public preview is disabled\
 3.1.4 - added `remote`\
-3.3.0 - both `min_id` and `max_id` can be used at the same time now
+3.3.0 - both `min_id` and `max_id` can be used at the same time now\
+4.5.0 - add [access control settings]({{<relref "entities/Instance/#timelines_access-live_feeds">}})
 
 #### Request
 
@@ -89,6 +90,8 @@ Sample API call with limit=2
 ]
 ```
 
+Note: The array returned may be empty in case the feed is disabled. See the [instance configuration attribute]({{<relref "entities/Instance/#timelines_access-live_feeds" >}}).
+
 ##### 401: Unauthorized
 
 Invalid or missing Authorization header when the server is configured to disable unauthenticated access to the public timeline. When unauthenticated access to remote statuses in this timeline are disabled, unauthenticated requests to this endpoint will fail with a 401 unless `local` is set to true. Likewise for unauthenticated access to local posts and the `remote` parameter.
@@ -117,7 +120,8 @@ View public statuses containing the given hashtag.
 2.6.0 - add `min_id`\
 2.7.0 - add `any[]`, `all[]`, `none[]` for additional tags\
 3.0.0 - auth is required if public preview is disabled\
-3.3.0 - both `min_id` and `max_id` can be used at the same time now. add `remote`
+3.3.0 - both `min_id` and `max_id` can be used at the same time now. add `remote`\
+4.5.0 - add [access control settings]({{<relref "entities/Instance/#timelines_access-hashtag_feeds">}})
 
 #### Request
 
@@ -225,6 +229,8 @@ Sample timeline for the hashtag #cats and limit=2
 ]
 ```
 
+Note: The array returned may be empty in case the feed is disabled. See the [instance configuration attribute]({{<relref "entities/Instance/#timelines_access-hashtag_feeds" >}}).
+
 ##### 404: Not found
 
 Hashtag does not exist
@@ -330,7 +336,8 @@ View public statuses containing a link to the specified currently-trending artic
 **Returns:** Array of [Status]({{<relref "entities/status">}})\
 **OAuth:** Public. Requires app token + `read:statuses` if the instance has disabled public preview.\
 **Version history:**\
-4.3.0 - added
+4.3.0 - added\
+4.5.0 - add [access control settings]({{<relref "entities/Instance/#timelines_access-trending_link_feeds">}})
 
 #### Request
 
@@ -357,7 +364,31 @@ limit
 : Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
 
 #### Response
+
 ##### 200: OK
+
+Sample API call with limit=2
+
+```json
+[
+  {
+    "id": "103206804533200177",
+    "created_at": "2019-11-26T23:27:31.000Z",
+    // ...
+    "visibility": "public",
+    // ...
+  },
+  {
+    "id": "103206804086086361",
+    "created_at": "2019-11-26T23:27:32.000Z",
+    // ...
+    "visibility": "public",
+    // ...
+  }
+]
+
+```
+Note: The array returned may be empty in case the feed is disabled. See the [instance configuration attribute]({{<relref "entities/Instance/#timelines_access-trending_link_feeds" >}}).
 
 ##### 404: Not found
 
@@ -526,6 +557,8 @@ Invalid or missing Authorization header.
 ---
 
 ## See also
+
+{{< page-relref ref="entities/Instance/#timelines_access" caption="Instance#configuration[timeline_access]" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/controllers/api/v1/timelines/home_controller.rb" caption="app/controllers/api/v1/timelines/home_controller.rb" >}}
 
