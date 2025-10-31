@@ -763,28 +763,28 @@ aliases: [
 
 #### `configuration[timelines_access][live_feeds]` {#timelines_access-live_feeds}
 
-**Description:** Access restrictions on [public “firehose” feeds]({{< relref "methods/timelines#public" >}}).\
+**Description:** Access restrictions on [public feeds]({{< relref "methods/timelines#public" >}}).\
 **Type:** Hash\
 **Version history:**\
 4.5.0 - added
 
 #### `configuration[timelines_access][live_feeds][local]` {#timelines_access-live_feeds-local}
 
-**Description:** Access restrictions for local posts in the public “firehose” feed.\
+**Description:** Access restrictions for local posts in the public feed.\
 **Type:** String (Enumerable oneOf)\
-`public` = Access to local posts in the public “firehose” feed is available to both visitors and logged-in users.\
-`authenticated` = Access to local posts in the public “firehose” feed requires authentication.\
-`disabled` = Access to local posts in the public “firehose” feed is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
+`public` = Access to local posts in the public feed is available to both visitors and logged-in users.\
+`authenticated` = Access to local posts in the public feed requires authentication.\
+`disabled` = Access to local posts in the public feed is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
 **Version history:**\
 4.5.0 - added
 
 #### `configuration[timelines_access][live_feeds][remote]` {#timelines_access-live_feeds-remote}
 
-**Description:** Access restrictions for remote posts in the public “firehose” feed.\
+**Description:** Access restrictions for remote posts in the public feed.\
 **Type:** String (Enumerable oneOf)\
-`public` = Access to remote posts in the public “firehose” feed is available to both visitors and logged-in users.\
-`authenticated` = Access to remote posts in the public “firehose” feed requires authentication.\
-`disabled` = Access to remote posts in the public “firehose” feed is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
+`public` = Access to remote posts in the public feed is available to both visitors and logged-in users.\
+`authenticated` = Access to remote posts in the public feed requires authentication.\
+`disabled` = Access to remote posts in the public feed is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
 **Version history:**\
 4.5.0 - added
 
