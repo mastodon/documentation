@@ -192,7 +192,7 @@ Request a backup for a user account with the given USERNAME. The backup will be 
 
 ### `tootctl accounts cull` {#accounts-cull}
 
-Remove remote accounts that no longer exist. Queries every single remote account in the database to determine if it still exists on the origin server, and if it doesn't, then remove it from the database. Accounts that have had confirmed activity within the last week are excluded from the checks, in case the server is just down.
+Remove remote accounts that no longer exist. Queries every single remote account in the database to determine if it still exists on the origin server, and if it doesn't, then remove it from the database. Accounts that have had confirmed activity within the last week are excluded from the checks. If the account's domain is not accessible during the check, the account is not culled and the domain is reported at the end of the script.
 
 `DOMAIN[...]`
 : Optionally pass specific domains to cull
