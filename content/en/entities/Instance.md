@@ -801,7 +801,6 @@ aliases: [
 **Type:** String (Enumerable oneOf)\
 `public` = Access to local posts in hashtag feeds is available to both visitors and logged-in users.\
 `authenticated` = Access to local posts in hashtag feeds requires authentication.\
-`disabled` = Access to local posts in hashtag feeds is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
 **Version history:**\
 4.5.0 - added
 
