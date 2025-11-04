@@ -155,7 +155,7 @@ aliases: [
         "local": "public",
         "remote": "public"
       }
-    }
+    },
     "limited_federation": false
   },
   "registrations": {
