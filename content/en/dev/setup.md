@@ -80,7 +80,7 @@ gem install foreman --no-document
 foreman start
 ```
 
-This will start processes defined in `Procfile.dev`, which will give you: A Rails server, a Webpack server, a streaming API server, and Sidekiq. Of course, you can run any of those things stand-alone depending on your needs.
+This will start processes defined in `Procfile.dev`, which will give you: a Rails web server, a Vite server for assets, a streaming API server, and Sidekiq for background jobs. Of course, you can run any of those things stand-alone depending on your needs.
 
 ## Working with emails in development
 

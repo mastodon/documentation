@@ -25,7 +25,7 @@ The default value of `RAILS_ENV` is `development`, so you don’t need to set an
 
 - Ruby code reloads itself when you change it, which means you don’t need to restart the Rails server process to see changes
 - All errors you encounter show stack traces in the browser, rather than being hidden behind a generic error page
-- Webpack runs continuously and re-compiles JS and CSS assets when you change any of the front-end files, and the pages automatically reload
+- Vite runs continuously and re-compiles JS and CSS assets when you change any of the front-end files, and the pages automatically reload
 - Caching is disabled by default
 - An admin account with the e-mail `admin@localhost:3000` and password `mastodonadmin` is created automatically during `db:seed`
 
