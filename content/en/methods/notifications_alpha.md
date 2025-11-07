@@ -340,7 +340,7 @@ GET /api/v2_alpha/notifications/unread_count HTTP/1.1
 
 Get the (capped) number of unread notification groups for the current user.
 A notification is considered unread if it is more recent than the [notifications read marker]({{< relref "methods/markers" >}}).
-Because the count is dependant on the parameters, it is computed every time and is thus a relatively slow operation (although faster than getting the full corresponding notifications), therefore the number of returned notifications is capped.
+Because the count is dependent on the parameters, it is computed every time and is thus a relatively slow operation (although faster than getting the full corresponding notifications), therefore the number of returned notifications is capped.
 
 **Returns:** Hash with a single key of `count`\
 **OAuth:** User token + `read:notifications`\
@@ -419,7 +419,7 @@ Invalid or missing Authorization header.
 #### `statuses`
 
 **Description:** Statuses referenced by grouped notifications.\
-**Type:** Array of [Status]({{< relref "entities/Status" >}}}\
+**Type:** Array of [Status]({{< relref "entities/Status" >}})\
 **Version history:**\
 4.3.0-beta.1 - added\
 4.3.0-beta.2 - deprecated

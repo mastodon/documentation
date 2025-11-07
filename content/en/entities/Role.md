@@ -126,7 +126,7 @@ To determine the permissions available to a certain role, convert the `permissio
 : **Delete User Data**. Allows users to delete other users' data without delay.
 
 0x100000
-: **View live and topic feeds**. Allows users to view publice “firehose”, hashtag and link feeds even when those are disabled.
+: **View live and topic feeds**. Allows users to view public “firehose”, hashtag and link feeds even when those are disabled.
 
 ## See also
 
