@@ -62,7 +62,7 @@ sudo -u postgres createuser $YOUR_USERNAME_HERE --createdb
 You can now create the databases `mastodon_development` and `mastodon_test`, load the schema into them, and create seed data defined in `db/seeds/` into `mastodon_development`.
 
 ```sh
-rails db:setup
+RAILS_ENV=development bin/rails db:setup
 ```
 
 You can now launch `http://localhost:3000` in your browser and log in with the default admin user (`admin@localhost` / `mastodonadmin`).
@@ -77,7 +77,7 @@ There are multiple processes that need to be run for the full set of Mastodon’
 
 ```sh
 gem install foreman --no-document
-foreman start
+bin/dev
 ```
 
 This will start processes defined in `Procfile.dev`, which will give you: A Rails server, a Webpack server, a streaming API server, and Sidekiq. Of course, you can run any of those things stand-alone depending on your needs.
@@ -92,13 +92,13 @@ If you're developing in docker, you'll need to set the `REMOTE_DEV=true` environ
 
 ## Useful commands for testing {#testing}
 
-`rspec`
+`bin/rspec`
 : Run the Ruby test suite
 
 `yarn run test`
 : Run the JavaScript test suite
 
-`rubocop`
+`bin/rubocop`
 : Check the Ruby code for conformance with our code style
 
 ## Updating your development instance {#update}
@@ -109,5 +109,5 @@ If you're developing in docker, you'll need to set the `REMOTE_DEV=true` environ
 `yarn install`
 : Update JavaScript packages and install any new dependencies
 
-`RAILS_ENV=development rails db:migrate`
+`RAILS_ENV=development bin/rails db:migrate`
 : Run new database migrations for your development instance's database
