@@ -35,7 +35,7 @@ You can use a `#hashtag` to make your post discoverable to anyone searching for 
 
 {{< figure src="assets/compose-custom-emoji.png" width="50%" caption="An array of custom emoji are available in the selector" >}}
 
-Each server offers a set of custom emoji you can use, similar to Slack or Discord. You can use an emoji using its shortcode like `:thounking:` or by clicking the emoji face in the compose box and browsing through the "Custom" category. You can also browse through and search for standard unicode emoji.
+Each server offers a set of custom emoji you can use, similar to Slack or Discord. You can use an emoji using its shortcode like `:thounking:` or by clicking the emoji face in the compose box and browsing through the "Custom" category. You can also browse through and search for standard Unicode emoji.
 
 ## Attachments {#attachments}
 

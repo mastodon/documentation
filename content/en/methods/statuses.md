@@ -410,7 +410,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-Note the special properties `text` and `poll` or `media_attachments` which may be used to repost the status, e.g. in case of delete-and-redraft functionality. With [POST /api/v1/statuses](#create), use `text` as the value for `status` parameter, `media_attachments[n]["id"]` for the `media_ids` array parameter, and `poll` properties with the corresponding parameters (e.g. `poll[multiple]` and `poll[options]`, with a new `poll[expires_in]` and `poll[hide_totals]` per user input.
+Note the special properties `text` and `poll` or `media_attachments` which may be used to repost the status, e.g. in case of delete-and-redraft functionality. With [POST /api/v1/statuses](#create), use `text` as the value for `status` parameter, `media_attachments[n]["id"]` for the `media_ids` array parameter, and `poll` properties with the corresponding parameters (e.g. `poll[multiple]` and `poll[options]`), with a new `poll[expires_in]` and `poll[hide_totals]` per user input.
 
 Example of deleting a media post:
 

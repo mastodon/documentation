@@ -54,8 +54,9 @@ limit
     "account": {
       "id": "784058",
       "username": "katie",
-      "acct": "katie@pleroma.voidlurker.net",
+      "acct": "katie@pleroma.voidlurker.net"
       // ...
+    }
   },
   // ...
   {
@@ -63,8 +64,9 @@ limit
     "account": {
       "id": "108194863260762493",
       "username": "thunderbird",
-      "acct": "thunderbird@mastodon.online",
+      "acct": "thunderbird@mastodon.online"
       // ...
+    }
   }
 ]
 ```
