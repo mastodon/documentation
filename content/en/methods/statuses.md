@@ -1687,6 +1687,14 @@ Status is not owned by you:
 }
 ```
 
+Account has already reached the limit (defaults to 5) of pinned statuses:
+
+```json
+{
+  "error": "Validation failed: You have already pinned the maximum number of posts"
+}
+```
+
 Prior to 3.5.0, you could not pin one of your private statuses because private statuses could not be fetched from remote sites, and must have been delivered. (3.5.0 added a mechanism to fetch statuses on behalf of an account.)
 
 ```json
