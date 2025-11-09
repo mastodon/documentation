@@ -882,6 +882,16 @@ When delivering a message to a remote user, an optional `Collection-Synchronizat
 - `url` = a URL to a partial collection containing the identifier of every one of the sender's followers residing on the receiver's instance. MUST reside on the same domain as the actor itself, and SHOULD be only accessible with a signed query from the receiver's instance
 - `digest` = hexadecimal representation of the XORed SHA256 digests of each of the identifiers in the partial collection
 
+#### Digest calculation
+
+The digest is calculated by:
+
+1. Computing the SHA256 hash of each follower identifier (as a UTF-8 encoded string)
+2. XORing all the resulting digest bytes together
+3. Converting the final result to hexadecimal representation
+
+For multiple followers, each SHA256 digest is XORed with the others. For example, with followers A and B: `digest = SHA256(A) XOR SHA256(B)`.
+
 Example:
 
 ```http
