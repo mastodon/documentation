@@ -216,12 +216,12 @@ May contain subtrees `small` and `original`, as well as various other top-level 
 ### `meta[focus][x]` {#meta-focus-x}
 
 **Description:** Horizontal focal point\
-**Type:** float
+**Type:** {{<nullable>}} Float or null
 
 ### `meta[focus][y]` {#meta-focus-y}
 
 **Description:** Vertical focal point\
-**Type:** float
+**Type:** {{<nullable>}} Float or null
 
 ### `description` {#description}
 
