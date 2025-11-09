@@ -86,7 +86,23 @@ Spammers will often use different e-mail domains so it looks like they are using
 
 ### Blocking by IP {#blocking-by-ip}
 
-It is not possible to block visitors by IP address in Mastodon itself, and it is not a foolproof strategy. IPs are sometimes shared by a lot of different people and sometimes change hands. However, it is possible to block visitors by IP address in Linux using a firewall. Here is an example using `iptables` and `ipset`:
+Blocking by IP is not a foolproof strategy. IPs are sometimes shared by
+different people and sometimes change hands. It's also possible to accidentally
+block a large IP range and cut off legitimate access. Be careful with either of
+these approaches.
+
+#### IP Blocks
+
+Use the "IP Rules" page within the moderation interface to create an IP-Address
+based block. You can block specific IPv4 or IPv6 address, or block entire ranges
+using the CIDR syntax. The instructions on the page will guide you through how
+long the block should last, and what severity the block should have within the
+application.
+
+#### Firewall rules
+
+It is also possible to block visitors by IP address in Linux using a firewall.
+Here is an example using `iptables` and `ipset`:
 
 ```bash
 # Install ipset
