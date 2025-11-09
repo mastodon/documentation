@@ -71,7 +71,7 @@ limit
 : Integer. Maximum number of results to return, per type. Defaults to 20 results per category. Max 40 results per category.
 
 offset
-: Integer. Skip the first n results.
+: Integer. Skip the first n results. Only applies when `type` is also present (ignored otherwise).
 
 #### Response
 ##### 200: OK
