@@ -84,7 +84,7 @@ The value for `ES_PRESET` depends on the size of your Elasticsearch and will be 
 - `small_cluster` if you have less than 6 nodes in your cluster. Indices will be configured with 1 replica
 - `large_cluster` if you have 6 or more nodes in your cluster. Indices will be configured with more shards than with the `small_cluster` setting, to allow them to be distributed over more nodes
 
-If you have multiple Mastodon servers on the same machine, and you are planning to use the same Elasticsearch installation for all of them, make sure that all of them have unique `REDIS_NAMESPACE` in their configurations, to differentiate the indices. If you need to override the prefix of the Elasticsearch indices, you can set `ES_PREFIX` directly.
+If you have multiple Mastodon servers on the same machine, and you are planning to use the same Elasticsearch installation for all of them, make sure that all of them have unique `ES_PREFIX` values configured to differentiate the indices.
 
 ### Security
 
