@@ -658,7 +658,7 @@ Status is private or does not exist
 POST /api/v1/statuses/:id/translate HTTP/1.1
 ```
 
-Translate the status content into some language.
+Translate the status content into some language. Only statuses with Public and Unlisted visibility can be translated.
 
 **Returns:** [Translation]({{< relref "entities/translation" >}})\
 **OAuth:** App token + `read:statuses`\
@@ -730,11 +730,21 @@ Translating a status with poll into English
 
 ##### 404: Not found
 
-Status is private or does not exist
+Status does not exist
 
 ```json
 {
   "error": "Record not found"
+}
+```
+
+##### 403: Forbidden
+
+Status is private or direct
+
+```json
+{
+  "error": "This action is not allowed"
 }
 ```
 
