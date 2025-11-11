@@ -113,10 +113,7 @@ Obtain an access token, to be used during API calls that are not public.
 ##### Form data parameters
 
 grant_type
-: {{<required>}} String. Set equal to `authorization_code` if `code` is provided in order to gain user-level access. Otherwise, set equal to `client_credentials` to obtain app-level access only.
-
-code
-: {{<required>}} String. A user authorization code, obtained from the redirect after an [Authorization request](#authorize) is approved. May alternatively be displayed to the user if `urn:ietf:wg:oauth:2.0:oob` is used as the `redirect_uri`.
+: {{<required>}} String. Use `authorization_code` to gain user-level access, otherwise, use `client_credentials` to obtain app-level access only.
 
 client_id
 : {{<required>}} String. The client ID, obtained during app registration.
@@ -124,11 +121,14 @@ client_id
 client_secret
 : {{<required>}} String. The client secret, obtained during app registration.
 
+code
+: {{<required>}} String. When `grant_type` is set to `authorization_code`, a user authorization code, obtained after an [Authorization request](#authorize) is approved.
+
 redirect_uri
-: {{<required>}} String. Must match the `redirect_uri` used during the [Authorization request](#authorize).
+: {{<required>}} String. When `grant_type` is set to `authorization_code`, the URI that was used during the [Authorization request](#authorize), must match using [simple string comparison](https://www.rfc-editor.org/rfc/rfc3986.html#section-6.2.1).
 
 code_verifier
-: String. Required if [PKCE]({{< relref "spec/oauth#pkce" >}}) is used during the authorization request. This is the code verifier which was used to create the `code_challenge` using the `code_challenge_method` for the authorization request.
+: String. Required if [PKCE]({{< relref "spec/oauth#pkce" >}}) was used during the [Authorization request](#authorize). This is the code verifier which was used to create the `code_challenge` using the `code_challenge_method` for the authorization request. Not applicable when `grant_type` is set to `client_credentials`.
 
 scope
 : String. When `grant_type` is set to `client_credentials`, the list of requested OAuth scopes, separated by spaces (or pluses, if using query parameters). Must be a subset of the scopes requested at the time the application was created. If omitted, it defaults to `read`. Has no effect when `grant_type` is `authorization_code`.
