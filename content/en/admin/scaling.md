@@ -53,7 +53,7 @@ The more streaming server processes that you run, the more database connections 
 
 An example nginx configuration to route traffic to three different processes on `PORT` 4000, 4001, and 4002 is as follows:
 
-```text
+```nginx
 upstream streaming {
     least_conn;
     server 127.0.0.1:4000 fail_timeout=0;
