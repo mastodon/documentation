@@ -7,6 +7,10 @@ menu:
     parent: user
 ---
 
+<style>
+#TableOfContents ul ul ul {display: none}
+</style>
+
 ## What are quote posts? {#what}
 
 Quote posts allow you to reference another user's post in your own, while adding your own commentary.
