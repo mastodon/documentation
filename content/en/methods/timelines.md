@@ -310,9 +310,6 @@ Statuses in your home timeline will be returned
 
 Home feed is regenerating
 
-```text
-```
-
 ##### 401: Unauthorized
 
 Invalid or missing Authorization header.

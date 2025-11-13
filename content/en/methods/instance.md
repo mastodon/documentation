@@ -718,10 +718,6 @@ Invalid or missing Authorization header, if the admin has chosen to show domain 
 
 The admin has chosen to show domain blocks to no one. The response body is empty; only the HTTP 404 error code is relevant.
 
-```text
-
-```
-
 ---
 
 ## View extended description {#extended_description}
