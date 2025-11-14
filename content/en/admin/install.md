@@ -114,17 +114,13 @@ git checkout $(git tag -l | grep '^v[0-9.]*$' | sort -V | tail -n 1)
 #### Installing Ruby {#installing-ruby}
 
 We will use rbenv to manage Ruby versions as it simplifies obtaining the correct versions and updating them when new releases are available.
-Install rbenv:
+Install rbenv and ruby-build:
 
 ```bash
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-exec bash
-```
-
-Then install ruby-build:
-```bash
+source ~/.bashrc
 git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 ```
 
