@@ -1,11 +1,19 @@
 ---
 title: Moderation actions
-description: Actions that can be taken against unwanted users or domains.
+description: Features to assist in managing your community.
 menu:
   docs:
     weight: 110
     parent: admin
 ---
+
+## Announcements
+
+To communicate server-related events or notices to your users, you can use the "Announcements" feature from within the admin/moderation area.
+
+To send an announcement, navigate to "Administration -> Announcements", and select "New announcement". On the form, fill in at least the text of the announcement, and optionally any related date information. Announcements can be published immediately, or scheduled for later publication. Once an announcement is published it will show up in the announcements feed of users within the application.
+
+If you'd like to also email users about the announcement, choose "Notify users" from the announcements listing, check the preview, and click "Send" (you can optionally send yourself a preview email first). These emails cannot be opted out of by users, so use the feature for important notices only.
 
 ## Moderating individual users {#individual-moderation}
 
