@@ -51,6 +51,10 @@ Filters normally apply to any status that contains the included characters, rega
 
 If you hide boosts from someone, you won’t see their boosts in your home feed. This option only appears on users who you are currently following.
 
+### Quote posts
+
+If your post is quoted by another user in an undesiredable fashion, you can [remove your quoted post](../quote-posts#remove).
+
 ### Muting {#mute}
 
 When muting, you have the option to mute notifications from them or not. Muting without muting notifications hides the user from your view:
