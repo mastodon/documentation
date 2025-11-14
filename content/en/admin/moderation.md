@@ -47,8 +47,6 @@ For remote accounts, suspending will make them unfollow any local account. Those
 
 Note that by default, users suspended by an instance will still be able to view posts from that instance. To change this default behavior, instance admins can set the `AUTHORIZED_FETCH` environment variable - see the documentation for [Configuring your environment](https://docs.joinmastodon.org/admin/config/).
 
-## Server-wide moderation {#server-wide-moderation}
-
 ## Moderating entire websites {#server-wide-moderation}
 
 Because individually moderating a large volume of users from a misbehaving server can be exhausting, it is possible to pre-emptively moderate against all users from that particular server using a so-called **domain block**, which comes with several different levels of severity. Go to **Preferences** &gt; **Moderation** &gt; **Federation**, then click "Add new domain block" to block a server.
