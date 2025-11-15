@@ -244,7 +244,7 @@ The domain parameter already is covered by an existing domain block.
 
 ```json
 {
-  "error": "You have already imposed stricter limits on example.com."
+  "error": "You have already imposed stricter limits on example.com.",
   "existing_domain_block": {
     "id": "1",
     "domain": "example.com",

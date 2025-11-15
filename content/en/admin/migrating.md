@@ -44,7 +44,7 @@ At a high level, you’ll need to copy over the following:
 * The `~/live/public/system` directory, which contains user-uploaded images and videos (if using S3, you don’t need this)
 * The PostgreSQL database (using [pg_dump](https://www.postgresql.org/docs/9.1/static/backup-dump.html))
 * The `~/live/.env.production` file, which contains server config and secrets
-* The Redis database in the `/var/lib/redis/` directory, which contains unproccessed Sidekiq jobs.
+* The Redis database in the `/var/lib/redis/` directory, which contains unprocessed Sidekiq jobs.
 
 Less crucially, you’ll probably also want to copy the following for convenience:
 

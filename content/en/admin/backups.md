@@ -7,7 +7,7 @@ menu:
     parent: admin
 ---
 
-For any real-world use, you should make sure to regularly backup your Mastodon server.
+For any real-world use, you should make sure to regularly back up your Mastodon server.
 
 ## Overview {#overview}
 

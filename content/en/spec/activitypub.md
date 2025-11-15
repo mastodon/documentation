@@ -140,7 +140,7 @@ attributedTo
 : Used to determine the profile which authored the status
 
 to/cc
-: Used to determine audience and visibility of a status, in combination with mentions. See [Mentions for adddressing and notifications](#Mention)
+: Used to determine audience and visibility of a status, in combination with mentions. See [Mentions for addressing and notifications](#Mention)
 
 tag
 : Used to mark up mentions and hashtags.

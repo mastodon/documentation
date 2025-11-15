@@ -13,7 +13,7 @@ When we register our app and when we authorize our user, we need to define what 
 
 When authorizing a user, the `scope` query parameter must be a subset of those we specified when we created our app. In our ongoing example, we specified `read write push` as our scopes when we created our app, however it is a better idea to only request access to what your app will actually need through [granular scopes]({{< relref "api/oauth-scopes#granular-scopes" >}}).
 
-See [OAuth Scopes]({{< relref "api/oauth-scopes" >}}) for a full list of scopes. Each API method's documentation will also specify the OAuth [token type]({{< relref "api/oauth-tokens" >}}) and the scopes required to call it. If an endpoint specifies `read:statuses` and you have `read` access, then you will be able to use that endpoint, since scopes are hierarchial.
+See [OAuth Scopes]({{< relref "api/oauth-scopes" >}}) for a full list of scopes. Each API method's documentation will also specify the OAuth [token type]({{< relref "api/oauth-tokens" >}}) and the scopes required to call it. If an endpoint specifies `read:statuses` and you have `read` access, then you will be able to use that endpoint, since scopes are hierarchical.
 
 {{< page-relref ref="api/oauth-scopes" caption="OAuth Scopes" >}}
 
