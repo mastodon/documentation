@@ -28,7 +28,7 @@ Please note that ElasticSearch has significant memory requirements, which can ea
 ## Installing Elasticsearch {#install}
 
 {{< hint style="info" >}}
-Mastodon is tested with Elasticsearch version 7. It should support OpenSearch, as well as Elasticsearch versions 6 and 8, but those setups are not officially supported.
+Mastodon is tested with Elasticsearch version 7 (Which is now end of life). It should support OpenSearch, as well as Elasticsearch versions 8 and 9, but those setups are not officially supported. The install instructions within this documentation relate to Elasticsearch version 7 only.
 {{< /hint >}}
 
 Add the official Elasticsearch repository to apt:
@@ -58,6 +58,11 @@ Before you start Elasticsearch, you might want to limit its RAM consumption. A R
 ```
 
 This will reserve 16 GB of RAM for Elasticsearch right from the start and allow it to use up to 24 GB of RAM. Also see: [Managing and troubleshooting Elasticsearch memory](https://www.elastic.co/blog/managing-and-troubleshooting-elasticsearch-memory/).
+
+
+{{< hint style="info" >}}
+To maximise the performance of your Elasticsearch cluster you should identify a RAM Value which can be sustained and which will not impact other services on the machine you run Elasticsearch on, once identified you should set the `Xms` and `Xmx` values to this value, Elasticsearch will reserve this memory and will always be able to make full use of this memory which in seach heavy situations will improve performance. 
+{{< /hint >}}
 
 To start Elasticsearch:
 
