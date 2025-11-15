@@ -171,7 +171,7 @@ systemctl status nginx.service
 
 When this happens you may uncomment the following line in your nginx.conf:
 
-```text
+```nginx
 # server_names_hash_bucket_size 64;
 ```
 

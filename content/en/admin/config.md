@@ -27,7 +27,7 @@ As with `LOCAL_DOMAIN`, `WEB_DOMAIN` cannot be safely changed once set, as this 
 
 To install Mastodon on `mastodon.example.com` in such a way it can serve `@alice@example.com`, set `LOCAL_DOMAIN` to `example.com` and `WEB_DOMAIN` to `mastodon.example.com`. This also requires additional configuration on the server hosting `example.com` to redirect requests from `https://example.com/.well-known/webfinger` to `https://mastodon.example.com/.well-known/webfinger`. For instance, with nginx, the configuration could look like the following:
 
-```
+```nginx
 location /.well-known/webfinger {
   add_header Access-Control-Allow-Origin '*';
   return 301 https://mastodon.example.com$request_uri;
