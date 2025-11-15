@@ -37,6 +37,8 @@ You can use a `#hashtag` to make your post discoverable to anyone searching for 
 
 Each server offers a set of custom emoji you can use, similar to Slack or Discord. You can use an emoji using its shortcode like `:thounking:` or by clicking the emoji face in the compose box and browsing through the "Custom" category. You can also browse through and search for standard unicode emoji.
 
+To choose a different emoji skin tone, use the selector next to the emoji search box.
+
 ## Attachments {#attachments}
 
 You can attach either files or a poll to your status.
