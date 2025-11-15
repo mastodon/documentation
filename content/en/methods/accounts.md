@@ -2619,7 +2619,7 @@ GET /api/v1/accounts/lookup HTTP/1.1
 Quickly lookup a username to see if it is available, skipping WebFinger resolution.
 
 **Returns:** [Account]({{< relref "entities/Account">}})\
-**OAuth:** Public\
+**OAuth:** User token + `read:accounts`\
 **Version history:**\
 3.4.0 - added
 
