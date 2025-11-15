@@ -10,6 +10,16 @@ menu:
 When a new version of Mastodon comes out, it appears on the [GitHub releases page](https://github.com/mastodon/mastodon/releases). Please mind that running unreleased code from the `main` branch, while possible, is not recommended.
 {{< /hint >}}
 
+### Versioning
+
+Generally speaking, Mastodon versioning is done in the spirit of [SemVer](https://semver.org), that is:
+
+- Major versions (4.x to 5.x) make backwards incompatible changes to how the application works or the API responds, or make substantial changes to underlying system requirements
+- Minor versions (4.1.x to 4.2.x) add functionality in backwards compatible ways, make minor dependency changes, etc
+- Patch versions (4.2.1 to 4.2.2) make backward compatible bug fixes or small enhancements
+
+All releases will have accompanying release notes and changelogs, and reading those is the best way to be sure about the changes in a given release.
+
 ### Automatic update verification {#automated_checks}
 
 Since v4.2.0, Mastodon will automatically check for available updates and notify the users of your server that have the `DevOps` permission.
@@ -44,7 +54,7 @@ git checkout v3.1.2
 Now execute the upgrade instructions that are included in that version's release notes on GitHub. Because different releases require different instructions, we do not include any instructions on this page.
 
 {{< hint style="info" >}}
-You can safely skip intermediate releases when upgrading from an old version. You do not need to individually check them out. However, you do need to keep track of the instructions with each release. Most instructions overlap, you just need to make sure you execute everything at least once.
+You can safely skip deploying every single PATCH level (see above) version release when upgrading from an old version. You do not need to individually deploy them all. However, you should deploy at least one release from every MINOR version series. Most importantly, keep track of the instructions with each release or collection of releases. Most instructions overlap, you just need to make sure you execute everything at least once.
 {{< /hint >}}
 
 After you have executed the instructions from the release notes, switch back to root:
