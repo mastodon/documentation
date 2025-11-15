@@ -23,7 +23,7 @@ aliases: [
 GET /api/v2/search HTTP/1.1
 ```
 
-Perform a search for content in accounts, statuses and hashtags with the given parameters.
+Perform a search for content in accounts, statuses and hashtags with the given parameters. Note that the availability of results depends on the specific backend search configuration of the server being queried. By default, accounts and hashtags are always searchable, while statuses depend on an ElasticSearch backend being present.
 
 **Returns:** [Search]({{< relref "entities/Search" >}})\
 **OAuth:** Public (without `resolve` or `offset`), or User token + `read:search`\
