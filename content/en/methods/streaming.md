@@ -20,6 +20,13 @@ aliases: [
 #TableOfContents ul ul ul {display: none}
 </style>
 
+## Hostname discovery
+
+Depending on server configuration details, the streaming API may be served from a different hostname than the other portions of the REST API. All path values documented here are relative to that hostname value. Clients should first obtain the hostname value by either:
+
+- Extracting the `configuration.urls.streaming` value from the [instance endpoint](../instance).
+- Making a REST API request to the `api/v1/streaming` endpoint on the regular host. This will redirect to the streaming server URL if configured, or return Not Found when the same host should be used.
+
 ## Event types and payloads {#events}
 
 `update`
