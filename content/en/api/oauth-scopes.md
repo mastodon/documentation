@@ -57,7 +57,7 @@ If you do not specify `scope` in your authorization request, or `scopes` in your
 - 3.1.0 - Added bookmark scopes [#7107](https://github.com/mastodon/mastodon/pull/7107)
 - 3.5.0 - Deprecated `follow` scope in favour of granular scopes [#17678](https://github.com/mastodon/mastodon/pull/17678)
 - 4.1.0 - Added admin scopes for blocks and allows [#20918](https://github.com/mastodon/mastodon/pull/20918)
-- 4.3.0 - Added `profile` scope to obtain only information about the currently authenticated user [#29087](https://github.com/mastodon/mastodon/pull/29087), [#30357](https://github.com/mastodon/mastodon/pull/30357)
+- 4.3.0 - Added `profile` scope to obtain only information about the currently authenticated user [#29087](https://github.com/mastodon/mastodon/pull/29087), [#30357](https://github.com/mastodon/mastodon/pull/30357)' and removed (experimental) `crypto`[^crypto] scope
 
 ## List of high-level scopes
 
@@ -166,6 +166,4 @@ It is recommended that you make use of granular scopes, unless you really need f
 |                           | `admin:write:ip_blocks`              |
 |                           | `admin:write:reports`                |
 
-## Removed scopes {#removed}
-
-* Mastodon versions from 3.2.0 to 4.3.0 did support a `crypto` scope for end-to-end encryption APIs, however, this functionality was never documented nor fully implemented, and has been removed as of version 4.3.0. Any applications registered with that scope will have the scope removed when the server is upgraded to 4.3.0 and above.
+[^crypto]: Mastodon versions from 3.2.0 to 4.3.0 supported a `crypto` scope for end-to-end encryption APIs. This functionality was never documented or fully implemented, and has been removed as of version 4.3.0. Any applications registered with that scope will have the scope removed when the server is upgraded to 4.3.0 and above.
