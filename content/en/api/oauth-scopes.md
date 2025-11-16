@@ -108,7 +108,7 @@ Requesting `admin:read` or `admin:write` will also grant [granular scopes](#gran
 Note that there is no singular `admin` scope available.
 {{< /hint >}}
 
-## Granular scopes {#granular}
+## Granular scopes {#granular-scopes}
 
 It is recommended that you make use of granular scopes, unless you really need full access to everything by using a `scope` of `read write follow push`.
 
