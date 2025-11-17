@@ -600,6 +600,14 @@ wss://mastodon.example/api/v1/streaming
 
 Open a multiplexed WebSocket connection to receive events.
 
+### Authorization styles {#authorization}
+
+The streaming endpoints documented here that require authorization suggest using the `Authorization` HTTP header with a `Bearer <user_token>` value. This is the preferred and recommended approach to authorization, and matches what is required for many of the REST API endpoints. As alternatives, sending the same user token as a `Sec-Websocket-Protocol` header or sending an `access_token` query param will also work.
+
+{{< hint style="warning" >}}
+Performing authorization with an `access_token` query param is not recommended for new clients as query params are sometimes collected in access logs. Legacy support only.
+{{</hint>}}
+
 #### Request
 ##### Headers
 
@@ -625,7 +633,7 @@ Example unsubscription from user updates:
 {{</hint>}}
 
 access_token
-: {{<required>}} String. A user-authorized OAuth token.  Alternative to `Authorization` header.
+: {{%optional%}} String. A user-authorized OAuth token.  Provided as a legacy alternative to `Authorization` header as [explained](#authorization) above.
 
 stream
 : {{<required>}} String. The stream to watch for events. See [Streams](#streams) for possible values.
