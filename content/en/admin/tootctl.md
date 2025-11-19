@@ -107,7 +107,7 @@ Create a new user account with the given `USERNAME` and provided `--email`.
 : Reuse an old USERNAME after its account has been deleted.
 
 `--force`
-Forcefully delete any existing account with this `USERNAME` and reattach the new account in place of the (just-deleted) account.
+: Forcefully delete any existing account with this `USERNAME` and reattach the new account in place of the (just-deleted) account.
 
 **Version history:**\
 2.6.0 - added\
@@ -832,13 +832,13 @@ Create or update an Elasticsearch index and populate it. If Elasticsearch is emp
 : Parallelize execution of the command on multiple threads. Defaults to 5.
 
 `--import`
-:Import data from the database to the index
+: Import data from the database to the index
 
 `--clean`
-:Remove outdated documents from the index
+: Remove outdated documents from the index
 
 `--reset-chewy`
-:Reset Chewy's internal index
+: Reset Chewy's internal index
 
 **Version history:**\
 2.8.0 - added\
