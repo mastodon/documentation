@@ -164,13 +164,15 @@ Creating Elasticsearch indicies could require more memory than the JVM (Java Vir
 
 1. Create and open a file in the directory ```/etc/elasticsearch/jvm.options.d/``` (for example: ```nano /etc/elasticsearch/jvm.options.d/ram.options```)
 2. Add following text and edit the allocated memory to your needs. As a rule of thumb, Elasticsearch should use about 25%-50% of your available memory. Do not allocate more memory than available.
-```
-# Xms represents the initial size of total heap space
-# Xmx represents the maximum size of total heap space
-# Both values should be the same
--Xms2048m
--Xmx2048m
-```
+
+    ```java-properties
+    # Xms represents the initial size of total heap space
+    # Xmx represents the maximum size of total heap space
+    # Both values should be the same
+    -Xms2048m
+    -Xmx2048m
+    ```
+
 3. Save the file.
 4. Restart Elasticsearch using ```systemctl restart elasticsearch```.
 5. Retry creating Elasticsearch indicies. If Elasticsearch still crashes, try to set a higher number.
