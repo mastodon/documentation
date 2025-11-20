@@ -324,7 +324,7 @@ Example value: `wss://streaming.example.com`
 
 {{< hint style="danger" >}}
 **Removed:**\
-The streaming server process now only uses a single node.js process, to scale it further, you'll need to follow the documentation in the [scaling guide](/admin/scaling#streaming)
+The streaming server process now only uses a single Node.js process, to scale it further, you'll need to follow the documentation in the [scaling guide](/admin/scaling#streaming)
 {{< /hint >}}
 
 Specific to the streaming API, this variable determines how many different processes the streaming API forks into. Defaults to the number of CPU cores minus one.

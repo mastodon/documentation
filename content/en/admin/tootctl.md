@@ -414,7 +414,7 @@ Remove all accounts from a given DOMAIN without leaving behind any records. Unli
 : Domains to purge, separated by space.
 
 `--by-uri`
-: Match domains in the actor URI rather than in the Webfinger address.
+: Match domains in the actor URI rather than in the WebFinger address.
 
 `--limited-federation-mode`
 : Can be provided instead of DOMAIN. Instead of purging from a single domain, all accounts from domains that are not allow-listed will be removed from the database. Use this after enabling limited federation mode and defining your allow-list.

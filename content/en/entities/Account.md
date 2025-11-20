@@ -114,7 +114,7 @@ aliases: [
 
 ### `acct` {#acct}
 
-**Description:** The Webfinger account URI. Equal to `username` for local users, or `username@domain` for remote users.\
+**Description:** The WebFinger account URI. Equal to `username` for local users, or `username@domain` for remote users.\
 **Type:** String\
 **Version history:**\
 0.1.0 - added

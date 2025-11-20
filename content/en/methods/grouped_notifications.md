@@ -511,7 +511,7 @@ These are stripped-down versions of [Account]({{< relref "entities/Account" >}})
 
 #### `acct`
 
-**Description:** The Webfinger account URI. Equal to `username` for local users, or `username@domain` for remote users.\
+**Description:** The WebFinger account URI. Equal to `username` for local users, or `username@domain` for remote users.\
 **Type:** String\
 **Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added

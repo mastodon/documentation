@@ -73,7 +73,7 @@ $ sudo systemctl start mastodon-streaming@4002.service
 By default, `sudo systemctl start mastodon-streaming` starts just one process on port 4000, equivalent to running `sudo systemctl start mastodon-streaming@4000.service`.
 
 {{< hint style="warning" >}}
-Previous versions of Mastodon had a `STREAMING_CLUSTER_NUM` environment variable that made the streaming server use clustering, which started multiple worker processes and used node.js to load balance them.
+Previous versions of Mastodon had a `STREAMING_CLUSTER_NUM` environment variable that made the streaming server use clustering, which started multiple worker processes and used Node.js to load balance them.
 
 This interacted with the other settings in ways which made capacity planning difficult, especially when it comes to database connections and CPU resources. By default, the streaming server would consume resources on all available CPUs which could cause contention with other software running on that server. Another common issue was that misconfiguring the `STREAMING_CLUSTER_NUM` would exhaust your database connections by opening up a connection pool per cluster worker process, so a `STREAMING_CLUSTER_NUM` of `5` and `DB_POOL` of `10` would potentially consume 50 database connections.
 

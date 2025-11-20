@@ -90,9 +90,9 @@ Using that ActivityPub actor representation (which may be provided directly, wit
 
 - Take `preferredUsername` and the hostname of the actor's server
 - Construct an `acct:` URI using that username and domain
-- Make a Webfinger request for that `resource`
+- Make a WebFinger request for that `resource`
 
-If the `subject` matches the `resource`, then the process stops here. Otherwise, if the `subject` contains a different canonical account URI, then Mastodon will perform an additional Webfinger request for that canonical account URI in order to ensure that this new `resource` links to the same ActivityPub actor with the same criteria being checked.
+If the `subject` matches the `resource`, then the process stops here. Otherwise, if the `subject` contains a different canonical account URI, then Mastodon will perform an additional WebFinger request for that canonical account URI in order to ensure that this new `resource` links to the same ActivityPub actor with the same criteria being checked.
 
 In other words, the following cases are valid:
 
