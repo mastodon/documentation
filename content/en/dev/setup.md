@@ -107,7 +107,7 @@ If you're developing in docker, you'll need to set the `REMOTE_DEV=true` environ
 : Update Ruby gems and install any new dependencies
 
 `yarn install`
-: Update Javascript packages and install any new dependencies
+: Update JavaScript packages and install any new dependencies
 
 `RAILS_ENV=development rails db:migrate`
 : Run new database migrations for your development instance's database

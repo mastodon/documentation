@@ -149,7 +149,7 @@ tag[].type
 : Either `Mention`, `Hashtag`, or `Emoji` is currently supported. See the [Hashtag](#Hashtag) and [Custom emoji](#Emoji) extension sections for more information
 
 tag[].name
-: The plain-text Webfinger address of a profile Mention (`@user` or `@user@domain`), or the plain-text Hashtag (`#tag`), or the custom Emoji shortcode (`:thounking:`)
+: The plain-text WebFinger address of a profile Mention (`@user` or `@user@domain`), or the plain-text Hashtag (`#tag`), or the custom Emoji shortcode (`:thounking:`)
 
 tag[].href
 : The URL of the actor or tag
@@ -238,7 +238,7 @@ Move
 ### Properties used
 
 preferredUsername
-: Used for Webfinger lookup. Must be unique on the domain, and must correspond to a Webfinger `acct:` URI.
+: Used for WebFinger lookup. Must be unique on the domain, and must correspond to a WebFinger `acct:` URI.
 
 name
 : Used as profile display name.

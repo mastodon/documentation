@@ -2610,7 +2610,7 @@ resolve=true, but the domain part of the user@domain address is not a currently 
 
 ---
 
-## Lookup account ID from Webfinger address {#lookup}
+## Lookup account ID from WebFinger address {#lookup}
 
 ```http
 GET /api/v1/accounts/lookup HTTP/1.1
@@ -2627,7 +2627,7 @@ Quickly lookup a username to see if it is available, skipping WebFinger resoluti
 ##### Query parameters
 
 acct
-: {{<required>}} String. The username or Webfinger address to lookup.
+: {{<required>}} String. The username or WebFinger address to lookup.
 
 #### Response
 ##### 200: OK
