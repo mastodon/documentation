@@ -111,77 +111,13 @@ As of Mastodon 4.4.0, this environment variable does not override the visitor's 
 
 Example value: `de`
 
-Supported languages:
+The [list of supported languages](https://github.com/mastodon/mastodon/blob/main/config/initializers/i18n.rb) sometimes changes between versions, so make sure the version you are running supports the locale you want to use.
 
-- `ar`
-- `ast`
-- `bg`
-- `bn`
-- `br`
-- `ca`
-- `co`
-- `cs`
-- `cy`
-- `da`
-- `de`
-- `el`
-- `en`
-- `eo`
-- `es`
-- `es-AR`
-- `et`
-- `eu`
-- `fa`
-- `fi`
-- `fr`
-- `ga`
-- `gl`
-- `he`
-- `hi`
-- `hr`
-- `hu`
-- `hy`
-- `id`
-- `io`
-- `is`
-- `it`
-- `ja`
-- `ka`
-- `kab`
-- `kk`
-- `kn`
-- `ko`
-- `lt`
-- `lv`
-- `mk`
-- `ml`
-- `mr`
-- `ms`
-- `nl`
-- `nn`
-- `no`
-- `oc`
-- `pl`
-- `pt-BR`
-- `pt-PT`
-- `ro`
-- `ru`
-- `sk`
-- `sl`
-- `sq`
-- `sr`
-- `sr-Latn`
-- `sv`
-- `ta`
-- `te`
-- `th`
-- `tr`
-- `uk`
-- `ur`
-- `vi`
-- `zh-CN`
-- `zh-HK`
-- `zh-TW`
+To see the full list of locales supported, run:
+
+```bash
+bin/rails runner 'puts Rails.application.config.i18n.available_locales.sort'
+```
 
 #### `FORCE_DEFAULT_LOCALE`
 
