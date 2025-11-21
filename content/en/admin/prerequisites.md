@@ -102,6 +102,7 @@ COMMIT
 
 ```
 
+Please note there must to be a new line after COMMIT, or you will receive the error message `Bad argument COMMIT`.
 With iptables-persistent, that configuration will be loaded at boot time. But since we are not rebooting right now, we need to load it manually for the first time:
 
 ```bash
