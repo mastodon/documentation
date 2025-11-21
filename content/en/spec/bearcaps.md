@@ -9,7 +9,7 @@ menu:
 
 ## What are bearcaps? {#intro}
 
-In certain cases, resources may not be publically available and may require a token to successfully fetch them. This is typically done by using an HTTP `Authorization` header containing a `Bearer` token, like so:
+In certain cases, resources may not be publicly available and may require a token to successfully fetch them. This is typically done by using an HTTP `Authorization` header containing a `Bearer` token, like so:
 
 ```http
 GET https://example.com/foo
