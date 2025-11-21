@@ -51,7 +51,7 @@ apt install elasticsearch
 
 Before you start Elasticsearch, you might want to limit its RAM consumption. A RAM limit can be set be creating a new file `/etc/elasticsearch/jvm.options.d/limit-ram.options` with the following content:
 
-```
+```java-properties
 # Limit RAM size to 24 GB
 -Xms16g
 -Xmx24g

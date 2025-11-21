@@ -224,10 +224,6 @@ The media file was processed, and a `url` to the processed media is available.
 
 The media attachment is still being processed
 
-```json
-
-```
-
 ##### 401: Unauthorized
 
 Invalid or missing Authorization header.
