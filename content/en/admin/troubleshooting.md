@@ -61,13 +61,13 @@ By default, Mastodon makes use of [systemd's sandboxing capabilities](https://ww
 
 This happens for example, when you run 
 
-```
+```bash
 RAILS_ENV=production bundle exec rails assets:precompile
 ```
 
 without a valid, functional NodeJS environment. In some cases `yarn install --immutable` has not been run, yet and the web files have not been installed to the correct directory, yet. Running the `assets::precompile` command again will probably not help. Here's how to fix it:
 
-```
+```bash
 cd live
 yarn install --immutable
 RAILS_ENV=production bundle exec rake tmp:cache:clear
@@ -76,7 +76,7 @@ RAILS_ENV=production bundle exec rails assets:precompile
 
 Then restart the `mastodon-web` service:
 
-```
+```bash
 sudo systemctl restart mastodon-web.service
 ```
 
@@ -85,7 +85,7 @@ sudo systemctl restart mastodon-web.service
 
 If you encounter error messages like this:
 
-```
+```text
 WARNING:  you don't own a lock of type ExclusiveLock                                           
 bin/rails aborted!                                                                             
 ActiveRecord::ConcurrentMigrationError:  (ActiveRecord::ConcurrentMigrationError)              
@@ -95,7 +95,7 @@ Failed to release advisory lock
 
 You're probably running pg_bouncer in front of PostgreSQL and forgot to specify the PostgreSQL port manually (instead of using the default pg_bouncer port!). To make the migrate commands work, add `DB_PORT`, for example:
 
-```
+```bash
 RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate
 ```
 

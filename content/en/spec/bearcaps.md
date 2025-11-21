@@ -18,7 +18,7 @@ Authorization: Bearer <token>
 
 Bearcaps allow for a way to link to a resource with the token included, like so:
 
-```
+```text
 bear:?t=<token>&u=https://example.com/foo'
 ```
 

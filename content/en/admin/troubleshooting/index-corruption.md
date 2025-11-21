@@ -85,7 +85,7 @@ Mastodon 3.2.2 and later come with a semi-interactive script to fix those corrup
 
 Before attempting to fix your database, **stop Mastodon and make a backup of your database**. Then, with **Mastodon still stopped**, run the maintenance script:
 
-```
+```bash
 RAILS_ENV=production bin/tootctl maintenance fix-duplicates
 ```
 
