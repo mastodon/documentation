@@ -15,7 +15,7 @@ The string representation of a datetime uses the "Internet Date/Time Format" def
 
 To summarise, that is the following mandatory components:
 
-```
+```text
 [YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[s][TZD]
 ```
 
@@ -49,7 +49,7 @@ The string representation of a date uses the complete, extended calendar date re
 
 That is the following mandatory components:
 
-```
+```text
 [YYYY]-[MM]-[DD]
 ```
 

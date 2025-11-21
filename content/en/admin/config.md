@@ -70,7 +70,7 @@ When set to `true`, Mastodon will restrict federation to servers you have manual
 
 When switching an existing instance to limited federation mode, the following command should be used to remove any already existent data on non-allowed domains:
 
-```
+```bash
 tootctl domain purge --limited-federation-mode
 ```
 
@@ -121,7 +121,7 @@ bin/rails runner 'puts Rails.application.config.i18n.available_locales.sort'
 
 #### `FORCE_DEFAULT_LOCALE`
 
-When set to `true`, skips the visitor's brower language detection feature and use `DEFAULT_LOCALE` (or English) instead, corresponding to the behavior of `DEFAULT_LOCALE` prior to Mastodon 4.4.0.
+When set to `true`, skips the visitor's browser language detection feature and use `DEFAULT_LOCALE` (or English) instead, corresponding to the behavior of `DEFAULT_LOCALE` prior to Mastodon 4.4.0.
 
 **Version history:**\
 4.4.0 - added

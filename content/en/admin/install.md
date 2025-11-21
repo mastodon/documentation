@@ -198,7 +198,7 @@ Then edit `/etc/nginx/sites-available/mastodon` to
 1. Replace `example.com` with your own domain name
 2. Uncomment the `ssl_certificate` and `ssl_certificate_key` (ignore this step if you are bringing your own certificate):
 
-    ```
+    ```nginx
     ssl_certificate     /etc/letsencrypt/live/example.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;;
     ```

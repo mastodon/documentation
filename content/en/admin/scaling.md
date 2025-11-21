@@ -409,7 +409,7 @@ Mastodon has built-in replica support starting with version 4.2. You can use the
 
 To configure it, use the following environment variables:
 
-```
+```text
 REPLICA_DB_HOST
 REPLICA_DB_PORT
 REPLICA_DB_NAME
