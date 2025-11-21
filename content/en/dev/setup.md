@@ -90,6 +90,20 @@ In order to work with emails, you'll need Sidekiq, Redis and PostgreSQL running,
 
 If you're developing in docker, you'll need to set the `REMOTE_DEV=true` environment variable.
 
+## Preparing to run tests
+
+Set up the test database:
+
+```sh
+RAILS_ENV=test bin/rails db:setup
+```
+
+Generate test-mode precompiled assets:
+
+```sh
+RAILS_ENV=test bin/rails assets:precompile
+```
+
 ## Useful commands for testing {#testing}
 
 `bin/rspec`
