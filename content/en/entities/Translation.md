@@ -18,6 +18,7 @@ Translation of status with content warning and media
 {
   "content": "<p>Hello world</p>",
   "spoiler_text": "Greatings ahead",
+  "language": "en",
   "media_attachments": [
     {
       "id": "22345792",
@@ -35,6 +36,7 @@ Translation of status with poll:
 {
   "content": "<p>Should I stay or should I go?</p>",
   "spoiler_text": "",
+  "language": "en",
   "media_attachments": [],
   "poll": {
     "id": "34858",
@@ -68,6 +70,13 @@ Translation of status with poll:
 **Type:** String\
 **Version history:**\
 4.2.0 - added
+
+### `language` {#language}
+
+**Description:** The resulting language the text was translated into.\
+**Type:** String\
+**Version history:**\
+4.0.0 - added
 
 ### `poll` {{%optional%}} {#poll}
 
