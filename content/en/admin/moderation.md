@@ -93,11 +93,13 @@ these approaches.
 
 #### IP Blocks
 
-Use the "IP Rules" page within the moderation interface to create an IP-Address
+Use the "IP Rules" page within the moderation interface to create an IP Address
 based block. You can block specific IPv4 or IPv6 address, or block entire ranges
-using the CIDR syntax. The instructions on the page will guide you through how
+using the [CIDR] syntax. The instructions on the page will guide you through how
 long the block should last, and what severity the block should have within the
 application.
+
+[CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 
 #### Firewall rules
 
