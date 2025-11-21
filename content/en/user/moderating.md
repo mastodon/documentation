@@ -53,7 +53,7 @@ If you hide boosts from someone, you won’t see their boosts in your home feed.
 
 ### Quote posts
 
-If your post is quoted by another user in an undesiredable fashion, you can [remove your quoted post](../quote-posts#remove).
+If your post is quoted by another user in an unwanted way, you can [remove your quoted post](../quote-posts#remove).
 
 ### Muting {#mute}
 
