@@ -47,6 +47,8 @@ The streaming server also exposes a [Prometheus](https://prometheus.io/) endpoin
 - `mastodon_streaming_messages_sent_total`: This is the total number of messages sent to clients since last restart.
 - `mastodon_streaming_redis_messages_received_total`: This is the number of messages received from Redis pubsub, and intended to complement [monitoring Redis directly](https://sysdig.com/blog/redis-prometheus/).
 
+Note that for Prometheus-based monitoring you should monitor each individual streaming server instance (not the nginx endpoint) as requests to nginx will be routed to an arbitrary streaming server instance and make the metrics less insightful than the per-instance tracking.
+
 {{< hint style="info" >}}
 The more streaming server processes that you run, the more database connections will be consumed on PostgreSQL, so you'll likely want to use PgBouncer, as documented below.
 {{< /hint >}}
