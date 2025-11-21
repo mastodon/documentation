@@ -70,7 +70,7 @@ When set to `true`, Mastodon will restrict federation to servers you have manual
 
 When switching an existing instance to limited federation mode, the following command should be used to remove any already existent data on non-allowed domains:
 
-```
+```bash
 tootctl domain purge --limited-federation-mode
 ```
 
