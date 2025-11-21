@@ -19,7 +19,7 @@ Enter WebFinger. WebFinger as described in [RFC 7033](https://tools.ietf.org/htm
 
 ## Sample WebFinger flow {#example}
 
-Suppose we want to lookup the user `@Gargron` hosted on the `mastodon.social` website.
+Suppose we want to look up the user `@Gargron` hosted on the `mastodon.social` website.
 
 Just make a request to that domain's `/.well-known/webfinger` endpoint, with the `resource` query parameter set to an `acct:` URI.
 

@@ -21,7 +21,7 @@ Mastodon has multiple theme options:
 
 ### Choose your layout {#layout}
 
-Mastodon defaults to a simple, one-column layout with a compose box on the left and a column switcher on the right. You can choose to enable the advanced web interface, which allows you view and pin multiple columns at the same time.
+Mastodon defaults to a simple, one-column layout with a compose box on the left and a column switcher on the right. You can choose to enable the advanced web interface, which allows you to view and pin multiple columns at the same time.
 
 {{< figure src="assets/advanced-web-ui.png" caption="Columns of the advanced web interface using the light theme" >}}
 

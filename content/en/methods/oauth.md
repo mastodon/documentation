@@ -47,7 +47,7 @@ scope
 : String. List of requested [OAuth scopes]({{< relref "api/oauth-scopes" >}}), separated by spaces (or by pluses, if using query parameters). Must be a subset of `scopes` declared during app registration. If not provided, defaults to `read`.
 
 state
-: String. Arbitrary value to passthrough to your server when the user authorizes or rejects the authorization request.
+: String. Arbitrary value to pass through to your server when the user authorizes or rejects the authorization request.
 
 code_challenge
 : String. The [PKCE code challenge]({{< relref "spec/oauth#pkce" >}}) for the authorization request.
@@ -391,7 +391,7 @@ On Mastodon versions before 4.3.0, requesting this endpoint will result in a `40
 
 Instead, you will need to "guess" what that server supports, instead of discovering supported OAuth 2 endpoints, grant flows & scopes dynamically.
 
-You may want to fallback to the [Instance Metadata endpoint]({{< relref "methods/instance#v2" >}}) to try to discover what Mastodon version the server is running by parsing the `version` field; however, this is very brittle and not recommended.
+You may want to fall back to the [Instance Metadata endpoint]({{< relref "methods/instance#v2" >}}) to try to discover what Mastodon version the server is running by parsing the `version` field; however, this is very brittle and not recommended.
 
 ---
 

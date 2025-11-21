@@ -1124,15 +1124,16 @@ Sample output with limit=2.
     "id": "963410",
     "username": "gautambhatia",
     "acct": "gautambhatia",
-    "display_name": "Gautam Bhatia",
+    "display_name": "Gautam Bhatia"
     // ...
   },
   {
     "id": "1007400",
     "username": "seafrog",
     "acct": "seafrog@glitterkitten.co.uk",
-    "display_name": "🐓🦃 Heck Partridge 🤠 🦆",
+    "display_name": "🐓🦃 Heck Partridge 🤠 🦆"
     // ...
+  }
 ]
 ```
 

@@ -37,7 +37,7 @@ Choose where the filter will be applied:
 
 ### Hide completely {#filter-hide}
 
-Filtering is usually done client-side, so that disabling a filter will cause filtered statuses to be visible again. However, if you enable "Hide completely", any matching statuses will be disappear completely and will never be delivered to your home or notifications.
+Filtering is usually done client-side, so that disabling a filter will cause filtered statuses to be visible again. However, if you enable "Hide completely", any matching statuses will disappear completely and will never be delivered to your home or notifications.
 
 ### Whole word {#filter-whole}
 

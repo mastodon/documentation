@@ -32,7 +32,7 @@ aliases: [
 `unauthorized` = The quote has been approved, but cannot be displayed because the user is not authorized to see it.\
 `blocked_account` = The quote has been approved, but should not be displayed because the user has blocked the account being quoted. This is one of the few cases where `quoted_status_id` is non-null.\
 `blocked_domain` = The quote has been approved, but should not be displayed because the user has blocked the domain of the account being quoted. This is one of the few cases where `quoted_status_id` is non-null.\
-`muted_account` = The quote has been approved, but should not be displayed because the user has muted the the account being quoted. This is one of the few cases where `quoted_status_id` is non-null.
+`muted_account` = The quote has been approved, but should not be displayed because the user has muted the account being quoted. This is one of the few cases where `quoted_status_id` is non-null.
 **Version history:**\
 4.4.0 - added\
 4.5.0 - added `blocked_account`, `blocked_domain` and `muted_account`

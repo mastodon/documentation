@@ -77,7 +77,7 @@ Error: Your login is currently pending approval. Appears when the OAuth token's 
 
 #### RecordNotFound {#not-found}
 
-Error: Record not found. Appears when an entity record does not exist, or the authorized user is not within the audience of a private entity.operates on a user.
+Error: Record not found. Appears when an entity record does not exist, or the authorized user is not within the audience of a private entity.
 
 ### 422 - Unprocessable entity {#422}
 
