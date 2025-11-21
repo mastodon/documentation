@@ -185,7 +185,7 @@ Supported languages:
 
 #### `FORCE_DEFAULT_LOCALE`
 
-When set to `true`, skips the visitor's brower language detection feature and use `DEFAULT_LOCALE` (or English) instead, corresponding to the behavior of `DEFAULT_LOCALE` prior to Mastodon 4.4.0.
+When set to `true`, skips the visitor's browser language detection feature and use `DEFAULT_LOCALE` (or English) instead, corresponding to the behavior of `DEFAULT_LOCALE` prior to Mastodon 4.4.0.
 
 **Version history:**\
 4.4.0 - added
