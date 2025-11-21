@@ -2250,7 +2250,7 @@ Status does not exist or is private.
 
 ---
 
-## Fetch preview card {{%deprecated%}} {#card}
+## Fetch preview card {{%removed%}} {#card}
 
 ```http
 GET /api/v1/statuses/:id/card HTTP/1.1
