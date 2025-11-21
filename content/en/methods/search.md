@@ -23,7 +23,7 @@ aliases: [
 GET /api/v2/search HTTP/1.1
 ```
 
-Perform a search for content in accounts, statuses and hashtags with the given parameters.
+Perform a search for content in accounts, statuses and hashtags with the given parameters. Note that the availability of results depends on the specific backend search configuration of the server being queried. By default, accounts and hashtags are always searchable, while statuses depend on an ElasticSearch backend being present.
 
 **Returns:** [Search]({{< relref "entities/Search" >}})\
 **OAuth:** Public (without `resolve` or `offset`), or User token + `read:search`\
@@ -71,7 +71,7 @@ limit
 : Integer. Maximum number of results to return, per type. Defaults to 20 results per category. Max 40 results per category.
 
 offset
-: Integer. Skip the first n results.
+: Integer. Skip the first n results. Only applies when `type` is also present (ignored otherwise).
 
 #### Response
 ##### 200: OK
@@ -85,14 +85,14 @@ Truncated results of a sample search for "cats" with limit=2.
       "id": "180744",
       "username": "catstar",
       "acct": "catstar@catgram.jp",
-      "display_name": "catstar",
+      "display_name": "catstar"
       // ...
     },
     {
       "id": "214293",
       "username": "catsareweird",
       "acct": "catsareweird",
-      "display_name": "Cats Are Weird",
+      "display_name": "Cats Are Weird"
       // ...
     }
   ],
@@ -101,7 +101,7 @@ Truncated results of a sample search for "cats" with limit=2.
       "id": "103085519055545958",
       "created_at": "2019-11-05T13:23:09.000Z",
       // ...
-      "content": "<p>cats<br>cats never change</p>",
+      "content": "<p>cats<br>cats never change</p>"
       // ...
     },
     {
@@ -110,8 +110,9 @@ Truncated results of a sample search for "cats" with limit=2.
       // ...
       "spoiler_text": "Cats",
       // ...
-      "content": "<p>Cats are inherently good at self-care. </p><p><a href=\"https://mspsocial.net/tags/cats\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>cats</span></a></p>",
+      "content": "<p>Cats are inherently good at self-care. </p><p><a href=\"https://mspsocial.net/tags/cats\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>cats</span></a></p>"
       // ...
+    }
   ],
   "hashtags": [
     {
@@ -123,7 +124,7 @@ Truncated results of a sample search for "cats" with limit=2.
           "day": "1574553600",
           "uses": "10",
           "accounts": "9"
-        },
+        }
         // ...
       ]
     },
@@ -136,7 +137,7 @@ Truncated results of a sample search for "cats" with limit=2.
           "day": "1574553600",
           "uses": "6",
           "accounts": "5"
-        },
+        }
         // ...
       ]
     }

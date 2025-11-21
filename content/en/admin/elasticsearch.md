@@ -21,10 +21,14 @@ Mastodon’s full-text search allows logged-in users to find results from:
 
 It deliberately does not allow searching for arbitrary strings in the entire database.
 
+{{< hint style="warning" >}}
+Please note that ElasticSearch has significant memory requirements, which can easily outpace those of Mastodon itself.
+{{< /hint >}}
+
 ## Installing Elasticsearch {#install}
 
 {{< hint style="info" >}}
-Mastodon is tested with Elasticsearch version 7. It should support OpenSearch, as well as Elasticsearch versions 6 and 8, but those setups are not officially supported.
+Mastodon is tested with Elasticsearch version 7 (Which is now end of life). It should support OpenSearch, as well as Elasticsearch versions 8 and 9, but those setups are not officially supported. The install instructions within this documentation relate to Elasticsearch version 7 only.
 {{< /hint >}}
 
 Add the official Elasticsearch repository to apt:
@@ -47,13 +51,18 @@ apt install elasticsearch
 
 Before you start Elasticsearch, you might want to limit its RAM consumption. A RAM limit can be set be creating a new file `/etc/elasticsearch/jvm.options.d/limit-ram.options` with the following content:
 
-```
+```java-properties
 # Limit RAM size to 24 GB
 -Xms16g
 -Xmx24g
 ```
 
 This will reserve 16 GB of RAM for Elasticsearch right from the start and allow it to use up to 24 GB of RAM. Also see: [Managing and troubleshooting Elasticsearch memory](https://www.elastic.co/blog/managing-and-troubleshooting-elasticsearch-memory/).
+
+
+{{< hint style="info" >}}
+To maximise the performance of your Elasticsearch cluster you should identify a RAM Value which can be sustained and which will not impact other services on the machine you run Elasticsearch on, once identified you should set the `Xms` and `Xmx` values to this value, Elasticsearch will reserve this memory and will always be able to make full use of this memory which in seach heavy situations will improve performance. 
+{{< /hint >}}
 
 To start Elasticsearch:
 
@@ -84,7 +93,7 @@ The value for `ES_PRESET` depends on the size of your Elasticsearch and will be 
 - `small_cluster` if you have less than 6 nodes in your cluster. Indices will be configured with 1 replica
 - `large_cluster` if you have 6 or more nodes in your cluster. Indices will be configured with more shards than with the `small_cluster` setting, to allow them to be distributed over more nodes
 
-If you have multiple Mastodon servers on the same machine, and you are planning to use the same Elasticsearch installation for all of them, make sure that all of them have unique `REDIS_NAMESPACE` in their configurations, to differentiate the indices. If you need to override the prefix of the Elasticsearch indices, you can set `ES_PREFIX` directly.
+If you have multiple Mastodon servers on the same machine, and you are planning to use the same Elasticsearch installation for all of them, make sure that all of them have unique `ES_PREFIX` values configured to differentiate the indices.
 
 ### Security
 
@@ -160,13 +169,15 @@ Creating Elasticsearch indicies could require more memory than the JVM (Java Vir
 
 1. Create and open a file in the directory ```/etc/elasticsearch/jvm.options.d/``` (for example: ```nano /etc/elasticsearch/jvm.options.d/ram.options```)
 2. Add following text and edit the allocated memory to your needs. As a rule of thumb, Elasticsearch should use about 25%-50% of your available memory. Do not allocate more memory than available.
-```
-# Xms represents the initial size of total heap space
-# Xmx represents the maximum size of total heap space
-# Both values should be the same
--Xms2048m
--Xmx2048m
-```
+
+    ```java-properties
+    # Xms represents the initial size of total heap space
+    # Xmx represents the maximum size of total heap space
+    # Both values should be the same
+    -Xms2048m
+    -Xmx2048m
+    ```
+
 3. Save the file.
 4. Restart Elasticsearch using ```systemctl restart elasticsearch```.
 5. Retry creating Elasticsearch indicies. If Elasticsearch still crashes, try to set a higher number.

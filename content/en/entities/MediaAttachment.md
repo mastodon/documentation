@@ -200,7 +200,7 @@ aliases: [
 ### `meta` {#meta}
 
 **Description:** Metadata returned by Paperclip.\
-**Type:** Hash\
+**Type:** {{<nullable>}} Hash or null\
 **Version history:**\
 1.5.0 - added
 
@@ -216,12 +216,12 @@ May contain subtrees `small` and `original`, as well as various other top-level 
 ### `meta[focus][x]` {#meta-focus-x}
 
 **Description:** Horizontal focal point\
-**Type:** float
+**Type:** {{<nullable>}} Float or null
 
 ### `meta[focus][y]` {#meta-focus-y}
 
 **Description:** Vertical focal point\
-**Type:** float
+**Type:** {{<nullable>}} Float or null
 
 ### `description` {#description}
 

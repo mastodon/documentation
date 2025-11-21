@@ -107,7 +107,7 @@ Create a new user account with the given `USERNAME` and provided `--email`.
 : Reuse an old USERNAME after its account has been deleted.
 
 `--force`
-Forcefully delete any existing account with this `USERNAME` and reattach the new account in place of the (just-deleted) account.
+: Forcefully delete any existing account with this `USERNAME` and reattach the new account in place of the (just-deleted) account.
 
 **Version history:**\
 2.6.0 - added\
@@ -192,7 +192,7 @@ Request a backup for a user account with the given USERNAME. The backup will be 
 
 ### `tootctl accounts cull` {#accounts-cull}
 
-Remove remote accounts that no longer exist. Queries every single remote account in the database to determine if it still exists on the origin server, and if it doesn't, then remove it from the database. Accounts that have had confirmed activity within the last week are excluded from the checks, in case the server is just down.
+Remove remote accounts that no longer exist. Queries every single remote account in the database to determine if it still exists on the origin server, and if it doesn't, then remove it from the database. Accounts that have had confirmed activity within the last week are excluded from the checks. If the account's domain is not accessible during the check, the account is not culled and the domain is reported at the end of the script.
 
 `DOMAIN[...]`
 : Optionally pass specific domains to cull
@@ -414,7 +414,7 @@ Remove all accounts from a given DOMAIN without leaving behind any records. Unli
 : Domains to purge, separated by space.
 
 `--by-uri`
-: Match domains in the actor URI rather than in the Webfinger address.
+: Match domains in the actor URI rather than in the WebFinger address.
 
 `--limited-federation-mode`
 : Can be provided instead of DOMAIN. Instead of purging from a single domain, all accounts from domains that are not allow-listed will be removed from the database. Use this after enabling limited federation mode and defining your allow-list.
@@ -832,13 +832,13 @@ Create or update an Elasticsearch index and populate it. If Elasticsearch is emp
 : Parallelize execution of the command on multiple threads. Defaults to 5.
 
 `--import`
-:Import data from the database to the index
+: Import data from the database to the index
 
 `--clean`
-:Remove outdated documents from the index
+: Remove outdated documents from the index
 
 `--reset-chewy`
-:Reset Chewy's internal index
+: Reset Chewy's internal index
 
 **Version history:**\
 2.8.0 - added\

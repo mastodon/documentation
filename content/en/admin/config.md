@@ -27,7 +27,7 @@ As with `LOCAL_DOMAIN`, `WEB_DOMAIN` cannot be safely changed once set, as this 
 
 To install Mastodon on `mastodon.example.com` in such a way it can serve `@alice@example.com`, set `LOCAL_DOMAIN` to `example.com` and `WEB_DOMAIN` to `mastodon.example.com`. This also requires additional configuration on the server hosting `example.com` to redirect requests from `https://example.com/.well-known/webfinger` to `https://mastodon.example.com/.well-known/webfinger`. For instance, with nginx, the configuration could look like the following:
 
-```
+```nginx
 location /.well-known/webfinger {
   add_header Access-Control-Allow-Origin '*';
   return 301 https://mastodon.example.com$request_uri;
@@ -194,11 +194,11 @@ When set to `true`, skips the visitor's brower language detection feature and us
 
 #### `SECRET_KEY_BASE`
 
-Generate with `rake secret`. Changing it will break all active browser sessions.
+Generate with `rails secret`. Changing it will break all active browser sessions.
 
 #### `OTP_SECRET`
 
-Generate with `rake secret`. Changing it will break two-factor authentication.
+Generate with `rails secret`. Changing it will break two-factor authentication.
 
 #### `VAPID_PRIVATE_KEY`
 
@@ -324,7 +324,7 @@ Example value: `wss://streaming.example.com`
 
 {{< hint style="danger" >}}
 **Removed:**\
-The streaming server process now only uses a single node.js process, to scale it further, you'll need to follow the documentation in the [scaling guide](/admin/scaling#streaming)
+The streaming server process now only uses a single Node.js process, to scale it further, you'll need to follow the documentation in the [scaling guide](/admin/scaling#streaming)
 {{< /hint >}}
 
 Specific to the streaming API, this variable determines how many different processes the streaming API forks into. Defaults to the number of CPU cores minus one.
@@ -1168,7 +1168,12 @@ This setting has no relation to which users are considered active for the purpos
 ### Fetch All Replies {#fetch-all-replies}
 
 **Version history:**\
-4.4.0 - added
+4.4.0 - added\
+4.5.0 - removed
+
+{{< hint style="danger" >}}
+Fetch All Replies has been enabled unconditionally in 4.5. The related configuration variables have consequently been removed.
+{{< /hint >}}
 
 Fetch all replies fetches the tree of replies beneath an expanded post by recursively requesting the [replies collections](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-replies) of each of the statuses, and then requesting the status itself. Fetching replies is triggered by requesting the status's `context` - so will be triggered both from the web interface and external apps.
 
@@ -1186,39 +1191,39 @@ When fetching, posts from accounts that have no local followers are refetched as
 
 The need for and cost of fetching replies is likely to vary dramatically for servers of different sizes, so these configuration options allow server admins to tune resource usage: smaller instances may want to increase the limits, while larger instances may want to decrease them or lengthen the cooldown intervals.
 
-#### `FETCH_REPLIES_ENABLED`
+#### `FETCH_REPLIES_ENABLED` {{%removed%}}
 
 **Default:** `false`
 
 Enable or disable fetching additional replies when a post's detailed view is expanded.
 
-#### `FETCH_REPLIES_COOLDOWN_MINUTES`
+#### `FETCH_REPLIES_COOLDOWN_MINUTES` {{%removed%}}
 
 **Default:** `15`
 
-The amount of time to wait since the last fetch of a post and its replies since the last fetch. 
+The amount of time to wait since the last fetch of a post and its replies since the last fetch.
 
 Note that this applies per-status: triggering a fetch for a parent status and then triggering a reply for a child within the reply tree will not double-fetch the status.
 
-#### `FETCH_REPLIES_INITIAL_WAIT_MINUTES`
+#### `FETCH_REPLIES_INITIAL_WAIT_MINUTES` {{%removed%}}
 
 **Default:** `5`
 
 The amount of time after a post was created to wait before it is eligible for fetching replies
 
-#### `FETCH_REPLIES_MAX_GLOBAL`
+#### `FETCH_REPLIES_MAX_GLOBAL` {{%removed%}}
 
 **Default:** `1000`
 
 The maximum number of replies to fetch - total, recursively through a whole reply tree, per fetch action.
 
-#### `FETCH_REPLIES_MAX_SINGLE`
+#### `FETCH_REPLIES_MAX_SINGLE` {{%removed%}}
 
 **Default:** `500`
 
 The maximum number of replies to fetch for a single status within a reply tree.
 
-#### `FETCH_REPLIES_MAX_PAGES`
+#### `FETCH_REPLIES_MAX_PAGES` {{%removed%}}
 
 **Default:** `500`
 
@@ -1238,6 +1243,9 @@ This variable only has any effect when running `rake db:migrate` and it is extre
 These three environment variables must be set to enable the Active Record
 Encryption feature within Rails that Mastodon uses to encrypt and decrypt some
 database attributes.
+
+To generate values for these variables, you can run:
+`bundle exec rake db:encryption:init`
 
 - `ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY`
 - `ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY`

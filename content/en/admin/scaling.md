@@ -53,7 +53,7 @@ The more streaming server processes that you run, the more database connections 
 
 An example nginx configuration to route traffic to three different processes on `PORT` 4000, 4001, and 4002 is as follows:
 
-```text
+```nginx
 upstream streaming {
     least_conn;
     server 127.0.0.1:4000 fail_timeout=0;
@@ -73,7 +73,7 @@ $ sudo systemctl start mastodon-streaming@4002.service
 By default, `sudo systemctl start mastodon-streaming` starts just one process on port 4000, equivalent to running `sudo systemctl start mastodon-streaming@4000.service`.
 
 {{< hint style="warning" >}}
-Previous versions of Mastodon had a `STREAMING_CLUSTER_NUM` environment variable that made the streaming server use clustering, which started multiple worker processes and used node.js to load balance them.
+Previous versions of Mastodon had a `STREAMING_CLUSTER_NUM` environment variable that made the streaming server use clustering, which started multiple worker processes and used Node.js to load balance them.
 
 This interacted with the other settings in ways which made capacity planning difficult, especially when it comes to database connections and CPU resources. By default, the streaming server would consume resources on all available CPUs which could cause contention with other software running on that server. Another common issue was that misconfiguring the `STREAMING_CLUSTER_NUM` would exhaust your database connections by opening up a connection pool per cluster worker process, so a `STREAMING_CLUSTER_NUM` of `5` and `DB_POOL` of `10` would potentially consume 50 database connections.
 
@@ -418,7 +418,7 @@ REPLICA_DB_TASKS
 
 Alternatively, you can also use `REPLICA_DATABASE_URL` if you want to configure them all using the same variable.
 
-`REPLICA_DB_TASKS=false` will connect to an replica database without any database mangement tasks such as schema management, migrations, seeds, etc. By default it is set to true.
+`REPLICA_DB_TASKS=false` will connect to an replica database without any database management tasks such as schema management, migrations, seeds, etc. By default it is set to true.
 
 `REPLICA_PREPARED_STATEMENTS` is an optional override for the `PREPARED_STATEMENTS` value. By default it is set to true if `PREPARED_STATEMENTS` is not set.
 

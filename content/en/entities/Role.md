@@ -125,6 +125,9 @@ To determine the permissions available to a certain role, convert the `permissio
 0x80000
 : **Delete User Data**. Allows users to delete other users' data without delay.
 
+0x100000
+: **View live and topic feeds**. Allows users to view public “firehose”, hashtag and link feeds even when those are disabled.
+
 ## See also
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/role_serializer.rb" caption="app/serializers/rest/role_serializer.rb" >}}

@@ -45,6 +45,8 @@ Once the data has been deleted, whether that is after the 30-day period, or if a
 
 For remote accounts, suspending will make them unfollow any local account. Those relationships are not restored in case the remote account is unsuspended, even within the 30-day time window.
 
+Note that by default, users suspended by a server will still be able to view posts from that server. To change this default behavior, server admins can set the `AUTHORIZED_FETCH` environment variable - see the documentation for [configuring your environment](../config/).
+
 ## Moderating entire websites {#server-wide-moderation}
 
 Because individually moderating a large volume of users from a misbehaving server can be exhausting, it is possible to pre-emptively moderate against all users from that particular server using a so-called **domain block**, which comes with several different levels of severity. Go to **Preferences** &gt; **Moderation** &gt; **Federation**, then click "Add new domain block" to block a server.
@@ -71,6 +73,8 @@ After you have downloaded a blocklist, go to **Preferences** &gt; **Moderation**
 
 You can also click "Export" to backup your Mastodon server's blocklist or share it with other administrators.
 
+Note that by default, users of a suspended server will still be able to view posts from the suspending server. To change this default behavior, server admins can set the `AUTHORIZED_FETCH` environment variable - see the documentation for [configuring your environment](../config/).
+
 ## Spam-fighting measures {#spam-fighting-measures}
 
 There are a few baseline measures for preventing spam in Mastodon:
@@ -86,7 +90,25 @@ Spammers will often use different e-mail domains so it looks like they are using
 
 ### Blocking by IP {#blocking-by-ip}
 
-It is not possible to block visitors by IP address in Mastodon itself, and it is not a foolproof strategy. IPs are sometimes shared by a lot of different people and sometimes change hands. However, it is possible to block visitors by IP address in Linux using a firewall. Here is an example using `iptables` and `ipset`:
+Blocking by IP is not a foolproof strategy. IPs are sometimes shared by
+different people and sometimes change hands. It's also possible to accidentally
+block a large IP range and cut off legitimate access. Be careful with either of
+these approaches.
+
+#### IP Blocks
+
+Use the "IP Rules" page within the moderation interface to create an IP Address
+based block. You can block specific IPv4 or IPv6 address, or block entire ranges
+using the [CIDR] syntax. The instructions on the page will guide you through how
+long the block should last, and what severity the block should have within the
+application.
+
+[CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+
+#### Firewall rules
+
+It is also possible to block visitors by IP address in Linux using a firewall.
+Here is an example using `iptables` and `ipset`:
 
 ```bash
 # Install ipset

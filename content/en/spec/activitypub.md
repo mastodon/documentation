@@ -140,7 +140,7 @@ attributedTo
 : Used to determine the profile which authored the status
 
 to/cc
-: Used to determine audience and visibility of a status, in combination with mentions. See [Mentions for adddressing and notifications](#Mention)
+: Used to determine audience and visibility of a status, in combination with mentions. See [Mentions for addressing and notifications](#Mention)
 
 tag
 : Used to mark up mentions and hashtags.
@@ -149,7 +149,7 @@ tag[].type
 : Either `Mention`, `Hashtag`, or `Emoji` is currently supported. See the [Hashtag](#Hashtag) and [Custom emoji](#Emoji) extension sections for more information
 
 tag[].name
-: The plain-text Webfinger address of a profile Mention (`@user` or `@user@domain`), or the plain-text Hashtag (`#tag`), or the custom Emoji shortcode (`:thounking:`)
+: The plain-text WebFinger address of a profile Mention (`@user` or `@user@domain`), or the plain-text Hashtag (`#tag`), or the custom Emoji shortcode (`:thounking:`)
 
 tag[].href
 : The URL of the actor or tag
@@ -238,7 +238,7 @@ Move
 ### Properties used
 
 preferredUsername
-: Used for Webfinger lookup. Must be unique on the domain, and must correspond to a Webfinger `acct:` URI.
+: Used for WebFinger lookup. Must be unique on the domain, and must correspond to a WebFinger `acct:` URI.
 
 name
 : Used as profile display name.
@@ -881,6 +881,16 @@ When delivering a message to a remote user, an optional `Collection-Synchronizat
 - `collectionId` = MUST be the sender's `followers` collection
 - `url` = a URL to a partial collection containing the identifier of every one of the sender's followers residing on the receiver's instance. MUST reside on the same domain as the actor itself, and SHOULD be only accessible with a signed query from the receiver's instance
 - `digest` = hexadecimal representation of the XORed SHA256 digests of each of the identifiers in the partial collection
+
+#### Digest calculation
+
+The digest is calculated by:
+
+1. Computing the SHA256 hash of each follower identifier (as a UTF-8 encoded string)
+2. XORing all the resulting digest bytes together
+3. Converting the final result to hexadecimal representation
+
+For multiple followers, each SHA256 digest is XORed with the others. For example, with followers A and B: `digest = SHA256(A) XOR SHA256(B)`.
 
 Example:
 

@@ -142,6 +142,20 @@ aliases: [
     "translation": {
       "enabled": true
     },
+    "timelines_access": {
+      "live_feeds": {
+        "local": "public",
+        "remote": "public"
+      },
+      "hashtag_feeds": {
+        "local": "public",
+        "remote": "public"
+      },
+      "trending_link_feeds": {
+        "local": "public",
+        "remote": "public"
+      }
+    },
     "limited_federation": false
   },
   "registrations": {
@@ -739,6 +753,92 @@ aliases: [
 **Type:** Boolean\
 **Version history:**\
 4.0.0 - added
+
+#### `configuration[timelines_access]` {#timelines_access}
+
+**Description:** Access restrictions on different timelines.\
+**Type:** Hash\
+**Version history:**\
+4.5.0 - added
+
+#### `configuration[timelines_access][live_feeds]` {#timelines_access-live_feeds}
+
+**Description:** Access restrictions on [public feeds]({{< relref "methods/timelines#public" >}}).\
+**Type:** Hash\
+**Version history:**\
+4.5.0 - added
+
+#### `configuration[timelines_access][live_feeds][local]` {#timelines_access-live_feeds-local}
+
+**Description:** Access restrictions for local posts in the public feed.\
+**Type:** String (Enumerable oneOf)\
+`public` = Access to local posts in the public feed is available to both visitors and logged-in users.\
+`authenticated` = Access to local posts in the public feed requires authentication.\
+`disabled` = Access to local posts in the public feed is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
+**Version history:**\
+4.5.0 - added
+
+#### `configuration[timelines_access][live_feeds][remote]` {#timelines_access-live_feeds-remote}
+
+**Description:** Access restrictions for remote posts in the public feed.\
+**Type:** String (Enumerable oneOf)\
+`public` = Access to remote posts in the public feed is available to both visitors and logged-in users.\
+`authenticated` = Access to remote posts in the public feed requires authentication.\
+`disabled` = Access to remote posts in the public feed is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
+**Version history:**\
+4.5.0 - added
+
+#### `configuration[timelines_access][hashtag_feeds]` {#timelines_access-hashtag_feeds}
+
+**Description:** Access restrictions on [hashtag feeds]({{< relref "methods/timelines#tag" >}}).\
+**Type:** Hash\
+**Version history:**\
+4.5.0 - added
+
+#### `configuration[timelines_access][hashtag_feeds][local]` {#timelines_access-hashtag_feeds-local}
+
+**Description:** Access restrictions for local posts in hashtag feeds.\
+**Type:** String (Enumerable oneOf)\
+`public` = Access to local posts in hashtag feeds is available to both visitors and logged-in users.\
+`authenticated` = Access to local posts in hashtag feeds requires authentication.\
+**Version history:**\
+4.5.0 - added
+
+#### `configuration[timelines_access][hashtag_feeds][remote]` {#timelines_access-hashtag_feeds-remote}
+
+**Description:** Access restrictions for remote posts in hashtag feeds.\
+**Type:** String (Enumerable oneOf)\
+`public` = Access to remote posts in hashtag feeds is available to both visitors and logged-in users.\
+`authenticated` = Access to remote posts in hashtag feeds requires authentication.\
+`disabled` = Access to remote posts in hashtag feeds is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
+**Version history:**\
+4.5.0 - added
+
+#### `configuration[timelines_access][trending_link_feeds]` {#timelines_access-trending_link_feeds}
+
+**Description:** Access restrictions on [trending link feeds]({{< relref "methods/timelines#link" >}}).\
+**Type:** Hash\
+**Version history:**\
+4.5.0 - added
+
+#### `configuration[timelines_access][trending_link_feeds][local]` {#timelines_access-trending_link_feeds-local}
+
+**Description:** Access restrictions for local posts in the trending link feeds.\
+**Type:** String (Enumerable oneOf)\
+`public` = Access to local posts in trending link feeds is available to both visitors and logged-in users.\
+`authenticated` = Access to local posts in trending link feeds requires authentication.\
+**Version history:**\
+4.5.0 - added
+
+#### `configuration[timelines_access][trending_link_feeds][remote]` {#timelines_access-trending_link_feeds-remote}
+
+**Description:** Access restrictions for remote posts in trending link feeds.\
+**Type:** String (Enumerable oneOf)\
+`public` = Access to remote posts in trending link feeds is available to both visitors and logged-in users.\
+`authenticated` = Access to remote posts in trending link feeds requires authentication.\
+`disabled` = Access to remote posts in trending link feeds is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
+**Version history:**\
+4.5.0 - added
 
 #### `configuration[limited_federation]` {#limited-federation}
 

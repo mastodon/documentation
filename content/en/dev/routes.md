@@ -67,7 +67,7 @@ Maps to HTTP DELETE. Handled by the #destroy action in a controller.
 
 ### /.well-known/host-meta {#host-meta}
 
-Extensible Resource Descriptor (XRD). Advertises existence of Webfinger.
+Extensible Resource Descriptor (XRD). Advertises existence of WebFinger.
 
 ### /.well-known/nodeinfo {#nodeinfo}
 

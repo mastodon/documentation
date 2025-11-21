@@ -19,7 +19,7 @@ Enter WebFinger. WebFinger as described in [RFC 7033](https://tools.ietf.org/htm
 
 ## Sample WebFinger flow {#example}
 
-Suppose we want to lookup the user `@Gargron` hosted on the `mastodon.social` website.
+Suppose we want to look up the user `@Gargron` hosted on the `mastodon.social` website.
 
 Just make a request to that domain's `/.well-known/webfinger` endpoint, with the `resource` query parameter set to an `acct:` URI.
 
@@ -90,9 +90,9 @@ Using that ActivityPub actor representation (which may be provided directly, wit
 
 - Take `preferredUsername` and the hostname of the actor's server
 - Construct an `acct:` URI using that username and domain
-- Make a Webfinger request for that `resource`
+- Make a WebFinger request for that `resource`
 
-If the `subject` matches the `resource`, then the process stops here. Otherwise, if the `subject` contains a different canonical account URI, then Mastodon will perform an additional Webfinger request for that canonical account URI in order to ensure that this new `resource` links to the same ActivityPub actor with the same criteria being checked.
+If the `subject` matches the `resource`, then the process stops here. Otherwise, if the `subject` contains a different canonical account URI, then Mastodon will perform an additional WebFinger request for that canonical account URI in order to ensure that this new `resource` links to the same ActivityPub actor with the same criteria being checked.
 
 In other words, the following cases are valid:
 

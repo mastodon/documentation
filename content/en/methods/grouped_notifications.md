@@ -31,7 +31,7 @@ GET /api/v2/notifications HTTP/1.1
 
 Return grouped notifications concerning the user. This API returns Link headers containing links to the next/previous page. However, the links can also be constructed dynamically using query params and `id` values.
 
-Notifications of type `favourite`, `follow`, `reblog` or `admin.sign_up` with the same type and the same target made in a similar timeframe are given a same `group_key` by the server, and querying this endpoint will return aggregated notifications, with only one object per `group_key`. Other notification types may be grouped in the future. The `grouped_types` parameter should be used by the client to explictely list the types it supports showing grouped notifications for.
+Notifications of type `favourite`, `follow`, `reblog` or `admin.sign_up` with the same type and the same target made in a similar timeframe are given a same `group_key` by the server, and querying this endpoint will return aggregated notifications, with only one object per `group_key`. Other notification types may be grouped in the future. The `grouped_types` parameter should be used by the client to explicitly list the types it supports showing grouped notifications for.
 
 Types to filter include:
 - `mention` = Someone mentioned you in their status
@@ -403,7 +403,7 @@ GET /api/v2/notifications/unread_count HTTP/1.1
 
 Get the (capped) number of unread notification groups for the current user.
 A notification is considered unread if it is more recent than the [notifications read marker]({{< relref "methods/markers" >}}).
-Because the count is dependant on the parameters, it is computed every time and is thus a relatively slow operation (although faster than getting the full corresponding notifications), therefore the number of returned notifications is capped.
+Because the count is dependent on the parameters, it is computed every time and is thus a relatively slow operation (although faster than getting the full corresponding notifications), therefore the number of returned notifications is capped.
 
 **Returns:** Hash with a single key of `count`\
 **OAuth:** User token + `read:notifications`\
@@ -486,7 +486,7 @@ Invalid or missing Authorization header.
 #### `notification_groups`
 
 **Description:** The grouped notifications themselves.\
-**Type:** [NotificationGroup](#NotificationGroup)\
+**Type:** Array of [NotificationGroup](#NotificationGroup)\
 **Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
 
@@ -511,7 +511,7 @@ These are stripped-down versions of [Account]({{< relref "entities/Account" >}})
 
 #### `acct`
 
-**Description:** The Webfinger account URI. Equal to `username` for local users, or `username@domain` for remote users.\
+**Description:** The WebFinger account URI. Equal to `username` for local users, or `username@domain` for remote users.\
 **Type:** String\
 **Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added

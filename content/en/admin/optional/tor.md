@@ -171,11 +171,11 @@ systemctl status nginx.service
 
 When this happens you may uncomment the following line in your nginx.conf:
 
-```text
+```nginx
 # server_names_hash_bucket_size 64;
 ```
 
-If you still have problems you may consider incresing the size up to 128. 
+If you still have problems you may consider increasing the size up to 128. 
 
 ## Gotchas {#gotchas}
 

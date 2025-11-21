@@ -389,7 +389,7 @@ fields_attributes[:index][value]
 : String. The value of the profile field. By default, max 255 characters.
 
 source[privacy]
-: String. Default post privacy for authored statuses. Can be `public`, `unlisted`, or `private`.
+: String (Enumerable, oneOf `public`, `unlisted`, or `private`). Default post privacy for authored statuses.
 
 source[sensitive]
 : Boolean. Whether to mark authored statuses as sensitive by default.
@@ -1124,15 +1124,16 @@ Sample output with limit=2.
     "id": "963410",
     "username": "gautambhatia",
     "acct": "gautambhatia",
-    "display_name": "Gautam Bhatia",
+    "display_name": "Gautam Bhatia"
     // ...
   },
   {
     "id": "1007400",
     "username": "seafrog",
     "acct": "seafrog@glitterkitten.co.uk",
-    "display_name": "🐓🦃 Heck Partridge 🤠 🦆",
+    "display_name": "🐓🦃 Heck Partridge 🤠 🦆"
     // ...
+  }
 ]
 ```
 
@@ -1990,7 +1991,7 @@ GET /api/v1/accounts/:id/endorsements HTTP/1.1
 
 Accounts that the user is currently featuring on their profile.
 
-**Returns:** [Account]({{< relref "entities/account" >}})\
+**Returns:** Array of [Account]({{< relref "entities/account" >}})\
 **OAuth:** Public\
 **Version history:**\
 4.4.0 - added
@@ -2610,7 +2611,7 @@ resolve=true, but the domain part of the user@domain address is not a currently 
 
 ---
 
-## Lookup account ID from Webfinger address {#lookup}
+## Lookup account ID from WebFinger address {#lookup}
 
 ```http
 GET /api/v1/accounts/lookup HTTP/1.1
@@ -2619,7 +2620,7 @@ GET /api/v1/accounts/lookup HTTP/1.1
 Quickly lookup a username to see if it is available, skipping WebFinger resolution.
 
 **Returns:** [Account]({{< relref "entities/Account">}})\
-**OAuth:** Public\
+**OAuth:** User token + `read:accounts`\
 **Version history:**\
 3.4.0 - added
 
@@ -2627,7 +2628,7 @@ Quickly lookup a username to see if it is available, skipping WebFinger resoluti
 ##### Query parameters
 
 acct
-: {{<required>}} String. The username or Webfinger address to lookup.
+: {{<required>}} String. The username or WebFinger address to lookup.
 
 #### Response
 ##### 200: OK

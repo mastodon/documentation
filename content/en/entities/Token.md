@@ -57,7 +57,7 @@ aliases: [
 
 {{< page-relref ref="oauth-scopes" caption="OAuth Scopes" >}}
 
-{{< page-relref ref="methods/oauth" caption="oauth methods" >}}
+{{< page-relref ref="methods/oauth" caption="OAuth methods" >}}
 
 {{< page-ref page="client/token" >}}
 

@@ -34,7 +34,7 @@ The `debug` or `silly` levels can be very verbose and you should take care to ch
 
 ## **After an upgrade to a newer version, some pages look weird, like they have unstyled elements. Why?**
 
-Check that you have run `RAILS_ENV=production bin/rails assets:precompile` after the upgrade, and restarted Mastodon’s web process, because it looks like it’s serving outdated stylesheets and scripts. It’s also possible that the precompilation fails due to a lack of RAM, as webpack is unfortunately extremely memory-hungry. If that is the case, make sure you have some swap space assigned. Alternatively, it’s possible to precompile the assets on a different machine, then copy over the `public/packs` directory.
+Check that you have run `RAILS_ENV=production bin/rails assets:precompile` after the upgrade, and restarted Mastodon’s web process, because it looks like it’s serving outdated stylesheets and scripts. If precompilation fails, it’s possible to precompile the assets on a different machine, then copy over the `public/packs` directory.
 
 ## **After an upgrade to a newer version, some requests fail and the logs show error messages about missing columns or tables. Why?**
 

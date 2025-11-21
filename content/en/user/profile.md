@@ -97,6 +97,7 @@ Mastodon will then resolve the link and fetch the web page located there, lookin
   - The `href` attribute on one of those elements must be equal to the URL for your Mastodon profile.
 - If no links with `rel="me"` are found, Mastodon will look for the *first* link, and the `href` value must redirect to your Mastodon profile's URL. (This provides limited support for web pages that use link shorteners and do not use rel-me.)
 - The HTTP response must not exceed 1 MB.
+- The link must appear directly in the HTML response and be accessible without executing JavaScript.
 
 **Any such link must not be within an `iframe`**. An `iframe` effectively means the link is no longer on the same web page, but rather it is on some external web page which is being embedded in the current one. (Note that some "block-based" CMS software may wrap block elements within iframes, which prevents verification for this reason.)
 
