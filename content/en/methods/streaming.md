@@ -605,7 +605,7 @@ wss://mastodon.example/api/v1/streaming
 3.3.0 - added\
 4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
-Open a multiplexed WebSocket connection to receive events.
+Open a multiplexed WebSocket connection to receive events. While the WebSocket spec allows for both text and binary date frames, since we are working only with small text fragments the streaming server uses text frames only. Clients should be configured that way if necessary.
 
 ### Authorization styles {#authorization}
 
