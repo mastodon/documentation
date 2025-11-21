@@ -33,6 +33,7 @@ Choose where the filter will be applied:
 * Notifications = matching notifications will not be shown
 * Public timelines = matching statuses will not appear in local/federated timelines
 * Conversations = matching statuses will be hidden in threads and detailed views
+* Profiles = matching statuses will be hidden in profile views
 
 ### Hide completely {#filter-hide}
 
