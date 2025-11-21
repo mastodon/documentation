@@ -180,7 +180,7 @@ Creating Elasticsearch indices could require more memory than the JVM (Java Virt
 
 3. Save the file.
 4. Restart Elasticsearch using ```systemctl restart elasticsearch```.
-5. Retry creating Elasticsearch indicies. If Elasticsearch still crashes, try to set a higher number.
+5. Retry creating Elasticsearch indices. If Elasticsearch still crashes, try to set a higher number.
 {{< /hint >}}
 
 ## Search optimization for other languages
