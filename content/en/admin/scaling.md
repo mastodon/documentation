@@ -142,6 +142,8 @@ If you start running out of available PostgreSQL connections (the default is 100
 
 User roles with `DevOps` permissions in Mastodon can monitor the current usage of PostgreSQL connections through the PgHero link in the Administration view. Generally, the number of connections open is equal to the total threads in Puma, Sidekiq, and the streaming API combined.
 
+To enable "Query Stats" in PgHero, review the [query stats guide](https://github.com/ankane/pghero/blob/master/guides/Query-Stats.md) and make sure your PostgreSQL has the correct permissions and extensions configured.
+
 ### Installing PgBouncer {#pgbouncer-install}
 
 On Debian and Ubuntu:
@@ -386,7 +388,6 @@ Restart Mastodon to use the new Redis instance. Ensure that you restart both web
 systemctl restart mastodon-web.service
 systemctl restart redis-sidekiq.service
 ```
-
 
 ## Redis Sentinel for High Availability {#redis-sentinel}
 
