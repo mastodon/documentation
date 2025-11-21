@@ -200,7 +200,7 @@ aliases: [
 ### `meta` {#meta}
 
 **Description:** Metadata returned by Paperclip.\
-**Type:** Hash\
+**Type:** {{<nullable>}} Hash or null\
 **Version history:**\
 1.5.0 - added
 
