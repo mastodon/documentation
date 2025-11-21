@@ -137,7 +137,7 @@ Now to install Ruby and JavaScript dependencies:
 ```bash
 bundle config deployment 'true'
 bundle config without 'development test'
-bundle install -j$(getconf _NPROCESSORS_ONLN)
+bundle install
 yarn install
 ```
 
