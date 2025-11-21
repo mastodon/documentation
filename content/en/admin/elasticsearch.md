@@ -147,6 +147,12 @@ ES_PASS=l0ng-r4nd0m-p@ssw0rd
 
 You are all set, and your Elasticsearch server should be much more secure!
 
+#### Reduced permissions in shared environments
+
+If you are running in a shared environment with multiple consumers of the same ES server (Mastodon installs, other apps, etc), in addition to using `ES_PREFIX` as described above to isolate the generated search indexes, you can also provide more limited access to the role you create.
+
+For example, changing `"names": ["*"]` to `"names": ["app_prefix_*"]` (where `app_prefix` matches the value you are using as an index prefix) will limit the access of the users with that role to operate only on the appropriate indices.
+
 ### Populate the indices
 
 After saving the new configuration, restart Mastodon processes for it to take effect:
