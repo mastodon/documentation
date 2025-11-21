@@ -675,7 +675,7 @@ Translate the status content into some language. Only statuses with Public and U
 ##### Form data parameters
 
 lang
-: String (ISO 639-1 language code). The status content will be translated into this language. Defaults to the user's current locale.
+: String (ISO 639-1 language code). The status content will be translated into this language. Defaults to the user's current locale (which in turn falls back to server default).
 
 ##### Headers
 
@@ -683,6 +683,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Translating a status in Spanish with content warning and media into English
@@ -740,7 +741,10 @@ Status does not exist
 
 ##### 403: Forbidden
 
-Status is private or direct
+Status has any of:
+
+- Visibility of private or direct
+- A `language` attribute which is ineligible for translation to the target `lang` by the configured backend. This may include "same language" (i.e. `en`->`en`) attempts when not supported.
 
 ```json
 {
