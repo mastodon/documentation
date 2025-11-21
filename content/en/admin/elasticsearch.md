@@ -165,7 +165,7 @@ RAILS_ENV=production bin/tootctl search deploy
 ```
 
 {{< hint style="info" >}}
-Creating Elasticsearch indicies could require more memory than the JVM (Java Virtual Machine) provides. If Elasticsearch crashes while creating indicies, try to allocate more memory.
+Creating Elasticsearch indices could require more memory than the JVM (Java Virtual Machine) provides. If Elasticsearch crashes while creating indicies, try to allocate more memory.
 
 1. Create and open a file in the directory ```/etc/elasticsearch/jvm.options.d/``` (for example: ```nano /etc/elasticsearch/jvm.options.d/ram.options```)
 2. Add following text and edit the allocated memory to your needs. As a rule of thumb, Elasticsearch should use about 25%-50% of your available memory. Do not allocate more memory than available.
