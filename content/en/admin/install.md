@@ -73,7 +73,13 @@ adduser --disabled-password mastodon
 
 #### Performance configuration (optional) {#performance-configuration-optional}
 
-For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/18/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`.
+For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration.
+
+* Select the appropriate PG version and OS Type
+* Select "Web application" for DB Type
+* Use details appropriate to your server for the other values
+
+With the generated configuration, edit the values in `/etc/postgresql/18/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`.
 
 #### Creating a user {#creating-a-user}
 
