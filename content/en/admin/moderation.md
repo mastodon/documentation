@@ -45,7 +45,7 @@ Once the data has been deleted, whether that is after the 30-day period, or if a
 
 For remote accounts, suspending will make them unfollow any local account. Those relationships are not restored in case the remote account is unsuspended, even within the 30-day time window.
 
-Note that by default, users suspended by an instance will still be able to view posts from that instance. To change this default behavior, instance admins can set the `AUTHORIZED_FETCH` environment variable - see the documentation for [configuring your environment](../config/).
+Note that by default, users suspended by a server will still be able to view posts from that server. To change this default behavior, server admins can set the `AUTHORIZED_FETCH` environment variable - see the documentation for [configuring your environment](../config/).
 
 ## Moderating entire websites {#server-wide-moderation}
 
@@ -73,7 +73,7 @@ After you have downloaded a blocklist, go to **Preferences** &gt; **Moderation**
 
 You can also click "Export" to backup your Mastodon server's blocklist or share it with other administrators.
 
-Note that by default, users of a suspended instance will still be able to view posts from the suspending instance. To change this default behavior, instance admins can set the `AUTHORIZED_FETCH` environment variable - see the documentation for [configuring your environment](../config/).
+Note that by default, users of a suspended server will still be able to view posts from the suspending server. To change this default behavior, server admins can set the `AUTHORIZED_FETCH` environment variable - see the documentation for [configuring your environment](../config/).
 
 ## Spam-fighting measures {#spam-fighting-measures}
 
