@@ -66,7 +66,7 @@ aliases: [
 ### `languages` {#languages}
 
 **Description:** Which languages are you following from this user?\
-**Type:** Array of String (ISO 639-1 language two-letter code)\
+**Type:** {{<nullable>}} Array of String (ISO 639-1 language two-letter code), or null\
 **Version history:**\
 4.0.0 - added
 
