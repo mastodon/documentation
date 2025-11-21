@@ -39,6 +39,7 @@ aliases: [
   "confirmed": true,
   "suspended": false,
   "silenced": false,
+  "sensitized": true,
   "disabled": false,
   "approved": true,
   "locale": null,
@@ -170,6 +171,13 @@ aliases: [
 **Type:** Boolean\
 **Version history:**\
 2.9.1 - added
+
+### `sensitized` {#sensitized}
+
+**Description:** Whether the account is currently marked sensitive.\
+**Type:** Boolean\
+**Version history:**\
+4.0.0 - added
 
 ### `silenced` {#silenced}
 
