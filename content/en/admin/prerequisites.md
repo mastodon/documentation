@@ -62,7 +62,7 @@ First, install iptables-persistent. During installation it will ask you if you w
 apt install -y iptables-persistent
 ```
 
-Edit `/etc/iptables/rules.v4` and put this inside: (There must to be a new line after COMMIT, or it will get an error message ```Bad argument `COMMIT'``` at next step.)
+Edit `/etc/iptables/rules.v4` and put this inside:
 
 ```text
 *filter
