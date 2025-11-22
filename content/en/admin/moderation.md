@@ -37,7 +37,7 @@ When the user's account is unfrozen, normal functionality resumes.
 
 ### Limit {#limit-user}
 
-Previously known as "silencing". A limited account is hidden from all other users on that instance, except for its followers. All of the content is still there, and it can still be found via search, mentions, and following, but the content is invisible publicly.
+Previously known as "silencing". A limited account is hidden from all other users on that instance, except for its followers. All of the content is still there, and it can still be found via search, mentions, and following, but the content is invisible publicly. Notifications about activities from limited accounts will be handled according to account-level notification preferences (which default to "filter" for limited accounts).
 
 If a limited account attempts to follow a user on that instance, the follow is converted into a follow request.
 
