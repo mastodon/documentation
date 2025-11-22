@@ -76,7 +76,7 @@ In this case, you may retrieve the `Link` header and parse it for links to the o
 - The URL will be surrounded by angle brackets (`<>`), and the link relation will be surrounded by double quotes (`""`) and prefixed with `rel=`.
 - The value of the link relation will be either `prev` or `next`.
 
-Following the `next` link should show you older results. Following the `prev` link should show you newer results.
+Unless otherwise documented by a specific API method (or in situations where a sort order is not sensible or relevant) results can be assumed to be in reverse chronological order (most recent first). Following the `next` link should show you older results. Following the `prev` link should show you newer results.
 
 ## Deprecations {#deprecations}
 
