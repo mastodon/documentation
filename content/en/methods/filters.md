@@ -201,7 +201,7 @@ filter_action
 : String. The policy to be applied when the filter is matched. Specify `warn`, `hide` or `blur`.
 
 expires_in
-: Integer. How many seconds from now should the filter expire?
+: Integer. How many seconds from now should the filter expire? Defaults to never expire.
 
 keywords_attributes[][keyword]
 : String. A keyword to be added to the newly-created filter group.
