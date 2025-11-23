@@ -13,6 +13,8 @@ Mastodon supports two different types of OAuth Tokens: App tokens and User token
 
 The `OAuth` field also references Public, in which case no OAuth access token needs to be supplied to access the API endpoint.
 
+Tokens will not expire automatically. They will become invalid only when deleted by a user or revoked by the app.
+
 ### App tokens
 
 In order to receive an App token, you must perform a [client credentials grant flow]({{<relref "client/token#flow" >}}), which gives you a token that can be used to interact with the API on behalf of the OAuth Application. Currently the only API endpoints that accepts this token type are:
