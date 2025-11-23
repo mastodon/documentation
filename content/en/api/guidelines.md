@@ -21,14 +21,20 @@ menu:
 
 **Decentralization must be transparent to the user**. It should be possible to see that a given user is from another server, for example, by displaying their `acct` somewhere. Note that `acct` is equal to `username` for local users and equal to `username@domain` for remote users.
 
-## Handling and sorting IDs {#id}
+## Handling IDs within API responses {#id}
 
-Vanilla Mastodon entity IDs are generated as integers and cast to string. However, this does not mean that IDs _are_ integers, nor should they be cast to integers! Doing so can lead to broken client apps due to integer overflow, so **always treat IDs as strings.**
+**Always treat IDs as opaque strings**.
 
-With that said, because IDs are string representations of numbers, they can still be sorted chronologically very easily by doing the following:
+Vanilla Mastodon entity IDs are generated as integers (usually using a variant of [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID), although older IDs or IDs for internal use only may be auto-incrementing integers), and the API response serializer will cast them to string. However, this does not mean that IDs _are_ integers, nor should they be cast to integers! Doing so can lead to broken client apps due to integer overflow or other errors related to casting.
 
-1. Sort by size. Newer statuses will have longer IDs.
+Unofficial implementations of the Mastodon API are not guaranteed to use numeric lexical forms or even numbers at all. For example, an ID generation algorithm like [Flake](https://github.com/boundary/flake) will produce 128-bit integers encoded using a base-62 alphabet, so such IDs will contain letters. As another example, an ID generation algorithm that uses HTTPS URIs does not represent a number at all.
+
+With that said, because vanilla Mastodon uses IDs that are string representations of numbers, they can still be sorted chronologically by doing the following:
+
+1. Sort by length. Newer statuses will have longer IDs.
 2. Sort lexically. Newer statuses will have at least one digit that is higher when compared positionally.
+
+Clients generally do not need to sort IDs; the server is responsible for sorting IDs before generating the API response. Mastodon will generally sort API responses in reverse chronological order by time of insertion into its database, although some API responses may be sorted by relevance (such as search results or trends).
 
 ## Paginating through API responses {#pagination}
 
@@ -44,39 +50,34 @@ since_id
 : String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
 
 min_id
-: String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward. (Available since v2.6.0.)
+: String. Returns results immediately greater than this ID. In effect, sets a cursor at this ID and paginates forward. (Available since v2.6.0.)
 
-For example, we might fetch `https://mastodon.example/api/v1/accounts/1/statuses` with certain parameters, and we will get the following results in the following cases:
+For example, a client might fetch `https://mastodon.example/api/v1/accounts/1/statuses` with certain parameters, and Mastodon will return the following results in the following cases:
 
 - Setting `?max_id=1` will return no statuses since there are no statuses with an ID earlier than `1`.
 - Setting `?since_id=1` will return the latest statuses since there have been many statuses since `1`.
-- Setting `?min_id=1` will return the oldest statuses, as `min_id` sets the cursor.
+- Setting `?min_id=1` will return the oldest statuses, as `min_id` sets the cursor at `1` and paginates forward.
 
-Some API methods operate on entity IDs that are not publicly exposed in the API response and are only known to the backend and the database. (This is usually the case for entities that reference other entities, such as Follow entities which reference Accounts, or Favourite entities which reference Statuses, etc.)
-
-To get around this, Mastodon may return links to a "prev" and "next" page. These links are made available via the HTTP `Link` header on the response. Consider the following fictitious API call:
+Some API methods operate on entity IDs that are not publicly exposed in the API response and are only known to the backend and the database. (This is usually the case for entities that reference other entities, such as Follow entities which reference Accounts, or Favourite entities which reference Statuses, etc.) To get around this, Mastodon may return links to a "next" and/or "previous" page with prepopulated values for these parameters. Consider the following fictitious API call and response:
 
 ```http
-GET https://mastodon.example/api/v1/endpoint HTTP/1.1
+GET /api/v1/endpoint HTTP/1.1
+Host: mastodon.example
 Authorization: Bearer <access_token>
-
+```
+```http
+HTTP/1.1 200 OK
 Link: <https://mastodon.example/api/v1/endpoint?max_id=7163058>; rel="next", <https://mastodon.example/api/v1/endpoint?min_id=7275607>; rel="prev"
+
 [
   {
-    // some Entity
+    "//": "some Entity"
   },
-  // more Entities in an Array
+  "more Entities in an Array"
 ]
 ```
 
-In this case, you may retrieve the `Link` header and parse it for links to the older or newer page. Keep in mind the following rules:
-
-- The links will be returned all via one `Link` header, separated by a comma and a space (`, `)
-- Each link consists of a URL and a link relation, separated by a semicolon and a space (`; `)
-- The URL will be surrounded by angle brackets (`<>`), and the link relation will be surrounded by double quotes (`""`) and prefixed with `rel=`.
-- The value of the link relation will be either `prev` or `next`.
-
-Unless otherwise documented by a specific API method (or in situations where a sort order is not sensible or relevant) results can be assumed to be in reverse chronological order (most recent first). Following the `next` link should show you older results. Following the `prev` link should show you newer results.
+In this case, you can retrieve the HTTP `Link` header and parse it for links to the next or previous page. See [RFC 9651](https://www.rfc-editor.org/rfc/rfc9651) for parsing HTTP headers, and see [RFC 8288](https://datatracker.ietf.org/doc/rfc8288/) for information specifically about the `Link` header. Following the `next` link relation should show you the next page. Following the `prev` link relation should show you the previous page.
 
 ## Deprecations {#deprecations}
 
