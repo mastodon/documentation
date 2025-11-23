@@ -187,6 +187,8 @@ An example nginx configuration would look like (replace the onion name with your
 add_header Alt-Svc 'h2="qKnF…sKq7.onion:443"; ma=86400; persist=1';
 ```
 
+This example uses port 443, but that is not required and could be configured differently. This configuration allows HTTPS to be used with a normal non-onion TLS certificate.
+
 [Alt-Svc Header]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Alt-Svc
 
 ## Gotchas {#gotchas}
