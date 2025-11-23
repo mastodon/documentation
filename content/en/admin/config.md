@@ -68,11 +68,15 @@ Secure mode does not hide HTML representations of public posts and profiles. HTM
 
 When set to `true`, Mastodon will restrict federation to servers you have manually approved only, as well as disable all public pages and some REST APIs. Limited federation mode is based on secure mode (`AUTHORIZED_FETCH`).
 
-When switching an existing instance to limited federation mode, the following command should be used to remove any already existent data on non-allowed domains:
+Consider the impact of this feature on other features:
 
-```bash
-tootctl domain purge --limited-federation-mode
-```
+- When limited federation mode is enabled, domain blocks are ignored and domain allows are enabled. When switching an existing instance to limited federation mode, the following command should be used to remove any already existent data on non-allowed domains:
+
+    ```bash
+    tootctl domain purge --limited-federation-mode
+    ```
+
+- When limited federation mode is disabled, domain allows are ignored and domain blocks are enabled. When disabling this mode (thus placing the server in a wider network) you may want to first import a domain blocklist to reduce the possibility of accidentally exposing your community to bad actors.
 
 {{< hint style="warning" >}}
 This mode is intended for private use only, such as in academic institutions or internal company networks, as it effectively creates a data silo, which is contrary to Mastodon's mission of decentralization.
