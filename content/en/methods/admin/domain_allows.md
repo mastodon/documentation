@@ -16,6 +16,8 @@ aliases: [
 #TableOfContents ul ul ul {display: none}
 </style>
 
+This endpoint creates rules to allow only the specified domains to federate with your server. This only applies when [LIMITED_FEDERATION_MODE](../../admin/config#limited_federation_mode) is enabled. This is the inverse of the [Domain Blocks](./domain_blocks) functionality, and cannot be used to override a wild-card domain block.
+
 ## List all allowed domains {#get}
 
 ```http
