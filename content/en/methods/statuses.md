@@ -841,7 +841,7 @@ Status does not exist or is private
 GET /api/v1/statuses/:id/quotes HTTP/1.1
 ```
 
-View quotes of a status you have posted.
+View quotes of a status.
 
 **Returns:** Array of [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `read:statuses`.\
