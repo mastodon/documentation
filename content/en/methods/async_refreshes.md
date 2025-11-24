@@ -51,7 +51,7 @@ Please note that the asynchronous nature of background jobs can lead to race con
 For those reasons the `AsyncRefresh` can only ever serve as an indicator of when it could be worthwhile for a client to request new data. In the general case there is no guarantee that new data will be served.
 
 **Returns:** [AsyncRefresh]({{< relref "entities/AsyncRefresh" >}})\
-**OAuth:** App token + `read`\
+**OAuth:** User token + `read`\
 **Version history:**\
 4.4.0 - added
 
@@ -60,7 +60,7 @@ For those reasons the `AsyncRefresh` can only ever serve as an indicator of when
 #### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <app_token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ### Response
 
