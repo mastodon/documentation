@@ -86,6 +86,21 @@ Using that WebFinger response, Mastodon will check the following:
 - The `links` array contains a link with `rel` of `self` and `type` of either `application/ld+json; profile="https://www.w3.org/ns/activitystreams"` or `application/activity+json`
   - The `href` for this link resolves to an ActivityPub actor
 
+For example, a minimal viable WebFinger response might look like:
+
+```json
+{
+  "subject": "acct:username@host.example",
+  "links": [
+    {
+      "href": "https://host.example/accounts/username",
+      "rel": "self",
+      "type": "application/activity+json"
+    }
+  ]
+}
+```
+
 Using that ActivityPub actor representation (which may be provided directly, without the initial WebFinger request), Mastodon will do the following:
 
 - Take `preferredUsername` and the hostname of the actor's server
