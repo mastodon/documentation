@@ -50,7 +50,7 @@ Please note that the asynchronous nature of background jobs can lead to race con
 
 For those reasons the `AsyncRefresh` can only ever serve as an indicator of when it could be worthwhile for a client to request new data. In the general case there is no guarantee that new data will be served.
 
-**Returns:** [AsyncRefresh]({{< relref "entities/AsyncRefresh" >}})\
+**Returns:** Hash with a single key of `async_refresh` with value of [AsyncRefresh]({{< relref "entities/AsyncRefresh" >}})\
 **OAuth:** User token + `read`\
 **Version history:**\
 4.4.0 - added
