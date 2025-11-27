@@ -125,3 +125,7 @@ Opening a list will load that list's timeline. List timelines contain only posts
 ## Syndication Feeds {#syndication}
 
 Every account and tag page provide an RSS feed for syndication onto other platforms. Those feeds are auto-discoverable from the account and tag pages.
+
+## Translation
+
+When a post is in a language other than what your account is set to understand, a "Translate" button will appear next to the post content. Clicking this button issues a request to translate the content to the server, and will replace that content with translated results. This feature requires the server to have configured support for a translation service, and so may not be available on all servers.

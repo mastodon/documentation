@@ -772,10 +772,19 @@ Prefix for the OTEL service names. The services names will be `$prefix/web` and 
 
 What character to use in service names when differentiating between different services. Defaults to `/` (i.e. `mastodon/web`).
 
-
 #### `OTEL_EXPORTER_OTLP_ENDPOINT`
 
 URL of the OLTP server to send the traces to. OpenTelemetry instrumentation is disabled if this variable is not set. No default (empty value).
+
+### Translation services {#translation}
+
+Mastodon supports integration with [DeepL] and [LibreTranslate] as backend language translation engines. Both services require separate setup and for configuration of Mastodon (via environment variables) to understand how to use them.
+
+- DeepL needs `DEEPL_API_KEY` and `DEEPL_PLAN` (defaults to "free")
+- LibreTranslate needs `LIBRE_TRANSLATE_API_KEY` and `LIBRE_TRANSLATE_ENDPOINT`
+
+[DeepL]: https://www.deepl.com
+[LibreTranslate]: https://libretranslate.com
 
 ## File storage {#files}
 
