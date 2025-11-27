@@ -3,10 +3,14 @@ title: Proxying object storage through nginx
 description: Serving user-uploaded files in Mastodon from your own domain
 ---
 
+## Summary
+
 When you are using Mastodon with an object storage provider like Amazon S3, Wasabi, Google Cloud or others, by default the URLs of the files go through the storage providers themselves. This has the following downsides:
 
 - Bandwidth is usually metered and very expensive
 - URLs will be broken if you decide to switch providers later
+
+## Proxying
 
 You can choose to serve the files from your own domain, incorporating caching in the process. In Mastodon, access patterns show that new files are often simultaneously accessed by many clients as they appear in new posts via the streaming API or are shared through federation; in contrast, older content is accessed less frequently. Therefore, relying solely on caching won't significantly reduce the bandwidth usage of your proxy from the actual object storage. To address this, we can implement a cache lock mechanism, which ensures that only one proxy request is made at a time.
 
@@ -134,3 +138,6 @@ systemctl reload mastodon-web
 **You can now visit your Mastodon in the browser to confirm everything loads correctly**
 {{< /hint >}}
 
+## Migration
+
+If you were previously serving files locally and have migrated to a proxying approach, keep in mind that the "old" media URLs are still circulating and your server will continue getting requests for them for some time. You may want to add a `rewrite` or `redirect` rule to the `location ^~ /system/` section in `nginx.conf` which appropriately sends this traffic to the new location.
