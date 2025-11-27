@@ -643,7 +643,8 @@ access_token
 : {{%optional%}} String. A user-authorized OAuth token.  Provided as a legacy alternative to `Authorization` header as [explained](#authorization) above.
 
 stream
-: {{<required>}} String. The stream to watch for events. See [Streams](#streams) for possible values.
+: {{<required>}} String. When attempting to watch a single stream for events. See [Streams](#streams) for possible values.
+: {{%optional%}} String. When initiating a general connection without a specific subscription target.
 
 list
 : String. When `stream` is set to `list`, use this parameter to specify the list ID.
