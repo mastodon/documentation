@@ -3,6 +3,10 @@
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://scripts.simpleanalyticscdn.com; connect-src 'self' https://queue.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;">
+
+<link rel="preconnect" href="https://scripts.simpleanalyticscdn.com" crossorigin>
+
 <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
 
 {{ $css := resources.Get "style.scss" | toCSS | minify | fingerprint }}
