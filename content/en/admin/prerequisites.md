@@ -103,8 +103,10 @@ Edit `/etc/iptables/rules.v4` and put this inside:
 -A FORWARD -j REJECT
 
 COMMIT
+
 ```
 
+Please note there must to be a new line after COMMIT, or you will receive the error message `Bad argument COMMIT`.
 With iptables-persistent, that configuration will be loaded at boot time. But since we are not rebooting right now, we need to load it manually for the first time:
 
 ```bash
@@ -146,6 +148,7 @@ If your server is also reachable over IPv6, edit `/etc/iptables/rules.v6` and ad
 -A FORWARD -j REJECT
 
 COMMIT
+
 ```
 Similar to the IPv4 rules, you can load it manually like this:
 ```bash
