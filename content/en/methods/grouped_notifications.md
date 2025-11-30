@@ -600,7 +600,7 @@ TODO
 #### `most_recent_notification_id`
 
 **Description:** ID of the most recent notification in the group.\
-**Type:** String\
+**Type:** Integer\
 **Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
 
