@@ -179,15 +179,17 @@ If you still have problems you may consider increasing the size up to 128.
 
 ### Alternative Service {#alt-svc}
 
-You can choose to advertise the existence of the onion service with an [Alt-Svc Header]. This informs clients that the service can be accessed via Tor, and some clients with support will choose to connect that way when they see this header.
-
-An example nginx configuration would look like (replace the onion name with your own):
+You can choose to advertise the existence of the onion service with an [Alt-Svc Header]. This informs clients that the service can be accessed via Tor, and some clients with support will choose to connect that way when they see this header. An example nginx configuration could look like:
 
 ```nginx
 add_header Alt-Svc 'h2="qKnF…sKq7.onion:443"; ma=86400; persist=1';
 ```
 
-This example uses port 443, but that is not required and could be configured differently. This configuration allows HTTPS to be used with a normal non-onion TLS certificate.
+Notes about configuring:
+
+- Replace the truncated onion name with your own
+- The example uses port 443, but that is not required and could be configured differently
+- Because the TLS connection does not terminate at the onion service, HTTPS can use a normal non-onion TLS certificate
 
 [Alt-Svc Header]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Alt-Svc
 
