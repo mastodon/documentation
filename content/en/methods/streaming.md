@@ -703,6 +703,25 @@ An example filter change by the user:
 Note that the `payload` property is not present for `filters_changed` events. And for `delete` and `announcements.delete` the payload is a string, not an object.
 {{</hint>}}
 
+## Error responses
+
+For HTTP requests to a non-existent streaming endpoint, the streaming server will respond with an HTTP 400 and a JSON body describing the error:
+
+```json
+{
+  "error": "Unknown channel requested"
+}
+```
+
+For invalid requests within the WebSocket (for example, an incorrect stream name), the server will respond with error JSON:
+
+```json
+{
+  "error": "Unknown stream type",
+  "status":400
+}
+```
+
 ## See also
 
 ### Streaming server
