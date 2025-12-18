@@ -167,7 +167,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 Delete a user account with the given USERNAME.
 
 `USERNAME`
-: Local username for the new account. {{<required>}}
+: Local username of the account to delete. {{<required>}}
 
 **Version history:**\
 2.6.0 - added
@@ -181,7 +181,7 @@ Delete a user account with the given USERNAME.
 Request a backup for a user account with the given USERNAME. The backup will be created in Sidekiq asynchronously, and the user will receive an email with a link to it once it's done.
 
 `USERNAME`
-: Local username for the new account. {{<required>}}
+: Local username of the account to backup. {{<required>}}
 
 **Version history:**\
 2.6.0 - added
