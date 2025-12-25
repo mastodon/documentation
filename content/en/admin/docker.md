@@ -7,7 +7,21 @@ menu:
     parent: admin
 ---
 
-# Mastodon configuration and environment variable generation {#Config and env variable generation}
+## Pre-requisites {#pre-requisites}
+
+* A machine running **Ubuntu 24.04** or **Debian 13** that you have root access to
+* A **domain name** (or a subdomain) for the Mastodon server, e.g. `example.com`
+* An email delivery service or other **SMTP server**
+* Latest Docker version installed with compose plugin 
+You will be running the commands as root. If you aren’t already root, switch to root: `sudo -i`
+
+{{< hint style="info" >}}
+It's advised to reed the [security section](https://docs.docker.com/engine/security/) of the docker documentation.
+{{< /hint >}}
+
+## Setup {#setup}
+
+### Retrieve the last mastodon release {#retrieve-the-last mastodon-release}
 
 ```sh
 # Clone Mastodon git repo
