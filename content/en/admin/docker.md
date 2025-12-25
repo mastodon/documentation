@@ -32,12 +32,33 @@ cd mastodon
 git checkout $(git tag -l | grep '^v[0-9.]*$' | sort -V | tail -n 1)
 ```
 
-In `docker-compose.yml` comment out the lines with `build: . ` for all images (web, streaming, sidekiq).  
-Then start the **postgres** db and the **redis**.
+{{< hint style="info" >}}
+If you want to enable ElasticSearch uncomment the `es` service in the `docker-compose.yml`.
+
+If you want to enable federation with Tor instances uncomment the `tor` and the `privoxy` service in `docker-compose.yml`.
+And and the following environment variable to the `.env.production`:
 
 ```sh
+http_hidden_proxy=http://privoxy:8118
+ALLOW_ACCESS_TO_HIDDEN_SERVICE=true
+```
+{{< /hint >}}
+
+### Generation of the `.env.production` file {#generation-of-the-`.env.production`-file}
+
+To generate your `.env.production` file you have several options :
+- Use the interactive setup wizard (recommended)
+- Use the .env.production.sample
+- Consult the [full config option list](https://docs.joinmastodon.org/admin/config/) and add the ones you need.
+
+
+First start the **postgres** db and the **redis**.
+
+```sh
+# Pull all the images so you can work quickly later in the documentation
 docker compose pull
-docker compose up db redis
+# Start the Postgresql and the Redis database in detached mod
+docker compose up db redis -d
 ```
 
 By default, the db is configured without a password and with the other default parameters. If you wish to add a password to the db, or use a different user, table etc., you need to modify the `docker-compose.yml` to add the correct variables for the **Postgres** container of the db service.
