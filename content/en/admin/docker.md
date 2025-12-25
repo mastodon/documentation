@@ -63,27 +63,34 @@ docker compose up db redis -d
 
 By default, the db is configured without a password and with the other default parameters. If you wish to add a password to the db, or use a different user, table etc., you need to modify the `docker-compose.yml` to add the correct variables for the **Postgres** container of the db service.
 
-Then run the configuration script that will create the `.env.production`.
+Then launch the configuration wizard, which will display the `.env.production`.
 
 ```sh
-docker compose run web bundle exec rake mastodon:setup
+docker compose run --rm web bundle exec rake mastodon:setup
 ```
 
 Fill in the required fields.  
 Finally, copy the contents of the generated `.env` and paste it into the `.env.production` on your machine.  
-Confirm the db setup.
+Confirm the PostgreSQL setup.
 
-_If you don't want to configure the db now, you can run the following command later **Please note** this command requires the presence of the `.env.production` with the parameters to connect to the db:_
+{{< hint style="info" >}}
+If for some reason you don't want to configure PostgreSQL now, you can run the following command later.
+**Please note** this command requires the presence of the `.env.production` with the parameters to connect to the db:
 
 ```sh
-docker compose run web bundle exec rails db:setup
+docker compose run --rm web bundle exec rails db:setup
 ```
+{{< /hint >}}
 
 If you have chosen to configure the db with the `mastodon:setup` script, validate the creation of the admin account when requested and copy the generated password.
 
 If the `mastodon:setup` script fails to initialize the db, add the variable `DISABLE_DATABASE_ENVIRONMENT_CHECK=1` in the container shell before re-running the command and validating the destruction of the database.
 
-You can now start the Mastodon instance.
+```sh
+docker compose run -e "DISABLE_DATABASE_ENVIRONMENT_CHECK=1" --rm web bundle exec rake mastodon:setup
+```
+
+You can now start all the Mastodon instance components.
 
 ```sh
 docker compose up -d
