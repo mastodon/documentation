@@ -147,7 +147,7 @@ If you created the admin account with `mastodon:setup`, log in with the admin ac
 If not, connect to the container, create the admin account and approve it.
 
 ```sh
-docker exec -it <id-conteneur-web> bash
+docker compose exec -it web bash
 
 RAILS_ENV=production
 
@@ -165,6 +165,6 @@ tootctl accounts approve admin # admin account username
 Login to the container to validate the admin account:
 
 ```sh
-docker exec -it <id-conteneur-web> bash
+docker compose exec -it web bash
 tootctl accounts approve admin # admin account username
 ```
