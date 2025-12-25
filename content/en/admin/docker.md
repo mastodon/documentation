@@ -25,11 +25,11 @@ It's advised to reed the [security section](https://docs.docker.com/engine/secur
 
 ```sh
 # Clone Mastodon git repo
-git clone https://github.com/tootsuite/mastodon.git
+git clone https://github.com/mastodon/mastodon.git
 # Change directory to Mastodon
 cd mastodon
 # Checkout to the latest stable branch
-git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
+git checkout $(git tag -l | grep '^v[0-9.]*$' | sort -V | tail -n 1)
 ```
 
 In `docker-compose.yml` comment out the lines with `build: . ` for all images (web, streaming, sidekiq).  
