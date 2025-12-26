@@ -118,56 +118,61 @@ docker compose up -d
 
 ## Reverse-proxy configuration {#Proxy configuration}
 
-### Creating a self-signed certificate
+To access the Mastodon web instance you need to configure a proxy, like Nginx.
 
-Create a self-signed certificate for your Mastodon instance.
+The mastodon web and streaming service are listening on 127.0.0.1 so you need setup nginx to redirect the traffic from port 80 and 443 of you machine to the web and streaming container which are listening on 127.0.0.1.
 
-```sh
-DOMAIN_DNS='localhost'
-openssl req --nodes -x509 -newkey rsa:4096 -keyout privkey.pem -out fullchain.pem -sha256 -days 365
-mkdir -p "certs/live/$DOMAIN_DNS/"
-mv fullchain.pem privkey.pem certs/live/$DOMAIN_DNS/
+### Acquiring an SSL certificate {#acquiring-an-ssl-certificate}
+
+We’ll use Let’s Encrypt to get a free SSL certificate:
+
+```bash
+certbot certonly --nginx -d example.com
 ```
 
-Fill in the requested fields, the Common Name field must be equal to the value of `LOCAL_DOMAIN` in the `.env.production`.
+This will obtain the certificate, and save it in the directory `/etc/letsencrypt/live/example.com/`.
 
-### Nginx config
+### Setting up NGINX {#setting-up-nginx}
 
-Based on the [official configuration](https://github.com/mastodon/mastodon/blob/main/dist/nginx.conf), we modify a few elements to make the config work with docker.
+Copy the configuration template for nginx from the Mastodon directory:
 
-```sh
-DOMAIN_DNS='localhost'
-cp dist/nginx.conf dist/nginx_dockerized.conf
-sed -i "s/try_files \$uri =404;/try_files \$uri @proxy;/" dist/nginx_dockerized.conf
-sed -i "s/server_name example.com;/\server_name $DOMAIN_DNS;/" dist/nginx_dockerized.conf
-sed -i 's/server 127.0.0.1:3000/server web:3000/' dist/nginx_dockerized.conf
-sed -i 's/server 127.0.0.1:4000/server streaming:4000/' dist/nginx_dockerized.conf
-sed -i "s/# ssl_certificate\s*\/etc\/letsencrypt\/live\/example.com\/fullchain.pem;/ssl_certificate\t\/etc\/letsencrypt\/live\/$DOMAIN_DNS\/fullchain.pem;/" dist/nginx_dockerized.conf
-sed -i "s/# ssl_certificate_key\s*\/etc\/letsencrypt\/live\/example.com\/privkey.pem;/ssl_certificate_key\t\/etc\/letsencrypt\/live\/$DOMAIN_DNS\/privkey.pem;/" dist/nginx_dockerized.conf
-
-# Patch internal Host header forwarding
-sed -i "s/Host \$host/Host $DOMAIN_DNS/" dist/nginx_dockerized.conf
+```bash
+cp /root/mastodon/dist/nginx.conf /etc/nginx/sites-available/mastodon
+ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
+rm /etc/nginx/sites-enabled/default
 ```
 
-Then start up the nginx container.
+Then edit `/etc/nginx/sites-available/mastodon` to 
 
-```sh
-docker compose up nginx -d
+1. Replace `example.com` with your own domain name
+2. Uncomment the `ssl_certificate` and `ssl_certificate_key` (ignore this step if you are bringing your own certificate):
+
+    ```nginx
+    ssl_certificate     /etc/letsencrypt/live/example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;;
+    ```
+
+3. Uncomment the `# try_files $uri @mastodon;` instruction in the `location ^~ /assets/`, `location ^~ /packs/` and `location ^~ /system/` scop.
+
+Allow other users to traverse the mastodon user's home directory, so that nginx's `www-data` user can access asset files:
+
+```bash
+chmod o+x /home/mastodon
 ```
 
-Test the instance with a browser. https://<dns-name>`
+Restart nginx for the changes to take effect:
 
-## Finalization {#Finalization}
+```bash
+systemctl restart nginx
+```
 
-### 1st Connection with admin account
+At this point, you should be able to visit your domain in the browser. If you didn't create the admin account with the wizard follow the additional step.
 
-If you created the admin account with `mastodon:setup`, log in with the admin account email address and password. Change the default password. All that's left is to approve the admin account.  
-If not, connect to the container, create the admin account and approve it.
+## Additional step {#Additional-step}
+Connect to the web container and create the admin account, don't forget to approve the account.
 
-```sh
+```bash
 docker compose exec -it web bash
-
-RAILS_ENV=production
 
 tootctl accounts create \
   alice \
