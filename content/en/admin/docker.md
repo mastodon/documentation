@@ -62,7 +62,7 @@ ALLOW_ACCESS_TO_HIDDEN_SERVICE=true
 ```
 {{< /hint >}}
 
-### Generation of the `.env.production` file {#generation-of-the-`.env.production`-file}
+### Generation of the `.env.production` file {#generation-of-the-.env.production-file}
 
 To generate your `.env.production` file you have several options :
 - Use the interactive setup wizard (recommended)
@@ -72,7 +72,8 @@ To generate your `.env.production` file you have several options :
 
 First start the **postgres** db and the **redis**.
 
-```sh
+```bash
+# Be sure to be root and in the /home/mastodon/live/ directory
 # Pull all the images so you can work quickly later in the documentation
 docker compose pull
 # Start the Postgresql and the Redis database in detached mod
@@ -83,38 +84,37 @@ By default, the db is configured without a password and with the other default p
 
 Then launch the configuration wizard, which will display the `.env.production`.
 
-```sh
+```bash
 docker compose run --rm web bundle exec rake mastodon:setup
 ```
 
 Fill in the required fields.  
 Finally, copy the contents of the generated `.env` and paste it into the `.env.production` on your machine.  
+
 Confirm the PostgreSQL setup.
 
 {{< hint style="info" >}}
 If for some reason you don't want to configure PostgreSQL now, you can run the following command later.
 **Please note** this command requires the presence of the `.env.production` with the parameters to connect to the db:
 
-```sh
+```bash
 docker compose run --rm web bundle exec rails db:setup
 ```
 {{< /hint >}}
 
-If you have chosen to configure the db with the `mastodon:setup` script, validate the creation of the admin account when requested and copy the generated password.
+Validate the creation of the admin account when requested and copy the generated password.
 
 If the `mastodon:setup` script fails to initialize the db, add the variable `DISABLE_DATABASE_ENVIRONMENT_CHECK=1` in the container shell before re-running the command and validating the destruction of the database.
 
-```sh
+```bash
 docker compose run -e "DISABLE_DATABASE_ENVIRONMENT_CHECK=1" --rm web bundle exec rake mastodon:setup
 ```
 
 You can now start all the Mastodon instance components.
 
-```sh
+```bash
 docker compose up -d
 ```
-
-You can't access the Mastodon intance without configuring a reverse proxy like NGINX.
 
 ## Reverse-proxy configuration {#Proxy configuration}
 
