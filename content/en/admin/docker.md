@@ -180,14 +180,7 @@ tootctl accounts create \
   --confirmed \
   --role Owner
 
-tootctl accounts approve admin # admin account username
-```
+tootctl accounts approve alice
 
-### Admin account approval
-
-Login to the container to validate the admin account:
-
-```sh
-docker compose exec -it web bash
-tootctl accounts approve admin # admin account username
+exit
 ```
