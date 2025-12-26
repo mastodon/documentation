@@ -13,11 +13,27 @@ menu:
 * A **domain name** (or a subdomain) for the Mastodon server, e.g. `example.com`
 * An email delivery service or other **SMTP server**
 * Latest Docker version installed with compose plugin 
-You will be running the commands as root. If you aren’t already root, switch to root: `sudo -i`
 
 {{< hint style="info" >}}
 It's advised to reed the [security section](https://docs.docker.com/engine/security/) of the docker documentation.
 {{< /hint >}}
+
+You will be running the commands as root. If you aren’t already root, switch to root: `sudo -i`
+
+### Creating the `mastodon` user {#creating-the-mastodon-user}
+
+This is the user account under which Mastodon will live:
+
+```bash
+adduser --disabled-password mastodon
+```
+
+### System packages {#system-packages}
+
+```bash
+apt update
+apt install -y certbot nginx python3-certbot-nginx
+```
 
 ## Setup {#setup}
 
