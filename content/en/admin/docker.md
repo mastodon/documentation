@@ -39,22 +39,24 @@ apt install -y certbot nginx python3-certbot-nginx
 
 ### Retrieve the last mastodon release {#retrieve-the-last mastodon-release}
 
-```sh
+```bash
+su - mastodon
 # Clone Mastodon git repo
-git clone https://github.com/mastodon/mastodon.git
-# Change directory to Mastodon
-cd mastodon
+git clone https://github.com/mastodon/mastodon.git live
+# Change directory to Mastodon repo
+cd live
 # Checkout to the latest stable branch
-git checkout $(git tag -l | grep '^v[0-9.]*$' | sort -V | tail -n 1)
+git checkout $(git tag -l | grep '^v[0-9.]*$' | sort -V | tail -n 1) && exit
 ```
 
+### Review the `docker-compose.yml` {#review-the-compose-file}
 {{< hint style="info" >}}
 If you want to enable ElasticSearch uncomment the `es` service in the `docker-compose.yml`.
 
 If you want to enable federation with Tor instances uncomment the `tor` and the `privoxy` service in `docker-compose.yml`.
 And and the following environment variable to the `.env.production`:
 
-```sh
+```bash
 http_hidden_proxy=http://privoxy:8118
 ALLOW_ACCESS_TO_HIDDEN_SERVICE=true
 ```
