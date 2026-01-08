@@ -283,7 +283,7 @@ Environment="PREPARED_STATEMENTS=false"
 
 Since we’re using transaction-based pooling, we can’t use prepared statements.
 
-In this file you can also increase sidekiq's concurrency, with respect for the earlier configured `max_client_conn`
+In this file you can also increase sidekiq's concurrency, with respect to the earlier configured `max_client_conn`
 
 ```bash
 Environment="DB_POOL=95"
