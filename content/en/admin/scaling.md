@@ -273,27 +273,31 @@ tail -f /var/log/postgresql/pgbouncer.log
 
 #### Configuring Mastodon to talk to PgBouncer {#pgbouncer-mastodon}
 
-In your `.env.production` file, first off make sure that this is set:
-
+In the `/etc/systemd/system/mastodon-sidekiq.service` service file, override the regular DB settings by adding the following after `[Service]` tab
 ```bash
-PREPARED_STATEMENTS=false
+[Service]
+...
+Environment="DB_PORT=6432"
+Environment="PREPARED_STATEMENTS=false"
 ```
 
 Since we’re using transaction-based pooling, we can’t use prepared statements.
 
-Next up, configure Mastodon to use port 6432 (PgBouncer) instead of 5432 (PostgreSQL) and you should be good to go:
+In this file you can also increase sidekiq's concurrency, with respect for the earlier configured `max_client_conn`
 
 ```bash
-DB_HOST=localhost
-DB_USER=mastodon
-DB_NAME=mastodon_production
-DB_PASS=password
-DB_PORT=6432
+Environment="DB_POOL=95"
+ExecStart=/home/mastodon/.rbenv/shims/bundle exec sidekiq -c 95
 ```
 
-{{< hint style="warning" >}}
-You cannot use PgBouncer to perform `db:migrate` tasks, but this is easy to work around. If your PostgreSQL and PgBouncer are on the same host, it can be as simple as defining `DB_PORT=5432` together with `RAILS_ENV=production` when calling the task, for example: `RAILS_ENV=production DB_PORT=5432 bundle exec rails db:migrate` (you can specify `DB_HOST` too if it’s different, etc)
-{{< /hint >}}
+Keep a few connections free, to prevent pgbouncer from running out of connections. 5 connections is fine if sidekiq is the only process using pgbouncer.
+
+Apply the new settings by reloading the systemd daemon configuration, and restarting sidekiq
+
+```bash
+systemctl daemon-reload
+systemctl restart mastodon-sidekiq
+```
 
 #### Administering PgBouncer {#pgbouncer-admin}
 
