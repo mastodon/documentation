@@ -52,6 +52,8 @@ There exist a number of **dedicated Mastodon hosting providers** that take care 
 
 {{< caption-link url="https://www.saasweb.net/de/managed-hosting/managed-mastodon-server" caption="SaaS Web" >}}
 
+{{< caption-link url="https://toot.io/mastodon_hosting.html" caption="Toot.io" >}}
+
 {{< caption-link url="https://webape.site" caption="WebApe" >}}
 
 Managed hosting solutions are great for those who do not have experience or desire to install and maintain software. However, being in charge of all components on your own hardware gives greater control over scaling, performance and customization.
