@@ -205,4 +205,7 @@ To verify a signature, Mastodon uses the following algorithm:
 * Strip `type`, `id`, and `signatureValue` from the `signature`, leaving only `signature[creator]` and `signature[created]`.
 * Base64-decode the `signatureValue` and verify it against the public key in `signature[creator]`.
 
-[^keyId]: When the `keyId` is an actor and fragment (`actor#key`), the owner points back to the same document (actor). When the `keyId` is a key (`/key`), the owner points back to some actor, and that actor should point back to the same key (establishing a bidirectional claim).
+[^keyId]: They extracted `keyId` value is processed two different ways:
+
+    * When the `keyId` is an actor and fragment (`actor#key`), the owner points back to the same document (actor).
+    * When the `keyId` is a key (`/key`), the owner points back to some actor, and that actor should point back to the same key (establishing a bi-directional claim).
