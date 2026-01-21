@@ -88,7 +88,10 @@ aliases: [
     },
     "accounts": {
       "max_featured_tags": 10,
-      "max_pinned_statuses": 5
+      "max_pinned_statuses": 5,
+      "max_profile_fields": 4,
+      "profile_field_name_limit": 255,
+      "profile_field_value_limit": 255
     },
     "statuses": {
       "max_characters": 500,
@@ -620,6 +623,27 @@ aliases: [
 **Type:** Integer\
 **Version history:**\
 4.3.0 - added
+
+##### `configuration[accounts][max_profile_fields]` {#max_profile_fields}
+
+**Description:** The maximum number of custom profile fields allowed to be set.\
+**Type:** Integer\
+**Version history:**\
+4.6.0 - added
+
+##### `configuration[accounts][profile_field_name_limit]` {#profile_field_name_limit}
+
+**Description:** The maximum size of a profile field name, in characters.\
+**Type:** Integer\
+**Version history:**\
+4.6.0 - added
+
+##### `configuration[accounts][profile_field_value_limit]` {#profile_field_value_limit}
+
+**Description:** The maximum size of a profile field value, in characters.\
+**Type:** Integer\
+**Version history:**\
+4.6.0 - added
 
 #### `configuration[statuses]` {#statuses}
 
