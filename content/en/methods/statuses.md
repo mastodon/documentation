@@ -1701,7 +1701,7 @@ Status is not owned by you:
 }
 ```
 
-Account has already reached the limit (defaults to 5) of pinned statuses:
+Account has already reached the limit (defaults to 5, see [Instance#max_pinned_statuses]({{< relref "entities/Instance#max_pinned_statuses" >}})) of pinned statuses:
 
 ```json
 {
