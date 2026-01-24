@@ -380,13 +380,13 @@ attribution_domains[]
 : Array of String. Domains of websites allowed to credit the account. Maximum of 10 domains.
 
 fields_attributes
-: Hash. The profile fields to be set. Inside this hash, the key is an integer cast to a string (although the exact integer does not matter), and the value is another hash including `name` and `value`. By default, max 4 fields.
+: Hash. The profile fields to be set. Inside this hash, the key is an integer cast to a string (although the exact integer does not matter), and the value is another hash including `name` and `value`. By default, max 4 fields (specified in [Instance#max_profile_fields]({{< relref "entities/Instance#max_profile_fields" >}})).
 
 fields_attributes[:index][name]
-: String. The name of the profile field. By default, max 255 characters.
+: String. The name of the profile field. By default, max 255 characters (specified in [Instance#profile_field_name_limit]({{< relref "entities/Instance#profile_field_name_limit" >}})).
 
 fields_attributes[:index][value]
-: String. The value of the profile field. By default, max 255 characters.
+: String. The value of the profile field. By default, max 255 characters (specified in [Instance#profile_field_value_limit]({{< relref "entities/Instance#profile_field_value_limit" >}})).
 
 source[privacy]
 : String (Enumerable, oneOf `public`, `unlisted`, or `private`). Default post privacy for authored statuses.
