@@ -2,15 +2,12 @@
 title: accounts API methods
 description: Methods concerning accounts and profiles.
 menu:
-  docs:
-    weight: 20
-    name: accounts
-    parent: methods
-    identifier: methods-accounts
-aliases: [
-  "/methods/accounts",
-  "/api/methods/accounts"
-]
+    docs:
+        weight: 20
+        name: accounts
+        parent: methods
+        identifier: methods-accounts
+aliases: ['/methods/accounts', '/api/methods/accounts']
 ---
 
 <style>
@@ -70,13 +67,14 @@ date_of_birth
 ##### 200: OK
 
 ```json
+
 ```
 
 ##### 401: Unauthorized
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -88,27 +86,27 @@ Example error response:
 
 ```json
 {
-  "error": "Validation failed: Password can't be blank, Username must contain only letters, numbers and underscores, Agreement must be accepted",
-  "details": {
-    "password": [
-      {
-        "error": "ERR_BLANK",
-        "description": "can't be blank"
-      }
-    ],
-    "username": [
-      {
-        "error": "ERR_INVALID",
-        "description": "must contain only letters, numbers and underscores"
-      }
-    ],
-    "agreement": [
-      {
-        "error": "ERR_ACCEPTED",
-        "description": "must be accepted"
-      }
-    ]
-  }
+	"error": "Validation failed: Password can't be blank, Username must contain only letters, numbers and underscores, Agreement must be accepted",
+	"details": {
+		"password": [
+			{
+				"error": "ERR_BLANK",
+				"description": "can't be blank"
+			}
+		],
+		"username": [
+			{
+				"error": "ERR_INVALID",
+				"description": "must contain only letters, numbers and underscores"
+			}
+		],
+		"agreement": [
+			{
+				"error": "ERR_ACCEPTED",
+				"description": "must be accepted"
+			}
+		]
+	}
 }
 ```
 
@@ -148,7 +146,7 @@ ERR_INCLUSION
 
 ```json
 {
-  "error": "Too many requests"
+	"error": "Too many requests"
 }
 ```
 
@@ -183,95 +181,95 @@ Note the extra `source` property, which is not visible on accounts other than yo
 
 ```json
 {
-  "id": "14715",
-  "username": "trwnh",
-  "acct": "trwnh",
-  "display_name": "infinite love ⴳ",
-  "locked": false,
-  "bot": false,
-  "created_at": "2016-11-24T10:02:12.085Z",
-  "note": "<p>i have approximate knowledge of many things. perpetual student. (nb/ace/they)</p><p>xmpp/email: a@trwnh.com<br /><a href=\"https://trwnh.com\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a><br />help me live: <a href=\"https://liberapay.com/at\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/at</span><span class=\"invisible\"></span></a> or <a href=\"https://paypal.me/trwnh\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">paypal.me/trwnh</span><span class=\"invisible\"></span></a></p><p>- my triggers are moths and glitter<br />- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise<br />- dm me if i did something wrong, so i can improve<br />- purest person on fedi, do not lewd in my presence<br />- #1 ami cole fan account</p><p>:fatyoshi:</p>",
-  "url": "https://mastodon.social/@trwnh",
-  "avatar": "https://files.mastodon.social/accounts/avatars/000/014/715/original/34aa222f4ae2e0a9.png",
-  "avatar_static": "https://files.mastodon.social/accounts/avatars/000/014/715/original/34aa222f4ae2e0a9.png",
-  "header": "https://files.mastodon.social/accounts/headers/000/014/715/original/5c6fc24edb3bb873.jpg",
-  "header_static": "https://files.mastodon.social/accounts/headers/000/014/715/original/5c6fc24edb3bb873.jpg",
-  "followers_count": 821,
-  "following_count": 178,
-  "statuses_count": 33120,
-  "last_status_at": "2019-11-24T15:49:42.251Z",
-  "indexable": true,
-  "roles": [],
-  "source": {
-    "privacy": "public",
-    "sensitive": false,
-    "language": "",
-    "note": "i have approximate knowledge of many things. perpetual student. (nb/ace/they)\r\n\r\nxmpp/email: a@trwnh.com\r\nhttps://trwnh.com\r\nhelp me live: https://liberapay.com/at or https://paypal.me/trwnh\r\n\r\n- my triggers are moths and glitter\r\n- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise\r\n- dm me if i did something wrong, so i can improve\r\n- purest person on fedi, do not lewd in my presence\r\n- #1 ami cole fan account\r\n\r\n:fatyoshi:",
-    "fields": [
-      {
-        "name": "Website",
-        "value": "https://trwnh.com",
-        "verified_at": "2019-08-29T04:14:55.571+00:00"
-      },
-      {
-        "name": "Sponsor",
-        "value": "https://liberapay.com/at",
-        "verified_at": "2019-11-15T10:06:15.557+00:00"
-      },
-      {
-        "name": "Fan of:",
-        "value": "Punk-rock and post-hardcore (Circa Survive, letlive., La Dispute, THE FEVER 333)Manga (Yu-Gi-Oh!, One Piece, JoJo's Bizarre Adventure, Death Note, Shaman King)Platformers and RPGs (Banjo-Kazooie, Boktai, Final Fantasy Crystal Chronicles)",
-        "verified_at": null
-      },
-      {
-        "name": "Main topics:",
-        "value": "systemic analysis, design patterns, anticapitalism, info/tech freedom, theory and philosophy, and otherwise being a genuine and decent wholesome poster. i'm just here to hang out and talk to cool people!",
-        "verified_at": null
-      }
-    ],
-    "follow_requests_count": 0,
-    "attribution_domains": [],
-    "hide_collections": false,
-    "discoverable": false,
-    "indexable": true
-  },
-  "emojis": [
-    {
-      "shortcode": "fatyoshi",
-      "url": "https://files.mastodon.social/custom_emojis/images/000/023/920/original/e57ecb623faa0dc9.png",
-      "static_url": "https://files.mastodon.social/custom_emojis/images/000/023/920/static/e57ecb623faa0dc9.png",
-      "visible_in_picker": true
-    }
-  ],
-  "fields": [
-    {
-      "name": "Website",
-      "value": "<a href=\"https://trwnh.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a>",
-      "verified_at": "2019-08-29T04:14:55.571+00:00"
-    },
-    {
-      "name": "Sponsor",
-      "value": "<a href=\"https://liberapay.com/at\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/at</span><span class=\"invisible\"></span></a>",
-      "verified_at": "2019-11-15T10:06:15.557+00:00"
-    },
-    {
-      "name": "Fan of:",
-      "value": "Punk-rock and post-hardcore (Circa Survive, letlive., La Dispute, THE FEVER 333)Manga (Yu-Gi-Oh!, One Piece, JoJo&apos;s Bizarre Adventure, Death Note, Shaman King)Platformers and RPGs (Banjo-Kazooie, Boktai, Final Fantasy Crystal Chronicles)",
-      "verified_at": null
-    },
-    {
-      "name": "Main topics:",
-      "value": "systemic analysis, design patterns, anticapitalism, info/tech freedom, theory and philosophy, and otherwise being a genuine and decent wholesome poster. i&apos;m just here to hang out and talk to cool people!",
-      "verified_at": null
-    }
-  ],
-  "role": {
-    "id": "-99",
-    "name": "",
-    "permissions": "65536",
-    "color": "",
-    "highlighted": false
-  }
+	"id": "14715",
+	"username": "trwnh",
+	"acct": "trwnh",
+	"display_name": "infinite love ⴳ",
+	"locked": false,
+	"bot": false,
+	"created_at": "2016-11-24T10:02:12.085Z",
+	"note": "<p>i have approximate knowledge of many things. perpetual student. (nb/ace/they)</p><p>xmpp/email: a@trwnh.com<br /><a href=\"https://trwnh.com\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a><br />help me live: <a href=\"https://liberapay.com/at\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/at</span><span class=\"invisible\"></span></a> or <a href=\"https://paypal.me/trwnh\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">paypal.me/trwnh</span><span class=\"invisible\"></span></a></p><p>- my triggers are moths and glitter<br />- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise<br />- dm me if i did something wrong, so i can improve<br />- purest person on fedi, do not lewd in my presence<br />- #1 ami cole fan account</p><p>:fatyoshi:</p>",
+	"url": "https://mastodon.social/@trwnh",
+	"avatar": "https://files.mastodon.social/accounts/avatars/000/014/715/original/34aa222f4ae2e0a9.png",
+	"avatar_static": "https://files.mastodon.social/accounts/avatars/000/014/715/original/34aa222f4ae2e0a9.png",
+	"header": "https://files.mastodon.social/accounts/headers/000/014/715/original/5c6fc24edb3bb873.jpg",
+	"header_static": "https://files.mastodon.social/accounts/headers/000/014/715/original/5c6fc24edb3bb873.jpg",
+	"followers_count": 821,
+	"following_count": 178,
+	"statuses_count": 33120,
+	"last_status_at": "2019-11-24T15:49:42.251Z",
+	"indexable": true,
+	"roles": [],
+	"source": {
+		"privacy": "public",
+		"sensitive": false,
+		"language": "",
+		"note": "i have approximate knowledge of many things. perpetual student. (nb/ace/they)\r\n\r\nxmpp/email: a@trwnh.com\r\nhttps://trwnh.com\r\nhelp me live: https://liberapay.com/at or https://paypal.me/trwnh\r\n\r\n- my triggers are moths and glitter\r\n- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise\r\n- dm me if i did something wrong, so i can improve\r\n- purest person on fedi, do not lewd in my presence\r\n- #1 ami cole fan account\r\n\r\n:fatyoshi:",
+		"fields": [
+			{
+				"name": "Website",
+				"value": "https://trwnh.com",
+				"verified_at": "2019-08-29T04:14:55.571+00:00"
+			},
+			{
+				"name": "Sponsor",
+				"value": "https://liberapay.com/at",
+				"verified_at": "2019-11-15T10:06:15.557+00:00"
+			},
+			{
+				"name": "Fan of:",
+				"value": "Punk-rock and post-hardcore (Circa Survive, letlive., La Dispute, THE FEVER 333)Manga (Yu-Gi-Oh!, One Piece, JoJo's Bizarre Adventure, Death Note, Shaman King)Platformers and RPGs (Banjo-Kazooie, Boktai, Final Fantasy Crystal Chronicles)",
+				"verified_at": null
+			},
+			{
+				"name": "Main topics:",
+				"value": "systemic analysis, design patterns, anticapitalism, info/tech freedom, theory and philosophy, and otherwise being a genuine and decent wholesome poster. i'm just here to hang out and talk to cool people!",
+				"verified_at": null
+			}
+		],
+		"follow_requests_count": 0,
+		"attribution_domains": [],
+		"hide_collections": false,
+		"discoverable": false,
+		"indexable": true
+	},
+	"emojis": [
+		{
+			"shortcode": "fatyoshi",
+			"url": "https://files.mastodon.social/custom_emojis/images/000/023/920/original/e57ecb623faa0dc9.png",
+			"static_url": "https://files.mastodon.social/custom_emojis/images/000/023/920/static/e57ecb623faa0dc9.png",
+			"visible_in_picker": true
+		}
+	],
+	"fields": [
+		{
+			"name": "Website",
+			"value": "<a href=\"https://trwnh.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a>",
+			"verified_at": "2019-08-29T04:14:55.571+00:00"
+		},
+		{
+			"name": "Sponsor",
+			"value": "<a href=\"https://liberapay.com/at\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/at</span><span class=\"invisible\"></span></a>",
+			"verified_at": "2019-11-15T10:06:15.557+00:00"
+		},
+		{
+			"name": "Fan of:",
+			"value": "Punk-rock and post-hardcore (Circa Survive, letlive., La Dispute, THE FEVER 333)Manga (Yu-Gi-Oh!, One Piece, JoJo&apos;s Bizarre Adventure, Death Note, Shaman King)Platformers and RPGs (Banjo-Kazooie, Boktai, Final Fantasy Crystal Chronicles)",
+			"verified_at": null
+		},
+		{
+			"name": "Main topics:",
+			"value": "systemic analysis, design patterns, anticapitalism, info/tech freedom, theory and philosophy, and otherwise being a genuine and decent wholesome poster. i&apos;m just here to hang out and talk to cool people!",
+			"verified_at": null
+		}
+	],
+	"role": {
+		"id": "-99",
+		"name": "",
+		"permissions": "65536",
+		"color": "",
+		"highlighted": false
+	}
 }
 ```
 
@@ -281,7 +279,7 @@ Your credential verification will fail if the token is invalid or incorrect.
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -291,19 +289,19 @@ Your user account is currently disabled, missing a confirmed email address, or p
 
 ```json
 {
-  "error": "Your login is currently disabled"
+	"error": "Your login is currently disabled"
 }
 ```
 
 ```json
 {
-  "error": "Your login is missing a confirmed e-mail address"
+	"error": "Your login is missing a confirmed e-mail address"
 }
 ```
 
 ```json
 {
-  "error": "Your login is currently pending approval"
+	"error": "Your login is currently pending approval"
 }
 ```
 
@@ -313,7 +311,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -408,17 +406,17 @@ To update account fields, you will need to construct your hash like so for examp
 
 ```json
 {
-  "fields_attributes": {
-    "0": {
-      "name": "Website",
-      "value": "https://trwnh.com"
-    },
-    "1": {
-      "name": "Sponsor",
-      "value": "https://liberapay.com/at"
-    },
-    // ...
-  }
+	"fields_attributes": {
+		"0": {
+			"name": "Website",
+			"value": "https://trwnh.com"
+		},
+		"1": {
+			"name": "Sponsor",
+			"value": "https://liberapay.com/at"
+		}
+		// ...
+	}
 }
 ```
 
@@ -437,24 +435,24 @@ Note that the integer index does not actually matter - fields will be populated 
 
 ```json
 {
-  "fields_attributes": {
-    "420": {
-      "name": "1st",
-      "value": "field"
-    },
-    "69": {
-      "name": "2nd",
-      "value": "field"
-    },
-    "1312": {
-      "name": "3rd",
-      "value": "field"
-    },
-    "-99999999999999999999999999999999": {
-      "name": "4th",
-      "value": "field"
-    },
-  }
+	"fields_attributes": {
+		"420": {
+			"name": "1st",
+			"value": "field"
+		},
+		"69": {
+			"name": "2nd",
+			"value": "field"
+		},
+		"1312": {
+			"name": "3rd",
+			"value": "field"
+		},
+		"-99999999999999999999999999999999": {
+			"name": "4th",
+			"value": "field"
+		}
+	}
 }
 ```
 
@@ -462,95 +460,95 @@ You should use accounts/verify_credentials to first obtain plaintext representat
 
 ```json
 {
-  "id": "14715",
-  "username": "trwnh",
-  "acct": "trwnh",
-  "display_name": "infinite love ⴳ",
-  "locked": false,
-  "bot": false,
-  "created_at": "2016-11-24T10:02:12.085Z",
-  "note": "<p>i have approximate knowledge of many things. perpetual student. (nb/ace/they)</p><p>xmpp/email: a@trwnh.com<br /><a href=\"https://trwnh.com\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a><br />help me live: <a href=\"https://liberapay.com/at\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/at</span><span class=\"invisible\"></span></a> or <a href=\"https://paypal.me/trwnh\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">paypal.me/trwnh</span><span class=\"invisible\"></span></a></p><p>- my triggers are moths and glitter<br />- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise<br />- dm me if i did something wrong, so i can improve<br />- purest person on fedi, do not lewd in my presence<br />- #1 ami cole fan account</p><p>:fatyoshi:</p>",
-  "url": "https://mastodon.social/@trwnh",
-  "avatar": "https://files.mastodon.social/accounts/avatars/000/014/715/original/34aa222f4ae2e0a9.png",
-  "avatar_static": "https://files.mastodon.social/accounts/avatars/000/014/715/original/34aa222f4ae2e0a9.png",
-  "header": "https://files.mastodon.social/accounts/headers/000/014/715/original/5c6fc24edb3bb873.jpg",
-  "header_static": "https://files.mastodon.social/accounts/headers/000/014/715/original/5c6fc24edb3bb873.jpg",
-  "followers_count": 834,
-  "following_count": 182,
-  "statuses_count": 33760,
-  "last_status_at": "2019-12-01T00:12:08.731Z",
-  "indexable": true,
-  "roles": [],
-  "source": {
-    "privacy": "public",
-    "sensitive": false,
-    "language": "",
-    "note": "i have approximate knowledge of many things. perpetual student. (nb/ace/they)\r\n\r\nxmpp/email: a@trwnh.com\r\nhttps://trwnh.com\r\nhelp me live: https://liberapay.com/at or https://paypal.me/trwnh\r\n\r\n- my triggers are moths and glitter\r\n- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise\r\n- dm me if i did something wrong, so i can improve\r\n- purest person on fedi, do not lewd in my presence\r\n- #1 ami cole fan account\r\n\r\n:fatyoshi:",
-    "fields": [
-      {
-        "name": "Website",
-        "value": "https://trwnh.com",
-        "verified_at": "2019-08-29T04:14:55.571+00:00"
-      },
-      {
-        "name": "Sponsor",
-        "value": "https://liberapay.com/at",
-        "verified_at": "2019-11-15T10:06:15.557+00:00"
-      },
-      {
-        "name": "Fan of:",
-        "value": "Punk-rock and post-hardcore (Circa Survive, letlive., La Dispute, THE FEVER 333)Manga (Yu-Gi-Oh!, One Piece, JoJo's Bizarre Adventure, Death Note, Shaman King)Platformers and RPGs (Banjo-Kazooie, Boktai, Final Fantasy Crystal Chronicles)",
-        "verified_at": null
-      },
-      {
-        "name": "Main topics:",
-        "value": "systemic analysis, design patterns, anticapitalism, info/tech freedom, theory and philosophy, and otherwise being a genuine and decent wholesome poster. i'm just here to hang out and talk to cool people!",
-        "verified_at": null
-      }
-    ],
-    "follow_requests_count": 0,
-    "attribution_domains": [],
-    "hide_collections": false,
-    "discoverable": false,
-    "indexable": true
-  },
-  "emojis": [
-    {
-      "shortcode": "fatyoshi",
-      "url": "https://files.mastodon.social/custom_emojis/images/000/023/920/original/e57ecb623faa0dc9.png",
-      "static_url": "https://files.mastodon.social/custom_emojis/images/000/023/920/static/e57ecb623faa0dc9.png",
-      "visible_in_picker": true
-    }
-  ],
-  "fields": [
-    {
-      "name": "Website",
-      "value": "<a href=\"https://trwnh.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a>",
-      "verified_at": "2019-08-29T04:14:55.571+00:00"
-    },
-    {
-      "name": "Sponsor",
-      "value": "<a href=\"https://liberapay.com/at\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/at</span><span class=\"invisible\"></span></a>",
-      "verified_at": "2019-11-15T10:06:15.557+00:00"
-    },
-    {
-      "name": "Fan of:",
-      "value": "Punk-rock and post-hardcore (Circa Survive, letlive., La Dispute, THE FEVER 333)Manga (Yu-Gi-Oh!, One Piece, JoJo&apos;s Bizarre Adventure, Death Note, Shaman King)Platformers and RPGs (Banjo-Kazooie, Boktai, Final Fantasy Crystal Chronicles)",
-      "verified_at": null
-    },
-    {
-      "name": "Main topics:",
-      "value": "systemic analysis, design patterns, anticapitalism, info/tech freedom, theory and philosophy, and otherwise being a genuine and decent wholesome poster. i&apos;m just here to hang out and talk to cool people!",
-      "verified_at": null
-    }
-  ],
-  "role": {
-    "id": "-99",
-    "name": "",
-    "permissions": "65536",
-    "color": "",
-    "highlighted": false
-  }
+	"id": "14715",
+	"username": "trwnh",
+	"acct": "trwnh",
+	"display_name": "infinite love ⴳ",
+	"locked": false,
+	"bot": false,
+	"created_at": "2016-11-24T10:02:12.085Z",
+	"note": "<p>i have approximate knowledge of many things. perpetual student. (nb/ace/they)</p><p>xmpp/email: a@trwnh.com<br /><a href=\"https://trwnh.com\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a><br />help me live: <a href=\"https://liberapay.com/at\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/at</span><span class=\"invisible\"></span></a> or <a href=\"https://paypal.me/trwnh\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">paypal.me/trwnh</span><span class=\"invisible\"></span></a></p><p>- my triggers are moths and glitter<br />- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise<br />- dm me if i did something wrong, so i can improve<br />- purest person on fedi, do not lewd in my presence<br />- #1 ami cole fan account</p><p>:fatyoshi:</p>",
+	"url": "https://mastodon.social/@trwnh",
+	"avatar": "https://files.mastodon.social/accounts/avatars/000/014/715/original/34aa222f4ae2e0a9.png",
+	"avatar_static": "https://files.mastodon.social/accounts/avatars/000/014/715/original/34aa222f4ae2e0a9.png",
+	"header": "https://files.mastodon.social/accounts/headers/000/014/715/original/5c6fc24edb3bb873.jpg",
+	"header_static": "https://files.mastodon.social/accounts/headers/000/014/715/original/5c6fc24edb3bb873.jpg",
+	"followers_count": 834,
+	"following_count": 182,
+	"statuses_count": 33760,
+	"last_status_at": "2019-12-01T00:12:08.731Z",
+	"indexable": true,
+	"roles": [],
+	"source": {
+		"privacy": "public",
+		"sensitive": false,
+		"language": "",
+		"note": "i have approximate knowledge of many things. perpetual student. (nb/ace/they)\r\n\r\nxmpp/email: a@trwnh.com\r\nhttps://trwnh.com\r\nhelp me live: https://liberapay.com/at or https://paypal.me/trwnh\r\n\r\n- my triggers are moths and glitter\r\n- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise\r\n- dm me if i did something wrong, so i can improve\r\n- purest person on fedi, do not lewd in my presence\r\n- #1 ami cole fan account\r\n\r\n:fatyoshi:",
+		"fields": [
+			{
+				"name": "Website",
+				"value": "https://trwnh.com",
+				"verified_at": "2019-08-29T04:14:55.571+00:00"
+			},
+			{
+				"name": "Sponsor",
+				"value": "https://liberapay.com/at",
+				"verified_at": "2019-11-15T10:06:15.557+00:00"
+			},
+			{
+				"name": "Fan of:",
+				"value": "Punk-rock and post-hardcore (Circa Survive, letlive., La Dispute, THE FEVER 333)Manga (Yu-Gi-Oh!, One Piece, JoJo's Bizarre Adventure, Death Note, Shaman King)Platformers and RPGs (Banjo-Kazooie, Boktai, Final Fantasy Crystal Chronicles)",
+				"verified_at": null
+			},
+			{
+				"name": "Main topics:",
+				"value": "systemic analysis, design patterns, anticapitalism, info/tech freedom, theory and philosophy, and otherwise being a genuine and decent wholesome poster. i'm just here to hang out and talk to cool people!",
+				"verified_at": null
+			}
+		],
+		"follow_requests_count": 0,
+		"attribution_domains": [],
+		"hide_collections": false,
+		"discoverable": false,
+		"indexable": true
+	},
+	"emojis": [
+		{
+			"shortcode": "fatyoshi",
+			"url": "https://files.mastodon.social/custom_emojis/images/000/023/920/original/e57ecb623faa0dc9.png",
+			"static_url": "https://files.mastodon.social/custom_emojis/images/000/023/920/static/e57ecb623faa0dc9.png",
+			"visible_in_picker": true
+		}
+	],
+	"fields": [
+		{
+			"name": "Website",
+			"value": "<a href=\"https://trwnh.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">trwnh.com</span><span class=\"invisible\"></span></a>",
+			"verified_at": "2019-08-29T04:14:55.571+00:00"
+		},
+		{
+			"name": "Sponsor",
+			"value": "<a href=\"https://liberapay.com/at\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">liberapay.com/at</span><span class=\"invisible\"></span></a>",
+			"verified_at": "2019-11-15T10:06:15.557+00:00"
+		},
+		{
+			"name": "Fan of:",
+			"value": "Punk-rock and post-hardcore (Circa Survive, letlive., La Dispute, THE FEVER 333)Manga (Yu-Gi-Oh!, One Piece, JoJo&apos;s Bizarre Adventure, Death Note, Shaman King)Platformers and RPGs (Banjo-Kazooie, Boktai, Final Fantasy Crystal Chronicles)",
+			"verified_at": null
+		},
+		{
+			"name": "Main topics:",
+			"value": "systemic analysis, design patterns, anticapitalism, info/tech freedom, theory and philosophy, and otherwise being a genuine and decent wholesome poster. i&apos;m just here to hang out and talk to cool people!",
+			"verified_at": null
+		}
+	],
+	"role": {
+		"id": "-99",
+		"name": "",
+		"permissions": "65536",
+		"color": "",
+		"highlighted": false
+	}
 }
 ```
 
@@ -558,7 +556,7 @@ You should use accounts/verify_credentials to first obtain plaintext representat
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -568,7 +566,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -590,6 +588,7 @@ View information about a profile.
 3.3.0 - returns an Account with `suspended: true` instead of 410
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -601,6 +600,7 @@ Authorization
 : Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 The Account record will be returned. Note that `acct` of local users does not include the domain name.
@@ -609,44 +609,44 @@ The Account record will be returned. Note that `acct` of local users does not in
 
 ```json
 {
-  "id": "1",
-  "username": "Gargron",
-  "acct": "Gargron",
-  "display_name": "Eugen",
-  "locked": false,
-  "bot": false,
-  "created_at": "2016-03-16T14:34:26.392Z",
-  "note": "<p>Developer of Mastodon and administrator of mastodon.social. I post service announcements, development updates, and personal stuff.</p>",
-  "url": "https://mastodon.social/@Gargron",
-  "avatar": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
-  "avatar_static": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
-  "header": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
-  "header_static": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
-  "followers_count": 318699,
-  "following_count": 453,
-  "statuses_count": 61013,
-  "last_status_at": "2019-11-30T20:02:08.277Z",
-  "emojis": [],
-  "indexable": true,
-  "roles": [
-    {
-      "id": "3",
-      "name": "Owner",
-      "color": "#ff3838"
-    }
-  ],
-  "fields": [
-    {
-      "name": "Patreon",
-      "value": "<a href=\"https://www.patreon.com/mastodon\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"\">patreon.com/mastodon</span><span class=\"invisible\"></span></a>",
-      "verified_at": null
-    },
-    {
-      "name": "Homepage",
-      "value": "<a href=\"https://zeonfederated.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">zeonfederated.com</span><span class=\"invisible\"></span></a>",
-      "verified_at": "2019-07-15T18:29:57.191+00:00"
-    }
-  ]
+	"id": "1",
+	"username": "Gargron",
+	"acct": "Gargron",
+	"display_name": "Eugen",
+	"locked": false,
+	"bot": false,
+	"created_at": "2016-03-16T14:34:26.392Z",
+	"note": "<p>Developer of Mastodon and administrator of mastodon.social. I post service announcements, development updates, and personal stuff.</p>",
+	"url": "https://mastodon.social/@Gargron",
+	"avatar": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
+	"avatar_static": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
+	"header": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
+	"header_static": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
+	"followers_count": 318699,
+	"following_count": 453,
+	"statuses_count": 61013,
+	"last_status_at": "2019-11-30T20:02:08.277Z",
+	"emojis": [],
+	"indexable": true,
+	"roles": [
+		{
+			"id": "3",
+			"name": "Owner",
+			"color": "#ff3838"
+		}
+	],
+	"fields": [
+		{
+			"name": "Patreon",
+			"value": "<a href=\"https://www.patreon.com/mastodon\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"\">patreon.com/mastodon</span><span class=\"invisible\"></span></a>",
+			"verified_at": null
+		},
+		{
+			"name": "Homepage",
+			"value": "<a href=\"https://zeonfederated.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">zeonfederated.com</span><span class=\"invisible\"></span></a>",
+			"verified_at": "2019-07-15T18:29:57.191+00:00"
+		}
+	]
 }
 ```
 
@@ -654,67 +654,67 @@ The Account record will be returned. Note that `acct` of local users does not in
 
 ```json
 {
-  "id": "23634",
-  "username": "noiob",
-  "acct": "noiob@awoo.space",
-  "display_name": "shork",
-  "locked": false,
-  "bot": false,
-  "created_at": "2017-02-08T02:00:53.274Z",
-  "note": "<p>:ms_rainbow_flag:​ :ms_bisexual_flag:​ :ms_nonbinary_flag:​ <a href=\"https://awoo.space/tags/awoo\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>awoo</span></a>.space <a href=\"https://awoo.space/tags/admin\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>admin</span></a> ~ <a href=\"https://awoo.space/tags/bi\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>bi</span></a> ~ <a href=\"https://awoo.space/tags/nonbinary\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>nonbinary</span></a> ~ compsci student ~ likes video <a href=\"https://awoo.space/tags/games\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>games</span></a> and weird/ old electronics and will post obsessively about both ~ avatar by <span class=\"h-card\"><a href=\"https://weirder.earth/@dzuk\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>dzuk</span></a></span></p>",
-  "url": "https://awoo.space/@noiob",
-  "avatar": "https://files.mastodon.social/accounts/avatars/000/023/634/original/6ca8804dc46800ad.png",
-  "avatar_static": "https://files.mastodon.social/accounts/avatars/000/023/634/original/6ca8804dc46800ad.png",
-  "header": "https://files.mastodon.social/accounts/headers/000/023/634/original/256eb8d7ac40f49a.png",
-  "header_static": "https://files.mastodon.social/accounts/headers/000/023/634/original/256eb8d7ac40f49a.png",
-  "followers_count": 553,
-  "following_count": 405,
-  "statuses_count": 28982,
-  "last_status_at": "2019-12-01T00:39:57.264Z",
-  "indexable": true,
-  "roles": [],
-  "emojis": [
-    {
-      "shortcode": "ms_rainbow_flag",
-      "url": "https://files.mastodon.social/custom_emojis/images/000/028/691/original/6de008d6281f4f59.png",
-      "static_url": "https://files.mastodon.social/custom_emojis/images/000/028/691/static/6de008d6281f4f59.png",
-      "visible_in_picker": true
-    },
-    {
-      "shortcode": "ms_bisexual_flag",
-      "url": "https://files.mastodon.social/custom_emojis/images/000/050/744/original/02f94a5fca7eaf78.png",
-      "static_url": "https://files.mastodon.social/custom_emojis/images/000/050/744/static/02f94a5fca7eaf78.png",
-      "visible_in_picker": true
-    },
-    {
-      "shortcode": "ms_nonbinary_flag",
-      "url": "https://files.mastodon.social/custom_emojis/images/000/105/099/original/8106088bd4782072.png",
-      "static_url": "https://files.mastodon.social/custom_emojis/images/000/105/099/static/8106088bd4782072.png",
-      "visible_in_picker": true
-    }
-  ],
-  "fields": [
-    {
-      "name": "Pronouns",
-      "value": "they/them",
-      "verified_at": null
-    },
-    {
-      "name": "Alt",
-      "value": "<span class=\"h-card\"><a href=\"https://cybre.space/@noiob\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>noiob</span></a></span>",
-      "verified_at": null
-    },
-    {
-      "name": "Bots",
-      "value": "<span class=\"h-card\"><a href=\"https://botsin.space/@darksouls\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>darksouls</span></a></span>, <span class=\"h-card\"><a href=\"https://botsin.space/@nierautomata\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>nierautomata</span></a></span>, code for <span class=\"h-card\"><a href=\"https://botsin.space/@awoobot\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>awoobot</span></a></span>",
-      "verified_at": null
-    },
-    {
-      "name": "Website",
-      "value": "<a href=\"http://shork.xyz\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">http://</span><span class=\"\">shork.xyz</span><span class=\"invisible\"></span></a>",
-      "verified_at": "2019-11-23T20:25:47.907+00:00"
-    }
-  ]
+	"id": "23634",
+	"username": "noiob",
+	"acct": "noiob@awoo.space",
+	"display_name": "shork",
+	"locked": false,
+	"bot": false,
+	"created_at": "2017-02-08T02:00:53.274Z",
+	"note": "<p>:ms_rainbow_flag:​ :ms_bisexual_flag:​ :ms_nonbinary_flag:​ <a href=\"https://awoo.space/tags/awoo\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>awoo</span></a>.space <a href=\"https://awoo.space/tags/admin\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>admin</span></a> ~ <a href=\"https://awoo.space/tags/bi\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>bi</span></a> ~ <a href=\"https://awoo.space/tags/nonbinary\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>nonbinary</span></a> ~ compsci student ~ likes video <a href=\"https://awoo.space/tags/games\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#<span>games</span></a> and weird/ old electronics and will post obsessively about both ~ avatar by <span class=\"h-card\"><a href=\"https://weirder.earth/@dzuk\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>dzuk</span></a></span></p>",
+	"url": "https://awoo.space/@noiob",
+	"avatar": "https://files.mastodon.social/accounts/avatars/000/023/634/original/6ca8804dc46800ad.png",
+	"avatar_static": "https://files.mastodon.social/accounts/avatars/000/023/634/original/6ca8804dc46800ad.png",
+	"header": "https://files.mastodon.social/accounts/headers/000/023/634/original/256eb8d7ac40f49a.png",
+	"header_static": "https://files.mastodon.social/accounts/headers/000/023/634/original/256eb8d7ac40f49a.png",
+	"followers_count": 553,
+	"following_count": 405,
+	"statuses_count": 28982,
+	"last_status_at": "2019-12-01T00:39:57.264Z",
+	"indexable": true,
+	"roles": [],
+	"emojis": [
+		{
+			"shortcode": "ms_rainbow_flag",
+			"url": "https://files.mastodon.social/custom_emojis/images/000/028/691/original/6de008d6281f4f59.png",
+			"static_url": "https://files.mastodon.social/custom_emojis/images/000/028/691/static/6de008d6281f4f59.png",
+			"visible_in_picker": true
+		},
+		{
+			"shortcode": "ms_bisexual_flag",
+			"url": "https://files.mastodon.social/custom_emojis/images/000/050/744/original/02f94a5fca7eaf78.png",
+			"static_url": "https://files.mastodon.social/custom_emojis/images/000/050/744/static/02f94a5fca7eaf78.png",
+			"visible_in_picker": true
+		},
+		{
+			"shortcode": "ms_nonbinary_flag",
+			"url": "https://files.mastodon.social/custom_emojis/images/000/105/099/original/8106088bd4782072.png",
+			"static_url": "https://files.mastodon.social/custom_emojis/images/000/105/099/static/8106088bd4782072.png",
+			"visible_in_picker": true
+		}
+	],
+	"fields": [
+		{
+			"name": "Pronouns",
+			"value": "they/them",
+			"verified_at": null
+		},
+		{
+			"name": "Alt",
+			"value": "<span class=\"h-card\"><a href=\"https://cybre.space/@noiob\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>noiob</span></a></span>",
+			"verified_at": null
+		},
+		{
+			"name": "Bots",
+			"value": "<span class=\"h-card\"><a href=\"https://botsin.space/@darksouls\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>darksouls</span></a></span>, <span class=\"h-card\"><a href=\"https://botsin.space/@nierautomata\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>nierautomata</span></a></span>, code for <span class=\"h-card\"><a href=\"https://botsin.space/@awoobot\" class=\"u-url mention\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>awoobot</span></a></span>",
+			"verified_at": null
+		},
+		{
+			"name": "Website",
+			"value": "<a href=\"http://shork.xyz\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">http://</span><span class=\"\">shork.xyz</span><span class=\"invisible\"></span></a>",
+			"verified_at": "2019-11-23T20:25:47.907+00:00"
+		}
+	]
 }
 ```
 
@@ -722,28 +722,28 @@ The Account record will be returned. Note that `acct` of local users does not in
 
 ```json
 {
-  "id": "14",
-  "username": "stigatle",
-  "acct": "stigatle@quitter.no",
-  "display_name": "",
-  "locked": false,
-  "bot": false,
-  "discoverable": false,
-  "group": false,
-  "created_at": "2016-03-18T10:04:51.700Z",
-  "note": "",
-  "url": "https://quitter.no/stigatle",
-  "avatar": "https://mastodon.social/avatars/original/missing.png",
-  "avatar_static": "https://mastodon.social/avatars/original/missing.png",
-  "header": "https://mastodon.social/headers/original/missing.png",
-  "header_static": "https://mastodon.social/headers/original/missing.png",
-  "followers_count": 0,
-  "following_count": 0,
-  "statuses_count": 0,
-  "last_status_at": null,
-  "suspended": true,
-  "emojis": [],
-  "fields": []
+	"id": "14",
+	"username": "stigatle",
+	"acct": "stigatle@quitter.no",
+	"display_name": "",
+	"locked": false,
+	"bot": false,
+	"discoverable": false,
+	"group": false,
+	"created_at": "2016-03-18T10:04:51.700Z",
+	"note": "",
+	"url": "https://quitter.no/stigatle",
+	"avatar": "https://mastodon.social/avatars/original/missing.png",
+	"avatar_static": "https://mastodon.social/avatars/original/missing.png",
+	"header": "https://mastodon.social/headers/original/missing.png",
+	"header_static": "https://mastodon.social/headers/original/missing.png",
+	"followers_count": 0,
+	"following_count": 0,
+	"statuses_count": 0,
+	"last_status_at": null,
+	"suspended": true,
+	"emojis": [],
+	"fields": []
 }
 ```
 
@@ -753,7 +753,7 @@ If the instance is in whitelist mode and the Authorization header is missing or 
 
 ```json
 {
-  "error": "This API requires an authenticated user"
+	"error": "This API requires an authenticated user"
 }
 ```
 
@@ -763,7 +763,7 @@ Account does not exist
 
 ```json
 {
-  "error": "Record not found"
+	"error": "Record not found"
 }
 ```
 
@@ -787,6 +787,7 @@ View information about multiple profiles.
 4.3.0 - added
 
 #### Request
+
 ##### Headers
 
 ##### Query parameters
@@ -800,6 +801,7 @@ Authorization
 : Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 [Account]({{< relref "entities/Account">}}) records for the requested confirmed and approved accounts will be returned. There can be fewer records than requested if the accounts do not exist or are not confirmed.
@@ -808,38 +810,38 @@ Sample call with `id[]=1&id[]=2` when no account with `id=2` exists:
 
 ```json
 [
-  {
-    "id": "1",
-    "username": "Gargron",
-    "acct": "Gargron",
-    "display_name": "Eugen",
-    "locked": false,
-    "bot": false,
-    "created_at": "2016-03-16T14:34:26.392Z",
-    "note": "<p>Developer of Mastodon and administrator of mastodon.social. I post service announcements, development updates, and personal stuff.</p>",
-    "url": "https://mastodon.social/@Gargron",
-    "avatar": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
-    "avatar_static": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
-    "header": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
-    "header_static": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
-    "followers_count": 318699,
-    "following_count": 453,
-    "statuses_count": 61013,
-    "last_status_at": "2019-11-30T20:02:08.277Z",
-    "emojis": [],
-    "fields": [
-      {
-        "name": "Patreon",
-        "value": "<a href=\"https://www.patreon.com/mastodon\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"\">patreon.com/mastodon</span><span class=\"invisible\"></span></a>",
-        "verified_at": null
-      },
-      {
-        "name": "Homepage",
-        "value": "<a href=\"https://zeonfederated.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">zeonfederated.com</span><span class=\"invisible\"></span></a>",
-        "verified_at": "2019-07-15T18:29:57.191+00:00"
-      }
-    ]
-  }
+	{
+		"id": "1",
+		"username": "Gargron",
+		"acct": "Gargron",
+		"display_name": "Eugen",
+		"locked": false,
+		"bot": false,
+		"created_at": "2016-03-16T14:34:26.392Z",
+		"note": "<p>Developer of Mastodon and administrator of mastodon.social. I post service announcements, development updates, and personal stuff.</p>",
+		"url": "https://mastodon.social/@Gargron",
+		"avatar": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
+		"avatar_static": "https://files.mastodon.social/accounts/avatars/000/000/001/original/d96d39a0abb45b92.jpg",
+		"header": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
+		"header_static": "https://files.mastodon.social/accounts/headers/000/000/001/original/c91b871f294ea63e.png",
+		"followers_count": 318699,
+		"following_count": 453,
+		"statuses_count": 61013,
+		"last_status_at": "2019-11-30T20:02:08.277Z",
+		"emojis": [],
+		"fields": [
+			{
+				"name": "Patreon",
+				"value": "<a href=\"https://www.patreon.com/mastodon\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"\">patreon.com/mastodon</span><span class=\"invisible\"></span></a>",
+				"verified_at": null
+			},
+			{
+				"name": "Homepage",
+				"value": "<a href=\"https://zeonfederated.com\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">zeonfederated.com</span><span class=\"invisible\"></span></a>",
+				"verified_at": "2019-07-15T18:29:57.191+00:00"
+			}
+		]
+	}
 ]
 ```
 
@@ -849,7 +851,7 @@ If the instance is in whitelist mode and the Authorization header is missing or 
 
 ```json
 {
-  "error": "This API requires an authenticated user"
+	"error": "This API requires an authenticated user"
 }
 ```
 
@@ -875,6 +877,7 @@ Statuses posted to the given account.
 3.3.0 - both `min_id` and `max_id` can be used at the same time now
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -915,19 +918,20 @@ tagged
 : String. Filter for statuses using a specific hashtag.
 
 #### Response
+
 ##### 200: OK
 
 ```json
 [
-  {
-    "id": "108880211901672326",
-    "created_at": "2022-08-24T22:29:46.493Z",
-    "in_reply_to_id": "108880209317577809",
-    "in_reply_to_account_id": "103641",
-    "sensitive": false,
-    // ...
-  },
-  // ...
+	{
+		"id": "108880211901672326",
+		"created_at": "2022-08-24T22:29:46.493Z",
+		"in_reply_to_id": "108880209317577809",
+		"in_reply_to_account_id": "103641",
+		"sensitive": false
+		// ...
+	}
+	// ...
 ]
 ```
 
@@ -939,7 +943,7 @@ Sample response for whitelist mode:
 
 ```json
 {
-  "error": "This API requires an authenticated user"
+	"error": "This API requires an authenticated user"
 }
 ```
 
@@ -947,7 +951,7 @@ Sample response before 2.7.0:
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -957,7 +961,7 @@ Account does not exist
 
 ```json
 {
-  "error": "Record not found"
+	"error": "Record not found"
 }
 ```
 
@@ -983,6 +987,7 @@ Accounts which follow the given account, if network is not hidden by the account
 4.0.0 - no longer requires an app token + `read:accounts`
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -1008,26 +1013,27 @@ limit
 : Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
 
 #### Response
+
 ##### 200: OK
 
 Sample output with limit=2.
 
 ```json
 [
-  {
-    "id": "1020382",
-    "username": "atul13061987",
-    "acct": "atul13061987",
-    "display_name": "",
-    // ...
-  },
-  {
-    "id": "1020381",
-    "username": "linuxliner",
-    "acct": "linuxliner",
-    "display_name": "",
-    // ...
-  }
+	{
+		"id": "1020382",
+		"username": "atul13061987",
+		"acct": "atul13061987",
+		"display_name": ""
+		// ...
+	},
+	{
+		"id": "1020381",
+		"username": "linuxliner",
+		"acct": "linuxliner",
+		"display_name": ""
+		// ...
+	}
 ]
 ```
 
@@ -1045,7 +1051,7 @@ Sample response for whitelist mode:
 
 ```json
 {
-  "error": "This API requires an authenticated user"
+	"error": "This API requires an authenticated user"
 }
 ```
 
@@ -1053,7 +1059,7 @@ Sample response with missing header or invalid token:
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -1063,7 +1069,7 @@ Account does not exist
 
 ```json
 {
-  "error": "Record not found"
+	"error": "Record not found"
 }
 ```
 
@@ -1089,6 +1095,7 @@ Accounts which the given account is following, if network is not hidden by the a
 4.0.0 - no longer requires an app token + `read:accounts`
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -1114,26 +1121,27 @@ limit
 : Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
 
 #### Response
+
 ##### 200: OK
 
 Sample output with limit=2.
 
 ```json
 [
-  {
-    "id": "963410",
-    "username": "gautambhatia",
-    "acct": "gautambhatia",
-    "display_name": "Gautam Bhatia"
-    // ...
-  },
-  {
-    "id": "1007400",
-    "username": "seafrog",
-    "acct": "seafrog@glitterkitten.co.uk",
-    "display_name": "🐓🦃 Heck Partridge 🤠 🦆"
-    // ...
-  }
+	{
+		"id": "963410",
+		"username": "gautambhatia",
+		"acct": "gautambhatia",
+		"display_name": "Gautam Bhatia"
+		// ...
+	},
+	{
+		"id": "1007400",
+		"username": "seafrog",
+		"acct": "seafrog@glitterkitten.co.uk",
+		"display_name": "🐓🦃 Heck Partridge 🤠 🦆"
+		// ...
+	}
 ]
 ```
 
@@ -1151,7 +1159,7 @@ Sample response for whitelist mode:
 
 ```json
 {
-  "error": "This API requires an authenticated user"
+	"error": "This API requires an authenticated user"
 }
 ```
 
@@ -1159,7 +1167,7 @@ Sample response with missing header or invalid token:
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -1169,7 +1177,7 @@ Account does not exist
 
 ```json
 {
-  "error": "Record not found"
+	"error": "Record not found"
 }
 ```
 
@@ -1193,6 +1201,7 @@ Tags featured by this account.
 3.3.0 - added
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -1204,16 +1213,17 @@ Authorization
 : Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 ```json
 [
-  {
-    "id": "627",
-    "name": "nowplaying",
-    "statuses_count": 36,
-    "last_status_at": "2019-11-15T07:14:43.524Z"
-  }
+	{
+		"id": "627",
+		"name": "nowplaying",
+		"statuses_count": 36,
+		"last_status_at": "2019-11-15T07:14:43.524Z"
+	}
 ]
 ```
 
@@ -1233,6 +1243,7 @@ User lists that you have added this account to.
 2.1.0 - added
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -1244,16 +1255,17 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 If the account is part of any lists, those entities will be returned. If the account is not part of any of your lists, then an empty array will be returned.
 
 ```json
 [
-  {
-    "id": "13694",
-    "title": "dev"
-  }
+	{
+		"id": "13694",
+		"title": "dev"
+	}
 ]
 ```
 
@@ -1269,7 +1281,7 @@ Sample response for whitelist mode:
 
 ```json
 {
-  "error": "This API requires an authenticated user"
+	"error": "This API requires an authenticated user"
 }
 ```
 
@@ -1277,7 +1289,7 @@ Sample response with missing header or invalid token:
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -1287,7 +1299,7 @@ Account does not exist
 
 ```json
 {
-  "error": "Record not found"
+	"error": "Record not found"
 }
 ```
 
@@ -1301,7 +1313,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -1324,6 +1336,7 @@ Follow the given account. Can also be used to update whether to show reblogs or 
 4.0.0 - added `languages`
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -1346,24 +1359,25 @@ languages[]
 : Array of String (ISO 639-1 language two-letter code). Filter received statuses for these languages. If not provided, you will receive this account's posts in all languages.
 
 #### Response
+
 ##### 200: OK
 
 Successfully followed, or account was already followed
 
 ```json
 {
-  "id": "3",
-  "following": true,
-  "showing_reblogs": false,
-  "notifying": false,
-  "followed_by": false,
-  "blocking": false,
-  "blocked_by": false,
-  "muting": false,
-  "muting_notifications": false,
-  "requested": false,
-  "domain_blocking": false,
-  "endorsed": false
+	"id": "3",
+	"following": true,
+	"showing_reblogs": false,
+	"notifying": false,
+	"followed_by": false,
+	"blocking": false,
+	"blocked_by": false,
+	"muting": false,
+	"muting_notifications": false,
+	"requested": false,
+	"domain_blocking": false,
+	"endorsed": false
 }
 ```
 
@@ -1373,7 +1387,7 @@ Trying to follow someone that you block or that blocks you
 
 ```json
 {
-  "error": "This action is not allowed"
+	"error": "This action is not allowed"
 }
 ```
 
@@ -1383,7 +1397,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -1404,6 +1418,7 @@ Unfollow the given account.
 3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -1415,24 +1430,25 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Successfully unfollowed, or account was already not followed
 
 ```json
 {
-  "id": "3",
-  "following": false,
-  "showing_reblogs": false,
-  "notifying": false,
-  "followed_by": false,
-  "blocking": false,
-  "blocked_by": false,
-  "muting": false,
-  "muting_notifications": false,
-  "requested": false,
-  "domain_blocking": false,
-  "endorsed": false
+	"id": "3",
+	"following": false,
+	"showing_reblogs": false,
+	"notifying": false,
+	"followed_by": false,
+	"blocking": false,
+	"blocked_by": false,
+	"muting": false,
+	"muting_notifications": false,
+	"requested": false,
+	"domain_blocking": false,
+	"endorsed": false
 }
 ```
 
@@ -1442,7 +1458,7 @@ Invalid or missing Authorization header
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -1452,7 +1468,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -1472,6 +1488,7 @@ Remove the given account from your followers.
 3.5.0 - added
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -1483,24 +1500,25 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Successfully removed from followers, or account was already not following you
 
 ```json
 {
-  "id": "3",
-  "following": false,
-  "showing_reblogs": false,
-  "notifying": false,
-  "followed_by": false,
-  "blocking": false,
-  "blocked_by": false,
-  "muting": false,
-  "muting_notifications": false,
-  "requested": false,
-  "domain_blocking": false,
-  "endorsed": false
+	"id": "3",
+	"following": false,
+	"showing_reblogs": false,
+	"notifying": false,
+	"followed_by": false,
+	"blocking": false,
+	"blocked_by": false,
+	"muting": false,
+	"muting_notifications": false,
+	"requested": false,
+	"domain_blocking": false,
+	"endorsed": false
 }
 ```
 
@@ -1510,7 +1528,7 @@ Invalid or missing Authorization header
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -1520,7 +1538,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -1544,6 +1562,7 @@ POST /api/v1/accounts/:id/block HTTP/1.1
 3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -1555,24 +1574,25 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Successfully blocked, or account was already blocked
 
 ```json
 {
-  "id": "3",
-  "following": false,
-  "showing_reblogs": false,
-  "notifying": false,
-  "followed_by": false,
-  "blocking": true,
-  "blocked_by": false,
-  "muting": false,
-  "muting_notifications": false,
-  "requested": false,
-  "domain_blocking": false,
-  "endorsed": false
+	"id": "3",
+	"following": false,
+	"showing_reblogs": false,
+	"notifying": false,
+	"followed_by": false,
+	"blocking": true,
+	"blocked_by": false,
+	"muting": false,
+	"muting_notifications": false,
+	"requested": false,
+	"domain_blocking": false,
+	"endorsed": false
 }
 ```
 
@@ -1582,7 +1602,7 @@ Invalid or missing Authorization header
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -1592,7 +1612,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -1613,6 +1633,7 @@ Unblock the given account.
 3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -1624,24 +1645,25 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Successfully unblocked, or account was already not blocked
 
 ```json
 {
-  "id": "3",
-  "following": false,
-  "showing_reblogs": false,
-  "notifying": false,
-  "followed_by": false,
-  "blocking": false,
-  "blocked_by": false,
-  "muting": false,
-  "muting_notifications": false,
-  "requested": false,
-  "domain_blocking": false,
-  "endorsed": false
+	"id": "3",
+	"following": false,
+	"showing_reblogs": false,
+	"notifying": false,
+	"followed_by": false,
+	"blocking": false,
+	"blocked_by": false,
+	"muting": false,
+	"muting_notifications": false,
+	"requested": false,
+	"domain_blocking": false,
+	"endorsed": false
 }
 ```
 
@@ -1651,7 +1673,7 @@ Invalid or missing Authorization header
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -1661,7 +1683,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -1683,6 +1705,7 @@ Mute the given account. Clients should filter statuses and notifications from th
 3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -1702,24 +1725,25 @@ duration
 : Number. How long the mute should last, in seconds. Defaults to 0 (indefinite).
 
 #### Response
+
 ##### 200: OK
 
 Successfully muted, or account was already muted. Note that you can call this API method again with notifications=false to update the relationship so that only statuses are muted.
 
 ```json
 {
-  "id": "3",
-  "following": false,
-  "showing_reblogs": false,
-  "notifying": false,
-  "followed_by": false,
-  "blocking": false,
-  "blocked_by": false,
-  "muting": true,
-  "muting_notifications": true,
-  "requested": false,
-  "domain_blocking": false,
-  "endorsed": false
+	"id": "3",
+	"following": false,
+	"showing_reblogs": false,
+	"notifying": false,
+	"followed_by": false,
+	"blocking": false,
+	"blocked_by": false,
+	"muting": true,
+	"muting_notifications": true,
+	"requested": false,
+	"domain_blocking": false,
+	"endorsed": false
 }
 ```
 
@@ -1729,7 +1753,7 @@ Invalid or missing Authorization header
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -1739,7 +1763,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -1760,6 +1784,7 @@ Unmute the given account.
 3.5.0 - deprecated `follow` scope. now additionally accepts `write`
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -1771,24 +1796,25 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Successfully unmuted, or account was already unmuted
 
 ```json
 {
-  "id": "3",
-  "following": false,
-  "showing_reblogs": false,
-  "notifying": false,
-  "followed_by": false,
-  "blocking": false,
-  "blocked_by": false,
-  "muting": false,
-  "muting_notifications": false,
-  "requested": false,
-  "domain_blocking": false,
-  "endorsed": false
+	"id": "3",
+	"following": false,
+	"showing_reblogs": false,
+	"notifying": false,
+	"followed_by": false,
+	"blocking": false,
+	"blocked_by": false,
+	"muting": false,
+	"muting_notifications": false,
+	"requested": false,
+	"domain_blocking": false,
+	"endorsed": false
 }
 ```
 
@@ -1798,7 +1824,7 @@ Invalid or missing Authorization header
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -1808,7 +1834,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -1830,6 +1856,7 @@ Add the given account to the user's featured profiles. (Featured profiles are cu
 4.4.0 - deprecated in favor of `/api/v1/accounts/:id/endorse`
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -1841,24 +1868,25 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Successfully endorsed, or was already endorsing.
 
 ```json
 {
-  "id": "1",
-  "following": true,
-  "showing_reblogs": true,
-  "notifying": false,
-  "followed_by": true,
-  "blocking": false,
-  "blocked_by": false,
-  "muting": false,
-  "muting_notifications": false,
-  "requested": false,
-  "domain_blocking": false,
-  "endorsed": true
+	"id": "1",
+	"following": true,
+	"showing_reblogs": true,
+	"notifying": false,
+	"followed_by": true,
+	"blocking": false,
+	"blocked_by": false,
+	"muting": false,
+	"muting_notifications": false,
+	"requested": false,
+	"domain_blocking": false,
+	"endorsed": true
 }
 ```
 
@@ -1868,7 +1896,7 @@ Invalid or missing Authorization header
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -1878,7 +1906,7 @@ Token is missing a required scope
 
 ```json
 {
-  "error": "This action is outside the authorized scopes"
+	"error": "This action is outside the authorized scopes"
 }
 ```
 
@@ -1888,7 +1916,7 @@ You are not following this account
 
 ```json
 {
-  "error": "Validation failed: You must be already following the person you want to endorse"
+	"error": "Validation failed: You must be already following the person you want to endorse"
 }
 ```
 
@@ -1896,7 +1924,7 @@ Alternatively, the token is not authorized with a user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -1904,7 +1932,7 @@ Alternatively (prior to 4.0), the account may already be endorsed
 
 ```json
 {
-  "error": "Duplicate record"
+	"error": "Duplicate record"
 }
 ```
 
@@ -1929,6 +1957,7 @@ Remove the given account from the user's featured profiles.
 4.4.0 - deprecated in favor of `/api/v1/accounts/:id/unendorse`
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -1940,24 +1969,25 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Successfully unendorsed, or account was already not endorsed
 
 ```json
 {
-  "id": "1",
-  "following": true,
-  "showing_reblogs": true,
-  "notifying": false,
-  "followed_by": true,
-  "blocking": false,
-  "blocked_by": false,
-  "muting": false,
-  "muting_notifications": false,
-  "requested": false,
-  "domain_blocking": false,
-  "endorsed": false
+	"id": "1",
+	"following": true,
+	"showing_reblogs": true,
+	"notifying": false,
+	"followed_by": true,
+	"blocking": false,
+	"blocked_by": false,
+	"muting": false,
+	"muting_notifications": false,
+	"requested": false,
+	"domain_blocking": false,
+	"endorsed": false
 }
 ```
 
@@ -1967,7 +1997,7 @@ Invalid or missing Authorization header
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -1977,7 +2007,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -1997,6 +2027,7 @@ Accounts that the user is currently featuring on their profile.
 4.4.0 - added
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -2019,61 +2050,62 @@ limit
 : Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
 
 #### Response
+
 ##### 200: OK
 
 Sample call with limit=2.
 
 ```json
 [
-  {
-    "id": "952529",
-    "username": "alayna",
-    "acct": "alayna@desvox.es",
-    "display_name": "Alayna Desirae",
-    "locked": true,
-    "bot": false,
-    "created_at": "2019-10-26T23:12:06.570Z",
-    "note": "experiencing ________ difficulties<br>22y/o INFP in Oklahoma",
-    "url": "https://desvox.es/users/alayna",
-    "avatar": "https://files.mastodon.social/accounts/avatars/000/952/529/original/6534122046d050d5.png",
-    "avatar_static": "https://files.mastodon.social/accounts/avatars/000/952/529/original/6534122046d050d5.png",
-    "header": "https://files.mastodon.social/accounts/headers/000/952/529/original/496f1f817e042ade.png",
-    "header_static": "https://files.mastodon.social/accounts/headers/000/952/529/original/496f1f817e042ade.png",
-    "followers_count": 0,
-    "following_count": 0,
-    "statuses_count": 955,
-    "last_status_at": "2019-11-23T07:05:50.682Z",
-    "emojis": [],
-    "fields": []
-  },
-  {
-    "id": "832844",
-    "username": "a9",
-    "acct": "a9@broadcast.wolfgirl.engineering",
-    "display_name": "vivienne :collar: ",
-    "locked": true,
-    "bot": false,
-    "created_at": "2019-06-12T18:55:12.053Z",
-    "note": "borderline nsfw, considered a schedule I drug by nixon<br>waiting for the year of the illumos desktop",
-    "url": "https://broadcast.wolfgirl.engineering/users/a9",
-    "avatar": "https://files.mastodon.social/accounts/avatars/000/832/844/original/ae1de0b8fb63d1c6.png",
-    "avatar_static": "https://files.mastodon.social/accounts/avatars/000/832/844/original/ae1de0b8fb63d1c6.png",
-    "header": "https://files.mastodon.social/accounts/headers/000/832/844/original/5088e4a16e6d8736.png",
-    "header_static": "https://files.mastodon.social/accounts/headers/000/832/844/original/5088e4a16e6d8736.png",
-    "followers_count": 43,
-    "following_count": 67,
-    "statuses_count": 5906,
-    "last_status_at": "2019-11-23T05:23:47.911Z",
-    "emojis": [
-      {
-        "shortcode": "collar",
-        "url": "https://files.mastodon.social/custom_emojis/images/000/106/920/original/80953b9cd96ec4dc.png",
-        "static_url": "https://files.mastodon.social/custom_emojis/images/000/106/920/static/80953b9cd96ec4dc.png",
-        "visible_in_picker": true
-      }
-    ],
-    "fields": []
-  }
+	{
+		"id": "952529",
+		"username": "alayna",
+		"acct": "alayna@desvox.es",
+		"display_name": "Alayna Desirae",
+		"locked": true,
+		"bot": false,
+		"created_at": "2019-10-26T23:12:06.570Z",
+		"note": "experiencing ________ difficulties<br>22y/o INFP in Oklahoma",
+		"url": "https://desvox.es/users/alayna",
+		"avatar": "https://files.mastodon.social/accounts/avatars/000/952/529/original/6534122046d050d5.png",
+		"avatar_static": "https://files.mastodon.social/accounts/avatars/000/952/529/original/6534122046d050d5.png",
+		"header": "https://files.mastodon.social/accounts/headers/000/952/529/original/496f1f817e042ade.png",
+		"header_static": "https://files.mastodon.social/accounts/headers/000/952/529/original/496f1f817e042ade.png",
+		"followers_count": 0,
+		"following_count": 0,
+		"statuses_count": 955,
+		"last_status_at": "2019-11-23T07:05:50.682Z",
+		"emojis": [],
+		"fields": []
+	},
+	{
+		"id": "832844",
+		"username": "a9",
+		"acct": "a9@broadcast.wolfgirl.engineering",
+		"display_name": "vivienne :collar: ",
+		"locked": true,
+		"bot": false,
+		"created_at": "2019-06-12T18:55:12.053Z",
+		"note": "borderline nsfw, considered a schedule I drug by nixon<br>waiting for the year of the illumos desktop",
+		"url": "https://broadcast.wolfgirl.engineering/users/a9",
+		"avatar": "https://files.mastodon.social/accounts/avatars/000/832/844/original/ae1de0b8fb63d1c6.png",
+		"avatar_static": "https://files.mastodon.social/accounts/avatars/000/832/844/original/ae1de0b8fb63d1c6.png",
+		"header": "https://files.mastodon.social/accounts/headers/000/832/844/original/5088e4a16e6d8736.png",
+		"header_static": "https://files.mastodon.social/accounts/headers/000/832/844/original/5088e4a16e6d8736.png",
+		"followers_count": 43,
+		"following_count": 67,
+		"statuses_count": 5906,
+		"last_status_at": "2019-11-23T05:23:47.911Z",
+		"emojis": [
+			{
+				"shortcode": "collar",
+				"url": "https://files.mastodon.social/custom_emojis/images/000/106/920/original/80953b9cd96ec4dc.png",
+				"static_url": "https://files.mastodon.social/custom_emojis/images/000/106/920/static/80953b9cd96ec4dc.png",
+				"visible_in_picker": true
+			}
+		],
+		"fields": []
+	}
 ]
 ```
 
@@ -2089,7 +2121,7 @@ If the instance is in whitelist mode and the Authorization header is missing or 
 
 ```json
 {
-  "error": "This API requires an authenticated user"
+	"error": "This API requires an authenticated user"
 }
 ```
 
@@ -2099,11 +2131,12 @@ Account does not exist
 
 ```json
 {
-  "error": "Record not found"
+	"error": "Record not found"
 }
 ```
 
 ---
+
 ## Feature account on your profile {#endorse}
 
 ```http
@@ -2118,6 +2151,7 @@ Add the given account to the user's featured profiles.
 4.4.0 - added
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -2129,24 +2163,25 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Successfully endorsed, or was already endorsing.
 
 ```json
 {
-  "id": "1",
-  "following": true,
-  "showing_reblogs": true,
-  "notifying": false,
-  "followed_by": true,
-  "blocking": false,
-  "blocked_by": false,
-  "muting": false,
-  "muting_notifications": false,
-  "requested": false,
-  "domain_blocking": false,
-  "endorsed": true
+	"id": "1",
+	"following": true,
+	"showing_reblogs": true,
+	"notifying": false,
+	"followed_by": true,
+	"blocking": false,
+	"blocked_by": false,
+	"muting": false,
+	"muting_notifications": false,
+	"requested": false,
+	"domain_blocking": false,
+	"endorsed": true
 }
 ```
 
@@ -2156,7 +2191,7 @@ Invalid or missing Authorization header
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -2166,7 +2201,7 @@ Token is missing a required scope
 
 ```json
 {
-  "error": "This action is outside the authorized scopes"
+	"error": "This action is outside the authorized scopes"
 }
 ```
 
@@ -2176,7 +2211,7 @@ You are not following this account
 
 ```json
 {
-  "error": "Validation failed: You must be already following the person you want to endorse"
+	"error": "Validation failed: You must be already following the person you want to endorse"
 }
 ```
 
@@ -2184,7 +2219,7 @@ Alternatively, the token is not authorized with a user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -2192,7 +2227,7 @@ Alternatively (prior to 4.0), the account may already be endorsed
 
 ```json
 {
-  "error": "Duplicate record"
+	"error": "Duplicate record"
 }
 ```
 
@@ -2216,6 +2251,7 @@ Remove the given account from the user's featured profiles.
 4.4.0 - added
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -2227,24 +2263,25 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Successfully unendorsed, or account was already not endorsed
 
 ```json
 {
-  "id": "1",
-  "following": true,
-  "showing_reblogs": true,
-  "notifying": false,
-  "followed_by": true,
-  "blocking": false,
-  "blocked_by": false,
-  "muting": false,
-  "muting_notifications": false,
-  "requested": false,
-  "domain_blocking": false,
-  "endorsed": false
+	"id": "1",
+	"following": true,
+	"showing_reblogs": true,
+	"notifying": false,
+	"followed_by": true,
+	"blocking": false,
+	"blocked_by": false,
+	"muting": false,
+	"muting_notifications": false,
+	"requested": false,
+	"domain_blocking": false,
+	"endorsed": false
 }
 ```
 
@@ -2254,7 +2291,7 @@ Invalid or missing Authorization header
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -2264,7 +2301,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -2284,6 +2321,7 @@ Sets a private note on a user.
 3.2.0 - added
 
 #### Request
+
 ##### Path parameters
 
 :id
@@ -2300,25 +2338,26 @@ comment
 : String. The comment to be set on that user. Provide an empty string or leave out this parameter to clear the currently set note.
 
 #### Response
+
 ##### 200: OK
 
 Successfully updated profile note
 
 ```json
 {
-  "id": "1",
-  "following": true,
-  "showing_reblogs": true,
-  "notifying": false,
-  "followed_by": true,
-  "blocking": false,
-  "blocked_by": false,
-  "muting": false,
-  "muting_notifications": false,
-  "requested": false,
-  "domain_blocking": false,
-  "endorsed": false,
-  "note": "this is a comment"
+	"id": "1",
+	"following": true,
+	"showing_reblogs": true,
+	"notifying": false,
+	"followed_by": true,
+	"blocking": false,
+	"blocked_by": false,
+	"muting": false,
+	"muting_notifications": false,
+	"requested": false,
+	"domain_blocking": false,
+	"endorsed": false,
+	"note": "this is a comment"
 }
 ```
 
@@ -2326,19 +2365,19 @@ Successfully removed profile note
 
 ```json
 {
-  "id": "1",
-  "following": true,
-  "showing_reblogs": true,
-  "notifying": false,
-  "followed_by": true,
-  "blocking": false,
-  "blocked_by": false,
-  "muting": false,
-  "muting_notifications": false,
-  "requested": false,
-  "domain_blocking": false,
-  "endorsed": false,
-  "note": ""
+	"id": "1",
+	"following": true,
+	"showing_reblogs": true,
+	"notifying": false,
+	"followed_by": true,
+	"blocking": false,
+	"blocked_by": false,
+	"muting": false,
+	"muting_notifications": false,
+	"requested": false,
+	"domain_blocking": false,
+	"endorsed": false,
+	"note": ""
 }
 ```
 
@@ -2348,7 +2387,7 @@ Invalid or missing Authorization header
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -2358,7 +2397,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -2377,8 +2416,10 @@ Find out whether a given account is followed, blocked, muted, etc.
 **Version history:**\
 0.0.0 - added\
 4.3.0 - added `with_suspended` parameter
+4.6.0 - added `muting_expires_at`
 
 #### Request
+
 ##### Headers
 
 Authorization
@@ -2393,40 +2434,43 @@ with_suspended
 : Boolean. Whether relationships should be returned for suspended users, defaults to false.
 
 #### Response
+
 ##### 200: OK
 
 Sample call with `id[]=1&id[]=2`
 
 ```json
 [
-  {
-    "id": "1",
-    "following": true,
-    "showing_reblogs": true,
-    "notifying": false,
-    "followed_by": true,
-    "blocking": false,
-    "blocked_by": false,
-    "muting": false,
-    "muting_notifications": false,
-    "requested": false,
-    "domain_blocking": false,
-    "endorsed": false
-  },
-  {
-    "id": "2",
-    "following": false,
-    "showing_reblogs": false,
-    "notifying": false,
-    "followed_by": false,
-    "blocking": false,
-    "blocked_by": false,
-    "muting": false,
-    "muting_notifications": false,
-    "requested": false,
-    "domain_blocking": false,
-    "endorsed": false
-  }
+	{
+		"id": "1",
+		"following": true,
+		"showing_reblogs": true,
+		"notifying": false,
+		"followed_by": true,
+		"blocking": false,
+		"blocked_by": false,
+		"muting": false,
+		"muting_notifications": false,
+		"muting_expires_at": null,
+		"requested": false,
+		"domain_blocking": false,
+		"endorsed": false
+	},
+	{
+		"id": "2",
+		"following": false,
+		"showing_reblogs": false,
+		"notifying": false,
+		"followed_by": false,
+		"blocking": false,
+		"blocked_by": false,
+		"muting": false,
+		"muting_notifications": false,
+		"muting_expires_at": "2026-02-12T13:45:25Z",
+		"requested": false,
+		"domain_blocking": false,
+		"endorsed": false
+	}
 ]
 ```
 
@@ -2436,7 +2480,7 @@ Invalid or missing Authorization header
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -2446,7 +2490,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -2466,6 +2510,7 @@ Obtain a list of all accounts that follow a given account, filtered for accounts
 3.5.0 - added
 
 #### Request
+
 ##### Headers
 
 Authorization
@@ -2477,34 +2522,35 @@ id[]
 : Array of String. Find familiar followers for the provided account IDs.
 
 #### Response
+
 ##### 200: OK
 
 Sample call with `id[]=1&id[]=2`
 
 ```json
 [
-  {
-    "id":"1",
-    "accounts":[
-      {
-        "id":"1087990",
-        "username":"moss",
-        "acct":"moss@goblin.camp",
-        // ...
-      },
-      {
-        "id":"1092723",
-        "username":"vivianrose",
-        "acct":"vivianrose",
-        // ...
-      },
-      // ...
-    ]
-  },
-  {
-    "id":"2",
-    "accounts":[]
-  }
+	{
+		"id": "1",
+		"accounts": [
+			{
+				"id": "1087990",
+				"username": "moss",
+				"acct": "moss@goblin.camp"
+				// ...
+			},
+			{
+				"id": "1092723",
+				"username": "vivianrose",
+				"acct": "vivianrose"
+				// ...
+			}
+			// ...
+		]
+	},
+	{
+		"id": "2",
+		"accounts": []
+	}
 ]
 ```
 
@@ -2514,7 +2560,7 @@ Invalid or missing Authorization header
 
 ```json
 {
-  "error": "The access token is invalid"
+	"error": "The access token is invalid"
 }
 ```
 
@@ -2524,7 +2570,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
@@ -2545,6 +2591,7 @@ Search for matching accounts by username or display name.
 2.8.0 - add `limit`, `offset` and `following`
 
 #### Request
+
 ##### Headers
 
 Authorization
@@ -2568,34 +2615,35 @@ following
 : Boolean. Limit the search to users you are following. Defaults to false.
 
 #### Response
+
 ##### 200: OK
 
 Accounts matching "trwnh" in username or display name
 
 ```json
 [
-  {
-    "id": "14715",
-    "username": "trwnh",
-    "acct": "trwnh",
-    "display_name": "infinite love ⴳ",
-    // ...
-  },
-  {
-    "id": "418714",
-    "username": "trwnh",
-    "acct": "trwnh@pixelfed.social",
-    "display_name": "Abdullah Tarawneh",
-    // ...
-  },
-  {
-    "id": "419674",
-    "username": "trwnh",
-    "acct": "trwnh@write.as",
-    "display_name": "trwnh",
-    // ...
-  },
-  // ...
+	{
+		"id": "14715",
+		"username": "trwnh",
+		"acct": "trwnh",
+		"display_name": "infinite love ⴳ"
+		// ...
+	},
+	{
+		"id": "418714",
+		"username": "trwnh",
+		"acct": "trwnh@pixelfed.social",
+		"display_name": "Abdullah Tarawneh"
+		// ...
+	},
+	{
+		"id": "419674",
+		"username": "trwnh",
+		"acct": "trwnh@write.as",
+		"display_name": "trwnh"
+		// ...
+	}
+	// ...
 ]
 ```
 
@@ -2605,7 +2653,7 @@ resolve=true, but the domain part of the user@domain address is not a currently 
 
 ```json
 {
-  "error": "Remote data could not be fetched"
+	"error": "Remote data could not be fetched"
 }
 ```
 
@@ -2625,24 +2673,26 @@ Quickly lookup a username to see if it is available, skipping WebFinger resoluti
 3.4.0 - added
 
 #### Request
+
 ##### Query parameters
 
 acct
 : {{<required>}} String. The username or WebFinger address to lookup.
 
 #### Response
+
 ##### 200: OK
 
 Sample call with `?acct=trwnh`
 
 ```json
 {
-  "id": "14715",
-  "username": "trwnh",
-  "acct": "trwnh",
-  "display_name": "infinite love ⴳ",
-  "locked": false,
-  // ...
+	"id": "14715",
+	"username": "trwnh",
+	"acct": "trwnh",
+	"display_name": "infinite love ⴳ",
+	"locked": false
+	// ...
 }
 ```
 
@@ -2650,12 +2700,12 @@ Sample call with `?acct=trwnh@pixelfed.social`
 
 ```json
 {
-  "id": "418714",
-  "username": "trwnh",
-  "acct": "trwnh@pixelfed.social",
-  "display_name": "Abdullah Tarawneh",
-  "locked": false,
-  // ...
+	"id": "418714",
+	"username": "trwnh",
+	"acct": "trwnh@pixelfed.social",
+	"display_name": "Abdullah Tarawneh",
+	"locked": false
+	// ...
 }
 ```
 
@@ -2665,7 +2715,7 @@ Username or address does not map to an account
 
 ```json
 {
-  "error": "Record not found"
+	"error": "Record not found"
 }
 ```
 
@@ -2691,17 +2741,18 @@ GET /api/v1/accounts/:id/identity_proofs HTTP/1.1
 : {{<required>}} String. The ID of the account.
 
 #### Response
+
 ##### 200: OK
 
 ```json
 [
-  {
-    "provider": "Keybase",
-    "provider_username": "gargron",
-    "updated_at": "2019-07-21T20:14:39.596Z",
-    "proof_url": "https://keybase.io/gargron/sigchain#5cfc20c7018f2beefb42a68836da59a792e55daa4d118498c9b1898de7e845690f",
-    "profile_url": "https://keybase.io/gargron"
-  }
+	{
+		"provider": "Keybase",
+		"provider_username": "gargron",
+		"updated_at": "2019-07-21T20:14:39.596Z",
+		"proof_url": "https://keybase.io/gargron/sigchain#5cfc20c7018f2beefb42a68836da59a792e55daa4d118498c9b1898de7e845690f",
+		"profile_url": "https://keybase.io/gargron"
+	}
 ]
 ```
 
@@ -2711,7 +2762,7 @@ Account does not exist
 
 ```json
 {
-  "error": "Record not found"
+	"error": "Record not found"
 }
 ```
 
@@ -2725,7 +2776,7 @@ Token does not have an authorized user
 
 ```json
 {
-  "error": "This method requires an authenticated user"
+	"error": "This method requires an authenticated user"
 }
 ```
 
