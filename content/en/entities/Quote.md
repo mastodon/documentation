@@ -92,10 +92,11 @@ aliases: [
 
 ### `quoted_status` {#quoted_status}
 
-**Description:** The status being quoted, if the quote has been accepted. This will be `null`, unless the `state` attribute is `accepted`, `blocked_account`, `blocked_domain`, or `muted_account`.\
+**Description:** The status being quoted, if the quote has been accepted. This will be `null`, unless the `state` attribute is `accepted`, `blocked_account`, `blocked_domain`, or `muted_account`, or the wrapping [Status]({{< relref "entities/status" >}}) entity has been obtained by calling `DELETE /api/v1/statuses/:id`..\
 **Type:** {{<nullable>}} [Status]({{< relref "entities/status" >}}) or null\
 **Version history:**\
-4.4.0 - added
+4.4.0 - added\
+4.5.7 - `quoted_status` is set to the quoted status regardless of `state` when the entity is returned as part of status deletion
 
 ## See also
 
