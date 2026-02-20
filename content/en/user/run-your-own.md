@@ -24,6 +24,10 @@ Here is what you need:
 - A **domain name**. This is how you and others will access your server and how you and your users will be identified on the network.
 
   **How to get**: Namecheap, Gandi, any of the infinite number of domain name registrars. Comes with a yearly cost that varies depending on domain name choice.
+
+  {{< hint style="info" >}}
+  If you plan to use the Mastodon word mark in your domain, you need to have written permission from Mastodon GmbH first, as described in the [Mastodon Trademark Policy](https://joinmastodon.org/trademark).
+  {{< /hint >}}
 - A **VPS**. Something that will run the Mastodon code that will always be connected to the internet.
 
   **How to get**: DigitalOcean, Hetzner, Exoscale, Scaleway, any of the infinite number of hosting providers. Comes with a monthly or yearly cost that varies depending on hardware specifications.
