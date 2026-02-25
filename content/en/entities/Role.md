@@ -50,7 +50,7 @@ aliases: [
 ### `permissions` {#permissions}
 
 **Description:** A bitmask that represents the sum of all permissions granted to the role.\
-**Type:** String\
+**Type:** Integer\
 **Version history:**\
 4.0.0 - added
 
