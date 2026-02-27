@@ -1,0 +1,71 @@
+[improvePage]
+other = "Améliorer cette page"
+
+[lastUpdated]
+other = "Dernière modification le"
+
+[joinTitle]
+other = "Rejoignez la révolution du réseau social"
+
+[joinText]
+other = "Mastodon est une plateforme libre, gratuite et décentralisée avec plus de trois millions de personnes"
+
+[joinAction]
+other = "Rejoignez Mastodon maintenant !"
+
+[merch]
+other = "Goodies"
+
+[shirtsAndStickers]
+other = "T-shirts et stickers"
+
+[joinMastodon]
+other = "Rejoindre Mastodon"
+
+[blog]
+other = "Blog"
+
+[viewSource]
+other = "Accéder à la source"
+
+[imprint]
+other = "Mentions légales"
+
+[formDataParameters]
+other = "Paramètres disponibles"
+
+[headers]
+other = "Entêtes"
+
+[required]
+other = "obligatoire"
+
+[optional]
+other = "optionnel"
+
+[deprecated]
+other = "déprécié"
+
+[removed]
+other = "supprimé"
+
+[nullable]
+other = "nullable"
+
+[pathParameters]
+other = "Paramètres de chemin"
+
+[queryParameters]
+other = "Paramètres de requête"
+
+[request]
+other = "Requête"
+
+[response]
+other = "Réponse"
+
+[otherTranslations]
+other = "Aussi disponible en :"
+
+[sponsoredBy]
+other = "Sponsorisé par"
