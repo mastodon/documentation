@@ -2377,6 +2377,7 @@ Find out whether a given account is followed, blocked, muted, etc.
 **Version history:**\
 0.0.0 - added\
 4.3.0 - added `with_suspended` parameter
+4.6.0 - added `muting_expires_at`
 
 #### Request
 ##### Headers
@@ -2409,6 +2410,7 @@ Sample call with `id[]=1&id[]=2`
     "blocked_by": false,
     "muting": false,
     "muting_notifications": false,
+    "muting_expires_at": null,
     "requested": false,
     "domain_blocking": false,
     "endorsed": false
@@ -2423,6 +2425,7 @@ Sample call with `id[]=1&id[]=2`
     "blocked_by": false,
     "muting": false,
     "muting_notifications": false,
+    "muting_expires_at": "2026-02-12T13:45:25Z",
     "requested": false,
     "domain_blocking": false,
     "endorsed": false
