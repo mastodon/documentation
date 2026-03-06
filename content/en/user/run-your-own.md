@@ -60,6 +60,13 @@ Managed hosting solutions are great for those who do not have experience or desi
 
 Mastodon scales quite well horizontally. If your needs outgrow the capacity of a single machine, Mastodon can be divided into multiple app servers, background workers, multiple Redis backends, PostgreSQL replicas -- but 1-click install won't cut it.
 
+### Self-Hosting solutions
+
+{{< caption-link url="https://syncloud.org" caption="Syncloud" >}}
+
+
+### Manual
+
 If you're interested in installing everything on your own, proceed here:
 
 {{< page-ref page="admin/prerequisites" >}}
