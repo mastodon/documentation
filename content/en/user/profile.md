@@ -23,11 +23,11 @@ Your bio is a short description of yourself that is displayed as a note on your 
 
 ### Avatar {#avatar}
 
-Your avatar is an icon that is displayed next to your posts and is part of your visual identity. You can upload an avatar as a PNG, GIF, or JPG image up to 2MB in size. This image will be downscaled to 400x400.
+Your avatar is an icon that is displayed next to your posts and is part of your visual identity. You can upload an avatar as a WEBP, PNG, GIF, or JPG image up to 2MB in size. This image will be downscaled to 400x400.
 
 ### Header {#header}
 
-Your header is a banner image shown at the top of your profile, as well as in profile cards used in follow lists and account directories. You can upload a header as a PNG, GIF, or JPG image up to 2MB in size. This image will be downscaled to 1500x500.
+Your header is a banner image shown at the top of your profile, as well as in profile cards used in follow lists and account directories. You can upload a header as a WEBP, PNG, GIF, or JPG image up to 2MB in size. This image will be downscaled to 1500x500.
 
 ## Profile flags {#flags}
 
