@@ -87,6 +87,8 @@ aliases: [
       "public_key": "BCk-QqERU0q-CfYZjcuB6lnyyOYfJ2AifKqfeGIm7Z-HiTU5T9eTG5GxVA0_OH5mMlI4UkkDTpaZwozy0TzdZ2M="
     },
     "accounts": {
+      "max_display_name_lenth": 30,
+      "max_note_length": 500,
       "max_featured_tags": 10,
       "max_pinned_statuses": 5,
       "max_profile_fields": 4,
@@ -609,6 +611,20 @@ aliases: [
 **Type:** Hash\
 **Version history:**\
 4.0.0 - added
+
+##### `configuration[accounts][max_display_name_length]` {#max_display_name_length}
+
+**Description:** The maximum length allowed for an account's display name.\
+**Type:** Integer\
+**Version history:**\
+4.6.0 - added
+
+##### `configuration[accounts][max_note_length]` {#max_note_length}
+
+**Description:** The maximum length allowed for an account's bio.\
+**Type:** Integer\
+**Version history:**\
+4.6.0 - added
 
 ##### `configuration[accounts][max_featured_tags]` {#max_featured_tags}
 
