@@ -50,6 +50,9 @@ aliases: [
   "statuses_count": 28468,
   "last_status_at": "2019-11-17",
   "indexable": true,
+  "show_media": true,
+  "show_media_replies": true,
+  "show_featured": true,
   "roles": [],
   "emojis": [
     {
@@ -302,6 +305,27 @@ aliases: [
 **Type:** {{<nullable>}} Boolean\
 **Version history:**\
 4.3.0 - added
+
+### `show_media` {#show_media}
+
+**Description:** Whether the account wishes to have a “Media” tab with media attachments on their profile.\
+**Type:** Boolean\
+**Version history:**\
+4.6.0 - added
+
+### `show_media_replies` {#show_media_replies}
+
+**Description:** Whether the account wishes to have replies in the “Media” tab on their profile.\
+**Type:** Boolean\
+**Version history:**\
+4.6.0 - added
+
+### `show_featured` {#show_featured}
+
+**Description:** Whether the account wishes to have a “Featured” tab on their profile.\
+**Type:** Boolean\
+**Version history:**\
+4.6.0 - added
 
 ### `roles` {#roles}
 
