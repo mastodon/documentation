@@ -25,6 +25,7 @@ aliases: [
   "blocked_by": false,
   "muting": false,
   "muting_notifications": false,
+  "muting_expires_at": null,
   "requested": false,
   "requested_by": false,
   "domain_blocking": false,
@@ -104,6 +105,13 @@ aliases: [
 **Type:** Boolean\
 **Version history:**\
 2.1.0 - added
+
+### `muting_expires_at` {#muting_expires_at}
+
+**Description:** Date at which the mute expires, if there is any.\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime))\
+**Version history:**\
+4.6.0 - added
 
 ### `requested` {#requested}
 
