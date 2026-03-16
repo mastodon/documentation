@@ -22,7 +22,8 @@ GET /api/v1/profile HTTP/1.1
 **Returns:** [Profile]({{< relref "entities/Profile">}})\
 **OAuth:** User token + `read:accounts`\
 **Version history:**
-4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 8) - added
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 8) - added\
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 9) - added `avatar_description` and `header_description`
 
 #### Request
 
@@ -121,8 +122,14 @@ note
 avatar
 : Avatar image encoded using `multipart/form-data`
 
+avatar_description
+: String. A plain-text description of the avatar, for accessibility purposes.
+
 header
 : Header image encoded using `multipart/form-data`
+
+header_description
+: String. A plain-text description of the header, for accessibility purposes.
 
 locked
 : Boolean. Whether manual approval of follow requests is required.
