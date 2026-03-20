@@ -64,25 +64,33 @@ Profile metadata is a way to add extra information to your profile that is easy 
 
 It’s completely up to you what you put there. The content can contain mentions, hashtags, custom emojis and links.
 
-### Link verification {#verification}
+### Website verification {#verification}
 
-Document-based verification and blue ticks are not possible without a central authority. However, Mastodon can cross-reference the links you put on your profile to prove that you are the real owner of those links. In case one of those links is your personal homepage that is known and trusted, it can serve as the next-best-thing to identity document verification.
+Document-based verification and blue checkmarks are not possible without a central authority. However, Mastodon can cross-reference the website links that you put on your profile to prove that you are the real owner of those links. In case one of those websites is your personal homepage that is known and trusted, it can serve as the next-best-thing to identity document verification.
 
 {{< hint style="info" >}}
 Because Mastodon can be self-hosted, there is no better way to verify your identity than to host Mastodon on your own domain, which people already trust.
 {{< /hint >}}
 
-If you put an HTTPS link in your profile metadata, Mastodon checks if that link resolves to a web page that links back to your Mastodon profile with a special `rel=me` attribute. If so, you get a verification checkmark next to that link, since you are confirmed as the owner. Likewise, Mastodon puts `rel="me"` on the links within profile metadata. The link might look something like this:
+If you put an HTTPS link in your profile metadata, Mastodon checks if that link resolves to a website that links back to your Mastodon profile with a special `rel=me` attribute. If so, you get a verification checkmark next to that link, since you are confirmed as the owner. Likewise, Mastodon puts `rel="me"` on the links within profile metadata.
+
+Go to **Preferences** &gt; **Public profile** &gt; **Verification** to see the link code to copy and paste, as well as your list of verified links. The link code might look something like this:
 
 ```html
-<a href="https://social.example.com/@username" rel="me">Follow me on Mastodon!</a>
+<a rel="me" href="https://social.example.com/@username">Mastodon</a>
 ```
 
-It may also be embedded directly in the head of your web page:
+It may also be embedded directly in the head of your website:
 
 ```html
-<link href="https://social.example.com/@username" rel="me">
+<link rel="me" href="https://social.example.com/@username">
 ```
+
+After you place one of these links in your website, go to **Preferences** &gt; **Public profile** &gt; **Edit profile** and add your website to one of the **Extra fields**, then save your changes.
+
+{{< hint style="info" >}}
+Make sure to save your profile *after* adding the rel-me link to your website! The verification process is triggered when you save your profile, and may take some time before completing. If you have added the rel-me link and verification is not working, then try deleting the link, saving, re-adding the link, and saving again.
+{{< /hint >}}
 
 #### Validation criteria for verified links
 
@@ -100,7 +108,3 @@ Mastodon will then resolve the link and fetch the web page located there, lookin
 - The link must appear directly in the HTML response and be accessible without executing JavaScript.
 
 **Any such link must not be within an `iframe`**. An `iframe` effectively means the link is no longer on the same web page, but rather it is on some external web page which is being embedded in the current one. (Note that some "block-based" CMS software may wrap block elements within iframes, which prevents verification for this reason.)
-
-{{< hint style="info" >}}
-Make sure to save your profile *after* adding the rel-me link to your web page! The verification process is triggered when you save your profile, and may take some time before completing. If you have added the rel-me link and verification is not working, then try deleting the link, saving, re-adding the link, and saving again.
-{{< /hint >}}
