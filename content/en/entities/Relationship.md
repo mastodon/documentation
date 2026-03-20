@@ -143,7 +143,7 @@ aliases: [
 
 ### `note` {#note}
 
-**Description:** This user's profile bio\
+**Description:** The authenticated user's personal comment about this account\
 **Type:** String\
 **Version history:**\
 3.2.0 - added
