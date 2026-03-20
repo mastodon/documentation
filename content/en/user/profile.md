@@ -74,7 +74,7 @@ Because Mastodon can be self-hosted, there is no better way to verify your ident
 
 If you put an HTTPS link in your profile metadata, Mastodon checks if that link resolves to a website that links back to your Mastodon profile with a special `rel=me` attribute. If so, you get a verification checkmark next to that link, since you are confirmed as the owner. Likewise, Mastodon puts `rel="me"` on the links within profile metadata.
 
-Go to **Preferences** &gt; **Public profile** &gt; **Verification** to see the link code to copy and paste, as well as your list of verified links. The link code might look something like this:
+Go to **Preferences** &gt; **Public profile** &gt; **Verification** to get the link code to copy and paste into your website's code, as well as your list of verified links. The link code might look something like this:
 
 ```html
 <a rel="me" href="https://social.example.com/@username">Mastodon</a>
