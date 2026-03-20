@@ -104,3 +104,17 @@ Mastodon will then resolve the link and fetch the web page located there, lookin
 {{< hint style="info" >}}
 Make sure to save your profile *after* adding the rel-me link to your web page! The verification process is triggered when you save your profile, and may take some time before completing. If you have added the rel-me link and verification is not working, then try deleting the link, saving, re-adding the link, and saving again.
 {{< /hint >}}
+
+### Author attribution {#attribution}
+
+If you are an author or creator, your Mastodon account can be credited and linked when your articles, blog posts, and other works are shared on Mastodon and across the fediverse. This is possible by including a `fediverse:creator` tag in the HTML code of the websites where your work is published.
+
+Go to **Preferences** &gt; **Public profile** &gt; **Verification** &gt; **Author attribution** to get the code that you will need to copy and paste into the head of the article's HTML. The code might look something like this:
+
+```html
+<meta name="fediverse:creator" content="@username@social.example.com">
+```
+
+Next, add the domain name of the publication, such as `example.com`, to the **Websites allowed to credit you** field. This protects you from false attributions in link previews.
+
+Anything that you publish on an allowed website will be attributed to you when it is shared to the fediverse, and the author byline will include the link to your Mastodon profile.
