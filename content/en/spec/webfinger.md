@@ -115,6 +115,10 @@ In other words, the following cases are valid:
 - Asking `example.com` for the resource `acct:alice@example.com` yields a link to an actor on the domain `ap.example.com` with a `preferredUsername` of `alice`
   - ...then, asking `ap.example.com` for the resource `acct:alice@ap.example.com` yields a `subject` of `acct:alice@example.com` and a link to the same actor
 
+## FEP-2c59 {#FEP-2c59}
+
+As of version 4.6.0, Mastodon also supports [FEP-2c59](https://codeberg.org/fediverse/fep/src/branch/main/fep/2c59/fep-2c59.md), which allows the actor to be explicit about their webfinger handle. This takes priority over the flow described above, and `preferredUsername` is only used if the `webfinger` attribute is missing or malformed.
+
 ## See also
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/services/activitypub/fetch_remote_actor_service.rb" caption="app/services/activitypub/fetch_remote_actor_service.rb" >}}
