@@ -291,6 +291,15 @@ suspended
 attributionDomains
 : Domains allowed to use `fediverse:creator` for this actor in published articles.
 
+showFeatured
+: Whether to show the “featured” tab on this account's profile.
+
+showMedia
+: Whether to show the “media” tab on this account's profile.
+
+showRepliesInMedia
+: Whether to include replies in the “media” tab of this account's profile.
+
 ## JSON-LD Contexts and Extensions {#contexts}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/activitypub/adapter.rb" caption="app/lib/activitypub/adapter.rb" >}}
