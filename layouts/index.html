@@ -19,7 +19,7 @@
         {{ i18n "otherTranslations" }}
 
         {{ range .Translations }}
-          <a href="{{ .RelPermalink }}" style="color: #606085;" hreflang="{{ .Lang }}">{{ .Language.LanguageName }}</a>
+          <a href="{{ .RelPermalink }}" style="color: #606085;" hreflang="{{ .Lang }}">{{ .Language.Label }}</a>
         {{ end }}
       {{ end }}
     </p>
