@@ -419,6 +419,12 @@ Remove all accounts from a given DOMAIN without leaving behind any records. Unli
 `--limited-federation-mode`
 : Can be provided instead of DOMAIN. Instead of purging from a single domain, all accounts from domains that are not allow-listed will be removed from the database. Use this after enabling limited federation mode and defining your allow-list.
 
+`--include-subdomains`
+: Not only delete DOMAIN, but all subdomains as well. Note that this may be considerably slower.
+
+`--purge-domain-blocks`
+: Also purge matching domain blocks.
+
 `--concurrency N`
 : The number of workers to use for this task. Defaults to 5.
 
