@@ -840,6 +840,9 @@ Create or update an Elasticsearch index and populate it. If Elasticsearch is emp
 `--reset-chewy`
 : Reset Chewy's internal index
 
+`--only-mapping`
+: Update the index specification without re-index
+
 **Version history:**\
 2.8.0 - added\
 3.0.0 - add `--processes` for parallelization\
