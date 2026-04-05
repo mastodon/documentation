@@ -913,8 +913,23 @@ This is a computationally heavy procedure that creates extra database indices be
 `--days N`
 : How old statuses have to be before they are removed. Defaults to 90.
 
+`--batch-size N`
+: Number of records in each batch. Defaults to 1000.
+
+`--continue`
+: If remove is not completed, execute from the previous continuation. Defaults to false.
+
+`--clean-followed`
+: Include the status of remote accounts that are followed by local accounts as candidates for remove. Defaults to false.
+
+`--skip-status-remove`
+: Skip status remove (run only cleanup tasks). Defaults to false.
+
 `--skip-media-remove`
 : Skips removing the media, in case S3 errors out. Defaults to false.
+
+`--compress-database`
+: Compress database and update the statistics. This option locks the table for a long time, so run it offline. Defaults to false.
 
 **Version history:**\
 2.8.0 - added\
