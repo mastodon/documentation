@@ -20,7 +20,7 @@ GET /api/v1/profile HTTP/1.1
 ```
 
 **Returns:** [Profile]({{< relref "entities/Profile">}})\
-**OAuth:** User token + `read:accounts`\
+**OAuth:** User token + `profile` or `read:accounts`\
 **Version history:**
 4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 8) - added\
 4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 9) - added `avatar_description` and `header_description`
