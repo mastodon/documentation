@@ -1,6 +1,6 @@
 ---
 title: admin/trends API methods
-description: TODO
+description: Moderate trending links, statuses and tags.
 menu:
   docs:
     name: trends
