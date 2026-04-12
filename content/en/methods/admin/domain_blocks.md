@@ -340,9 +340,15 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 }
 ```
 
-##### 500: Server error
-<!-- TODO: remove when https://github.com/mastodon/mastodon/issues/21775 is fixed -->
-Invalid severity
+##### 422: Unprocessable entity
+
+The request will fail if the severity parameter is provided but is not one of the allowed values.
+
+```json
+{
+  "error": "Validation failed: Severity is not included in the list"
+}
+```
 
 ---
 
