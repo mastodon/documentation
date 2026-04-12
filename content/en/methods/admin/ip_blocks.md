@@ -7,8 +7,8 @@ menu:
     parent: methods-admin
     identifier: methods-admin-ip_blocks
 aliases: [
-	"/methods/admin/domain_blocks",
-	"/api/methods/admin/domain_blocks",
+	"/methods/admin/ip_blocks",
+	"/api/methods/admin/ip_blocks",
 ]
 ---
 
