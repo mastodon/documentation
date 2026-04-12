@@ -56,9 +56,6 @@ Depending on server configuration details, the streaming API may be served from 
 `status.update`
 : A Status has been edited. Payload contains a [Status]({{< relref "entities/Status" >}}) cast to a string. Available since v3.5.0
 
-`encrypted_message`
-: An encrypted message has been received. Implemented in v3.2.0 but currently unused
-
 `notifications_merged`
 : Accepted notification requests have finished merging, and the notifications list should be refreshed. Payload can be ignored. Available since v4.3.0
 
@@ -757,8 +754,6 @@ Streaming timelines are maintained in Redis, and are published to Redis via `red
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/publish_announcement_reaction_worker.rb" caption="app/workers/publish_announcement_reaction_worker.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/unpublish_announcement_worker.rb" caption="app/workers/unpublish_announcement_worker.rb" >}}
-
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/push_encrypted_message_worker.rb" caption="app/workers/push_encrypted_message_worker.rb" >}}
 
 ### Streaming client
 
