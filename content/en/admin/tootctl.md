@@ -917,10 +917,10 @@ This is a computationally heavy procedure that creates extra database indices be
 : Number of records in each batch. Defaults to 1000.
 
 `--continue`
-: If remove is not completed, execute from the previous continuation
+: If remove is not completed, execute from the previous continuation.
 
 `--clean_followed`
-: Include the status of remote accounts that are followed by local accounts as candidates for remove
+: Include the status of remote accounts that are followed by local accounts as candidates for remove.
 
 `--skip_status_remove`
 : Skip status remove (run only cleanup tasks)
@@ -929,7 +929,7 @@ This is a computationally heavy procedure that creates extra database indices be
 : Skips removing the media, in case S3 errors out. Defaults to false.
 
 `--compress_database`
-: Compress database and update the statistics. This option locks the table for a long time, so run it offline
+: Compress database and update the statistics. This option locks the table for a long time, so run it offline.
 
 
 **Version history:**\
