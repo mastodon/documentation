@@ -1227,25 +1227,30 @@ If set to `true`, Mastodon will log some Sidekiq metrics into StatsD. Defaults t
 
 #### `BUNDLE_GEMFILE`
 
+Instructs bundler (ruby package manager) on how to build the application.
+
 #### `DEEPL_API_KEY`
+
+When using DeepL, the API key used to access the translation service.
 
 #### `DEEPL_PLAN`
 
-#### `ENABLE_SIDEKIQ_UNIQUE_JOBS_UI`
-
-Enable `sidekiq-unique-jobs`'s web interface. This can be used to review and clear the locks managed by this gem, but is rarely useful in practice and has had critical security vulnerabilities in the past.
-If you only need to clear all locks, you can now use the newly-added `bundle exec rake sidekiq_unique_jobs:delete_all_locks`.
+When using DeepL, the name of the configured plan.
 
 **Version history:**\
 4.2.6 - added
 
 #### `LIBRE_TRANSLATE_ENDPOINT`
 
+The endpoint (URL) with a running Libre Translate service.
+
 #### `LIBRE_TRANSLATE_API_KEY`
+
+When using Libre Translate, the API key used to access the translation service.
 
 #### `GITHUB_REPOSITORY`
 
-Defaults to `mastodon/mastodon`
+The source repository containing the application code. Defaults to `mastodon/mastodon`
 
 #### `SOURCE_BASE_URL`
 
@@ -1257,37 +1262,41 @@ Defaults to empty value (not enabled)
 
 #### `LOCAL_HTTPS`
 
+In production environments, HTTPS is always enabled. In other environments, this config value enables HTTPS when set to `true`.
+
 #### `PATH`
 
 #### `MAX_FOLLOWS_THRESHOLD`
 
-Defaults to `7500`
+Limit the number of (unauthorized) follows or follow requests of an account. Defaults to `7500`.
 
 #### `MAX_FOLLOWS_RATIO`
 
-Defaults to `1.1`
+For accounts over the `MAX_FOLLOWS_THRESHOLD` limit of authorized follows, limits new unauthorized follows to follower count times this ratio. Defaults to `1.1`.
 
 #### `IP_RETENTION_PERIOD`
 
-Defaults to `31536000` (1 year)
+Controls how long IP Address data connected to user records is preserved in the database. Defaults to `31536000` (1 year)
 
 #### `SESSION_RETENTION_PERIOD`
 
-Defaults to `31536000` (1 year)
+Controls how long authentication sessions are kept valid without activity. Defaults to `31536000` (1 year)
 
 #### `BACKTRACE`
 
 Set to `1` to allow backtracing to Rails framework code.
 
-#### `DISABLE_SIMPLECOV`
-
 #### `EMAIL_DOMAIN_LISTS_APPLY_AFTER_CONFIRMATION`
+
+When set to `true`, causes a check of user email address against the blocked list after confirmation (by default this only happens before confirmation).
 
 #### `DISABLE_FOLLOWERS_SYNCHRONIZATION`
 
+When set to `true`, disables the follower synchronization action which occurs after some events.
+
 #### `MAX_REQUEST_POOL_SIZE`
 
-Defaults to `512`.
+Limits the maximum size of the HTTP request pool used to interact with other servers. Defaults to `512`.
 
 #### `GITHUB_API_TOKEN`
 

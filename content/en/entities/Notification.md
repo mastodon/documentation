@@ -7,8 +7,8 @@ menu:
 aliases: [
   "/entities/notification",
   "/entities/Notification",
-  "/entities/notification",
-  "/entities/Notification",
+  "/api/entities/notification",
+  "/api/entities/Notification",
 ]
 ---
 

@@ -1,14 +1,14 @@
 ---
 title: admin/trends API methods
-description: TODO
+description: Moderate trending links, statuses and tags.
 menu:
   docs:
     name: trends
     parent: methods-admin
     identifier: methods-admin-trends
 aliases: [
-  "/methods/admin/measures",
-  "/api/methods/admin/measures",
+  "/methods/admin/trends",
+  "/api/methods/admin/trends",
 ]
 ---
 
