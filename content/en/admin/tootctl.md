@@ -838,16 +838,16 @@ Create or update an Elasticsearch index and populate it. If Elasticsearch is emp
 : Parallelize execution of the command on multiple threads. Defaults to 5.
 
 `--import`
-: Import data from the database to the index
+: Import data from the database to the index.
 
 `--clean`
-: Remove outdated documents from the index
+: Remove outdated documents from the index.
 
 `--reset-chewy`
-: Reset Chewy's internal index
+: Reset Chewy's internal index.
 
 `--only-mapping`
-: Update the index specification without re-index
+: Update the index specification without re-index.
 
 **Version history:**\
 2.8.0 - added\
