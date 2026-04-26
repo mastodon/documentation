@@ -47,13 +47,15 @@ The streaming server also exposes a [Prometheus](https://prometheus.io/) endpoin
 - `mastodon_streaming_messages_sent_total`: This is the total number of messages sent to clients since last restart.
 - `mastodon_streaming_redis_messages_received_total`: This is the number of messages received from Redis pubsub, and intended to complement [monitoring Redis directly](https://sysdig.com/blog/redis-prometheus/).
 
+Note that for Prometheus-based monitoring you should monitor each individual streaming server instance (not the nginx endpoint) as requests to nginx will be routed to an arbitrary streaming server instance and make the metrics less insightful than the per-instance tracking.
+
 {{< hint style="info" >}}
 The more streaming server processes that you run, the more database connections will be consumed on PostgreSQL, so you'll likely want to use PgBouncer, as documented below.
 {{< /hint >}}
 
 An example nginx configuration to route traffic to three different processes on `PORT` 4000, 4001, and 4002 is as follows:
 
-```text
+```nginx
 upstream streaming {
     least_conn;
     server 127.0.0.1:4000 fail_timeout=0;
@@ -73,7 +75,7 @@ $ sudo systemctl start mastodon-streaming@4002.service
 By default, `sudo systemctl start mastodon-streaming` starts just one process on port 4000, equivalent to running `sudo systemctl start mastodon-streaming@4000.service`.
 
 {{< hint style="warning" >}}
-Previous versions of Mastodon had a `STREAMING_CLUSTER_NUM` environment variable that made the streaming server use clustering, which started multiple worker processes and used node.js to load balance them.
+Previous versions of Mastodon had a `STREAMING_CLUSTER_NUM` environment variable that made the streaming server use clustering, which started multiple worker processes and used Node.js to load balance them.
 
 This interacted with the other settings in ways which made capacity planning difficult, especially when it comes to database connections and CPU resources. By default, the streaming server would consume resources on all available CPUs which could cause contention with other software running on that server. Another common issue was that misconfiguring the `STREAMING_CLUSTER_NUM` would exhaust your database connections by opening up a connection pool per cluster worker process, so a `STREAMING_CLUSTER_NUM` of `5` and `DB_POOL` of `10` would potentially consume 50 database connections.
 
@@ -141,6 +143,8 @@ You may run as many Sidekiq processes with as many threads as necessary to effic
 If you start running out of available PostgreSQL connections (the default is 100) then you may find PgBouncer to be a good solution. This document describes some common gotchas, as well as good configuration defaults for Mastodon.
 
 User roles with `DevOps` permissions in Mastodon can monitor the current usage of PostgreSQL connections through the PgHero link in the Administration view. Generally, the number of connections open is equal to the total threads in Puma, Sidekiq, and the streaming API combined.
+
+To enable "Query Stats" in PgHero, review the [query stats guide](https://github.com/ankane/pghero/blob/master/guides/Query-Stats.md) and make sure your PostgreSQL has the correct permissions and extensions configured.
 
 ### Installing PgBouncer {#pgbouncer-install}
 
@@ -387,7 +391,6 @@ systemctl restart mastodon-web.service
 systemctl restart redis-sidekiq.service
 ```
 
-
 ## Redis Sentinel for High Availability {#redis-sentinel}
 
 As mentioned, Redis is a critical part of a Mastodon instance's operation. By default, your deployment will use a single Redis instance, or multiple if you've setup a cache. However if that instance goes down it can bring the entire Mastodon instance down as well. To alleviate this, Redis Sentinel can be used to track your Redis instances and automatically direct clients to a new primary if one goes down. You can specify `REDIS_SENTINELS`, which is a comma-delimited list of the IP:Port combinations of sentinels that Mastodon can talk with to determine the current master Redis node. You also need to specify the name of the master you would like to connect to in `REDIS_SENTINEL_MASTER`. By default Sentinel will set an instance as down and select a new master after a minute of the current master being unreachable, but this can be configured based on your setup.
@@ -406,7 +409,7 @@ Mastodon has built-in replica support starting with version 4.2. You can use the
 
 To configure it, use the following environment variables:
 
-```
+```text
 REPLICA_DB_HOST
 REPLICA_DB_PORT
 REPLICA_DB_NAME
@@ -418,7 +421,7 @@ REPLICA_DB_TASKS
 
 Alternatively, you can also use `REPLICA_DATABASE_URL` if you want to configure them all using the same variable.
 
-`REPLICA_DB_TASKS=false` will connect to an replica database without any database mangement tasks such as schema management, migrations, seeds, etc. By default it is set to true.
+`REPLICA_DB_TASKS=false` will connect to an replica database without any database management tasks such as schema management, migrations, seeds, etc. By default it is set to true.
 
 `REPLICA_PREPARED_STATEMENTS` is an optional override for the `PREPARED_STATEMENTS` value. By default it is set to true if `PREPARED_STATEMENTS` is not set.
 
@@ -475,3 +478,10 @@ These endpoints should both return an HTTP status code of 200, and the text `OK`
 {{< hint style="info" >}}
 You can also use these endpoints for health checks with a third-party monitoring/alerting utility.
 {{< /hint >}}
+
+## User-generated content retention
+
+To prevent runaway growth of stored assets, review the settings under **Administration** > **Content retention** and set them to values appropriate for your server and users. The cleanup task runs via the background job scheduler, and does not need manual triggering or cron settings.
+
+- The media cache retention setting controls how long media from remote users is cached on your server
+- The user archive retention period controls how long backups generated by your own users are kept

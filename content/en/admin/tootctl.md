@@ -107,7 +107,7 @@ Create a new user account with the given `USERNAME` and provided `--email`.
 : Reuse an old USERNAME after its account has been deleted.
 
 `--force`
-Forcefully delete any existing account with this `USERNAME` and reattach the new account in place of the (just-deleted) account.
+: Forcefully delete any existing account with this `USERNAME` and reattach the new account in place of the (just-deleted) account.
 
 **Version history:**\
 2.6.0 - added\
@@ -167,7 +167,7 @@ Modify a user account's role, email, active status, approval mode, or 2FA requir
 Delete a user account with the given USERNAME.
 
 `USERNAME`
-: Local username for the new account. {{<required>}}
+: Local username of the account to delete. {{<required>}}
 
 **Version history:**\
 2.6.0 - added
@@ -181,7 +181,7 @@ Delete a user account with the given USERNAME.
 Request a backup for a user account with the given USERNAME. The backup will be created in Sidekiq asynchronously, and the user will receive an email with a link to it once it's done.
 
 `USERNAME`
-: Local username for the new account. {{<required>}}
+: Local username of the account to backup. {{<required>}}
 
 **Version history:**\
 2.6.0 - added
@@ -192,7 +192,7 @@ Request a backup for a user account with the given USERNAME. The backup will be 
 
 ### `tootctl accounts cull` {#accounts-cull}
 
-Remove remote accounts that no longer exist. Queries every single remote account in the database to determine if it still exists on the origin server, and if it doesn't, then remove it from the database. Accounts that have had confirmed activity within the last week are excluded from the checks, in case the server is just down.
+Remove remote accounts that no longer exist. Queries every single remote account in the database to determine if it still exists on the origin server, and if it doesn't, then remove it from the database. Accounts that have had confirmed activity within the last week are excluded from the checks. If the account's domain is not accessible during the check, the account is not culled and the domain is reported at the end of the script.
 
 `DOMAIN[...]`
 : Optionally pass specific domains to cull
@@ -414,7 +414,7 @@ Remove all accounts from a given DOMAIN without leaving behind any records. Unli
 : Domains to purge, separated by space.
 
 `--by-uri`
-: Match domains in the actor URI rather than in the Webfinger address.
+: Match domains in the actor URI rather than in the WebFinger address.
 
 `--limited-federation-mode`
 : Can be provided instead of DOMAIN. Instead of purging from a single domain, all accounts from domains that are not allow-listed will be removed from the database. Use this after enabling limited federation mode and defining your allow-list.
@@ -832,13 +832,13 @@ Create or update an Elasticsearch index and populate it. If Elasticsearch is emp
 : Parallelize execution of the command on multiple threads. Defaults to 5.
 
 `--import`
-:Import data from the database to the index
+: Import data from the database to the index
 
 `--clean`
-:Remove outdated documents from the index
+: Remove outdated documents from the index
 
 `--reset-chewy`
-:Reset Chewy's internal index
+: Reset Chewy's internal index
 
 **Version history:**\
 2.8.0 - added\
@@ -913,8 +913,24 @@ This is a computationally heavy procedure that creates extra database indices be
 `--days N`
 : How old statuses have to be before they are removed. Defaults to 90.
 
+`--batch_size N`
+: Number of records in each batch. Defaults to 1000.
+
+`--continue`
+: If remove is not completed, execute from the previous continuation.
+
+`--clean_followed`
+: Include the status of remote accounts that are followed by local accounts as candidates for remove.
+
+`--skip_status_remove`
+: Skip status remove (run only cleanup tasks)
+
 `--skip-media-remove`
 : Skips removing the media, in case S3 errors out. Defaults to false.
+
+`--compress_database`
+: Compress database and update the statistics. This option locks the table for a long time, so run it offline.
+
 
 **Version history:**\
 2.8.0 - added\

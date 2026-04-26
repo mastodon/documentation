@@ -25,6 +25,7 @@ aliases: [
   "blocked_by": false,
   "muting": false,
   "muting_notifications": false,
+  "muting_expires_at": null,
   "requested": false,
   "requested_by": false,
   "domain_blocking": false,
@@ -66,7 +67,7 @@ aliases: [
 ### `languages` {#languages}
 
 **Description:** Which languages are you following from this user?\
-**Type:** Array of String (ISO 639-1 language two-letter code)\
+**Type:** {{<nullable>}} Array of String (ISO 639-1 language two-letter code)\
 **Version history:**\
 4.0.0 - added
 
@@ -105,6 +106,13 @@ aliases: [
 **Version history:**\
 2.1.0 - added
 
+### `muting_expires_at` {#muting_expires_at}
+
+**Description:** Date at which the mute expires, if there is any.\
+**Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime))\
+**Version history:**\
+4.6.0 - added
+
 ### `requested` {#requested}
 
 **Description:** Do you have a pending follow request for this user?\
@@ -135,7 +143,7 @@ aliases: [
 
 ### `note` {#note}
 
-**Description:** This user's profile bio\
+**Description:** The authenticated user's personal comment about this account\
 **Type:** String\
 **Version history:**\
 3.2.0 - added

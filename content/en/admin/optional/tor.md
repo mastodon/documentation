@@ -148,6 +148,12 @@ server {
 }
 ```
 
+Also update your `.env.production`:
+
+```text
+ALTERNATE_DOMAINS=mastodon.qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7qKnFwnNH2oH4QhQ7CoRf7HYj8wCwpDwsa8ohJmcPG9JodMZvVA6psKq7.onion
+```
+
 Replace the long hash provided here with your Tor domain located in the file at `/var/lib/tor/onion_service/hostname`. This should also be reflected in the `Onion-Location` header in the snippets file.
 
 Note that the onion hostname has been prefixed with “mastodon.”. Your Tor address acts as a wildcard domain. All subdomains will be routed through, and you can configure Nginx to respond to any subdomain you wish. If you do not wish to host any other services on your tor address you can omit the subdomain, or choose a different subdomain.
@@ -171,11 +177,27 @@ systemctl status nginx.service
 
 When this happens you may uncomment the following line in your nginx.conf:
 
-```text
+```nginx
 # server_names_hash_bucket_size 64;
 ```
 
-If you still have problems you may consider incresing the size up to 128. 
+If you still have problems you may consider increasing the size up to 128.
+
+### Alternative Service {#alt-svc}
+
+You can choose to advertise the existence of the onion service with an [Alt-Svc Header]. This informs clients that the service can be accessed via Tor, and some clients with support will choose to connect that way when they see this header. An example nginx configuration could look like:
+
+```nginx
+add_header Alt-Svc 'h2="qKnF…sKq7.onion:443"; ma=86400; persist=1';
+```
+
+Notes about configuring:
+
+- Replace the truncated onion name with your own
+- The example uses port 443, but that is not required and could be configured differently
+- Because the TLS connection does not terminate at the onion service, HTTPS can use a normal non-onion TLS certificate
+
+[Alt-Svc Header]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Alt-Svc
 
 ## Gotchas {#gotchas}
 

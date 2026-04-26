@@ -21,10 +21,14 @@ Mastodon’s full-text search allows logged-in users to find results from:
 
 It deliberately does not allow searching for arbitrary strings in the entire database.
 
+{{< hint style="warning" >}}
+Please note that ElasticSearch has significant memory requirements, which can easily outpace those of Mastodon itself.
+{{< /hint >}}
+
 ## Installing Elasticsearch {#install}
 
 {{< hint style="info" >}}
-Mastodon is tested with Elasticsearch version 7. It should support OpenSearch, as well as Elasticsearch versions 6 and 8, but those setups are not officially supported.
+Mastodon is tested with Elasticsearch version 7 (Which is now end of life). It should support OpenSearch, as well as Elasticsearch versions 8 and 9, but those setups are not officially supported. The install instructions within this documentation relate to Elasticsearch version 7 only.
 {{< /hint >}}
 
 Add the official Elasticsearch repository to apt:
@@ -47,13 +51,18 @@ apt install elasticsearch
 
 Before you start Elasticsearch, you might want to limit its RAM consumption. A RAM limit can be set be creating a new file `/etc/elasticsearch/jvm.options.d/limit-ram.options` with the following content:
 
-```
+```java-properties
 # Limit RAM size to 24 GB
 -Xms16g
 -Xmx24g
 ```
 
 This will reserve 16 GB of RAM for Elasticsearch right from the start and allow it to use up to 24 GB of RAM. Also see: [Managing and troubleshooting Elasticsearch memory](https://www.elastic.co/blog/managing-and-troubleshooting-elasticsearch-memory/).
+
+
+{{< hint style="info" >}}
+To maximise the performance of your Elasticsearch cluster you should identify a RAM Value which can be sustained and which will not impact other services on the machine you run Elasticsearch on, once identified you should set the `Xms` and `Xmx` values to this value, Elasticsearch will reserve this memory and will always be able to make full use of this memory which in seach heavy situations will improve performance. 
+{{< /hint >}}
 
 To start Elasticsearch:
 
@@ -84,7 +93,7 @@ The value for `ES_PRESET` depends on the size of your Elasticsearch and will be 
 - `small_cluster` if you have less than 6 nodes in your cluster. Indices will be configured with 1 replica
 - `large_cluster` if you have 6 or more nodes in your cluster. Indices will be configured with more shards than with the `small_cluster` setting, to allow them to be distributed over more nodes
 
-If you have multiple Mastodon servers on the same machine, and you are planning to use the same Elasticsearch installation for all of them, make sure that all of them have unique `REDIS_NAMESPACE` in their configurations, to differentiate the indices. If you need to override the prefix of the Elasticsearch indices, you can set `ES_PREFIX` directly.
+If you have multiple Mastodon servers on the same machine, and you are planning to use the same Elasticsearch installation for all of them, make sure that all of them have unique `ES_PREFIX` values configured to differentiate the indices.
 
 ### Security
 
@@ -138,6 +147,12 @@ ES_PASS=l0ng-r4nd0m-p@ssw0rd
 
 You are all set, and your Elasticsearch server should be much more secure!
 
+#### Reduced permissions in shared environments
+
+If you are running in a shared environment with multiple consumers of the same ES server (Mastodon installs, other apps, etc), in addition to using `ES_PREFIX` as described above to isolate the generated search indexes, you can also provide more limited access to the role you create.
+
+For example, changing `"names": ["*"]` to `"names": ["app_prefix_*"]` (where `app_prefix` matches the value you are using as an index prefix) will limit the access of the users with that role to operate only on the appropriate indices.
+
 ### Populate the indices
 
 After saving the new configuration, restart Mastodon processes for it to take effect:
@@ -156,134 +171,55 @@ RAILS_ENV=production bin/tootctl search deploy
 ```
 
 {{< hint style="info" >}}
-Creating Elasticsearch indicies could require more memory than the JVM (Java Virtual Machine) provides. If Elasticsearch crashes while creating indicies, try to allocate more memory.
+Creating Elasticsearch indices could require more memory than the JVM (Java Virtual Machine) provides. If Elasticsearch crashes while creating indices, try to allocate more memory.
 
 1. Create and open a file in the directory ```/etc/elasticsearch/jvm.options.d/``` (for example: ```nano /etc/elasticsearch/jvm.options.d/ram.options```)
 2. Add following text and edit the allocated memory to your needs. As a rule of thumb, Elasticsearch should use about 25%-50% of your available memory. Do not allocate more memory than available.
-```
-# Xms represents the initial size of total heap space
-# Xmx represents the maximum size of total heap space
-# Both values should be the same
--Xms2048m
--Xmx2048m
-```
+
+    ```java-properties
+    # Xms represents the initial size of total heap space
+    # Xmx represents the maximum size of total heap space
+    # Both values should be the same
+    -Xms2048m
+    -Xmx2048m
+    ```
+
 3. Save the file.
 4. Restart Elasticsearch using ```systemctl restart elasticsearch```.
-5. Retry creating Elasticsearch indicies. If Elasticsearch still crashes, try to set a higher number.
+5. Retry creating Elasticsearch indices. If Elasticsearch still crashes, try to set a higher number.
 {{< /hint >}}
 
 ## Search optimization for other languages
+
+The default analyzer is tuned for English and other western languages, and may not perform as well with others. This configuration can be modified for any language that Elasticsearch supports. Reviewing the [chewy index docs] may be useful to prepare for these changes.
+
+{{< hint style="warning" >}}
+Adding language support will require code changes and should only be attempted if you are comfortable modifying Ruby code and installing ES extensions.
+{{< /hint >}}
+
+[chewy index docs]: https://github.com/toptal/chewy?tab=readme-ov-file#index-definition
+
 ### Chinese search optimization {#chinese-search-optimization}
 
-The standard analyzer is the default for Elasticsearch, but for some languages like Chinese it may not be the optimal choice. To enhance the search experience, consider installing a language-specific analyzer. Before creating indices in Elasticsearch, be sure to install the following extensions:
+Before creating indices in Elasticsearch, be sure to install the following extensions:
 
 - [elasticsearch-analysis-ik](https://github.com/medcl/elasticsearch-analysis-ik)
 - [elasticsearch-analysis-stconvert](https://github.com/medcl/elasticsearch-analysis-stconvert)
 
-And then modify Mastodon's index definition as follows:
+After those are installed, you need to modify the code definitions which generate the search indices. Within every index definition file (`app/chewy/*_index.rb`), make the following changes:
 
-```diff
-diff --git a/app/chewy/accounts_index.rb b/app/chewy/accounts_index.rb
---- a/app/chewy/accounts_index.rb
-+++ b/app/chewy/accounts_index.rb
-@@ -4,7 +4,7 @@ class AccountsIndex < Chewy::Index
-   settings index: { refresh_interval: '5m' }, analysis: {
-     analyzer: {
-       content: {
--        tokenizer: 'whitespace',
-+        tokenizer: 'ik_max_word',
-         filter: %w(lowercase asciifolding cjk_width),
-       },
+- Replace all `tokenizer: 'VALUE'` (whitespace, standard, keyword, etc) occurrences with `tokenizer: 'ik_max_word'`
+- In every index that has an `analyzer: { content: ... }` definition, between the `filter` and `analyzer` sections, add:
 
-diff --git a/app/chewy/public_statuses_index.rb b/app/chewy/public_statuses_index.rb
---- a/app/chewy/public_statuses_index.rb
-+++ b/app/chewy/public_statuses_index.rb
-@@ -19,6 +19,15 @@ class PublicStatusesIndex < Chewy::Index
-       },
-     },
- 
-+    char_filter: {
-+      tsconvert: {
-+        type: 'stconvert',
-+        keep_both: false,
-+        delimiter: '#',
-+        convert_type: 't2s',
-+      },
-+    },
-+
-     analyzer: {
-       verbatim: {
-         tokenizer: 'uax_url_email',
-@@ -26,7 +35,7 @@ class PublicStatusesIndex < Chewy::Index
-       },
- 
-       content: {
--        tokenizer: 'standard',
-+        tokenizer: 'ik_max_word',
-         filter: %w(
-           lowercase
-           asciifolding
-@@ -36,6 +45,7 @@ class PublicStatusesIndex < Chewy::Index
-           english_stop
-           english_stemmer
-         ),
-+        char_filter: %w(tsconvert),
-       },
- 
-       hashtag: {
+  ```ruby
+    char_filter: {
+      tsconvert: {
+        type: 'stconvert',
+        keep_both: false,
+        delimiter: '#',
+        convert_type: 't2s',
+      },
+    },
+  ```
 
-diff --git a/app/chewy/statuses_index.rb b/app/chewy/statuses_index.rb
---- a/app/chewy/statuses_index.rb
-+++ b/app/chewy/statuses_index.rb
-@@ -16,9 +16,17 @@ class StatusesIndex < Chewy::Index
-         language: 'possessive_english',
-       },
-     },
-+    char_filter: {
-+      tsconvert: {
-+        type: 'stconvert',
-+        keep_both: false,
-+        delimiter: '#',
-+        convert_type: 't2s',
-+      },
-+    },
-     analyzer: {
-       content: {
--        tokenizer: 'uax_url_email',
-+        tokenizer: 'ik_max_word',
-         filter: %w(
-           english_possessive_stemmer
-           lowercase
-@@ -27,6 +35,7 @@ class StatusesIndex < Chewy::Index
-           english_stop
-           english_stemmer
-         ),
-+        char_filter: %w(tsconvert),
-       },
-     },
-   }
-diff --git a/app/chewy/tags_index.rb b/app/chewy/tags_index.rb
---- a/app/chewy/tags_index.rb
-+++ b/app/chewy/tags_index.rb
-@@ -2,10 +2,19 @@
-
- class TagsIndex < Chewy::Index
-   settings index: { refresh_interval: '15m' }, analysis: {
-+    char_filter: {
-+      tsconvert: {
-+        type: 'stconvert',
-+        keep_both: false,
-+        delimiter: '#',
-+        convert_type: 't2s',
-+      },
-+    },
-     analyzer: {
-       content: {
--        tokenizer: 'keyword',
-+        tokenizer: 'ik_max_word',
-         filter: %w(lowercase asciifolding cjk_width),
-+        char_filter: %w(tsconvert),
-       },
-
-       edge_ngram: {
-```
+- In those same files, in every `content: ...` section, add an option of `char_filter: %w(tsconvert)` to use that filter

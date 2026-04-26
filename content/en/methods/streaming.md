@@ -20,6 +20,13 @@ aliases: [
 #TableOfContents ul ul ul {display: none}
 </style>
 
+## Hostname discovery
+
+Depending on server configuration details, the streaming API may be served from a different hostname than the other portions of the REST API. All path values documented here are relative to that hostname value. Clients should first obtain the hostname value by either:
+
+- Extracting the `configuration.urls.streaming` value from the [instance endpoint](../instance).
+- Making a REST API request to the `api/v1/streaming` endpoint on the regular host. This will redirect to the streaming server URL if configured, or return Not Found when the same host should be used.
+
 ## Event types and payloads {#events}
 
 `update`
@@ -48,9 +55,6 @@ aliases: [
 
 `status.update`
 : A Status has been edited. Payload contains a [Status]({{< relref "entities/Status" >}}) cast to a string. Available since v3.5.0
-
-`encrypted_message`
-: An encrypted message has been received. Implemented in v3.2.0 but currently unused
 
 `notifications_merged`
 : Accepted notification requests have finished merging, and the notifications list should be refreshed. Payload can be ignored. Available since v4.3.0
@@ -598,7 +602,15 @@ wss://mastodon.example/api/v1/streaming
 3.3.0 - added\
 4.2.0 - changed to require a User token, removing Public and App token access [#23989](https://github.com/mastodon/mastodon/pull/23989)
 
-Open a multiplexed WebSocket connection to receive events.
+Open a multiplexed WebSocket connection to receive events. While the WebSocket spec allows for both text and binary date frames, since we are working only with small text fragments the streaming server uses text frames only. Clients should be configured that way if necessary.
+
+### Authorization styles {#authorization}
+
+The streaming endpoints documented here that require authorization suggest using the `Authorization` HTTP header with a `Bearer <user_token>` value. This is the preferred and recommended approach to authorization, and matches what is required for many of the REST API endpoints. As alternatives, sending the same user token as a `Sec-Websocket-Protocol` header or sending an `access_token` query param will also work.
+
+{{< hint style="warning" >}}
+Performing authorization with an `access_token` query param is not recommended for new clients as query params are sometimes collected in access logs. Legacy support only.
+{{</hint>}}
 
 #### Request
 ##### Headers
@@ -625,10 +637,11 @@ Example unsubscription from user updates:
 {{</hint>}}
 
 access_token
-: {{<required>}} String. A user-authorized OAuth token.  Alternative to `Authorization` header.
+: {{%optional%}} String. A user-authorized OAuth token.  Provided as a legacy alternative to `Authorization` header as [explained](#authorization) above.
 
 stream
-: {{<required>}} String. The stream to watch for events. See [Streams](#streams) for possible values.
+: {{<required>}} String. When attempting to watch a single stream for events. See [Streams](#streams) for possible values.
+: {{%optional%}} String. When initiating a general connection without a specific subscription target.
 
 list
 : String. When `stream` is set to `list`, use this parameter to specify the list ID.
@@ -687,6 +700,25 @@ An example filter change by the user:
 Note that the `payload` property is not present for `filters_changed` events. And for `delete` and `announcements.delete` the payload is a string, not an object.
 {{</hint>}}
 
+## Error responses
+
+For HTTP requests to a non-existent streaming endpoint, the streaming server will respond with an HTTP 400 and a JSON body describing the error:
+
+```json
+{
+  "error": "Unknown channel requested"
+}
+```
+
+For invalid requests within the WebSocket (for example, an incorrect stream name), the server will respond with error JSON:
+
+```json
+{
+  "error": "Unknown stream type",
+  "status":400
+}
+```
+
 ## See also
 
 ### Streaming server
@@ -722,8 +754,6 @@ Streaming timelines are maintained in Redis, and are published to Redis via `red
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/publish_announcement_reaction_worker.rb" caption="app/workers/publish_announcement_reaction_worker.rb" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/unpublish_announcement_worker.rb" caption="app/workers/unpublish_announcement_worker.rb" >}}
-
-{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/workers/push_encrypted_message_worker.rb" caption="app/workers/push_encrypted_message_worker.rb" >}}
 
 ### Streaming client
 

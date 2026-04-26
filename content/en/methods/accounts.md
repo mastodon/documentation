@@ -380,13 +380,13 @@ attribution_domains[]
 : Array of String. Domains of websites allowed to credit the account. Maximum of 10 domains.
 
 fields_attributes
-: Hash. The profile fields to be set. Inside this hash, the key is an integer cast to a string (although the exact integer does not matter), and the value is another hash including `name` and `value`. By default, max 4 fields.
+: Hash. The profile fields to be set. Inside this hash, the key is an integer cast to a string (although the exact integer does not matter), and the value is another hash including `name` and `value`. By default, max 4 fields (specified in [Instance#max_profile_fields]({{< relref "entities/Instance#max_profile_fields" >}})).
 
 fields_attributes[:index][name]
-: String. The name of the profile field. By default, max 255 characters.
+: String. The name of the profile field. By default, max 255 characters (specified in [Instance#profile_field_name_limit]({{< relref "entities/Instance#profile_field_name_limit" >}})).
 
 fields_attributes[:index][value]
-: String. The value of the profile field. By default, max 255 characters.
+: String. The value of the profile field. By default, max 255 characters (specified in [Instance#profile_field_value_limit]({{< relref "entities/Instance#profile_field_value_limit" >}})).
 
 source[privacy]
 : String (Enumerable, oneOf `public`, `unlisted`, or `private`). Default post privacy for authored statuses.
@@ -1124,15 +1124,16 @@ Sample output with limit=2.
     "id": "963410",
     "username": "gautambhatia",
     "acct": "gautambhatia",
-    "display_name": "Gautam Bhatia",
+    "display_name": "Gautam Bhatia"
     // ...
   },
   {
     "id": "1007400",
     "username": "seafrog",
     "acct": "seafrog@glitterkitten.co.uk",
-    "display_name": "🐓🦃 Heck Partridge 🤠 🦆",
+    "display_name": "🐓🦃 Heck Partridge 🤠 🦆"
     // ...
+  }
 ]
 ```
 
@@ -2376,6 +2377,7 @@ Find out whether a given account is followed, blocked, muted, etc.
 **Version history:**\
 0.0.0 - added\
 4.3.0 - added `with_suspended` parameter
+4.6.0 - added `muting_expires_at`
 
 #### Request
 ##### Headers
@@ -2408,6 +2410,7 @@ Sample call with `id[]=1&id[]=2`
     "blocked_by": false,
     "muting": false,
     "muting_notifications": false,
+    "muting_expires_at": null,
     "requested": false,
     "domain_blocking": false,
     "endorsed": false
@@ -2422,6 +2425,7 @@ Sample call with `id[]=1&id[]=2`
     "blocked_by": false,
     "muting": false,
     "muting_notifications": false,
+    "muting_expires_at": "2026-02-12T13:45:25Z",
     "requested": false,
     "domain_blocking": false,
     "endorsed": false
@@ -2610,7 +2614,7 @@ resolve=true, but the domain part of the user@domain address is not a currently 
 
 ---
 
-## Lookup account ID from Webfinger address {#lookup}
+## Lookup account ID from WebFinger address {#lookup}
 
 ```http
 GET /api/v1/accounts/lookup HTTP/1.1
@@ -2619,7 +2623,7 @@ GET /api/v1/accounts/lookup HTTP/1.1
 Quickly lookup a username to see if it is available, skipping WebFinger resolution.
 
 **Returns:** [Account]({{< relref "entities/Account">}})\
-**OAuth:** Public\
+**OAuth:** User token + `read:accounts`\
 **Version history:**\
 3.4.0 - added
 
@@ -2627,7 +2631,7 @@ Quickly lookup a username to see if it is available, skipping WebFinger resoluti
 ##### Query parameters
 
 acct
-: {{<required>}} String. The username or Webfinger address to lookup.
+: {{<required>}} String. The username or WebFinger address to lookup.
 
 #### Response
 ##### 200: OK

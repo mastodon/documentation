@@ -38,6 +38,9 @@ aliases: [
   "approval_required":false,
   "invites_enabled":true,
   "configuration":{
+    "accounts": {
+      "max_featured_tags": 10
+    },
     "statuses":{
       "max_characters":500,
       "max_media_attachments":4,

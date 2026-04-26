@@ -87,8 +87,13 @@ aliases: [
       "public_key": "BCk-QqERU0q-CfYZjcuB6lnyyOYfJ2AifKqfeGIm7Z-HiTU5T9eTG5GxVA0_OH5mMlI4UkkDTpaZwozy0TzdZ2M="
     },
     "accounts": {
+      "max_display_name_lenth": 30,
+      "max_note_length": 500,
       "max_featured_tags": 10,
-      "max_pinned_statuses": 5
+      "max_pinned_statuses": 5,
+      "max_profile_fields": 4,
+      "profile_field_name_limit": 255,
+      "profile_field_value_limit": 255
     },
     "statuses": {
       "max_characters": 500,
@@ -155,7 +160,7 @@ aliases: [
         "local": "public",
         "remote": "public"
       }
-    }
+    },
     "limited_federation": false
   },
   "registrations": {
@@ -607,6 +612,20 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
+##### `configuration[accounts][max_display_name_length]` {#max_display_name_length}
+
+**Description:** The maximum length allowed for an account's display name.\
+**Type:** Integer\
+**Version history:**\
+4.6.0 - added
+
+##### `configuration[accounts][max_note_length]` {#max_note_length}
+
+**Description:** The maximum length allowed for an account's bio.\
+**Type:** Integer\
+**Version history:**\
+4.6.0 - added
+
 ##### `configuration[accounts][max_featured_tags]` {#max_featured_tags}
 
 **Description:** The maximum number of featured tags allowed for each account.\
@@ -620,6 +639,27 @@ aliases: [
 **Type:** Integer\
 **Version history:**\
 4.3.0 - added
+
+##### `configuration[accounts][max_profile_fields]` {#max_profile_fields}
+
+**Description:** The maximum number of custom profile fields allowed to be set.\
+**Type:** Integer\
+**Version history:**\
+4.6.0 - added
+
+##### `configuration[accounts][profile_field_name_limit]` {#profile_field_name_limit}
+
+**Description:** The maximum size of a profile field name, in characters.\
+**Type:** Integer\
+**Version history:**\
+4.6.0 - added
+
+##### `configuration[accounts][profile_field_value_limit]` {#profile_field_value_limit}
+
+**Description:** The maximum size of a profile field value, in characters.\
+**Type:** Integer\
+**Version history:**\
+4.6.0 - added
 
 #### `configuration[statuses]` {#statuses}
 
@@ -801,7 +841,6 @@ aliases: [
 **Type:** String (Enumerable oneOf)\
 `public` = Access to local posts in hashtag feeds is available to both visitors and logged-in users.\
 `authenticated` = Access to local posts in hashtag feeds requires authentication.\
-`disabled` = Access to local posts in hashtag feeds is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
 **Version history:**\
 4.5.0 - added
 
@@ -828,7 +867,6 @@ aliases: [
 **Type:** String (Enumerable oneOf)\
 `public` = Access to local posts in trending link feeds is available to both visitors and logged-in users.\
 `authenticated` = Access to local posts in trending link feeds requires authentication.\
-`disabled` = Access to local posts in trending link feeds is only possible for users with the “View live and topic feeds” [permission]({{< relref "entities/Role#permissions" >}}).\
 **Version history:**\
 4.5.0 - added
 

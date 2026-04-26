@@ -73,7 +73,13 @@ adduser --disabled-password mastodon
 
 #### Performance configuration (optional) {#performance-configuration-optional}
 
-For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration and edit values in `/etc/postgresql/17/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`.
+For optimal performance, you may use [pgTune](https://pgtune.leopard.in.ua/#/) to generate an appropriate configuration.
+
+* Select the appropriate PG version and OS Type
+* Select "Web application" for DB Type
+* Use details appropriate to your server for the other values
+
+With the generated configuration, edit the values in `/etc/postgresql/18/main/postgresql.conf` before restarting PostgreSQL with `systemctl restart postgresql`.
 
 #### Creating a user {#creating-a-user}
 
@@ -120,7 +126,7 @@ Install rbenv and ruby-build:
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-exec bash
+source ~/.bashrc
 git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 ```
 
@@ -137,7 +143,7 @@ Now to install Ruby and JavaScript dependencies:
 ```bash
 bundle config deployment 'true'
 bundle config without 'development test'
-bundle install -j$(getconf _NPROCESSORS_ONLN)
+bundle install
 yarn install
 ```
 
@@ -192,7 +198,7 @@ Then edit `/etc/nginx/sites-available/mastodon` to
 1. Replace `example.com` with your own domain name
 2. Uncomment the `ssl_certificate` and `ssl_certificate_key` (ignore this step if you are bringing your own certificate):
 
-    ```
+    ```nginx
     ssl_certificate     /etc/letsencrypt/live/example.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;;
     ```

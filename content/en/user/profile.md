@@ -23,11 +23,11 @@ Your bio is a short description of yourself that is displayed as a note on your 
 
 ### Avatar {#avatar}
 
-Your avatar is an icon that is displayed next to your posts and is part of your visual identity. You can upload an avatar as a PNG, GIF, or JPG image up to 2MB in size. This image will be downscaled to 400x400.
+Your avatar is an icon that is displayed next to your posts and is part of your visual identity. You can upload an avatar as a WEBP, PNG, GIF, or JPG image up to 2MB in size. This image will be downscaled to 400x400.
 
 ### Header {#header}
 
-Your header is a banner image shown at the top of your profile, as well as in profile cards used in follow lists and account directories. You can upload a header as a PNG, GIF, or JPG image up to 2MB in size. This image will be downscaled to 1500x500.
+Your header is a banner image shown at the top of your profile, as well as in profile cards used in follow lists and account directories. You can upload a header as a WEBP, PNG, GIF, or JPG image up to 2MB in size. This image will be downscaled to 1500x500.
 
 ## Profile flags {#flags}
 
@@ -97,9 +97,24 @@ Mastodon will then resolve the link and fetch the web page located there, lookin
   - The `href` attribute on one of those elements must be equal to the URL for your Mastodon profile.
 - If no links with `rel="me"` are found, Mastodon will look for the *first* link, and the `href` value must redirect to your Mastodon profile's URL. (This provides limited support for web pages that use link shorteners and do not use rel-me.)
 - The HTTP response must not exceed 1 MB.
+- The link must appear directly in the HTML response and be accessible without executing JavaScript.
 
 **Any such link must not be within an `iframe`**. An `iframe` effectively means the link is no longer on the same web page, but rather it is on some external web page which is being embedded in the current one. (Note that some "block-based" CMS software may wrap block elements within iframes, which prevents verification for this reason.)
 
 {{< hint style="info" >}}
 Make sure to save your profile *after* adding the rel-me link to your web page! The verification process is triggered when you save your profile, and may take some time before completing. If you have added the rel-me link and verification is not working, then try deleting the link, saving, re-adding the link, and saving again.
 {{< /hint >}}
+
+### Author attribution {#attribution}
+
+If you are an author or creator, your Mastodon account can be credited and linked when your articles, blog posts, and other works are shared on Mastodon and across the fediverse. This is possible by including a `fediverse:creator` tag in the HTML code of the websites where your work is published.
+
+Go to **Preferences** &gt; **Public profile** &gt; **Verification** &gt; **Author attribution** to get the code that you will need to copy and paste into the head of the article's HTML. The code might look something like this:
+
+```html
+<meta name="fediverse:creator" content="@username@social.example.com">
+```
+
+Next, add the domain name of the publication, such as `example.com`, to the **Websites allowed to credit you** field. This protects you from false attributions in link previews.
+
+Anything that you publish on an allowed website will be attributed to you when it is shared to the fediverse, and the author byline will include the link to your Mastodon profile.

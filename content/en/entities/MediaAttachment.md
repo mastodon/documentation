@@ -178,8 +178,8 @@ aliases: [
 
 ### `url` {#url}
 
-**Description:** The location of the original full-size attachment.\
-**Type:** String (URL)\
+**Description:** The location of the original full-size attachment. Url may be null if the file is still being processed. See [`POST /api/v2/media`]({{< relref "methods/media" >}}#v2).\
+**Type:** {{<nullable>}} String (URL)\
 **Version history:**\
 0.6.0 - added
 
@@ -200,7 +200,7 @@ aliases: [
 ### `meta` {#meta}
 
 **Description:** Metadata returned by Paperclip.\
-**Type:** Hash\
+**Type:** {{<nullable>}} Hash or null\
 **Version history:**\
 1.5.0 - added
 
@@ -216,12 +216,12 @@ May contain subtrees `small` and `original`, as well as various other top-level 
 ### `meta[focus][x]` {#meta-focus-x}
 
 **Description:** Horizontal focal point\
-**Type:** float
+**Type:** {{<nullable>}} Float or null
 
 ### `meta[focus][y]` {#meta-focus-y}
 
 **Description:** Vertical focal point\
-**Type:** float
+**Type:** {{<nullable>}} Float or null
 
 ### `description` {#description}
 

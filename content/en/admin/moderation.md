@@ -1,11 +1,19 @@
 ---
 title: Moderation actions
-description: Actions that can be taken against unwanted users or domains.
+description: Features to assist in managing your community.
 menu:
   docs:
     weight: 110
     parent: admin
 ---
+
+## Announcements
+
+To communicate server-related events or notices to your users, you can use the "Announcements" feature from within the admin/moderation area.
+
+To send an announcement, navigate to "Administration -> Announcements", and select "New announcement". On the form, fill in at least the text of the announcement, and optionally any related date information. Announcements can be published immediately, or scheduled for later publication. Once an announcement is published it will show up in the announcements feed of users within the application.
+
+If you'd like to also email users about the announcement, choose "Notify users" from the announcements listing, check the preview, and click "Send" (you can optionally send yourself a preview email first). These emails cannot be opted out of by users, so use the feature for important notices only.
 
 ## Moderating individual users {#individual-moderation}
 
@@ -29,7 +37,7 @@ When the user's account is unfrozen, normal functionality resumes.
 
 ### Limit {#limit-user}
 
-Previously known as "silencing". A limited account is hidden from all other users on that instance, except for its followers. All of the content is still there, and it can still be found via search, mentions, and following, but the content is invisible publicly.
+Previously known as "silencing". A limited account is hidden from all other users on that instance, except for its followers. All of the content is still there, and it can still be found via search, mentions, and following, but the content is invisible publicly. Notifications about activities from limited accounts will be handled according to account-level notification preferences (which default to "filter" for limited accounts).
 
 If a limited account attempts to follow a user on that instance, the follow is converted into a follow request.
 
@@ -44,6 +52,8 @@ If the account is reinstated within the 30-day period, the user's profile and al
 Once the data has been deleted, whether that is after the 30-day period, or if an admin has force deleted it, the account can still be un-suspended. However, the account will have no data (statuses, profile information, avatar or header image) associated with it.
 
 For remote accounts, suspending will make them unfollow any local account. Those relationships are not restored in case the remote account is unsuspended, even within the 30-day time window.
+
+Note that by default, users suspended by a server will still be able to view posts from that server. To change this default behavior, server admins can set the `AUTHORIZED_FETCH` environment variable - see the documentation for [configuring your environment](../config/).
 
 ## Moderating entire websites {#server-wide-moderation}
 
@@ -71,6 +81,8 @@ After you have downloaded a blocklist, go to **Preferences** &gt; **Moderation**
 
 You can also click "Export" to backup your Mastodon server's blocklist or share it with other administrators.
 
+Note that by default, users of a suspended server will still be able to view posts from the suspending server. To change this default behavior, server admins can set the `AUTHORIZED_FETCH` environment variable - see the documentation for [configuring your environment](../config/).
+
 ## Spam-fighting measures {#spam-fighting-measures}
 
 There are a few baseline measures for preventing spam in Mastodon:
@@ -86,7 +98,25 @@ Spammers will often use different e-mail domains so it looks like they are using
 
 ### Blocking by IP {#blocking-by-ip}
 
-It is not possible to block visitors by IP address in Mastodon itself, and it is not a foolproof strategy. IPs are sometimes shared by a lot of different people and sometimes change hands. However, it is possible to block visitors by IP address in Linux using a firewall. Here is an example using `iptables` and `ipset`:
+Blocking by IP is not a foolproof strategy. IPs are sometimes shared by
+different people and sometimes change hands. It's also possible to accidentally
+block a large IP range and cut off legitimate access. Be careful with either of
+these approaches.
+
+#### IP Blocks
+
+Use the "IP Rules" page within the moderation interface to create an IP Address
+based block. You can block specific IPv4 or IPv6 address, or block entire ranges
+using the [CIDR] syntax. The instructions on the page will guide you through how
+long the block should last, and what severity the block should have within the
+application.
+
+[CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+
+#### Firewall rules
+
+It is also possible to block visitors by IP address in Linux using a firewall.
+Here is an example using `iptables` and `ipset`:
 
 ```bash
 # Install ipset
@@ -103,226 +133,7 @@ Be careful not to lock yourself out of your machine.
 
 ### Webhooks for moderation-level events {#report-events-webhook}
 
-Webhooks can be created to facilitate automation through the moderation API by notifying applications about system events in real-time. This also enables integrations with chat apps like Discord, IRC and Slack, helping moderator coordination.
-
-The X-Hub-Signature header adopted from the WebSub spec can be optionally used to verify that the payloads are authentic.
-
-Events currently supported:
-
-* account.approved
-* account.created
-* account.updated
-* report.created
-* report.updated
-* status.created
-* status.updated
-
-
-
-#### Example payload:
-
-```json
-
-{
-   "event":"report.created",
-   "created_at":"2023-10-26T13:34:00.351Z",
-   "object":{
-      "id":"8437",
-      "action_taken":false,
-      "action_taken_at":null,
-      "category":"violation",
-      "comment":"",
-      "forwarded":true,
-      "created_at":"2023-10-26T13:34:00.348Z",
-      "updated_at":"2023-10-26T13:34:00.348Z",
-      "account":{
-         "id":"123456789",
-         "username":"bobisaburger",
-         "domain":null,
-         "created_at":"2023-07-13T04:39:22.493Z",
-         "email":"bobisaburger@emailservice.com",
-         "ip":"12.34.56.78",
-         "confirmed":true,
-         "suspended":false,
-         "silenced":false,
-         "sensitized":false,
-         "disabled":false,
-         "approved":true,
-         "locale":"en",
-         "invite_request":"I would love to be a member of your instance!",
-         "ips":[
-            {
-               "ip":"12.34.56.78",
-               "used_at":"2023-07-13T04:45:31.835Z"
-            },
-            {
-               "ip":"98.76.54.32",
-               "used_at":"2023-07-13T04:39:22.722Z"
-            }
-         ],
-         "account":{
-            "id":"123456789",
-            "username":"bobisaburger",
-            "acct":"bobisaburger",
-            "display_name":"bobisaburger",
-            "locked":false,
-            "bot":false,
-            "discoverable":null,
-            "group":false,
-            "created_at":"2023-07-13T00:00:00.000Z",
-            "note":"",
-            "url":"https://mastodonwebsite/@bobisaburger",
-            "uri":"https://mastodonwebsite/users/bobisaburger",
-            "avatar":"https://locationofavatar.com/image.jpg",
-            "avatar_static":"https://locationofavatar.com/image.jpg",
-            "header":"locationofheader.com/image.jpg",
-            "header_static":"locationofheader.com/image.jpg",
-            "followers_count":100,
-            "following_count":200,
-            "statuses_count":9,
-            "last_status_at":"2023-08-05",
-            "noindex":true,
-            "emojis":[
-
-            ],
-            "roles":[
-
-            ],
-            "fields":[
-
-            ]
-         },
-         "role":{
-            "id":"-99",
-            "name":"",
-            "permissions":"65536",
-            "color":"",
-            "highlighted":false
-         }
-      },
-      "target_account":{
-         "id":"123454321",
-         "username":"cheeseperson",
-         "domain":"someothermastodonsite.com",
-         "created_at":"2023-08-20T00:00:00.000Z",
-         "email":null,
-         "ip":null,
-         "confirmed":null,
-         "suspended":false,
-         "silenced":false,
-         "sensitized":false,
-         "disabled":null,
-         "approved":null,
-         "locale":null,
-         "invite_request":null,
-         "ips":null,
-         "account":{
-            "id":"123454321",
-            "username":"cheeseperson",
-            "acct":"cheeseperson@someothermastodonsite.com",
-            "display_name":"cheeseperson",
-            "locked":false,
-            "bot":false,
-            "discoverable":false,
-            "group":false,
-            "created_at":"2023-08-20T00:00:00.000Z",
-            "note":"",
-            "url":"https://someothermastodonsite.com/@cheeseperson",
-            "uri":"https://someothermastodonsite.com/users/cheeseperson",
-            "avatar":"https://someothermastadonsite.com/avatars/original/missing.png",
-            "avatar_static":"https://someothermastadonsite.com/avatars/original/missing.png",
-            "header":"locationofheader.com/image.jpg",
-            "header_static":"locationofheader.com/image.jpg",
-            "followers_count":2,
-            "following_count":2,
-            "statuses_count":95,
-            "last_status_at":"2023-10-26",
-            "emojis":[
-
-            ],
-            "fields":[
-
-            ]
-         },
-         "role":null
-      },
-      "assigned_account":null,
-      "action_taken_by_account":null,
-      "statuses":[
-         {
-            "id":"12345678987654321",
-            "created_at":"2023-10-26T11:29:13.000Z",
-            "in_reply_to_id":"1918282746465",
-            "in_reply_to_account_id":"101010101010",
-            "sensitive":false,
-            "spoiler_text":"",
-            "visibility":"public",
-            "language":"de",
-            "uri":"https://someothermastodonsite.com/users/cheeseperson/statuses/111301083360371621",
-            "url":"https://someothermastodonsite.com/@cheeseperson/111301083360371621",
-            "replies_count":0,
-            "reblogs_count":0,
-            "favourites_count":0,
-            "edited_at":"2023-10-26T11:30:31.000Z",
-            "content":"<p>Here is some content</p>",
-            "reblog":null,
-            "account":{
-               "id":"123454321",
-               "username":"cheeseperson",
-               "acct":"cheeseperson@someothermastodonsite.com",
-               "display_name":"cheeseperson",
-               "locked":false,
-               "bot":false,
-               "discoverable":false,
-               "group":false,
-               "created_at":"2023-08-20T00:00:00.000Z",
-               "note":"",
-               "url":"https://someothermastodonsite.com/@cheeseperson",
-               "uri":"https://someothermastodonsite.com/users/cheeseperson",
-               "avatar":"https://someothermastadonsite.com/avatars/original/missing.png",
-               "avatar_static":"https://someothermastadonsite.com/avatars/original/missing.png",
-               "header":"locationofheader.com/image.jpg",
-               "header_static":"locationofheader.com/image.jpg",
-               "followers_count":2,
-               "following_count":2,
-               "statuses_count":95,
-               "last_status_at":"2023-10-26",
-               "emojis":[
-
-               ],
-               "fields":[
-
-               ]
-            },
-            "media_attachments":[
-
-            ],
-            "mentions":[
-               {
-                  "id":"101010101010",
-                  "username":"thirdperson",
-                  "url":"https://thirdpersonsinstance.com/@thirdperson",
-                  "acct":"thirdperson@emailwebsite.com"
-               }
-            ],
-            "tags":[
-
-            ],
-            "emojis":[
-
-            ],
-            "card":null,
-            "poll":null
-         }
-      ],
-      "rules":[
-         {
-            "id":"2",
-            "text":"Don't be a meanie!"
-         }
-      ]
-   }
-}
-
-
-```
+[Webhooks](../webhooks) can be created to facilitate automation through the
+moderation API by notifying applications about system events in real-time. This
+also enables integrations with chat apps like Discord, IRC and Slack, helping
+moderator coordination.

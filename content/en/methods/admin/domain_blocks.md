@@ -16,6 +16,8 @@ aliases: [
 #TableOfContents ul ul ul {display: none}
 </style>
 
+This endpoint creates rules to prevent the specified domains from federating with your server. This only applies when [LIMITED_FEDERATION_MODE](../../admin/config#limited_federation_mode) is disabled. This is the inverse of the [Domain Allows](./domain_allows) functionality.
+
 ## List all blocked domains {#get}
 
 ```http
@@ -244,7 +246,7 @@ The domain parameter already is covered by an existing domain block.
 
 ```json
 {
-  "error": "You have already imposed stricter limits on example.com."
+  "error": "You have already imposed stricter limits on example.com.",
   "existing_domain_block": {
     "id": "1",
     "domain": "example.com",
@@ -338,9 +340,15 @@ Authorized user is not allowed to perform this action, or invalid or missing Aut
 }
 ```
 
-##### 500: Server error
-<!-- TODO: remove when https://github.com/mastodon/mastodon/issues/21775 is fixed -->
-Invalid severity
+##### 422: Unprocessable entity
+
+The request will fail if the severity parameter is provided but is not one of the allowed values.
+
+```json
+{
+  "error": "Validation failed: Severity is not included in the list"
+}
+```
 
 ---
 

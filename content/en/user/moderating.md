@@ -33,10 +33,11 @@ Choose where the filter will be applied:
 * Notifications = matching notifications will not be shown
 * Public timelines = matching statuses will not appear in local/federated timelines
 * Conversations = matching statuses will be hidden in threads and detailed views
+* Profiles = matching statuses will be hidden in profile views
 
 ### Hide completely {#filter-hide}
 
-Filtering is usually done client-side, so that disabling a filter will cause filtered statuses to be visible again. However, if you enable "Hide completely", any matching statuses will be disappear completely and will never be delivered to your home or notifications.
+Filtering is usually done client-side, so that disabling a filter will cause filtered statuses to be visible again. However, if you enable "Hide completely", any matching statuses will disappear completely and will never be delivered to your home or notifications.
 
 ### Whole word {#filter-whole}
 
@@ -49,6 +50,10 @@ Filters normally apply to any status that contains the included characters, rega
 ### Hiding boosts {#hide-boosts}
 
 If you hide boosts from someone, you won’t see their boosts in your home feed. This option only appears on users who you are currently following.
+
+### Quote posts
+
+If your post is quoted by another user in an unwanted way, you can [remove your quoted post](../quote-posts#remove).
 
 ### Muting {#mute}
 

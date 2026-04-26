@@ -27,6 +27,6 @@ Other providers may be added in the future.
 - From the Account Settings menu in hCaptcha, obtain your Secret Key
 - Add the values to your Mastodon environment configuration as `HCAPTCHA_SITE_KEY` and `HCAPTCHA_SECRET_KEY`
 - Restart the Mastodon services running on your server
-- From the Mastodon web interface navigate to **Administration**  > **Server settings** > **Registrations** and check the box labled "Require new users to solve a CAPTCHA to confirm their account"
+- From the Mastodon web interface navigate to **Administration**  > **Server settings** > **Registrations** and check the box labeled "Require new users to solve a CAPTCHA to confirm their account"
 
 ![](/assets/captcha/admin-view.png)

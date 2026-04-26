@@ -211,7 +211,7 @@ limits.
 
 Default: 3
 
-During batch delete operations, S3 providers may perodically fail or
+During batch delete operations, S3 providers may periodically fail or
 timeout while processing deletion requests. Mastodon will back off and
 retry the request up to this maximum number of times.
 

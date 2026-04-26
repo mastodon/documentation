@@ -21,7 +21,7 @@ Mastodon has multiple theme options:
 
 ### Choose your layout {#layout}
 
-Mastodon defaults to a simple, one-column layout with a compose box on the left and a column switcher on the right. You can choose to enable the advanced web interface, which allows you view and pin multiple columns at the same time.
+Mastodon defaults to a simple, one-column layout with a compose box on the left and a column switcher on the right. You can choose to enable the advanced web interface, which allows you to view and pin multiple columns at the same time.
 
 {{< figure src="assets/advanced-web-ui.png" caption="Columns of the advanced web interface using the light theme" >}}
 
@@ -79,7 +79,7 @@ If you want to see posts that are boosted multiple times be reinserted into your
 
 ### Setting defaults for post privacy, post language, and media sensitivity {#posting}
 
-Posts default to public privacy. You can choose to default new posts as unlisted or followers-only instead. For an explanation of post privacy levels, see [Posting to your Mastodon profile &gt; Publishing levels](../posting#privacy).
+Posts default to public privacy. You can choose to default new posts as unlisted or followers-only instead. For an explanation of post privacy levels, see [Posting to your Mastodon profile &gt; Publishing levels](../posting#privacy). The default privacy can be changed from the "Posting defaults" page within the "Preferences" area.
 
 If you primarily or exclusively post in a certain language, it is a good idea to set that language here.
 

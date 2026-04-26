@@ -48,10 +48,10 @@ The `status` of an async refresh is either `running` or `finished`. For some asy
 
 Please note that the asynchronous nature of background jobs can lead to race conditions. Also the fact that some async refreshes might be user-agnostic while the fetched data is not, might mean that while new data is fetched, it will not be suitable for the current user. For example a background could be triggered to fetch new replies to a post. New replies could exist but the current usr might have blocked their authors.
 
-For those reasons the `AsyncRefresh` can only ever serve as an indicator of when it could be worthwile for a client to request new data. In the general case there is no guarantee that new data will be served.
+For those reasons the `AsyncRefresh` can only ever serve as an indicator of when it could be worthwhile for a client to request new data. In the general case there is no guarantee that new data will be served.
 
-**Returns:** [AsyncRefresh]({{< relref "entities/AsyncRefresh" >}})\
-**OAuth:** App token + `read`\
+**Returns:** Hash with a single key of `async_refresh` with value of [AsyncRefresh]({{< relref "entities/AsyncRefresh" >}})\
+**OAuth:** User token + `read`\
 **Version history:**\
 4.4.0 - added
 
@@ -60,7 +60,7 @@ For those reasons the `AsyncRefresh` can only ever serve as an indicator of when
 #### Headers
 
 Authorization
-: {{<required>}} Provide this header with `Bearer <app_token>` to gain authorized access to this API method.
+: {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 ### Response
 

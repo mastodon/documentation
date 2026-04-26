@@ -57,7 +57,7 @@ Remember to check how recently the library was updated, and whether it includes 
 
 ## Java {#java}
 
-* [BigBone](https://github.com/andregasser/bigbone)
+* [BigBone](https://github.com/PattaFeuFeu/bigbone)
 * [Mastodon4J](https://github.com/Mastodon4J/Mastodon4J)
 * [mastodon-jfx](https://github.com/wakingrufus/mastodon-jfx)
 
@@ -75,7 +75,7 @@ Remember to check how recently the library was updated, and whether it includes 
 
 ## Kotlin {#kotlin}
 
-* [BigBone](https://github.com/andregasser/bigbone)
+* [BigBone](https://github.com/PattaFeuFeu/bigbone)
 * [mastodonk](https://github.com/outadoc/mastodonk)
 
 ## Nim {#nim}

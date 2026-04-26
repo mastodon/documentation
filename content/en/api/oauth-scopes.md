@@ -57,7 +57,7 @@ If you do not specify `scope` in your authorization request, or `scopes` in your
 - 3.1.0 - Added bookmark scopes [#7107](https://github.com/mastodon/mastodon/pull/7107)
 - 3.5.0 - Deprecated `follow` scope in favour of granular scopes [#17678](https://github.com/mastodon/mastodon/pull/17678)
 - 4.1.0 - Added admin scopes for blocks and allows [#20918](https://github.com/mastodon/mastodon/pull/20918)
-- 4.3.0 - Added `profile` scope to obtain only information about the currently authenticated user [#29087](https://github.com/mastodon/mastodon/pull/29087), [#30357](https://github.com/mastodon/mastodon/pull/30357)
+- 4.3.0 - Added `profile` scope to obtain only information about the currently authenticated user [#29087](https://github.com/mastodon/mastodon/pull/29087), [#30357](https://github.com/mastodon/mastodon/pull/30357)' and removed (experimental) `crypto`[^crypto] scope
 
 ## List of high-level scopes
 
@@ -108,7 +108,7 @@ Requesting `admin:read` or `admin:write` will also grant [granular scopes](#gran
 Note that there is no singular `admin` scope available.
 {{< /hint >}}
 
-## Granular scopes {#granular}
+## Granular scopes {#granular-scopes}
 
 It is recommended that you make use of granular scopes, unless you really need full access to everything by using a `scope` of `read write follow push`.
 
@@ -143,29 +143,27 @@ It is recommended that you make use of granular scopes, unless you really need f
 |                           | `write:reports`                      |
 |                           | `write:statuses`                     |
 | `follow` {{%deprecated%}} |                                      |
-|                           | `read:follows`                       |
-|                           | `write:follows`                      |
 |                           | `read:blocks`                        |
-|                           | `write:blocks`                       |
+|                           | `read:follows`                       |
 |                           | `read:mutes`                         |
+|                           | `write:blocks`                       |
+|                           | `write:follows`                      |
 |                           | `write:mutes`                        |
 | `admin:read`              |                                      |
 |                           | `admin:read:accounts`                |
-|                           | `admin:read:reports`                 |
+|                           | `admin:read:canonical_email_blocks`  |
 |                           | `admin:read:domain_allows`           |
 |                           | `admin:read:domain_blocks`           |
-|                           | `admin:read:ip_blocks`               |
 |                           | `admin:read:email_domain_blocks`     |
-|                           | `admin:read:canonical_email_blocks`  |
+|                           | `admin:read:ip_blocks`               |
+|                           | `admin:read:reports`                 |
 | `admin:write`             |                                      |
 |                           | `admin:write:accounts`               |
-|                           | `admin:write:reports`                |
+|                           | `admin:write:canonical_email_blocks` |
 |                           | `admin:write:domain_allows`          |
 |                           | `admin:write:domain_blocks`          |
-|                           | `admin:write:ip_blocks`              |
 |                           | `admin:write:email_domain_blocks`    |
-|                           | `admin:write:canonical_email_blocks` |
+|                           | `admin:write:ip_blocks`              |
+|                           | `admin:write:reports`                |
 
-## Removed scopes {#removed}
-
-* Mastodon versions from 3.2.0 to 4.3.0 did support a `crypto` scope for end-to-end encryption APIs, however, this functionality was never documented nor fully implemented, and has been removed as of version 4.3.0. Any applications registered with that scope will have the scope removed when the server is upgraded to 4.3.0 and above.
+[^crypto]: Mastodon versions from 3.2.0 to 4.3.0 supported a `crypto` scope for end-to-end encryption APIs. This functionality was never documented or fully implemented, and has been removed as of version 4.3.0. Any applications registered with that scope will have the scope removed when the server is upgraded to 4.3.0 and above.

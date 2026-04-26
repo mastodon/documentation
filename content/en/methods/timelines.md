@@ -137,6 +137,10 @@ Authorization
 
 ##### Query parameters
 
+{{< hint style="info" >}}
+Note that there is a limit to the number of tags that will be applied from each query param (defaults to 4 total tags). Keep this in mind when using the `any`, `all`, and `none` params.
+{{</ hint >}}
+
 any[]
 : Array of String. Return statuses that contain any of these additional tags.
 
@@ -309,9 +313,6 @@ Statuses in your home timeline will be returned
 ##### 206: Partial content
 
 Home feed is regenerating
-
-```text
-```
 
 ##### 401: Unauthorized
 

@@ -83,7 +83,7 @@ scheduled_at
 : String. [Datetime](/api/datetime-format#datetime) at which to schedule a status. Providing this parameter will cause ScheduledStatus to be returned instead of Status. Must be at least 5 minutes in the future.
 
 quoted_status_id
-: String. ID of the status being quoted, if any. Will raise an error if the status does not exist, the author does not have access to it, or quoting is denied by Mastodon's understanding of the attached quote policy. All posts except Private Mentions (`direct` visibility) are quotable by their author. Quoting a `private` post will restrict the quoting post's `visibility` to `private` or `direct` (if the given `visibility` is `public` or `unlisted`, `private` will be used instead). If the `status` text doesn't include a link to the quoted post, Mastodon will prepend a `<p class="quote-inline">RE: <a href="…">…</a></p>` paragraph for backward compatibility (such a paragraph will be hidden by Mastodon's web interface).
+: String. ID of the status being quoted, if any. Will raise an error if the status does not exist, the author does not have access to it, or quoting is denied by Mastodon's understanding of the attached quote policy. All posts except Private Mentions (`direct` visibility) are quotable by their author. Quoting a `private` post will restrict the quoting post's `visibility` to `private` or `direct` (if the given `visibility` is `public` or `unlisted`, `private` will be used instead). An error will be returned when making a quote post with `direct` visibility and the quote author is not explicitly mentioned. If the `status` text doesn't include a link to the quoted post, Mastodon will prepend a `<p class="quote-inline">RE: <a href="…">…</a></p>` paragraph for backward compatibility (such a paragraph will be hidden by Mastodon's web interface).
 
 quote_approval_policy
 : String (Enumerable, oneOf). Sets who is allowed to quote the status. When omitted, the user's [default setting](/entities/Account##source-quote_policy) will be used instead. Ignored if `visibility` is `private` or `direct`, in which case the policy will always be set to `nobody`.\
@@ -410,7 +410,7 @@ Authorization
 #### Response
 ##### 200: OK
 
-Note the special properties `text` and `poll` or `media_attachments` which may be used to repost the status, e.g. in case of delete-and-redraft functionality. With [POST /api/v1/statuses](#create), use `text` as the value for `status` parameter, `media_attachments[n]["id"]` for the `media_ids` array parameter, and `poll` properties with the corresponding parameters (e.g. `poll[multiple]` and `poll[options]`, with a new `poll[expires_in]` and `poll[hide_totals]` per user input.
+Note the special properties `text` and `poll` or `media_attachments` which may be used to repost the status, e.g. in case of delete-and-redraft functionality. With [POST /api/v1/statuses](#create), use `text` as the value for `status` parameter, `media_attachments[n]["id"]` for the `media_ids` array parameter, and `poll` properties with the corresponding parameters (e.g. `poll[multiple]` and `poll[options]`), with a new `poll[expires_in]` and `poll[hide_totals]` per user input.
 
 Example of deleting a media post:
 
@@ -658,7 +658,7 @@ Status is private or does not exist
 POST /api/v1/statuses/:id/translate HTTP/1.1
 ```
 
-Translate the status content into some language.
+Translate the status content into some language. Only statuses with Public and Unlisted visibility can be translated.
 
 **Returns:** [Translation]({{< relref "entities/translation" >}})\
 **OAuth:** App token + `read:statuses`\
@@ -675,7 +675,7 @@ Translate the status content into some language.
 ##### Form data parameters
 
 lang
-: String (ISO 639-1 language code). The status content will be translated into this language. Defaults to the user's current locale.
+: String (ISO 639-1 language code). The status content will be translated into this language. Defaults to the user's current locale (which in turn falls back to server default).
 
 ##### Headers
 
@@ -683,6 +683,7 @@ Authorization
 : {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
 
 #### Response
+
 ##### 200: OK
 
 Translating a status in Spanish with content warning and media into English
@@ -730,11 +731,24 @@ Translating a status with poll into English
 
 ##### 404: Not found
 
-Status is private or does not exist
+Status does not exist
 
 ```json
 {
   "error": "Record not found"
+}
+```
+
+##### 403: Forbidden
+
+Status has any of:
+
+- Visibility of private or direct
+- A `language` attribute which is ineligible for translation to the target `lang` by the configured backend. This may include "same language" (i.e. `en`->`en`) attempts when not supported.
+
+```json
+{
+  "error": "This action is not allowed"
 }
 ```
 
@@ -827,7 +841,7 @@ Status does not exist or is private
 GET /api/v1/statuses/:id/quotes HTTP/1.1
 ```
 
-View quotes of a status you have posted.
+View quotes of a status.
 
 **Returns:** Array of [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `read:statuses`.\
@@ -1687,6 +1701,14 @@ Status is not owned by you:
 }
 ```
 
+Account has already reached the limit (defaults to 5, see [Instance#max_pinned_statuses]({{< relref "entities/Instance#max_pinned_statuses" >}})) of pinned statuses:
+
+```json
+{
+  "error": "Validation failed: You have already pinned the maximum number of posts"
+}
+```
+
 Prior to 3.5.0, you could not pin one of your private statuses because private statuses could not be fetched from remote sites, and must have been delivered. (3.5.0 added a mechanism to fetch statuses on behalf of an account.)
 
 ```json
@@ -1778,7 +1800,10 @@ Status does not exist or is private.
 PUT /api/v1/statuses/:id HTTP/1.1
 ```
 
-Edit a given status to change its text, sensitivity, media attachments, or poll. Note that editing a poll’s options or changing whether it is multiple choice will reset the votes.
+Edit a given status to change its text, sensitivity, media attachments, or poll. Notes:
+
+- Editing a poll's options or changing whether it is multiple choice will reset the votes.
+- To edit the `scheduled_at` attribute of a [ScheduledStatus]({{< relref "entities/scheduledstatus" >}}) to change the publication date, use the [scheduled status endpoint]({{< relref "methods/scheduled_statuses#update">}}).
 
 **Returns:** [Status]({{< relref "entities/status" >}})\
 **OAuth:** User token + `write:statuses`\
@@ -2229,7 +2254,7 @@ Status does not exist or is private.
 
 ---
 
-## Fetch preview card {{%deprecated%}} {#card}
+## Fetch preview card {{%removed%}} {#card}
 
 ```http
 GET /api/v1/statuses/:id/card HTTP/1.1

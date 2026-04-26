@@ -33,6 +33,7 @@ aliases: [
   "replies_count": 5,
   "reblogs_count": 6,
   "favourites_count": 11,
+  "quotes_count": 2,
   "favourited": false,
   "reblogged": false,
   "muted": false,
@@ -81,6 +82,7 @@ aliases: [
   "mentions": [],
   "tags": [],
   "emojis": [],
+  "quote": null,
   "card": {
     "url": "https://www.theguardian.com/money/2019/dec/07/i-lost-my-193000-inheritance-with-one-wrong-digit-on-my-sort-code",
     "title": "‘I lost my £193,000 inheritance – with one wrong digit on my sort code’",
@@ -96,7 +98,12 @@ aliases: [
     "image": null,
     "embed_url": ""
   },
-  "poll": null
+  "poll": null,
+  "quote_approval": {
+    "automatic": [],
+    "manual": [],
+    "current_user": "automatic"
+  }
 }
 ```
 

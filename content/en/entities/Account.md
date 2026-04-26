@@ -50,6 +50,9 @@ aliases: [
   "statuses_count": 28468,
   "last_status_at": "2019-11-17",
   "indexable": true,
+  "show_media": true,
+  "show_media_replies": true,
+  "show_featured": true,
   "roles": [],
   "emojis": [
     {
@@ -114,7 +117,7 @@ aliases: [
 
 ### `acct` {#acct}
 
-**Description:** The Webfinger account URI. Equal to `username` for local users, or `username@domain` for remote users.\
+**Description:** The WebFinger account URI. Equal to `username` for local users, or `username@domain` for remote users.\
 **Type:** String\
 **Version history:**\
 0.1.0 - added
@@ -303,10 +306,31 @@ aliases: [
 **Version history:**\
 4.3.0 - added
 
+### `show_media` {#show_media}
+
+**Description:** Whether the account wishes to have a “Media” tab with media attachments on their profile.\
+**Type:** Boolean\
+**Version history:**\
+4.6.0 - added
+
+### `show_media_replies` {#show_media_replies}
+
+**Description:** Whether the account wishes to have replies in the “Media” tab on their profile.\
+**Type:** Boolean\
+**Version history:**\
+4.6.0 - added
+
+### `show_featured` {#show_featured}
+
+**Description:** Whether the account wishes to have a “Featured” tab on their profile.\
+**Type:** Boolean\
+**Version history:**\
+4.6.0 - added
+
 ### `roles` {#roles}
 
-**Description:** An array of roles assigned to the user that are publicly visible (highlighted roles only), if the account is local. Will be an empty array if no roles are highlighted or if the account is remote.\
-**Type:** Array of [AccountRole](#AccountRole)\
+**Description:** An array of roles assigned to the user that are publicly visible (highlighted roles only), if the account is local. Will be an empty array if no roles are highlighted or null if the account is remote.\
+**Type:** {{<nullable>}} Array of [AccountRole](#AccountRole)\
 **Version history:**\
 4.1.0 - added
 

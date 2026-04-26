@@ -30,8 +30,8 @@ Obtain general information about the server.
 **Version history:**\
 4.0.0 - added\
 4.1.0 - added `configuration.urls.status`\
-4.2.0 - added `registrations.url`
-4.3.0 - added `configuration.vapid.public_key`, `api_versions`, `configuration.accounts.max_pinned_statuses`, `icon`
+4.2.0 - added `registrations.url`\
+4.3.0 - added `configuration.vapid.public_key`, `api_versions`, `configuration.accounts.max_pinned_statuses`, `icon`\
 4.4.0 - added `configuration.urls.about`, `configuration.urls.privacy_policy`, `configuration.urls.terms_of_service`, `registrations.min_age`, `registrations.reason_required`, `configuration.limited_federation`
 
 #### Response
@@ -717,10 +717,6 @@ Invalid or missing Authorization header, if the admin has chosen to show domain 
 ##### 404: Not found
 
 The admin has chosen to show domain blocks to no one. The response body is empty; only the HTTP 404 error code is relevant.
-
-```text
-
-```
 
 ---
 

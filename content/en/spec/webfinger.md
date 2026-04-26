@@ -19,7 +19,7 @@ Enter WebFinger. WebFinger as described in [RFC 7033](https://tools.ietf.org/htm
 
 ## Sample WebFinger flow {#example}
 
-Suppose we want to lookup the user `@Gargron` hosted on the `mastodon.social` website.
+Suppose we want to look up the user `@Gargron` hosted on the `mastodon.social` website.
 
 Just make a request to that domain's `/.well-known/webfinger` endpoint, with the `resource` query parameter set to an `acct:` URI.
 
@@ -86,19 +86,38 @@ Using that WebFinger response, Mastodon will check the following:
 - The `links` array contains a link with `rel` of `self` and `type` of either `application/ld+json; profile="https://www.w3.org/ns/activitystreams"` or `application/activity+json`
   - The `href` for this link resolves to an ActivityPub actor
 
+For example, a minimal viable WebFinger response might look like:
+
+```json
+{
+  "subject": "acct:username@host.example",
+  "links": [
+    {
+      "href": "https://host.example/accounts/username",
+      "rel": "self",
+      "type": "application/activity+json"
+    }
+  ]
+}
+```
+
 Using that ActivityPub actor representation (which may be provided directly, without the initial WebFinger request), Mastodon will do the following:
 
 - Take `preferredUsername` and the hostname of the actor's server
 - Construct an `acct:` URI using that username and domain
-- Make a Webfinger request for that `resource`
+- Make a WebFinger request for that `resource`
 
-If the `subject` matches the `resource`, then the process stops here. Otherwise, if the `subject` contains a different canonical account URI, then Mastodon will perform an additional Webfinger request for that canonical account URI in order to ensure that this new `resource` links to the same ActivityPub actor with the same criteria being checked.
+If the `subject` matches the `resource`, then the process stops here. Otherwise, if the `subject` contains a different canonical account URI, then Mastodon will perform an additional WebFinger request for that canonical account URI in order to ensure that this new `resource` links to the same ActivityPub actor with the same criteria being checked.
 
 In other words, the following cases are valid:
 
 - Asking `example.com` for the resource `acct:alice@example.com` yields a link to an actor on the domain `example.com` with a `preferredUsername` of `alice`, and the `subject` matches the requested resource `acct:alice@example.com`
 - Asking `example.com` for the resource `acct:alice@example.com` yields a link to an actor on the domain `ap.example.com` with a `preferredUsername` of `alice`
   - ...then, asking `ap.example.com` for the resource `acct:alice@ap.example.com` yields a `subject` of `acct:alice@example.com` and a link to the same actor
+
+## FEP-2c59 {#FEP-2c59}
+
+As of version 4.6.0, Mastodon also supports [FEP-2c59](https://codeberg.org/fediverse/fep/src/branch/main/fep/2c59/fep-2c59.md), which allows the actor to be explicit about their webfinger handle. This takes priority over the flow described above, and `preferredUsername` is only used if the `webfinger` attribute is missing or malformed.
 
 ## See also
 
