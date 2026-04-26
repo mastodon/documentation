@@ -488,6 +488,7 @@ The response body contains the current notifications filtering policy for the us
   "for_new_accounts": "accept",
   "for_private_mentions": "drop",
   "for_limited_accounts": "filter",
+  "for_bots": "accept",
   "summary": {
     "pending_requests_count": 0,
     "pending_notifications_count": 0
@@ -541,6 +542,9 @@ for_private_mentions
 
 for_limited_accounts
 : String. Whether to `accept`, `filter` or `drop` notifications from accounts that were limited by a moderator. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.
+
+for_bots
+: String. Whether to `accept`, `filter` or `drop` notifications from accounts that were marked as automated. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.
 
 
 #### Response
