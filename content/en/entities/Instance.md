@@ -28,6 +28,7 @@ aliases: [
   },
   "thumbnail": {
     "url": "https://files.mastodon.social/site_uploads/files/000/000/001/@1x/57c12f441d083cde.png",
+    "description": "Colourful illustration of a Mastodon (a sort of elephant) carrying a bindle and joining a group of other Mastodons. The other Mastodons have many different colours and are holding up a Welcome sign.",
     "blurhash": "UeKUpFxuo~R%0nW;WCnhF6RjaJt757oJodS$",
     "versions": {
       "@1x": "https://files.mastodon.social/site_uploads/files/000/000/001/@1x/57c12f441d083cde.png",
@@ -507,6 +508,13 @@ aliases: [
 **Type:** String (URL)\
 **Version history:**\
 4.0.0 - added
+
+#### `thumbnail[description]` {#thumbnail-description}
+
+**Description:** The thumbnail's alt text (a description of the image to help people with visual impairments understand its content).\
+**Type:** String\
+**Version history:**\
+4.6.0 - added
 
 #### `thumbnail[blurhash]` {{<optional>}} {#blurhash}
 
