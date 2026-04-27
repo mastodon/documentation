@@ -32,7 +32,8 @@ Obtain general information about the server.
 4.1.0 - added `configuration.urls.status`\
 4.2.0 - added `registrations.url`\
 4.3.0 - added `configuration.vapid.public_key`, `api_versions`, `configuration.accounts.max_pinned_statuses`, `icon`\
-4.4.0 - added `configuration.urls.about`, `configuration.urls.privacy_policy`, `configuration.urls.terms_of_service`, `registrations.min_age`, `registrations.reason_required`, `configuration.limited_federation`
+4.4.0 - added `configuration.urls.about`, `configuration.urls.privacy_policy`, `configuration.urls.terms_of_service`, `registrations.min_age`, `registrations.reason_required`, `configuration.limited_federation`\
+4.6.0 - added `thumbnail.description`
 
 #### Response
 
@@ -52,6 +53,7 @@ Obtain general information about the server.
   },
   "thumbnail": {
     "url": "https://files.mastodon.social/site_uploads/files/000/000/001/@1x/57c12f441d083cde.png",
+		"description": "Colourful illustration of a Mastodon (a sort of elephant) carrying a bindle and joining a group of other Mastodons. The other Mastodons have many different colours and are holding up a Welcome sign.",
     "blurhash": "UeKUpFxuo~R%0nW;WCnhF6RjaJt757oJodS$",
     "versions": {
       "@1x": "https://files.mastodon.social/site_uploads/files/000/000/001/@1x/57c12f441d083cde.png",
