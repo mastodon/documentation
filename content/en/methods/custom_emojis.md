@@ -5,7 +5,6 @@ description: >-
   profiles or statuses.
 menu:
   docs:
-    weight: 30
     name: custom_emojis
     parent: methods-instance
     identifier: methods-custom_emojis

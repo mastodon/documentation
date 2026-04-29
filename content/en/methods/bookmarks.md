@@ -3,7 +3,6 @@ title: bookmarks API methods
 description: View your bookmarks. See also statuses/:id/{bookmark,unbookmark}
 menu:
   docs:
-    weight: 10
     name: bookmarks
     parent: methods-accounts
     identifier: methods-bookmarks

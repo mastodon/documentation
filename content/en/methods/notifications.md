@@ -3,7 +3,6 @@ title: notifications API methods
 description: Receive notifications for activity on your account or statuses.
 menu:
   docs:
-    weight: 50
     name: notifications
     parent: methods
     identifier: methods-notifications

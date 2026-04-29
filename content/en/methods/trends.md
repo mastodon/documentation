@@ -3,7 +3,6 @@ title: trends API methods
 description: Listings of tags, statuses, and links with increased activity
 menu:
   docs:
-    weight: 10
     name: trends
     parent: methods-instance
     identifier: methods-trends

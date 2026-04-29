@@ -3,7 +3,6 @@ title: Experimental async refreshes API methods
 description: Methods concerning async refreshes
 menu:
   docs:
-    weight: 20
     name: async_refreshes
     parent: methods
     identifier: methods-async-refreshes

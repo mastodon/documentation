@@ -3,7 +3,6 @@ title: emails API methods
 description: Request a new confirmation email, potentially to a new email address.
 menu:
   docs:
-    weight: 20
     name: emails
     parent: methods-apps
     identifier: methods-emails

@@ -5,7 +5,6 @@ description: >-
   Attachments for more information about size and format limits.
 menu:
   docs:
-    weight: 10
     name: media
     parent: methods-statuses
     identifier: methods-media

@@ -5,7 +5,6 @@ description: >-
   containing a post with "direct" visibility.)
 menu:
   docs:
-    weight: 10
     name: conversations
     parent: methods-timelines
     identifier: methods-conversations

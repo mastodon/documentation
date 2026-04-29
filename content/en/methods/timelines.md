@@ -3,7 +3,6 @@ title: timelines API methods
 description: Read and view timelines of statuses.
 menu:
   docs:
-    weight: 40
     name: timelines
     parent: methods
     identifier: methods-timelines

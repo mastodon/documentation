@@ -5,7 +5,6 @@ description: >-
   received, via the Web Push API
 menu:
   docs:
-    weight: 10
     name: push
     parent: methods-notifications
     identifier: methods-push

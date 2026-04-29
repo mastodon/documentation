@@ -3,7 +3,6 @@ title: featured_tags API methods
 description: Feature tags that you use frequently on your profile.
 menu:
   docs:
-    weight: 100
     name: featured_tags
     parent: methods-accounts
     identifier: methods-featured_tags

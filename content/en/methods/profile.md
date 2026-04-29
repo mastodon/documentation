@@ -3,7 +3,6 @@ title: profile API methods
 description: Methods concerning profiles.
 menu:
   docs:
-    weight: 20
     name: profile
     parent: methods
     identifier: methods-profile

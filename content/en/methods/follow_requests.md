@@ -3,7 +3,6 @@ title: follow_requests API methods
 description: View and manage follow requests.
 menu:
   docs:
-    weight: 80
     name: follow_requests
     parent: methods-accounts
     identifier: methods-follow_requests
