@@ -5,7 +5,6 @@ description: >-
   connection or via WebSocket.
 menu:
   docs:
-    weight: 40
     name: streaming
     parent: methods-timelines
     identifier: methods-streaming

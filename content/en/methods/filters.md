@@ -3,7 +3,6 @@ title: filters API methods
 description: Create and manage filters.
 menu:
   docs:
-    weight: 60
     name: filters
     parent: methods-accounts
     identifier: methods-filters

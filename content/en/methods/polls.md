@@ -5,7 +5,6 @@ description: >-
   need to GET a Status first and then check for a `poll` property.
 menu:
   docs:
-    weight: 20
     name: polls
     parent: methods-statuses
     identifier: methods-polls

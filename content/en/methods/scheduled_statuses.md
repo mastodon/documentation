@@ -3,7 +3,6 @@ title: scheduled_statuses API methods
 description: Manage statuses that were scheduled to be published at a future date.
 menu:
   docs:
-    weight: 30
     name: scheduled_statuses
     parent: methods-statuses
     identifier: methods-scheduled_statuses

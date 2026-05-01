@@ -3,7 +3,6 @@ title: instance API methods
 description: Discover information about a Mastodon server.
 menu:
   docs:
-    weight: 70
     name: instance
     parent: methods
     identifier: methods-instance

@@ -3,7 +3,6 @@ title: mutes API methods
 description: View your mutes. See also accounts/:id/{mute,unmute}
 menu:
   docs:
-    weight: 30
     name: mutes
     parent: methods-accounts
     identifier: methods-mutes

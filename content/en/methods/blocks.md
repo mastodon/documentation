@@ -3,7 +3,6 @@ title: blocks API methods
 description: View your blocks. See also accounts/:id/{block,unblock}
 menu:
   docs:
-    weight: 40
     name: blocks
     parent: methods-accounts
     identifier: methods-blocks

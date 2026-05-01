@@ -3,7 +3,6 @@ title: OAuth API methods
 description: Generate and manage OAuth tokens.
 menu:
   docs:
-    weight: 10
     name: oauth
     parent: methods-apps
     identifier: methods-oauth

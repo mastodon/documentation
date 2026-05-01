@@ -3,7 +3,6 @@ title: Grouped notifications API methods
 description: Receive grouped notifications for activity on your account or statuses.
 menu:
   docs:
-    weight: 50
     name: grouped notifications
     parent: methods
     identifier: methods-grouped-notifications

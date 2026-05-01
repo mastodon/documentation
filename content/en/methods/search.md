@@ -3,7 +3,6 @@ title: search API methods
 description: Search for content in accounts, statuses and hashtags.
 menu:
   docs:
-    weight: 60
     name: search
     parent: methods
     identifier: methods-search

@@ -5,7 +5,6 @@ description: >-
   timeline.
 menu:
   docs:
-    weight: 20
     name: lists
     parent: methods-timelines
     identifier: methods-lists

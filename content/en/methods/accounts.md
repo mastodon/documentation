@@ -3,7 +3,6 @@ title: accounts API methods
 description: Methods concerning accounts and profiles.
 menu:
   docs:
-    weight: 20
     name: accounts
     parent: methods
     identifier: methods-accounts

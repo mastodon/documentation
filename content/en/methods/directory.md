@@ -3,7 +3,6 @@ title: directory API methods
 description: A directory of profiles that your website is aware of.
 menu:
   docs:
-    weight: 20
     name: directory
     parent: methods-instance
     identifier: methods-directory

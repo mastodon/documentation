@@ -3,7 +3,6 @@ title: endorsements API methods
 description: Feature other profiles on your own profile. See also accounts/:id/{pin,unpin}
 menu:
   docs:
-    weight: 90
     name: endorsements
     parent: methods-accounts
     identifier: methods-endorsements

@@ -5,7 +5,6 @@ description: >-
   interactions.
 menu:
   docs:
-    weight: 120
     name: suggestions
     parent: methods-accounts
     identifier: methods-suggestions
