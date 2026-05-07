@@ -471,7 +471,7 @@ Invalid or missing Authorization header.
 #### `partial_accounts` {{%optional%}}
 
 **Description:** Partial accounts referenced by grouped notifications. Those are only returned when requesting grouped notifications with `expand_accounts=partial_avatars`.\
-**Type:** Array of [PartialAccountWithAvatar](#PartialAccountWithAvatar)\
+**Type:** Array of [PartialAccountWithAvatar]({{< relref "entities/Account#PartialAccountWithAvatar" >}})\
 **Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
 
@@ -494,67 +494,6 @@ Invalid or missing Authorization header.
 TODO
 
 ---
-
-## `PartialAccountWithAvatar` entity {#PartialAccountWithAvatar}
-
-These are stripped-down versions of [Account]({{< relref "entities/Account" >}}) that only contain what is necessary to display a list of avatars, as well as a few other useful properties. The aim is to cut back on expensive server-side serialization and reduce the network payload size of notification groups.
-
-### Attributes
-
-#### `id`
-
-**Description:** The account id.\
-**Type:** String (cast from an integer, but not guaranteed to be a number)\
-**Version history:**\
-4.3.0 - added
-
-#### `acct`
-
-**Description:** The WebFinger account URI. Equal to `username` for local users, or `username@domain` for remote users.\
-**Type:** String\
-**Version history:**\
-4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
-
-#### `url`
-
-**Description:** The location of the user's profile page.\
-**Type:** String (URL)\
-**Version history:**\
-4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
-
-#### `avatar`
-
-**Description:** An image icon that is shown next to statuses and in the profile.\
-**Type:** String (URL)\
-**Version history:**\
-4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
-
-#### `avatar_static`
-
-**Description:** A static version of the avatar. Equal to `avatar` if its value is a static image; different if `avatar` is an animated GIF.\
-**Type:** String (URL)\
-**Version history:**\
-4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
-
-#### `locked`
-
-**Description:** Whether the account manually approves follow requests.\
-**Type:** Boolean\
-**Version history:**\
-4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
-
-#### `bot`
-
-**Description:** Indicates that the account may perform automated actions, may not be monitored, or identifies as a robot.\
-**Type:** Boolean\
-**Version history:**\
-4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
-
-### Examples
-
-TODO
-
---
 
 ## `NotificationGroup` entity {#NotificationGroup}
 

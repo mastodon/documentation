@@ -15,6 +15,8 @@ aliases: [
   "/entities/CredentialAccount",
   "/entities/mutedaccount",
   "/entities/MutedAccount",
+  "/entities/partialaccountwithavatar",
+  "/entities/PartialAccountWithAvatar",
   "/api/entities/source/",
   "/api/entities/Source/",
   "/api/entities/field/",
@@ -25,6 +27,8 @@ aliases: [
   "/api/entities/CredentialAccount",
   "/api/entities/mutedaccount",
   "/api/entities/MutedAccount",
+  "/api/entities/partialaccountwithavatar",
+  "/api/entities/PartialAccountWithAvatar",
 ]
 ---
 
@@ -43,8 +47,10 @@ aliases: [
   "url": "https://awoo.space/@noiob",
   "avatar": "https://files.mastodon.social/accounts/avatars/000/023/634/original/6ca8804dc46800ad.png",
   "avatar_static": "https://files.mastodon.social/accounts/avatars/000/023/634/original/6ca8804dc46800ad.png",
+  "avatar_description": "a shark",
   "header": "https://files.mastodon.social/accounts/headers/000/023/634/original/256eb8d7ac40f49a.png",
   "header_static": "https://files.mastodon.social/accounts/headers/000/023/634/original/256eb8d7ac40f49a.png",
+  "header_description": "sharks in the sea",
   "followers_count": 547,
   "following_count": 404,
   "statuses_count": 28468,
@@ -164,6 +170,13 @@ aliases: [
 **Version history:**\
 1.1.2 - added
 
+### `avatar_description` {#avatar_description}
+
+**Description:** A textual description of the avatar image.\
+**Type:** String\
+**Version history:**\
+4.6.0 - added
+
 ### `header` {#header}
 
 **Description:** An image banner that is shown above the profile and in profile cards. Will end `/headers/original/missing.png` if the user has not set a header image.\
@@ -177,6 +190,13 @@ aliases: [
 **Type:** String (URL)\
 **Version history:**\
 1.1.2 - added
+
+### `header_description` {#header_description}
+
+**Description:** A textual description of the header image.\
+**Type:** String\
+**Version history:**\
+4.6.0 - added
 
 ### `locked` {#locked}
 
@@ -333,6 +353,8 @@ aliases: [
 **Type:** {{<nullable>}} Array of [AccountRole](#AccountRole)\
 **Version history:**\
 4.1.0 - added
+
+---
 
 ## CredentialAccount entity attributes {#CredentialAccount}
 
@@ -511,6 +533,8 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
+---
+
 ## MutedAccount entity attributes {#MutedAccount}
 
 ### `mute_expires_at` {#mute_expires_at}
@@ -519,6 +543,87 @@ aliases: [
 **Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)), or null if the mute is indefinite\
 **Version history:**\
 3.3.0 - added
+
+---
+
+## `PartialAccountWithAvatar` entity {#PartialAccountWithAvatar}
+
+These are stripped-down versions of [Account]({{< relref "entities/Account" >}}) that only contain what is necessary to display a list of avatars, as well as a few other useful properties. The aim is to cut back on expensive server-side serialization and reduce the network payload size e.g. of [notification groups]({{< relref "methods/grouped_notifications" >}}).
+
+### Attributes
+
+#### `id`
+
+**Description:** The account id.\
+**Type:** String (cast from an integer, but not guaranteed to be a number)\
+**Version history:**\
+4.3.0 - added
+
+#### `acct`
+
+**Description:** The WebFinger account URI. Equal to `username` for local users, or `username@domain` for remote users.\
+**Type:** String\
+**Version history:**\
+4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
+
+#### `url`
+
+**Description:** The location of the user's profile page.\
+**Type:** String (URL)\
+**Version history:**\
+4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
+
+#### `avatar`
+
+**Description:** An image icon that is shown next to statuses and in the profile.\
+**Type:** String (URL)\
+**Version history:**\
+4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
+
+#### `avatar_static`
+
+**Description:** A static version of the avatar. Equal to `avatar` if its value is a static image; different if `avatar` is an animated GIF.\
+**Type:** String (URL)\
+**Version history:**\
+4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
+
+### `avatar_description`
+
+**Description:** A textual description of the avatar image.\
+**Type:** String\
+**Version history:**\
+4.6.0 - added
+
+#### `locked`
+
+**Description:** Whether the account manually approves follow requests.\
+**Type:** Boolean\
+**Version history:**\
+4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
+
+#### `bot`
+
+**Description:** Indicates that the account may perform automated actions, may not be monitored, or identifies as a robot.\
+**Type:** Boolean\
+**Version history:**\
+4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
+
+### Example
+
+```json
+{
+  "id": "23634",
+  "acct": "noiob@awoo.space",
+  "locked": false,
+  "bot": false,
+  "url": "https://awoo.space/@noiob",
+  "avatar": "https://files.mastodon.social/accounts/avatars/000/023/634/original/6ca8804dc46800ad.png",
+  "avatar_static": "https://files.mastodon.social/accounts/avatars/000/023/634/original/6ca8804dc46800ad.png",
+  "avatar_description": "a shark"
+}
+```
+
+---
 
 ## AccountRole entity attributes {#AccountRole}
 
@@ -545,6 +650,8 @@ The simplified role entity returned in the Account `roles` array, containing onl
 **Version history:**\
 4.1.0 - added
 
+---
+
 ## Field entity attributes {#Field}
 
 ### `name` {#name}
@@ -567,6 +674,8 @@ The simplified role entity returned in the Account `roles` array, containing onl
 **Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)) if `value` is a verified URL. Otherwise, null.\
 **Version history:**\
 2.6.0 - added
+
+---
 
 ## See also
 
