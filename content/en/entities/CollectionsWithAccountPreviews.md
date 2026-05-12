@@ -1,5 +1,5 @@
 ---
-title: CollectionWithAccounts
+title: CollectionsWithAccountPreviews
 description: A list of Collections with partial account data 
 menu:
   docs:
@@ -71,6 +71,6 @@ aliases: [
 
 {{< page-relref ref="entities/Collection" caption="Collection entity" >}}
 {{< page-relref ref="entities/Account#PartialAccountWithAvatar" caption="PartialAccountWithAvatar entity" >}}
-{{/*< page-relref ref="methods/collections" caption="collections API methods" >*/}}
+<!-- {{/*< page-relref ref="methods/collections" caption="collections API methods" >*/}} -->
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/collections_with_account_previews_serializer.rb" caption="app/serializers/rest/collections_with_account_previews_serializer.rb" >}}

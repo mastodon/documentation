@@ -35,7 +35,7 @@ aliases: [
     "url": "https://example.com/tags/discovery"
   },
   "item_count": 2,
-  "items" => [
+  "items": [
     {
       "id": "116141056635954112",
       "account_id": "112658193342215767",
@@ -128,8 +128,8 @@ aliases: [
 
 ### `tag` {#tag}
 
-**Description:** 
-**Type:** \
+**Description:** A single hashtag that describes this Collection.\
+**Type:** {{<nullable>}} [ShallowTag]({{< relref "entities/ShallowTag" >}})\
 **Version history:**\
 4.6.0 - added
 
@@ -157,7 +157,7 @@ aliases: [
 ### `items` {#items}
 
 **Description:** The items in this Collection.\
-**Type:** Array of [CollectionItem]({{/*< relref "entities/CollectionItem" >*/}})\
+**Type:** Array of [CollectionItem]({{< relref "entities/CollectionItem" >}})\
 **Version history:**\
 4.6.0 - added
 
@@ -190,6 +190,6 @@ This is a regular [Collection]({{< relref "entities/Collection" >}}) in a wrappe
 
 ## See also
 
-{{/*< page-relref ref="methods/collections" caption="collections API methods" >*/}}
+<!-- {{/*< page-relref ref="methods/collections" caption="collections API methods" >*/}} -->
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/collection_serializer.rb" caption="app/serializers/rest/collection_serializer.rb" >}}

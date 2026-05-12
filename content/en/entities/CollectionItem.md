@@ -57,6 +57,6 @@ aliases: [
 
 ## See also
 
-{{/*< page-relref ref="methods/collections" caption="collections API methods" >*/}}
+<!-- {{/*< page-relref ref="methods/collections" caption="collections API methods" >*/}} -->
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/collection_item_serializer.rb" caption="app/serializers/rest/collection_item_serializer.rb" >}}
