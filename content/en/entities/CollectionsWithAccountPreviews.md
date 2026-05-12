@@ -42,6 +42,7 @@ aliases: [
     {
       "id": "114182813422535512",
       // ... `PartialAccountWithAvatar` entity for the owner of the second collection
+    },
     {
       "id": "112658193342215767",
       // ... `PartialAccountWithAvatar` entity for the first item in the first collection
