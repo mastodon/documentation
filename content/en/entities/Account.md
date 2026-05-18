@@ -361,7 +361,7 @@ aliases: [
 
 ### `feature_approval` {#feature_approval}
 
-**Description:** Summary of the account's policy with regards to being featured in a [Collection]({{< relref "entities/Collection" >}})and how it applies to the user making the request.\
+**Description:** Summary of the account's policy with regards to being featured in a [Collection]({{< relref "entities/Collection" >}}) and how it applies to the user making the request.\
 **Type:** [FeatureApproval]({{< relref "entities/FeatureApproval" >}})
 **Version history:**\
 4.6.0 - added
