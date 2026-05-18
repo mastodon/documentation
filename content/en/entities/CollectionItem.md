@@ -55,6 +55,31 @@ aliases: [
 **Version history:**\
 4.6.0 - added
 
+## WrappedCollectionItem entity {#WrappedCollectionItem}
+
+This is a regular [CollectionItem]({{< relref "entities/CollectionItem" >}}) in a wrapper object to make it consistent with [CollectionWithAccounts]({{< relref "entities/CollectionWithAccounts" >}}) and other parts of the API. 
+
+### Example
+
+```json
+{
+  "collection_item": {
+    "id": "116141056635954112",
+    "account_id": "112658193342215767",
+    "state": "accepted",
+    "created_at": "2026-02-25T11:35:01.394Z"
+  }
+}
+```
+
+### `collection` {#collection}
+
+**Description:** The actual Collection.\
+**Type:** [Collection]({{< relref "entities/Collection" >}})\
+**Version history:**\
+4.6.0 - added
+
+
 ## See also
 
 <!-- {{/*< page-relref ref="methods/collections" caption="collections API methods" >*/}} -->
