@@ -101,7 +101,12 @@ aliases: [
       "value": "<a href=\"http://shork.xyz\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">http://</span><span class=\"\">shork.xyz</span><span class=\"invisible\"></span></a>",
       "verified_at": "2019-11-10T10:31:10.744+00:00"
     }
-  ]
+  ],
+  "feature_approval": {
+    "automatic": [ "public" ],
+    "manual": [],
+    "current_user": "automatic"
+  }
 }
 ```
 
@@ -353,6 +358,13 @@ aliases: [
 **Type:** {{<nullable>}} Array of [AccountRole](#AccountRole)\
 **Version history:**\
 4.1.0 - added
+
+### `feature_approval` {#feature_approval}
+
+**Description:** Summary of the account's policy with regards to being featured in a [Collection]({{< relref "entities/Collection" >}}) and how it applies to the user making the request.\
+**Type:** [FeatureApproval]({{< relref "entities/FeatureApproval" >}})
+**Version history:**\
+4.6.0 - added
 
 ---
 
