@@ -15,21 +15,21 @@ aliases: [
 ### `title`
 
 **Description:** Localized fallback title for the notification, for instance “Alice added you to a collection”.\
-**Type:** String\
+**Type:** String (HTML)\
 **Version history:**\
 4.6.0 - added
 
 ### `summary`
 
 **Description:** Localized fallback summary for the notification, for instance “You're on an app that does not support the most recent version of Mastodon. Sign in to the Mastodon web app for full functionality.”\
-**Type:** {{<nullable>}} String\
+**Type:** {{<nullable>}} String (HTML)\
 **Version history:**\
 4.6.0 - added
 
 ### `details`
 
 **Description:** Localized details for the notifications, to be displayed when clicking the notification, for instance.\
-**Type:** {{<nullable>}} String\
+**Type:** {{<nullable>}} String (HTML)\
 **Version history:**\
 4.6.0 - added
 
