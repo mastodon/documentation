@@ -48,7 +48,8 @@ Types to filter include:
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added\
-4.4.0 - added `admin.sign_up` to grouped notification types
+4.4.0 - added `admin.sign_up` to grouped notification types\
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added `supported_types` optional parameter
 
 #### Request
 
@@ -88,6 +89,9 @@ grouped_types[]
 
 include_filtered
 : Boolean. Whether to include notifications filtered by the user's [NotificationPolicy]({{< relref "entities/NotificationPolicy" >}}). Defaults to false.
+
+supported_types[]
+: Array of String. Notification types to not get fallback representation for even when some is available. Passing this parameter is required to get any notification fallback at all. When this parameter is used, and a notification which type is *not* included in `supported_types` has an available fallback representation, it will be included in the notification group's `fallback` attribute.
 
 #### Response
 
@@ -214,7 +218,8 @@ View information about a specific notification group with a given group key.
 **Returns:** [GroupedNotificationsResults](#GroupedNotificationsResults)\
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
-4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
+4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added\
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added `supported_types` optional parameter
 
 #### Request
 
@@ -227,6 +232,11 @@ View information about a specific notification group with a given group key.
 
 Authorization
 : {{<required>}} Provide this header with `Bearer <user token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+supported_types[]
+: Array of String. Notification types to not get fallback representation for even when some is available. Passing this parameter is required to get any notification fallback at all. When this parameter is used, and a notification which type is *not* included in `supported_types` has an available fallback representation, it will be included in the notification group's `fallback` attribute.
 
 #### Response
 
@@ -597,6 +607,13 @@ TODO
 **Type:** [AccountWarning]({{< relref "entities/AccountWarning" >}})\
 **Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
+
+#### `fallback` {{%optional%}}
+
+**Description:** Fallback information available for some notification types that client may not support. Only available for some notification types, and only if the `supported_types` parameter is used when querying.
+**Type:** [NotificationFallback]({{< relref "entitites/NotificationFallback" >}})\
+**Version history:**\
+4.6.0 - added
 
 ### Examples
 
