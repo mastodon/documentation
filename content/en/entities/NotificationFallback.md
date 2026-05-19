@@ -1,5 +1,5 @@
 ---
-title: Notification
+title: NotificationFallback
 description: Represents a notification of an event relevant to the user.
 menu:
   docs:
