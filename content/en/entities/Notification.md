@@ -98,6 +98,13 @@ aliases: [
 **Version history:**\
 4.3.0 - added
 
+#### `fallback` {{%optional%}}
+
+**Description:** Fallback information available for some notification types that client may not support. Only available for some notification types, and only if the `supported_types` parameter is used when querying.
+**Type:** [NotificationFallback]({{< relref "entitites/NotificationFallback" >}})\
+**Version history:**\
+4.6.0 - added
+
 ## Examples
 
 ### Mention
