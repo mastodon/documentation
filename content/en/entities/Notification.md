@@ -101,7 +101,7 @@ aliases: [
 #### `fallback` {{%optional%}}
 
 **Description:** Fallback information available for some notification types that clients may not support. Only available for some notification types, and only if the `supported_types` parameter is used when querying.\
-**Type:** [NotificationFallback]({{< relref "entitites/NotificationFallback" >}})\
+**Type:** [NotificationFallback]({{< relref "entities/NotificationFallback" >}})\
 **Version history:**\
 4.6.0 - added
 
