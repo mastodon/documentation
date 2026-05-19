@@ -47,7 +47,8 @@ Types to filter include:
 3.5.0 - added `types`; add `update` and `admin.sign_up` types\
 4.0.0 - added `admin.report` type\
 4.1.0 - notification limit changed from 15 (max 30) to 40 (max 80)\
-4.3.0 - added `include_filtered` parameter
+4.3.0 - added `include_filtered` parameter\
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added `supported_types` optional parameter
 
 #### Request
 
@@ -81,6 +82,9 @@ account_id
 
 include_filtered
 : Boolean. Whether to include notifications filtered by the user's [NotificationPolicy]({{< relref "entities/NotificationPolicy" >}}). Defaults to false.
+
+supported_types[]
+: Array of String. Notification types to not get fallback representation for even when some is available. Passing this parameter is required to get any notification fallback at all. When this parameter is used, and a notification which type is *not* included in `supported_types` has an available fallback representation, it will be included in the notification's `fallback` attribute.
 
 #### Response
 
@@ -187,7 +191,8 @@ View information about a notification with a given ID.
 **Returns:** [Notification]({{< relref "entities/Notification" >}})\
 **OAuth:** User token + `read:notifications`\
 **Version history:**\
-0.0.0 - added
+0.0.0 - added\
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added `supported_types` optional parameter
 
 #### Request
 
@@ -200,6 +205,11 @@ View information about a notification with a given ID.
 
 Authorization
 : {{<required>}} Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+supported_types[]
+: Array of String. Notification types to not get fallback representation for even when some is available. Passing this parameter is required to get any notification fallback at all. When this parameter is used, and a notification which type is *not* included in `supported_types` has an available fallback representation, it will be included in the notification's `fallback` attribute.
 
 #### Response
 
