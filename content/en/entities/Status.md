@@ -366,6 +366,13 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
+### `tagged_collections` {#tagged_collections}
+
+**Description:** If `content` includes links to Collections that the server recognized, this includes the actual Collections.\
+**Type:** Array of [Collection]({{< relref "entities/Collection" >}})\
+**Version history:**\
+4.6.0 - added
+
 ## Status::Mention attributes {#Mention}
 
 ### `id` {#Mention-id}

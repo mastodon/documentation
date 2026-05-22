@@ -20,7 +20,8 @@ aliases: [
 	"name": "Owner",
 	"color": "#ff3838",
 	"permissions": "1048575",
-	"highlighted": true
+	"highlighted": true,
+    "collection_limit": 10
 }
 ```
 
@@ -60,6 +61,13 @@ aliases: [
 **Type:** Boolean\
 **Version history:**\
 4.0.0 - added
+
+### `collection_limit` {#collection_limit}
+
+**Description:** Maximum number of Collections that users with this role are allowed to create.\
+**Type:** Integer\
+**Version history:**\
+4.6.0 - added
 
 ## Permission flags
 
