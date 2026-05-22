@@ -87,6 +87,6 @@ aliases: [
 
 {{< page-relref ref="entities/Collection" caption="Collection entity" >}}
 {{< page-relref ref="entities/Account" caption="Account entity" >}}
-<!-- {{/*< page-relref ref="methods/collections" caption="collections API methods" >*/}} -->
+{{< page-relref ref="methods/collections" caption="collections API methods" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/collection_with_accounts_serializer.rb" caption="app/serializers/rest/collection_with_accounts_serializer.rb" >}}
