@@ -24,7 +24,7 @@ Create a new Collection.
 **Returns:** [WrappedCollection]({{< relref "entities/Collection#WrappedCollection" >}})\
 **OAuth:** User token + `write:collections`\
 **Version history:**\
-4.6.0 - added
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added
 
 #### Request {#create-request-example}
 
@@ -149,7 +149,7 @@ GET /api/v1/collections/:id HTTP/1.1
 **Returns:** [CollectionWithAccounts]({{< relref "entities/CollectionWithAccounts" >}})\
 **OAuth:** Public or user token + `read:collections` for authorized access\
 **Version history:**\
-4.6.0 - added\
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added
 
 #### Request
 
@@ -204,10 +204,10 @@ When requesting other user's Collections or when making anonymous requests, only
 GET /api/v1/:account_id/collections HTTP/1.1
 ```
 
-**Returns:** [CollectionsWithAccountPreviews]({{< relref "entities/CollectionsWithAccountPreviews" >}})\
+**Returns:** [Collections]({{< relref "entities/Collection#Collections" >}})\
 **OAuth:** Public or user token + `read:collections` for authorized access\
 **Version history:**\
-4.6.0 - added
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added
 
 #### Request
 
@@ -228,7 +228,7 @@ offset
 
 ##### 200: OK
 
-This returns an object with a list of Collections plus a list of partial Account objects that include the owner of the Collection and at most the first four accounts featured in it. This can be used to construct previews of a Collection when fetching the full Collection with full Account data would be too expensive.
+This returns an object with a list of Collections.
 
 When making an authorized request, the items in the Collections will be tailored to the user making the request. See ["Get a single Collection"](#get_collection) above for a detailed description.
 
@@ -236,31 +236,31 @@ If there is more than one page of results, a `Link` header will be included with
 
 ```json
 {
-  "accounts": [
-    // ...
-  ],
-  "collection": {
-    "id": "116131056935959117",
-    "account_id": "113668893442515793",
-    "uri": "https://example.com/ap/113668893442515793/collections/116131056935959117",
-    "url": "https://example.com/collections/116131056935959117",
-    "name": "Nice accounts",
-    "description": "These accounts are very nice",
-    "language": "en",
-    "local": true,
-    "sensitive": false,
-    "discoverable": true,
-    "tag": {
-      "name": "accounts",
-      "url": "https://example.com/tags/accounts"
+  "collections:": [
+    {
+      "id": "116131056935959117",
+      "account_id": "113668893442515793",
+      "uri": "https://example.com/ap/113668893442515793/collections/116131056935959117",
+      "url": "https://example.com/collections/116131056935959117",
+      "name": "Nice accounts",
+      "description": "These accounts are very nice",
+      "language": "en",
+      "local": true,
+      "sensitive": false,
+      "discoverable": true,
+      "tag": {
+        "name": "accounts",
+        "url": "https://example.com/tags/accounts"
+      },
+      "item_count": 2,
+      "items": [
+        // ...
+      ],
+      "created_at": "2026-02-25T11:35:01.394Z",
+      "updated_at": "2026-02-25T11:35:01.394Z"
     },
-    "item_count": 2,
-    "items": [
-      // ...
-    ],
-    "created_at": "2026-02-25T11:35:01.394Z",
-    "updated_at": "2026-02-25T11:35:01.394Z"
-  }
+    // ...
+  ]
 }
 ```
 
@@ -277,7 +277,7 @@ Update an existing Collection.
 **Returns:** [WrappedCollection]({{< relref "entities/Collection#WrappedCollection" >}})\
 **OAuth:** User token + `write:collections`\
 **Version history:**\
-4.6.0 - added
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added
 
 #### Request
 
@@ -411,7 +411,7 @@ Delete a Collection.
 **Returns:** Empty\
 **OAuth:** User token + `write:collections`\
 **Version history:**\
-4.6.0 - added
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added
 
 #### Request
 
@@ -465,7 +465,7 @@ Add an account to a Collection.
 **Returns:** [WrappedCollectionItem]({{< relref "entities/CollectionItem#WrappedCollectionItem" >}})\
 **OAuth:** User token + `write:collections`\
 **Version history:**\
-4.6.0 - added
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added
 
 #### Request
 
@@ -550,7 +550,7 @@ Remove an account from a Collection.
 **Returns:** Empty\
 **OAuth:** User token + `write:collections`\
 **Version history:**\
-4.6.0 - added
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added
 
 #### Request
 
@@ -604,7 +604,7 @@ Remove the current user from a Collection created by a different user.
 **Returns:** Empty\
 **OAuth:** User token + `write:collections`\
 **Version history:**\
-4.6.0 - added
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added
 
 #### Request
 

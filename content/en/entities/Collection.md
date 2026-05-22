@@ -163,7 +163,7 @@ aliases: [
 
 ## WrappedCollection entity {#WrappedCollection}
 
-This is a regular [Collection]({{< relref "entities/Collection" >}}) in a wrapper object to make it consistent with [CollectionWithAccounts]({{< relref "entities/CollectionWithAccounts" >}}) and other parts of the API. 
+This is a regular [Collection]({{< relref "entities/Collection" >}}) in a wrapper object to make it extensible, consistent with [CollectionWithAccounts]({{< relref "entities/CollectionWithAccounts" >}}) and other parts of the API.
 
 ### Example
 
@@ -187,9 +187,37 @@ This is a regular [Collection]({{< relref "entities/Collection" >}}) in a wrappe
 **Version history:**\
 4.6.0 - added
 
+## Collections entity {#Collections}
+
+This wraps a list of [Collection]({{< relref "entities/Collection" >}}) entities in an object to make it extensible and more consistent with other parts of the API.
+
+### Example
+
+```json
+{
+  "collections": [
+    {
+      "id": "116131056935959117",
+      "account_id": "113668893442515793",
+      "uri": "https://example.com/ap/113668893442515793/collections/116131056935959117",
+      "url": "https://example.com/collections/116131056935959117",
+      "name": "Excellent people",
+      // ...
+    },
+    // ...
+  }
+}
+```
+
+### `collections` {#collections}
+
+**Description:**  A list of Collections.\
+**Type:** Array of [Collection]({{< relref "entities/Collection" >}})\
+**Version history:**\
+4.6.0 - added
 
 ## See also
 
-<!-- {{/*< page-relref ref="methods/collections" caption="collections API methods" >*/}} -->
+{{< page-relref ref="methods/collections" caption="collections API methods" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/collection_serializer.rb" caption="app/serializers/rest/collection_serializer.rb" >}}

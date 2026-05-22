@@ -72,16 +72,16 @@ This is a regular [CollectionItem]({{< relref "entities/CollectionItem" >}}) in 
 }
 ```
 
-### `collection` {#collection}
+### `collection_item` {#collection_item}
 
-**Description:** The actual Collection.\
-**Type:** [Collection]({{< relref "entities/Collection" >}})\
+**Description:** The actual Collection item.\
+**Type:** [CollectionItem]({{< relref "entities/CollectionItem" >}})\
 **Version history:**\
 4.6.0 - added
 
 
 ## See also
 
-<!-- {{/*< page-relref ref="methods/collections" caption="collections API methods" >*/}} -->
+{{< page-relref ref="methods/collections" caption="collections API methods" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/collection_item_serializer.rb" caption="app/serializers/rest/collection_item_serializer.rb" >}}
