@@ -28,15 +28,7 @@ apt install -y curl wget gnupg lsb-release ca-certificates
 #### Node.js {#node-js}
 
 ```bash
-curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
-echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_24.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
-```
-
-#### PostgreSQL {#postgresql}
-
-```bash
-wget -O /usr/share/keyrings/postgresql.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
-echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/postgresql.list
+curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
 ```
 
 ### System packages {#system-packages}
@@ -44,7 +36,7 @@ echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.o
 ```bash
 apt update
 apt install -y \
-  imagemagick ffmpeg libvips-tools libpq-dev libxslt1-dev file git \
+  ffmpeg libvips-tools libpq-dev libxslt1-dev file git \
   protobuf-compiler pkg-config autoconf bison build-essential \
   libssl-dev libyaml-dev libreadline-dev zlib1g-dev libffi-dev \
   libgdbm-dev nginx nodejs redis-server postgresql certbot \
