@@ -32,7 +32,8 @@ Report problematic accounts and contents to your moderators.
 2.3.0 - add `forward` parameter\
 3.5.0 - add `category` and `rule_ids` parameters\
 4.0.0 - `category` is now optional if `rule_ids` is provided\
-4.2.0 - add `legal` category
+4.2.0 - add `legal` category\
+4.6.0 - add `collection_ids` parameter
 
 #### Request
 ##### Headers
@@ -47,6 +48,9 @@ account_id
 
 status_ids[]
 : Array of String. You can attach statuses to the report to provide additional context.
+
+collection_ids[]
+: Array of String. You can attach Collections to the report to provide additional context.
 
 comment
 : String. The reason for the report. Default maximum of 1000 characters.
