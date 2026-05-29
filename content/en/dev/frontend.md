@@ -21,5 +21,5 @@ This guide will focus on information relevant to the React app:
 - [Components](/dev/frontend/components)
 - [State management](/dev/frontend/state-management)
 - [CSS and styling](/dev/frontend/css-and-styling)
-- [Theming](/dev/frontend/theming)
+- [Creating themes](/dev/frontend/theming)
 - [Design tokens reference](/dev/frontend/design-tokens)
