@@ -13,7 +13,7 @@ We're using Redux for global state, but not all state should go into Redux:
 
 **Use React component state** if it is local to a UI component and does not need to persist across navigations.
 
-**Use Redux state** if it should persist across views and navigation. We also use Redux to store remote data as a sort of cache. (But are looking into moving to more robust data-fetching patterns in the near future.)
+**Use Redux state** if it should persist across views and navigation. We also use Redux to store remote data as a sort of cache.
 
 ## Redux slices
 

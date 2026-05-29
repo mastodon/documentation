@@ -16,6 +16,7 @@ To improve on this, we decided to build the new functionality for the 4.6 releas
 ## How to use CSS Modules
 
 - When creating a new React component, create a new folder for it (use snake_case naming) and add a `styles.module.scss` file (note the `.module` suffix – leaving it out will prevent the styles from being imported).
+  - For multiple CSS files in one folder, use `component_name.module.scss`, matching the name of the related subcomponent.
 - Import and use the styles in the component: `import classes from './styles.module.scss'`
 - The naming of classes in CSS Modules should be kept simple, e.g. `.card`, or `.actions`. There's no need for BEM-like naming patterns. Use camelCase for multiple words to make it easier to access the class in a component.
 - CSS Modules will generate names for all classes in a module based on the location and module name, providing a stable-ish hook for theme authors.

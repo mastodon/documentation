@@ -16,11 +16,7 @@ default: styles/application.scss
 my_theme: styles/my_theme.scss
 ```
 
-After this, rebuild assets (`RAILS_ENV=production bundle exec rails assets:precompile`) and restart the Mastodon services:
-```
-systemctl restart mastodon-web
-systemctl restart mastodon-sidekiq
-```
+After this, rebuild assets (`RAILS_ENV=production bundle exec rails assets:precompile`) and restart the Mastodon services or Docker container.
 
 Once this is done, your custom theme will be selectable
 - for users from **Preferences > Appearance > Theme**
