@@ -25,7 +25,10 @@ Use [`POST /api/v1/collections`]({{< relref "methods/collections#create" >}}) to
 
 [`GET /api/v1/:account_id/collections`]({{< relref "methods/collections#get_collections" >}}) allows fetching all Collections from a given account.
 
+Similarly, [`GET /api/v1/:account_id/in_collections`]({{< relref "methods/collections#in_collections" >}}) allows fetching all Collections that a given account is featured in.
+
 [`GET /api/v1/collections/:id`]({{< relref "methods/collections#get_collection" >}}) can be used to fetch a single Collection when its ID is known.
+
 
 ### Updating Collections
 
