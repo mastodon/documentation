@@ -266,6 +266,74 @@ If there is more than one page of results, a `Link` header will be included with
 
 ---
 
+## Get all Collections an account is featured in {#in_collections}
+
+```http
+GET /api/v1/:account_id/in_collections HTTP/1.1
+```
+
+**Returns:** [Collections]({{< relref "entities/Collection#Collections" >}})\
+**OAuth:** Public or user token + `read:collections` for authorized access\
+**Version history:**\
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added
+
+#### Request
+
+##### Headers
+
+Authorization
+: Provide this header with `Bearer <user_token>` to gain authorized access to this API method.
+
+##### Query parameters
+
+limit
+: Integer. Maximum number of results. Defaults to 40 Collections. Max 80 accounts.
+
+offset
+: Integer. Skip the first n results. Defaults to 0.
+
+#### Response
+
+##### 200: OK
+
+This returns an object with a list of Collections.
+
+When making an authorized request, the items in the Collections will be tailored to the user making the request. See ["Get a single Collection"](#get_collection) above for a detailed description.
+
+If there is more than one page of results, a `Link` header will be included with references to the next and/or previous page of results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
+
+```json
+{
+  "collections:": [
+    {
+      "id": "116131056935959117",
+      "account_id": "113668893442515793",
+      "uri": "https://example.com/ap/113668893442515793/collections/116131056935959117",
+      "url": "https://example.com/collections/116131056935959117",
+      "name": "Nice accounts",
+      "description": "These accounts are very nice",
+      "language": "en",
+      "local": true,
+      "sensitive": false,
+      "discoverable": true,
+      "tag": {
+        "name": "accounts",
+        "url": "https://example.com/tags/accounts"
+      },
+      "item_count": 2,
+      "items": [
+        // ...
+      ],
+      "created_at": "2026-02-25T11:35:01.394Z",
+      "updated_at": "2026-02-25T11:35:01.394Z"
+    },
+    // ...
+  ]
+}
+```
+
+---
+
 ## Update a Collection {#update_collection}
 
 ```http
