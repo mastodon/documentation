@@ -31,6 +31,27 @@ The next part of the token name further groups the token into a semantic role or
 
 Finally, sometimes additional modifiers are added to the token name, e.g. most background tokens follow a consistent `-base`, `-soft`, `-softest` pattern.
 
+## Pairing tokens
+
+It's not always obvious which tokens can be used together, so here are some pointers that should help you get started pairing tokens safely:
+
+- Generally, don't mix-and-match unrelated tokens just because they seem to work in one context, and always look for matching text-background pairings to ensure sufficient color contrast in all color modes.
+  {{< hint style="info" >}}
+  For example, `text-inverted` should not be used on `bg-brand-base`, where it would become hard to read in dark mode. Instead, only use `text-on-brand-base` with `bg-brand-base`. Similarly, `text-inverted` should only be used with `bg-inverted`.
+  {{< /hint >}}
+
+- The neutral text tokens `text-primary` and `text-secondary` are safe to be used on all of the following neutral or soft backgrounds:
+  - `bg-primary`
+  - `bg-secondary`
+  - `bg-brand-soft` / `bg-brand-softest`
+  - `bg-error-soft` / `bg-error-softest`
+  - `bg-warning-soft` / `bg-warning-softest`
+  - `bg-success-soft` / `bg-success-softest`
+
+- Additionally, text tokens `text-brand`, `text-brand-hover`, `text-error`, `text-warning`, and `text-success` can be used with their respective `-soft` and `-softest` backgrounds, as well as `bg-primary` and `bg-secondary`.
+
+- Don't mix semantic tokens across groups, e.g. `text-brand` should never be paired with `bg-error-softest` for aesthetic reasons.
+
 ## Reference
 
 ### Text tokens
