@@ -121,7 +121,7 @@ It is recommended that you make use of granular scopes, unless you really need f
 |                           | `read:accounts`                      |
 |                           | `read:blocks`                        |
 |                           | `read:bookmarks`                     |
-|                           | `read:collections`                    |
+|                           | `read:collections`                   |
 |                           | `read:favourites`                    |
 |                           | `read:filters`                       |
 |                           | `read:follows`                       |
@@ -134,7 +134,7 @@ It is recommended that you make use of granular scopes, unless you really need f
 |                           | `write:accounts`                     |
 |                           | `write:blocks`                       |
 |                           | `write:bookmarks`                    |
-|                           | `write:collections`                   |
+|                           | `write:collections`                  |
 |                           | `write:conversations`                |
 |                           | `write:favourites`                   |
 |                           | `write:filters`                      |
