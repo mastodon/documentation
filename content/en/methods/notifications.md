@@ -33,6 +33,8 @@ Types to filter include:
 - `favourite` = Someone favourited one of your statuses
 - `poll` = A poll you have voted in or created has ended
 - `update` = A status you boosted with has been edited
+- `added_to_collection` = Someone added you to a Collection
+- `collection_update` = A Collection you are featured in was updated
 - `admin.sign_up` = Someone signed up (optionally sent to admins)
 - `admin.report` = A new report has been filed
 
