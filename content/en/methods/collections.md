@@ -68,7 +68,7 @@ sensitive
 : Boolean. Whether this Collection should be marked as sensitive
 
 discoverable
-: Boolean. Whether this Collection should appear in search results and other discovery mechanisms
+: Boolean. Whether this Collection should appear on the user's profile, in search results and other discovery mechanisms
 
 account_ids
 : Array of String. IDs of the accounts to feature in this Collection
@@ -228,7 +228,7 @@ offset
 
 ##### 200: OK
 
-This returns an object with a list of Collections.
+This returns an object with a list of Collections. The result will only include Collections where [`discoverable`]({{< relref "entities/Collection#discoverable" >}}) is set to `true`, unless `:account_id` is the ID of the requesting account.
 
 When making an authorized request, the items in the Collections will be tailored to the user making the request. See ["Get a single Collection"](#get_collection) above for a detailed description.
 

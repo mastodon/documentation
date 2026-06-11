@@ -121,7 +121,7 @@ aliases: [
 
 ### `discoverable` {#discoverable}
 
-**Description:** Whether the Collection should show up in search results and recommendations.\
+**Description:** Whether the Collection should show up on the owner's profile, in search results and recommendations.\
 **Type:** Boolean\
 **Version history:**\
 4.6.0 - added

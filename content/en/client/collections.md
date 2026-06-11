@@ -80,4 +80,4 @@ Collections, just like any user-generated content, might contain unwanted conten
 ## Miscellaneous
 
 * The [search API]({{< relref "methods/search" >}}) has not been extended to search through contents of Collections yet. But searching for a Collection's URL using the `resolve` parameter should work.
-* Collections can be marked as "unlisted" (setting the `discoverable` attribute to `false`), which will in the future preclude them from turning up in search results and other discovery mechanisms. Unlisted Collections can be shared in statuses and can be shown on their creator's profile page. 
+* Collections can be marked as "unlisted" (setting the `discoverable` attribute to `false`), which means they are not meant to show up on the owner's profile. In the future this will also preclude them from turning up in search results and other discovery mechanisms. Unlisted Collections can always be accessed directly via their URL, which is how they can be shared.
