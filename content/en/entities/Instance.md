@@ -474,6 +474,13 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
+### `wrapstodon` {#wrapstodon}
+
+**Description:** The current Wrapstodon ([Annual report]({{< relref "methods/annual_reports" >}}) campaign identifier (year), if any.\
+**Type:** {{<nullable>}} String\
+**Version history:**\
+4.6.0 - added
+
 ### `usage` {#usage}
 
 **Description:** Usage data for this server.\
@@ -630,6 +637,20 @@ aliases: [
 ##### `configuration[accounts][max_note_length]` {#max_note_length}
 
 **Description:** The maximum length allowed for an account's bio.\
+**Type:** Integer\
+**Version history:**\
+4.6.0 - added
+
+##### `configuration[accounts][max_avatar_description_length]` {#max_avatar_description_length}
+
+**Description:** The maximum length allowed for an account's avatar description.\
+**Type:** Integer\
+**Version history:**\
+4.6.0 - added
+
+##### `configuration[accounts][max_header_description_length]` {#max_header_description_length}
+
+**Description:** The maximum length allowed for an account's profile header description.\
 **Type:** Integer\
 **Version history:**\
 4.6.0 - added
