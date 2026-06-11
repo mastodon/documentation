@@ -137,10 +137,10 @@ bot
 : Boolean. Whether the account has a bot flag.
 
 discoverable
-: Boolean. Whether the account should be shown in the profile directory.
+: Boolean. Whether the account should be shown in the profile directory and be available for other discovery features, like being included in Collections.
 
 hide_collections
-: Boolean. Whether to hide followers and followed accounts.
+: Boolean. Whether to hide followers and followed accounts. This field predates the Collections feature and has nothing to do with it, despite the name.
 
 indexable
 : Boolean. Whether public posts should be searchable to anyone.
