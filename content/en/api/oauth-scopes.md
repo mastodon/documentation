@@ -58,6 +58,7 @@ If you do not specify `scope` in your authorization request, or `scopes` in your
 - 3.5.0 - Deprecated `follow` scope in favour of granular scopes [#17678](https://github.com/mastodon/mastodon/pull/17678)
 - 4.1.0 - Added admin scopes for blocks and allows [#20918](https://github.com/mastodon/mastodon/pull/20918)
 - 4.3.0 - Added `profile` scope to obtain only information about the currently authenticated user [#29087](https://github.com/mastodon/mastodon/pull/29087), [#30357](https://github.com/mastodon/mastodon/pull/30357)' and removed (experimental) `crypto`[^crypto] scope
+- 4.6.0 - Added `read:collection` and `write:collection` scopes [#37049](https://github.com/mastodon/mastodon/pull/37049)
 
 ## List of high-level scopes
 
@@ -120,6 +121,7 @@ It is recommended that you make use of granular scopes, unless you really need f
 |                           | `read:accounts`                      |
 |                           | `read:blocks`                        |
 |                           | `read:bookmarks`                     |
+|                           | `read:collections`                   |
 |                           | `read:favourites`                    |
 |                           | `read:filters`                       |
 |                           | `read:follows`                       |
@@ -132,6 +134,7 @@ It is recommended that you make use of granular scopes, unless you really need f
 |                           | `write:accounts`                     |
 |                           | `write:blocks`                       |
 |                           | `write:bookmarks`                    |
+|                           | `write:collections`                  |
 |                           | `write:conversations`                |
 |                           | `write:favourites`                   |
 |                           | `write:filters`                      |
