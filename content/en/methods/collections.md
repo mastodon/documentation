@@ -266,14 +266,14 @@ If there is more than one page of results, a `Link` header will be included with
 
 ---
 
-## Get all Collections an account is featured in {#in_collections}
+## Get all Collections the current account is featured in {#in_collections}
 
 ```http
 GET /api/v1/:account_id/in_collections HTTP/1.1
 ```
 
 **Returns:** [Collections]({{< relref "entities/Collection#Collections" >}})\
-**OAuth:** Public or user token + `read:collections` for authorized access\
+**OAuth:** User token + `read:collections`\
 **Version history:**\
 4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added
 
@@ -298,7 +298,7 @@ offset
 
 This returns an object with a list of Collections.
 
-When making an authorized request, the items in the Collections will be tailored to the user making the request. See ["Get a single Collection"](#get_collection) above for a detailed description.
+The items in the Collections will be tailored to the user making the request. See ["Get a single Collection"](#get_collection) above for a detailed description.
 
 If there is more than one page of results, a `Link` header will be included with references to the next and/or previous page of results. See [Paginating through API responses]({{<relref "api/guidelines#pagination">}}) for more information.
 
