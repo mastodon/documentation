@@ -598,6 +598,10 @@ The password used to authenticate with sentinels.
 
 If set to `true`, Mastodon will use Elasticsearch for its search functions.
 
+#### `ES_VERIFY_SSL`
+
+If set to `true`, Mastodon will validate the HTTP certificates offered by Elasticsearch. Set to `false` when using self-signed certifcates. Defaults to `true`.
+
 #### `ES_PRESET`
 
 It controls the Elasticsearch indices configuration (number of shards and replica).
