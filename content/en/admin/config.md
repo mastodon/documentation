@@ -600,7 +600,7 @@ If set to `true`, Mastodon will use Elasticsearch for its search functions.
 
 #### `ES_VERIFY_SSL`
 
-If set to `true`, Mastodon will validate the HTTP certificates offered by Elasticsearch. Set to `false` when using self-signed certifcates. Defaults to `true`.
+If set to `true`, Mastodon will validate the HTTPS certificates offered by the ES_HOST. Set to `false` when using self-signed certifcates. Defaults to `true`.
 
 #### `ES_PRESET`
 
