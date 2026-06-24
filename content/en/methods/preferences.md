@@ -29,6 +29,7 @@ Preferences defined by the user in their account settings.
 **OAuth:** User token + `read:accounts`\
 **Version history:**\
 2.8.0 - added\
+4.1.0 - added `reading:autoplay:gifs`\
 4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added `posting:default:quoted_policy`
 
 #### Request
@@ -48,7 +49,8 @@ Authorization
   "posting:default:language": null,
   "posting:default:quote_policy": "followers",
   "reading:expand:media": "default",
-  "reading:expand:spoilers": false
+  "reading:expand:spoilers": false,
+  "reading:autoplay:gifs": false
 }
 ```
 
