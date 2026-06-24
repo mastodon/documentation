@@ -29,7 +29,7 @@ View information about all reports.
 **Permissions:** Manage Reports\
 **Version history:**\
 2.9.1 - added\
-4.0.0 - support custom roles and permissions
+4.0.0 - support custom roles and permissions\
 4.6.0 - added `unresolved` parameter
 
 #### Request
