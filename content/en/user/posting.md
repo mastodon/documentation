@@ -71,65 +71,76 @@ Click the bar graph icon to attach a poll to your post.
 * Polls default to pick-one/single-choice. Click on the radio button to switch your poll to any-of/multiple-choice checkboxes.
 * Polls can be set to expire in 5 minutes, 30 minutes, 1 hour, 6 hours, 1 day, 3 days, or 7 days.
 
-## Publishing levels {#privacy}
+## Post visibility & privacy {#privacy}
 
-{{< figure src="assets/post-visibility.png" width="50%" caption="New post with the option to modify the publishing level" >}}
+Posts can be published with one of four different post visibility levels. You can [set a default posting visibility](../preferences#posting), and you can change the visibility for a draft post by opening the "Visibility and interactions" dialog from the button above the text of the post.
 
-| Level | Public timelines | Permalink | Profile view | Home feeds |
-| :--- | :--- | :--- | :--- | :--- |
-| Public | Yes | Yes | Yes | Yes |
-| Quiet Public | No | Yes | Yes | Yes |
-| Followers | No | Logged in on the same site | In-app or logged in | Yes |
-| Specific People | No | Logged in and mentioned | In-app or logged in | No |
+{{< figure src="assets/post-visibility.png" width="70%" caption="The 'visibility and interactions' dialog, showing the available options for post visibility" >}}
 
-Posts can be published with one of four different privacy levels, as described below. You can [set a default privacy level for your posts](../preferences#posting), and you can change the privacy level for a draft post by selecting the "Change Post Privacy" icon beneath the text of the post.
+The following table shows where posts made with a certain privacy setting will be visible. "Public feeds" includes search results, trending, and live feeds.
+
+| Setting | Public feeds | Profile view | Home feeds |
+| :--- | :--- | :--- | :--- |
+| Public | Visible | Visible | Visible |
+| Quiet public | Hidden | Visible | Visible |
+| Followers | Hidden | Visible for followers and mentioned accounts | Visible for followers and mentioned accounts |
+| Private mention | Hidden | Visible for mentioned accounts | Visible for mentioned accounts |
+
+{{< hint style="info" >}}
+Direct links (permalinks) to posts with "Followers" or "Private mention" visibility can only be accessed by logged-in users eligible to see the post. Note that opening permalinks in a browser will redirect to the origin server of the post (where you might not have an account).  
+If you want to open a post on the server that your account is on, log into your server, paste the link into the search field and select "Open URL on Mastodon".
+{{< /hint >}}
+
+Below you'll find a detailed description of each post visibility setting.
 
 ### Public {#public}
 
 The default option.
 
 * Anyone can see your post at the permalink without logging in.
-* Your post will appear in-app in the public timelines.
+* Your post will appear in-app in the public timelines and on your profile.
 * Your followers will receive the post in their home feeds, and anyone mentioned will receive the post in notifications.
 * Your post can be boosted into other home feeds.
 
-### Quiet Public {#unlisted}
+### Quiet public {#unlisted}
 
 Exactly the same as public, but with the following difference:
 
 * Your post will not appear in Mastodon's live feeds or explore features.
 * Your post will not appear in search results, even if your account has opted-in to full text search.
 
-This option was previously known as Unlisted.
+This option was previously known as "Unlisted".
 
 ### Followers {#followers}
 
 A more limited delivery option.
 
-* Seeing your post at the permalink requires being logged in on the same website as someone who follows you or was mentioned.
-* Your post will not appear in-app except to followers browsing your profile, and to anyone mentioned.
+* Only accounts following you and those that were mentioned in the post can see your post.
+* Your post will not appear in-app except to your followers and anyone mentioned.
 * Your followers will receive the post in their home feeds, and anyone mentioned will receive the post in notifications.
 * Your post cannot be boosted, except by yourself.
 
 {{< hint style="warning" >}}
-To effectively publish private (followers-only) posts, you must **lock your account**–otherwise, anyone could follow you to view older posts.
+To effectively publish followers-only posts, you must **disable the "Automatically accept new followers" option** – otherwise anyone could follow you to view older posts.
 {{< /hint >}}
 
 {{< hint style="danger" >}}
-Please mind that post privacy on Mastodon is per-post, rather than account-wide, and as such **there is no way to make past public posts private.**
+Please mind that post privacy on Mastodon is per-post, rather than account-wide. **There is no way to make past public posts private.**
 {{< /hint >}}
 
-### Specific People {#private}
+### Private mention {#private}
 
 Send your post only to mentioned users.
 
-* Seeing your post at the permalink requires being logged in on the same website as someone who was mentioned.
+* Only accounts that were mentioned in your post can see it.
 * Your post will not appear in-app except to anyone mentioned.
 * Anyone mentioned will receive the post in notifications. It will not appear in the home timeline.
 * Your post cannot be boosted.
 
+This option was previously known as "Specific people".
+
 {{< hint style="warning" >}}
-**Do not share dangerous and sensitive information over private mentions**. Mastodon is not an encrypted messaging app like Signal or Matrix, the database administrators of the sender’s and recipient’s servers may obtain access to the text.
+**Do not share dangerous and sensitive information over private mentions**. Mastodon is not an encrypted messaging app like Signal or Matrix, and the database administrators of the sender’s and recipient’s servers may obtain access to the text.
 {{< /hint >}}
 
 ## Visibility of Replies {#replies}
@@ -139,7 +150,7 @@ Your replies will only appear on your followers' Home feeds if they follow both 
 Some notes about this:
 
 * A new post you make which starts with an `@mention` is **not** considered a reply, so it will show up on the Home feed of all your followers.
-* The reply's visibility (Public vs Unlisted vs Followers-Only) does **not** affect whether it shows up on the Home feed.
+* The reply's visibility (Public vs Unlisted vs Followers-only) does **not** affect whether it shows up on the Home feed.
 * If your post is public and contains a followed hashtag, it will be shown on the Home feed regardless of whether it is a reply.
 * Other Fediverse software may show all of your replies on the Home feed, no matter who the posts are replies to.
 
