@@ -104,7 +104,7 @@ The default option.
 
 ### Quiet public {#unlisted}
 
-Exactly the same as public, but with the following difference:
+The same as public, but with the following differences:
 
 * Your post will not appear in Mastodon's live feeds or explore features.
 * Your post will not appear in search results, even if your account has opted-in to full text search.
