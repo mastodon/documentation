@@ -82,6 +82,14 @@ Truncated sample search for q=cats limit=2
         // ...
       ]
     }
+  ],
+  "collections": [
+    {
+      "id": "123456789012345678",
+      "name": "Cats",
+      "description": "Posters who are cats",
+      // …
+    }
   ]
 }
 ```
@@ -110,6 +118,13 @@ Truncated sample search for q=cats limit=2
 1.1.0 - added\
 2.4.1 - v1/search deprecated because it returns Array of String. v2/search added which returns Array of Tag.\
 3.0.0 - v1/search removed
+
+### `collections` {#collections}
+
+**Description:** Collections which match the given query\
+**Type:** Array of [Collection]({{< relref "entities/Collection" >}})\
+**Version history:**\
+4.6.0 - added
 
 ## See also
 
