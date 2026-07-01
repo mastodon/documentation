@@ -202,7 +202,7 @@ When requesting other user's Collections or when making anonymous requests, only
 ## Get all Collections from a given account {#get_collections}
 
 ```http
-GET /api/v1/:account_id/collections HTTP/1.1
+GET /api/v1/accounts/:account_id/collections HTTP/1.1
 ```
 
 **Returns:** [Collections]({{< relref "entities/Collection#Collections" >}})\
