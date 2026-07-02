@@ -447,14 +447,14 @@ aliases: [
 }
 ```
 
-### `source` {#source}
+#### `source` {#source}
 
 **Description:** An extra attribute that contains source values to be used with API methods that [verify credentials]({{< relref "methods/accounts#verify_credentials" >}}) and [update credentials]({{< relref "methods/accounts#update_credentials" >}}).\
 **Type:** Hash\
 **Version history:**\
 2.4.0 - added
 
-### `source[attribution_domains]` {#source-attribution_domains}
+#### `source[attribution_domains]` {#source-attribution_domains}
 
 **Description:** Domains of websites allowed to credit the account.\
 **Type:** Array of String\
@@ -538,7 +538,7 @@ aliases: [
 **Version history:**\
 4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added `posting:default:quoted_policy`
 
-### `role` {#role}
+#### `role` {#role}
 
 **Description:** The complete role assigned to the currently authorized user, including permissions and highlighted status.\
 **Type:** [Role]({{< relref "entities/Role" >}})\
@@ -599,7 +599,7 @@ These are stripped-down versions of [Account]({{< relref "entities/Account" >}})
 **Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added
 
-### `avatar_description`
+#### `avatar_description`
 
 **Description:** A textual description of the avatar image.\
 **Type:** String\
