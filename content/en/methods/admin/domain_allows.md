@@ -1,5 +1,5 @@
 ---
-title: domain_allows API methods
+title: admin/domain_allows API methods
 description: Allow certain domains to federate.
 menu:
   docs:

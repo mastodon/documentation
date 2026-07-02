@@ -1,5 +1,5 @@
 ---
-title: email_domain_blocks API methods
+title: admin/email_domain_blocks API methods
 description: Disallow certain email domains from signing up.
 menu:
   docs:
