@@ -205,7 +205,7 @@ This wraps a list of [Collection]({{< relref "entities/Collection" >}}) entities
       // ...
     },
     // ...
-  }
+  ]
 }
 ```
 
