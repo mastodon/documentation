@@ -45,6 +45,8 @@ aliases: [
 **Type:** String (Enumerable, oneOf)\
 `pending` = The account's consent to be added to this Collection could not yet be verified.\
 `accepted` = The account has consented to be featured in this Collection.\
+`rejected` = The account has rejected the request to be added to this Collection.\
+`revoked` = The account has revoked consent to be featured in this Collection.\
 **Version history:**\
 4.6.0 - added
 
