@@ -5,13 +5,13 @@ other = "このページを改善する"
 other = "最終更新"
 
 [joinTitle]
-other = "ソーシャルメディア革命に参加する"
+other = "新時代のソーシャルメディアに参加しよう"
 
 [joinText]
-other = "Mastodonは自由度を持った分散プラットフォームであり，400万人以上の人々が利用しています"
+other = "Mastodonには自由があり、300万人以上のユーザーが利用している分散プラットフォームです"
 
 [joinAction]
-other = "いまがマストドンに参加する，そのときです！"
+other = "いまがマストドンに参加するときです！"
 
 [merch]
 other = "グッズ"
@@ -20,7 +20,7 @@ other = "グッズ"
 other = "Tシャツやステッカー"
 
 [joinMastodon]
-other = "Mastodonに参加する"
+other = "Mastodonに参加しよう"
 
 [blog]
 other = "ブログ"
@@ -29,7 +29,7 @@ other = "ブログ"
 other = "ソースコードを見る"
 
 [imprint]
-other = "インプリメント"
+other = "法的情報"
 
 [formDataParameters]
 other = "データパラメーターより"
@@ -41,16 +41,22 @@ other = "ヘッダー"
 other = "必須"
 
 [optional]
-other = "選択"
+other = "任意"
+
+[deprecated]
+other = "非推奨"
+
+[removed]
+other = "削除済み"
 
 [nullable]
-other = "nullable"
+other = "空欄可"
 
 [pathParameters]
-other = "パスパラメーター"
+other = "パス パラメーター"
 
 [queryParameters]
-other = "クエリパラメーター"
+other = "クエリ パラメーター"
 
 [request]
 other = "リクエスト"
@@ -59,4 +65,7 @@ other = "リクエスト"
 other = "レスポンス"
 
 [otherTranslations]
-other = "他の言語も利用可能："
+other = "他の言語："
+
+[sponsoredBy]
+other = "協賛："

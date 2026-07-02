@@ -1,5 +1,5 @@
 ---
-title: 外部からのMasotodonの使用
+title: 外部でのMastodonの使用
 description: 外部のアプリやウェブサイトからMastodonを閲覧して操作できます。
 menu:
   docs:
@@ -7,14 +7,15 @@ menu:
     parent: user
 ---
 
-## 別のMastodonサイト上での遠隔操作 {#interact}
+## 別のMastodonのサイト上での操作 {#interact}
 
-{{< figure src="assets/image%20%2863%29.png" caption="Mastodonサイトにおける公開投稿のパーマリンクの例" >}}
+Mastodonが動いている別のサイトを閲覧しているときに返信やブースト、お気に入りのボタンをクリックすると、あなたが登録しているMastodonのサイトにその操作をリダイレクトするためのダイアログが表示されます。
 
-Mastodonが動いている別のサイトを閲覧しているときに操作ボタンをクリックすると、あなたの所属するサイトにリダイレクトするダイアログが読み込まれます。
-
-{{< figure src="assets/image%20%288%29.png" caption="トゥートに返信するための遠隔操作のダイアログ" >}}
+{{< figure src="assets/external-reply.gif" caption="別のMastodonのサイトに表示されている投稿に対して返信するために、ダイアログ上であなたが登録しているMastodonのサイトのドメインを入力している様子" >}}
 
 ## クライアントアプリでのログイン {#apps}
 
-Mastodonアカウントがあれば、Mastodon APIを実装しているどんなアプリにもログインできます。このようなアプリの一覧は、[https://joinmastodon.org/apps](https://joinmastodon.org/apps)に掲載されています。
+Mastodonのアカウントがあれば、Mastodon APIを実装しているどんなアプリにもログインできます。そのようなアプリの一覧は、[https://joinmastodon.org/apps](https://joinmastodon.org/apps)に掲載されています。
+
+訳注：このほか、Mastodonの公開投稿（ひかえめな公開を含む）は外部サイトに埋め込むことができます。投稿の詳細ニューから「埋め込み」を選ぶと、HTMLの埋め込みコードを取得できます。そのコードを外部のHTMLサイトに記述することで、投稿を外部サイトに表示できます。
+
