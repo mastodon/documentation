@@ -29,6 +29,7 @@ aliases: [
 `followers` = Followers are expected to be able to feature this account in a Collection and have this accepted automatically.\
 `following` = People followed by this account are expected to be able to to feature it in a Collection and have this accepted automatically.\
 `unsupported_policy` = The underlying policy is not supported by Mastodon. Some accounts that do not fit in the above categories may be allowed to feature this account in a Collection and have this accepted automatically.\
+`disabled` = All interaction explicitly disabled.\
 **Version history:**\
 4.6.0 - added
 
