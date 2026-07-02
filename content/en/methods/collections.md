@@ -220,7 +220,7 @@ Authorization
 ##### Query parameters
 
 limit
-: Integer. Maximum number of results. Defaults to 40 Collections. Max 80 accounts.
+: Integer. Maximum number of results. Defaults to 40 Collections. Max 80 Collections.
 
 offset
 : Integer. Skip the first n results. Defaults to 0.
@@ -288,7 +288,7 @@ Authorization
 ##### Query parameters
 
 limit
-: Integer. Maximum number of results. Defaults to 40 Collections. Max 80 accounts.
+: Integer. Maximum number of results. Defaults to 40 Collections. Max 80 Collections.
 
 offset
 : Integer. Skip the first n results. Defaults to 0.
