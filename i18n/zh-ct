@@ -1,0 +1,68 @@
+[improvePage]
+other = "改進此頁面"
+
+[lastUpdated]
+other = "最後更新於"
+
+[lastUpdatedDateFormat]
+other = "{{ .Format \"January 2, 2006\" }}"
+
+[joinTitle]
+other = "加入社交媒體的革命"
+
+[joinText]
+other = "Mastodon 是個擁有超過三百萬用戶的自由且去中心化平台"
+
+[joinAction]
+other = "快來 Mastodon 吧!"
+
+[merch]
+other = "商品"
+
+[shirtsAndStickers]
+other = "T-shirts 和貼紙"
+
+[joinMastodon]
+other = "加入 Mastodon"
+
+[blog]
+other = "部落格"
+
+[viewSource]
+other = "檢視原始碼"
+
+[imprint]
+other = "版權訊息"
+
+[formDataParameters]
+other = "表單資料參數"
+
+[headers]
+other = "標題"
+
+[required]
+other = "必需"
+
+[optional]
+other = "可選"
+
+[nullable]
+other = "可為空"
+
+[pathParameters]
+other = "路徑參數"
+
+[queryParameters]
+other = "查詢參數"
+
+[request]
+other = "請求"
+
+[response]
+other = "回應"
+
+[otherTranslations]
+other = "另外還有:"
+
+[sponsoredBy]
+other = "贊助自"
