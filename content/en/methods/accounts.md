@@ -337,7 +337,8 @@ Update the user's display and preferences.
 4.1.0 - added `hide_collections` parameter\
 4.2.0 - added `indexable` parameter\
 4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added `attribution_domains` parameter\
-4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added `quote_policy` parameter
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added `quote_policy` parameter\
+4.6.1 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 11) - added `avatar_description` and `header_description` parameter
 
 #### Request
 
@@ -357,8 +358,14 @@ note
 avatar
 : Avatar image encoded using `multipart/form-data`
 
+avatar_description
+: String. A plain-text description of the avatar, for accessibility purposes.
+
 header
 : Header image encoded using `multipart/form-data`
+
+header_description
+: String. A plain-text description of the header, for accessibility purposes.
 
 locked
 : Boolean. Whether manual approval of follow requests is required.
