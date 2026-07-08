@@ -15,6 +15,10 @@ HTTP signature headers are a way to cryptographically sign HTTP messages. Mastod
 
 ### HTTP Signatures {#http-signatures}
 
+{{< hint style="warning" >}}
+This version of HTTP Signatures is still required for compatibility with older Mastodon versions (including the still supported 4.4.0) and other fediverse implementations, but we strongly suggest implementers to also implement the up-to-date HTTP Message Signatures (RFC9421) specification, starting with verification, as we intend to eventually move away from this earlier draft.
+{{< /hint >}}
+
 Historically, Mastodon uses a proposed draft standard called [HTTP Signatures](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures). This is a specification for signing HTTP messages by using a `Signature:` header with your HTTP request.
 
 For any HTTP request incoming to Mastodon, the Signature header should be attached:
