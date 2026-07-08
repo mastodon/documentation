@@ -232,4 +232,14 @@ Aside from the vocabulary changes, this FEP recommends a cryptosuite that has tw
 
 ### Verifying Object Identity Proofs
 
-TODO
+Proof verification is described in [FEP-8b32](https://codeberg.org/fediverse/fep/src/branch/main/fep/8b32/fep-8b32.md#proof-verification).
+
+Mastodon currently prefers Linked Data Signatures and will only attempt to verify an Object Integrity Proof if the Linked Data Signature is absent or unverifiable. To verify an Object Identity Proof, Mastodon uses the following algorithm:
+
+* Drop `signature` from the received JSON (see https://codeberg.org/fediverse/fep/src/branch/main/fep/8b32/fep-8b32.md#backward-compatibility)
+* Make sure that a `proof` exists and is an object.
+* Make sure that `proof[type]` is `DataIntegrityProof`, `proof[proofPurpose]` is `assertionMethod`, and `proof[verificationMethod]` exists.
+* Make sure that `proof[expires]` is set in the future, if it exists.
+* Make sure that `proof[cryptosuite]` is one of the supported cryptosuites (currently, `eddsa-jcs-2022`).
+* Fetch the key designated by the `proof[verificationMethod]` URI using [FEP-521a](https://codeberg.org/fediverse/fep/src/branch/main/fep/521a/fep-521a.md).
+* Perform signature verification using the key fetched in the previous step according to the cryptosuite specifications. For `eddsa-jcs-2022`, this is specified in the [Data Integrity EdDSA Cryptosuites v1.0 spec](https://www.w3.org/TR/vc-di-eddsa/#verify-proof-eddsa-jcs-2022).
