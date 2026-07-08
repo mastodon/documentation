@@ -138,8 +138,9 @@ Mastodon verifies the signature using the following algorithm:
 ### HTTP Message Signatures (RFC9421) {#http-message-signatures}
 
 **Version history:**\
-4.4.0 - added support for validating signatures, but not enabled by default\
-4.5.0 - enabled support for validating signatures by default
+4.4.0 - added support for validating `rsa-v1_5-sha256` signatures, but not enabled by default\
+4.5.0 - enabled support for validating `rsa-v1_5-sha256` signatures by default\
+4.7.0 (unreleased) - added support for validating `ed25519` signatures
 
 Since Mastodon implemented HTTP Signatures this draft specification has been overhauled, released as [RFC9421](https://www.rfc-editor.org/rfc/rfc9421.html) and renamed to "HTTP Message Signatures".
 
@@ -169,7 +170,12 @@ To learn more about HTTP Message Signatures please refer to:
 * [RFC9421](https://www.rfc-editor.org/rfc/rfc9421.html) for all the details
 * [HTTP Message Signatures Sandbox](https://httpsig.org/) for an interactive playground and a list of libraries implementing RFC9421 
 
-## Linked Data Signatures {#ld}
+## Embedded signatures
+
+Unlike signed HTTP requests, embedded signatures are part of an ActivityPub document, which allows relaying it together with a proof of its authorship.
+This is useful for inbox forwarding and similar purposes while avoiding extra requests to the author's server.
+
+### Linked Data Signatures {#ld}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/activitypub/linked_data_signature.rb" caption="app/lib/activitypub/linked_data_signature.rb" >}}
 
@@ -182,7 +188,7 @@ Mastodon's current implementation of LD Signatures is outdated due to a change i
 - When running a [self-destruct]({{< relref "admin/tootctl#tootctl-self-destruct" >}}) sequence to send Delete activities to all known peers, the payload will use LD Signatures because HTTP Signatures will not be available. Receiving servers will process the signature by validating it against the locally cached actor key, since the HTTP server will no longer be hosting old actor information.
 - When accepting activities from a relay. Public activities can optionally be sent to a relay with LD Signatures, and any server subscribing to a relay does not have to manually refetch the activity from the origin. This prevents having potentially infinite servers attempt to load the status from your instance.
 
-### Creating LD signatures {#ld-sign}
+#### Creating LD signatures {#ld-sign}
 
 To create a signature, Mastodon uses the keypair attached to an actor at `https://mastodon.example/users/username#main-key`. It then creates an RSA-SHA256 hash of the document, signs it with the keypair, and Base64-strict-encodes the resulting output to derive a `signatureValue`. The following hash is merged into the JSON-LD document:
 
@@ -195,7 +201,7 @@ To create a signature, Mastodon uses the keypair attached to an actor at `https:
 }
 ```
 
-### Verifying LD signatures {#ld-verify}
+#### Verifying LD signatures {#ld-verify}
 
 To verify a signature, Mastodon uses the following algorithm:
 
@@ -209,3 +215,21 @@ To verify a signature, Mastodon uses the following algorithm:
 
     * When the `keyId` is an actor and fragment (`actor#key`), the owner points back to the same document (actor).
     * When the `keyId` is a key (`/key`), the owner points back to some actor, and that actor should point back to the same key (establishing a bi-directional claim).
+
+### Object Integrity Proofs (FEP-8b32) {#fep-8b32}
+
+{{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/activitypub/object_integrity_proof.rb" caption="app/lib/activitypub/object_integrity_proof.rb" >}}
+
+**Version history:**\
+4.7.0 (unreleased) - added support for validating FEP-8b32 Object Integrity proofs using the `eddsa-jcs-2022` cryptosuite
+
+As noted in the previous section, Linked Data Signatures have been superseded by the [Verifiable Credential Data Integrity 1.0](https://w3c.github.io/vc-data-integrity/) specification, which uses new vocabulary and provides a framework to abstract *cryptosuites*. [FEP-8b32: Object Integrity Proofs](https://codeberg.org/fediverse/fep/src/branch/main/fep/8b32/fep-8b32.md) specifies how to use this specification in the context of ActivityPub using the `eddsa-jcs-2022` cryptosuite.
+Mastodon 4.7.0 (unreleased) added support for incoming Object Integrity Proofs.
+
+Aside from the vocabulary changes, this FEP recommends a cryptosuite that has two significant differences with `RsaSignature2017` that Mastodon uses for Linked Data Signatures:
+- it uses EdDSA instead of RSA
+- it uses [JSON Canonicalization Scheme](https://datatracker.ietf.org/doc/html/rfc8785) instead of [RDF Dataset Canonicalization](https://www.w3.org/TR/rdf-canon/), which is much simpler and less resource-intensive, but is not preserved by JSON-LD expansion, compaction or framing
+
+### Verifying Object Identity Proofs
+
+TODO
