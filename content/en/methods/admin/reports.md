@@ -30,7 +30,7 @@ View information about all reports.
 **Version history:**\
 2.9.1 - added\
 4.0.0 - support custom roles and permissions\
-4.6.0 - added `unresolved` parameter
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added `unresolved` parameter
 
 #### Request
 
