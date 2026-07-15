@@ -144,7 +144,7 @@ Mastodon verifies the signature using the following algorithm:
 **Version history:**\
 4.4.0 - added support for validating `rsa-v1_5-sha256` signatures, but not enabled by default\
 4.5.0 - enabled support for validating `rsa-v1_5-sha256` signatures by default\
-4.7.0 (unreleased) - added support for validating `ed25519` signatures
+4.7.0 (unreleased) - added support for validating `ed25519` signatures, and added signing outgoing requests using RFC9421 as fallback for requests that fail with 400 or 401 with cavage draft signatures
 
 Since Mastodon implemented HTTP Signatures this draft specification has been overhauled, released as [RFC9421](https://www.rfc-editor.org/rfc/rfc9421.html) and renamed to "HTTP Message Signatures".
 
