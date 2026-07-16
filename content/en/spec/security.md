@@ -225,7 +225,7 @@ To verify a signature, Mastodon uses the following algorithm:
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/lib/activitypub/object_integrity_proof.rb" caption="app/lib/activitypub/object_integrity_proof.rb" >}}
 
 **Version history:**\
-4.7.0 (unreleased) - added support for validating FEP-8b32 Object Integrity proofs using the `eddsa-jcs-2022` cryptosuite
+4.7.0 (unreleased) - added support for validating FEP-8b32 Object Integrity proofs using the `eddsa-jcs-2022` cryptosuite or `mldsa44-jcs-2024` cryptosuite
 
 As noted in the previous section, Linked Data Signatures have been superseded by the [Verifiable Credential Data Integrity 1.0](https://w3c.github.io/vc-data-integrity/) specification, which uses new vocabulary and provides a framework to abstract *cryptosuites*. [FEP-8b32: Object Integrity Proofs](https://codeberg.org/fediverse/fep/src/branch/main/fep/8b32/fep-8b32.md) specifies how to use this specification in the context of ActivityPub using the `eddsa-jcs-2022` cryptosuite.
 Mastodon 4.7.0 (unreleased) added support for incoming Object Integrity Proofs.
@@ -233,6 +233,8 @@ Mastodon 4.7.0 (unreleased) added support for incoming Object Integrity Proofs.
 Aside from the vocabulary changes, this FEP recommends a cryptosuite that has two significant differences with `RsaSignature2017` that Mastodon uses for Linked Data Signatures:
 - it uses EdDSA instead of RSA
 - it uses [JSON Canonicalization Scheme](https://datatracker.ietf.org/doc/html/rfc8785) instead of [RDF Dataset Canonicalization](https://www.w3.org/TR/rdf-canon/), which is much simpler and less resource-intensive, but is not preserved by JSON-LD expansion, compaction or framing
+
+Mastodon extends this support by also implementing verification of proofs made with the `mldsa44-jcs-2024` cryptosuite.
 
 ### Verifying Object Identity Proofs
 
@@ -244,6 +246,8 @@ Mastodon currently prefers Linked Data Signatures and will only attempt to verif
 * Make sure that a `proof` exists and is an object.
 * Make sure that `proof[type]` is `DataIntegrityProof`, `proof[proofPurpose]` is `assertionMethod`, and `proof[verificationMethod]` exists.
 * Make sure that `proof[expires]` is set in the future, if it exists.
-* Make sure that `proof[cryptosuite]` is one of the supported cryptosuites (currently, `eddsa-jcs-2022`).
+* Make sure that `proof[cryptosuite]` is one of the supported cryptosuites (currently, `eddsa-jcs-2022` or `mldsa44-jcs-2024`).
 * Fetch the key designated by the `proof[verificationMethod]` URI using [FEP-521a](https://codeberg.org/fediverse/fep/src/branch/main/fep/521a/fep-521a.md).
-* Perform signature verification using the key fetched in the previous step according to the cryptosuite specifications. For `eddsa-jcs-2022`, this is specified in the [Data Integrity EdDSA Cryptosuites v1.0 spec](https://www.w3.org/TR/vc-di-eddsa/#verify-proof-eddsa-jcs-2022).
+* Perform signature verification using the key fetched in the previous step according to the cryptosuite specifications.
+  * For `eddsa-jcs-2022`, this is specified in the [Data Integrity EdDSA Cryptosuites v1.0 spec](https://www.w3.org/TR/vc-di-eddsa/#verify-proof-eddsa-jcs-2022).
+  * For `mldsa44-jcs-2024`, this is specified in the [Quantum-Resistant Cryptosuites v1.0 spec](https://www.w3.org/TR/2026/WD-vc-di-quantum-resistant-1.0-20260616/#verify-proof-ml-dsa).
