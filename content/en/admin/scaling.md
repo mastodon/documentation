@@ -120,6 +120,9 @@ Sidekiq uses different queues for tasks of varying importance, where importance 
 `scheduler`
 : Handling cron jobs, such as refreshing trending hashtags and cleaning up logs.
 
+`fasp`
+: Management of <abbr title="Fediverse Auxiliary Service Provider">FASP</abbr> interactions with servers providing external services.
+
 The default queues and their priorities are stored in [config/sidekiq.yml](https://github.com/mastodon/mastodon/blob/main/config/sidekiq.yml), but can be overridden by the command-line invocation of Sidekiq, e.g.:
 
 ```bash
