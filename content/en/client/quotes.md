@@ -16,6 +16,8 @@ The new APIs described below are available starting with `mastodon` [API version
 - the [Status]({{< relref "entities/status" >}}) entity has a new `quote_approval` attribute, holding a [QuoteApproval]({{< relref "entities/QuoteApproval" >}}) entity
 - the [Status]({{< relref "entities/status" >}}) entity also has an additional `quotes_count` attribute counting the number of accepted quotes
 - the [CredentialAccount]({{< relref "entities/Account#CredentialAccount">}}) entity has an additional `source[quote_policy]` attribute holding the default quote policy for the user. One of `public`, `followers` and `nobody`
+- the [ScheduledStatus]({{< relref "entities/scheduledstatus" >}}) entity has a new `params[quoted_status_id]` attribute, holding the ID of the status being quoted
+- the [ScheduledStatus]({{< relref "entities/scheduledstatus" >}}) entity also has a new `params[quote_approval_policy]` attribute, holding the quote policy for the status. One of `public`, `followers` and `nobody`.
 - the response to [`GET /api/v1/preferences`]({{< relref "methods/preferences#get" >}}) has a new attribute `posting:default:quote_policy` holding the default quote policy for the user. One of `public`, `followers` and `nobody`.
 
 ### New notification types

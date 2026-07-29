@@ -68,7 +68,9 @@ limit
       "scheduled_at": null,
       "spoiler_text": null,
       "application_id": 596551,
-      "in_reply_to_id": null
+      "in_reply_to_id": null,
+      "quoted_status_id": null,
+      "quote_approval_policy": "followers"
     },
     "media_attachments": []
   }
@@ -127,7 +129,9 @@ Authorization
     "scheduled_at": null,
     "spoiler_text": null,
     "application_id": 596551,
-    "in_reply_to_id": null
+    "in_reply_to_id": null,
+    "quoted_status_id": null,
+    "quote_approval_policy": "followers"
   },
   "media_attachments": []
 }
@@ -200,7 +204,9 @@ scheduled_at
     "scheduled_at": null,
     "spoiler_text": null,
     "application_id": 596551,
-    "in_reply_to_id": null
+    "in_reply_to_id": null,
+    "quoted_status_id": null,
+    "quote_approval_policy": "followers"
   },
   "media_attachments": []
 }

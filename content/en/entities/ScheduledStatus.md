@@ -32,7 +32,9 @@ Returned from `POST /api/v1/statuses?status=test post&scheduled_at=2022-09-29`
     "idempotency": null,
     "with_rate_limit": false,
     "in_reply_to_id": null,
-    "application_id": 3
+    "application_id": 3,
+    "quoted_status_id": null,
+    "quote_approval_policy": "followers"
   },
   "media_attachments": []
 }
@@ -56,7 +58,9 @@ Returned from `GET /api/v1/scheduled_statuses`:
     "spoiler_text": null,
     "application_id": 3,
     "in_reply_to_id": null,
-    "with_rate_limit": false
+    "with_rate_limit": false,
+    "quoted_status_id": null,
+    "quote_approval_policy": "followers"
   },
   "media_attachments": []
 }
@@ -193,6 +197,23 @@ Returned from `GET /api/v1/scheduled_statuses`:
 **Type:** {{<nullable>}} String\
 **Version history:**\
 2.7.0 - added
+
+#### `params[quoted_status_id]` {#params-quoted_status_id}
+
+**Description:** ID of the Status being quoted.\
+**Type:** {{<nullable>}} String (cast from an integer, but not guaranteed to be a number)\
+**Version history:**\
+4.5.0 - added
+
+#### `params[quote_approval_policy]` {#params-quote_approval_policy}
+
+**Description:** The quote policy for the Status.\
+**Type:** String (Enumerable, oneOf)\
+`public` = Anyone (except blocked accounts) can quote\
+`followers` = Only followers and author can quote\
+`nobody` = Only author can quote\
+**Version history:**\
+4.5.0 - added
 
 #### `params[with_rate_limit]` {{%deprecated%}} {#params-with_rate_limit}
 
