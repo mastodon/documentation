@@ -368,7 +368,7 @@ aliases: [
 
 ### `invalid_handle` {{%optional%}} {#invalid_handle}
 
-**Description**: Whether the account has an invalid handle. An account with an invalid handle will still be returned with a server-unique `acct`, but it should not be assumed to be resolvable outside of this server or reflect the account's chosen username or residing server. It is a placeholder for accounts which handle cannot be verified, we should be a rare and temporary edge-case.\
+**Description**: Whether the account has an invalid handle. An account with an invalid handle will still be returned with a server-unique `acct`, but it should not be assumed to be resolvable outside of this server or reflect the account's chosen username or residing server. It is a placeholder for accounts for which the handle cannot be verified, which should be a rare and temporary edge-case.\
 **Type:** Boolean\
 4.7.0 - added
 
