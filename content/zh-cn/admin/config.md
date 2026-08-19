@@ -26,21 +26,21 @@ Mastodon使用环境变量作为其的配置。
 #### `AUTHORIZED_FETCH` {#authorized_fetch}
 
   当设置为 `true` 时，Mastodon将停止内联签名活动，并要求远程服务器在拉取公开（public）和不公开（unlisted）的嘟文时进行身份验证。
-  
+
   这可以阻止被屏蔽的域名拉取你的公开嘟文，但代价是可能增加计算量，并与不支持附带签名的拉取请求的软件不兼容（如低于3.0版本的Mastodon）。
-  
+
   请注意：这个模式并不能保证你的公开嘟文（public、unlisted）不被恶意操作者获取，这仅仅是增加了一点难度。
 
 #### `WHITELIST_MODE` {#whitelist_mode}
 
   当设置为 `true` 时，Mastodon将仅与白名单内的服务器互联，同时关闭公开页面和一些客户端API。
   白名单模式会启用 authorized fetch 模式。
-  
+
   当一个现存实例站点切换至白名单模式，以下命令可以被用来移除非白名单站点的数据：
   ```
   tootctl domain purge --whitelist-mode
   ```
-  
+
   请注意：虽然Mastodon 3.0 版本便引入了白名单模式 `WHITELIST_MODE`，但在Mastodon 3.0和3.0.1版中并没有正确实现。
 
 ### 密钥 {#secrets}
@@ -141,6 +141,7 @@ Mastodon使用环境变量作为其的配置。
 
 * `S3_ENABLED`
 * `S3_BUCKET`
+* `S3_KEY_PREFIX`
 * `AWS_ACCESS_KEY_ID`
 * `AWS_SECRET_ACCESS_KEY`
 * `S3_REGION`
