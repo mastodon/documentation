@@ -39,7 +39,7 @@ aliases: [
 ### `id` {#id}
 
 **Description:** The ID of the Web Push subscription in the database.\
-**Type:** String (cast from an integer, but not guaranteed to be a number)\
+**Type:** Integer\
 **Version history:**\
 2.4.0 - added
 
