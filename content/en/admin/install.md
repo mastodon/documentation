@@ -242,6 +242,15 @@ systemctl enable --now mastodon-web mastodon-sidekiq mastodon-streaming
 
 They will now automatically start at boot.
 
+## Alternative: Easypanel {#easypanel}
+
+If you'd rather skip the manual systemd/nginx setup above, [Easypanel](https://easypanel.io) is a self-hosted Docker deployment platform with a one-click deployment template for Mastodon (web, Sidekiq, PostgreSQL and Redis services, pre-wired together):
+
+[![Deploy on Easypanel][easypanel-btn]][easypanel-deploy]
+
+[easypanel-btn]: https://easypanel.io/img/deploy-on-easypanel-40.svg
+[easypanel-deploy]: https://easypanel.io/templates/mastodon
+
 {{< hint style="success" >}}
 **Hurray! This is it. You can visit your domain in the browser now!**
 {{< /hint >}}
