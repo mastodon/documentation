@@ -781,7 +781,7 @@ URL of the OLTP server to send the traces to. OpenTelemetry instrumentation is d
 Mastodon supports integration with [DeepL] and [LibreTranslate] as backend language translation engines. Both services require separate setup and for configuration of Mastodon (via environment variables) to understand how to use them.
 
 - DeepL needs `DEEPL_API_KEY` and `DEEPL_PLAN` (defaults to "free")
-- LibreTranslate needs `LIBRE_TRANSLATE_API_KEY` and `LIBRE_TRANSLATE_ENDPOINT`
+- LibreTranslate needs `LIBRE_TRANSLATE_ENDPOINT`. `LIBRE_TRANSLATE_API_KEY` is optional with self-hosting, but required when using an instance configured with API keys, such as libretranslate.com.
 
 [DeepL]: https://www.deepl.com
 [LibreTranslate]: https://libretranslate.com
@@ -1242,7 +1242,9 @@ When using DeepL, the name of the configured plan.
 
 #### `LIBRE_TRANSLATE_ENDPOINT`
 
-The endpoint (URL) with a running Libre Translate service.
+The endpoint (URL) with a running Libre Translate service. Do not include the /translate path.
+
+Example value: `http://127.0.0.1:5544`
 
 #### `LIBRE_TRANSLATE_API_KEY`
 
