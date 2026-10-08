@@ -23,10 +23,10 @@ The virtual machine can then be started:
 vagrant up
 ```
 
-Once the virtual machine has been started, you may launch the Foreman task executor to launch the various Mastodon processes:
+Once the virtual machine has been started, you may launch the `dev` task executor to launch the various Mastodon processes:
 
 ```sh
-vagrant ssh -c "cd /vagrant && foreman start"
+vagrant ssh -c "cd /vagrant && bin/dev"
 ```
 
 Once the Mastodon processes have fully started up, you can load `http://mastodon.local` in your browser to access the Mastodon instance within the VM. You can log in as the default admin user with the username `admin@mastodon.local` and the password `mastodonadmin`.
