@@ -206,7 +206,7 @@ aliases: [
 #### `published_at` {#published-at}
 
 **Description:** UNIX timestamp of publication date.\
-**Type:** String (UNIX timestamp)\
+**Type:** {{<nullable>}} String (UNIX timestamp)
 
 ## Trends::Link entity attributes {#trends-link}
 This is identical to a `Link` type `PreviewCard`, with added usage history.
