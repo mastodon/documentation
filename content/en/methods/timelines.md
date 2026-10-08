@@ -232,19 +232,7 @@ Sample timeline for the hashtag #cats and limit=2
 ]
 ```
 
-Note: The array returned may be empty in case the feed is disabled. See the [instance configuration attribute]({{<relref "entities/Instance/#timelines_access-hashtag_feeds" >}}).
-
-##### 404: Not found
-
-Hashtag does not exist
-
-```json
-{
-  "error": "Record not found"
-}
-```
-
----
+Note: The array returned may be empty in case no matching tag exists or the feed is disabled. See the [instance configuration attribute]({{<relref "entities/Instance/#timelines_access-hashtag_feeds" >}}).
 
 ##### 401: Unauthorized
 
