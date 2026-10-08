@@ -94,7 +94,7 @@ aliases: [
 ### `description` {#description}
 
 **Description:** An optional description of the Collection.\
-**Type:** String (HTML)\
+**Type:** {{<nullable>}} String (HTML)\
 **Version history:**\
 4.6.0 - added
 
