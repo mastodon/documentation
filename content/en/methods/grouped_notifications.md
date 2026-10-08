@@ -541,9 +541,12 @@ TODO
 `moderation_warning` = A moderator has taken action against your account or has sent you a warning\
 `quote` = Someone has quoted one of your statuses\
 `quoted_update` = A status you have quoted has been edited\
+`added_to_collection` = Someone added you to a Collection\
+`collection_update` = A Collection you are featured in was updated\
 **Version history:**\
 4.3.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 2) - added\
-4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added `quote` and `quoted_update`
+4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added `quote` and `quoted_update`\
+4.6.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 10) - added `added_to_collection` and `collection_update`
 
 #### `most_recent_notification_id`
 
@@ -612,6 +615,13 @@ TODO
 
 **Description:** Fallback information available for some notification types that clients may not support. Only available for some notification types, and only if the `supported_types` parameter is used when querying.\
 **Type:** [NotificationFallback]({{< relref "entities/NotificationFallback" >}})\
+**Version history:**\
+4.6.0 - added
+
+#### `collection` {{%optional%}}
+
+**Description:** Collection that was the object of the notification. Attached when `type` of the notification is `added_to_collection` or `collection_update`.\
+**Type:** [Collection]({{< relref "entities/Collection" >}})\
 **Version history:**\
 4.6.0 - added
 
