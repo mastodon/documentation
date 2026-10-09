@@ -1,5 +1,5 @@
 ---
-title: dimensions API methods
+title: admin/dimensions API methods
 description: Obtain qualitative metrics about the server.
 menu:
   docs:
