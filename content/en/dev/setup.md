@@ -106,7 +106,7 @@ RAILS_ENV=test bin/rails assets:precompile
 
 ## Useful commands for testing {#testing}
 
-`bin/rspec`
+`RAILS_ENV=test bin/rspec`
 : Run the Ruby test suite
 
 `yarn run test`
