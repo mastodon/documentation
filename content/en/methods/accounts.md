@@ -166,9 +166,15 @@ Test to make sure that the user token works.
 **OAuth:** User token + `profile` or `read:accounts`\
 **Version history:**\
 0.0.0 - added\
-4.3.0 - added `profile` scope
+4.3.0 - added `profile` scope\
+5.0.0 - added `allow_nonfunctional` parameter
 
 #### Request
+
+##### Query parameters
+
+allow_nonfunctional
+: Boolean. Whether to get account information even if the account is non-functional (such as e.g. not being approved or confirmed).
 
 ##### Headers
 
