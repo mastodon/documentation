@@ -77,6 +77,7 @@ Edit `.env.production` to add the following variables:
 
 ```bash
 ES_ENABLED=true
+ES_VERIFY_SSL=true
 ES_HOST=localhost
 ES_PORT=9200
 ES_PRESET= # single_node_cluster, small_cluster or large_cluster
@@ -84,7 +85,7 @@ ES_PRESET= # single_node_cluster, small_cluster or large_cluster
 # ES_PASS=
 ```
 
-_Note_: If using TLS, prepend the hostname with `https://`. For example: `https://elastic.example.com`.
+_Note_: If using TLS, prepend the hostname with `https://`. For example: `https://elastic.example.com`. Set ES_VERIFY_SSL to false when using self-signed certs.
 
 ### Choosing the correct preset
 
