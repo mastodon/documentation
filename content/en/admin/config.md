@@ -820,6 +820,8 @@ The bucket must support access control lists (ACLs). For AWS S3, this means sett
 
 #### `S3_BUCKET`
 
+#### `S3_KEY_PREFIX`
+
 #### `AWS_ACCESS_KEY_ID`
 
 #### `AWS_SECRET_ACCESS_KEY`
