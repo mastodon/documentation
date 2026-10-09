@@ -209,3 +209,8 @@ disablePathToLower = true
     contentDir = "content/ja"
     languageName = "日本語"
     weight = 2
+
+  [languages.fr]
+    contentDir = "content/fr"
+    languageName = "français"
+    weight = 3
