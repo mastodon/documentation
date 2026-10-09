@@ -551,6 +551,13 @@ aliases: [
 **Version history:**\
 4.0.0 - added
 
+### `state` {#state}
+
+**Description:** State of the current account.\
+**Type:** [AccountState](#AccountState)\
+**Version history:**\
+5.0.0 - added
+
 ---
 
 ## MutedAccount entity attributes {#MutedAccount}
@@ -692,6 +699,48 @@ The simplified role entity returned in the Account `roles` array, containing onl
 **Type:** {{<nullable>}} String ([Datetime](/api/datetime-format#datetime)) if `value` is a verified URL. Otherwise, null.\
 **Version history:**\
 2.6.0 - added
+
+---
+
+## AccountState entity attributes {#AccountState}
+
+The state of an account.
+
+### `functional` {#accountstate-functional}
+
+**Description:** Whether the current account is fully usable.\
+**Type:** Boolean\
+**Version history:**\
+5.0.0 - added
+
+### `confirmed` {#accountstate-confirmed}
+
+**Description:** Whether the current account has confirmed their email address.\
+**Type:** Boolean\
+**Version history:**\
+5.0.0 - added
+
+### `approved` {#accountstate-approved}
+
+**Description:** Whether the current account has been approved by a moderator.\
+**Type:** Boolean\
+**Version history:**\
+5.0.0 - added
+
+
+### `error` {#accountstate-error}
+
+**Description:** Reason why the account is not functional, if applicable. Expressed in natural language with a translatable string.\
+**Type:** {{<nullable>}} String\
+**Version history:**\
+5.0.0 - added
+
+### `error_code` {#accountstate-error_code}
+
+**Description:** Reason why the account is not functional, if applicable. Expressed as a code. Additional reasons can be added in the future.\
+**Type:** {{<nullable>}} String (Enumerable, oneOf `pending_confirmation`, `pending_approval`, `account_deleted`, `account_suspended`, `memorial`, `login_disabled`, `2fa_required`)\
+**Version history:**\
+5.0.0 - added
 
 ---
 

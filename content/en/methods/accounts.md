@@ -16,7 +16,7 @@ aliases: [
 #TableOfContents ul ul ul {display: none}
 </style>
 
-## Register an account {#create}
+## Register an account {{%deprecated%}} {#create}
 
 ```http
 POST /api/v1/accounts HTTP/1.1
@@ -32,7 +32,8 @@ A relationship between the OAuth Application and created user account is stored.
 2.7.0 - added\
 3.0.0 - added `reason` parameter\
 3.4.0 - added `details` to failure response\
-4.4.0 - added `date_of_birth` parameter
+4.4.0 - added `date_of_birth` parameter\
+5.0.0 - deprecated in favor of the [OAuth sign-up flow]({{< relref "methods/oauth#authorize" >}})
 
 #### Request
 
@@ -165,9 +166,15 @@ Test to make sure that the user token works.
 **OAuth:** User token + `profile` or `read:accounts`\
 **Version history:**\
 0.0.0 - added\
-4.3.0 - added `profile` scope
+4.3.0 - added `profile` scope\
+5.0.0 - added `allow_nonfunctional` parameter
 
 #### Request
+
+##### Query parameters
+
+allow_nonfunctional
+: Boolean. Whether to get account information even if the account is non-functional (such as e.g. not being approved or confirmed).
 
 ##### Headers
 

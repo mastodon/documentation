@@ -27,7 +27,8 @@ Displays an authorization form to the user. If approved, it will create and retu
 0.1.0 - added\
 2.6.0 - added `force_login`\
 3.5.0 - added `lang`\
-4.3.0 - added support for PKCE parameters
+4.3.0 - added support for PKCE parameters\
+5.0.0 - added `prompt` and `invite_code` parameters
 
 #### Request
 
@@ -59,6 +60,14 @@ force_login
 
 lang
 : String. The ISO 639-1 two-letter language code to use while rendering the authorization form.
+
+prompt
+: String (Enumerable, oneOf `create` or `login`). OpenID Connect `prompt`.\
+`create` = Enter sign-up flow instead of log-in. If the user is already logged in, they will be asked to log out first.\
+`login` = Require the user to log-in again. If they are already logged in, they will be asked to log out first.
+
+invite_code
+: String. Invitation code, to be used with `prompt=create` when following an invitation to sign-up.
 
 #### Response
 
@@ -306,7 +315,8 @@ The properties exposed by this endpoint can help you better integrate with the M
 **OAuth:** Public\
 **Version history:**\
 4.3.0 - added\
-4.4.0 - added `userinfo_endpoint`
+4.4.0 - added `userinfo_endpoint`\
+5.0.0 - added `prompt_values_supported`
 
 #### Response
 
@@ -380,6 +390,10 @@ The properties exposed by this endpoint can help you better integrate with the M
   "token_endpoint_auth_methods_supported": [
     "client_secret_basic",
     "client_secret_post"
+  ],
+  "prompt_values_supported": [
+    "create",
+    "login"
   ]
 }
 ```
