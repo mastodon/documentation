@@ -315,7 +315,8 @@ The properties exposed by this endpoint can help you better integrate with the M
 **OAuth:** Public\
 **Version history:**\
 4.3.0 - added\
-4.4.0 - added `userinfo_endpoint`
+4.4.0 - added `userinfo_endpoint`\
+5.0.0 - added `prompt_values_supported`
 
 #### Response
 
@@ -389,6 +390,10 @@ The properties exposed by this endpoint can help you better integrate with the M
   "token_endpoint_auth_methods_supported": [
     "client_secret_basic",
     "client_secret_post"
+  ],
+  "prompt_values_supported": [
+    "create",
+    "login"
   ]
 }
 ```
