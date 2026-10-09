@@ -27,7 +27,8 @@ Displays an authorization form to the user. If approved, it will create and retu
 0.1.0 - added\
 2.6.0 - added `force_login`\
 3.5.0 - added `lang`\
-4.3.0 - added support for PKCE parameters
+4.3.0 - added support for PKCE parameters\
+5.0.0 - added `prompt` and `invite_code` parameters
 
 #### Request
 
@@ -59,6 +60,14 @@ force_login
 
 lang
 : String. The ISO 639-1 two-letter language code to use while rendering the authorization form.
+
+prompt
+: String (Enumerable, oneOf `create` or `login`). OpenID Connect `prompt`.\
+`create` = Enter sign-up flow instead of log-in. If the user is already logged in, they will be asked to log out first.\
+`login` = Require the user to log-in again. If they are already logged in, they will be asked to log out first.
+
+invite_code
+: String. Invitation code, to be used with `prompt=create` when following an invitation to sign-up.
 
 #### Response
 
