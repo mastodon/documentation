@@ -174,7 +174,7 @@ Test to make sure that the user token works.
 ##### Query parameters
 
 allow_nonfunctional
-: Boolean. Whether to get account information even if the account is non-functional (such as e.g. not being approved or confirmed).
+: Boolean. Whether to get account information even if the account is non-functional (such as e.g. not being approved or confirmed), defaults to `false`.
 
 ##### Headers
 

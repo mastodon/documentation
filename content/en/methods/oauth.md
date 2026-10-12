@@ -67,7 +67,7 @@ prompt
 `login` = Require the user to log-in again. If they are already logged in, they will be asked to log out first.
 
 invite_code
-: String. Invitation code, to be used with `prompt=create` when following an invitation to sign-up.
+: String. Invitation code, to be used with `prompt=create` when following an invitation to sign-up. The invite code is the last path segment of Mastodon invite URLs of the form `https://example.com/invite/:invite_code`.
 
 #### Response
 
