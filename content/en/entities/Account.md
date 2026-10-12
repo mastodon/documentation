@@ -730,7 +730,7 @@ The state of an account.
 
 ### `error` {#accountstate-error}
 
-**Description:** Reason why the account is not functional, if applicable. Expressed in natural language with a translatable string.\
+**Description:** Localized string explaining why the account is not functional, if applicable.\
 **Type:** {{<nullable>}} String\
 **Version history:**\
 5.0.0 - added
