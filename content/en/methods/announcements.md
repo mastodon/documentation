@@ -165,7 +165,8 @@ React to an announcement with an emoji.
 **Returns:** Empty\
 **OAuth:** User token + `write:favourites`\
 **Version history:**\
-3.1.0 - added
+3.1.0 - added\
+5.0.0 - reactions can be disabled, in which case this endpoint will return a 400 error
 
 #### Request
 
@@ -187,6 +188,16 @@ Authorization
 
 ```json
 {}
+```
+
+##### 400: Bad Request
+
+Reactions are not enabled on this announcement.
+
+```json
+{
+  "error": "Emoji reactions are currently not supported on this server"
+}
 ```
 
 ##### 401: Unauthorized
@@ -230,7 +241,8 @@ Undo a react emoji to an announcement.
 **Returns:** Empty\
 **OAuth:** User token + `write:favourites`\
 **Version history:**\
-3.1.0 - added
+3.1.0 - added\
+5.0.0 - reactions can be disabled, in which case this endpoint will return a 400 error
 
 #### Request
 
@@ -252,6 +264,16 @@ Authorization
 
 ```json
 {}
+```
+
+##### 400: Bad Request
+
+Reactions are not enabled on this announcement.
+
+```json
+{
+  "error": "Emoji reactions are currently not supported on this server"
+}
 ```
 
 ##### 401: Unauthorized
