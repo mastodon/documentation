@@ -56,7 +56,7 @@ agreement
 : {{<required>}} Boolean. Whether the user agrees to the local rules, terms, and policies. These should be presented to the user in order to allow them to consent before setting this parameter to TRUE.
 
 locale
-: {{<required>}} String. The language of the confirmation email that will be sent.
+: {{<required>}} String. The language of the confirmation email that will be sent, e.g. `en` or `en-GB` ([IETF BCP 47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag)). Locales not available on the server will be rejected.
 
 reason
 : String. If registrations require manual approval, this text will be reviewed by moderators.
