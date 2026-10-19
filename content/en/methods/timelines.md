@@ -258,7 +258,8 @@ View statuses from followed users and hashtags.
 0.0.0 - added\
 2.6.0 - add `min_id`\
 3.3.0 - both `min_id` and `max_id` can be used at the same time now\
-4.0.0 - as users can now follow hashtags, statuses from non-followed users may appear in the timeline
+4.0.0 - as users can now follow hashtags, statuses from non-followed users may appear in the timeline\
+5.0.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 12) - added `exclude_direct`, `exclude_reblogs`, `exclude_quotes` and `exclude_replies` parameters\
 
 #### Request
 
@@ -280,6 +281,18 @@ min_id
 
 limit
 : Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+
+exclude_direct
+: Boolean. Whether to exclude Direct Messages from the response.
+
+exclude_reblogs
+: Boolean. Whether to exclude reblogs from the response.
+
+exclude_quotes
+: Boolean. Whether to exclude quote posts from the response.
+
+exclude_replies
+: Boolean. Whether to exclude replies from the response.
 
 #### Response
 ##### 200: OK
