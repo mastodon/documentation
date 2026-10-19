@@ -170,7 +170,8 @@ aliases: [
     "reason_required": false,
     "message": null,
     "min_age": 16,
-    "url": null
+    "url": null,
+    "oauth": true
   },
   "api_versions": {
     "mastodon": 6
@@ -957,6 +958,13 @@ aliases: [
 **Type:** {{<nullable>}} Boolean\
 **Version history:**\
 4.4.0 - added
+
+#### `registrations[oauth]` {#registrations-oauth}
+
+**Description:** Signals whether the OAuth registration flow (`prompt=create`) is supported.\
+**Type:** Boolean\
+**Version history:**\
+5.0.0 - added
 
 #### `registrations[url]` {#registrations-url}
 
