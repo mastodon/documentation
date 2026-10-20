@@ -48,7 +48,7 @@ The following endpoints have new parameters:
 
 - [`GET /api/v1/statuses/:id/quotes`]({{< relref "methods/statuses#quotes" >}}): returns a list of posts quoting the status specified by `id`; requires a logged-in user
 - [`POST /api/v1/statuses/:id/quotes/:quoting_status_id/revoke`]({{< relref "methods/statuses#revoke_quote" >}}): revoke quote authorization of post `quoting_status_id`, requires the status identified by `id` to be owned by the current user
-- [`PUT /api/v1/statuses/:id/interaction_policy`]({{< relref "methods/statuses#interaction_policy" >}}): use parameter `quote_approval_policy` to update the quote policy of a status without going through the entire edit flow
+- [`PUT /api/v1/statuses/:id/interaction_policy`]({{< relref "methods/statuses#edit_interaction_policy" >}}): use parameter `quote_approval_policy` to update the quote policy of a status without going through the entire edit flow
 
 ## General recommendations for clients
 

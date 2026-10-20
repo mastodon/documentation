@@ -215,6 +215,6 @@ aliases: [
 
 ## See also
 
-{{< page-relref ref="methods/profile#extended_description" caption="GET /api/v1/profile" >}}
+{{< page-relref ref="methods/profile#get-current-user-profile" caption="GET /api/v1/profile" >}}
 
 {{< caption-link url="https://github.com/mastodon/mastodon/blob/main/app/serializers/rest/profile_serializer.rb" caption="app/serializers/rest/profile_serializer.rb" >}}
