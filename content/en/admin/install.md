@@ -39,6 +39,16 @@ wget -O /usr/share/keyrings/postgresql.asc https://www.postgresql.org/media/keys
 echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/postgresql.list
 ```
 
+Note: For those using Linux Mint 22.3 and above, your system may be classified as Zena and result in the download of PostgreSQL version 16 instead of 18 as Zena is not a version available. Please use the below command instead to download version 18 for Noble instead.
+<details>
+  <summary>View code</summary>
+  
+  ```bash
+  wget -O /usr/share/keyrings/postgresql.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+  echo "deb [signed-by=/usr/share/keyrings/postgresql.asc] http://apt.postgresql.org/pub/repos/apt noble-pgdg main" > /etc/apt/sources.list.d/postgresql.list
+  ```
+</details>
+
 ### System packages {#system-packages}
 
 ```bash
