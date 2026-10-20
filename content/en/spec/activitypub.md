@@ -604,7 +604,7 @@ Mastodon allows users to feature specific hashtags on their profile for easy bro
 Mastodon supports arbitrary profile fields containing name-value pairs. This is implemented using the `attachment` property on actor objects, with objects in the array having a type of `PropertyValue` and a `value` property, both from the schema.org namespace.
 
 {{<hint style="warning">}}
-As noted above while listing the [schema.org @context extensions](#schema), Mastodon currently incorrectly expects and maps the term `schema` to the base URI `http://schema.org#` instead of to the base URI `https://schema.org/`. Therefore, JSON-LD processors who use the correct context definition will fail to process profile fields correctly.
+As noted above while listing the [schema.org @context extensions](https://docs.joinmastodon.org/spec/activitypub/#schema), Mastodon currently incorrectly expects and maps the term `schema` to the base URI `http://schema.org#` instead of to the base URI `https://schema.org/`. Therefore, JSON-LD processors who use the correct context definition will fail to process profile fields correctly.
 {{</hint>}}
 
 ```json
