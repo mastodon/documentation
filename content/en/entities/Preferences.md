@@ -51,6 +51,13 @@ aliases: [
 **Version history:**\
 2.8.0 - added
 
+### `posting:default:spoiler_field {#posting-default-spoiler-field}
+
+**Description:** Default for adding a content warning for new posts. Equivalent to [CredentialAccount#source\[spoiler_field\]]({{< relref "entities/Account#source-spoiler-field" >}}).\
+**Type:** Boolean\
+**Version history:**\
+5.0.0 - added
+
 ### `reading:expand:media` {#reading-expand-media}
 
 **Description:** Whether media attachments should be automatically displayed or blurred/hidden.\

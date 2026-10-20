@@ -211,6 +211,7 @@ Note the extra `source` property, which is not visible on accounts other than yo
   "source": {
     "privacy": "public",
     "sensitive": false,
+    "spoiler_field": false,
     "language": "",
     "note": "i have approximate knowledge of many things. perpetual student. (nb/ace/they)\r\n\r\nxmpp/email: a@trwnh.com\r\nhttps://trwnh.com\r\nhelp me live: https://liberapay.com/at or https://paypal.me/trwnh\r\n\r\n- my triggers are moths and glitter\r\n- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise\r\n- dm me if i did something wrong, so i can improve\r\n- purest person on fedi, do not lewd in my presence\r\n- #1 ami cole fan account\r\n\r\n:fatyoshi:",
     "fields": [
@@ -345,7 +346,8 @@ Update the user's display and preferences.
 4.2.0 - added `indexable` parameter\
 4.4.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 3) - added `attribution_domains` parameter\
 4.5.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 7) - added `quote_policy` parameter\
-4.6.1 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 11) - added `avatar_description` and `header_description` parameter
+4.6.1 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 11) - added `avatar_description` and `header_description` parameter\
+5.0.0 (`mastodon` [API version]({{< relref "entities/Instance#api-versions" >}}) 12) - added `source[spoiler_field]` parameter
 
 #### Request
 
@@ -412,6 +414,9 @@ source[language]
 
 source[quote_policy]
 : String (Enumerable, oneOf `public` `followers` `nobody`). Default quote policy for new posts.
+
+source[spoiler_field]
+: Boolean. Whether to add a content warning to new posts by default.
 
 #### Response
 
@@ -497,6 +502,7 @@ You should use accounts/verify_credentials to first obtain plaintext representat
   "source": {
     "privacy": "public",
     "sensitive": false,
+    "spoiler_field": false,
     "language": "",
     "note": "i have approximate knowledge of many things. perpetual student. (nb/ace/they)\r\n\r\nxmpp/email: a@trwnh.com\r\nhttps://trwnh.com\r\nhelp me live: https://liberapay.com/at or https://paypal.me/trwnh\r\n\r\n- my triggers are moths and glitter\r\n- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise\r\n- dm me if i did something wrong, so i can improve\r\n- purest person on fedi, do not lewd in my presence\r\n- #1 ami cole fan account\r\n\r\n:fatyoshi:",
     "fields": [
