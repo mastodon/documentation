@@ -48,6 +48,7 @@ Authorization
   "posting:default:sensitive": false,
   "posting:default:language": null,
   "posting:default:quote_policy": "followers",
+  "posting:default:spoiler_field": false,
   "reading:expand:media": "default",
   "reading:expand:spoilers": false,
   "reading:autoplay:gifs": false

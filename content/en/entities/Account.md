@@ -391,6 +391,7 @@ aliases: [
     "attribution_domains": ["example.com", "example.net"],
     "privacy": "public",
     "sensitive": false,
+    "spoiler_field": false,
     "language": "",
     "note": "i have approximate knowledge of many things. perpetual student. (nb/ace/they)\r\n\r\nxmpp/email: a@trwnh.com\r\nhttps://trwnh.com\r\nhelp me live: https://liberapay.com/trwnh or paypal\r\n\r\n- my triggers are moths and glitter\r\n- i have all notifs except mentions turned off, so please interact if you wanna be friends! i literally will not notice otherwise\r\n- dm me if i did something wrong, so i can improve\r\n- purest person on fedi, do not lewd in my presence",
     "fields": [
@@ -498,6 +499,13 @@ aliases: [
 **Type:** Boolean\
 **Version history:**\
 1.5.0 - added
+
+#### `source[spoiler_field]` {#source-spoiler-field}
+
+**Description:** Whether new statuses should have content warnings by default.\
+**Type:** Boolean\
+**Version history:**\
+5.0.0 - added
 
 #### `source[language]` {#source-language}
 
