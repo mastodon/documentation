@@ -419,6 +419,12 @@ Remove all accounts from a given DOMAIN without leaving behind any records. Unli
 `--limited-federation-mode`
 : Can be provided instead of DOMAIN. Instead of purging from a single domain, all accounts from domains that are not allow-listed will be removed from the database. Use this after enabling limited federation mode and defining your allow-list.
 
+`--include-subdomains`
+: Not only delete DOMAIN, but all subdomains as well. Note that this may be considerably slower.
+
+`--purge-domain-blocks`
+: Also purge matching domain blocks.
+
 `--concurrency N`
 : The number of workers to use for this task. Defaults to 5.
 
@@ -832,13 +838,16 @@ Create or update an Elasticsearch index and populate it. If Elasticsearch is emp
 : Parallelize execution of the command on multiple threads. Defaults to 5.
 
 `--import`
-: Import data from the database to the index
+: Import data from the database to the index.
 
 `--clean`
-: Remove outdated documents from the index
+: Remove outdated documents from the index.
 
 `--reset-chewy`
-: Reset Chewy's internal index
+: Reset Chewy's internal index.
+
+`--only-mapping`
+: Update the index specification without re-index.
 
 **Version history:**\
 2.8.0 - added\
@@ -913,24 +922,23 @@ This is a computationally heavy procedure that creates extra database indices be
 `--days N`
 : How old statuses have to be before they are removed. Defaults to 90.
 
-`--batch_size N`
+`--batch-size N`
 : Number of records in each batch. Defaults to 1000.
 
 `--continue`
-: If remove is not completed, execute from the previous continuation.
+: If remove is not completed, execute from the previous continuation. Defaults to false.
 
-`--clean_followed`
-: Include the status of remote accounts that are followed by local accounts as candidates for remove.
+`--clean-followed`
+: Include the status of remote accounts that are followed by local accounts as candidates for remove. Defaults to false.
 
-`--skip_status_remove`
-: Skip status remove (run only cleanup tasks)
+`--skip-status-remove`
+: Skip status remove (run only cleanup tasks). Defaults to false.
 
 `--skip-media-remove`
 : Skips removing the media, in case S3 errors out. Defaults to false.
 
-`--compress_database`
-: Compress database and update the statistics. This option locks the table for a long time, so run it offline.
-
+`--compress-database`
+: Compress database and update the statistics. This option locks the table for a long time, so run it offline. Defaults to false.
 
 **Version history:**\
 2.8.0 - added\
