@@ -207,13 +207,15 @@ To create a signature, Mastodon uses the keypair attached to an actor at `https:
 
 #### Verifying LD signatures {#ld-verify}
 
-To verify a signature, Mastodon uses the following algorithm:
+Mastodon verifies the LD signature using the following algorithm:
 
 * Make sure that a `signature` exists and is a hash.
-* Make sure that `signature[type]` is `RsaSignature2017`.
+* Retrieve the signature document from activity and check that `signature[type]` is the nonstandard `RsaSignature2017`.
 * Fetch the `signature[creator]` URI. Make sure the creator exists.
 * Strip `type`, `id`, and `signatureValue` from the `signature`, leaving only `signature[creator]` and `signature[created]`.
-* Base64-decode the `signatureValue` and verify it against the public key in `signature[creator]`.
+* Generate a SHA256 hex digest for the modified signature document using the procedure described for signing documents.
+* Concatenate the hex digests for the modified signature and activity documents.
+* Use the client's public key to verify the signature using SHA256.
 
 [^keyId]: The `keyId` does not reference the `publicKeyPem` property (the key material). It is a URI for the `publicKey` object associated with the actor. That public key object has an owner property that must be the URI of the owning actor. The extracted `keyId` value is processed as follows:
 
