@@ -46,6 +46,13 @@ aliases: [
 **Version history:**\
 4.3.0 - added
 
+### `for_bots` {#for_bots}
+
+**Description:** Whether to `accept`, `filter` or `drop` notifications from accounts marked as automated. `drop` will prevent creation of the notification object altogether (without preventing the underlying activity), `filter` will cause it to be marked as filtered, and `accept` will not affect its processing.\
+**Type:** String (one of `accept`, `filter` or `drop`)\
+**Version history:**\
+4.6.0 - added
+
 ### `summary` {#summary}
 
 **Description:** Summary of the filtered notifications\
@@ -77,6 +84,7 @@ aliases: [
   "for_new_accounts": "accept",
   "for_private_mentions": "drop",
   "for_limited_accounts": "filter",
+  "for_bots": "accept",
   "summary": {
     "pending_requests_count": 0,
     "pending_notifications_count": 0
