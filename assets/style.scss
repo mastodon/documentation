@@ -47,6 +47,34 @@ $transition-out: 250ms linear;
 $content-width: 1080px;
 $mobile-width: 600px;
 
+:root {
+  color-scheme: dark light;
+
+  --darkest: #{$darkest};
+  --lighter: #{$lighter};
+  --darker: #{$darker};
+  --lightest: #{$lightest};
+  --darkest-overlay: #{lighten($darkest, 4%)};
+  --darkest-overlay-strong: #{lighten($darkest, 8%)};
+  --background-border-color: #{$background-border-color};
+  --vibrant: #{$vibrant};
+  --white: #{$white};
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --darkest: #{$white};
+    --lighter: hsl(240deg, 16%, 19%);
+    --darker: hsl(240deg, 16%, 45%);
+    --lightest: #{$black};
+    --darkest-overlay: hsl(255deg, 25%, 88%);
+    --darkest-overlay-strong: hsl(250deg, 24%, 75%);
+    --background-border-color: hsl(240deg, 25%, 88%);
+    --vibrant: hsl(240deg, 100%, 69%);
+    --white: #{$white};
+  }
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -195,8 +223,8 @@ body {
   box-sizing: border-box;
   font-family: 'Manrope', sans-serif;
   text-rendering: optimizeLegibility;
-  background-color: $darkest;
-  color: $lighter;
+  background-color: var(--darkest);
+  color: var(--lighter);
   font-size: 13px;
   line-height: 18px;
   font-weight: 400;
@@ -223,57 +251,57 @@ body {
 }
 
 .sidebar {
-    @media screen and (max-width: $mobile-width) {
-        margin-bottom: 60px;
+  @media screen and (max-width: $mobile-width) {
+    margin-bottom: 60px;
 
-        // css menu toggle for mobile.
-        // when the checkbox is checked, the menu shows,
-        // othewise it's hidden.
-        // it's important for it all to be scoped inside this media query,
-        // that way on larger screens the menu will always show even if the checkbox is unchecked.
-        input[type="checkbox"] {
-            display: none;
-        }
-        label {
-            font-size: 1.2rem;
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 2rem;
-        }
-        label i {
-            margin-right: .25rem;
-        }
-        input[type="checkbox"]:not(:checked) + label > .menu-open {
-            display: none;
-        }
-
-        input[type="checkbox"]:checked + label > .menu-close {
-            display: none;
-        }
-
-        & > ul {
-            display: none;
-        }
-
-        #mobile-nav-toggle:checked ~ ul {
-            display: block;
-        }
+    // css menu toggle for mobile.
+    // when the checkbox is checked, the menu shows,
+    // othewise it's hidden.
+    // it's important for it all to be scoped inside this media query,
+    // that way on larger screens the menu will always show even if the checkbox is unchecked.
+    input[type="checkbox"] {
+      display: none;
+    }
+    label {
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 2rem;
+    }
+    label i {
+      margin-right: .25rem;
+    }
+    input[type="checkbox"]:not(:checked) + label > .menu-open {
+      display: none;
     }
 
-    // on viewport sizes larger than mobile, always hide the mobile nav toggle.
-    @media screen and (min-width: $mobile-width) {
-        .mobile-nav-toggle,
-        .mobile-nav-toggle + label {
-            display: none;
-        }
+    input[type="checkbox"]:checked + label > .menu-close {
+      display: none;
     }
+
+    & > ul {
+      display: none;
+    }
+
+    #mobile-nav-toggle:checked ~ ul {
+      display: block;
+    }
+  }
+
+  // on viewport sizes larger than mobile, always hide the mobile nav toggle.
+  @media screen and (min-width: $mobile-width) {
+    .mobile-nav-toggle,
+    .mobile-nav-toggle + label {
+      display: none;
+    }
+  }
 
 
   .brand {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    color: $darkest;
+    color: var(--darkest);
     margin-top: 12px;
     margin-bottom: 52px;
 
@@ -303,24 +331,24 @@ body {
     padding: 10px;
     font-weight: 500;
     text-transform: uppercase;
-    color: $darker;
+    color: var(--darker);
   }
 
   &>ul a {
     display: block;
-    color: $lighter;
+    color: var(--lighter);
     text-decoration: none;
     font-weight: 500;
     padding: 10px;
 
     &:hover {
-      color: $lightest;
+      color: var(--lightest);
     }
   }
 
   .sub-menu {
     a.active {
-      color: $vibrant;
+      color: var(--vibrant);
     }
 
     &.collapsed {
@@ -350,7 +378,7 @@ body {
     }
 
     a {
-      color: $darker;
+      color: var(--darker);
       text-decoration: none;
     }
 
@@ -365,9 +393,9 @@ main {
     font-size: 36px;
     line-height: 1.48;
     font-weight: 600;
-    color: $lighter;
+    color: var(--lighter);
     padding-bottom: 35px;
-    border-bottom: 1px solid $background-border-color;
+    border-bottom: 1px solid var(--background-border-color);
     margin-bottom: 35px;
     margin-left: -2.63px;
     text-align: left;
@@ -382,14 +410,14 @@ main {
     margin-top: 50px;
     margin-bottom: 30px;
     font-weight: 600;
-    color: $lighter;
+    color: var(--lighter);
   }
 
   h3 {
     font-size: 21px;
     line-height: 1.22;
     font-weight: 500;
-    color: $lighter;
+    color: var(--lighter);
     margin-top: 25px;
     margin-bottom: 30px;
     margin-left: -1.75px;
@@ -400,7 +428,7 @@ main {
     font-size: 18px;
     line-height: 1.22;
     font-weight: 500;
-    color: $lighter;
+    color: var(--lighter);
     margin-top: 25px;
     margin-bottom: 30px;
     margin-left: -1.75px;
@@ -411,7 +439,7 @@ main {
     font-size: 18px;
     line-height: 1.22;
     font-weight: 500;
-    color: $lighter;
+    color: var(--lighter);
     margin-top: 25px;
     margin-bottom: 30px;
     margin-left: -1.75px;
@@ -423,18 +451,18 @@ main {
     margin-top: 25px;
     margin-left: -1.75px;
     text-align: left;
-    color: $lighter;
+    color: var(--lighter);
     font-size: 16px;
     line-height: 28px;
     margin-bottom: 26px;
   }
 
   blockquote {
-    color: $lightest;
+    color: var(--lightest);
     font-size: 16px;
     line-height: 28px;
     font-style: italic;
-    border-left: 3px solid $vibrant;
+    border-left: 3px solid var(--vibrant);
     padding-left: 20px;
     margin-left: -23px;
     padding-bottom: 2px;
@@ -446,7 +474,7 @@ main {
   }
 
   p {
-    color: $lightest;
+    color: var(--lightest);
     font-size: 16px;
     line-height: 28px;
     font-weight: normal;
@@ -456,7 +484,7 @@ main {
   }
 
   a {
-    color: $darker;
+    color: var(--darker);
     text-decoration: none;
 
     &:hover {
@@ -486,7 +514,7 @@ main {
 
   strong {
     font-weight: 600;
-    color: #fff;
+    color: var(--lightest);
   }
 
   ul,
@@ -499,7 +527,7 @@ main {
   ol li {
     margin-left: 30px;
     margin-bottom: 14px;
-    color: $lightest;
+    color: var(--lightest);
     font-size: 16px;
     line-height: 28px;
 
@@ -532,10 +560,10 @@ main {
   table {
     width: 100%;
     margin-bottom: 26px;
-    color: $lightest;
+    color: var(--lightest);
     border-collapse: separate;
     border-spacing: 0;
-    border: 1px solid $background-border-color;
+    border: 1px solid var(--background-border-color);
     border-radius: 4px;
 
     th,
@@ -544,7 +572,7 @@ main {
       line-height: 28px;
       padding: 10px 15px;
       vertical-align: middle;
-      border-bottom: 1px solid $background-border-color;
+      border-bottom: 1px solid var(--background-border-color);
 
       .fa-check {
         color: $success;
@@ -566,7 +594,7 @@ main {
     tr:last-child td {
       border-bottom: 0;
     }
-}
+  }
 
   figure {
     figcaption {
@@ -575,7 +603,7 @@ main {
 
       &,
       p {
-        color: $darker;
+        color: var(--darker);
       }
     }
   }
@@ -583,7 +611,7 @@ main {
   hr {
     background: transparent;
     border: 0;
-    border-top: 1px solid $background-border-color;
+    border-top: 1px solid var(--background-border-color);
     margin: 26px 0;
   }
 
@@ -591,7 +619,7 @@ main {
     margin-bottom: 26px;
     font-size: 16px;
     line-height: 28px;
-    background-color: lighten($darkest, 4%);
+    background-color: var(--darkest-overlay);
     border-radius: 4px;
     padding: 16px;
     overflow: auto;
@@ -606,7 +634,7 @@ main {
     margin: 0;
     font-size: 85%;
     font-family: 'Roboto Mono', monospace;
-    background-color: lighten($darkest, 4%);
+    background-color: var(--darkest-overlay);
     border-radius: 4px;
     -webkit-hyphens: none;
     hyphens: none;
@@ -619,7 +647,7 @@ main {
   }
 
   dl {
-    color: $lightest;
+    color: var(--lightest);
     font-size: 16px;
     line-height: 28px;
     font-weight: normal;
@@ -629,7 +657,7 @@ main {
 
     dt {
       font-weight: 700;
-      background: lighten($darkest, 8%);
+      background: var(--darkest-overlay-strong);
       padding: 2px 16px;
       max-width: max-content;
       margin-bottom: 4px;
@@ -664,7 +692,7 @@ main {
 }
 
 #TableOfContents {
-  color: $darker;
+  color: var(--darker);
 
   ul li {
     color: inherit;
@@ -680,7 +708,7 @@ main {
 
   a {
     text-decoration: none;
-    color: $darker;
+    color: var(--darker);
 
     &:hover {
       text-decoration: underline;
@@ -688,12 +716,12 @@ main {
   }
 
   padding-bottom: 35px - 14px;
-  border-bottom: 1px solid $background-border-color;
+  border-bottom: 1px solid var(--background-border-color);
   margin-bottom: 35px;
 }
 
 .cta-banner {
-  background: $vibrant;
+  background: var(--vibrant);
   border-radius: 4px;
   text-align: center;
   padding: 40px;
@@ -715,7 +743,7 @@ main {
 
   &>a {
     font-weight: 500;
-    color: $vibrant;
+    color: var(--vibrant);
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -749,16 +777,16 @@ main {
   padding: 16px 16px 16px 66px;
   position: relative;
   border-radius: 4px;
-  border: 1px solid $background-border-color;
-  color: $white;
+  border: 1px solid var(--background-border-color);
+  color: var(--lightest);
   font-size: 16px;
   line-height: 28px;
 
   &-info {
-    border-color: $highlight-border-color;
+    border-color: var(--vibrant);
 
     .hint-icon {
-      color: $highlight-border-color;
+      color: var(--vibrant);
     }
   }
 
@@ -796,8 +824,8 @@ main {
 
 .page-ref {
   display: block;
-  background: lighten($darkest, 4%);
-  color: $vibrant;
+  background: var(--darkest-overlay);
+  color: var(--vibrant);
   text-decoration: none;
   font-weight: 500;
   font-size: 18px;
@@ -816,7 +844,7 @@ main {
   &:hover,
   &:focus,
   &:active {
-    background: lighten($darkest, 8%);
+    background: var(--darkest-overlay-strong);
     text-decoration: none;
   }
 }
@@ -834,7 +862,7 @@ main {
     border-radius: 9999px;
     height: 21px;
     color: $white;
-    background: $vibrant;
+    background: var(--vibrant);
     margin: 0;
     margin-right: 8px;
 
@@ -850,7 +878,7 @@ main {
   }
 
   &-url {
-    background: lighten($darkest, 4%);
+    background: var(--darkest-overlay);
     border-radius: 4px;
     padding: 8px;
     font-size: 16px;
@@ -859,24 +887,24 @@ main {
   }
 
   &-host {
-    color: $darker;
+    color: var(--darker);
   }
 
   &-path {
     font-weight: 700;
-    color: $white;
+    color: var(--lightest);
   }
 }
 
 .api-method-parameters-list {
-  border: 1px solid $background-border-color;
+  border: 1px solid var(--background-border-color);
   border-radius: 4px;
   margin-bottom: 26px;
 }
 
 .api-method-parameters-type {
   font-weight: 400;
-  color: $darker;
+  color: var(--darker);
 }
 
 .api-method-parameters-type,
@@ -887,7 +915,7 @@ main {
 
 .api-method-parameter {
   display: flex;
-  border-bottom: 1px solid $background-border-color;
+  border-bottom: 1px solid var(--background-border-color);
 
   &:last-child {
     border-bottom: 0;
@@ -896,7 +924,7 @@ main {
   &-cell {
     box-sizing: border-box;
     padding: 16px 10px;
-    color: $white;
+    color: var(--lightest);
   }
 
   &-required {
@@ -924,7 +952,7 @@ main {
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 500;
-    color: $darker;
+    color: var(--darker);
   }
 
   &-name {
@@ -962,14 +990,14 @@ main {
 
 .sponsorship {
   border-radius: 4px;
-  border: 1px solid $background-border-color;
+  border: 1px solid var(--background-border-color);
   padding: 40px 0;
 
   h2 {
     line-height: 21px;
     font-weight: 500;
     font-size: 16px;
-    color: $darker;
+    color: var(--darker);
     text-align: center;
     margin-bottom: 20px;
   }
@@ -1013,7 +1041,7 @@ main {
   }
 
   h2 {
-    color: $lightest;
+    color: var(--lightest);
   }
 
   .logo-grid>div {
