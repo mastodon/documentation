@@ -15,9 +15,9 @@ menu:
 
 Mastodon is a Ruby on Rails application with a React.js front-end. It follows standard practices of those frameworks ([MVC] Architecture, [REST] APIs, etc), so if you are already familiar with Rails or React.js, you will not find any surprises here.
 
-The best way of working with Mastodon in a development environment is installing all the dependencies on your system, rather than using Docker or Vagrant. You need Ruby, Node.js, PostgreSQL and Redis, which is a pretty standard set of dependencies for Rails applications.
+The best way of working with Mastodon in a development environment is installing all the dependencies on your system. You need Ruby, Node.js, PostgreSQL and Redis, which is a pretty standard set of dependencies for Rails applications.
 
-Tutorials for installing these dependencies can be found on the [Installing from source](../admin/install) page in the Running Mastodon section of the documentation. After following the installation guide in the Running Mastodon section, see the [Setting up a dev environment](../dev/setup) page for further instructions on how to configure your environment for development.
+See the [Setting up a dev environment](../dev/setup) page for further instructions on how to configure your environment for development.
 
 ### Environments {#environments}
 
@@ -40,7 +40,7 @@ The default value of `RAILS_ENV` is `development`, so you don’t need to set an
 - Caching is disabled by default
 - An admin account with the e-mail `admin@localhost:3000` and password `mastodonadmin` is created automatically during `db:seed`
 
-It should be noted that the top-level Docker configuration distributed with Mastodon is optimized for the production environment, and so is an extremely bad fit for development. The Vagrant configuration and the Docker configuration nested in `.devcontainer/` on the other hand, are meant specifically for development and not production use.
+It should be noted that the top-level Docker configuration distributed with Mastodon is optimized for the production environment, and so is an extremely bad fit for development. The Docker configuration nested in `.devcontainer/` on the other hand, are meant specifically for development and not production use.
 
 [MVC]: https://developer.mozilla.org/en-US/docs/Glossary/MVC
 [REST]: https://developer.mozilla.org/en-US/docs/Glossary/REST
