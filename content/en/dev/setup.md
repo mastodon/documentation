@@ -7,39 +7,6 @@ menu:
     parent: dev
 ---
 
-## Quick start with Vagrant {#vagrant}
-
-For convenience, the Mastodon repository includes a Vagrantfile for quickly setting up a development environment without manual configuration. To use this development environment, install [Vagrant](https://vagrantup.com) using a binary executable or through your package manager.
-
-Once you have Vagrant installed, for convenience, it is recommended to install a plugin to automatically update your machine's hosts file. This will allow you to access the dev environment at `http://mastodon.local` without manually editing the hosts file yourself. To do so:
-
-```sh
-vagrant plugin install vagrant-hostsupdater
-```
-
-The virtual machine can then be started:
-
-```sh
-vagrant up
-```
-
-Once the virtual machine has been started, you may launch the `dev` task executor to launch the various Mastodon processes:
-
-```sh
-vagrant ssh -c "cd /vagrant && bin/dev"
-```
-
-Once the Mastodon processes have fully started up, you can load `http://mastodon.local` in your browser to access the Mastodon instance within the VM. You can log in as the default admin user with the username `admin@mastodon.local` and the password `mastodonadmin`.
-
-Any changes to the source code will be reflected after saving your files.
-
-To reset the VM to a fresh state, you can destroy it and bring it up again:
-
-```sh
-vagrant destroy
-vagrant up
-```
-
 ## Manual install from source {#manual}
 
 You can follow the [pre-requisites instructions from the production guide]({{<relref "admin/install">}}), but do not create a `mastodon` user. You also don't have to install `nginx`, `certbot` and `python-certbot-nginx` as the development environment brings its own webserver. Setting up and running a development environment has been proven successful over WSL2 as well if you are on Windows.
