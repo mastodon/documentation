@@ -91,7 +91,7 @@ aliases: [
 4.3.0 - added\
 4.6.0 - changed in schema version 2 to only include `by_reblogs`, and allow “Quiet public” posts to appear
 
-#### `data[most_used_apps] {#data-most_used_apps}
+#### `data[most_used_apps]` {#data-most_used_apps}
 
 **Description:** Provides a breakdown of the apps the user used the most for posting statuses over the year. Only available in schema version 1.\
 **Type:** Array of Hash\
@@ -99,7 +99,7 @@ aliases: [
 4.3.0 - added\
 4.6.0 - removed in schema version 2
 
-#### `data[commonly_interacted_with_accounts] {#data-commonly_interacted_with_accounts}
+#### `data[commonly_interacted_with_accounts]` {#data-commonly_interacted_with_accounts}
 
 **Description:** Provides a breakdown of the accounts the user have the most frequently replied to over the year. Only available in schema version 1.\
 **Type:** Array of Hash\
@@ -107,7 +107,7 @@ aliases: [
 4.3.0 - added\
 4.6.0 - removed in schema version 2
 
-#### `data[time_series] {#data-time_series}
+#### `data[time_series]` {#data-time_series}
 
 **Description:** Provides a breakdown of new statuses, follows and followers per month.\
 **Type:** Array of Hash\
@@ -115,7 +115,7 @@ aliases: [
 4.3.0 - added\
 4.6.0 - changed to remove `following` in schema version 2
 
-#### `data[top_hashtags] {#data-top_hashtags}
+#### `data[top_hashtags]` {#data-top_hashtags}
 
 **Description:** Provides a breakdown of the user's most frequently used hashtags over the year.\
 **Type:** Array of Hash\
@@ -123,7 +123,7 @@ aliases: [
 4.3.0 - added\
 4.6.0 - changed to be limited to a single hashtag in schema version 2
 
-#### `data[most_reblogged_accounts] {#data-most_reblogged_accounts}
+#### `data[most_reblogged_accounts]` {#data-most_reblogged_accounts}
 
 **Description:** Provides a breakdown of the accounts the user has reblogged the most over the year. Only available in schema version 1.\
 **Type:** Array of Hash\
@@ -131,7 +131,7 @@ aliases: [
 4.3.0 - added\
 4.6.0 - removed in schema version 2
 
-#### `data[percentiles] {#data-percentiles}
+#### `data[percentiles]` {#data-percentiles}
 
 **Description:** Which percentile of the most prolific posters on the same server the user is in. Only available in schema version 1.\
 **Type:** Float\
