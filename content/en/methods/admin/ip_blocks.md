@@ -1,5 +1,5 @@
 ---
-title: ip_blocks API methods
+title: admin/ip_blocks API methods
 description: Disallow certain IP address ranges from signing up.
 menu:
   docs:

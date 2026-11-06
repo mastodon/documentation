@@ -1,5 +1,5 @@
 ---
-title: canonical_email_blocks API methods
+title: admin/canonical_email_blocks API methods
 description: Block certain email addresses by their hash.
 menu:
   docs:
