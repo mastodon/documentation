@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   label-rebase-needed:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
 
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Check for merge conflicts
-        uses: eps1lon/actions-label-merge-conflict@releases/2.x
+        uses: eps1lon/actions-label-merge-conflict@v3
         with:
           dirtyLabel: 'rebase needed :construction:'
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
