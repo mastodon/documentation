@@ -122,7 +122,7 @@ aliases: [
 3.5.0 - return type changed from String to [Admin::Ip]({{< relref "entities/Admin_Ip" >}}) due to a bug\
 4.0.0 - bug fixed, return type is now a String again
 
-### `ips` {#ip}
+### `ips` {#ips}
 
 **Description:** All known IP addresses associated with this account.\
 **Type:** Array of [Admin::Ip]({{< relref "entities/Admin_Ip" >}})\

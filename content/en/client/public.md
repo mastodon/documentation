@@ -86,8 +86,8 @@ Now that we are familiar with how to make requests and how to handle responses, 
 
 * Once you know an account's id, you can use [GET /api/v1/accounts/:id]({{< relref "methods/accounts" >}}) to view the [Account]({{< relref "entities/account" >}}) entity.
   * To view public statuses posted by that account, you can use [GET /api/v1/accounts/:id/statuses]({{< relref "methods/statuses" >}}) and parse the resulting array of [Status]({{< relref "entities/status" >}}) entities.
-* Once you know a status's id, you can use [GET /api/v1/statuses/:id]({{< relref "methods/statuses#get-one" >}}) to view the Status entity.
-  * You can also use [GET /api/v1/statuses/:id/reblogged_by]({{< relref "methods/statuses#boosted_by" >}}) to view who boosted that status,
+* Once you know a status's id, you can use [GET /api/v1/statuses/:id]({{< relref "methods/statuses#get" >}}) to view the Status entity.
+  * You can also use [GET /api/v1/statuses/:id/reblogged_by]({{< relref "methods/statuses#reblogged_by" >}}) to view who boosted that status,
   * or [GET /api/v1/statuses/:id/favourited_by]({{< relref "methods/statuses#favourited_by" >}}) to view who favourited that status.
   * Requesting [GET /api/v1/statuses/:id/context]({{< relref "methods/statuses#context" >}}) will show you the ancestors and descendants of that status in the tree that is the conversational thread.
   * If the status has a poll attached, you can use [GET /api/v1/polls/:id]({{< relref "methods/polls" >}}) to view the poll separately.
@@ -98,7 +98,7 @@ IDs of accounts and statuses are local to the Mastodon website's database and wi
 
 One last thing you can do with anonymous requests is to view information about the Mastodon website.
 
-* View general information with [GET /api/v1/instance]({{< relref "methods/instance#fetch-instance" >}}),
+* View general information with [GET /api/v1/instance]({{< relref "methods/instance#v1" >}}),
   * view its peers with [GET /api/v1/instance/peers]({{< relref "methods/instance#peers" >}}) or
   * its weekly activity with [GET /api/v1/instance/activity]({{< relref "methods/instance#activity" >}}), or to
   * list all custom emoji available with [GET /api/v1/custom_emojis]({{< relref "methods/custom_emojis" >}}).
