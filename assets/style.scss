@@ -1,5 +1,6 @@
-@import 'roboto-mono.scss';
-@import 'manrope.scss';
+@use 'sass:color';
+@use 'roboto-mono.scss';
+@use 'manrope.scss';
 
 // Values from the Mastodon UI
 $black: #000000; // Black
@@ -27,15 +28,15 @@ $classic-highlight-color: $blurple-500;
 
 $lightest: $white; // color2
 $lighter: $classic-secondary-color; // color3
-$darkest: darken($classic-base-color, 8%); // color1
+$darkest: color.adjust($classic-base-color, $lightness: -8%); // color1
 $darker: $classic-primary-color;
 
-$vibrant: lighten($blurple-500, 8%); // color4
+$vibrant: color.adjust($blurple-500, $lightness: 8%); // color4
 $error: $warning-red; // color6
 $warning: $gold-star;
 $success: $success-green; // color7
 
-$background-border-color: lighten($classic-base-color, 4%);
+$background-border-color: color.adjust($classic-base-color, $lightness: 4%);
 $highlight-border-color: $vibrant;
 $warning-border-color: $gold-star;
 $alert-border-color: $warning-red;
@@ -591,7 +592,7 @@ main {
     margin-bottom: 26px;
     font-size: 16px;
     line-height: 28px;
-    background-color: lighten($darkest, 4%);
+    background-color: color.adjust($darkest, $lightness: 4%);
     border-radius: 4px;
     padding: 16px;
     overflow: auto;
@@ -606,7 +607,7 @@ main {
     margin: 0;
     font-size: 85%;
     font-family: 'Roboto Mono', monospace;
-    background-color: lighten($darkest, 4%);
+    background-color: color.adjust($darkest, $lightness: 4%);
     border-radius: 4px;
     -webkit-hyphens: none;
     hyphens: none;
@@ -629,7 +630,7 @@ main {
 
     dt {
       font-weight: 700;
-      background: lighten($darkest, 8%);
+      background: color.adjust($darkest, $lightness: 8%);
       padding: 2px 16px;
       max-width: max-content;
       margin-bottom: 4px;
@@ -796,7 +797,7 @@ main {
 
 .page-ref {
   display: block;
-  background: lighten($darkest, 4%);
+  background: color.adjust($darkest, $lightness: 4%);
   color: $vibrant;
   text-decoration: none;
   font-weight: 500;
@@ -816,7 +817,7 @@ main {
   &:hover,
   &:focus,
   &:active {
-    background: lighten($darkest, 8%);
+    background: color.adjust($darkest, $lightness: 8%);
     text-decoration: none;
   }
 }
@@ -850,7 +851,7 @@ main {
   }
 
   &-url {
-    background: lighten($darkest, 4%);
+    background: color.adjust($darkest, $lightness: 4%);
     border-radius: 4px;
     padding: 8px;
     font-size: 16px;
