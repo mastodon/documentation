@@ -162,7 +162,12 @@ aliases: [
         "remote": "public"
       }
     },
-    "limited_federation": false
+    "limited_federation": false,
+    "collections": {
+      "max_items": 25,
+      "max_name_length": 40,
+      "max_description_length": 100
+    }
   },
   "registrations": {
     "enabled": true,
@@ -916,6 +921,34 @@ aliases: [
 **Type:** Boolean\
 **Version history:**\
 4.4.0 - added
+
+#### `configuration[collections]` {#collections}
+
+**Description:** Limits related to collections.\
+**Type:** Hash\
+**Version history:**\
+5.0.0 - added
+
+##### `configuration[collections][max_items]` {#collections-max-items}
+
+**Description:** The maximum number of items in a single collection.\
+**Type:** Integer\
+**Version history:**\
+5.0.0 - added
+
+##### `configuration[collections][max_name_length]` {#collections-max-name-length}
+
+**Description:** The maximum length allowed for the name of a collection.\
+**Type:** Integer\
+**Version history:**\
+5.0.0 - added
+
+##### `configuration[collections][max_description_length]` {#collections-max-description-length}
+
+**Description:** The maximum length allowed for the description of a collection.\
+**Type:** Integer\
+**Version history:**\
+5.0.0 - added
 
 ### `registrations`
 
