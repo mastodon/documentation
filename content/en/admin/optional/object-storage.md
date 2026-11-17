@@ -402,3 +402,22 @@ To get credentials for use in Mastodon, select “Manage R2 API Tokens” and cr
 {{< hint style="warning" >}}
 This section is currently under construction.
 {{< /hint >}}
+
+### Neon Object Storage
+
+Neon Object Storage does not support ACLs, and rejects uploads that try to set one. Set the `S3_PERMISSION` environment variable to an empty string so Mastodon does not send them.
+
+{{< hint style="warning" >}}
+Without support for ACLs, media files from temporarily-suspended users will remain accessible.
+{{< /hint >}}
+
+Create a bucket with the `public_read` access level (`neon buckets create mastodata --access-level public_read`), so objects can be read but not listed anonymously. Then create a credential with `neon credentials create --scope storage:read --scope storage:write`, and use its `token_id` and `s3_secret_access_key` for your `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` Mastodon config variables.
+
+Use the S3 endpoint and region shown in the “Object storage” tab of your branch in the Neon Console:
+
+```bash
+S3_ENDPOINT=https://br-example-123456.storage.c-2.us-east-2.aws.neon.tech
+S3_HOSTNAME=br-example-123456.storage.c-2.us-east-2.aws.neon.tech
+S3_REGION=us-east-2
+S3_PERMISSION=
+```
