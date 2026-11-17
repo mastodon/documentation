@@ -206,6 +206,18 @@ aliases: [
 
 May contain subtrees `small` and `original`, as well as various other top-level properties.
 
+### `meta[small]` {{%optional%}} {#meta-small}
+
+**Description:** Details about the small preview version of the attachment.\
+**Type:** {{<nullable>}} [MetaDetails](#MetaDetails) or null\
+**Version history:**
+
+### `meta[original]` {{%optional%}} {#meta-original}
+
+**Description:** Details about the original version of the attachment.\
+**Type:** {{<nullable>}} [MetaDetails](#MetaDetails) or null\
+**Version history:**
+
 ### `meta[focus]` {{%optional%}} {#meta-focus}
 
 **Description:** Coordinates that may be used for smart thumbnail cropping -- see [Focal points for cropped media thumbnails]({{< relref "api/guidelines#focal-points" >}}) for more.\
@@ -244,6 +256,46 @@ May contain subtrees `small` and `original`, as well as various other top-level 
 **Version history:**\
 0.6.0 - added\
 3.5.0 - removed
+
+## MetaDetails entity attributes {#MetaDetails}
+
+## Attributes
+
+### `width` {#width}
+
+**Description:** The width of the attachment in pixels.\
+**Type:** {{<nullable>}} Integer, or null if the attachment is not visual\
+**Version history:**
+
+### `height` {#height}
+
+**Description:** The height of the attachment in pixels.\
+**Type:** {{<nullable>}} Integer, or null if the attachment is not visual\
+**Version history:**
+
+### `frame_rate` {#frame_rate}
+
+**Description:** The frame rate of the video attachment.\
+**Type:** {{<nullable>}} String (fraction), or null if the attachment is not a video\
+**Version history:**
+
+### `duration` {#duration}
+
+**Description:** The duration of the video attachment.\
+**Type:** {{<nullable>}} Float, or null if the attachment is not video or audio\
+**Version history:**
+
+### `bitrate` {#bitrate}
+
+**Description:** The media bitrate of the video or audio attachment.\
+**Type:** {{<nullable>}} Integer, or null if the attachment is an image\
+**Version history:**
+
+### `aspect` {#aspect}
+
+**Description:** The media aspect ratio of the video or image attachment.\
+**Type:** {{<nullable>}} Float, or null if the attachment is not visual\
+**Version history:**
 
 ## See also
 
