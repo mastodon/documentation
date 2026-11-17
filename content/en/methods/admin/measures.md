@@ -1,5 +1,5 @@
 ---
-title: measures API methods
+title: admin/measures API methods
 description: Obtain quantitative metrics about the server.
 menu:
   docs:
