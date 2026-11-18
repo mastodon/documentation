@@ -40,7 +40,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.170.0" # Update along with .tool-versions
+          hugo-version: "0.170.1" # Update along with .tool-versions
 
       - name: Build
         run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
