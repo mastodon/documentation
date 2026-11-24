@@ -305,7 +305,7 @@ aliases: [
 
 ### `statuses_count` {#statuses_count}
 
-**Description:** How many statuses are attached to this account.\
+**Description:** How many statuses with [non-direct visiblity]({{< relref "entities/Status#visibility" >}}) are attached to this account.\
 **Type:** Integer\
 **Version history:**\
 0.1.0 - added
