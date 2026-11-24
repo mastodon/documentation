@@ -198,7 +198,7 @@ aliases: [
 
 ### `missing_attribution` {#missing_attribution}
 
-**Description:** True if the linked article claims to be written by the current user without the user having the article's domain in their [`attribution_domains`]({{< relref "entities/Account#source[attribution_domains]" >}})). This is used to prompt them to review and add the domain.\
+**Description:** True if the linked article claims to be written by the current user without the user having the article's domain in their [`attribution_domains`]({{< relref "entities/Account#source-attribution_domains" >}})). This is used to prompt them to review and add the domain.\
 **Type:** {{<nullable>}} Boolean\
 **Version history:**\
 4.6.0 - added

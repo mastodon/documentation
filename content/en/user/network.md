@@ -32,7 +32,7 @@ You can perform quick actions on a post directly from the timeline, or you can c
 
 When a status is expanded[^expanded], [if enabled]({{< ref "/admin/config#fetch-all-replies" >}}), your server will attempt to fetch any replies that it does not already know about from other servers. This process checks each server in the conversation thread to gather any missing replies, which may take some time, especially for posts with many replies or when viewing a post for the first time on your server. Try refreshing the page after a few moments if you suspect you aren't seeing all replies.[^retrigger]
 
-Some replies won't be fetched. These include followers-only posts,private mentions, and posts from servers that [require authorization]({{< ref "/admin/config#authorized-fetch" >}}). The only exception is if you or someone on your server already follows the author.
+Some replies won't be fetched. These include followers-only posts,private mentions, and posts from servers that [require authorization]({{< ref "/admin/config#authorized_fetch" >}}). The only exception is if you or someone on your server already follows the author.
 
 By [searching](#search) for a post and then expanding it, you can effectively "import" a tree of replies to your instance, helping you and others on your server meet new people and other fediverse creatures!
 

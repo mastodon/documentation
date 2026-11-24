@@ -200,7 +200,7 @@ aliases: [
 
 ## See also
 
-{{< page-relref ref="entities/Search#tags" caption="Search (`tags` attribute)" >}}
+{{< page-relref ref="entities/Search#hashtags" caption="Search (`hashtags` attribute)" >}}
 
 {{< page-relref ref="methods/tags" caption="tags API methods" >}}
 

@@ -23,7 +23,7 @@ This is similar to the authentication flow from before, but this time, we need t
 
 ### Client ID and secret {#client}
 
-First, if you have not already registered a client application, then see [Creating our application]({{< relref "client/token#creating-our-application" >}}) on the previous page or go directly to [POST /api/v1/apps]({{< relref "methods/apps#create" >}}) for the full documentation of that method. We will need the `client_id` and `client_secret` for our application.
+First, if you have not already registered a client application, then see [Creating our application]({{< relref "client/token#app" >}}) on the previous page or go directly to [POST /api/v1/apps]({{< relref "methods/apps#create" >}}) for the full documentation of that method. We will need the `client_id` and `client_secret` for our application.
 
 ### Authorize the user {#login}
 
@@ -68,7 +68,7 @@ Note the following:
 - We are requesting a `grant_type` of `authorization_code`
 - `client_id` and `client_secret` were provided in the response text when you registered your application.
 - `redirect_uri` must be one of the URIs defined when registering the application.
-- The `code` can only be used once. If you need to obtain a new token, you will need to have the user authorize again by repeating the above [Authorize the user]({{< relref "client/authorized#authorize-the-user" >}}) step.
+- The `code` can only be used once. If you need to obtain a new token, you will need to have the user authorize again by repeating the above [Authorize the user]({{< relref "client/authorized#login" >}}) step.
 
 The response of this method is a [Token]({{< relref "entities/token" >}}) entity. We will need the `access_token` value. Once you have the access token, save it in your local cache.
 
