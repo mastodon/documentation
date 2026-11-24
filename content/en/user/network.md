@@ -126,6 +126,27 @@ Opening a list will load that list's timeline. List timelines contain only posts
 
 Every account and tag page provide an RSS feed for syndication onto other platforms. Those feeds are auto-discoverable from the account and tag pages.
 
+The feeds are accessed by appending `.rss` to the account or tag pages:
+
+* `https://mastodon.example/@username.rss`
+* `https://mastodon.example/tags/sometag.rss`
+
+The following url parameter is supported for all rss pages:
+
+* `limit=x` - returns `x` posts (maximum 200) in the feed instead of the default 20
+
+The following url parameter is supported only for account pages:
+
+* `boosts=yes` - include boosts in the RSS feeds
+
+One of the following paths can be appended to the url path for account pages. Note that the `.rss` should be appended after these paths:
+
+* `/media` - only include posts with media attachments
+* `/with_replies` - include reply posts in the feed
+* `/tagged/x` - only include posts matching the `x` tag
+
+An example combining multiple options: <https://mastodon.example/@username/with_replies.rss?boosts=yes&limit=30>
+
 ## Translation
 
 When a post is in a language other than what your account is set to understand, a "Translate" button will appear next to the post content. Clicking this button issues a request to translate the content to the server, and will replace that content with translated results. This feature requires the server to have configured support for a translation service, and so may not be available on all servers.
