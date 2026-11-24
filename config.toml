@@ -1,5 +1,5 @@
 baseURL = "https://docs.joinmastodon.org/"
-languageCode = "en-us"
+locale = "en-us"
 defaultContentLanguage = "en"
 title = "Mastodon documentation"
 pygmentsCodeFences = true
@@ -192,20 +192,20 @@ disablePathToLower = true
 [languages]
   [languages.en]
     contentDir = "content/en"
-    languageName = "English"
+    label = "English"
     weight = -99
 
   [languages.pl]
     contentDir = "content/pl"
-    languageName = "Polski"
+    label = "Polski"
     weight = 0
 
   [languages.zh-cn]
     contentDir = "content/zh-cn"
-    languageName = "简体中文"
+    label = "简体中文"
     weight = 1
 
   [languages.ja]
     contentDir = "content/ja"
-    languageName = "日本語"
+    label = "日本語"
     weight = 2
