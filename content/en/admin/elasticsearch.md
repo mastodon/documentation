@@ -82,6 +82,8 @@ ES_PORT=9200
 ES_PRESET= # single_node_cluster, small_cluster or large_cluster
 # ES_USER=
 # ES_PASS=
+# or...
+# ES_API_KEY=
 ```
 
 _Note_: If using TLS, prepend the hostname with `https://`. For example: `https://elastic.example.com`.

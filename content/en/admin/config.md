@@ -626,6 +626,15 @@ Used for optionally authenticating with Elasticsearch
 
 Used for optionally authenticating with Elasticsearch
 
+#### `ES_API_KEY`
+
+Used instead of a username and password for authenticating with Elasticsearch. This value must be the base64 encoded string of the key id and key joined together by a `:`. E.g. with key id `mykeyid` and key `supersecretkey`, the value for `ES_API_KEY` would be `bXlrZXlpZDpzdXBlcnNlY3JldGtleQ==`.
+
+Note that if both `ES_API_KEY` and `ES_USER/ES_PASS` are configured, `ES_API_KEY` will be used and `ES_USER/ES_PASS` will be ignored.
+
+**Version history:**\
+5.0.0 - added
+
 #### `ES_PREFIX`
 
 Useful if the Elasticsearch server is shared between multiple projects or different Mastodon servers. Defaults to the value of `REDIS_NAMESPACE`.
